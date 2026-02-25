@@ -1,0 +1,1 @@
+本项目中含有一系列CLAUDE-SKILL，旨在AI赋能仓颉语言，详见内部各SKILL。

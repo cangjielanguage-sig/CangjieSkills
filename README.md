@@ -11,7 +11,7 @@
 
 ### 使用方式示例
 1. 根据实际主机环境修改API-KEY和build脚本
-2. 在项目根配置技能位置：**XXX/MyApplication/.claude/skills/cangjie-dev-harmonyos**，直接在对话里用自然语言提鸿蒙 Cangjie 开发需求，例如：
+2. 在项目根配置技能位置：XXX/MyApplication(鸿蒙应用)/**.claude/skills/cangjie-dev-harmonyos**，直接在对话里用自然语言提鸿蒙 Cangjie 开发需求，例如：
 “用 Cangjie 写一个商品列表页面”
 
 ### 注意事项

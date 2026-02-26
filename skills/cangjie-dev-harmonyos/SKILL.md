@@ -44,7 +44,7 @@ python download_hm_docs.py   # 仅下载文档
 ## L1 查询
 python ask_cangjie.py "List"
 
-## 构建项目
+## 构建项目（先复制到项目根目录再执行脚本构建）
 .\\build.ps1
 
 # 具体流程：
@@ -239,7 +239,7 @@ Get-ChildItem -Path "./hm-docs\\syntax\\source_zh_cn\\concurrency" -Filter "*.md
 
 ### 🛠️ 构建命令
 
-**方式 1 - 在项目根目录执行**（推荐，先复制到根目录再执行脚本构建）：
+**方式 1 - 在项目根目录执行**（推荐，先复制到项目根目录再执行脚本构建）：
 ```powershell
 .\\build.ps1
 ```

@@ -1,5 +1,3 @@
-# Cangjie Skills
-
 ## 一、cangjie-dev-harmonyos
 本 Skill 赋能 Claude 使用仓颉进行 HarmonyOS 应用开发。
 
@@ -22,3 +20,4 @@ hm-docs压缩包目录：https://my.feishu.cn/file/I3BEbJOyBokdtAxbr18cPUlHnDb
 chroma-db压缩包目录：https://my.feishu.cn/file/RqY3bprAKoIm9Lxsfa4czYEwnJd
 
 图示是根据skill赋能的CLAUDE自动化应用开发成果示例。  
+![微信图片_20260225115922_232_63.png](https://raw.gitcode.com/user-images/assets/9193544/ad4b63c4-f26d-4fe4-a33e-dfded2054010/微信图片_20260225115922_232_63.png '微信图片_20260225115922_232_63.png')# Cangjie Skills

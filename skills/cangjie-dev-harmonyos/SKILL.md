@@ -44,8 +44,25 @@ python download_hm_docs.py   # 仅下载文档
 ## L1 查询
 python ask_cangjie.py "List"
 
-## 构建项目（先复制到项目根目录再执行脚本构建）
+## 构建项目
 .\\build.ps1
+**正确示例**：
+```bash
+# 1. 先复制脚本
+cd "C:\czc\MyApplication10"
+# Windows 环境优先用 PowerShell 复制（避免 cp 不存在 / 行为不一致）
+powershell -NoProfile -Command "Copy-Item -Force '.\.claude\skills\cangjie-dev-harmonyos\scripts\build.ps1' '.\build.ps1'"
+
+# 2. 在根目录执行构建，并把【完整 stdout+stderr】落到日志文件（避免 UI 截断）
+#    注意：timeout=300000 只有 5 分钟，构建常常不够；建议至少 900000(15分钟) 或更大
+Bash(
+    command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+    timeout: 900000
+)
+
+# 3. 无论是否出现截断提示，都用 Read 读取日志文件来做分析（这才是“完整输出”）
+Read(file_path: "C:\\czc\\MyApplication10\\build-full.log")
+```
 
 # 具体流程：
 ## 🔍 Phase 0: 需求技术化分析 (L0 - Requirement Analysis)
@@ -233,15 +250,28 @@ Get-ChildItem -Path "./hm-docs\\syntax\\source_zh_cn\\concurrency" -Filter "*.md
 
 > - ❌ 本地文档中无相关信息 -> **明确告知"该功能可能不支持或文档未包含"，请求用户提供相关知识或文档**
 
-## ✅ 项目构建指南
+## ✅ Phase 3 项目构建指南
 
-> **⚠️ 脚本路径提醒**: 构建脚本位于 `.claude/skills/cangjie-dev-harmonyos/scripts/build.ps1`（已与你的环境同步）
+> **⚠️ 脚本路径提醒**: 构建脚本位于 `.claude/skills/cangjie-dev-harmonyos/scripts/build.ps1`
 
 ### 🛠️ 构建命令
 
-**方式 1 - 在项目根目录执行**（推荐，先复制到项目根目录再执行脚本构建）：
-```powershell
-.\\build.ps1
+**方式 1 - 在项目根目录执行**：
+```bash
+# 1. 先复制脚本
+cd "C:\czc\MyApplication10"
+# Windows 环境优先用 PowerShell 复制（避免 cp 不存在 / 行为不一致）
+powershell -NoProfile -Command "Copy-Item -Force '.\.claude\skills\cangjie-dev-harmonyos\scripts\build.ps1' '.\build.ps1'"
+
+# 2. 在根目录执行构建，并把【完整 stdout+stderr】落到日志文件（避免 UI 截断）
+#    注意：timeout=300000 只有 5 分钟，构建常常不够；建议至少 900000(15分钟) 或更大
+Bash(
+    command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+    timeout: 900000
+)
+
+# 3. 无论是否出现截断提示，都用 Read 读取日志文件来做分析（这才是“完整输出”）
+Read(file_path: "C:\\czc\\MyApplication10\\build-full.log")
 ```
 
 ### 📦 构建流程说明
@@ -265,20 +295,20 @@ Get-ChildItem -Path "./hm-docs\\syntax\\source_zh_cn\\concurrency" -Filter "*.md
 **⚠️ 强制要求**：在分析报错信息之前，必须先确保已获得完整的构建输出。
 
 **执行流程**：
-1. **捕获完整输出**：使用 Bash 工具执行 `build.ps1` 时，设置足够的 `timeout`（建议 300000ms）
-2. **检测输出截断**：检查输出中是否包含 `Output too large` 或 `Full output saved to:` 提示
-3. **读取完整输出文件**：如果存在输出截断提示，**必须**使用 Read 工具读取完整的输出文件
-4. **分析完整报错**：基于完整的输出内容进行下一步分析
+1. **捕获完整输出**：执行构建时将 stdout/stderr 通过 `Tee-Object` 写入 `build-full.log`，并设置足够大的 `timeout`（建议 `900000ms` 起步）
+2. **读取日志文件**：构建结束后（成功/失败都一样），**必须**使用 Read 工具读取 `build-full.log`
+3. **基于日志分析**：只基于 `build-full.log` 的内容分析报错（避免 UI 截断导致误判）
 
 **示例执行模式**：
 ```powershell
-# 方式 1: 直接执行（输出较小）
-Bash(command: "powershell -ExecutionPolicy Bypass -File '.\\.claude\\skills\\cangjie-dev-harmonyos\\scripts\\build.ps1'",
-      timeout: 300000)
+# 始终将完整输出落盘（stdout+stderr），避免 UI 截断
+Bash(
+  command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+  timeout: 900000
+)
 
-# 方式 2: 输出包含截断提示时，必须读取完整文件
-# 如果输出中有: "Full output saved to: C:\\Users\\xxx\\tool-results\\xxx.txt"
-Read(file_path: "C:\\Users\\xxx\\tool-results\\xxx.txt")
+# 始终读取日志文件作为“完整输出”
+Read(file_path: "C:\\czc\\MyApplication10\\build-full.log")
 ```
 
 **原则**: 只有在获得完整 build.ps1 输出后，才能进入下一步分析。
@@ -301,7 +331,7 @@ Read(file_path: "C:\\Users\\xxx\\tool-results\\xxx.txt")
 
 #### 🔧 当报错信息不足时的处理
 
-**⚠️ 重要前提**: 只有在已完整读取 build.ps1 输出（包括截断文件）后，仍然发现信息不详细时，才建议使用 DevEco Studio。
+**⚠️ 重要前提**: 只有在已完整读取 build.ps1 输出log（包括截断文件）后，仍然发现信息不详细时，才建议使用 DevEco Studio。
 
 **主动要求用户提供完整报错**：
 ```
@@ -473,8 +503,8 @@ Step 2: L3 本地文档搜索
 - **UI开发优先级**: 🥇 鸿蒙应用指南 > 🥈 标准扩展库 > 🥉 语言指南 > 其他
 - **效率原则**: UI问题直接查鸿蒙应用指南，避免在语法文档中浪费时间
 - **构建报错处理** (新增):
-  - 必须使用 Bash 工具执行 build.ps1 并设置足够 timeout (300000ms)
-  - 输出显示 "Output too large" 时，必须读取完整输出文件
+  - 必须使用 Bash 工具执行 build.ps1 并设置足够 timeout（建议 900000ms 起步）
+  - 不要依赖 UI 输出大小提示；必须将 stdout/stderr 通过 `Tee-Object` 写入 `build-full.log` 并用 Read 读取
   - 只有在获取完整输出仍不足以定位问题时，才建议使用 DevEco Studio
   - 不提前判断输出大小，必须先执行再根据输出结果决定
 
@@ -509,3 +539,47 @@ Step 2: L3 本地文档搜索
    ```
 3. **环境变量**: `SILICONFLOW_API_KEY`
 4. **RAG_Lite 数据源**: `RAG_Lite/` 目录（包含知识库 JSON 文件）
+
+
+## ⚠️ 构建脚本执行补充说明
+
+**正确执行 build.ps1 的完整流程**：
+
+1. **复制脚本到项目根目录**（必须执行）：
+   ```powershell
+   copy .\.claude\skills\cangjie-dev-harmonyos\scripts\build.ps1 .\build.ps1
+   ```
+
+2. **在项目根目录执行构建**：
+   ```powershell
+   cd "C:\czc\MyApplication10"  # 确保在项目根目录
+   .\build.ps1
+   ```
+
+3. **获取完整的构建输出**（关键步骤）：
+   - 使用 Bash 工具时必须设置足够大的 `timeout`（`300000` 只有 5 分钟，常常不够；建议 `900000` 起步）
+  - 不要依赖 UI 展示（会出现 `... +N lines` / 输出被截断），必须把 stdout/stderr 通过 `Tee-Object` 写入日志文件
+   - 只分析 `Read(file_path: "...build-full.log")` 读到的日志内容（这才是完整输出）
+
+**错误示例**：
+   - 在 `scripts/` 目录下执行构建（❌ 错误）
+   - 未复制脚本直接执行（❌ 错误）
+   - 只获取部分输出就分析（❌ 错误）
+
+**正确示例**：
+```bash
+# 1. 先复制脚本
+cd "C:\czc\MyApplication10"
+# Windows 环境优先用 PowerShell 复制（避免 cp 不存在 / 行为不一致）
+powershell -NoProfile -Command "Copy-Item -Force '.\.claude\skills\cangjie-dev-harmonyos\scripts\build.ps1' '.\build.ps1'"
+
+# 2. 在根目录执行构建，并把【完整 stdout+stderr】落到日志文件（避免 UI 截断）
+#    注意：timeout=300000 只有 5 分钟，构建常常不够；建议至少 900000(15分钟) 或更大
+Bash(
+    command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+    timeout: 900000
+)
+
+# 3. 无论是否出现截断提示，都用 Read 读取日志文件来做分析（这才是“完整输出”）
+Read(file_path: "C:\\czc\\MyApplication10\\build-full.log")
+```

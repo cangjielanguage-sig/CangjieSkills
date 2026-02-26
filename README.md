@@ -9,8 +9,8 @@
 
 构建与报错闭环：通过 scripts/build.ps1 触发完整构建流程，拿到详细错误后按“先查 Evolution.md → 再查文档”的优先级指导你修复，并在构建成功后要求把关键问题整理进 Evolution.md。
 
-### 使用方式示例
-1. 根据实际主机环境修改API-KEY和build脚本
+### 使用步骤
+1. 根据实际主机环境修改.env文件中的API-KEY和build.ps1脚本
 2. 在项目根配置技能位置：XXX/MyApplication(鸿蒙应用)/**.claude/skills/cangjie-dev-harmonyos**，直接在对话里用自然语言提鸿蒙 Cangjie 开发需求，例如：
 “用 Cangjie 写一个商品列表页面”
 
@@ -32,5 +32,6 @@ hm-docs压缩包目录：https://my.feishu.cn/file/I3BEbJOyBokdtAxbr18cPUlHnDb
 
 chroma-db压缩包目录：https://my.feishu.cn/file/RqY3bprAKoIm9Lxsfa4czYEwnJd
 
+### 示例
 图示是根据skill赋能的CLAUDE自动化应用开发成果示例。  
 ![微信图片_20260225115922_232_63.png](https://raw.gitcode.com/user-images/assets/9193544/ad4b63c4-f26d-4fe4-a33e-dfded2054010/微信图片_20260225115922_232_63.png '微信图片_20260225115922_232_63.png')

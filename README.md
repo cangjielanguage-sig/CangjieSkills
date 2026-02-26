@@ -1,9 +1,21 @@
 # Cangjie Skills
 ## 一、cangjie-dev-harmonyos
-本 Skill 赋能 Claude 使用仓颉进行 HarmonyOS 应用开发。
+本 Skill 赋能 Claude 使用仓颉语言进行 HarmonyOS 应用开发，从需求分析、API/文档检索到本地构建、错误排查、经验沉淀一条龙支持。
 
-### 首次使用
-在首次启动开发查询仓颉知识库时，系统会自动构建本地文档树（hm-docs）和向量数据库（chroma-db），预计耗时约 1 分钟。资源加载策略如下：
+三级知识检索流程：
+1. L0：先帮你把“业务需求”拆成具体技术点（UI 组件、数据结构、交互等）。
+2. L1：用 RAG（ask_cangjie.py + chroma_db）按关键词精准返回常用代码片段。
+3. L3：必要时直接查本地 hm-docs 官方文档（UI、语法、stdlib、stdx 全套）。
+
+构建与报错闭环：通过 scripts/build.ps1 触发完整构建流程，拿到详细错误后按“先查 Evolution.md → 再查文档”的优先级指导你修复，并在构建成功后要求把关键问题整理进 Evolution.md。
+
+### 使用方式示例
+1. 根据实际主机环境修改API-KEY和build脚本
+2. 在项目根有 .claude/skills/cangjie-dev-harmonyos 时，直接在对话里用自然语言提鸿蒙 Cangjie 开发需求，例如：
+“用 Cangjie 写一个商品列表页面”
+
+### 注意事项
+在首次启动本skill进行开发时，系统会自动构建本地文档树（hm-docs）和向量数据库（chroma-db），预计耗时约 1 分钟。资源加载策略如下：
 
 1. 检测到已解压目录：直接读取并使用
 

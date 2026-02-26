@@ -1,67 +1,53 @@
 ---
-name: cangjie-assistant
+name: cangjie-dev-harmonyos
 description: HarmonyOS Next Cangjie development assistant with intelligent 3-tier knowledge retrieval (L0 Requirements Analysis -> L1 RAG Query -> L3 Local Docs Search). Use when developing HarmonyOS applications in Cangjie language, including UI development, API queries, syntax questions, and build troubleshooting.
-argument-hint: [query] or [build] for project building
+argument-hint: query or build for project building
 disable-model-invocation: false
 ---
 
 # Project Context
 这是一个基于 **HarmonyOS Next** 的应用，使用 **仓颉 (Cangjie)** 语言开发。
-你的目标是像一个高级工程师一样，通过精准查阅文档来辅助开发。
+你的目标是像一个高级工程师一样，通过精准查阅相关知识和文档来辅助开发。
 
-### 📝 重要提示：脚本路径
+```
+由于你的训练数据缺乏最新的仓颉语法，遇到任何不确定的 API 或语法细节，严禁猜测。
+鸿蒙应用开发过程你必须严格按照以下 “需求分析L0 -> L1 -> L3” 的顺序获取知识。
+```
 
-**L1 RAG 查询脚本**（位于 `.claude/skills/cangjie-assistant/scripts/`）：
+## 📝 重要提示：脚本路径
+
+**L1 RAG 查询脚本**（位于 `.claude/skills/cangjie-dev-harmonyos/scripts/`）：
 - `ask_cangjie.py` - L1 阶段使用的 RAG 查询脚本（带自动初始化功能）
 - `cangjie_retriever.py` - 混合检索器（向量 + BM25）
 - `Database-Builder.py` - RAG 数据库构建脚本
 
 **项目构建脚本**：
-- `build.ps1` - 项目构建脚本，位于 `.claude/skills/cangjie-assistant/scripts/`（已与你的环境同步）
+- `build.ps1` - 项目构建脚本，位于 `.claude/skills/cangjie-dev-harmonyos/scripts/`（已与你的环境同步）
 
-**执行方式**：
-# 进入 scripts 目录（技能独立运行）
-cd .claude\\skills\\cangjie-assistant\\scripts
+# 执行方式：
+## 进入 scripts 目录（技能独立运行）
+cd .claude\\skills\\cangjie-dev-harmonyos\\scripts
 
-# 🚀 自动初始化（首次使用时推荐）
+## 🚀 自动初始化（首次使用时推荐）
 python ask_cangjie.py "任意查询"
-# 首次运行会自动：
-#   1. 检测文件夹 (hm-docs/, chroma_db/) 是否存在
-#   2. 如果不存在，检测压缩包 (hm-docs.zip, chroma_db.zip)
-#   3. 如果有压缩包，自动解压到 scripts/ 目录
-#   4. 如果都没有，则下载官方文档并构建数据库
-#   5. 执行查询
+### 首次运行会自动：
+1. 检测文件夹 (hm-docs/, chroma_db/) 是否存在
+2. 如果不存在，检测压缩包 (hm-docs.zip, chroma_db.zip)
+3. 如果有压缩包，自动解压到 scripts/ 目录
+4. 如果都没有，则下载官方文档并构建数据库
+5. 执行查询
 
-# 手动初始化（可选）
+### 手动初始化（可选）
 python Database-Builder.py  # 仅构建数据库
 python download_hm_docs.py   # 仅下载文档
 
-# L1 查询
+## L1 查询
 python ask_cangjie.py "List"
 
-# 构建项目
+## 构建项目
 .\\build.ps1
-```
 
-
-
-> **注意**: 技能已完全独立，所有数据（RAG_Lite 知识库、chroma_db 数据库）都在 `scripts/` 目录内
-
-
-> 🚀 **自动初始化**: 首次运行 `ask_cangjie.py` 时会自动检测：
-
-> - 有文件夹 → 直接使用
-
-> - 只有压缩包 → 自动解压
-
-> - 都没有 → 下载并构建
-
-> 同时会创建 `Evolution.md` 文件，无需手动操作！
-
-
-由于你的训练数据缺乏最新的仓颉语法，遇到任何不确定的 API 或语法细节，**严禁猜测**。
-你必须严格按照以下 **需求分析 -> L1 -> L3** 的顺序获取知识。
-
+# 具体流程：
 ## 🔍 Phase 0: 需求技术化分析 (L0 - Requirement Analysis)
 
 **目的**: 将用户的业务需求转换为具体的技术实现点，避免无效检索。
@@ -76,8 +62,7 @@ REQUIREMENT_ANALYSIS = {
     "用户需求": "用户的原始描述",
     "界面分析": "需要什么UI组件？(列表、按钮、输入框、图片等)",
     "数据分析": "需要什么数据结构？(数组、对象、状态管理等)",
-    "交互分析": "需要什么用户交互？(点击、滑动、输入等)",
-    "技术关键词细化": "将每个组件拆解为具体实现步骤"
+    "交互分析": "需要什么用户交互？(点击、滑动、输入等)"
 }
 ```
 
@@ -86,7 +71,7 @@ REQUIREMENT_ANALYSIS = {
 **识别核心API组件**：
 - 提取需要使用的具体技术组件名称
 - 使用英文API名称作为查询关键词
-- 一个关键词可以匹配到该组件的导包、初始化、使用等所有相关内容
+- 一个关键词可以匹配到该组件所有相关内容
 
 **细化示例**：
 ```python
@@ -94,7 +79,6 @@ REQUIREMENT_ANALYSIS = {
 # 界面分析: 输入框、登录按钮、垂直布局
 # 细化后关键词:
 ["Button", "TextInput", "Column"]
-# 说明: "Button" 一词可匹配到导包、初始化、onClick、样式等所有相关内容
 ```
 
 **参见示例**: [examples/l0-analysis.md](examples/l0-analysis.md)
@@ -141,14 +125,14 @@ REQUIREMENT_ANALYSIS = {
 > **调用方式**：
 >
 > ```bash
-> cd .claude/skills/cangjie-assistant/scripts
+> cd .claude/skills/cangjie-dev-harmonyos/scripts
 > python ask_cangjie.py "Button"
 > ```
 >
 > 脚本会自动检测并处理初始化（文件夹/压缩包/下载）。
 
 - **纯英文关键词**: 直接使用英文API名称（如 "Button"），不添加中文后缀
-- **单词精准**: 一个关键词（如 "Button"）可匹配该组件的所有相关信息（导包、初始化、使用）
+- **单词精准**: 一个关键词（如 "Button"）可匹配该组件的所有相关信息
 - **适度数量**: 控制在3-5个核心组件
 - **结果展示**: **必须将L1查询结果贴出来供用户查看**，不要隐藏查询过程
 
@@ -166,20 +150,6 @@ REQUIREMENT_ANALYSIS = {
 **优势**: 无需网络，包含最权威的官方信息和完整代码示例。
 **适用场景**: 所有类型的问题，特别是UI开发、API参考、语法说明。
 
-
-> **💡 为什么跳过L2？**
-
-
-> 原来的L2是搜索Agent汇总手册，主要用于语法查询。但现在 `./hm-docs/` 已经包含了完整的官方文档：
-
-> - **语法文档**: `./hm-docs/syntax/source_zh_cn/` - 比Agent汇总更权威、更完整
-
-> - **API文档**: `./hm-docs/stdlib/std/` 和 `./hm-docs/stdx/libs_stdx/` - 官方最新API
-
-> - **UI文档**: `./hm-docs/ui-dev/` - 完整的UI开发指南
-
-
-> 因此直接跳过L2，从L1失效后直接进入L3本地文档搜索，效率更高且信息更准确。
 
 ### 🔍 快速定位策略
 
@@ -261,21 +231,15 @@ Get-ChildItem -Path "./hm-docs\\syntax\\source_zh_cn\\concurrency" -Filter "*.md
 
 > - ✅ 在本地文档中找到相关信息 -> 基于本地官方文档编码
 
-> - ❌ 本地文档中无相关信息 -> **明确告知"该功能可能不支持或文档未包含"**
+> - ❌ 本地文档中无相关信息 -> **明确告知"该功能可能不支持或文档未包含"，请求用户提供相关知识或文档**
 
 ## ✅ 项目构建指南
 
-> **⚠️ 脚本路径提醒**: 构建脚本位于 `.claude/skills/cangjie-assistant/scripts/build.ps1`（已与你的环境同步）
+> **⚠️ 脚本路径提醒**: 构建脚本位于 `.claude/skills/cangjie-dev-harmonyos/scripts/build.ps1`（已与你的环境同步）
 
 ### 🛠️ 构建命令
 
-**方式 1 - 在 scripts 目录执行**（推荐，使用技能自带脚本）：
-```powershell
-cd .claude\\skills\\cangjie-assistant\\scripts
-.\\build.ps1
-```
-
-**方式 2 - 在项目根目录执行**（如已复制到根目录）：
+**方式 1 - 在项目根目录执行**（推荐，先复制到根目录再执行脚本构建）：
 ```powershell
 .\\build.ps1
 ```
@@ -296,9 +260,32 @@ cd .claude\\skills\\cangjie-assistant\\scripts
 
 **关键原则**: 获得足够详细的错误信息是解决问题的前提。
 
-#### 📋 第一步：评估报错信息充足性
+#### 📋 第一步：获取完整的 build.ps1 输出
 
-当 `build.ps1` 构建失败时，首先评估报错信息是否足够详细：
+**⚠️ 强制要求**：在分析报错信息之前，必须先确保已获得完整的构建输出。
+
+**执行流程**：
+1. **捕获完整输出**：使用 Bash 工具执行 `build.ps1` 时，设置足够的 `timeout`（建议 300000ms）
+2. **检测输出截断**：检查输出中是否包含 `Output too large` 或 `Full output saved to:` 提示
+3. **读取完整输出文件**：如果存在输出截断提示，**必须**使用 Read 工具读取完整的输出文件
+4. **分析完整报错**：基于完整的输出内容进行下一步分析
+
+**示例执行模式**：
+```powershell
+# 方式 1: 直接执行（输出较小）
+Bash(command: "powershell -ExecutionPolicy Bypass -File '.\\.claude\\skills\\cangjie-dev-harmonyos\\scripts\\build.ps1'",
+      timeout: 300000)
+
+# 方式 2: 输出包含截断提示时，必须读取完整文件
+# 如果输出中有: "Full output saved to: C:\\Users\\xxx\\tool-results\\xxx.txt"
+Read(file_path: "C:\\Users\\xxx\\tool-results\\xxx.txt")
+```
+
+**原则**: 只有在获得完整 build.ps1 输出后，才能进入下一步分析。
+
+#### 📋 第二步：评估报错信息充足性
+
+在获得完整输出后，评估报错信息是否足够详细：
 
 **❌ 报错信息不足的情况**（需要主动询问）：
 - 只有简单的 "BUILD FAILED" 或 "error occurred"
@@ -314,9 +301,11 @@ cd .claude\\skills\\cangjie-assistant\\scripts
 
 #### 🔧 当报错信息不足时的处理
 
+**⚠️ 重要前提**: 只有在已完整读取 build.ps1 输出（包括截断文件）后，仍然发现信息不详细时，才建议使用 DevEco Studio。
+
 **主动要求用户提供完整报错**：
 ```
-build.ps1 构建报错，但返回的错误信息不够详细，无法准确定位问题。
+已获取 build.ps1 的完整构建输出，但错误信息仍然不够详细，无法准确定位问题。
 
 请在 DevEco Studio 中重新构建项目，然后将完整的错误信息复制给我。
 DevEco Studio 会提供更详细的报错，包括：
@@ -409,7 +398,7 @@ Step 2: L3 本地文档搜索
 
 **每次构建成功后，必须执行以下操作**：
 1. 将本次开发过程中遇到的**重难点**整理成几点
-2. 写入 skills 目录下的 `Evolution.md` 文件（即 `.claude/skills/cangjie-assistant/Evolution.md`）
+2. 写入 skills 目录下的 `Evolution.md` 文件（即 `.claude/skills/cangjie-dev-harmonyos/Evolution.md`）
 3. 记录内容包括：问题描述、错误代码、原因分析、解决方案、正确代码示例
 
 > **重要**: Evolution.md 位于 skills 目录中，这样当技能迁移到其他项目时，历史问题记录也会一起迁移。
@@ -483,6 +472,11 @@ Step 2: L3 本地文档搜索
 - **信息权威性**: L3本地官方文档 > L1 RAG结果
 - **UI开发优先级**: 🥇 鸿蒙应用指南 > 🥈 标准扩展库 > 🥉 语言指南 > 其他
 - **效率原则**: UI问题直接查鸿蒙应用指南，避免在语法文档中浪费时间
+- **构建报错处理** (新增):
+  - 必须使用 Bash 工具执行 build.ps1 并设置足够 timeout (300000ms)
+  - 输出显示 "Output too large" 时，必须读取完整输出文件
+  - 只有在获取完整输出仍不足以定位问题时，才建议使用 DevEco Studio
+  - 不提前判断输出大小，必须先执行再根据输出结果决定
 
 # 📋 Additional Resources
 
@@ -494,7 +488,7 @@ Step 2: L3 本地文档搜索
 
 ### scripts/ 目录
 
-本技能包含以下脚本文件，位于 `.claude/skills/cangjie-assistant/scripts/` 目录：
+本技能包含以下脚本文件，位于 `.claude/skills/cangjie-dev-harmonyos/scripts/` 目录：
 
 | 脚本文件 | 作用 | 用法 |
 |---------|------|------|
@@ -502,8 +496,7 @@ Step 2: L3 本地文档搜索
 | `cangjie_retriever.py` | 混合检索器（向量+BM25） | 被 ask_cangjie.py 调用 |
 | `Database-Builder.py` | 构建向量数据库 | `python Database-Builder.py` （scripts/ 目录内）|
 | `download_hm_docs.py` | 下载官方文档 | `python download_hm_docs.py` （scripts/ 目录内）|
-| `build.ps1` | **项目构建脚本**（已环境同步） | `cd .claude\\skills\\cangjie-assistant\\scripts && .\\build.ps1` |
-| `build-template.ps1` | 构建脚本模板 | 新项目的原始模板参考 |
+| `build.ps1` | **项目构建脚本**（已环境同步） | `cd .claude\\skills\\cangjie-dev-harmonyos\\scripts && .\\build.ps1` |
 
 ### 依赖要求
 

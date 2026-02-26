@@ -12,27 +12,21 @@
 cd cangjie-dev-workflow
 
 # List 组件相关 - 按组件分组查询
-python ask_cangjie.py "List导包"
-python ask_cangjie.py "List初始化"
-python ask_cangjie.py "List数据绑定"
-python ask_cangjie.py "List滚动"
+python ask_cangjie.py "List"
 
 # Image 组件相关
-python ask_cangjie.py "Image导包"
-python ask_cangjie.py "Image显示"
-python ask_cangjie.py "Image资源"
+python ask_cangjie.py "Image"
 
 # Text 组件相关
-python ask_cangjie.py "Text导包"
-python ask_cangjie.py "Text样式"
+python ask_cangjie.py "Text"
 ```
 
 ### 查询结果示例
 
-#### 查询 1: `python ask_cangjie.py "List导包"`
+#### 查询 1: `python ask_cangjie.py "List"`
 
 ```text
-[原始问题]: List导包
+[原始问题]: List
 [相关度]: 0.85
 [来源]: 文档片段
 [本地路径]: hm-docs/ui-dev/arkui-cj/cj-layout-development-create-list.md
@@ -87,7 +81,7 @@ List(renderItem: renderFunction)
 
 ### 评估决策
 
-- List 导包、初始化找到有效信息 ✅
+- List 找到有效信息 ✅
 - List 数据绑定信息不完整 ⚠️
 - Image、Text 尚未查询...
 
@@ -197,13 +191,12 @@ Get-ChildItem -Path "hm-docs" -Filter "*.md" -Recurse | Select-String -Pattern "
 
 | ID | 查询关键词 | 结果状态 | 内容完整性 | 操作 |
 |----|-----------|---------|-----------|------|
-| 1 | List导包 | ✅ | 基本完整 | 继续下一个 |
-| 2 | List初始化 | ✅ | 代码示例完整 | 继续下一个 |
-| 3 | List数据绑定 | ⚠️ | 只有概念描述 | 记录以便后续补充 |
-| 4 | Image导包 | ✅ | 完整导入路径 | 继续下一个 |
-| 5 | Image显示 | ❌ | NO_RAG_RESULT | 标记为需 L3 |
-| 6 | Text样式 | ✅ | 完整示例 | 继续下一个 |
-| 7 | Button onClick | ✅ | 事件处理完整 | 结束评估 |
+| 1 | Lis | ✅ | 基本完整 | 继续下一个 |
+| 2 | Image | ✅ | 基本完整 | 继续下一个 |
+| 3 | Text | ✅ | 基本完整 | 继续下一个 |
+| 4 | Button  | ✅ | 基本完整 | 结束评估 |
+| 5 | onClick  | ✅ | 基本完整 | 结束评估 |
+
 
 ### 最终评估
 
@@ -226,7 +219,7 @@ Get-ChildItem -Path "hm-docs" -Filter "*.md" -Recurse | Select-String -Pattern "
 按组件分组，每个维度单独查询，提高 BM25 匹配精度
 
 ### 2. 精准关键词
-- ✅ "Button导包" - 精准匹配导包相关内容
+- ✅ "Butto" - 精准匹配相关内容
 - ❌ "如何创建按钮" - 模糊描述，匹配度低
 
 ### 3. 结果展示

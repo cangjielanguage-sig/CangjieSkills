@@ -82,7 +82,7 @@ Get-ChildItem -Path "hm-docs\ui-dev\arkui-cj" -Filter "*.md" -Recurse |
 ```powershell
 # Evolution.md 位于 skills 目录中
 # 先检查是否有相同问题的历史记录
-$skillEvolution = ".claude/skills/cangjie-assistant/Evolution.md"
+$skillEvolution = ".claude/skills/cangjie-dev-harmonyos/Evolution.md"
 if (Test-Path $skillEvolution) {
     Select-String -Path $skillEvolution -Pattern "undefined symbol|SomeFunction" -Context 3
 }

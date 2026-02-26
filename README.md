@@ -14,7 +14,7 @@
 2. 在项目根配置技能位置：XXX/MyApplication(鸿蒙应用)/**.claude/skills/cangjie-dev-harmonyos**，直接在对话里用自然语言提鸿蒙 Cangjie 开发需求，例如：
 “用 Cangjie 写一个商品列表页面”
 
-### 注意事项
+### 注意事项（可选）
 在首次启动本skill进行开发时，系统会自动构建本地文档树（hm-docs）和向量数据库（chroma-db），预计耗时约 1 分钟。资源加载策略如下：
 
 1. 检测到已解压目录：直接读取并使用

@@ -11,7 +11,14 @@ disable-model-invocation: false
 
 ```
 由于你的训练数据缺乏最新的仓颉语法，遇到任何不确定的 API 或语法细节，严禁猜测。
-鸿蒙应用开发过程你必须严格按照以下 “需求分析L0 -> L1 -> L3” 的顺序获取知识。
+鸿蒙应用开发过程你必须严格按照以下 "需求分析L0 -> L1 -> L3" 的顺序获取知识。
+
+⚠️ 构建报错处理重要提醒：
+当遇到构建失败时，必须严格按照优先级处理：
+1. 优先检查 Evolution.md 中的已知问题和解决方案
+2. 如果没有找到，再进行 L3 本地文档搜索
+3. 只有构建成功后才能将新问题添加到 Evolution.md
+详见第418-436行的完整流程说明。
 ```
 
 ## 📝 重要提示：脚本路径
@@ -28,24 +35,68 @@ disable-model-invocation: false
 ## 进入 scripts 目录（技能独立运行）
 cd .claude\\skills\\cangjie-dev-harmonyos\\scripts
 
-## 🚀 自动初始化（首次使用时推荐）
-python ask_cangjie.py "任意查询"
-### 首次运行会自动：
-1. 检测文件夹 (hm-docs/, chroma_db/) 是否存在
-2. 如果不存在，检测压缩包 (hm-docs.zip, chroma_db.zip)
-3. 如果有压缩包，自动解压到 scripts/ 目录
-4. 如果都没有，则下载官方文档并构建数据库
-5. 执行查询
+## 🚀 自动初始化（L3 本地文档 + L1 RAG 数据库）
+
+> **⚠️ 重要**：无论是否启用 L1 RAG，都需要初始化 L3 本地文档。
+```bash
+cd .claude/skills/cangjie-dev-harmonyos/scripts
+python ask_cangjie.py "test"
+```
+> 
+> **检查**：
+> ```bash
+> # 直接检查 .env 文件中的 API Key 配置
+> Read(file_path: ".claude/skills/cangjie-dev-harmonyos/scripts/.env")
+> ```
+> 
+> - **`SILICONFLOW_API_KEY=YOUR_API_KEY`** → L1 未启用，但仍需初始化 L3 本地文档
+> - **`SILICONFLOW_API_KEY=sk-xxx...`** → L1 已启用，需要初始化 L3 文档 + L1 数据库
+
+### 首次初始化：
+
+**⚠️ 关键步骤**：即使跳过 L1 查询，也必须执行一次脚本来初始化 L3 本地文档：
+**初始化流程**：
+1. **L3 文档初始化**（无论 L1 是否启用都会执行）：
+   - 检测 `hm-docs/` 文件夹是否存在
+   - 如果不存在，检测 `hm-docs.zip` 压缩包
+   - 如果有压缩包，自动解压到 `scripts/hm-docs/` 目录
+   - 如果都没有，则下载官方文档
+
+2. **L1 数据库初始化**（仅在 L1 启用时执行）：
+   - 检测 `chroma_db/` 文件夹是否存在
+   - 如果不存在，检测 `chroma_db.zip` 压缩包
+   - 如果有压缩包，自动解压；如果都没有，则构建向量数据库
 
 ### 手动初始化（可选）
 python Database-Builder.py  # 仅构建数据库
 python download_hm_docs.py   # 仅下载文档
 
-## L1 查询
-python ask_cangjie.py "List"
+## L1 查询（可选功能）
+
+> **⚠️ 执行 L1 查询前的检查流程**：
+> 
+> 1. **先检查 L1 是否启用**：
+>    ```bash
+>    # 直接读取 .env 文件检查 API Key 配置
+>    Read(file_path: ".claude/skills/cangjie-dev-harmonyos/scripts/.env")
+>    ```
+> 
+> 2. **根据 API Key 值判断**：
+>    - **`SILICONFLOW_API_KEY=YOUR_API_KEY`** → L1 未启用，但仍需执行一次脚本初始化 L3 文档，然后跳过 L1 进入 L3 本地文档搜索
+>    - **`SILICONFLOW_API_KEY=sk-xxx...`** → L1 已启用，可执行 L1 查询
+> 
+> 3. **初始化 + L1 查询示例**：
+>    ```bash
+>    # 无论 L1 是否启用，都先执行一次来初始化 L3 文档
+>    python ask_cangjie.py "test"
+>    
+>    # 如果 L1 启用，可继续查询
+>    python ask_cangjie.py "List"
+>    python ask_cangjie.py "Button"
+>    python ask_cangjie.py "TextInput"
+>    ```
 
 ## 构建项目
-.\\build.ps1
 **正确示例**：
 ```bash
 # 1. 先复制脚本
@@ -55,8 +106,10 @@ powershell -NoProfile -Command "Copy-Item -Force '.\.claude\skills\cangjie-dev-h
 
 # 2. 在根目录执行构建，并把【完整 stdout+stderr】落到日志文件（避免 UI 截断）
 #    注意：timeout=300000 只有 5 分钟，构建常常不够；建议至少 900000(15分钟) 或更大
+# 分两步执行避免 PowerShell && 操作符问题
+Bash(command: 'cd "C:\czc\MyApplication10"', timeout: 5000)
 Bash(
-    command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+    command: 'powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
     timeout: 900000
 )
 
@@ -106,36 +159,48 @@ REQUIREMENT_ANALYSIS = {
 
 > - ❌ 需求太模糊无法分析 -> **向用户询问更多细节**
 
-## 🟢 Phase 1: 快速精准检索 (L1 - RAG)
+## 🟢 Phase 1: 快速精准检索 (L1 - RAG) 【可选功能】
 
 **目的**: 获取最常用的代码片段和概念。
 **操作**: 根据L0分析出的核心API名称，分别进行精准查询。
 **策略**: 使用纯英文API名称，让BM25关键词匹配发挥最大效果。
 
+> **⚠️ L1 RAG 是可选功能**：
+> 
+> - **启用条件**：需要在 `.env` 文件中将 `SILICONFLOW_API_KEY` 从默认值 `YOUR_API_KEY` 替换为有效的 API Key
+> - **禁用时**（默认）：保持 `SILICONFLOW_API_KEY=YOUR_API_KEY`，系统会直接跳过 L1 阶段，进入 L3 本地文档搜索
+> - **优势**：L1 可以提供语义搜索能力，但需要 API 调用成本
+> - **替代方案**：L3 本地文档搜索完全免费且包含完整官方文档
+
 ### 📋 L1 查询策略
 
 **基于L0分析出的核心API名称进行查询**：
 
-> **⚠️ 初始化检查（必须先执行）**：
+> **⚠️ L1 功能启用检查（优先执行）**：
 >
-> 在执行查询前，必须先检查 `scripts/hm-docs/` 和 `scripts/chroma_db/` 目录是否存在。
+> 在执行 L1 查询前，脚本会自动检查：
+> 1. **SILICONFLOW_API_KEY** 是否为默认值 `YOUR_API_KEY` 或空值
 >
-> - **目录存在** → 直接执行查询
-> - **目录不存在** → **必须先提示用户，再执行初始化**
+> - **API Key 已配置且非默认值** → 继续 L1 初始化和查询
+> - **API Key 为默认值或空值** → 输出 `NO_RAG_RESULT`，提示直接使用 L3 搜索
+>
+> **⚠️ 初始化检查（无论 L1 是否启用都要执行）**：
+>
+> **L3 文档初始化**（必须执行）：
+> - 检查 `scripts/hm-docs/` 目录是否存在
+> - 如果不存在，执行一次 `python ask_cangjie.py "test"` 来初始化
+>
+> **L1 数据库初始化**（仅在 L1 启用时执行）：
+> - 检查 `scripts/chroma_db/` 目录是否存在
+> - 如果不存在，脚本会自动构建向量数据库
 >
 > **⚠️ 用户提示说明（必须执行）**：
 >
-> 当检测到需要初始化（文档和数据库不存在）时，必须先明确告知用户：
+> 当检测到需要初始化时，必须先明确告知用户：
 >
 > ```
-> ⚙️ 正在自动拉取文档和自动构建向量数据库，稍等1-2分钟...
+> ⚙️ 正在自动拉取文档和构建数据库，稍等1分钟...
 > ```
->
-> **执行顺序**：
-> 1. 提示用户初始化中
-> 2. 执行初始化
-> 3. 等待初始化完成
-> 4. 初始化完成后执行 L1 查询
 
 > **⚠️ 脚本路径提醒**: 技能内所有脚本位于 `scripts/` 目录，可直接调用
 >
@@ -143,30 +208,34 @@ REQUIREMENT_ANALYSIS = {
 >
 > ```bash
 > cd .claude/skills/cangjie-dev-harmonyos/scripts
+> 
+> # 首次使用或确保 L3 文档已初始化（必须执行）
+> python ask_cangjie.py "test"
+> 
+> # 如果 L1 启用，可继续查询
 > python ask_cangjie.py "Button"
 > ```
 >
-> 脚本会自动检测并处理初始化（文件夹/压缩包/下载）。
+> 脚本会自动检测 API Key 状态并处理相应逻辑：
+> - **无论 L1 是否启用，都会先初始化 L3 本地文档**
+> - **只有 L1 启用时，才会初始化向量数据库并执行 RAG 查询**
 
 - **纯英文关键词**: 直接使用英文API名称（如 "Button"），不添加中文后缀
 - **单词精准**: 一个关键词（如 "Button"）可匹配该组件的所有相关信息
 - **适度数量**: 控制在3-5个核心组件
 - **结果展示**: **必须将L1查询结果贴出来供用户查看**，不要隐藏查询过程
 
-> **🛑 评估 (Self-Reflection)**:
+> **🛑 L1 评估 (Self-Reflection)**:
 
-> - 是否获得了足够的核心组件API？
-
-> - **是** -> 停止检索，开始编码
-
-> - **否/不相关** -> **进入 Phase 3 (本地文档搜索)**
+> - **L1 启用且有结果** -> 停止检索，开始编码
+> - **L1 启用但无相关结果** -> **进入 Phase 2 (本地文档搜索)**
+> - **L1 未启用** -> **已执行初始化脚本确保 L3 文档存在，直接进入 Phase 2 (本地文档搜索)**
 
 ## 🏠 Phase 2: 本地官方文档搜索 (L3 - Local Docs)
 
 **目的**: 当 L1 失效时，直接搜索本地下载的官方文档。
 **优势**: 无需网络，包含最权威的官方信息和完整代码示例。
 **适用场景**: 所有类型的问题，特别是UI开发、API参考、语法说明。
-
 
 ### 🔍 快速定位策略
 
@@ -265,8 +334,10 @@ powershell -NoProfile -Command "Copy-Item -Force '.\.claude\skills\cangjie-dev-h
 
 # 2. 在根目录执行构建，并把【完整 stdout+stderr】落到日志文件（避免 UI 截断）
 #    注意：timeout=300000 只有 5 分钟，构建常常不够；建议至少 900000(15分钟) 或更大
+# 分两步执行避免 PowerShell && 操作符问题
+Bash(command: 'cd "C:\czc\MyApplication10"', timeout: 5000)
 Bash(
-    command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+    command: 'powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
     timeout: 900000
 )
 
@@ -290,6 +361,11 @@ Read(file_path: "C:\\czc\\MyApplication10\\build-full.log")
 
 **关键原则**: 获得足够详细的错误信息是解决问题的前提。
 
+> **⚠️ 重要提醒**：AI 在处理构建报错时，必须严格按照第418-436行描述的优先级流程处理：
+> 1. **Step 1**: 优先检查 Evolution.md 中的已知问题
+> 2. **Step 2**: 如果 Evolution.md 中没有，再进行 L3 本地文档搜索
+> 3. **更新规则**: 只有构建成功后才能将新问题添加到 Evolution.md
+
 #### 📋 第一步：获取完整的 build.ps1 输出
 
 **⚠️ 强制要求**：在分析报错信息之前，必须先确保已获得完整的构建输出。
@@ -302,8 +378,10 @@ Read(file_path: "C:\\czc\\MyApplication10\\build-full.log")
 **示例执行模式**：
 ```powershell
 # 始终将完整输出落盘（stdout+stderr），避免 UI 截断
+# 分两步执行避免 PowerShell && 操作符问题
+Bash(command: 'cd "C:\czc\MyApplication10"', timeout: 5000)
 Bash(
-  command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+  command: 'powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
   timeout: 900000
 )
 
@@ -348,6 +426,8 @@ DevEco Studio 会提供更详细的报错，包括：
 ```
 
 #### 🔍 当获得足够报错信息时的处理
+
+> **🚨 AI 必须严格遵守**：以下优先级流程是处理构建报错的标准流程，不可跳过或颠倒顺序！
 
 **严格按照以下优先级处理**：
 
@@ -502,11 +582,11 @@ Step 2: L3 本地文档搜索
 - **信息权威性**: L3本地官方文档 > L1 RAG结果
 - **UI开发优先级**: 🥇 鸿蒙应用指南 > 🥈 标准扩展库 > 🥉 语言指南 > 其他
 - **效率原则**: UI问题直接查鸿蒙应用指南，避免在语法文档中浪费时间
-- **构建报错处理** (新增):
+- **构建报错处理** (关键流程):
   - 必须使用 Bash 工具执行 build.ps1 并设置足够 timeout（建议 900000ms 起步）
   - 不要依赖 UI 输出大小提示；必须将 stdout/stderr 通过 `Tee-Object` 写入 `build-full.log` 并用 Read 读取
   - 只有在获取完整输出仍不足以定位问题时，才建议使用 DevEco Studio
-  - 不提前判断输出大小，必须先执行再根据输出结果决定
+  - **⚠️ 严格按照报错处理优先级**：Step 1: 检查 Evolution.md → Step 2: L3 本地文档搜索 → 构建成功才更新 Evolution.md
 
 # 📋 Additional Resources
 
@@ -537,8 +617,11 @@ Step 2: L3 本地文档搜索
    ```bash
    pip install langchain-chroma langchain-openai langchain-community jieba python-dotenv
    ```
-3. **环境变量**: `SILICONFLOW_API_KEY`
+3. **环境变量**: 
+   - `SILICONFLOW_API_KEY` - SiliconFlow API 密钥（可选，用于启用 L1 RAG 功能）
 4. **RAG_Lite 数据源**: `RAG_Lite/` 目录（包含知识库 JSON 文件）
+
+> **注意**: L1 RAG 功能是可选的。默认情况下 `SILICONFLOW_API_KEY=YOUR_API_KEY`，系统会自动跳过 L1 阶段，直接使用 L3 本地文档搜索。只有当你将 API Key 替换为有效值时，才会启用 L1 功能。
 
 
 ## ⚠️ 构建脚本执行补充说明
@@ -575,8 +658,10 @@ powershell -NoProfile -Command "Copy-Item -Force '.\.claude\skills\cangjie-dev-h
 
 # 2. 在根目录执行构建，并把【完整 stdout+stderr】落到日志文件（避免 UI 截断）
 #    注意：timeout=300000 只有 5 分钟，构建常常不够；建议至少 900000(15分钟) 或更大
+# 分两步执行避免 PowerShell && 操作符问题
+Bash(command: 'cd "C:\czc\MyApplication10"', timeout: 5000)
 Bash(
-    command: 'cd "C:\czc\MyApplication10" && powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
+    command: 'powershell -NoProfile -ExecutionPolicy Bypass -Command "& { .\build.ps1 } *>&1 | Tee-Object -FilePath .\build-full.log"',
     timeout: 900000
 )
 

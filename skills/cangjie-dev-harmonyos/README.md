@@ -9,7 +9,7 @@ Cangjie-dev-HarmonyOS 是一个支持即插即用的 Claude Code Skill。它通�
 
 L0 需求降维: 自动将模糊的业务需求拆解为“界面设计、关键组件”的精准技术路径。
 
-L1 RAG 向量检索: 通过关键词、向量数据库混合搜索，快速返回所需知识点。
+L1 RAG 向量检索 (可选): 通过关键词、向量数据库混合搜索，快速返回所需知识点。默认禁用，需配置 API Key 启用。
 
 L3 离线文档溯源: 无缝接入本地官方 hm-docs，提供权威海量的 API 参考与 UI 开发规范支持。
 
@@ -37,8 +37,8 @@ L3 离线文档溯源: 无缝接入本地官方 hm-docs，提供权威海量的 
 将本技能目录复制到你的目标项目下
 
 ### 3、基础配置
-1. ✅ API 密钥配置到 `.env` 文件
-2. ✅ build.ps1构建脚本内容根据实际环境DevEco Studio实际安装位置替换
+1. ✅ **DevEco Studio 路径配置**：在 `.env` 文件中设置 `DEVECO_HOME` 为你的 DevEco Studio 安装路径
+2. ✅ **L1 RAG 功能（可选）**：如需启用向量搜索，将 `.env` 文件中的 `SILICONFLOW_API_KEY` 从默认值 `YOUR_API_KEY` 替换为有效的 API Key
 
 🧩 架构与工作流
 用户需求 ➔ L0 分析(技术细化) ➔ L1 RAG(精准片段) ➔ (若不足) ➔ L3 Local(全量权威文档) ➔ 编写代码 ➔ 构建排错 ➔ 记录 Evolution.md
@@ -100,13 +100,14 @@ Phase 0 (L0): 需求技术化分析
     ├─ 交互分析 → 识别用户交互
     └─ 技术关键词
     ↓
-Phase 1 (L1): RAG 快速检索
-    └─ 按"关键词"精准查询
+Phase 1 (L1): RAG 快速检索 (可选)
+    └─ 按"关键词"精准查询 (需配置 API Key)
     ↓
     ├─ ✅ 完整结果 → 编码
-    └─ ❌ 无结果 → Phase 3
+    ├─ ❌ 无结果 → Phase 2
+    └─ 🔒 未启用 → 直接 Phase 2
     ↓
-Phase 2 (L3): 本地文档搜索
+Phase 2 (L3): 本地文档搜索 (免费)
     ├─ UI 组件问题 → hm-docs/ui-dev/
     ├─ 标准库问题 → hm-docs/stdlib/
     ├─ 扩展库问题 → hm-docs/stdx/
@@ -155,9 +156,11 @@ L1 RAG 查询需要以下 Python 包：
 pip install langchain-chroma langchain-openai langchain-community jieba python-dotenv
 ```
 
-### 2、获取 API 密钥
+### 2、获取 API 密钥（可选）
 
-L1 RAG 查询需要嵌入模型的 API 支持：
+**注意**：L1 RAG 功能是可选的。默认情况下系统使用免费的 L3 本地文档搜索，已能满足大部分开发需求。
+
+如需启用 L1 RAG 向量搜索功能：
 
 1. **硅基流动 SiliconFlow** (推荐 - 免费额度)
    - 访问: https://cloud.siliconflow.cn/
@@ -167,6 +170,8 @@ L1 RAG 查询需要嵌入模型的 API 支持：
 2. **其他兼容 API 提供商**
    - OpenAI (需付费)
    - 兼容 OpenAI 接口的服务
+
+**启用方式**：将 `.env` 文件中的 `SILICONFLOW_API_KEY=YOUR_API_KEY` 替换为你的真实 API Key。
 
 ### 3、可选依赖
 
@@ -194,7 +199,11 @@ L1 RAG 查询需要嵌入模型的 API 支持：
 
 ### Q: L1 查询返回 NO_RAG_RESULT？
 
-A: 这是正常的，请继续进入 L3 本地文档搜索。L3 是更权威的官方文档来源。
+A: 这是正常的，有两种可能：
+1. **L1 功能未启用**：`SILICONFLOW_API_KEY` 仍为默认值 `YOUR_API_KEY`，系统自动跳过 L1
+2. **L1 功能已启用但无结果**：请继续进入 L3 本地文档搜索
+
+L3 本地文档搜索是更权威的官方文档来源，完全免费且内容完整。
 
 ### Q: 首次查询报错 "RAG 数据库未初始化"？
 
@@ -213,12 +222,14 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 ### Q: API 密钥从哪里获取？
 
-A: 推荐使用硅基流动 SiliconFlow：
+A: **注意**：API 密钥是可选的，仅用于启用 L1 RAG 功能。默认使用免费的 L3 本地文档搜索。
+
+如需启用 L1 功能，比如使用硅基流动 SiliconFlow：
 1. 访问 https://cloud.siliconflow.cn/
 2. 注册并登录
 3. 进入「API Keys」页面
 4. 创建新的 API Key
-5. 复制 API Key 到 `.env` 文件
+5. 将 `.env` 文件中的 `SILICONFLOW_API_KEY=YOUR_API_KEY` 替换为你的 API Key
 
 ### Q: 如何更新本地文档？
 

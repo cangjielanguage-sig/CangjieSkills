@@ -358,4 +358,75 @@ Column() {
 - 数值越大，分配的空间越多
 - 所有子元素 layoutWeight 之和决定各自占比
 
+---
+
+## 项目: MyApplication12 (聊天界面应用)
+### 初始日期: 2026-02-27
+
+## 重难点记录
+
+### 19. @Component 的 build 方法只能编写 UI 组件语法
+**日期**: 02-27
+**现象**: `error: Only UI component syntax can be written in build method`
+**原因**: ArkUI 的 `@Component` 宏要求 `build` 方法只能编写 UI 组件语法，不能包含 let 变量声明等
+**解决方案**: 为不同场景创建独立的组件，或在外层计算后传入
+**正确语法**:
+```cangjie
+// 错误 - build 中不能声明 let
+@Component
+class MessageBubble {
+    func build() {
+        let color = if ...  // 错误
+        Text(...).backgroundColor(color)
+    }
+}
+
+// 正确 - 创建两个组件
+@Component
+class MyMessageBubble {
+    func build() {
+        Text(...).backgroundColor(0x0A59F7)
+    }
+}
+```
+
+### 20. 不支持三元运算符
+**日期**: 02-27
+**现象**: `error: expected operator or end of expression, found ':'`
+**原因**: 仓颉语言不支持 `condition ? v1 : v2` 三元运算符
+**解决方案**: 使用 `if` 表达式或创建独立组件
+**正确语法**:
+```cangjie
+// 正确 - 使用 if 表达式
+.backgroundColor(if (message.isMine) { 0x0A59F7 } else { 0xFFFFFF })
+
+// 或在 ForEach 中使用条件渲染
+ListItem() {
+    if (message.isMine) {
+        MyMessageBubble(message: message)
+    } else {
+        OtherMessageBubble(message: message)
+    }
+}
+```
+
+### 21. Text 组件没有 maxWidth 方法
+**日期**: 02-27
+**现象**: `error: 'maxWidth' is not a member of class 'Text'`
+**原因**: Text 组件不支持 `.maxWidth()` 方法
+**解决方案**: 移除 maxWidth，让文本自然显示
+
+### 22. 使用 spawn + sleep 实现延迟操作
+**日期**: 02-27
+**现象**: `error: undeclared identifier 'Timer'`
+**原因**: 仓颉语言没有 JS 风格的 Timer API
+**解决方案**: 使用 `spawn` 创建新线程 + `sleep()` 实现延迟
+**正确语法**:
+```cangjie
+spawn {
+    sleep(800 * Duration.millisecond)
+    // 延迟后的操作
+}
+```
+
 ---## 开发总结

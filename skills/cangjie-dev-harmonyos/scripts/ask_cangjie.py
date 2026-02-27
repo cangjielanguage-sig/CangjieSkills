@@ -33,36 +33,41 @@ HM_DOCS_ZIP = os.path.join(SCRIPT_DIR, "hm-docs.zip")
 CHROMA_DB_ZIP = os.path.join(SCRIPT_DIR, "chroma_db.zip")
 
 
-def extract_zip(zip_path: str, extract_to: str) -> bool:
+def extract_zip(zip_path: str, target_dir: str) -> bool:
     """
-    解压缩 .zip 文件到指定目录
-    成功返回 True，失败返回 False
+    解压缩 .zip 文件到指定的目标目录
+    
+    Args:
+        zip_path: 压缩包路径
+        target_dir: 目标目录路径（如 scripts/hm-docs）
+    
+    Returns:
+        成功返回 True，失败返回 False
     """
     if not os.path.exists(zip_path):
         return False
 
     try:
         import zipfile
+        
+        # 确保目标目录存在
+        os.makedirs(target_dir, exist_ok=True)
+        
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            zip_ref.extractall(extract_to)
-        print(f"[OK] 已解压: {zip_path}")
+            zip_ref.extractall(target_dir)
+        print(f"[OK] 已解压: {zip_path} -> {target_dir}")
         return True
     except Exception as e:
         print(f"[ERROR] 解压失败: {e}")
         return False
 
 
-def check_and_init():
+def check_and_init_docs():
     """
-    自动检查并初始化必要的数据目录
-
-    新的逻辑：
-    1. 如果有文件夹，直接使用
-    2. 如果只有压缩包，自动解压
-    3. 如果都没有，触发下载和构建
+    检查并初始化本地文档（L3 必需，无论 L1 是否启用都要执行）
     """
     check_passed = True
-
+    
     # ========== hm-docs 处理 ==========
     docs_exists = os.path.exists(HM_DOCS_DIR) and os.listdir(HM_DOCS_DIR)
     docs_zip_exists = os.path.exists(HM_DOCS_ZIP)
@@ -71,7 +76,7 @@ def check_and_init():
         print("[OK] 本地文档已存在")
     elif docs_zip_exists:
         print("[INIT] 检测到文档压缩包，开始解压...")
-        if extract_zip(HM_DOCS_ZIP, SCRIPT_DIR):
+        if extract_zip(HM_DOCS_ZIP, HM_DOCS_DIR):
             print("[OK] 本地文档解压完成")
         else:
             print("[ERROR] 文档解压失败")
@@ -97,6 +102,15 @@ def check_and_init():
             print(f"[WARNING] 文档下载脚本不存在: {download_script}")
             check_passed = False
 
+    return check_passed
+
+
+def check_and_init_l1_db():
+    """
+    检查并初始化 L1 RAG 数据库（仅在 L1 启用时需要）
+    """
+    check_passed = True
+
     # ========== chroma_db 处理 ==========
     db_exists = os.path.exists(CHROMA_DB_DIR) and os.listdir(CHROMA_DB_DIR)
     db_zip_exists = os.path.exists(CHROMA_DB_ZIP)
@@ -105,7 +119,7 @@ def check_and_init():
         print("[OK] 向量数据库已存在")
     elif db_zip_exists:
         print("[INIT] 检测到数据库压缩包，开始解压...")
-        if extract_zip(CHROMA_DB_ZIP, SCRIPT_DIR):
+        if extract_zip(CHROMA_DB_ZIP, CHROMA_DB_DIR):
             print("[OK] 向量数据库解压完成")
         else:
             print("[ERROR] 数据库解压失败")
@@ -131,7 +145,13 @@ def check_and_init():
             print(f"[WARNING] 数据库构建脚本不存在: {db_builder_script}")
             check_passed = False
 
-    # 检查 Evolution.md 文件
+    return check_passed
+
+
+def check_and_init_evolution():
+    """
+    检查并初始化 Evolution.md 文件（通用功能）
+    """
     if not os.path.exists(EVOLUTION_MD):
         print("[INIT] Evolution.md 不存在，创建中...")
         evolution_template = """# Evolution - 项目重难点记录
@@ -163,7 +183,17 @@ def check_and_init():
     else:
         print("[OK] Evolution.md 已存在")
 
-    return check_passed
+
+def is_l1_rag_enabled() -> bool:
+    """检查是否启用 L1 RAG 功能"""
+    # 检查 API Key 是否为默认值或未配置
+    api_key = os.environ.get("SILICONFLOW_API_KEY", "").strip()
+    
+    # 如果是默认值或空值，则跳过 L1
+    if not api_key or api_key == "YOUR_API_KEY":
+        return False
+    
+    return True
 
 
 def main():
@@ -177,17 +207,34 @@ def main():
     # 获取查询字符串
     query = sys.argv[1]
 
-    # 自动检查并初始化（仅在首次运行时执行）
-    print("[CHECK] 检查数据目录...")
-    if not check_and_init():
-        print("[ERROR] 初始化失败，请手动运行以下命令：")
+    # 首先检查并初始化本地文档（L3 必需，无论 L1 是否启用都要执行）
+    print("[CHECK] 检查本地文档...")
+    if not check_and_init_docs():
+        print("[ERROR] 本地文档初始化失败，L3 搜索将无法使用")
+        print("请手动运行: python download_hm_docs.py")
+        # 不退出，继续尝试 L1（如果启用的话）
+    
+    # 检查并初始化 Evolution.md
+    check_and_init_evolution()
+
+    # 检查是否启用 L1 RAG
+    if not is_l1_rag_enabled():
+        print("[INFO] L1 RAG 功能未启用")
+        print("[INFO] 要启用 L1 RAG，请在 .env 文件中设置有效的 SILICONFLOW_API_KEY")
+        print("       当前值为默认值 'YOUR_API_KEY'，请替换为实际的 API Key")
+        print("[INFO] 跳过 L1 查询，请直接使用 L3 本地文档搜索")
+        print("NO_RAG_RESULT")
+        return
+
+    # L1 启用时，检查并初始化向量数据库
+    print("[CHECK] L1 RAG 已启用，检查向量数据库...")
+    if not check_and_init_l1_db():
+        print("[ERROR] L1 数据库初始化失败，请手动运行以下命令：")
         print(f"  cd {SCRIPT_DIR}")
-        print("  python ask_cangjie.py \"test\"  # 触发自动解压/下载")
-        print("  # 或手动执行：")
-        print("  python download_hm_docs.py")
         print("  python Database-Builder.py")
-        sys.exit(1)
-    print("[OK] 数据检查完成\n")
+        print("NO_RAG_RESULT")
+        return
+    print("[OK] L1 数据检查完成\n")
 
     try:
         # 尝试导入 CangjieRetriever
@@ -211,10 +258,13 @@ def main():
 
     except FileNotFoundError as e:
         print(f"Error: 数据库文件不存在 - {e}")
+        print("NO_RAG_RESULT")
     except ImportError as e:
         print(f"Error: 导入模块失败 - {e}")
+        print("NO_RAG_RESULT")
     except Exception as e:
         print(f"Error: {e}")
+        print("NO_RAG_RESULT")
 
 
 if __name__ == "__main__":

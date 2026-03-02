@@ -6,11 +6,19 @@
 
 **Common** 目录下提供了仓颉通用程序开发 Skills，并给出了基于 OpenCode 的项目模板，如果您使用其他 AI 开发工具，可以提取 `.opencode` 目录下的 `skills`，按其他工具要求部署使用。
 
-**示例**：使用 OpenCode + GLM5 开发仓颉子集解释器，生成 LuaVM 字节码并执行：
+**示例**：使用 OpenCode/GLM5 开发的 [AI 聊天工具](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/AIChatPro)，支持多模型切换、JSON 配置文件、流式请求、控流打字机效果、对话上下文等功能。
 
-![运行效果.png](https://raw.gitcode.com/user-images/assets/9193544/b90baedb-c7e8-474e-b18a-70c0aacc4454/运行效果.png '运行效果.png')
+![完成开发.png](https://raw.gitcode.com/user-images/assets/9193544/d5824ec8-8fa6-4841-8a4d-10d282324109/完成开发.png '完成开发.png')
+
+![运行效果.png](https://raw.gitcode.com/user-images/assets/9193544/65bf2447-a413-4046-99cd-f6cefc947dd4/运行效果.png '运行效果.png')
+
+**示例**：使用 OpenCode/GLM5 + Claude Opus 4.6 开发的[仓颉语言子集解释器](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/CangjieLua)，生成 LuaVM 字节码并执行：
 
 ![glm5-初始过程.png](https://raw.gitcode.com/user-images/assets/9193544/1f6e4e6d-7b38-4893-8abe-c78ddd0574e2/glm5-初始过程.png 'glm5-初始过程.png')
+
+![image.png](https://raw.gitcode.com/user-images/assets/9193544/36fb1954-6d3c-4eb7-b54f-acf6d5f670e0/image.png 'image.png')
+
+![运行效果.png](https://raw.gitcode.com/user-images/assets/9193544/b90baedb-c7e8-474e-b18a-70c0aacc4454/运行效果.png '运行效果.png')
 
 ## 鸿蒙应用开发 Skills
 

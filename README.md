@@ -1,5 +1,7 @@
 # Cangjie Skills
 
+> 本项目近期快速迭代中，欢迎持续关注和参与共建，期待您的 PR
+
 ## 通用程序开发 Skills
 
 **Common** 目录下提供了仓颉通用程序开发 Skills，并给出了基于 OpenCode 的项目模板，如果您使用其他 AI 开发工具，可以提取 `.opencode` 目录下的 `skills`，按其他工具要求部署使用。

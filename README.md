@@ -1,8 +1,8 @@
 # Cangjie Skills
 
-### Common
+## 通用程序开发 Skills
 
-提供了仓颉通用程序开发 Skills，并给出了基于 OpenCode 的项目模板，如果您使用其他 AI 开发工具，可以提取 `.opencode` 目录下的 `skills`，按其他工具要求部署使用。
+**Common** 目录下提供了仓颉通用程序开发 Skills，并给出了基于 OpenCode 的项目模板，如果您使用其他 AI 开发工具，可以提取 `.opencode` 目录下的 `skills`，按其他工具要求部署使用。
 
 **示例**：使用 OpenCode + GLM5 开发仓颉子集解释器，生成 LuaVM 字节码并执行：
 
@@ -10,9 +10,11 @@
 
 ![glm5-初始过程.png](https://raw.gitcode.com/user-images/assets/9193544/1f6e4e6d-7b38-4893-8abe-c78ddd0574e2/glm5-初始过程.png 'glm5-初始过程.png')
 
-### HarmonyOS
+## 鸿蒙应用开发 Skills
 
-#### cangjie-dev-harmonyos
+**HarmonyOS** 目录下提供了仓颉鸿蒙应用开发 Skills。
+
+### cangjie-dev-harmonyos
 
 本 Skill 赋能仓颉鸿蒙应用开发，涵盖需求分析、文档检索（文本/向量混合检索，分级检索）、本地构建、错误排查、经验沉淀等功能。
 

@@ -27,7 +27,7 @@
 
 ![image.png](https://raw.gitcode.com/user-images/assets/9193544/36fb1954-6d3c-4eb7-b54f-acf6d5f670e0/image.png 'image.png')
 
-![运行效果.png](https://raw.gitcode.com/user-images/assets/9193544/b90baedb-c7e8-474e-b18a-70c0aacc4454/运行效果.png '运行效果.png')
+![798bcbe3952cb5113338efd234771581.png](https://raw.gitcode.com/user-images/assets/9193544/6b2ad68a-a2e6-448b-b581-14a79f18763e/798bcbe3952cb5113338efd234771581.png '798bcbe3952cb5113338efd234771581.png')
 
 ## 鸿蒙应用开发 Skills
 

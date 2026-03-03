@@ -1,6 +1,6 @@
 ---
 name: cangjie-stdx
-description: "仓颉扩展标准库（stdx）使用指南。当需要了解 stdx 各包的功能以及各模块的使用示例时，应使用此 Skill。"
+description: "仓颉扩展标准库（stdx）使用指南。当需要了解 stdx 提供的面向切面编程、压缩和解压缩、安全加密、消息摘要、非对称加解密和签名、数字证书、编解码（Base64/Hex/JSON/URL）、网络通信（HTTP/TLS）、日志、序列化、模糊测试等功能时，应使用此 Skill"
 ---
 
 # 仓颉扩展标准库（stdx）使用指南
@@ -9,21 +9,10 @@ description: "仓颉扩展标准库（stdx）使用指南。当需要了解 stdx
 
 ## 1. stdx 概述
 
-### 1.1 简介
-
-stdx 是仓颉编程语言的**扩展标准库**（非核心标准库，但由官方提供的附加功能集），是仓颉语言生态的重要组成部分，为仓颉补充了更多实用能力，涵盖面向切面编程、压缩和解压缩、安全加密、消息摘要、非对称加解密和签名、数字证书、编解码（Base64/Hex/JSON/URL）、网络通信（HTTP/TLS）、日志、序列化、模糊测试、参数化测试数据加载等多个领域。
-
-### 1.2 与标准库的区别
+stdx 是仓颉编程语言的**扩展标准库**，由官方提供的附加功能集，与标准库的区别是：
 
 - **标准库（std）**：随 SDK 一起发布，开箱即用。
-- **扩展标准库（stdx）**：需要**单独下载**并配置，不随 SDK 自带。
-
-### 1.3 版本与平台支持
-
-- 支持 Ubuntu/macOS（x86_64, aarch64），Windows 部分功能受限。
-- 需要 Cangjie SDK 1.0.0 及以上版本。
-- crypto 和 net 模块依赖 **OpenSSL 3**。
-- stdx 后续版本可能存在不兼容变更，不承诺跨版本 API/ABI 兼容性。
+- **扩展标准库（stdx）**：需要**单独下载**并配置，作为三方库使用。
 
 ---
 
@@ -218,13 +207,7 @@ stdx 包含以下 18 个包，覆盖网络通信、编解码、安全加密、�
 
 ## 3. 项目配置、构建与运行
 
-> **详细的项目配置与构建指导**请参考 `cangjie-stdx-config` Skill，包含 stdx 下载安装、cjpm.toml 中动态库/静态库的 `bin-dependencies` 配置、不同平台（Linux/macOS/Windows）的完整配置示例、OpenSSL 依赖安装、动态库搜索路径设置等完整说明。
-
-### 基本流程
-- 从 <https://gitcode.com/Cangjie/cangjie_stdx/releases> 下载对应平台的 stdx 发行版
-- 在 `cjpm.toml` 中通过 `[target.<arch>.bin-dependencies]` 的 `path-option` 指向 stdx 的 `dynamic/stdx` 或 `static/stdx` 目录
-- crypto 和 net 模块依赖 **OpenSSL 3**，需确保系统已安装
-- 使用 `cjpm build && cjpm run` 构建运行
+> **项目配置与构建指导**请参考 `cangjie-stdx-config` Skill
 
 ---
 

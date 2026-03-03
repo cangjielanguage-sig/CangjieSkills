@@ -1,9 +1,9 @@
 ---
 name: cangjie-socket
-description: "仓颉语言 Socket 编程。当需要了解仓颉语言的TCP/UDP Socket编程、Socket选项与超时、Unix Domain Socket、IP地址工具、TLS/SSL加密通信等特性时，应使用此 Skill。"
+description: "仓颉语言 Socket 编程。当需要了解仓颉语言的TCP/UDP Socket编程、Socket选项、Unix Domain Socket时，应使用此 Skill"
 ---
 
-# 仓颉语言 Socket 编程 Skill
+# 仓颉语言 Socket 编程
 
 ## 1. 网络概述
 
@@ -13,7 +13,7 @@ description: "仓颉语言 Socket 编程。当需要了解仓颉语言的TCP/UDP
 
 ### 1.2 关键规则
 - 网络操作在仓颉线程级别是**阻塞**的，但不阻塞 OS 线程（仓颉线程让出）
-- 所有 Socket 均实现 `Resource`，使用 `try-with-resource` 自动清理
+- 所有 Socket 均实现 `Resource`，可使用 `try-with-resource` 自动清理资源
 
 ### 1.3 地址类型
 - `SocketAddress`（抽象基类）→ `IPSocketAddress`（IP+端口）、`UnixSocketAddress`（文件路径）
@@ -117,7 +117,7 @@ main(): Int64 {
 
 ---
 
-## 4. Socket 选项与超时
+## 4. Socket 选项
 
 ### 4.1 通用选项
 | 属性 | 说明 |
@@ -160,7 +160,8 @@ main() {
 ## 5. Unix Domain Socket
 
 - 基于文件路径的进程间通信（IPC），不经过网络栈
-- **不支持 Windows**，路径最大 108 字节
+- 路径最大 108 字节
+- **不支持 Windows**
 - 流式：`UnixServerSocket(bindAt: path)` + `UnixSocket(path)`
 - 数据报式：`UnixDatagramSocket(bindAt: path)`
 - 使用后需手动 `remove(path)` 清理 socket 文件

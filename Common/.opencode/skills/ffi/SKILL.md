@@ -555,17 +555,13 @@ main() {
 
 ## 5. 编译构建
 
-> **详细的编译构建指导**请参考 `cangjie-ffi-build` Skill，包含 cjc/cjpm 编译命令、不同平台（Linux/macOS/Windows）的 C 库编译方式、cjpm.toml 中 `[ffi.c]` 配置、链接安全加固选项等完整说明。
-
-### 基本流程
-- 先将 C 代码编译为动态库或静态库（使用 clang 等编译器，建议启用 `-fstack-protector-all`）
-- 使用 `cjc -L <path> -l <name>` 链接，或在 `cjpm.toml` 中配置 `[ffi.c]` 依赖后用 `cjpm build` 构建
+> **详细编译构建指导**请参考 `cangjie-ffi-build` Skill
 
 ---
 
 ## 6. 完整示例
 
-### 6.1 结构体指针传递（inout 方式）
+### 6.1 结构体，inout
 
 ```c
 // native.c
@@ -601,7 +597,7 @@ main() {
 }
 ```
 
-### 6.2 堆内存分配（LibC.malloc 方式）
+### 6.2 堆内存分配
 
 ```c
 // native.c
@@ -645,7 +641,7 @@ main() {
 }
 ```
 
-### 6.3 回调函数传递
+### 6.3 C 回调仓颉函数
 
 ```c
 // native.c
@@ -697,7 +693,7 @@ cjc -L . -l native main.cj -o main
 
 **Windows**
 ```shell
-clang -shared -fstack-protector-all native.c -o native.dll
+clang -shared -fstack-protector-all native.c -o libnative.dll
 cjc -L . -l native main.cj -o main.exe
 ./main.exe
 ```

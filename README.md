@@ -13,13 +13,15 @@
 - 如果项目需要使用 stdx，鉴于一些 AI 开发工具未启用网络下载功能，因此建议您手动下载所需版本的 stdx 并解压到项目根目录，AI 会根据 Skills 指导自动配置。
 
 
-**示例1**：使用 OpenCode/GLM5 开发的 [AI 聊天工具](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/AIChatPro)，支持多模型切换、JSON 配置文件、流式请求、控流打字机效果、对话上下文等功能。
+**示例**
+
+1、使用 OpenCode/GLM5 开发的 [AI 聊天工具](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/AIChatPro)，支持多模型切换、JSON 配置文件、流式请求、控流打字机效果、对话上下文等功能。
 
 ![完成开发.png](https://raw.gitcode.com/user-images/assets/9193544/d5824ec8-8fa6-4841-8a4d-10d282324109/完成开发.png '完成开发.png')
 
 ![运行效果.png](https://raw.gitcode.com/user-images/assets/9193544/65bf2447-a413-4046-99cd-f6cefc947dd4/运行效果.png '运行效果.png')
 
-**示例2**：使用 OpenCode/GLM5 + Claude Opus 4.6 开发的[仓颉语言子集解释器](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/CangjieLua)，生成 LuaVM 字节码并执行：
+2、使用 OpenCode/GLM5 + Claude Opus 4.6 开发的[仓颉语言子集解释器](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/CangjieLua)，生成 LuaVM 字节码并执行。
 
 ![glm5-初始过程.png](https://raw.gitcode.com/user-images/assets/9193544/1f6e4e6d-7b38-4893-8abe-c78ddd0574e2/glm5-初始过程.png 'glm5-初始过程.png')
 

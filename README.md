@@ -10,7 +10,7 @@
 
 - 请在全局环境配置好[仓颉通用版本工具链](https://cangjie-lang.cn/download/)，全局可引用 cjpm 等工具。
 - 这套 Skills 可支撑 AI 从零创建项目，包括配置、开发、构建、运行、单元测试等，包括 stdx、macro、CFFI 等场景的自动处理。
-- 如果项目需要使用 stdx，鉴于一些 AI 开发工具未启用联网下载功能，因此建议您手动下载所需版本的 stdx 并解压到项目根目录，AI 会根据 Skills 指导自动配置。
+- 如果项目需要使用 stdx，鉴于一些 AI 开发工具未启用网络下载功能，因此建议您手动下载所需版本的 stdx 并解压到项目根目录，AI 会根据 Skills 指导自动配置。
 
 
 **示例1**：使用 OpenCode/GLM5 开发的 [AI 聊天工具](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/AIChatPro)，支持多模型切换、JSON 配置文件、流式请求、控流打字机效果、对话上下文等功能。

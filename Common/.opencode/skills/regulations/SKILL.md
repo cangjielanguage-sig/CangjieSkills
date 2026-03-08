@@ -3,7 +3,7 @@ name: cangjie-regulations
 description: "仓颉项目规范准则。包括项目结构规范、命名规范、格式化规范、错误处理规范、测试规范、并发规范、安全规范、文档规范、依赖管理规范、版本控制规范等最佳实践指导"
 ---
 
-# 仓颉项目规范
+# 仓颉项目规范准则
 
 本规范基于仓颉语言特性、工具链能力及业界软件工程通用规范，为仓颉项目提供编码层面和项目层面的推荐准则。
 
@@ -11,11 +11,11 @@ description: "仓颉项目规范准则。包括项目结构规范、命名规范
 
 ## 1. 项目结构规范
 
-### 1.1 标准目录结构
+### 1.1 标准目录布局
 
 ```
 project-root/
-├── cjpm.toml              # 项目配置
+├── cjpm.toml              # 项目配置（必要）
 ├── src/                   # 源代码目录
 │   ├── main.cj            # 程序入口（executable 项目在根包中有 main 函数）
 │   ├── kernal/            # 子包目录，与 package 声明一致
@@ -67,15 +67,15 @@ project-root/
 
 ### 2.1 基本命名规则
 
-| 元素                            | 规则                                     | 示例                                 | 规则编号 |
-| ------------------------------- | ---------------------------------------- | ------------------------------------ | -------- |
-| 包名                            | 全小写，可含数字和下划线                 | `network`, `http_client`             | G.NAM.01 |
-| 源文件名                        | 全小写加下划线，`.cj` 后缀               | `http_client.cj`, `user_service.cj`  | G.NAM.02 |
-| 类/接口/struct/枚举/类型别名    | 大驼峰（PascalCase）                     | `HttpClient`, `UserService`          | G.NAM.03 |
-| 函数名                          | 小驼峰（camelCase）                      | `getData`, `parseResponse`           | G.NAM.04 |
+| 元素 | 规则 | 示例 | 规则编号 |
+|------|------|------|----------|
+| 包名 | 全小写，可含数字和下划线 | `network`, `http_client` | G.NAM.01 |
+| 源文件名 | 全小写加下划线，`.cj` 后缀 | `http_client.cj`, `user_service.cj` | G.NAM.02 |
+| 类/接口/struct/枚举/类型别名 | 大驼峰（PascalCase） | `HttpClient`, `UserService` | G.NAM.03 |
+| 函数名 | 小驼峰（camelCase） | `getData`, `parseResponse` | G.NAM.04 |
 | 全局 `let` 和 `static let` 常量 | 全大写下划线分隔（SCREAMING_SNAKE_CASE） | `MAX_RETRY_COUNT`, `DEFAULT_TIMEOUT` | G.NAM.05 |
-| 变量名                          | 小驼峰（camelCase）                      | `itemCount`, `userName`              | G.NAM.06 |
-| 泛型类型参数                    | 大写单字母或 PascalCase                  | `T`, `K`, `V`, `Element`             | —        |
+| 变量名 | 小驼峰（camelCase） | `itemCount`, `userName` | G.NAM.06 |
+| 泛型类型参数 | 大写单字母或 PascalCase | `T`, `K`, `V`, `Element` | — |
 
 ### 2.2 命名最佳实践
 
@@ -352,3 +352,4 @@ cjcov --format html      # 5. 生成覆盖率报告
 - 使用 `cjdb` 进行断点调试和变量检查。
 - 使用 `cjprof` 进行 CPU 采样和堆内存分析，定位性能瓶颈。
 - 使用 `cjcov` 的分支覆盖率模式（`--branch`）检查测试覆盖质量。
+

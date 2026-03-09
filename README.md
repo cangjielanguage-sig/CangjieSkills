@@ -2,6 +2,11 @@
 
 > 本项目近期快速迭代中，欢迎持续关注和参与共建，期待您的 PR
 
+Release 板块提供了一个仓颉定制版 OpenCode（Beta），接入仓颉 LSP 和 cjfmt，并集成 cangjie-tree-sitter.wasm 支持仓颉语法高亮。使用前请确保环境中可正常引用仓颉工具链，OpenCode 会适时引用 LSP 和 cjfmt。
+
+OpenCode for Cangjie：https://github.com/SunriseSummer/opencode
+TreeSitter for Cangjie：https://github.com/SunriseSummer/CangjieTreeSitter
+
 ## 通用程序开发 Skills
 
 **Common** 目录下提供了仓颉通用程序开发 Skills，并给出了基于 OpenCode 的项目模板，如果您使用其他 AI 开发工具，可以提取 `.opencode` 目录下的 `skills`，按其他工具要求部署使用。

@@ -9,8 +9,10 @@
 以使用 OpenCode 为例，在仓颉项目目录下执行如下命令：
 
 ```shell
-skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 ```
+
+如果没有 node 环境，您也可以手动下载本仓库，把 skills 部署到所用 AI 工具的搜索路径中。
 
 **注意事项**
 

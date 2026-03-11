@@ -1,1 +1,0 @@
-完成 task.md 中的任务，使用仓颉编程语言实现。优先借助 Skills 熟悉仓颉语言，如果所需知识在 Skills 中缺失或错误，再查阅 cangjie-docs-full 目录中的原始文档。

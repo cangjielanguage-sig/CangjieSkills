@@ -103,6 +103,7 @@ description: "仓颉编程语言基本概念和规则，当需要了解关键字
 - `=>` 左侧模式被匹配后，将执行右侧的 `exprs` 并跳过后续 `case` 分支
 - 注意，exprs 不需要被大括号包裹，多个表达式各占一行
 - 详见 `cangjie-pattern-match` Skill
+
 ---
 
 ## 4. 函数（基本概念）
@@ -111,3 +112,14 @@ description: "仓颉编程语言基本概念和规则，当需要了解关键字
 - 参数以逗号分隔，格式为 `name: Type`
 - 函数体 exprs 最后一个表达式默认作为返回值（可以省略 return），但一般情况下建议写 return
 - 详见 `cangjie-function` Skill
+
+---
+
+## 5. 创建、编译和运行仓颉项目
+
+- 创建项目：`cjpm init`
+- 构建项目: `cjpm build`
+- 运行项目（生成可执行文件的项目）：`cjpm run`
+- 测试项目：`cjpm test`
+- 更多用法详见 `cangjie-project-management` Skill
+

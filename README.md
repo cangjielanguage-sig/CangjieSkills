@@ -48,3 +48,4 @@ npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 
 ![798bcbe3952cb5113338efd234771581.png](https://raw.gitcode.com/user-images/assets/9193544/6b2ad68a-a2e6-448b-b581-14a79f18763e/798bcbe3952cb5113338efd234771581.png '798bcbe3952cb5113338efd234771581.png')
 
+> 集成更多仓颉语言特性的解释器项目（仓颉奔月计划）：https://github.com/SunriseSummer/MoonCangjie

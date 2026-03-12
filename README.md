@@ -19,7 +19,7 @@ npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 - 请在全局环境配置好[仓颉通用版本工具链](https://cangjie-lang.cn/download/)，全局可引用 cjpm 等工具。
 - 如果项目需要使用 stdx，鉴于一些 AI 开发工具未启用网络下载功能，因此建议您手动下载所需版本的 stdx 并解压到项目根目录，AI 会根据 Skills 指导自动配置。
 
-**OpenCode for Cangjie**
+**仓颉定制版 OpenCode**
 
 [Release](https://gitcode.com/Cangjie-SIG/CangjieSkills/releases/1.0.5.1) 板块提供了一个仓颉定制版 OpenCode（Beta），接入仓颉 LSP 和 cjfmt，并集成 cangjie-tree-sitter.wasm 支持仓颉语法高亮。使用前请确保环境中可正常引用仓颉工具链，OpenCode 会适时引用 LSP 和 cjfmt。
 

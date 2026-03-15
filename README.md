@@ -6,7 +6,7 @@
 
 > 仓颉鸿蒙应用开发 Skills：https://gitcode.com/Cangjie-SIG/CangjieSkills/tree/cangjie-harmonyos
 
-**快速安装**
+## 快速安装
 
 以使用 OpenCode 为例，在仓颉项目目录下执行如下命令：
 
@@ -21,7 +21,7 @@ npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 - 请在全局环境配置好[仓颉通用版本工具链](https://cangjie-lang.cn/download/)，全局可引用 cjpm 等工具。
 - 如果项目需要使用 stdx，鉴于一些 AI 开发工具未启用网络下载功能，因此建议您手动下载所需版本的 stdx 并解压到项目根目录，AI 会根据 Skills 指导自动配置。
 
-**仓颉定制版 OpenCode**
+## 仓颉定制版 OpenCode
 
 [Release](https://gitcode.com/Cangjie-SIG/CangjieSkills/releases) 板块提供了一个仓颉定制版 OpenCode（Beta），接入仓颉 LSP 和 cjfmt，并集成 cangjie-tree-sitter.wasm 支持仓颉语法高亮。使用前请确保环境中可正常引用仓颉工具链，OpenCode 会适时引用 LSP 和 cjfmt。
 
@@ -32,7 +32,7 @@ npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 
 
 
-**使用案例**
+## 使用案例
 
 1、使用 OpenCode/GLM5 开发的 [AI 聊天工具](https://gitcode.com/Cangjie/Cangjie-Examples/tree/1.0.0/AIChatPro)，支持多模型切换、JSON 配置文件、流式请求、控流打字机效果、对话上下文等功能。
 

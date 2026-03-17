@@ -1,8 +1,3 @@
----
-name: cangjie-entry-args
-description: "仓颉语言命令行参数处理。当需要了解仓颉 main 函数如何接收命令行参数、如何使用 std.argopt 包解析短选项/长选项/组合选项、如何开发 CLI 工具时，应使用此 Skill。"
----
-
 # 仓颉语言命令行参数处理 Skill
 
 ## 1. main 函数获取命令行参数

@@ -1,8 +1,3 @@
----
-name: cangjie-macro-build
-description: "仓颉宏包编译构建指南。当需要了解宏包的 cjc 编译命令（--compile-macro）、cjpm 项目结构与 cjpm.toml 配置、宏模块依赖管理、并行宏展开、调试模式等构建相关内容时，应使用此 Skill。"
----
-
 # 仓颉宏包编译构建 Skill
 
 ## 1. 宏包编译规则

@@ -1,8 +1,3 @@
----
-name: cangjie-websocket
-description: "仓颉语言 WebSocket 编程。当需要了解仓颉语言的WebSocket服务端升级(upgradeFromServer)、客户端升级(upgradeFromClient)、帧读写、消息分片处理、连接关闭等特性时，应使用此 Skill。"
----
-
 # 仓颉语言 WebSocket 编程 Skill
 
 ## 1. 概述

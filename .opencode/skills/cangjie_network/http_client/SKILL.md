@@ -1,16 +1,10 @@
----
-name: cangjie-http-client
-description: "仓颉语言 HTTP 客户端编程。当需要了解仓颉语言的HTTP客户端开发，包括 ClientBuilder 配置、GET/POST/PUT/DELETE 快捷请求、HttpRequestBuilder 自定义请求、响应读取与处理、Cookie 管理（CookieJar）、代理配置、连接池、自动重定向、分块上传与 Trailer、请求级超时等特性时，应使用此 Skill。HTTPS/TLS 相关内容请参阅 cangjie-https-client Skill。"
----
-
 # 仓颉语言 HTTP 客户端编程 Skill
 
 ## 1. 概述
 
-- 依赖包 `stdx.net.http`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
+- 依赖 `stdx.net.http`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
 - 支持 HTTP/1.0、1.1、2.0（RFC 9110/9112/9113/9218/7541）
 - 核心模式：`ClientBuilder` 构建 → `Client` 发送请求 → 读取响应 → `close()` 释放
-- HTTPS/TLS 配置、证书验证、HTTP/2 ALPN、Server Push 接收等内容，请参阅 `cangjie-https-client` Skill
 
 ---
 

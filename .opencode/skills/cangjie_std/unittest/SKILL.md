@@ -1,8 +1,3 @@
----
-name: cangjie-unittest
-description: "仓颉语言单元测试。当需要了解如何使用仓颉单元测试框架编写测试（@Test/@TestCase）、断言（@Assert/@Expect/@PowerAssert）、生命周期（@BeforeAll/@AfterAll/@BeforeEach/@AfterEach）、参数化测试、基准测试(@Bench)、动态测试(@TestBuilder)、测试模板(@TestTemplate)、Mock/Spy 对象、桩配置(@On)、验证(@Called/Verify)等特性时，应使用此 Skill。"
----
-
 # 仓颉语言单元测试 Skill
 
 ## 1. 快速入门

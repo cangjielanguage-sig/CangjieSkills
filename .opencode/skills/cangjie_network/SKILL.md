@@ -13,13 +13,11 @@ description: "提供仓颉网络编程指导文档，包括socket/tcp/udp/tls/ht
 
 [http_server](./http_server/SKILL.md)：仓颉 HTTP 服务端编程
 
-[https_client](./http_client/SKILL.md)：仓颉 HTTPS 客户端编程
+[https_client](./https_client/SKILL.md)：仓颉 HTTPS 客户端编程
 
-[https_server](./http_server/SKILL.md)：仓颉 HTTPS 服务端编程
+[https_server](./https_server/SKILL.md)：仓颉 HTTPS 服务端编程
 
-[tls](./tls/SKILL.md)：仓颉 TLS 安全通信编程
-
-[tls_build](./tls_build/SKILL.md)：仓颉 TLS 项目编译构建指南
+[tls](./tls/SKILL.md)：仓颉 TLS 安全通信编程，包括这类项目的配置构建指导
 
 
 

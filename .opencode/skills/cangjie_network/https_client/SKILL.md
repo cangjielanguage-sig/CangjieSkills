@@ -1,17 +1,9 @@
----
-name: cangjie-https-client
-description: "仓颉语言 HTTPS 客户端编程。当需要了解仓颉语言的 HTTPS 客户端开发，包括 TlsClientConfig 配置、证书验证模式（Default/TrustAll/CustomCA）、ALPN 与 HTTP/2 启用、双向 TLS 认证（客户端证书）、HTTP/2 Server Push 接收、自定义 TCP+TLS 连接、TLS 版本与密码套件配置等特性时，应使用此 Skill。"
----
-
 # 仓颉语言 HTTPS 客户端编程 Skill
 
 ## 1. 概述
 
 - HTTPS = HTTP + TLS，在 HTTP 客户端基础上添加 TLS 加密层
-- 依赖包 `stdx.net.http` 和 `stdx.net.tls`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
-- 关于 TLS 底层配置（TlsSocket、TlsSession、密码套件等），请参阅 `cangjie-tls` Skill
-- 关于 HTTP 客户端基础功能（ClientBuilder、请求方法、Cookie、代理等），请参阅 `cangjie-http-client` Skill
-- 依赖 **OpenSSL 3**（libssl + libcrypto），使用前需安装
+- 依赖 `stdx.net.http` 和 `stdx.net.tls`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
 - 核心流程：配置 `TlsClientConfig` → 传入 `ClientBuilder.tlsConfig()` → 发送 HTTPS 请求
 
 ---

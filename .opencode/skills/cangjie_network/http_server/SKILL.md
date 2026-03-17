@@ -1,16 +1,10 @@
----
-name: cangjie-http-server
-description: "仓颉语言 HTTP 服务端编程。当需要了解仓颉语言的HTTP服务端开发，包括 ServerBuilder 配置、路由注册与请求分发、HttpContext 请求处理、HttpResponseBuilder 响应构建、分块传输与 Trailer、静态文件服务、重定向、日志、优雅关闭、Gzip 压缩等特性时，应使用此 Skill。HTTPS/TLS 相关内容请参阅 cangjie-https-server Skill。"
----
-
 # 仓颉语言 HTTP 服务端编程 Skill
 
 ## 1. 概述
 
-- 依赖包 `stdx.net.http`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
+- 依赖 `stdx.net.http`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
 - 支持 HTTP/1.0、1.1、2.0（RFC 9110/9112/9113/9218/7541）
 - 核心模式：`ServerBuilder` 构建 → `Server` 注册路由 → `serve()` 阻塞运行
-- HTTPS/TLS 配置、证书热更新、双向认证、HTTP/2 Server Push 等内容，请参阅 `cangjie-https-server` Skill
 
 ---
 

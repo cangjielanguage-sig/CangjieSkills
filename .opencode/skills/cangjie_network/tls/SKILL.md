@@ -1,8 +1,3 @@
----
-name: cangjie-tls
-description: "仓颉语言 TLS 安全通信。当需要了解仓颉 stdx.net.tls 包的 TLS 核心功能、客户端/服务端配置（TlsClientConfig/TlsServerConfig）、TlsSocket 用法、证书验证模式、会话恢复、ALPN 协商、双向认证等信息时，应使用此 Skill。"
----
-
 # 仓颉语言 TLS 安全通信 Skill
 
 ## 1. 概述
@@ -15,9 +10,9 @@ description: "仓颉语言 TLS 安全通信。当需要了解仓颉 stdx.net.tls
 - 依赖 **OpenSSL 3** 动态库
 - 通常与 HTTP 模块（`stdx.net.http`）集成使用，也可独立用于 TCP 层 TLS 加密
 
-**导入**：`import stdx.net.tls.*`
+配置构建：
 
-- 关于 OpenSSL 安装、cjpm.toml 配置和各平台编译构建，请参阅 `cangjie-tls-build` Skill
+- 关于 OpenSSL 安装、cjpm.toml 配置和各平台编译构建，请参阅`./build/SKILL.md`
 - 关于扩展标准库 `stdx` 的下载与配置，请参阅 `cangjie-stdx` Skill
 
 ---
@@ -297,8 +292,6 @@ main() {
     client.close()
 }
 ```
-
-> 更多 HTTPS 用法请参阅 `cangjie-https-client` 和 `cangjie-https-server` Skill。
 
 ---
 

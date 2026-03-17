@@ -1,6 +1,6 @@
 ---
 name: cangjie-macro
-description: "仓颉语言宏。当需要了解仓颉语言的Token/Tokens类型、quote表达式与插值、非属性宏、属性宏、嵌套宏与通信、std.ast包与语法节点(AST)解析时，应使用此 Skill。"
+description: "当需要了解仓颉语言宏与元编程、Token/Tokens类型、quote表达式与插值、非属性宏、属性宏、嵌套宏与通信、std.ast包与语法节点解析时，应使用此 Skill"
 ---
 
 # 仓颉语言宏 Skill
@@ -166,7 +166,7 @@ class MyVisitor <: Visitor {
 
 ## 5. 宏包编译与构建
 
-> **详细的编译构建指导**请参考 `cangjie-macro-build` Skill，包含 cjc/cjpm 编译命令、项目结构、不同平台配置、并行宏展开、调试模式等完整说明。
+> **详细的编译构建指导**请查阅`./build/SKILL.md`，包含 cjc/cjpm 编译命令、项目结构、不同平台配置、并行宏展开、调试模式等完整说明。
 
 ### 基本规则
 - 宏须在 `macro package` 声明的包中，宏定义和调用**须**在不同包中

@@ -1,8 +1,3 @@
----
-name: cangjie-fs
-description: "仓颉语言文件系统操作。当需要了解仓颉语言的文件读写(File)、目录操作(Directory)、路径处理(Path)、文件信息(FileInfo)、文件系统函数(exists/copy/rename/remove)等特性时，应使用此 Skill。"
----
-
 # 仓颉语言文件系统 Skill
 
 ## 1. File 类

@@ -1,8 +1,3 @@
----
-name: cangjie-std-hashset
-description: "仓颉标准库 HashSet 类型使用指南。当需要了解 HashSet 的构造、增删、查询、集合运算（交集/并集/差集）、容量管理、遍历、相等比较等操作时，应使用此 Skill"
----
-
 # 仓颉标准库 HashSet
 
 ## 1. 概述

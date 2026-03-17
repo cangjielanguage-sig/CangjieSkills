@@ -1,17 +1,9 @@
----
-name: cangjie-https-server
-description: "仓颉语言 HTTPS 服务端编程。当需要了解仓颉语言的 HTTPS 服务端开发，包括 TlsServerConfig 配置、证书加载、ALPN 与 HTTP/2 启用、证书热更新（updateCert/updateCA）、双向 TLS 认证（mTLS）、HTTP/2 Server Push、TLS 版本与密码套件配置、客户端证书验证等特性时，应使用此 Skill。"
----
-
 # 仓颉语言 HTTPS 服务端编程 Skill
 
 ## 1. 概述
 
 - HTTPS = HTTP + TLS，在 HTTP 服务端基础上添加 TLS 加密层
-- 依赖包 `stdx.net.http` 和 `stdx.net.tls`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
-- 关于 TLS 底层配置（TlsSocket、TlsSession、密码套件等），请参阅 `cangjie-tls` Skill
-- 关于 HTTP 服务端基础功能（ServerBuilder、路由注册、HttpContext 等），请参阅 `cangjie-http-server` Skill
-- 依赖 **OpenSSL 3**（libssl + libcrypto），使用前需安装
+- 依赖 `stdx.net.http` 和 `stdx.net.tls`，关于扩展标准库 `stdx` 的配置用法，请参阅 `cangjie-stdx` Skill
 - 核心流程：加载证书/私钥 → 配置 `TlsServerConfig` → 传入 `ServerBuilder.tlsConfig()` → 启动 HTTPS 服务
 
 ---

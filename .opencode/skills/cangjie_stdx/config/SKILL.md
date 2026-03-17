@@ -1,8 +1,3 @@
----
-name: cangjie-stdx-config
-description: "依赖仓颉扩展标准库（stdx）的项目配置与构建指南，包括stdx获取和不同平台的配置/构建/运行方式"
----
-
 # 仓颉扩展标准库（stdx）项目配置与构建 Skill
 
 ## 1. stdx 下载与安装

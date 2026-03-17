@@ -1,6 +1,6 @@
 ---
-name: cangjie-ffi
-description: "仓颉语言外部函数接口(FFI)。当需要了解仓颉与C程序互操作，包括foreign声明、CFunc、inout参数、unsafe块、调用约定、类型映射(基础类型/结构体/CPointer/VArray/CString)、C回调仓颉、内存管理(LibC/CPointerResource/CStringResource/acquireArrayRawData)等特性时，应使用此 Skill。"
+name: cangjie-cffi
+description: "仓颉程序与C程序互操作指导，包括foreign声明、CFunc、inout参数、unsafe块、调用约定、类型映射(基础类型/结构体/CPointer/VArray/CString)、C回调仓颉、内存管理等特性时，应使用此 Skill"
 ---
 
 # 仓颉 C 互操作 Skill
@@ -555,7 +555,7 @@ main() {
 
 ## 5. 编译构建
 
-> **详细编译构建指导**请参考 `cangjie-ffi-build` Skill
+**编译构建指导**请查阅 `./build/SKILL.md`，包括仓颉 C 互操作项目的配置/构建/运行方法（涵盖动态库、静态库及不同平台的使用指导）
 
 ---
 

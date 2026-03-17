@@ -1,8 +1,3 @@
----
-name: cangjie-cjfmt
-description: "仓颉格式化工具 cjfmt。当需要了解如何使用 cjfmt 格式化仓颉代码，包括单文件格式化、目录格式化、片段格式化、格式化配置文件(cangjie-format.toml)、格式化规则（缩进、大括号、空格、空行、分号、修饰符排序、注释）等，应使用此 Skill。"
----
-
 # 仓颉格式化工具 cjfmt Skill
 
 ## 1. 概述

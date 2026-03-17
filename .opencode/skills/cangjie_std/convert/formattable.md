@@ -1,8 +1,3 @@
----
-name: cangjie-std-format
-description: "仓颉标准库 std.convert 格式化字串方法。当需要将数值类型格式化为指定格式的字符串（如指定宽度、对齐、精度、进制显示等），应使用此 Skill。涉及 Formattable 接口。"
----
-
 # 仓颉标准库格式化字串 Skill
 
 > 导入：`import std.convert.*`

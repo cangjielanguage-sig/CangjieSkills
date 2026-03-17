@@ -1,8 +1,3 @@
----
-name: cangjie-std-convert
-description: "仓颉标准库 std.convert 常用类型转换操作。当需要将字符串解析为基础类型（整数、浮点、布尔等），或将整数在不同进制间转换时，应使用此 Skill。涉及 Parsable 和 RadixConvertible 接口。"
----
-
 # 仓颉标准库类型转换 Skill
 
 > 导入：`import std.convert.*`

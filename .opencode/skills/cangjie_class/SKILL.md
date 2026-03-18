@@ -3,7 +3,7 @@ name: cangjie-class
 description: "仓颉语言类。当需要了解仓颉语言的类定义、抽象类、构造函数(init/主构造函数)、终结器(~init)、继承(单继承/sealed)、重写(override)、重定义(redef)、成员变量、成员函数、属性(prop)、访问修饰符、This类型、对象创建等特性时，应使用此 Skill。"
 ---
 
-# 仓颉语言类 Skill
+# 仓颉语言 class 使用指导
 
 ## 1. 类定义
 

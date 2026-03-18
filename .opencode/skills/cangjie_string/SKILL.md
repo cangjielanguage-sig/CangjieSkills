@@ -438,7 +438,7 @@ func runes(): Iterator<Rune>      // 按字符（Rune）迭代
 ```
 
 ```cangjie
-// 按字符迭代（推荐）
+// 按字符迭代
 for (r in "Hello 仓颉".runes()) {
     print(r)
 }

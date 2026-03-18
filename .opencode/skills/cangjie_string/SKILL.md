@@ -3,7 +3,7 @@ name: cangjie-std-string
 description: "仓颉标准库 String 类型详细指南。当需要了解 String 的构造、搜索、替换、分割、拼接、裁剪、大小写转换、编码处理、下标访问、迭代等操作的完整 API 和用法时，应使用此 Skill。"
 ---
 
-# 仓颉标准库 String 类型 Skill
+# 仓颉语言字符串
 
 ## 1. 概述
 

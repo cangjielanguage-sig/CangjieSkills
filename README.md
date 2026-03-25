@@ -14,6 +14,8 @@
 npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 ```
 
+> -a 后可以接 claude-code，cursor，antigravity，trae 等，详见 https://www.npmjs.com/package/skills
+
 如果没有 node 环境，您也可以手动下载本仓库，把 skills 部署到所用 AI 工具的搜索路径中。
 
 **注意事项**

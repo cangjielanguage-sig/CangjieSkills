@@ -2,7 +2,7 @@
 
 这套 Skills 可支撑 AI 开发工具从零创建开发仓颉项目，包括项目配置、开发、构建、运行、单元测试等，包括 stdx、macro、CFFI 等场景的自动处理。
 
-> 仓颉鸿蒙应用开发 Skills：https://gitcode.com/Cangjie-SIG/CangjieSkills/tree/cangjie-harmonyos
+> 仓颉鸿蒙应用开发 Skills 请切换 cangjie-harmonyos 分支
 
 ## 快速安装
 
@@ -12,9 +12,9 @@
 npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git -a opencode -y
 ```
 
-> `-a` 后可以接 `claude-code`，`cursor`，`antigravity`，`trae` 等，详见 https://www.npmjs.com/package/skills
-> 
-> 如果没有 node 环境，您也可以手动下载本仓库，把 skills 部署到所用 AI 工具的搜索路径中。
+> 根据您使用的 AI 开发工具，`-a` 选项后可以接 `claude-code`，`cursor`，`antigravity`，`trae` 等，其他详见 https://www.npmjs.com/package/skills
+
+如果没有 node 环境，您也可以手动下载本仓库，把 `.agents/skills` 部署到所用 AI 工具的 Skills 搜索路径中。
 
 **注意事项**
 

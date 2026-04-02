@@ -12,7 +12,9 @@
 
 ### 1.2 有效的 main 函数签名
 
-```cangjie
+> **注意**：以下是所有合法签名列表，实际项目中每个包只能定义**一个** `main` 函数。
+
+```text
 // 无参数
 main(): Unit { }
 main(): Int64 { return 0 }
@@ -179,7 +181,6 @@ main(args: Array<String>): Unit {
 ```cangjie
 import std.argopt.*
 import std.fs.*
-import std.io.*
 import std.env.*
 
 main(args: Array<String>): Unit {

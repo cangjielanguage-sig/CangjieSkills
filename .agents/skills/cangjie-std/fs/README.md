@@ -17,11 +17,11 @@
 
 | 方法 | 说明 |
 |------|------|
-| `File.create(path)` | 创建文件，返回只写 File |
-| `File.createTemp(dirPath)` | 创建临时文件 |
-| `File.readFrom(path): Array<Byte>` | 一次性读取整个文件 |
-| `File.writeTo(path, data)` | 一次性写入整个文件 |
-| `File.appendTo(path, data)` | 追加写入 |
+| `File.create(path: Path): File` | 创建文件，返回只写 File |
+| `File.createTemp(directoryPath: Path): File` | 创建临时文件 |
+| `File.readFrom(path: Path): Array<Byte>` | 一次性读取整个文件 |
+| `File.writeTo(path: Path, buffer: Array<Byte>): Unit` | 一次性写入整个文件 |
+| `File.appendTo(path: Path, buffer: Array<Byte>): Unit` | 追加写入 |
 
 - 使用 `try-with-resource` 自动关闭
 
@@ -62,11 +62,11 @@ main() {
 
 | 函数 | 说明 |
 |------|------|
-| `exists(path): Bool` | 检查文件/目录是否存在 |
-| `copy(src, to: dst, overwrite)` | 复制文件或目录 |
-| `rename(src, to: dst, overwrite)` | 重命名/移动 |
-| `remove(path, recursive)` | 删除文件或目录 |
-| `removeIfExists(path, recursive)` | 安全删除（不存在不报错） |
+| `exists(path: Path): Bool` | 检查文件/目录是否存在 |
+| `copy(sourcePath: Path, to!: Path, overwrite!: Bool)` | 复制文件或目录 |
+| `rename(sourcePath: Path, to!: Path, overwrite!: Bool)` | 重命名/移动 |
+| `remove(path: Path, recursive!: Bool)` | 删除文件或目录 |
+| `removeIfExists(path: Path, recursive!: Bool): Bool` | 安全删除（不存在不报错） |
 
 ---
 
@@ -74,11 +74,11 @@ main() {
 
 | 方法 | 说明 |
 |------|------|
-| `Directory.create(path, recursive)` | 创建目录，`recursive: true` 递归创建 |
-| `Directory.createTemp(dirPath)` | 创建临时目录 |
-| `Directory.isEmpty(path): Bool` | 检查目录是否为空 |
-| `Directory.readFrom(path): Array<FileInfo>` | 列出目录内容 |
-| `Directory.walk(path, callback)` | 遍历目录（回调返回 false 停止） |
+| `Directory.create(path: Path, recursive!: Bool)` | 创建目录，`recursive: true` 递归创建 |
+| `Directory.createTemp(directoryPath: Path): Path` | 创建临时目录 |
+| `Directory.isEmpty(path: Path): Bool` | 检查目录是否为空 |
+| `Directory.readFrom(path: Path): Array<FileInfo>` | 列出目录内容 |
+| `Directory.walk(path: Path, f: (FileInfo) -> Bool)` | 遍历目录（回调返回 false 停止） |
 
 ```cangjie
 import std.fs.*
@@ -132,7 +132,45 @@ main() {
 
 ---
 
-## 6. 异常类型
+## 6. 链接操作
+
+| 类型 | 方法 | 说明 |
+|------|------|------|
+| `HardLink` | `create(link: Path, to!: Path)` | 创建硬链接 |
+| `SymbolicLink` | `create(link: Path, to!: Path)` | 创建符号链接 |
+| `SymbolicLink` | `readFrom(path: Path, recursive!: Bool): Path` | 读取符号链接目标，`recursive: true` 递归解析 |
+
+```cangjie
+import std.fs.*
+
+main() {
+    // 创建测试文件
+    File.writeTo(Path("./original.txt"), "content".toArray())
+
+    // 创建硬链接
+    HardLink.create(Path("./hard.txt"), to: Path("./original.txt"))
+
+    // 创建符号链接
+    SymbolicLink.create(Path("./sym.txt"), to: Path("./original.txt"))
+
+    // 读取符号链接指向的目标路径
+    let target = SymbolicLink.readFrom(Path("./sym.txt"), recursive: true)
+    println("Symlink target: ${target}")
+
+    // 验证硬链接内容一致
+    let data = File.readFrom(Path("./hard.txt"))
+    println(String.fromUtf8(data))  // content
+
+    // 清理
+    remove(Path("./hard.txt"))
+    remove(Path("./sym.txt"))
+    remove(Path("./original.txt"))
+}
+```
+
+---
+
+## 7. 异常类型
 
 | 异常 | 说明 |
 |------|------|
@@ -140,10 +178,12 @@ main() {
 
 ---
 
-## 7. 关键规则速查
+## 8. 关键规则速查
 
 1. 文件使用 `try-with-resource` 自动关闭
 2. `File.readFrom` / `File.writeTo` / `File.appendTo` 是便捷的一次性读写方法
 3. `FileInfo` 每次属性访问都是实时文件系统查询，注意并发竞态
 4. `Directory.create` 需要 `recursive: true` 才能递归创建多级目录
 5. `remove` 删除目录时需要 `recursive: true`
+6. `HardLink.create` 创建硬链接，`SymbolicLink.create` 创建符号链接
+7. `SymbolicLink.readFrom` 读取链接目标，`recursive: true` 递归解析

@@ -55,6 +55,11 @@ class Circle <: Shape {
 }
 
 // 包外不能实现 Shape（sealed），但可通过非 sealed 的 public 子接口间接实现
+
+main() {
+    let c = Circle(5.0)
+    println(c.area())  // 输出：78.539750
+}
 ```
 
 ---
@@ -341,7 +346,12 @@ interface I {
     func f(): Unit
 }
 
+// 以下代码编译会报错：实现接口成员须使用 public
+// open class C <: I {
+//     protected func f() {}  // ❌ Error: 须为 public
+// }
+
 open class C <: I {
-    protected func f() {}  // ❌ Error: 须为 public
+    public func f() {}  // ✅ 正确: public 修饰
 }
 ```

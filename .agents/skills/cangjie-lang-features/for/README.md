@@ -4,11 +4,11 @@
 
 ### 1.1 语法
 ```cangjie
-for (item in sequence) {
-    exprs
+for (item in [1, 2, 3]) {
+    println(item)
 }
 ```
-- `sequence` 须实现 `Iterable<T>` 接口
+- 迭代对象须实现 `Iterable<T>` 接口
 - `sequence` 表达式**仅在首次迭代前求值一次**
 - 循环表达式类型为 `Unit`，值为 `()`
 
@@ -78,10 +78,12 @@ interface Iterator<T> <: Iterable<T> {
 
 ### 3.2 for-in 脱糖
 ```cangjie
+let list = [10, 20, 30]
 for (i in list) { println(i) }
 ```
 等价于：
 ```cangjie
+let list = [10, 20, 30]
 var it = list.iterator()
 while (let Some(i) <- it.next()) {
     println(i)
@@ -94,7 +96,7 @@ while (let Some(i) <- it.next()) {
 | `Range<T>` | `T` | ✅ |
 | `Array<T>` | `T` | ✅ |
 | `ArrayList<T>` | `T` | ✅ |
-| `String` | `Rune` | ✅ |
+| `String` | `Byte`（UTF-8 字节） | ✅ |
 | `HashMap<K, V>` | `(K, V)` | ❌ |
 | `HashSet<T>` | `T` | ❌ |
 
@@ -159,13 +161,15 @@ for (ch in "Hi仓颉") {
 }
 ```
 
-如果需要逐字符（Rune）迭代，可以先调用 `toRuneArray()` 转为字符数组后再使用：
+如果需要逐字符（Rune）迭代，请使用 `runes()` 方法获取 `Iterator<Rune>`：
 
 ```cangjie
-for (ch in "Hi仓颉".toRuneArray()) {
+for (ch in "Hi仓颉".runes()) {
     println(ch)  // 逐个输出：H i 仓 颉
 }
 ```
+
+> 也可以用 `toRuneArray()` 转为 `Array<Rune>` 后再迭代，但 `runes()` 返回迭代器，避免额外的数组分配，是更推荐的方式。
 
 ---
 
@@ -221,12 +225,13 @@ main() {
 ### 6.2 Range 计数循环
 - 固定次数循环优先用 Range，无需手动维护计数器：
   ```cangjie
+  let n = 3
   // ✅ 推荐
-  for (_ in 0..n) { doSomething() }
+  for (_ in 0..n) { println("hello") }
 
   // ❌ 不推荐
   var i = 0
-  while (i < n) { doSomething(); i++ }
+  while (i < n) { println("hello"); i++ }
   ```
 
 ### 6.3 where 替代 if

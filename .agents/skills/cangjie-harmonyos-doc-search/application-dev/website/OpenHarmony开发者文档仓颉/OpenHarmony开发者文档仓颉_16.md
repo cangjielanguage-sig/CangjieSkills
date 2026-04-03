@@ -1,0 +1,60 @@
+- 使用HiAppEvent订阅事件
+                        - 应用事件
+                            - [订阅应用事件](dfx/cj-hiappevent-watcher-app-events.md)
+                        - 系统事件
+                            - 崩溃事件
+                                - [崩溃事件介绍](dfx/cj-hiappevent-watcher-crash-events.md)
+                                - [订阅崩溃事件](dfx/cj-hiappevent-watcher-crash-events-cangjie.md)
+                            - 应用冻屏事件
+                                - [应用冻屏事件介绍](dfx/cj-hiappevent-watcher-freeze-events.md)
+                                - [订阅应用冻屏事件](dfx/cj-hiappevent-watcher-freeze-events-cangjie.md)
+                    - [事件上报](dfx/cj-hiappevent-event-reporting.md)
+                - 性能跟踪
+                    - [查看HiTraceMeter日志](dfx/cj-hitracemeter-view.md)
+                - 错误管理
+                    - [错误管理开发指导](dfx/cj-errormanager-guidelines.md)
+                - 命令行工具<!--perform-command-line-utilities-->
+                    - [hdc](tools/cj-hdc.md)
+                    - [hilog](tools/cj-hilog.md)
+                    - [hidumper](tools/cj-hidumper.md)
+                    - [hitrace](tools/cj-hitrace.md)
+                    - [hiperf](tools/cj-hiperf.md)
+            - Test Kit（应用测试服务）
+                - [Test Kit简介](application-test/cj-test-kit-overview.md)
+                - [自动化测试框架使用指导](application-test/cj-arkxtest-guidelines.md)
+            - 调试命令
+                - [aa工具](tools/cj-aa-tool.md)
+                - [bm工具](tools/cj-bm-tool.md)
+                - 打包拆包工具
+                    - [打包工具](tools/cj-packing-tool.md)
+                    - [拆包工具](tools/cj-unpacking-tool.md)
+                - [扫描工具](tools/cj-app-check-tool.md)
+                - [cem工具](tools/cj-cem-tool.md)
+                - [anm工具](tools/cj-anm-tool.md)
+                - [restool工具](tools/cj-restool.md)
+                - [param工具](tools/cj-param-tool.md)
+                - [power-shell工具](tools/cj-power-shell.md)
+                - [atm工具](tools/cj-atm-tool.md)
+                <!--Del-->
+                - [acm工具](tools/cj-acm-tool.md)
+                <!--DelEnd-->
+                - 命令行工具
+                    - [toybox](tools/cj-toybox.md)
+                    - [mediatool工具](tools/cj-mediatool.md)
+                    - [devicedebug工具](tools/cj-devicedebug-tool.md)
+    - 媒体
+        - Camera Kit（相机服务）
+            - [Camera Kit简介](media/camera/cj-camera-overview.md)
+            - [开发准备](media/camera/cj-camera-preparation.md)
+            - 开发相机应用必选能力
+                - [相机管理](media/camera/cj-camera-device-management.md)
+                - [设备输入](media/camera/cj-camera-device-input.md)
+                - [会话管理](media/camera/cj-camera-session-management.md)
+            - 开发相机应用基础能力
+                - [手电筒使用](media/camera/cj-camera-torch-use.md)
+        - Image Kit（图片处理服务）
+            - [Image Kit简介](media/image/cj-image-overview.md)
+            - 图片开发指导
+                - 图片解码
+                    - [使用ImageSource完成图片解码](media/image/cj-image-decoding.md)
+                - 图片编辑和处理

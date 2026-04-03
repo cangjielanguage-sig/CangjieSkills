@@ -1,0 +1,5 @@
+one | **命名参数。**  设置弹窗背板的高度。<br />**说明：**<br />- 弹窗高度默认最大值：None。<br />- 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。 |
+| borderWidth | Option\<[Length](./cj-common-types.md#interface-length)> | 否 | 0.vp | **命名参数。**  可分别设置4个边框宽度。<br /> 百分比参数方式：以父元素弹窗宽的百分比来设置弹窗的边框宽度。<br />当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。<br/>**说明：**<br/>当borderWidth属性类型为LocalizedEdgeWidths时，支持随语言习惯改变布局顺序。 |
+| borderColor | Option\<[Color](./cj-common-types.md#class-color)> | 否 | Color.BLACK | **命名参数。**  设置弹窗背板的边框颜色。<br/> 如果使用borderColor属性，需要和borderWidth属性一起使用。**说明：**<br/>当borderColor属性类型为LocalizedEdgeColors时，支持随语言习惯改变布局顺序。 |
+| borderStyle | Option\<[EdgeStyle](./cj-dialog-actionsheet.md#class-edgestyle)> | 否 |  EdgeStyle.SOILD | **命名参数。**  设置弹窗背板的边框样式。<br/>如果使用borderStyle属性，需要和borderWidth属性一起使用。 |
+| textStyle | Option\<[WordBreak](./cj-common-types.md#enum-wordbreak)> | 否 | WordBreak.Normal | **命名参数。**  设置弹窗message内容的文本样式。 |

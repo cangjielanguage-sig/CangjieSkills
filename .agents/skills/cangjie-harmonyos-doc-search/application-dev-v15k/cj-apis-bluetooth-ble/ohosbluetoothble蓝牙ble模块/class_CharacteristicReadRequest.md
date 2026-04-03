@@ -1,0 +1,127 @@
+## class CharacteristicReadRequest
+
+```cangjie
+public class CharacteristicReadRequest {
+    public CharacteristicReadRequest(
+        public let deviceId: String,
+        public let transId: Int32,
+        public let offset: Int32,
+        public let characteristicUuid: String,
+        public let serviceUuid: String
+    )
+}
+```
+
+**功能：** 描述server端订阅后收到的特征值读请求事件参数类。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**起始版本：** 19
+
+### let characteristicUuid
+
+```cangjie
+public let characteristicUuid: String
+```
+
+**功能：** 特定特征（characteristic）的UUID，例如：00002a11-0000-1000-8000-00805f9b34fb。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**类型：** String
+
+**读写能力：** 只读
+
+**起始版本：** 19
+
+### let deviceId
+
+```cangjie
+public let deviceId: String
+```
+
+**功能：** 表示发送特征值读请求的远端设备地址，例如："XX:XX:XX:XX:XX:XX"。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**类型：** String
+
+**读写能力：** 只读
+
+**起始版本：** 19
+
+### let offset
+
+```cangjie
+public let offset: Int32
+```
+
+**功能：** 表示读特征值数据的起始位置。例如：k表示从第k个字节开始读，server端回复响应时需填写相同的offset。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**类型：** Int32
+
+**读写能力：** 只读
+
+**起始版本：** 19
+
+### let serviceUuid
+
+```cangjie
+public let serviceUuid: String
+```
+
+**功能：** 特定服务（service）的UUID，例如：00001888-0000-1000-8000-00805f9b34fb。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**类型：** String
+
+**读写能力：** 只读
+
+**起始版本：** 19
+
+### let transId
+
+```cangjie
+public let transId: Int32
+```
+
+**功能：** 表示写请求的传输ID，server端回复响应时需填写相同的传输ID。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**类型：** Int32
+
+**读写能力：** 只读
+
+**起始版本：** 19
+
+### CharacteristicReadRequest(String, Int32, Int32, String, String)
+
+```cangjie
+public CharacteristicReadRequest(
+    public let deviceId: String,
+    public let transId: Int32,
+    public let offset: Int32,
+    public let characteristicUuid: String,
+    public let serviceUuid: String
+)
+```
+
+**功能：** CharacteristicReadRequest 构造器。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**起始版本：** 19
+
+**参数：**
+
+|参数名|类型|必填|说明|
+|:---|:---|:---|:---|
+|deviceId|String|是|表示发送特征值读请求的远端设备地址，例如："XX:XX:XX:XX:XX:XX"。|
+|transId|Int32|是|表示读请求的传输ID，server端回复响应时需填写相同的传输ID。|
+|offset|Int32|是|表示读特征值数据的起始位置。例如：k表示从第k个字节开始读，server端回复响应时需填写相同的offset。|
+|characteristicUuid|String|是|特定特征（characteristic）的UUID，例如：00002a11-0000-1000-8000-00805f9b34fb。|
+|serviceUuid|String|是|特定服务（service）的UUID，例如：00001888-0000-1000-8000-00805f9b34fb。|

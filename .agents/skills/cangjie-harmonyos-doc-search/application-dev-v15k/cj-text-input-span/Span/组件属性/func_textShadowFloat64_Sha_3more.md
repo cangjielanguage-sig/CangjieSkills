@@ -1,0 +1,69 @@
+### func textShadow(Float64, ShadowType, Float64, Float64, ResourceColor, Bool)
+
+```cangjie
+public func textShadow(
+    radius!: Float64,
+    shadowType!: ShadowType = ShadowType.COLOR,
+    offsetX!: Float64 = 0.0,
+    offsetY!: Float64 = 0.0,
+    color!: ResourceColor = Color.BLACK,
+    fill!: Bool = false
+): This
+```
+
+**功能：** 设置文字阴影效果。该接口支持以数组形式入参，实现多重文字阴影。不支持fill字段，不支持智能取色模式。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 19
+
+**参数：**
+
+|参数名|类型|必填|默认值|说明|
+|:---|:---|:---|:---|:---|
+|radius|Float64|是|-| **命名参数。** 阴影模糊半径。<br/>取值范围：[0, +∞)。<br/>单位：px。<br/>设置小于0的值时，按值为0处理。如需使用vp单位的数值可用[vp2px](./cj-common-pixelunits.md)进行转换。|
+|shadowType|[ShadowType](#enum-shadowtype)|否|ShadowType.COLOR| **命名参数。** 阴影类型。|
+|offsetX|Float64|否|0.0| **命名参数。** 阴影的 X 轴偏移量。<br/>单位：px。<br/> 如需使用vp单位的数值可用[vp2px](./cj-common-pixelunits.md)进行转换。|
+|offsetY|Float64|否|0.0| **命名参数。** 阴影的 Y 轴偏移量。<br/>单位：px。<br/> 如需使用vp单位的数值可用[vp2px](./cj-common-pixelunits.md)进行转换。|
+|color|[ResourceColor](./cj-common-types.md#interface-resourcecolor)|否|Color.BLACK| **命名参数。** 阴影的颜色。|
+|fill|Bool|否|false| **命名参数。** 阴影是否内部填充。|
+
+### func textShadow(Array\<ShadowOptions>)
+
+```cangjie
+public func textShadow(values: Array<ShadowOptions>): This
+```
+
+**功能：** 设置文字阴影效果。
+
+> **说明：**
+>
+> 该接口支持以数组形式入参，实现多重文字阴影。不支持fill字段，不支持智能取色模式。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 19
+
+**参数：**
+
+|参数名|类型|必填|默认值|说明|
+|:---|:---|:---|:---|:---|
+|values|Array\<[ShadowOptions](./cj-text-input-text.md#class-shadowoptions)>|是|-|文字阴影效果。|
+
+### func textBackgroundStyle(TextBackgroundStyle)
+
+```cangjie
+public func textBackgroundStyle(textBackgroundStyle: TextBackgroundStyle): This
+```
+
+**功能：** 设置背景样式。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**起始版本：** 19
+
+**参数：**
+
+|参数名|类型|必填|默认值|说明|
+|:---|:---|:---|:---|:---|
+|textBackgroundStyle|[TextBackgroundStyle](#class-textbackgroundstyle)|是|-|背景样式。|

@@ -1,0 +1,49 @@
+- [使用PixelMap完成图像变换](media/image/cj-image-transformation.md)
+                    - [使用PixelMap完成位图操作](media/image/cj-image-pixelmap-operation.md)
+                    - [编辑图片EXIF信息](media/image/cj-image-tool.md)
+                - 图片接收
+                    - [使用ImagePacker完成图片编码](media/image/cj-image-encoding.md)
+        - Media Kit（媒体服务）
+            - 媒体开发指导
+                - 媒体信息查询
+                    - [使用AVImageGenerator提取视频指定时间图像](media/media/cj-avimagegenerator.md)
+                - [AVCodec支持的格式](media/media/cj-avcodec-support-formats.md)
+        - Media Library Kit（媒体文件管理服务）
+            <!--RP6--><!--RP6End-->
+            - 受限开放能力
+                - [系统相册资源使用指导](media/medialibrary/cj-photoAccessHelper-systemAlbum-guidelines.md)
+    - 图形
+        - ArkGraphics 2D（方舟2D图形服务）
+            - [ArkGraphics 2D简介](graphics/cj-arkgraphics2D-introduction.md)
+            - 使用可变帧率能力定制不同内容的绘制帧率
+                - [可变帧率简介](graphics/cj-displaysync-overview.md)
+                - [请求动画绘制帧率](graphics/cj-displaysync-animation.md)
+    - 应用服务
+        - Location Kit（位置服务）
+            - [Location Kit简介](location/cj-location-kit-intro.md)
+            - [申请位置权限开发指导](location/cj-location-permission-guidelines.md)
+            - [获取设备的位置信息开发指导](location/cj-location-guidelines.md)
+- API参考
+    - API参考概述
+        - [开发说明](reference/cj-development-intro.md)
+        - [系统能力SystemCapability使用指南](reference/cj-syscap.md)
+        - 系统能力SystemCapability列表
+            - [Phone](reference/cj-phone-syscap-list.md)
+            - [Tablet](reference/cj-tablet-syscap-list.md)
+        - [API标签化管控](reference/cj-ifavailable.md)
+        - [通用错误码](reference/cj-errorcode-universal.md)
+    - 应用框架
+        - Ability Kit（程序框架服务）
+            - 仓颉API
+                - [ohos.app.ability.ui_ability](reference/AbilityKit/cj-apis-app-ability-ui_ability.md)
+                - [ohos.app.ability.want（Want）](reference/AbilityKit/cj-apis-app-ability-want.md)
+                - [ohos.ability_access_ctrl（程序访问控制管理）](reference/AbilityKit/cj-apis-ability_access_ctrl.md)
+                - [ohos.bundle.bundle_manager（bundleManager管理）](reference/AbilityKit/cj-apis-bundle_manager.md)
+                - [ohos.app.ability.ability_stage](reference/AbilityKit/cj-apis-app-ability-ability_stage.md)
+                - [ohos.ability.ability_result](reference/AbilityKit/cj-apis-ability-ability_result.md)
+                - [ohos.app.ability.app_recovery（应用故障恢复）](reference/AbilityKit/cj-apis-app-ability-app_recovery.md)
+                - [ohos.app.ability.ability_constant](reference/AbilityKit/cj-apis-app-ability-ability_constant.md)
+                - [ohos.app.ability.context_constant](reference/AbilityKit/cj-apis-app-ability-context_constant.md)
+                - [ohos.app.ability.dialog_request](reference/AbilityKit/cj-apis-app-ability-dialog_request.md)
+                - [ohos.app.ability.start_options](reference/AbilityKit/cj-apis-app-ability-start_options.md)
+                - [ohos.app.ability.want_constant（Want常量）](ref

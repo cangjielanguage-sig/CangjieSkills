@@ -36,15 +36,15 @@ echo 'DEVECO_HOME=C:\Program Files\Huawei\DevEco Studio' > .env
 
 | 分类 | Skill | 说明 |
 |------|-------|------|
-| **鸿蒙开发** | `cangjie-harmonyos-doc-search` | 鸿蒙 UI 组件、系统能力 API、框架机制与状态管理文档语义检索 |
+| **鸿蒙开发** | `cangjie-harmonyos-doc-search` | 基于Openviking的鸿蒙开发文档语义检索 |
 | | `harmonyos-project-init` | 从零初始化可运行的仓颉鸿蒙项目模板（含完整目录与配置） |
-| | `harmonyos-requirements` | 鸿蒙需求分析与技术设计流程（先分析设计、后编码） |
-| | `harmonyos-build` | 标准构建流程执行、日志采集与按优先级诊断 |
-| | `harmonyos-evolution` | 构建成功后沉淀经验，失败排查时优先匹配已验证方案 |
+| | `harmonyos-requirements` | 鸿蒙需求分析与设计 Skill（需求分析→方案设计→知识搜集） |
+| | `harmonyos-build` | 标准构建与日志采集，失败按固定优先级排查（Evolution→基础技能→文档检索） |
+| | `harmonyos-evolution` | 仅沉淀 BUILD SUCCESSFUL 后的已验证经验，失败排查优先复用历史记录 |
 | | `harmonyos-stdx` | 鸿蒙项目 stdx 依赖自动解压与 `entry/cjpm.toml` 路径配置 |
-| | `harmonyos-ui-inspect` | 构建成功后采集截图与控件树，分析 UI 状态并给出迭代建议 |
+| | `harmonyos-ui-inspect` | 构建成功后采集截图与控件树，结合源码生成交互测试场景并模拟用户操作进行 UI 验证分析 |
 | **仓颉语言** | `cangjie-lang-features` | 仓颉语言核心特性优先参考（语法、类型、泛型、并发、项目管理等） |
-| **互操作** | `cangjie_arkts_interop` | 仓颉与 ArkTS 互操作实战（宏优先，覆盖异步/接口/类/枚举与排障） |
+| **互操作** | `cangjie_arkts_interop` | 仓颉与 ArkTS 互操作实战（@Interop 宏优先，库方式兜底） |
 | **标准库** | `cangjie-std` | 仓颉标准库常用功能速查（核心类型、集合、IO、网络、并发、正则等） |
 | | `cangjie-stdx` | 仓颉扩展标准库速查（JSON、日志、编码、HTTP、WebSocket、TLS 等） |
 | **文档兜底** | `cangjie-original-docs` | 仓颉语言 / 标准库 / 扩展标准库 / 工具链原始文档 |

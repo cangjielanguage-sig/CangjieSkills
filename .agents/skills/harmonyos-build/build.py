@@ -1,217 +1,262 @@
 #!/usr/bin/env python3
-"""跨平台 HarmonyOS 构建脚本，等效于 build.ps1。"""
+"""仓颉鸿蒙应用 跨平台构建脚本"""
 
 import argparse
 import os
 import platform
+import re
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
+from typing import NoReturn
+
+# ── 用户可配置常量（按本机实际安装路径修改） ──────────────────
+# Windows 默认路径
+DEVECO_HOME_WINDOWS = r"C:/Program Files/Huawei/DevEco Studio"
+# Linux 默认路径
+DEVECO_HOME_LINUX = "/opt/DevEco-Studio"
+# macOS 默认路径
+DEVECO_HOME_MACOS = "/Applications/DevEco-Studio.app/Contents"
+
+# ── 平台配置 ──────────────────────────────────────────────────
 
 
-def load_env(env_file: Path) -> dict:
-    """读取 .env 文件，返回键值对。"""
-    env = {}
-    if not env_file.exists():
-        return env
-    for line in env_file.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if "=" in line and not line.startswith("#"):
-            key, value = line.split("=", 1)
-            key = key.strip()
-            value = value.strip().strip("'").strip('"').strip()
-            env[key] = value
-    return env
+@dataclass(frozen=True)
+class PlatformSpec:
+    """平台相关路径与环境变量配置"""
+
+    deveco_home: Path
+    runtime_dir: str  # 可含 {arch} 占位符
+    lib_var: str | None  # 动态库搜索路径变量名，Windows 为 None
 
 
-def detect_version(project_root: Path) -> str:
-    """从 .openvk-version 读取版本，不存在时默认 8k 并写入文件。"""
-    version_file = project_root / ".openvk-version"
-    if version_file.exists():
-        version = version_file.read_text(encoding="utf-8").strip()
-        if version in ("8k", "15k"):
-            return version
-    # 默认 8k
-    version_file.write_text("8k", encoding="utf-8")
-    print("\033[33m未检测到有效版本，已默认写入 8k 到 .openvk-version\033[0m")
-    return "8k"
+PLATFORMS: dict[str, PlatformSpec] = {
+    "Windows": PlatformSpec(
+        deveco_home=Path(DEVECO_HOME_WINDOWS),
+        runtime_dir="windows_x86_64_cjnative",
+        lib_var=None,
+    ),
+    "Linux": PlatformSpec(
+        deveco_home=Path(DEVECO_HOME_LINUX),
+        runtime_dir="linux_{arch}_cjnative",
+        lib_var="LD_LIBRARY_PATH",
+    ),
+    "Darwin": PlatformSpec(
+        deveco_home=Path(DEVECO_HOME_MACOS),
+        runtime_dir="darwin_{arch}_cjnative",
+        lib_var="DYLD_LIBRARY_PATH",
+    ),
+}
 
 
-def find_cangjie_sdk(version: str) -> str | None:
-    """自动在 ~/.cangjie-sdk/ 下检测对应版本的仓颉 SDK 路径。"""
-    base = Path.home() / ".cangjie-sdk"
-    if not base.exists():
-        return None
+# ── 路径常量 ──────────────────────────────────────────────────
 
-    # 按版本号倒序扫描（优先取最新）
-    version_dirs = sorted(
-        [d for d in base.iterdir() if d.is_dir()],
-        key=lambda p: p.name,
-        reverse=True,
-    )
-
-    for vd in version_dirs:
-        if version == "8k":
-            sdk_path = vd / "cangjie"
-            if sdk_path.exists():
-                return str(sdk_path)
-        elif version == "15k":
-            compat_dirs = sorted(vd.glob("compatibility-sdk-*"), reverse=True)
-            for cd in compat_dirs:
-                sdk_path = cd / "compatibility"
-                if sdk_path.exists():
-                    return str(sdk_path)
-    return None
+DEFAULT_PROJECT_ROOT = Path.cwd()
+DEFAULT_CANGJIE_SDK = Path.home() / ".cangjie-sdk" / "6.0" / "cangjie"
+BUILD_LOG = "build.log"
 
 
-def run_cmd(cmd: list, env: dict, cwd: str | None = None):
-    """执行命令并实时输出，失败时退出。"""
-    print(f"\033[90m>>> {' '.join(str(c) for c in cmd)}\033[0m")
-    result = subprocess.run(cmd, env=env, cwd=cwd)
-    if result.returncode != 0:
-        print(f"\033[31m命令失败，返回码: {result.returncode}\033[0m")
-        sys.exit(result.returncode)
+# ── 基础工具 ──────────────────────────────────────────────────
 
 
-def capture_env_from_cangjie_setup(cangjie_sdk: str, env: dict) -> dict:
-    """执行仓颉 SDK 的 envsetup 脚本并捕获环境变量变化。"""
-    updated = dict(env)
-    is_windows = platform.system() == "Windows"
-
-    if is_windows:
-        script = Path(cangjie_sdk) / "build-tools" / "envsetup.ps1"
-        if not script.exists():
-            return updated
-        cmd = [
-            "powershell",
-            "-NoProfile",
-            "-Command",
-            f'. "{script}"; Get-ChildItem Env: | ForEach-Object {{ "$($_.Name)=$($_.Value)" }}',
-        ]
-    else:
-        script = Path(cangjie_sdk) / "build-tools" / "envsetup.sh"
-        if not script.exists():
-            return updated
-        cmd = ["bash", "-c", f'source "{script}" && env']
-
-    result = subprocess.run(cmd, capture_output=True, text=True, env=env)
-    if result.returncode == 0:
-        for line in result.stdout.splitlines():
-            if "=" in line:
-                k, v = line.split("=", 1)
-                updated[k] = v
-    return updated
+def fail(msg: str, code: int = 1) -> NoReturn:
+    print(f"\033[31m错误: {msg}\033[0m", flush=True)
+    sys.exit(code)
 
 
-def main():
-    parser = argparse.ArgumentParser(description="HarmonyOS 跨平台构建脚本")
-    parser.add_argument(
-        "-v",
-        "--version",
-        choices=["8k", "15k"],
-        default=None,
-        help="构建版本（8k 或 15k），未指定时从 .openvk-version 读取",
-    )
-    args = parser.parse_args()
+def log(msg: str, color: int = 0) -> None:
+    print(f"\033[{color}m{msg}\033[0m" if color else msg, flush=True)
 
-    # --- 项目根目录 ---
-    project_root = Path(__file__).resolve().parent
-    os.chdir(project_root)
-    print(f"\033[32m已切换至项目根目录: {project_root}\033[0m")
 
-    # --- 版本检测 ---
-    version = args.version or detect_version(project_root)
-    print(f"\033[36m当前构建版本: {version}\033[0m")
+def ensure(path: Path, label: str) -> Path:
+    """校验路径存在，不存在则退出"""
+    if not path.exists():
+        fail(f"{label} 不存在: {path}")
+    return path
 
-    # --- 读取 .env ---
-    env_config = load_env(project_root / ".env")
-    deveco_home_str = env_config.get("DEVECO_HOME", "")
-    if not deveco_home_str:
-        print("\033[31m错误: .env 文件中未配置 DEVECO_HOME\033[0m")
-        sys.exit(1)
-    deveco_home = Path(deveco_home_str)
-    if not deveco_home.exists():
-        print(f"\033[31m错误: DEVECO_HOME 路径不存在: {deveco_home}\033[0m")
-        sys.exit(1)
 
-    # --- 自动检测仓颉 SDK（.env 显式配置可覆盖） ---
-    sdk_key = f"CANGJIE_SDK_HOME-{version}"
-    env_override = env_config.get(sdk_key)
+def detect_platform() -> tuple[str, PlatformSpec]:
+    name = platform.system()
+    if name not in PLATFORMS:
+        fail(f"暂不支持的平台: {name}")
+    return name, PLATFORMS[name]
 
-    cangjie_sdk = find_cangjie_sdk(version)
-    if env_override and Path(env_override).exists():
-        cangjie_sdk = env_override
-        print(f"\033[36m使用 .env 中显式配置的仓颉 SDK: {cangjie_sdk}\033[0m")
-    elif cangjie_sdk:
-        print(f"\033[36m已自动检测仓颉 SDK [{version}]: {cangjie_sdk}\033[0m")
-    else:
-        print(f"\033[31m错误: 未找到版本 [{version}] 对应的仓颉 SDK\033[0m")
-        print(f"请确认 SDK 已安装在 ~/.cangjie-sdk/ 目录下")
-        sys.exit(1)
 
-    # --- 验证 DevEco SDK ---
-    deveco_sdk = deveco_home / "sdk"
-    if not deveco_sdk.exists():
-        print(f"\033[31m错误: SDK 路径不存在: {deveco_sdk}\033[0m")
-        sys.exit(1)
-    print(f"\033[32mSDK 路径验证成功: {deveco_sdk}\033[0m")
+def host_arch() -> str:
+    """主机架构归一化"""
+    m = platform.machine().lower()
+    if m in ("", "amd64", "x86_64"):
+        return "x86_64"
+    if m in ("arm64", "aarch64"):
+        return "aarch64"
+    return m
 
-    # --- 构建运行环境 ---
-    env = os.environ.copy()
-    env["DEVECO_HOME"] = str(deveco_home)
-    env["DEVECO_SDK_HOME"] = str(deveco_sdk)
-    env["CANGJIE_SDK_HOME"] = cangjie_sdk
-    env["DEVECO_CANGJIE_PATH"] = cangjie_sdk
 
-    # 执行仓颉 envsetup 脚本
-    env = capture_env_from_cangjie_setup(cangjie_sdk, env)
-    print(f"\033[36m已执行仓颉 SDK 环境配置\033[0m")
+# ── 命令执行 ──────────────────────────────────────────────────
+_ANSI_RE = re.compile(r"\x1b\[[0-9;]*[A-Za-z]")
 
-    # 注入 Java 环境
-    java_home = deveco_home / "jbr"
-    if java_home.exists():
-        env["JAVA_HOME"] = str(java_home)
-        java_bin = str(java_home / "bin")
-        env["PATH"] = java_bin + os.pathsep + env.get("PATH", "")
-        print(f"\033[36m已注入 Java 环境: {java_home}\033[0m")
-    else:
-        print(f"\033[33m警告: 未找到 Java 运行时: {java_home}\033[0m")
+def run(cmd: list[str], env: dict[str, str]) -> None:
+    """执行命令，实时输出并追加写入 build.log，失败时退出"""
+    log(f">>> {' '.join(cmd)}", 90)
+    proc = subprocess.Popen(cmd, env=env, stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT, text=True, errors="replace")
+    with open(BUILD_LOG, "a", encoding="utf-8") as f:
+        for line in proc.stdout:  # type: ignore[union-attr]
+            sys.stdout.write(line)
+            f.write(_ANSI_RE.sub("", line))
+    rc = proc.wait()
+    if rc:
+        fail(f"命令失败 (exit {rc})", rc)
 
-    # --- 工具路径（跨平台） ---
-    is_windows = platform.system() == "Windows"
-    ohpm = deveco_home / "tools" / "ohpm" / "bin" / ("ohpm.bat" if is_windows else "ohpm")
-    node = deveco_home / "tools" / "node" / ("node.exe" if is_windows else "node")
-    hvigorw = deveco_home / "tools" / "hvigor" / "bin" / "hvigorw.js"
 
-    # --- 执行构建流程 ---
-    print("\033[35m开始安装依赖...\033[0m")
-    if ohpm.exists():
-        run_cmd(
-            [str(ohpm), "install", "--all",
-             "--registry", "https://ohpm.openharmony.cn/ohpm/",
-             "--strict_ssl", "true"],
-            env=env,
+def run_quiet(cmd: list[str]) -> str:
+    """静默执行，失败返回空串"""
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, check=False)
+        return r.stdout.strip() if r.returncode == 0 else ""
+    except FileNotFoundError:
+        return ""
+
+
+# ── 路径变量合并 ──────────────────────────────────────────────
+
+
+def merge_path(env: dict[str, str], var: str, *dirs: Path, prepend: bool = True) -> None:
+    """将存在的目录合并到路径变量 (默认前置)，原地修改，自动去重"""
+    existing = [p for p in env.get(var, "").split(os.pathsep) if p]
+    new = [str(d) for d in dirs if d.exists()]
+    ordered = (new + existing) if prepend else (existing + new)
+
+    seen: set[str] = set()
+    result: list[str] = []
+    for entry in ordered:
+        key = os.path.normcase(os.path.normpath(entry))
+        if key not in seen:
+            seen.add(key)
+            result.append(entry)
+    env[var] = os.pathsep.join(result)
+
+
+# ── 仓颉 SDK 环境 ────────────────────────────────────────────
+
+
+def setup_cangjie_env(env: dict[str, str], sdk: Path, plat: str, spec: PlatformSpec) -> None:
+    """按 envsetup 等价规则构造仓颉 SDK 运行环境"""
+    home = ensure(sdk / "build-tools", "CANGJIE_HOME")
+    env["CANGJIE_HOME"] = str(home)
+
+    rt_dir = spec.runtime_dir.format(arch=host_arch())
+    rt_lib = home / "runtime" / "lib" / rt_dir
+    tools_lib = home / "tools" / "lib"
+
+    if spec.lib_var is None:
+        # Windows: 所有库目录统一走 PATH
+        merge_path(
+            env, "PATH",
+            tools_lib, home / "bin", home / "tools" / "bin",
+            home / "lib" / rt_dir, rt_lib,
         )
+    else:
+        merge_path(env, "PATH", home / "bin", home / "tools" / "bin")
+        merge_path(env, spec.lib_var, rt_lib, tools_lib)
 
-    print("\033[35m执行 SyncCangjieResource...\033[0m")
-    run_cmd(
-        [str(node), str(hvigorw),
-         "--mode", "module", "-p", "module=entry@default",
-         "SyncCangjieResource",
-         "--analyze=normal", "--parallel", "--incremental", "--no-daemon"],
-        env=env,
-    )
+    merge_path(env, "PATH", Path.home() / ".cjpm" / "bin", prepend=False)
 
-    print("\033[35m执行 assembleHap...\033[0m")
-    run_cmd(
-        [str(node), str(hvigorw),
-         "--mode", "module", "-p", "product=default",
-         "assembleHap",
-         "--analyze=normal", "--parallel", "--incremental", "--no-daemon"],
-        env=env,
-    )
+    if plat == "Darwin":
+        _setup_macos_extras(env, home)
 
-    print("\033[32m构建完成！\033[0m")
+
+def _setup_macos_extras(env: dict[str, str], build_tools: Path) -> None:
+    """macOS: 设置 SDKROOT、移除隔离属性、签名 debugserver"""
+    if not env.get("SDKROOT"):
+        sdkroot = run_quiet(["xcrun", "--sdk", "macosx", "--show-sdk-path"])
+        if sdkroot:
+            env["SDKROOT"] = sdkroot
+
+    run_quiet(["xattr", "-dr", "com.apple.quarantine", str(build_tools)])
+
+    ds = build_tools / "third_party" / "llvm" / "bin" / "debugserver"
+    if ds.exists():
+        run_quiet([
+            "codesign", "-s", "-", "-f",
+            "--preserve-metadata=entitlements,requirements,flags,runtime",
+            str(ds),
+        ])
+
+
+# ── DevEco 工具链 ─────────────────────────────────────────────
+
+def resolve_build_tools(deveco: Path, plat: str) -> tuple[Path, Path, Path]:
+    """定位 ohpm / node / hvigorw"""
+    _WIN_EXE = {"ohpm": "ohpm.bat", "node": "node.exe"}
+    exe = _WIN_EXE.get if plat == "Windows" else lambda name, d: d
+
+    ohpm = ensure(deveco / "tools" / "ohpm" / "bin" / exe("ohpm", "ohpm"), "ohpm")
+    node = ensure(deveco / "tools" / "node" / exe("node", "node"), "Node")
+    hvigorw = ensure(deveco / "tools" / "hvigor" / "bin" / "hvigorw.js", "hvigorw")
+    return ohpm, node, hvigorw
+
+
+# ── 主流程 ────────────────────────────────────────────────────
+
+
+def main() -> None:
+    for s in (sys.stdout, sys.stderr):
+        try:
+            s.reconfigure(encoding="utf-8", errors="replace")  # type: ignore[attr-defined]
+        except (AttributeError, OSError):
+            pass
+
+    plat, spec = detect_platform()
+
+    parser = argparse.ArgumentParser(description="仓颉鸿蒙应用 跨平台构建脚本")
+    parser.add_argument("--project-root", default=str(DEFAULT_PROJECT_ROOT),
+                        help="项目根目录路径")
+    project = Path(parser.parse_args().project_root).expanduser().resolve()
+    ensure(project, "项目路径")
+    os.chdir(project)
+    log(f"项目目录: {project}", 35)
+
+    deveco = ensure(spec.deveco_home, "DevEco Studio")
+    cangjie = ensure(DEFAULT_CANGJIE_SDK, "Cangjie SDK")
+    log(f"DevEco: {deveco}", 36)
+    log(f"Cangjie: {cangjie}", 36)
+
+    env = os.environ.copy()
+    env.update({
+        "DEVECO_HOME": str(deveco),
+        "DEVECO_SDK_HOME": str(ensure(deveco / "sdk", "DevEco SDK")),
+        "CANGJIE_SDK_HOME": str(cangjie),
+        "DEVECO_CANGJIE_PATH": str(cangjie),
+    })
+    setup_cangjie_env(env, cangjie, plat, spec)
+
+    java = ensure(deveco / "jbr", "Java Runtime")
+    env["JAVA_HOME"] = str(java)
+    merge_path(env, "PATH", java / "bin")
+    log(f"Java: {java}", 36)
+
+    ohpm, node, hvigorw = resolve_build_tools(deveco, plat)
+    hv = [str(node), str(hvigorw)]
+    hv_opts = ["--analyze=normal", "--parallel", "--incremental", "--no-daemon"]
+
+    open(BUILD_LOG, "w").close()
+
+    log("安装依赖...", 35)
+    run([str(ohpm), "install", "--all",
+         "--registry", "https://ohpm.openharmony.cn/ohpm/",
+         "--strict_ssl", "true"], env=env)
+
+    log("同步资源...", 35)
+    run([*hv, "--mode", "module", "-p", "module=entry@default",
+         "SyncCangjieResource", *hv_opts], env=env)
+
+    log("编译构建...", 35)
+    run([*hv, "--mode", "module", "-p", "product=default",
+         "assembleHap", *hv_opts], env=env)
+
+    log("构建完成", 32)
 
 
 if __name__ == "__main__":

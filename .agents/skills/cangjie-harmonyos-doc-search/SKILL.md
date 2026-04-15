@@ -7,16 +7,14 @@ description: "鸿蒙应用开发文档检索工具，遇到不熟悉的UI组件/
 
 ## 目的
 
-遇到不熟悉的鸿蒙 UI 组件、系统能力 API、状态管理或框架机制时，执行 `search.py` 检索文档
+遇到不熟悉的鸿蒙 UI 组件、系统能力 API、状态管理或框架机制时，执行 `search.py` 检索相关文档
 
 ## 使用方式
 
 ```bash
-python .agents/skills/cangjie-harmonyos-doc-search/search.py "Stack组件用法"
-python .agents/skills/cangjie-harmonyos-doc-search/search.py "怎么修改Button的尺寸" --limit 15
+python search.py "Stack组件用法"
+python search.py "怎么修改Button的尺寸" --limit N # 限制查询记录数量
 ```
-
-`--limit` 返回数量（默认 15），`--target-uri` 收敛到指定目录前缀，`--score-threshold` 过滤低相关结果
 
 ## 查询技巧
 
@@ -28,8 +26,6 @@ python .agents/skills/cangjie-harmonyos-doc-search/search.py "怎么修改Button
 
 ## 结果处理
 
-脚本输出按相关度排序的文档相对路径，在 Skill 目录下读取对应文档即可
+脚本输出按相关度排序的文档相对路径，在 Skill 目录下读取对应文档即可（harmonyos-6.1-8k，lang-features，std，stdx，tools）
 
-结果覆盖三个来源: `application-dev/`（UI 组件、系统能力 API）、`libs_stdx/`（扩展标准库）、`std/`（标准库）
-
-无结果时优先换查询词重试；服务超时或 5xx 则稍后重试
+无结果时优先换查询词重试，服务超时或 5xx 则稍后重试

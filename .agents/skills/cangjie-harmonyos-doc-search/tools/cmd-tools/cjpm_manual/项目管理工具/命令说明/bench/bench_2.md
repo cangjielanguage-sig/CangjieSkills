@@ -1,0 +1,50 @@
+- `-j, --jobs <N>` 用来指定并行编译的最大并发数，最终的最大并发数取 `N` 和 `2倍 CPU 核数` 的最小值
+- `-V, --verbose` 配置项开启后，会输出单元测试的日志
+- `-g` 用来生成 `debug` 版本的单元测试产物，此时的产物存放在 `target/debug/unittest_bin` 文件夹
+- `-i, --incremental` 用于指定测试代码的增量编译，默认情况下是全量编译
+- `--no-run` 用来仅编译单元测试产物
+- `--skip-build` 用来仅执行单元测试产物
+- `--cfg` 指定后，能够透传 `cjpm.toml` 中的自定义 `cfg` 选项
+- `--module <value>` 用于指定目标测试模块，指定的模块需要被当前模块直接或间接依赖（或者是该模块本身），也可以通过 `--module "module1 module2"` 的方式指定多个符合要求的模块。不指定时默认只测试当前模块
+- `-m, --member <value>` 仅可在工作空间下使用，可用来指定测试单个模块
+- `--target <value>` 指定后，可交叉编译生成目标平台的单元测试结果，`cjpm.toml` 中的配置可参考 `cross-compile-configuration` 部分
+- `--target-dir <value>` 用来指定单元测试产物的存放路径
+- `--dry-run` 配置后，将不执行用例，仅打印
+- `--filter <value>` 用于过滤测试的子集，`value` 的形式如下所示：
+    - `--filter=*` 匹配所有测试类
+    - `--filter=*.*` 匹配所有测试类所有测试用例（结果和*相同）
+    - `--filter=*.*Test,*.*case*` 匹配所有测试类中以 `Test` 结尾的用例，或者所有测试类中名字中带有 `case` 的测试用例
+    - `--filter=MyTest*.*Test,*.*case*,-*.*myTest` 匹配所有 `MyTest` 开头测试类中以 `Test` 结尾的用例，或者名字中带有 `case` 的用例，或者名字中不带有 `myTest` 的测试用例
+- `--include-tags <value>` 用于获取由 `@Tag` 宏指定的测试类别的子集。`value` 的形式如下：
+    - `--include-tags=Unittest` 运行所有标记为 `@Tag[Unittest]` 的测试
+    - `--include-tags=Unittest,Smoke` 运行所有标记为 `@Tag[Unittest]`、`@Tag[Smoke]` 任一或同时都有的测试
+    - `--include-tags=Unittest+Smoke` 运行所有标记为 `@Tag[Unittest, Smoke]` 同时都有的测试
+    - `--include-tags=Unittest+Smoke+JiraTask3271,Backend` 运行所有标记为 `@Tag[Backend]`、`@Tag[Unittest, Smoke, JiraTask3271]`其一的测试
+- `--exclude-tags <value>` 用于排除由 `@Tag` 宏指定的测试类别的子集。`value` 的形式如下：
+    - `--exclude-tags=Unittest` 运行所有未被标记为 `@Tag[Unittest]` 的测试
+    - `--exclude-tags=Unittest,Smoke` 运行所有未被标记为 `@Tag[Unittest]`、`@Tag[Smoke]` 其一或同时都有的测试
+    - `--exclude-tags=Unittest+Smoke+JiraTask3271` 运行所有未被标记为 `@Tag[Unittest, Smoke, JiraTask3271]` 同时都有的测试
+    - `--include-tags=Unittest --exclude-tags=Smoke` 运行所有被标记为 `@Tag[Unittest]` 且不带有 `@Tag[Smoke]` 的测试
+- `--no-color` 关闭控制台颜色显示
+- `--show-tags` 用于在测试报告中显示测试用例中 `@Tag` 的信息。在 `--dry-run` 模式下，并且测试报告为 `xml` 格式时，将始终包含 `Tag` 信息
+- `--random-seed <N>` 用来指定随机种子的值
+- `--report-path <value>` 指定执行后生成报告的路径。与 `test` 子命令不同，它具有默认值 `bench_report`
+- `--report-format <value>` 性能测试报告仅支持 `csv` 和 `csv-raw` 格式
+- `--baseline-path <value>` 与当前性能结果进行比较的现有报告的路径。默认情况下它使用 `--report-path` 值
+- `--skip-script` 配置后，将会跳过构建脚本的编译运行
+
+`cjpm bench` 参数选项使用示例:
+
+```text
+输入: cjpm bench
+输出: cjpm bench success
+
+输入: cjpm bench src
+输出: cjpm bench success
+
+输入: cjpm bench src --filter=*
+输出: cjpm bench success
+
+输入: cjpm bench src --report-format=csv
+输出: cjpm bench success
+```

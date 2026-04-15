@@ -18,7 +18,7 @@ description: "构建成功后，采集设备上的应用 UI 截图与控件树�
 ## 前置条件
 
 - 构建已通过（`BUILD SUCCESSFUL`）
-- `hdc list targets` 有设备输出（模拟器或 USB）
+- `hdc list targets` 有可用设备（模拟器或真机）
 - 应用已安装，或有 `.hap` 文件
 
 ## 诊断流程

@@ -26,11 +26,6 @@ python search.py "怎么修改Button的尺寸" --limit N # 限制查询记录数
 
 ## 结果处理
 
-### 读取对应文档
+脚本输出按相关度排序的文档相对路径，在 Skill 目录下读取对应文档即可（harmonyos-6.1-8k，lang-features，std，stdx，tools）
 
-输出路径是相对路径，源文件位于 `<backend>/.openviking/viking/default/resources/<输出路径>`。其中 `<backend>` 取自 `search.py` 中 `DEFAULT_BACKENDS` 列表里的各项，逐个尝试即可定位到文件。
-例如：harmonyos-6.1-8k 对应的是 harmonyos-6.1.0.818 backend
-
-### JSON 模式 (`--json`)
-
-输出完整 JSON 响应体，包含 `status`、`results` 等字段，可获取更多元信息
+无结果时优先换查询词重试，服务超时或 5xx 则稍后重试

@@ -26,27 +26,10 @@ python search.py "怎么修改Button的尺寸" --limit N # 限制查询记录数
 
 ## 结果处理
 
-### 默认模式
+### 读取对应文档
 
-- **有结果**: 逐行输出文档相对路径（已去除 `resources/` 前缀），按相关度排序
-- **无结果**: 标准输出为空（无任何内容）
-- **服务端错误**: stderr 输出 `服务端错误: <错误信息>`，退出码 1
-- **HTTP 错误 (4xx/5xx)**: stderr 输出 `HTTP <状态码>: <原因>`，退出码 1
-- **连接失败**: stderr 输出 `连接失败: <原因>` 及服务地址提示，退出码 1
+输出路径是相对路径，源文件位于 `<backend>/.openviking/viking/default/resources/<输出路径>`。其中 `<backend>` 取自 `search.py` 中 `DEFAULT_BACKENDS` 列表里的各项，逐个尝试即可定位到文件。
 
 ### JSON 模式 (`--json`)
 
 输出完整 JSON 响应体，包含 `status`、`results` 等字段，可获取更多元信息
-
-### 读取对应文档
-
-输出路径是相对路径，对应源文件位于 Skill 目录下各 backend 的 `.openviking/viking/default/resources/` 中:
-- `cangjie-1.0.5/.openviking/viking/default/resources/<输出路径>`
-- `harmonyos-6.1.0.818/.openviking/viking/default/resources/<输出路径>`
-
-例如输出 `lang-features/xxx.md`，对应 `cangjie-1.0.5/.openviking/viking/default/resources/lang-features/xxx.md`
-
-### 无结果或异常时
-
-- 无结果 → 换查询词重试（参考上方查询技巧）
-- 连接失败 / HTTP 5xx → 稍后重试

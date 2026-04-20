@@ -1,0 +1,64 @@
+## `cjpm.toml` 配置文件说明
+
+配置文件 `cjpm.toml` 用来配置一些基础信息、依赖项、编译选项等内容，`cjpm` 主要通过这个文件进行解析执行。
+
+配置文件代码如下所示：
+
+```text
+[package] # 单模块配置字段，与 workspace 字段不能同时存在
+  cjc-version = "1.0.0" # 所需 `cjc` 的最低版本要求，必需
+  name = "demo" # 模块名及模块 root 包名，必需
+  description = "nothing here" # 描述信息，非必需
+  version = "1.0.0" # 模块版本信息，必需
+  compile-option = "" # 额外编译命令选项，非必需
+  override-compile-option = "" # 额外全局编译命令选项，非必需
+  link-option = "" # 链接器透传选项，可透传安全编译命令，非必需
+  output-type = "executable" # 编译输出产物类型，必需
+  src-dir = "" # 指定源码存放路径，非必需
+  target-dir = "" # 指定产物存放路径，非必需
+  package-configuration = {} # 单包配置选项，非必需
+
+[workspace] # 工作空间管理字段，与 package 字段不能同时存在
+  members = [] # 工作空间成员模块列表，必需
+  build-members = [] # 工作空间编译模块列表，需要是成员模块列表的子集，非必需
+  test-members = [] # 工作空间测试模块列表，需要是编译模块列表的子集，非必需
+  compile-option = "" # 应用于所有工作空间成员模块的额外编译命令选项，非必需
+  override-compile-option = "" # 应用于所有工作空间成员模块的额外全局编译命令选项，非必需
+  link-option = "" # 应用于所有工作空间成员模块的链接器透传选项，非必需
+  target-dir = "" # 指定产物存放路径，非必需
+
+[dependencies] # 源码依赖配置项，非必需
+  coo = { git = "xxx", branch = "dev" } # 导入 `git` 依赖
+  doo = { path = "./pro1" } # 导入源码依赖
+
+[test-dependencies] # 测试阶段的依赖配置项，格式和 dependencies 相同，非必需
+
+[script-dependencies] # 构建脚本的依赖配置项，格式和 dependencies 相同，非必需
+
+[replace] # 依赖替换配置项，格式和 dependencies 相同，非必需
+
+[ffi.c] # 导入 C 语言的库依赖，非必需
+  clib1.path = "xxx"
+
+[profile] # 命令剖面配置项，非必需
+  build = {} # build 命令配置项
+  test = {} # test 命令配置项
+  bench = {} # bench 命令配置项
+  customized-option = {} # 自定义透传选项
+
+[target.x86_64-unknown-linux-gnu] # 后端和平台隔离配置项，非必需
+  compile-option = "value1" # 额外编译命令选项，适用于特定 target 的编译流程和指定该 target 作为交叉编译目标平台的编译流程，非必需
+  override-compile-option = "value2" # 额外全局编译命令选项，适用于特定 target 的编译流程和指定该 target 作为交叉编译目标平台的编译流程，非必需
+  link-option = "value3" # 链接器透传选项，适用于特定 target 的编译流程和指定该 target 作为交叉编译目标平台的编译流程，非必需
+
+[target.x86_64-w64-mingw32.dependencies] # 适用于对应 target 的源码依赖配置项，非必需
+
+[target.x86_64-w64-mingw32.test-dependencies] # 适用于对应 target 的测试阶段依赖配置项，非必需
+
+[target.x86_64-unknown-linux-gnu.bin-dependencies] # 仓颉二进制库依赖，适用于特定 target 的编译流程和指定该 target 作为交叉编译目标平台的编译流程，非必需
+  path-option = ["./test/pro0", "./test/pro1"] # 以文件目录形式配置二进制库依赖
+[target.x86_64-unknown-linux-gnu.bin-dependencies.package-option] # 以单文件形式配置二进制库依赖
+  "pro0.xoo" = "./test/pro0/pro0.xoo.cjo"
+  "pro0.yoo" = "./test/pro0/pro0.yoo.cjo"
+  "pro1.zoo" = "./test/pro1/pro1.zoo.cjo"
+```

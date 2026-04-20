@@ -1,0 +1,71 @@
+# 使用ECDSA密钥对签名验签（仓颉）
+
+对应的算法规格请参见[签名验签算法规格：ECDSA](./cj-crypto-sign-sig-verify-overview.md#ecdsa)。
+
+## 签名
+
+1. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，生成非对称密钥算法为ECC、密钥长度为256的密钥对（KeyPair）。
+
+   如何生成ECC非对称密钥，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：ECC](./cj-crypto-asym-key-generation-conversion-spec.md#ecc)和[随机生成非对称密钥对](./cj-crypto-generate-asym-key-pair-randomly.md)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
+
+2. 调用[createSign](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createsignstring)，指定字符串参数'ECC256|SHA256'，创建非对称密钥类型为ECC256、摘要算法为SHA256的Sign实例，用于完成签名操作。
+
+3. 调用[init](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-initializeprikey)，使用私钥（PriKey）初始化Sign实例。
+
+4. 调用[update](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-updatedatablob-3)，传入待签名的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。
+
+5. 调用[sign](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-signdatablob)，生成数据签名。
+
+## 验签
+
+1. 调用[createVerify](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createverifystring)，指定字符串参数'ECC256|SHA256'，创建非对称密钥类型为ECC256、摘要算法为SHA256的Verify实例，用于完成验签操作。
+
+2. 调用[init](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-initializepubkey)，使用公钥（PubKey）初始化Verify实例。
+
+3. 调用[update](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-updatedatablob-4)，传入待验证的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。
+
+4. 调用[verify](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-verifydatablob-datablob)，对数据进行验签。
+
+## 示例
+
+同步方法示例如下：
+
+```cangjie
+import kit.CryptoArchitectureKit.*
+
+// 完整的明文被拆分为input1和input2。
+let input1: DataBlob = DataBlob("This is Sign test plan1".toArray())
+let input2: DataBlob = DataBlob("This is Sign test plan2".toArray())
+
+func signMessage(priKey: PriKey) {
+    let signAlg = "ECC256|SHA256"
+    let signer = createSign(signAlg)
+    signer.initialize(priKey)
+    signer.update(input1) // 如果明文较短，可以直接调用sign接口一次性传入。
+    let signData = signer.sign(input2)
+    return signData
+}
+
+func verifyMessage(signMessageBlob: DataBlob, pubKey: PubKey) {
+    let verifyAlg = "ECC256|SHA256"
+    let verifier = createVerify(verifyAlg)
+    verifier.initialize(pubKey)
+    verifier.update(input1) // 如果明文较短，可以直接调用verify接口一次性传入。
+    let res = verifier.verify(input2, signMessageBlob)
+    AppLog.info("verify result is ${res}")
+    return res
+}
+
+func test() {
+    let keyGenAlg = "ECC256"
+    let generator = createAsyKeyGenerator(keyGenAlg)
+    let keyPair = generator.generateKeyPair()
+    let signData = signMessage(keyPair.priKey)
+    let verifyResult = verifyMessage(signData, keyPair.pubKey)
+    if (verifyResult == true) {
+        AppLog.info('verify success')
+    } else {
+        AppLog.error('verify failed')
+    }
+}
+```

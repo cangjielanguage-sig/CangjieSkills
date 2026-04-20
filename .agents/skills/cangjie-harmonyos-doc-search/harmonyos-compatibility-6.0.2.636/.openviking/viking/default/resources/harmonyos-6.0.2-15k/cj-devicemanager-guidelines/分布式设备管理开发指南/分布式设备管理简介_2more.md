@@ -1,0 +1,90 @@
+## 分布式设备管理简介
+
+随着用户不同种类的终端设备数量不断增多，将不同设备作为本端设备能力的扩展，使设备之间协同合作完成各种复杂场景即为设备的分布式业务。
+
+分布式设备管理是分布式业务入口，在分布式业务中对周边可信和非可信设备进行统一管理。
+
+分布式设备管理提供如下四大功能：
+
+- **发现**
+  发现周围终端设备并上报。周围设备需要连接同局域网或者同时打开蓝牙，可以根据设备类型、距离、设备是否可信等进行筛选。
+
+- **绑定**
+  不同设备协同合作完成分布式业务的前提是设备间可信，对于周边发现的不可信设备，可通过绑定使彼此建立可信关系，提供pin码、碰、扫、靠等设备认证框架，支持对接各种认证交互API。
+
+- **查询**
+  查询功能包含：查询本机设备信息、查询周围的在线的可信设备、查询可信设备信息。
+
+- **监听**
+  监听设备上、下线。设备上线表示设备间已经可信，业务可以发起分布式操作；设备下线表示分布业务不可用。
+
+### 运作机制
+
+  设备管理作为分布式业务入口，需要应用在所使用的业务场景，向发现设备主动发起绑定建立可信关系；业务结束后由业务自主判断是否解除绑定关系，设备间可信关系的解除由业务自己控制。
+
+### 约束与限制
+
+  使用设备管理能力，需要用户确认不同设备已连接同一局域网或者蓝牙开关已开启，否则该能力不可用。
+
+  设备信息属于用户敏感数据，所以即使用户已连接同一局域网或者蓝牙开关已开启，应用在获取设备位置前仍需向用户申请数据同步权限。在用户确认允许后，系统才会向应用提供设备管理能力。
+
+## 申请分布式数据同步权限开发指导
+
+### 场景概述
+
+应用在使用分布式设备管理系统能力前，需要检查是否已经获取用户授权访问分布式数据同步信息。如未获得授权，可以向用户申请需要的分布式数据同步权限。
+
+ohos.permission.DISTRIBUTED_DATASYNC：分布式数据同步权限。
+
+使用设备管理能力，必须申请权限，并且获得用户授权。
+
+### 开发步骤
+
+适用于Stage应用模型。
+
+1. 在module.json5配置文件中配置分布式数据同步权限ohos.permission.DISTRIBUTED_DATASYNC。
+
+    ```cangjie
+    {
+        "module" : {
+        "requestPermissions": [
+            {
+            "name": "ohos.permission.DISTRIBUTED_DATASYNC",
+            "reason": "$string:EntryAbility_desc",
+            "usedScene": {
+                "abilities": [
+                "EntryAbility"
+                ],
+                "when": "always"
+            }
+            }
+        ]
+        }
+    }
+    ```
+
+2. 导入AbilityKit模块，用于获取权限申请的能力。
+
+    ```cangjie
+    import kit.AbilityKit.*
+    ```
+
+3. 分布式数据同步权限的授权方式为user_grant，因此需要调用requestPermissionsFromUser API，以动态弹窗的方式向用户申请授权。
+
+    ```cangjie
+    //此段代码应当配置在main_ability.cj文件中，用来申请ohos.permission.DISTRIBUTED_DATASYNC权限
+    public override func onWindowStageCreate(windowStage: WindowStage): Unit {
+        AppLog.info("MainAbility onWindowStageCreate.")
+        windowStage.loadContent("Index")
+        let atManager = AbilityAccessCtrl.createAtManager()
+        Global._abilityContext = this.context
+        atManager.requestPermissionsFromUser(getStageContext(this.context), ['ohos.permission.DISTRIBUTED_DATASYNC']) {
+            err, data => if (let Some(data) <- data) {
+                AppLog.info("data permissions: ${data.permissions}")
+                AppLog.info("data authResults: ${data.authResults}")
+            } else {
+                AppLog.error("Error code: ${err?.code}")
+            }
+        }
+    }
+    ```

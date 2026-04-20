@@ -1,0 +1,1 @@
+- IllegalArgumentException - 传入的参数不符合协议要求时抛出异常。

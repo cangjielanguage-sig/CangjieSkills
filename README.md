@@ -8,17 +8,27 @@
 
 ### 方式一：Git Clone（推荐）
 
+**Linux / macOS：**
+
 ```bash
-# 1. 启用长路径（Windows 必须，仅需执行一次）
+# 启用长路径（Windows 必须，仅需执行一次）
 git config --global core.longpaths true
 
-# 2. 克隆到项目根目录
-git clone --depth 1 -b cangjie-harmonyos https://gitcode.com/Cangjie-SIG/CangjieSkills.git .agents
-
-# 3. 根据你的 AI 工具重命名（二选一）
-#    OpenCode 用户：mv .agents .opencode
-#    Claude Code 用户：mv .agents .claude
+# 克隆 → 取出 .agents → 清理
+git clone --depth 1 -b cangjie-harmonyos https://gitcode.com/Cangjie-SIG/CangjieSkills.git _tmp_skills \
+  && mv _tmp_skills/.agents . && rm -rf _tmp_skills
 ```
+
+**Windows PowerShell：**
+
+```powershell
+git config --global core.longpaths true
+git clone --depth 1 -b cangjie-harmonyos https://gitcode.com/Cangjie-SIG/CangjieSkills.git _tmp_skills
+Move-Item _tmp_skills\.agents .
+Remove-Item _tmp_skills -Recurse -Force
+```
+
+> 根据你的 AI 工具重命名：OpenCode 用户将 `.agents` 改为 `.opencode`，Claude Code 用户改为 `.claude`。
 
 ### 方式二：下载 ZIP
 

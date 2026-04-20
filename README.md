@@ -4,39 +4,9 @@
 
 ## 快速安装
 
-以下三种方式任选其一，在你的**鸿蒙项目根目录**（与 `entry`、`AppScope` 同级）操作。
+在你的**鸿蒙项目根目录**（与 `entry`、`AppScope` 同级）操作。
 
-### 方式一：Git Clone（推荐）
-
-**Linux / macOS：**
-
-```bash
-# 启用长路径（Windows 必须，仅需执行一次）
-git config --global core.longpaths true
-
-# 克隆 → 取出 .agents → 清理
-git clone --depth 1 -b cangjie-harmonyos https://gitcode.com/Cangjie-SIG/CangjieSkills.git _tmp_skills \
-  && mv _tmp_skills/.agents . && rm -rf _tmp_skills
-```
-
-**Windows PowerShell：**
-
-```powershell
-git config --global core.longpaths true
-git clone --depth 1 -b cangjie-harmonyos https://gitcode.com/Cangjie-SIG/CangjieSkills.git _tmp_skills
-Move-Item _tmp_skills\.agents .
-Remove-Item _tmp_skills -Recurse -Force
-```
-
-> 根据你的 AI 工具重命名：OpenCode 用户将 `.agents` 改为 `.opencode`，Claude Code 用户改为 `.claude`。
-
-### 方式二：下载 ZIP
-
-1. 打开 https://gitcode.com/Cangjie-SIG/CangjieSkills ，切换到 `cangjie-harmonyos` 分支，点击「下载zip」
-2. 解压后将其中的 `.agents/skills` 目录复制到项目根目录
-3. 根据你的 AI 工具将 `.agents` 重命名为 `.opencode` 或 `.claude`
-
-### 方式三：npx skills CLI
+### npx skills CLI命令下载
 
 ```bash
 npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git#cangjie-harmonyos -a opencode -y

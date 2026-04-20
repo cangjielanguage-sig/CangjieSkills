@@ -4,23 +4,37 @@
 
 ## 快速安装
 
-在你的**鸿蒙项目根目录**（与 `entry`、`AppScope` 同级）执行：
+以下三种方式任选其一，在你的**鸿蒙项目根目录**（与 `entry`、`AppScope` 同级）操作。
+
+### 方式一：Git Clone（推荐）
+
+```bash
+# 1. 启用长路径（Windows 必须，仅需执行一次）
+git config --global core.longpaths true
+
+# 2. 克隆到项目根目录
+git clone --depth 1 -b cangjie-harmonyos https://gitcode.com/Cangjie-SIG/CangjieSkills.git .agents
+
+# 3. 根据你的 AI 工具重命名（二选一）
+#    OpenCode 用户：mv .agents .opencode
+#    Claude Code 用户：mv .agents .claude
+```
+
+### 方式二：下载 ZIP
+
+1. 打开 https://gitcode.com/Cangjie-SIG/CangjieSkills ，切换到 `cangjie-harmonyos` 分支，点击「下载zip」
+2. 解压后将其中的 `.agents/skills` 目录复制到项目根目录
+3. 根据你的 AI 工具将 `.agents` 重命名为 `.opencode` 或 `.claude`
+
+### 方式三：npx skills CLI
 
 ```bash
 npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git#cangjie-harmonyos -a opencode -y
 ```
 
-> 根据你使用的 AI 开发工具，`-a` 后可替换为 `claude-code`、`cursor`、`github-copilot`、`trae` 等，详见 [skills CLI 文档](https://www.npmjs.com/package/skills)。
-
-如果没有 Node.js 环境，也可以手动克隆本仓库的 `cangjie-harmonyos` 分支，将 `.agents/skills` 目录复制到项目根目录，并根据你实际使用的工具将`.agents`更名为`.opencode`或`.claude`。
-
-### 出现 `filename too long` 报错
-
-在安装前执行以下命令启用 Git 长路径支持（cmd / PowerShell / Git Bash 均可）：
-
-```bash
-git config --global core.longpaths true
-```
+> `-a` 后可替换为 `claude-code`、`cursor`、`github-copilot`、`trae` 等，详见 [skills CLI 文档](https://www.npmjs.com/package/skills)。
+>
+> **注意**：本分支文件较多，`npx skills` 内置 60s 克隆超时可能不够。若超时失败，请改用方式一或方式二。
 
 ## 安装后配置
 

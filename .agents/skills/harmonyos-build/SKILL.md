@@ -31,7 +31,7 @@ python .agents/skills/harmonyos-build/build.py --project-root <项目根目录>
 
 1. **查 Evolution.md** — 用 harmonyos-evolution skill 匹配已有记录。
 2. **仓颉技能调试** — 未命中则基于日志分析修复后重建。
-3. **文档检索** — 仍未解决则用 cangjie-harmonyos-doc-search 检索。
+3. **文档检索** — 仍未解决则基于日志分析结果用 cangjie-harmonyos-doc-search 检索所需知识。
 4. **请求用户协助** — 日志信息不足时要求用户在 DevEco Studio 重建并提供报错。
 
 ### 步骤 4：成功沉淀

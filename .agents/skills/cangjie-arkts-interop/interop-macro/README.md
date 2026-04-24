@@ -72,7 +72,35 @@ public func analyzeAsync(jsonStr: String): Result {
 // ❌ Async 中用 JSArrayEx 会编译失败
 ```
 
-> 异步互操作优先 `@Interop[ArkTS, Async]`，避免手写 Promise 胶水。多线程禁止跨线程触摸同一 `JSContext`。需要跨语言锁时查阅 `AsyncLock`、`Sendable` 专题文档。
+> **备选方案**：若 `stdx.encoding.json` 在仓颉侧解析特定结构出现兼容问题，可改为：ArkTS 侧完成 JSON 解析，将每条数据构造为 `@Interop interface` 对象，通过同步 `@Interop` 函数（如 `addRecord`）逐条传入仓颉，再调用 Async 函数做计算（参数仅传简单值类型）。这样仓颉侧完全不接触 JSON 字符串。
+
+### Async 与多线程切换的关系（重要）
+
+`@Interop[ArkTS, Async]` 宏**自动**完成"spawn 仓颉线程执行 → 切回 ArkTS 线程 resolve Promise"的全过程。所以：
+
+- ✅ 函数体内**直接 return 仓颉值即可**，不要手写 `spawn`、`isInBindThread`、`postJSTask`
+- ✅ ArkTS 侧 `await` 调用即可拿到结果
+- ⚠️ `isInBindThread + postJSTask` 模式只在**手写 `JSModule.registerFunc` + 手动 `spawn` 新线程 + 用 JSValue 回调** 的底层场景下才需要（参见 interop-lib 多线程章节）
+
+```cangjie
+// ✅ 用宏：什么都不用管，直接写业务
+@Interop[ArkTS, Async]
+public func compute(x: Float64): Float64 {
+    heavyWork(x)   // 宏自动 spawn + postJSTask
+}
+
+// ⚠️ 仅手写 registerFunc 才需要：
+func computeRaw(ctx: JSContext, info: JSCallInfo): JSValue {
+    let cb = info[1].asFunction()
+    spawn {
+        let r = heavyWork(...)
+        ctx.postJSTask {              // 必须切回 ArkTS 线程才能 call
+            cb.call(ctx.number(r).toJSValue())
+        }
+    }
+    ctx.undefined().toJSValue()
+}
+```
 
 ## interface（ArkTS 创建对象传给仓颉）
 
@@ -196,7 +224,55 @@ export declare const enum EnumDemo {
 export declare function getEnum(e: EnumDemo): EnumDemo
 ```
 
+ArkTS 侧调用：
+
+```typescript
+import { EnumDemo, getEnum } from 'libohos_app_cangjie_entry.so'
+let e = EnumDemo.Green   // ✅ 用导入的 enum 值，不要写 1
+getEnum(e)
+```
+
 > 枚举必须 public，**不支持带参数的构造器**。
+
+### 端到端使用约束（高频踩坑）
+
+枚举一旦用 `@Interop` 修饰，**必须端到端贯穿使用**，禁止中途降级为数值类型：
+
+```cangjie
+// ❌ 错误：函数签名用 Int64 接收 enum，等于丢失了 enum 的语义
+@Interop[ArkTS]
+public func analyze(sportType: Int64): Result { ... }
+
+// ❌ 错误：interface prop 用 Int64 承载 enum
+@Interop[ArkTS]
+public interface Record {
+    prop sportType: Int64   // 应该是 SportType
+}
+
+// ✅ 正确：参数 / 返回值 / interface prop / class 字段都用 enum 本身
+@Interop[ArkTS]
+public func analyze(sportType: SportType): Result { ... }
+
+@Interop[ArkTS]
+public interface Record {
+    prop sportType: SportType
+}
+```
+
+```typescript
+// ❌ 错误：ArkTS 侧自己重新定义 const enum，不从 .so import
+const enum SportType { Running = 0, Cycling = 1 }
+analyze(SportType.Running)
+
+// ✅ 正确：从 .so import 仓颉导出的 enum
+import { SportType, analyze } from 'libohos_app_cangjie_entry.so'
+analyze(SportType.Running)
+```
+
+降级使用的代价：
+- 失去类型安全（任意 Int64 都能传入）
+- ArkTS IDE 失去枚举智能提示
+- `.d.ts` 不会导出 enum 符号，ArkTS 侧只能硬编码数字
 
 ## 类型映射
 
@@ -226,10 +302,13 @@ export declare function getEnum(e: EnumDemo): EnumDemo
 1. **宏优先**：能 `@Interop` 就不要 `registerModule`
 2. **包名 / .so 名 / import** 三者一致
 3. **public / 无泛型 / 无默认值** 宏约束；class 成员变量须 public 且不可省略类型标注
-4. **Async 禁用 JSArrayEx** → String + stdx.encoding.json
-5. **enum 不支持带参数的构造器**
-6. **类型分离**：@Interop interface ≠ JSObject 解析实体类
-7. **Invisible 必加**：@Interop class 中 ArkTS 无法理解的字段必须隐藏
+4. **Async 禁用 JSArrayEx** → String + stdx.encoding.json（或 ArkTS 侧解析 + interface 回传）
+5. **Async 函数体直接 return**，宏自动处理线程切换；不要手写 spawn/postJSTask
+6. **enum 端到端**：函数参数 / interface prop / class 字段必须用 enum 本身，禁止降级为 Int64；ArkTS 侧从 .so import enum，不要本地 const enum 重定义
+7. **enum 不支持带参数的构造器**
+8. **类型分离**：@Interop interface ≠ JSObject 解析实体类
+9. **Invisible 必加**：@Interop class 中 ArkTS 无法理解的字段必须隐藏
+10. **`.d.ts` 单源原则**：同一工程的 @Interop 符号集中在单文件，避免多文件各自导出导致 .d.ts 重复声明
 
 ## 参考资料
 

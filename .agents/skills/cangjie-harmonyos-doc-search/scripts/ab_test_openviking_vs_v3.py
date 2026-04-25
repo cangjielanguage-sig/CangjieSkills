@@ -21,6 +21,8 @@ from typing import Callable
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+SKILL_DIR = SCRIPT_DIR.parent
+EVALS_DIR = SKILL_DIR / "evals"
 DEFAULT_A_HOST = "111.229.30.227"
 DEFAULT_A_PORT = 2026
 DEFAULT_A_BACKENDS = ("cangjie-1.0.5", "harmonyos-6.1.0.818")
@@ -263,7 +265,7 @@ def make_openviking_search(host: str, port: int, timeout: int, retries: int, bac
 
 
 def make_v3_search(index_dir: Path, mode: str, understanding_mode: str):
-    sys.path.insert(0, str(SCRIPT_DIR))
+    sys.path.insert(0, str(SKILL_DIR))
     from search_v3 import collect, load_index
 
     index = load_index(index_dir)
@@ -527,14 +529,14 @@ def parse_backends(value: str) -> tuple[str, ...]:
 
 def build_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="OpenViking 远端检索与 V3 本地索引 AB 评测")
-    parser.add_argument("--eval-set", default=str(SCRIPT_DIR / "eval_queries.jsonl"))
+    parser.add_argument("--eval-set", default=str(EVALS_DIR / "eval_queries.jsonl"))
     parser.add_argument("--sample-size", type=int, default=0, help="按 card_type + category 分层抽样；0 表示全量")
     parser.add_argument("--sample-seed", type=int, default=20260422)
     parser.add_argument("--a-host", default=DEFAULT_A_HOST)
     parser.add_argument("--a-port", type=int, default=DEFAULT_A_PORT)
     parser.add_argument("--a-backends", default=",".join(DEFAULT_A_BACKENDS))
     parser.add_argument("--skip-a", action="store_true", help="只评测本地 V3，不触发 OpenViking 远端请求")
-    parser.add_argument("--b-index-dir", default=str(SCRIPT_DIR / "index"))
+    parser.add_argument("--b-index-dir", default=str(SKILL_DIR / "index"))
     parser.add_argument("--b-mode", choices=("auto", "task", "api", "example", "doc"), default="auto")
     parser.add_argument("--b-understanding-mode", choices=("rule", "host-agent"), default="rule")
     parser.add_argument("--include-c", action="store_true", help="额外评测 C 组 V3 索引")

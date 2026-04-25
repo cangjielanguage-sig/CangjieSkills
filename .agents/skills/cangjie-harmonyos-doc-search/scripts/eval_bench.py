@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""文档检索评测脚本，支持 v1 / v3 及旧的本地检索后端。"""
+"""文档检索评测脚本，支持 V3 本地索引和 OpenViking 远端对照组。"""
 
 from __future__ import annotations
 
@@ -13,7 +13,9 @@ import urllib.request
 from pathlib import Path
 from typing import Callable
 
-SKILL_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+SKILL_DIR = SCRIPT_DIR.parent
+EVALS_DIR = SKILL_DIR / "evals"
 REMOTE_BACKENDS = ["cangjie-1.0.5", "harmonyos-6.1.0.818"]
 
 
@@ -109,7 +111,7 @@ def _strip_viking(uri: str) -> str:
     return uri[pos + len(tag):] if pos != -1 else uri
 
 
-def make_v1_search(host: str, port: int):
+def make_openviking_search(host: str, port: int):
     base_url = f"http://{host}:{port}/api/v1/search"
 
     def fn(query: str, limit: int) -> list[str]:
@@ -128,10 +130,10 @@ def make_v1_search(host: str, port: int):
             with urllib.request.urlopen(req, timeout=120) as resp:
                 data = json.loads(resp.read())
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
-            print(f"  V1 请求失败: {exc}", file=sys.stderr)
+            print(f"  OpenViking 请求失败: {exc}", file=sys.stderr)
             return []
         if data.get("status") != "ok":
-            print(f"  V1 服务端错误: {data.get('error', '未知')}", file=sys.stderr)
+            print(f"  OpenViking 服务端错误: {data.get('error', '未知')}", file=sys.stderr)
             return []
         return [_strip_viking(r["uri"]) for r in data.get("results", [])]
 
@@ -146,30 +148,6 @@ def make_v3_search(index_dir: str, mode: str = "auto"):
 
     def fn(query: str, limit: int) -> list[str]:
         return collect(index, query, mode, limit)["paths"]
-
-    return fn
-
-
-def make_v2_search(index_dir: str, mode: str = "auto"):
-    return make_v3_search(index_dir, mode)
-
-
-def make_local_search(db_path: str):
-    sys.path.insert(0, str(SKILL_DIR))
-    from build_index import fts5_search
-
-    def fn(query: str, limit: int) -> list[str]:
-        return fts5_search(db_path, query, limit=limit)
-
-    return fn
-
-
-def make_hybrid_search(db_path: str):
-    sys.path.insert(0, str(SKILL_DIR))
-    from build_index import hybrid_search
-
-    def fn(query: str, limit: int) -> list[str]:
-        return hybrid_search(db_path, query, limit=limit)
 
     return fn
 
@@ -190,11 +168,10 @@ def print_summary(result: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="文档检索评测")
-    parser.add_argument("--eval-set", default=str(SKILL_DIR / "eval_queries.jsonl"))
-    parser.add_argument("--backend", choices=["v1", "v3", "v2", "local", "hybrid"], default="v3")
+    parser.add_argument("--eval-set", default=str(EVALS_DIR / "eval_queries.jsonl"))
+    parser.add_argument("--backend", choices=["v3", "openviking"], default="v3")
     parser.add_argument("--host", default="111.229.30.227")
     parser.add_argument("--port", type=int, default=2026)
-    parser.add_argument("--db", default="", help="本地 SQLite 索引路径")
     parser.add_argument("--index-dir", default=str(SKILL_DIR / "index"), help="V3 索引目录")
     parser.add_argument("--mode", choices=["auto", "task", "api", "example", "doc"], default="auto", help="V3 查询模式")
     parser.add_argument("--limit", type=int, default=10)
@@ -204,18 +181,12 @@ def main() -> None:
     eval_set = load_eval_set(args.eval_set)
     print(f"加载 {len(eval_set)} 条评测查询")
 
-    if args.backend == "v1":
-        search_fn = make_v1_search(args.host, args.port)
-        print(f"使用 V1 后端: {args.host}:{args.port}")
-    elif args.backend in {"v3", "v2"}:
+    if args.backend == "openviking":
+        search_fn = make_openviking_search(args.host, args.port)
+        print(f"使用 OpenViking 后端: {args.host}:{args.port}")
+    else:
         search_fn = make_v3_search(args.index_dir, args.mode)
         print(f"使用 V3 后端: {args.index_dir} (mode={args.mode})")
-    elif args.backend == "hybrid":
-        search_fn = make_hybrid_search(args.db)
-        print(f"使用混合后端: {args.db}")
-    else:
-        search_fn = make_local_search(args.db)
-        print(f"使用本地后端: {args.db}")
 
     print(f"开始评测 (limit={args.limit})...\n")
     result = run_benchmark(search_fn, eval_set, limit=args.limit)

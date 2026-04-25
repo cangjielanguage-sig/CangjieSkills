@@ -11,9 +11,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT = SCRIPT_DIR.parent
+EVALS_DIR = ROOT / "evals"
 DEFAULT_EVAL_SETS = (
     "eval_queries_user.jsonl",
+    "eval_queries_app_agent_dev.jsonl",
     "eval_queries_user_appdev.jsonl",
     "eval_queries_user_appdev_next.jsonl",
     "eval_queries_user_appdev_frozen.jsonl",
@@ -38,7 +41,7 @@ def write_json(path: Path, data: dict) -> None:
 
 
 def metric_for(eval_name: str) -> dict:
-    if eval_name == "eval_queries_user.jsonl":
+    if eval_name in {"eval_queries_user.jsonl", "eval_queries_app_agent_dev.jsonl"}:
         return {"success@5": 0.98, "error_rate": 0.0}
     if "blind" in eval_name:
         return {"success@5": 0.80, "error_rate": 0.0}
@@ -105,7 +108,7 @@ def main() -> None:
     index_dir = Path(args.index_dir)
 
     current_manifest = output_dir / "doc_manifest_current.json"
-    run([sys.executable, "build_doc_manifest.py", "--output", str(current_manifest)], ROOT)
+    run([sys.executable, str(SCRIPT_DIR / "build_doc_manifest.py"), "--output", str(current_manifest)], ROOT)
 
     doc_diff = ""
     if args.previous_doc_manifest:
@@ -113,7 +116,7 @@ def main() -> None:
         run(
             [
                 sys.executable,
-                "diff_doc_manifest.py",
+                str(SCRIPT_DIR / "diff_doc_manifest.py"),
                 "--old",
                 args.previous_doc_manifest,
                 "--new",
@@ -131,7 +134,10 @@ def main() -> None:
     eval_rows: list[dict] = []
     health_summary: dict[str, dict] = {}
     for eval_name in [item.strip() for item in args.eval_sets.split(",") if item.strip()]:
-        eval_path = ROOT / eval_name
+        eval_path = Path(eval_name)
+        if not eval_path.is_absolute():
+            eval_path = EVALS_DIR / eval_name
+        eval_label = eval_path.name
         if not eval_path.exists():
             print(f"skip missing eval set: {eval_name}", file=sys.stderr)
             continue
@@ -140,7 +146,7 @@ def main() -> None:
         run(
             [
                 sys.executable,
-                "validate_eval_set.py",
+                str(SCRIPT_DIR / "validate_eval_set.py"),
                 "--eval-set",
                 str(eval_path),
                 "--index-dir",
@@ -155,7 +161,7 @@ def main() -> None:
         run(
             [
                 sys.executable,
-                "ab_test_openviking_vs_v3.py",
+                str(SCRIPT_DIR / "ab_test_openviking_vs_v3.py"),
                 "--skip-a",
                 "--eval-set",
                 str(eval_path),
@@ -170,7 +176,7 @@ def main() -> None:
         run(
             [
                 sys.executable,
-                "analyze_user_eval_failures.py",
+                str(SCRIPT_DIR / "analyze_user_eval_failures.py"),
                 str(eval_dir / "details.jsonl"),
                 "--k",
                 "5",
@@ -181,11 +187,11 @@ def main() -> None:
         )
         summary = load_json(eval_dir / "summary.json")
         health = load_json(health_path)
-        status, reasons = eval_status(eval_name, group_overall(summary), health)
-        health_summary[eval_name] = health
+        status, reasons = eval_status(eval_label, group_overall(summary), health)
+        health_summary[eval_label] = health
         eval_rows.append(
             {
-                "eval_set": eval_name,
+                "eval_set": eval_label,
                 "output_dir": str(eval_dir),
                 "overall": group_overall(summary),
                 "health": {

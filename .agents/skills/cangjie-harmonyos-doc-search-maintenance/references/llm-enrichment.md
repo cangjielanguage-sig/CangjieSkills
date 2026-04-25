@@ -45,6 +45,5 @@ PYTHONDONTWRITEBYTECODE=1 python build_index_v3.py \
 - 先写临时索引目录，不直接覆盖默认 `index/`。
 - `manifest.llm.failed` 必须为 `0`。
 - 选择增强的 card type 必须完成对应全量增强。
-- 必须使用 `run_release_eval.py --index-dir 临时索引目录` 通过发布评估。
+- 必须使用 `scripts/run_release_eval.py --index-dir 临时索引目录` 通过发布评估。
 - 通过后才允许人工决定是否替换正式 `index/`。
-

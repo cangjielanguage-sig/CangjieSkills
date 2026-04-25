@@ -1,6 +1,6 @@
 ---
 name: cangjie-harmonyos-doc-search
-description: "鸿蒙仓颉应用开发本地检索技能，提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，适用于 UI/API/框架机制/状态管理/构建报错日志知识检索，并保留旧版入口用于 AB 测试。"
+description: "鸿蒙仓颉应用开发本地检索技能，提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，适用于 UI/API/框架机制/状态管理/构建报错日志知识检索。"
 tags: [workflow, platform]
 ---
 
@@ -21,25 +21,20 @@ tags: [workflow, platform]
 2. 再选择合适的本地检索模式调用 `search_v3.py`
 3. 最后结合任务卡、API 卡、示例卡组织回答
 
-默认入口仍然是本地结构化检索 `search_v3.py`。`search_v2.py` 仅作为兼容入口保留。旧版 `search.py` 保留用于 AB 测试或效果回归。
+默认入口是本地结构化检索 `search_v3.py`。历史 V1 入口已移除；如需与 OpenViking 做效果对比，使用 `scripts/ab_test_openviking_vs_v3.py`。
 
-## AB 入口
+## 使用入口
 
-V3 默认入口：
-
-```bash
-python .agents/skills/cangjie-harmonyos-doc-search/search_v3.py "我想写一个滑动列表"
-python .agents/skills/cangjie-harmonyos-doc-search/search_v3.py "List" --mode api
-python .agents/skills/cangjie-harmonyos-doc-search/search_v3.py "滚动事件示例" --mode example --json
-```
-
-V1 保留入口：
+默认查询：
 
 ```bash
-python .agents/skills/cangjie-harmonyos-doc-search/search.py "Stack组件用法"
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py "我想写一个滑动列表"
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py "List" --mode api
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py "滚动事件示例" --mode example --json
 ```
 
-旧版说明见 `SKILL.v1.md`。
+AB 对比和发布评估脚本位于 `scripts/`，评测集位于 `evals/`。
+若当前工作目录就是 `CangjieSkills` 仓库根目录，可把 `<CangjieSkills>/` 替换为相对路径空前缀。
 
 ## 用户态在线使用规范
 
@@ -70,13 +65,13 @@ python .agents/skills/cangjie-harmonyos-doc-search/search.py "Stack组件用法"
 首次使用 V3 前，需要先构建本地索引：
 
 ```bash
-python .agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule
 ```
 
 如需更高质量的离线卡片补全，可使用：
 
 ```bash
-python .agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule+llm
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule+llm
 ```
 
 `rule+llm` 仅在构建阶段调用 OpenAI 兼容 API，查询运行时不要求用户配置任何外部模型参数。
@@ -100,7 +95,7 @@ OPENAI_BASE_URL="https://api.modelarts-maas.com/openai/v1" \
 OPENAI_API_KEY="your-key" \
 OPENAI_MODEL="deepseek-v3.2" \
 OPENAI_TEMPERATURE="0" \
-python .agents/skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_maintenance.py \
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_maintenance.py \
   --llm-card-types task,api,example,doc \
   --llm-concurrency 24
 ```
@@ -131,7 +126,41 @@ V3 第一批重点覆盖高频 UI 场景：
 
 - V3 不依赖远端 OpenViking 服务
 - `index/` 缺失时，直接提示执行 `build_index_v3.py`
-- V1 与 V3 并行存在，做 AB 对比时请显式调用对应脚本
+- OpenViking 只作为 `scripts/ab_test_openviking_vs_v3.py` 中的对照组，不作为默认入口
 - 用户态在线查询优先复用当前 agent 的理解能力，然后再调用本地检索
 - 若后续平台提供内部模型调用接口，再考虑把在线理解下沉为程序化能力；当前版本先按 skill 指令流执行
 - 文档更新后如需按固定流程重建、评测、留档，请使用 `cangjie-harmonyos-doc-search-maintenance`
+
+## App Agent 自主开发调用协议
+
+当 Agent 正在开发 HarmonyOS/仓颉 App 时，以下情况必须先调用本 Skill：
+
+- 不确定组件、API、权限、生命周期、路由、WebView、网络、存储、文件、数据库、ArkTS 互操作或 stdx 的用法
+- 需要示例代码、参数说明、返回值说明或 import/module 线索
+- 遇到构建错误、运行时报错、API 找不到、类型不匹配、权限拒绝、白屏、崩溃等问题
+- 用户提出 App 功能目标，但实现路径不确定
+
+调用要求：
+
+```bash
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py "<query>" --json --limit 5
+```
+
+- 功能实现类问题优先使用默认 `auto`，必要时补 `--mode task`
+- API、组件、属性、事件、装饰器问题使用 `--mode api`
+- 写代码前至少补一次 `--mode example`
+- 排错问题保留错误关键词、API 名、组件名、模块名或错误码
+- Top5 不相关时换 query 重查，不允许只凭模型记忆编造 API
+
+App Agent 只依赖 `--json` 输出中的稳定字段：
+
+- `query`：原始查询
+- `mode`：检索模式
+- `understanding`：意图、对象、标识符和后续模式建议
+- `tasks`：功能实现线索
+- `apis`：组件/API/接口线索
+- `examples`：代码示例线索
+- `docs`：原始文档和参考说明
+- `paths`：可继续读取的文档路径
+
+编码前必须基于命中的 `tasks/apis/examples/docs/paths` 确认 API 名、import、参数、返回值、权限配置和示例写法。

@@ -317,9 +317,10 @@ def load_index(index_dir: Path) -> dict:
     ]
     missing = [str(path.name) for path in required if not path.exists()]
     if missing:
+        build_script = Path(__file__).resolve().parent / "build_index_v3.py"
         raise FileNotFoundError(
             f"V3 索引不完整，缺少: {', '.join(missing)}。"
-            f" 请先执行 `python .agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py`。"
+            f" 请先执行 `python {build_script}`。"
         )
     return {
         "manifest": json.loads((index_dir / "manifest.json").read_text(encoding="utf-8")),

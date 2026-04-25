@@ -25,10 +25,11 @@ API_GATE_THRESHOLD = 1.0
 DEFAULT_LLM_CARD_TYPES = "task,api,example,doc"
 
 sys.path.insert(0, str(SEARCH_SKILL_DIR))
+sys.path.insert(0, str(SEARCH_SKILL_DIR / "scripts"))
 
 from build_index_v3 import build as build_index, parse_card_types  # noqa: E402
 from audit_api_coverage import build_report as build_api_audit_report, write_report as write_api_audit_report  # noqa: E402
-from eval_bench import load_eval_set, make_v1_search, make_v3_search, run_benchmark  # noqa: E402
+from eval_bench import load_eval_set, make_openviking_search, make_v3_search, run_benchmark  # noqa: E402
 
 
 def write_text(path: Path, content: str) -> None:
@@ -244,7 +245,7 @@ def append_changelog(timestamp: str, report: dict) -> None:
     CHANGELOG_PATH.write_text(existing, encoding="utf-8")
 
 
-def check_v1_endpoint(host: str, port: int, timeout: float = 3.0) -> str | None:
+def check_openviking_endpoint(host: str, port: int, timeout: float = 3.0) -> str | None:
     url = f"http://{host}:{port}/api/v1/search/find"
     payload = json.dumps({"query": "list", "limit": 1}).encode("utf-8")
     headers = {
@@ -256,7 +257,7 @@ def check_v1_endpoint(host: str, port: int, timeout: float = 3.0) -> str | None:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             body = json.loads(response.read().decode("utf-8"))
         if body.get("status") != "ok":
-            return f"V1 接口返回非 ok 状态: {body.get('status')}"
+            return f"OpenViking 接口返回非 ok 状态: {body.get('status')}"
         return None
     except urllib.error.HTTPError as exc:
         return f"HTTP {exc.code}: {exc.reason}"
@@ -268,7 +269,7 @@ def check_v1_endpoint(host: str, port: int, timeout: float = 3.0) -> str | None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="运行 doc-search maintenance 流程")
-    parser.add_argument("--eval-set", default=str(SEARCH_SKILL_DIR / "eval_queries.jsonl"))
+    parser.add_argument("--eval-set", default=str(SEARCH_SKILL_DIR / "evals" / "eval_queries.jsonl"))
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--host", default="111.229.30.227")
     parser.add_argument("--port", type=int, default=2026)
@@ -277,7 +278,7 @@ def main() -> None:
     parser.add_argument("--llm-concurrency", type=int, default=24)
     parser.add_argument("--llm-cache-dir", default=str(RECORDS_DIR / "llm-cache"))
     parser.add_argument("--allow-rule-fallback", action="store_true", help="允许 rule+llm 指标退化时发布 rule；默认退化即失败")
-    parser.add_argument("--skip-v1", action="store_true", help="跳过 V1 远端基线评测")
+    parser.add_argument("--skip-openviking", action="store_true", help="跳过 OpenViking 远端基线评测")
     args = parser.parse_args()
 
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
@@ -374,14 +375,14 @@ def main() -> None:
         "v3-rule+llm": run_benchmark(make_v3_search(str(rule_llm_index_dir), "auto"), eval_set, limit=args.limit),
     }
 
-    if args.skip_v1:
-        benchmarks["v1"] = {"error": "skipped by --skip-v1"}
+    if args.skip_openviking:
+        benchmarks["openviking"] = {"error": "skipped by --skip-openviking"}
     else:
-        v1_error = check_v1_endpoint(args.host, args.port)
-        if v1_error:
-            benchmarks["v1"] = {"error": v1_error}
+        openviking_error = check_openviking_endpoint(args.host, args.port)
+        if openviking_error:
+            benchmarks["openviking"] = {"error": openviking_error}
         else:
-            benchmarks["v1"] = run_benchmark(make_v1_search(args.host, args.port), eval_set, limit=args.limit)
+            benchmarks["openviking"] = run_benchmark(make_openviking_search(args.host, args.port), eval_set, limit=args.limit)
 
     regression_failure_reasons = llm_regression_gate(benchmarks)
     if regression_failure_reasons and not args.allow_rule_fallback:

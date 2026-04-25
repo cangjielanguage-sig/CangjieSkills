@@ -9,10 +9,11 @@ from datetime import datetime
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
+EVALS_DIR = ROOT / "evals"
 INDEX = ROOT / "index"
-BATCH3_OUT = ROOT / "eval_queries_user_appdev_batch3.jsonl"
-BLIND_OUT = ROOT / "eval_queries_user_appdev_blind.jsonl"
+BATCH3_OUT = EVALS_DIR / "eval_queries_user_appdev_batch3.jsonl"
+BLIND_OUT = EVALS_DIR / "eval_queries_user_appdev_blind.jsonl"
 
 
 CAPABILITY_BY_PREFIX = {

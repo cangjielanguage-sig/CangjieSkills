@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 DOC_SOURCES = ("harmonyos-6.1-8k", "lang-features", "std", "stdx", "tools")
 
 

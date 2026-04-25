@@ -138,16 +138,16 @@ description: "当用户要求创建、初始化、新建仓颉鸿蒙项目时，
 
 图片资源已打包在 skill 的 `references/assets/media/` 目录中，需要自动拷贝到项目：
 
-**拷贝命令示例**（假设 skill 路径为 `.opencode/skills/harmonyos-project-init`）：
+**拷贝命令示例**（假设 skill 路径为 `.agents/skills/harmonyos-project-init`）：
 
 ```bash
 # 创建目标目录
 mkdir -p <项目目录>/entry/src/main/resources/base/media/
 
 # 拷贝图片资源
-cp .opencode/skills/harmonyos-project-init/references/assets/media/background.png <项目目录>/entry/src/main/resources/base/media/
-cp .opencode/skills/harmonyos-project-init/references/assets/media/foreground.png <项目目录>/entry/src/main/resources/base/media/
-cp .opencode/skills/harmonyos-project-init/references/assets/media/startIcon.png <项目目录>/entry/src/main/resources/base/media/
+cp .agents/skills/harmonyos-project-init/references/assets/media/background.png <项目目录>/entry/src/main/resources/base/media/
+cp .agents/skills/harmonyos-project-init/references/assets/media/foreground.png <项目目录>/entry/src/main/resources/base/media/
+cp .agents/skills/harmonyos-project-init/references/assets/media/startIcon.png <项目目录>/entry/src/main/resources/base/media/
 ```
 
 **图片资源说明**：
@@ -176,8 +176,8 @@ cp .opencode/skills/harmonyos-project-init/references/assets/media/startIcon.png
    - 参考 `harmonyos-build` Skill 执行构建
 
 4. **开始开发**
-   - 参考 `base-skill` Skill 了解开发流程
-   - 参考 `harmonyos-requirement-analysis` Skill 进行需求分析
+   - 参考 `harmonyos-app-agent-development` Skill 进入开发闭环
+   - 参考 `harmonyos-requirements` Skill 进行需求分析
 
 ## 关键文件说明
 
@@ -211,7 +211,7 @@ Ability 的生命周期管理类，在 Ability 创建时调用。
 
 此 Skill 仅负责创建初始项目结构。创建完成后，后续开发应调用：
 
-- `base-skill` - 开发流程总入口
+- `harmonyos-app-agent-development` - 开发流程总入口
 - `harmonyos-build` - 项目构建
-- `harmonyos-requirement-analysis` - 需求分析
+- `harmonyos-requirements` - 需求分析
 - `harmonyos-evolution` - 问题记录与进化

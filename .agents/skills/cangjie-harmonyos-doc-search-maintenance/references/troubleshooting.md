@@ -38,7 +38,7 @@
 
 ## 候选 query 很多但质量不稳定
 
-`generate_eval_candidates_from_doc_diff.py` 和 `analyze_search_logs.py` 只产出候选池。进入主门禁前必须审核：
+`scripts/generate_eval_candidates_from_doc_diff.py` 和 `scripts/analyze_search_logs.py` 只产出候选池。进入主门禁前必须审核：
 
 - query 是否像真实用户问题。
 - 是否包含路径残片、内部模板词或自动生成味。
@@ -79,4 +79,3 @@
 - `docs.jsonl`
 - `aliases.json`
 - `search.db`
-

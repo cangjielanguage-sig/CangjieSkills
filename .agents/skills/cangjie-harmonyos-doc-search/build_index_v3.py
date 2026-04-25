@@ -22,6 +22,7 @@ from typing import Any
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+EVALS_DIR = SCRIPT_DIR / "evals"
 DEFAULT_INDEX_DIR = SCRIPT_DIR / "index"
 DOC_SOURCES = ("harmonyos-6.1-8k", "lang-features", "std", "stdx", "tools")
 EXAMPLE_HINTS = ("示例", "example", "demo")
@@ -3236,7 +3237,8 @@ def build(
     write_jsonl(index_dir / "apis.jsonl", apis)
     write_jsonl(index_dir / "examples.jsonl", examples)
     write_jsonl(index_dir / "docs.jsonl", doc_cards)
-    full_eval_count = write_full_eval_queries(SCRIPT_DIR / "eval_queries_full.jsonl", tasks, apis, examples, doc_cards)
+    EVALS_DIR.mkdir(parents=True, exist_ok=True)
+    full_eval_count = write_full_eval_queries(EVALS_DIR / "eval_queries_full.jsonl", tasks, apis, examples, doc_cards)
     (index_dir / "aliases.json").write_text(
         json.dumps(aliases, ensure_ascii=False, indent=2),
         encoding="utf-8",
@@ -3260,7 +3262,7 @@ def build(
             "llm_enriched_docs": sum(1 for row in doc_cards if row.get("generation_mode") == "rule+llm"),
         },
         "eval": {
-            "full_eval_queries": "eval_queries_full.jsonl",
+            "full_eval_queries": "evals/eval_queries_full.jsonl",
             "full_eval_query_count": full_eval_count,
         },
         "entrypoints": {

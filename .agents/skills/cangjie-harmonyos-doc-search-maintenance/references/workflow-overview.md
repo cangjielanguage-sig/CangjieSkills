@@ -14,23 +14,22 @@
 
 ## 主要脚本
 
-- `build_doc_manifest.py`：输入文档目录，输出 `doc_manifest_current.json`。
-- `diff_doc_manifest.py`：输入旧/新 manifest，输出 `doc_diff.json`。
+- `scripts/build_doc_manifest.py`：输入文档目录，输出 `doc_manifest_current.json`。
+- `scripts/diff_doc_manifest.py`：输入旧/新 manifest，输出 `doc_diff.json`。
 - `build_index_v3.py`：输入文档目录，输出 `tasks/apis/examples/docs/aliases/search.db/manifest`。
-- `generate_eval_candidates_from_doc_diff.py`：输入文档 diff 和索引，输出候选评测 JSONL。
-- `validate_eval_set.py`：输入评测集、索引和 manifest，输出 `eval-health.json`。
-- `run_release_eval.py`：输入索引和评测集，输出 release 报告。
-- `generate_appdev_eval_batch3_blind.py --strict-blind-out`：生成时间戳严格 blind 集。
+- `scripts/generate_eval_candidates_from_doc_diff.py`：输入文档 diff 和索引，输出候选评测 JSONL。
+- `scripts/validate_eval_set.py`：输入评测集、索引和 manifest，输出 `eval-health.json`。
+- `scripts/run_release_eval.py`：输入索引和评测集，输出 release 报告。
+- `scripts/generate_appdev_eval_batch3_blind.py --strict-blind-out`：生成时间戳严格 blind 集。
 
 ## 发布规则
 
 - 主评测集有 `missing_path`：发布 blocked。
 - 主评测集 `error_rate > 0`：发布 blocked。
-- 主评测集未达到 success@5 阈值：发布 blocked 或 gray_release，按 `run_release_eval.py` 结果判断。
+- 主评测集未达到 success@5 阈值：发布 blocked 或 gray_release，按 `scripts/run_release_eval.py` 结果判断。
 - 候选集失败只记录，不阻塞发布。
 - 新 strict blind 首跑结果应归档为基线；后续调参后该 blind 降级为回归集。
 
 ## LLM 与旧维护脚本
 
-`scripts/run_maintenance.py` 是历史 rule/rule+llm/V1 AB 流程入口，可用于需要同时沉淀旧 baselines/run-history 的场景。当前发布判断优先使用 `cangjie-harmonyos-doc-search/run_release_eval.py`。
-
+`scripts/run_maintenance.py` 是历史 rule/rule+llm/OpenViking AB 流程入口，可用于需要同时沉淀旧 baselines/run-history 的场景。当前发布判断优先使用 `cangjie-harmonyos-doc-search/scripts/run_release_eval.py`。

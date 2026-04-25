@@ -6,14 +6,18 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import sys
 from pathlib import Path
 from typing import Any
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+SKILL_DIR = SCRIPT_DIR.parent
+sys.path.insert(0, str(SKILL_DIR))
 
 from build_index_v3 import normalize_aliases, write_jsonl, write_search_db
 
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-DEFAULT_INPUT_DIR = SCRIPT_DIR / "index"
+DEFAULT_INPUT_DIR = SKILL_DIR / "index"
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:

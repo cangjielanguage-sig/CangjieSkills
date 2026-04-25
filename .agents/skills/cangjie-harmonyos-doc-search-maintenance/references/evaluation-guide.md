@@ -4,15 +4,16 @@
 
 ## 默认评测集
 
-- `eval_queries_user.jsonl`
-- `eval_queries_user_appdev.jsonl`
-- `eval_queries_user_appdev_next.jsonl`
-- `eval_queries_user_appdev_frozen.jsonl`
-- `eval_queries_user_appdev_batch2.jsonl`
-- `eval_queries_user_appdev_batch3.jsonl`
-- `eval_queries_user_appdev_blind.jsonl`
+- `evals/eval_queries_user.jsonl`
+- `evals/eval_queries_app_agent_dev.jsonl`
+- `evals/eval_queries_user_appdev.jsonl`
+- `evals/eval_queries_user_appdev_next.jsonl`
+- `evals/eval_queries_user_appdev_frozen.jsonl`
+- `evals/eval_queries_user_appdev_batch2.jsonl`
+- `evals/eval_queries_user_appdev_batch3.jsonl`
+- `evals/eval_queries_user_appdev_blind.jsonl`
 
-可额外传入新的严格 blind，例如 `eval_queries_user_appdev_blind_20260424.jsonl`。
+可额外传入新的严格 blind，例如 `evals/eval_queries_user_appdev_blind_20260424.jsonl`。
 
 ## 核心指标
 
@@ -25,14 +26,15 @@
 
 ## 门禁
 
-- `eval_queries_user.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
-- `eval_queries_user_appdev*.jsonl`：`success@5 >= 0.95` 且 `error_rate = 0`。
+- `evals/eval_queries_user.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
+- `evals/eval_queries_app_agent_dev.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
+- `evals/eval_queries_user_appdev*.jsonl`：`success@5 >= 0.95` 且 `error_rate = 0`。
 - 严格新 blind：`success@5 >= 0.80` 且 `error_rate = 0`。
 - 健康检查有阻塞级 `missing_path`：直接 blocked。
 
 ## 输出物
 
-`run_release_eval.py` 输出：
+`scripts/run_release_eval.py` 输出：
 
 - `release-summary.json`：机器可读发布结论。
 - `release-report.md`：人类可读报告。
@@ -47,4 +49,3 @@
 - 可接受路径命中但 `must_contain` 未满足。
 - 评测标注路径失效。
 - query 本身不符合用户态表达。
-

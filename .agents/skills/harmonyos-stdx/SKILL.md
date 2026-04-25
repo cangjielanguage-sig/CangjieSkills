@@ -68,7 +68,7 @@ path-option = [
 | `actors` | Actor 并发模型 |
 | `effect` | Effect 系统 |
 
-API 详情请使用 cangjie-harmonyos-doc-search 或 cangjie_stdx Skill 检索
+API 详情请使用 `cangjie-harmonyos-doc-search` 或 `cangjie-stdx` Skill 检索。
 
 ## 排错
 
@@ -76,4 +76,3 @@ API 详情请使用 cangjie-harmonyos-doc-search 或 cangjie_stdx Skill 检索
 2. 检查 `entry/cjpm.toml` 是否已配置 stdx 路径 → 未配置则自动追加
 3. 确认目标平台匹配 → x86_64 用 x86_64 包，aarch64 用 aarch64 包
 4. 仍报错 → 要求用户贴出完整错误信息，判断是路径、版本还是符号问题
-

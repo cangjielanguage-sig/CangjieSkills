@@ -220,18 +220,30 @@ func addNumberAsync(context: JSContext, callInfo: JSCallInfo): JSValue {
 互操作中被调用侧抛出的异常会自动转换为调用侧可捕获的异常，必须 try-catch 处理：
 
 ```cangjie
-// 仓颉侧捕获 ArkTS 异常
+// 仓颉侧捕获 ArkTS 异常 —— 必须用 JSCodeError，不要用 BusinessException/Exception
 func callArktsWithExp(context: JSContext, callInfo: JSCallInfo): JSValue {
     try {
         callInfo[0].asFunction().call()
     } catch (err: JSCodeError) {
-        // 处理 ArkTS 侧抛出的错误
+        // ArkTS 侧 throw 的 Error 对象会被自动转换为 JSCodeError
     }
     context.undefined().toJSValue()
 }
 ```
 
 ArkTS 侧同理用 `try { ... } catch (err) { ... }` 捕获仓颉侧抛出的异常。
+
+### 异常类型选择速查
+
+| 场景 | 仓颉侧 catch 的类型 |
+|------|-------------------|
+| ArkTS 函数 throw 的 Error | `JSCodeError`（**首选**） |
+| 调用 NAPI 系统模块（如 `file.fs`、`net.http`）失败 | 仍是 `JSCodeError`，其 message 中携带业务码 |
+| 仓颉自身（非互操作）异常 | 普通 `Exception` 子类 |
+
+> ❌ `BusinessException` 是 ArkTS 侧 `@ohos.base` 的类型，仓颉侧无对应 catch 类。在仓颉里用它捕获 ArkTS 系统模块异常是无效的——这些异常进入仓颉时已转为 `JSCodeError`。
+>
+> ✅ 推荐写法：`catch (err: JSCodeError) { /* 互操作异常 */ } catch (err: Exception) { /* 仓颉自身异常兜底 */ }`
 
 ## 跨语言对象引用与内存泄漏
 
@@ -243,9 +255,10 @@ ArkTS 侧同理用 `try { ... } catch (err) { ... }` 捕获仓颉侧抛出的异
 2. **JSObject 先检查再转换** → hasProperty + isNumber/isString
 3. **thisArg** 补全：方法从对象取出后 call 要带 thisArg
 4. **多线程** → isInBindThread() 判断 + postJSTask 切换；主线程禁 future.get() spawn(UIThread)
-5. **异常处理** → 跨语言 try-catch，仓颉侧用 JSCodeError
-6. **JSValue 生命周期** → 引用类型注意持有；避免跨语言环形引用
-7. **属性写入静默失败**：密封/只读属性不报错
+5. **异常处理** → 仓颉侧捕获 ArkTS 异常**只用 `JSCodeError`**，不要用 BusinessException
+6. **Async 宏自动切线程** → @Interop[ArkTS, Async] 函数体不要手写 spawn/postJSTask；isInBindThread+postJSTask 仅用于手写 registerFunc 的回调场景
+7. **JSValue 生命周期** → 引用类型注意持有；避免跨语言环形引用
+8. **属性写入静默失败**：密封/只读属性不报错
 
 ## 参考资料
 

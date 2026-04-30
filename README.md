@@ -2,7 +2,7 @@
 
 这套 Skills 可支撑 AI 开发工具从零创建开发仓颉项目，包括项目配置、开发、构建、运行、单元测试等，包括 stdx、macro、CFFI 等场景的自动处理。
 
-> 仓颉鸿蒙应用开发 Skills 请切换 cangjie-harmonyos 分支
+> 仓颉鸿蒙应用开发 Skills 请切换 harmonyos 分支
 
 ## 快速安装
 

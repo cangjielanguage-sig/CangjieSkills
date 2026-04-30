@@ -1,0 +1,3 @@
+## 使用AppStorage/LocalStorage进行数据同步
+
+ArkUI提供了[AppStorage](../../API_Reference/source_zh_cn/arkui-cj/cj-state-rendering-appstatemanagement.md#class-appstorage)和[LocalStorage](../../API_Reference/source_zh_cn/arkui-cj/cj-state-rendering-appstatemanagement.md#class-localstorage)两种应用级别的状态管理方案，可用于实现应用级别和[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)级别的数据同步。使用这些方案可以方便地管理应用状态，提高应用性能和用户体验。其中，AppStorage是一个全局的状态管理器，适用于多个Ability共享同一状态数据的情况；而LocalStorage则是一个局部的状态管理器，适用于单个Ability内部使用的状态数据。通过这两种方案，开发者可以更加灵活地控制应用状态，提高应用的可维护性和可扩展性。详情请参见[应用级变量的状态管理](../arkui-cj/state_management/cj-application-state-management-overview.md)。

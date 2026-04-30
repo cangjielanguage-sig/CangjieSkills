@@ -1,1 +1,0 @@
-![KeyEventStop](./figures/KeyEventStop.gif)

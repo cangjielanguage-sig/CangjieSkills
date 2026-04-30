@@ -16,7 +16,7 @@ import urllib.request
 # ── 默认配置（部署后按需修改）────────────────────────────────
 DEFAULT_HOST = "111.229.30.227"
 DEFAULT_PORT = 2026
-DEFAULT_BACKENDS = ["cangjie-1.0.5", "harmonyos-6.1.0.818"]
+DEFAULT_BACKENDS = ["cangjie-1.0.5", "harmonyos-compatibility-6.0.2.636"]
 
 
 # ── 工具函数 ─────────────────────────────────────────────────

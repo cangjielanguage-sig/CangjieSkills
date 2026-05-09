@@ -1,0 +1,3 @@
+在数据长度不足时，调用上述大部分虽然会抛出 [ExhaustedException](fuzz_package_exceptions.md#class-exhaustedexception)，但编写 fuzz 函数时通常并不需要对它进行处理，[ExhaustedException](fuzz_package_exceptions.md#class-exhaustedexception) 默认会被 fuzz 框架捕获，告诉 libfuzzer 该次运行无效，请继续下一轮变异。随着执行时间的变长，变异数据也会逐渐变长，直到满足 [FuzzDataProvider](fuzz_package_classes.md#class-fuzzdataprovider) 的需求。
+
+如果达到了 `max_len` 仍无法满足 [FuzzDataProvider](fuzz_package_classes.md#class-fuzzdataprovider) 的需求，则进程退出，请修改 fuzz 测试用例（推荐） 或 增大 `max_len`（不推荐）。

@@ -1,0 +1,61 @@
+<!--RP4-->
+- [应用开发导读](cj-start-application-development-overview.md)
+- 入门<!--cj-start--><!--RP4End-->
+    - 快速入门<!--cj-quick-start-->
+        - [开发准备](cj-start/start/quick-start/cj-quick-start-preparations.md)
+        - [构建第一个OpenHarmony应用（仓颉）](cj-start/start/quick-start/cj-quick-start-first-cangjie-app.md)
+    - 开发基础知识<!--cj-basic-knowledge-->
+        - 应用程序包基础知识<!--cj-development-fundamentals-->
+            - [应用程序包概述](cj-start/basic-knowledge/cj-application-package-overview.md)
+            - 应用程序包结构<!--cj-application-package-structure-->
+                - [Stage模型应用程序包结构](cj-start/basic-knowledge/cj-application-package-structure-stage.md)
+            - 应用程序包开发与使用<!--cj-application-package-dev-->
+                - [HAP](cj-start/basic-knowledge/cj-hap-package.md)
+                - [HAR](cj-start/basic-knowledge/cj-har-package.md)
+            - 应用程序包安装卸载与更新<!--cj-application-package-install-->
+                - [应用安装卸载与更新开发指导](cj-start/basic-knowledge/cj-application-package-install-uninstall.md)
+                - [应用安装与更新一致性校验](cj-start/basic-knowledge/cj-module_install_update_consistency_verify.md)
+        - 应用配置文件（Stage模型）<!--cj-application-configuration-file-stage-->
+            - [应用配置文件概述（Stage模型）](cj-start/basic-knowledge/cj-application-configuration-file-overview-stage.md)
+            - [app.json5配置文件](cj-start/basic-knowledge/cj-app-configuration-file.md)
+            - [module.json5配置文件](cj-start/basic-knowledge/cj-module-configuration-file.md)
+        - [应用程序包常见问题](cj-start/basic-knowledge/cj-common_problem_of_application.md)
+        - [应用程序包术语](cj-start/basic-knowledge/cj-application-package-glossary.md)
+    - [资源分类与访问](cj-start/start/cj-ide-resource-categories-and-access.md)
+    - 学习仓颉语言<!--cj-learn-cj-->
+        - [初识仓颉语言](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/first_understanding/basic.md)
+        - 基本概念<!--cj-basic-concept-->
+            - [标识符](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_programming_concepts/identifier.md)
+            - [程序结构](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_programming_concepts/program_structure.md)
+            - [表达式](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_programming_concepts/expression.md)
+            - [函数](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_programming_concepts/function.md)
+        - 基础数据类型<!--cj-basic-data-type-->
+            - [基本操作符](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/basic_operators.md)
+            - [整数类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/integer.md)
+            - [浮点类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/float.md)
+            - [布尔类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/bool.md)
+            - [字符类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/characters.md)
+            - [字符串类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/strings.md)
+            - [元组类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/tuple.md)
+            - [数组类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/array.md)
+            - [区间类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/range.md)
+            - [Unit 类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/unit.md)
+            - [Nothing 类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/basic_data_type/nothing.md)
+        - 函数<!--cj-func-->
+            - [定义函数](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/define_functions.md)
+            - [调用函数](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/call_functions.md)
+            - [函数类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/first_class_citizen.md)
+            - [嵌套函数](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/nested_functions.md)
+            - [Lambda 表达式](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/lambda.md)
+            - [闭包](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/closure.md)
+            - [函数调用语法糖](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/function_call_desugar.md)
+            - [函数重载](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/function_overloading.md)
+            - [操作符重载](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/operator_overloading.md)
+            - [const 函数和常量求值](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/function/const_func_and_eval.md)
+        - 结构类型<!--cj-struct-types-->
+            - [定义 struct 类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/struct/define_struct.md)
+            - [创建 struct 实例](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/struct/create_instance.md)
+            - [mut 函数](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/struct/mut.md)
+        - 枚举类型和模式匹配<!--cj-enum-type-->
+            - [枚举类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/enum_and_pattern_match/enum.md)
+            - [Option 类型](https://gitcode.com/Cangjie/cangjie_docs/blob/main/docs/dev-guide/source_zh_cn/enum_and_pattern_matc

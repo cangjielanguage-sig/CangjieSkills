@@ -1,3 +1,5 @@
 .agents/skills/cangjie-harmonyos-doc-search/evals/eval_queries_full.jsonl filter=lfs diff=lfs merge=lfs -text
 .agents/skills/cangjie-harmonyos-doc-search/index/docs.jsonl filter=lfs diff=lfs merge=lfs -text
 .agents/skills/cangjie-harmonyos-doc-search/index/search.db filter=lfs diff=lfs merge=lfs -text
+.agents/skills/knowledge-graph-template/data/merged/graph.json filter=lfs diff=lfs merge=lfs -text
+*.json filter=lfs diff=lfs merge=lfs -text

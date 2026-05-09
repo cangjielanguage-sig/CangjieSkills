@@ -1,0 +1,34 @@
+# 仓颉编程语言扩展库 API
+
+仓颉编程语言扩展库（stdx）包含若干包，提供相关功能。
+
+标准库为开发者提供了最通用的 API，而扩展库则专注于某一领域。如 compress 包提供压缩与解压缩能力，crypto 包提供加解密相关能力，net 包则专注于提供高效的网络协议解析和网络通信能力。
+
+> **说明：**
+>
+> 目前，官方提供的扩展库不随仓颉编译器、工具链一起发布，需要用户单独下载。
+
+## 包列表
+
+stdx 含若干包，提供了丰富的扩展功能：
+
+| 包名                                                                           | 功能                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [aspectCJ](./aspectCJ/aspectCJ_package_overview.md)                            | aspectCJ 包提供 Cangjie 中面向切面编程（Aspect Oriented Programming, AOP）相关的能力。                                                                                                |
+| [compress.zlib](./compress/zlib/zlib_package_overview.md)                      | compress 包提供压缩解压功能。                                                                                                                                                         |
+| [crypto.crypto](./crypto/crypto/crypto_package_overview.md)                    | crypto 包提供安全加密能力。                                                                                                                                                           |
+| [crypto.digest](./crypto/digest/crypto_digest_package_overview.md)             | digest 包提供常用的消息摘要算法。                                                                                                                                                     |
+| [crypto.keys](./crypto/keys/keys_package_overview.md)                          | keys 包提供非对称加密和签名算法。                                                                                                                                                     |
+| [crypto.x509](./crypto/x509/x509_package_overview.md)                          | x509 包提供处理数字证书功能。                                                                                                                                                         |
+| [encoding.base64](./encoding/base64/base64_package_overview.md)                | base 包提供字符串的 Base64 编码及解码。                                                                                                                                               |
+| [encoding.hex](./encoding/hex/hex_package_overview.md)                         | hex 包提供字符串的 Hex 编码及解码。                                                                                                                                                   |
+| [encoding.json](./encoding/json/json_package_overview.md)                      | json 包用于对 json 数据的处理，实现 String, JsonValue, DataModel 之间的相互转换。                                                                                                     |
+| [encoding.json.stream](./encoding/json_stream/json_stream_package_overview.md) | json.stream 包主要用于仓颉对象和 JSON 数据流之间的互相转换。                                                                                                                          |
+| [encoding.url](./encoding/url/url_package_overview.md)                         | url 包提供了 URL 相关的能力，包括解析 URL 的各个组件，对 URL 进行编解码，合并 URL 或路径等。 。                                                                                       |
+| [fuzz](./fuzz/fuzz_package_overview.md)                                        | fuzz 包为开发者提供基于覆盖率反馈的仓颉 fuzz 引擎及对应的接口，开发者可以编写代码对 API 进行测试。                                                                                    |
+| [log](./log/log_package_overview.md)                                           | log 包提供了日志记录相关的能力。                                                                                                                                                      |
+| [logger](./logger/logger_package_overview.md)                                  | logger  包提供文本格式和 JSON 格式日志打印功能。                                                                                                                                      |
+| [net.http](./net/http/http_package_overview.md)                                | http 包提供 HTTP/1.1，HTTP/2，WebSocket 协议的 server、client 端实现。                                                                                                                |
+| [net.tls](./net/tls/tls_package_overview.md)                                   | tls 包用于进行安全加密的网络通信，提供创建 TLS 服务器、基于协议进行 TLS 握手、收发加密数据、恢复 TLS 会话等能力。                                                                     |
+| [serialization](./serialization/serialization_package_overview.md)             | serialization 包提供了序列化和反序列化能力。                                                                                                                                          |
+| [unittest.data](./unittest/data/data_package_overview.md)                      | unittest 模块提供了单元测试扩展能力。                                                                                                                                                 |

@@ -1,0 +1,98 @@
+## class AsExpr
+
+```cangjie
+public class AsExpr <: Expr {
+    public init()
+    public init(inputs: Tokens)
+}
+```
+
+功能：表示一个类型检查表达式。
+
+一个 [AsExpr](ast_package_classes.md#class-asexpr) 表达式：`e as T`，类型为 [Option](../../core/core_package_api/core_package_enums.md#enum-optiont)\<T>。其中 e 可以是任何类型的表达式，T 可以是任何类型。
+
+父类型：
+
+- [Expr](#class-expr)
+
+### prop expr
+
+```cangjie
+public mut prop expr: Expr
+```
+
+功能：获取或设置 [AsExpr](ast_package_classes.md#class-asexpr) 节点中的表达式节点。
+
+类型：[Expr](ast_package_classes.md#class-expr)
+
+### prop keyword
+
+```cangjie
+public mut prop keyword: Token
+```
+
+功能：获取或设置 [AsExpr](ast_package_classes.md#class-asexpr) 节点中的 `as` 操作符。
+
+类型：[Token](ast_package_structs.md#struct-token)
+
+异常：
+
+- [ASTException](ast_package_exceptions.md#class-astexception) - 当设置的 [Token](ast_package_structs.md#struct-token) 不是 `as` 操作符时，抛出异常。
+
+### prop shiftType
+
+```cangjie
+public mut prop shiftType: TypeNode
+```
+
+功能：获取或设置 [AsExpr](ast_package_classes.md#class-asexpr) 节点中的目标类型。
+
+类型：[TypeNode](ast_package_classes.md#class-typenode)
+
+### init()
+
+```cangjie
+public init()
+```
+
+功能：构造一个默认的 [AsExpr](ast_package_classes.md#class-asexpr) 对象。
+
+### init(Tokens)
+
+```cangjie
+public init(inputs: Tokens)
+```
+
+功能：构造一个 [AsExpr](ast_package_classes.md#class-asexpr) 对象。
+
+参数：
+
+- inputs: [Tokens](ast_package_classes.md#class-tokens) - 将要构造 [AsExpr](ast_package_classes.md#class-asexpr) 类型的词法单元集合 ([Tokens](ast_package_classes.md#class-tokens))。
+
+异常：
+
+- [ASTException](ast_package_exceptions.md#class-astexception) - 当输入的 [Tokens](ast_package_classes.md#class-tokens) 类型无法构造为 [AsExpr](ast_package_classes.md#class-asexpr) 节点时，抛出异常。
+
+### func toTokens()
+
+```cangjie
+public func toTokens(): Tokens
+```
+
+功能：将当前语法树节点转化为 [Tokens](ast_package_classes.md#class-tokens) 类型。
+
+返回值：
+
+- [Tokens](ast_package_classes.md#class-tokens) - 转化后的 [Tokens](ast_package_classes.md#class-tokens) 类型节点。
+
+### func traverse(Visitor)
+
+```cangjie
+public func traverse(v: Visitor): Unit
+```
+
+功能：遍历当前语法树节点及其子节点。若提前终止遍历子节点的行为，可重写 `visit` 函数并调用 `breakTraverse` 函数提前终止遍历行为，请参见[自定义访问函数遍历 AST 对象示例](../ast_samples/traverse.md)。
+
+参数：
+
+- v: [Visitor](ast_package_classes.md#class-visitor) - [Visitor](ast_package_classes.md#class-visitor) 类型的实例。

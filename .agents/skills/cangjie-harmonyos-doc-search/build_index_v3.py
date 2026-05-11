@@ -1016,6 +1016,12 @@ HIGH_VALUE_TASKS = [
     },
 ]
 
+try:
+    from high_value_tasks_ext import HIGH_VALUE_TASKS_EXT
+    HIGH_VALUE_TASKS.extend(HIGH_VALUE_TASKS_EXT)
+except ImportError:
+    pass
+
 
 @dataclass
 class DocRecord:

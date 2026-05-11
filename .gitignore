@@ -1,3 +1,14 @@
 .conf
 __pycache__/
 *.py[cod]
+
+LLM_API信息.txt
+*api_key*
+*api-key*
+.env
+.env.*
+!.env.example
+
+graphify-out/
+**/graphify-out/
+.agents/skills/knowledge-graph-template/data/feedback/*.jsonl

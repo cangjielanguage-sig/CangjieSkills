@@ -133,34 +133,70 @@ V3 第一批重点覆盖高频 UI 场景：
 
 ## App Agent 自主开发调用协议
 
-当 Agent 正在开发 HarmonyOS/仓颉 App 时，以下情况必须先调用本 Skill：
+当 Agent 正在开发 HarmonyOS/仓颉 App 时，以下情况必须先调用本 Skill 或搭档的 `knowledge-graph-template`：
 
 - 不确定组件、API、权限、生命周期、路由、WebView、网络、存储、文件、数据库、ArkTS 互操作或 stdx 的用法
 - 需要示例代码、参数说明、返回值说明或 import/module 线索
 - 遇到构建错误、运行时报错、API 找不到、类型不匹配、权限拒绝、白屏、崩溃等问题
 - 用户提出 App 功能目标，但实现路径不确定
 
-调用要求：
+本 Skill 与 `knowledge-graph-template`（下称 graphify KG）**平权并存**，按 query 类型分发。两条引擎共享同一套文档源（harmonyos-6.1-8k / lang-features / std / stdx / tools），agent 侧融合结果即可。
+
+### 能力对齐分发表
+
+| Query 特征 | 首选引擎 | 具体调用 |
+|---|---|---|
+| 明确 API / 组件 / 装饰器名 | V3 | `search_v3.py "<q>" --mode api --json --limit 5` |
+| 属性 / 事件 / 枚举值穷举 | V3 | `search_v3.py "<q>" --mode api` |
+| 错误码 / 错误信息 / 构建日志关键字 | V3 | `search_v3.py "<q>" --mode auto` |
+| 写代码前找示例 | V3 | `search_v3.py "<q>" --mode example` |
+| 功能实现类（"做一个 X"）| V3 默认 + graphify 组合 | V3 `--mode task` + graphify `query_graph` |
+| 跨概念组合（"带下拉刷新的网络列表页"）| graphify | MCP `query_graph` + `get_neighbors` |
+| 语义模糊描述（"卡顿"/"响应式失效"）| graphify | MCP `query_graph`（LLM 语义边） |
+| 跨生态类比（"鸿蒙版 RecyclerView"）| graphify | MCP `query_graph` + `god_nodes` |
+| "A 和 B 怎么配合" / 依赖链 | graphify | MCP `shortest_path` + `get_neighbors` |
+| "这个领域的核心 API" | graphify | MCP `god_nodes` |
+| 架构鸟瞰 / 社区洞察 | graphify | MCP `get_community` |
+
+### V3 调用（精确检索）
 
 ```bash
 python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py "<query>" --json --limit 5
 ```
 
-- 功能实现类问题优先使用默认 `auto`，必要时补 `--mode task`
-- API、组件、属性、事件、装饰器问题使用 `--mode api`
+- 功能实现类问题优先 `auto`，必要时补 `--mode task`
+- API / 属性 / 装饰器问题使用 `--mode api`
 - 写代码前至少补一次 `--mode example`
 - 排错问题保留错误关键词、API 名、组件名、模块名或错误码
-- Top5 不相关时换 query 重查，不允许只凭模型记忆编造 API
+- Top5 不相关时换 query 重查或切图谱，不允许只凭模型记忆编造 API
 
-App Agent 只依赖 `--json` 输出中的稳定字段：
+`--json` 稳定字段：`query` / `mode` / `understanding` / `tasks` / `apis` / `examples` / `docs` / `paths`。
 
-- `query`：原始查询
-- `mode`：检索模式
-- `understanding`：意图、对象、标识符和后续模式建议
-- `tasks`：功能实现线索
-- `apis`：组件/API/接口线索
-- `examples`：代码示例线索
-- `docs`：原始文档和参考说明
-- `paths`：可继续读取的文档路径
+### graphify KG 调用（语义 / 组合 / 架构）
+
+通过 MCP 调用（参见 `knowledge-graph-template/MCP_USAGE.md`），7 个工具：
+
+- `query_graph(query, limit, graph?)` —— 语义搜索，跨概念关联首选
+- `get_neighbors(node, depth, limit)` —— 典型搭档 / 邻域展开
+- `shortest_path(source, target, max_depth)` —— 关联链（限同子图）
+- `god_nodes(top_n)` —— 领域核心 API
+- `get_community(community_id)` —— 功能领域聚簇
+- `get_node(node)` —— 节点详情
+- `graph_stats()` —— 规模统计
+
+若 MCP 未接入，可 subprocess 兜底：
+```bash
+python <CangjieSkills>/.agents/skills/knowledge-graph-template/cli.py traverse "<query>" --depth 3
+python <CangjieSkills>/.agents/skills/knowledge-graph-template/cli.py god-nodes --top-n 10
+```
+
+### 结果融合规则
+
+当两条引擎同时被调用时：
+
+1. **精确命中优先**：V3 返回的 `paths`（匹配 `HIGH_VALUE_API_MAP` 的）排在 graphify 之前
+2. **按 `source_file` / `source_paths` 去重**：同一文档不重复
+3. **graphify 补充邻域**：V3 没覆盖的相关概念从 graphify `get_neighbors` 拉进来作为"扩展阅读"
+4. **矛盾时以 V3 为准**：API 名、签名、参数类型这类事实性信息以 V3 卡片为单一事实源，graphify 只提供关联线索
 
 编码前必须基于命中的 `tasks/apis/examples/docs/paths` 确认 API 名、import、参数、返回值、权限配置和示例写法。

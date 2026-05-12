@@ -1,0 +1,13 @@
+# 15K Hybrid-Equal 运行产物与密钥
+**/.env
+**/.env.*
+**/LLM_API信息.txt
+**/*api_key*
+**/*api-key*
+**/LLM_API信息.txt
+**/graphify-out/
+**/index/
+**/knowledge-graph-template/data/feedback/
+**/__pycache__/
+*.pyc
+.DS_Store

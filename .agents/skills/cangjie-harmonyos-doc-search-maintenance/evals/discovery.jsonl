@@ -1,0 +1,2 @@
+{"input":"文档更新后重跑 cangjie-harmonyos-doc-search 的索引和评测","expected_skills":["cangjie-harmonyos-doc-search-maintenance"],"loaded_skills":["cangjie-harmonyos-doc-search-maintenance"],"forbidden_skills":["cangjie-harmonyos-doc-search"],"min_rank":3}
+{"input":"需要给 doc-search 跑 rule+llm 并保留记录","expected_skills":["cangjie-harmonyos-doc-search-maintenance"],"loaded_skills":["cangjie-harmonyos-doc-search-maintenance"],"forbidden_skills":["harmonyos-build"],"min_rank":3}

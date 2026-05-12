@@ -1,0 +1,2 @@
+{"input":"文档更新后如何重新生成 doc-search 的最新索引结果？","expected_patterns":["rule","rule+llm","AB","run-history"],"min_score":0.8}
+{"input":"维护 cangjie-harmonyos-doc-search 时必须保留哪些记录？","expected_patterns":["run-history","baselines","changelog"],"min_score":0.8}

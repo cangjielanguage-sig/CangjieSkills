@@ -1,0 +1,2 @@
+.agents/skills/knowledge-graph-template/data/subgraphs/*/graph.json filter=lfs diff=lfs merge=lfs -text
+.agents/skills/knowledge-graph-template/data/merged/graph.json filter=lfs diff=lfs merge=lfs -text

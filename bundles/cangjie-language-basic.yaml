@@ -1,0 +1,13 @@
+name: cangjie-language-basic
+version: "1.0.0"
+description: 仓颉语言基础场景，聚合语言核心、标准库、扩展库和原始文档兜底能力。
+packages:
+  - cj-lang-core
+  - cj-std
+  - cj-stdx
+  - cj-original-docs
+targets:
+  - codex
+  - claude-code
+  - cursor
+  - opencode

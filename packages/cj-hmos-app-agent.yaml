@@ -1,0 +1,8 @@
+name: cj-hmos-app-agent
+version: "1.0.0"
+description: 鸿蒙仓颉 App Agent 自主开发总控，编排需求、初始化、检索、编码、构建、诊断和经验沉淀。
+skills:
+  - harmonyos-app-agent-development
+owners:
+  - 戚刚毅
+  - 刘涵

@@ -809,7 +809,7 @@ cjpm install --git url              # 从 git 对应地址安装
 compile-option = "-O1 -V"
 ```
 
-这里填入的命令会在 `build` 执行时插入到编译命令中间，多个命令可以用空格隔开。可用的命令参考《仓颉编程语言开发指南》的[编译选项](../../../dev-guide/source_zh_cn/Appendix/compile_options.md)章节内容。
+这里填入的命令会在 `build` 执行时插入到编译命令中间，多个命令可以用空格隔开。可用的命令参考《仓颉编程语言开发指南》的编译选项章节内容。
 
 ### "override-compile-option"
 
@@ -821,7 +821,7 @@ compile-option = "-O1 -V"
 override-compile-option = "-O1 -V"
 ```
 
-这里填入的命令会在 `build` 执行时插入到编译命令中间，并且拼接于模块配置的 `compile-option` 内容之后，优先级高于 `compile-option`。可用的命令参考《仓颉编程语言开发指南》的[编译选项](../../../dev-guide/source_zh_cn/Appendix/compile_options.md)章节内容。
+这里填入的命令会在 `build` 执行时插入到编译命令中间，并且拼接于模块配置的 `compile-option` 内容之后，优先级高于 `compile-option`。可用的命令参考《仓颉编程语言开发指南》的编译选项章节内容。
 
 > **注意：**
 >

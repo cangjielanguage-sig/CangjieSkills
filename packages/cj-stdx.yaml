@@ -1,0 +1,7 @@
+name: cj-stdx
+version: "1.0.0"
+description: 扩展库 Hub，覆盖 JSON、日志、编码、压缩、HTTP、WebSocket、TLS 等能力。
+skills:
+  - cangjie-stdx
+owners:
+  - 夏松

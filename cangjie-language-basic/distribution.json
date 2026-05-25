@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "toolchain_version": "0.1.0",
+  "bundle_name": "cangjie-language-basic",
+  "bundle_version": "1.0.0",
+  "packages": [
+    {
+      "name": "cj-lang-core",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-original-docs",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-std",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-stdx",
+      "version": "1.0.0",
+      "optional": false
+    }
+  ],
+  "skills": [
+    {
+      "name": "cangjie-lang-features",
+      "source_path": "cangjie-lang-features",
+      "package_name": "cj-lang-core",
+      "distribution_path": "skills/cangjie-lang-features"
+    },
+    {
+      "name": "cangjie-original-docs",
+      "source_path": "cangjie-original-docs",
+      "package_name": "cj-original-docs",
+      "distribution_path": "skills/cangjie-original-docs"
+    },
+    {
+      "name": "cangjie-std",
+      "source_path": "cangjie-std",
+      "package_name": "cj-std",
+      "distribution_path": "skills/cangjie-std"
+    },
+    {
+      "name": "cangjie-stdx",
+      "source_path": "cangjie-stdx",
+      "package_name": "cj-stdx",
+      "distribution_path": "skills/cangjie-stdx"
+    }
+  ],
+  "generated_artifacts": [],
+  "created_at": "2026-05-25T02:04:13Z",
+  "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50"
+}

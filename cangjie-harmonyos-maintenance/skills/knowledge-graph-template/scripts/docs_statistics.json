@@ -1,0 +1,397 @@
+{
+  "total": {
+    "files": 10190,
+    "chinese_chars": 2649923,
+    "english_words": 1596622,
+    "symbols": {
+      "空格": 1963804,
+      "换行": 502498,
+      "数字": 280250,
+      "标点符号": 1946584,
+      "其他符号": 140797
+    },
+    "total_symbols": 4833933
+  },
+  "by_directory": {
+    "root": {
+      "files": 1,
+      "chinese_chars": 940,
+      "english_words": 550,
+      "symbols": {
+        "空格": 9623,
+        "换行": 492,
+        "数字": 86,
+        "标点符号": 852,
+        "其他符号": 3355
+      },
+      "total_symbols": 14408
+    },
+    "harmonyos-6.1-8k": {
+      "files": 5829,
+      "chinese_chars": 1776785,
+      "english_words": 710825,
+      "symbols": {
+        "空格": 1114194,
+        "换行": 304149,
+        "数字": 177511,
+        "标点符号": 1099538,
+        "其他符号": 88804
+      },
+      "total_symbols": 2784196
+    },
+    "lang-features": {
+      "files": 664,
+      "chinese_chars": 215054,
+      "english_words": 72784,
+      "symbols": {
+        "空格": 118666,
+        "换行": 23331,
+        "数字": 11990,
+        "标点符号": 78784,
+        "其他符号": 9326
+      },
+      "total_symbols": 242097
+    },
+    "std": {
+      "files": 2728,
+      "chinese_chars": 411249,
+      "english_words": 682241,
+      "symbols": {
+        "空格": 575855,
+        "换行": 138386,
+        "数字": 67375,
+        "标点符号": 638613,
+        "其他符号": 25966
+      },
+      "total_symbols": 1446195
+    },
+    "stdx": {
+      "files": 832,
+      "chinese_chars": 194185,
+      "english_words": 115246,
+      "symbols": {
+        "空格": 122424,
+        "换行": 31084,
+        "数字": 19510,
+        "标点符号": 108655,
+        "其他符号": 10730
+      },
+      "total_symbols": 292403
+    },
+    "tools": {
+      "files": 136,
+      "chinese_chars": 51710,
+      "english_words": 14976,
+      "symbols": {
+        "空格": 23042,
+        "换行": 5056,
+        "数字": 3778,
+        "标点符号": 20142,
+        "其他符号": 2616
+      },
+      "total_symbols": 54634
+    }
+  },
+  "file_details": [
+    {
+      "path": "ARCHITECTURE.md",
+      "chinese": 940,
+      "english": 550,
+      "symbols": 14408
+    },
+    {
+      "path": "harmonyos-6.1-8k\\.overview.md",
+      "chinese": 4,
+      "english": 330,
+      "symbols": 452
+    },
+    {
+      "path": "lang-features\\.overview.md",
+      "chinese": 0,
+      "english": 511,
+      "symbols": 788
+    },
+    {
+      "path": "std\\.abstract.md",
+      "chinese": 0,
+      "english": 84,
+      "symbols": 100
+    },
+    {
+      "path": "std\\.overview.md",
+      "chinese": 0,
+      "english": 1103,
+      "symbols": 1395
+    },
+    {
+      "path": "stdx\\.overview.md",
+      "chinese": 0,
+      "english": 508,
+      "symbols": 752
+    },
+    {
+      "path": "tools\\.overview.md",
+      "chinese": 0,
+      "english": 363,
+      "symbols": 483
+    },
+    {
+      "path": "tools\\cangjie-language-server\\.overview.md",
+      "chinese": 0,
+      "english": 350,
+      "symbols": 451
+    },
+    {
+      "path": "tools\\cmd-tools\\.overview.md",
+      "chinese": 0,
+      "english": 536,
+      "symbols": 781
+    },
+    {
+      "path": "tools\\command_line_overview\\.abstract.md",
+      "chinese": 242,
+      "english": 0,
+      "symbols": 12
+    },
+    {
+      "path": "tools\\command_line_overview\\.overview.md",
+      "chinese": 530,
+      "english": 27,
+      "symbols": 86
+    },
+    {
+      "path": "tools\\cmd-tools\\chir_dis_manual\\.abstract.md",
+      "chinese": 176,
+      "english": 11,
+      "symbols": 41
+    },
+    {
+      "path": "tools\\cmd-tools\\chir_dis_manual\\.overview.md",
+      "chinese": 424,
+      "english": 46,
+      "symbols": 138
+    },
+    {
+      "path": "tools\\cmd-tools\\chir_dis_manual\\chir_dis_manual.md",
+      "chinese": 201,
+      "english": 52,
+      "symbols": 187
+    },
+    {
+      "path": "tools\\cmd-tools\\cjcov_manual\\.overview.md",
+      "chinese": 35,
+      "english": 374,
+      "symbols": 497
+    },
+    {
+      "path": "tools\\cmd-tools\\cjdb_manual\\.overview.md",
+      "chinese": 28,
+      "english": 353,
+      "symbols": 512
+    },
+    {
+      "path": "tools\\cmd-tools\\cjfmt_manual\\.overview.md",
+      "chinese": 25,
+      "english": 336,
+      "symbols": 445
+    },
+    {
+      "path": "tools\\cmd-tools\\cjlint_manual\\.overview.md",
+      "chinese": 24,
+      "english": 374,
+      "symbols": 512
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\.overview.md",
+      "chinese": 12,
+      "english": 178,
+      "symbols": 248
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\.overview.md",
+      "chinese": 30,
+      "english": 320,
+      "symbols": 423
+    },
+    {
+      "path": "tools\\cmd-tools\\cjtrace_recover_manual\\.abstract.md",
+      "chinese": 217,
+      "english": 4,
+      "symbols": 23
+    },
+    {
+      "path": "tools\\cmd-tools\\cjtrace_recover_manual\\.overview.md",
+      "chinese": 502,
+      "english": 27,
+      "symbols": 110
+    },
+    {
+      "path": "tools\\cmd-tools\\cjtrace_recover_manual\\cjtrace_recover_manual.md",
+      "chinese": 423,
+      "english": 214,
+      "symbols": 537
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\.abstract.md",
+      "chinese": 130,
+      "english": 5,
+      "symbols": 16
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\.overview.md",
+      "chinese": 491,
+      "english": 18,
+      "symbols": 95
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\功能简介_0a1aa6de.md",
+      "chinese": 110,
+      "english": 7,
+      "symbols": 36
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\.abstract.md",
+      "chinese": 164,
+      "english": 4,
+      "symbols": 16
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\.overview.md",
+      "chinese": 619,
+      "english": 32,
+      "symbols": 162
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\使用说明_3more_f1cdb859.md",
+      "chinese": 733,
+      "english": 178,
+      "symbols": 733
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\导出和分析堆内存\\.abstract.md",
+      "chinese": 186,
+      "english": 5,
+      "symbols": 17
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\导出和分析堆内存\\.overview.md",
+      "chinese": 583,
+      "english": 29,
+      "symbols": 145
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\导出和分析堆内存\\命令_4more_405f910a.md",
+      "chinese": 681,
+      "english": 194,
+      "symbols": 2112
+    },
+    {
+      "path": "tools\\cmd-tools\\cjprof_manual\\性能分析工具\\使用说明\\导出和分析堆内存\\堆内存分析报告说明_ed628640.md",
+      "chinese": 162,
+      "english": 12,
+      "symbols": 63
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\.abstract.md",
+      "chinese": 121,
+      "english": 2,
+      "symbols": 15
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\.overview.md",
+      "chinese": 1255,
+      "english": 65,
+      "symbols": 294
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\使用示例.md",
+      "chinese": 389,
+      "english": 367,
+      "symbols": 1443
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\功能简介_2more_13793f33.md",
+      "chinese": 195,
+      "english": 228,
+      "symbols": 796
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\配置和缓存文件夹_3more_e6d58bd9.md",
+      "chinese": 729,
+      "english": 184,
+      "symbols": 747
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\.abstract.md",
+      "chinese": 153,
+      "english": 7,
+      "symbols": 27
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\.overview.md",
+      "chinese": 1455,
+      "english": 115,
+      "symbols": 452
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\clean_1636135b.md",
+      "chinese": 200,
+      "english": 37,
+      "symbols": 141
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\init_4more_59a861ec.md",
+      "chinese": 791,
+      "english": 278,
+      "symbols": 1060
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\install.md",
+      "chinese": 859,
+      "english": 127,
+      "symbols": 585
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\run_1c538d39.md",
+      "chinese": 197,
+      "english": 61,
+      "symbols": 214
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\命令说明\\uninstall_caf44316.md",
+      "chinese": 141,
+      "english": 22,
+      "symbols": 96
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\构建脚本\\.abstract.md",
+      "chinese": 160,
+      "english": 8,
+      "symbols": 21
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\构建脚本\\.overview.md",
+      "chinese": 519,
+      "english": 34,
+      "symbols": 108
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\构建脚本\\构建脚本_1.md",
+      "chinese": 795,
+      "english": 232,
+      "symbols": 830
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\构建脚本\\构建脚本_2.md",
+      "chinese": 205,
+      "english": 108,
+      "symbols": 469
+    },
+    {
+      "path": "tools\\cmd-tools\\cjpm_manual\\项目管理工具\\模块配置文件说明\\.abstract.md",
+      "chinese": 137,
+      "english": 5,
+      "symbols": 15
+    }
+  ]
+}

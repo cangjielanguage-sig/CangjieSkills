@@ -1,0 +1,2883 @@
+{
+  "schema_version": "1.0",
+  "artifact": "release-manifest",
+  "tool": "skill-release",
+  "tool_version": "0.1.0",
+  "created_at": "2026-05-25T02:08:42Z",
+  "status": "passed",
+  "release": {
+    "distribution_path": ".",
+    "report_path": "release-check.json",
+    "manifest_path": "release-manifest.json",
+    "bundle_name": "cangjie-language-basic",
+    "bundle_version": "1.0.0",
+    "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50"
+  },
+  "source": {
+    "repo": null,
+    "repo_provided": false,
+    "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50",
+    "bundle_manifest": null,
+    "package_manifests": [],
+    "skills": [
+      {
+        "name": "cangjie-lang-features",
+        "source_path": "cangjie-lang-features",
+        "package_name": "cj-lang-core",
+        "distribution_path": "skills/cangjie-lang-features"
+      },
+      {
+        "name": "cangjie-original-docs",
+        "source_path": "cangjie-original-docs",
+        "package_name": "cj-original-docs",
+        "distribution_path": "skills/cangjie-original-docs"
+      },
+      {
+        "name": "cangjie-std",
+        "source_path": "cangjie-std",
+        "package_name": "cj-std",
+        "distribution_path": "skills/cangjie-std"
+      },
+      {
+        "name": "cangjie-stdx",
+        "source_path": "cangjie-stdx",
+        "package_name": "cj-stdx",
+        "distribution_path": "skills/cangjie-stdx"
+      }
+    ]
+  },
+  "generated_artifacts": [],
+  "files": [
+    {
+      "path": "distribution.json",
+      "size": 1435,
+      "sha256": "f54092ebcdd3025bb8d0c0ed374696ac03e855a5869ffd18bf46d2bebaa08a94"
+    },
+    {
+      "path": "skills/cangjie-lang-features/basic_concepts/README.md",
+      "size": 6120,
+      "sha256": "b193f313801ddabc79d4af5dffea89b50c023a48a1f61db6234d50b7bf9a77d3"
+    },
+    {
+      "path": "skills/cangjie-lang-features/basic_data_type/README.md",
+      "size": 13587,
+      "sha256": "59b7dd09613b707bf9b57c0ba3cac55f2845238fa0e9807ca664ba21736cef75"
+    },
+    {
+      "path": "skills/cangjie-lang-features/cffi/build/README.md",
+      "size": 5626,
+      "sha256": "4c5794347ecacf35d0036743b7fb82d16178135929046822e73c2f36fb0cb10d"
+    },
+    {
+      "path": "skills/cangjie-lang-features/cffi/README.md",
+      "size": 19121,
+      "sha256": "d50562fe96f490e38ed7fc81372ea0640de1e084893aa27b4eb6c28013a84ed7"
+    },
+    {
+      "path": "skills/cangjie-lang-features/class/README.md",
+      "size": 5891,
+      "sha256": "5583235106e054b1de3d59b57fdbdfcf8dd0ca1abbdeeda377e38289000ccddd"
+    },
+    {
+      "path": "skills/cangjie-lang-features/collections/array/README.md",
+      "size": 8601,
+      "sha256": "6e63f38b4681f2344fb0208c692b2df9fff2c768f4fdb567eb8a1ededf5b365e"
+    },
+    {
+      "path": "skills/cangjie-lang-features/collections/arraylist/README.md",
+      "size": 8445,
+      "sha256": "2a62748948d3adb01d1f1a0c7582e8f123a9fe3feca2ca5d2eab1c4ad815ce24"
+    },
+    {
+      "path": "skills/cangjie-lang-features/collections/hashmap/README.md",
+      "size": 8616,
+      "sha256": "59b77381ec394d0caeebbf935dd42ca5921a4132a06fb48fb2622c8b36b3afe9"
+    },
+    {
+      "path": "skills/cangjie-lang-features/collections/hashset/README.md",
+      "size": 8795,
+      "sha256": "fd96ebd23fad05d2aba3d1946043dc7404816bd7b96e70f924154af611402dcd"
+    },
+    {
+      "path": "skills/cangjie-lang-features/collections/README.md",
+      "size": 280,
+      "sha256": "36400c5caa82cc37edc826c96416d0f67189186e3d6424b93051e4a5089b606a"
+    },
+    {
+      "path": "skills/cangjie-lang-features/concurrency/README.md",
+      "size": 8890,
+      "sha256": "ea4ae17c45cc38b81646c2d93eb809705c72abefbb429917ff78a75fcb1c3990"
+    },
+    {
+      "path": "skills/cangjie-lang-features/const/README.md",
+      "size": 5632,
+      "sha256": "8341373ed2f8afcea8e64f64a0f64c6ec0ad701d1d4a8d339be9c9eb436db787"
+    },
+    {
+      "path": "skills/cangjie-lang-features/enum/README.md",
+      "size": 4964,
+      "sha256": "6fedcc8ea6f280b13c75e0f56062c49f165473bf34e4565285b37a51b14e2162"
+    },
+    {
+      "path": "skills/cangjie-lang-features/error_handle/README.md",
+      "size": 5849,
+      "sha256": "29a598a66322ef173ce7359b44e0fba2c0f02f152226b321c7307db4409c730d"
+    },
+    {
+      "path": "skills/cangjie-lang-features/extend/README.md",
+      "size": 9386,
+      "sha256": "caa4082c29f6f167e0c9d47d9e6b70cc0d02564481b6a732f1939069c23eb7ac"
+    },
+    {
+      "path": "skills/cangjie-lang-features/for/README.md",
+      "size": 6470,
+      "sha256": "724d61835ecaeb4112135e0a12ea3a604e718e50ad6f4c4dea86e7247414c9ce"
+    },
+    {
+      "path": "skills/cangjie-lang-features/function/README.md",
+      "size": 10845,
+      "sha256": "c8e203328dfa8d1482c671a0b1e064e8abfd0c6b47be4ded51ca8f6d8075e7e2"
+    },
+    {
+      "path": "skills/cangjie-lang-features/generic/README.md",
+      "size": 4712,
+      "sha256": "e579f009012c87fbc5db308575f2c3678dd67a97c3c93d932ef95ce7f1e94973"
+    },
+    {
+      "path": "skills/cangjie-lang-features/interface/README.md",
+      "size": 9232,
+      "sha256": "f67a1bc07b7e4d9527ecbb79d8d941cc2f4106bf56555fb64c71741b3397c439"
+    },
+    {
+      "path": "skills/cangjie-lang-features/macro/build/README.md",
+      "size": 4355,
+      "sha256": "8681728b2f6cb03252b415055f195ca0cf84b71a1374731d9984401d324b0752"
+    },
+    {
+      "path": "skills/cangjie-lang-features/macro/README.md",
+      "size": 12794,
+      "sha256": "81db24a16f9aa4a4183445e4fa5ea5b3689f00acd26b9635f560f7a00dec665c"
+    },
+    {
+      "path": "skills/cangjie-lang-features/option/README.md",
+      "size": 6693,
+      "sha256": "3b46ab71be9c0c9e7bae00f86106bd066a289827ccd603c16cd3cfda1a30bc0f"
+    },
+    {
+      "path": "skills/cangjie-lang-features/package/README.md",
+      "size": 5874,
+      "sha256": "6e66f6c34209b454ae3c175e92a81fbe6c44d6ac848d5a210f33a87ab44a34db"
+    },
+    {
+      "path": "skills/cangjie-lang-features/pattern_match/README.md",
+      "size": 9963,
+      "sha256": "eb3467d47adb98e652110f4d1c7a22dd47be80cd144849c5344e254c2e348883"
+    },
+    {
+      "path": "skills/cangjie-lang-features/project_management/README.md",
+      "size": 8944,
+      "sha256": "20e987d0cc61385f61ae1d5938d4e1fba75bc0a8e991d70d0265867ef7b6749f"
+    },
+    {
+      "path": "skills/cangjie-lang-features/reflect_and_annotation/README.md",
+      "size": 6931,
+      "sha256": "fc7bab3a81d9327af094ddd14ae543424003918fab18ef3d7c1ee2323847eeb4"
+    },
+    {
+      "path": "skills/cangjie-lang-features/SKILL.md",
+      "size": 5843,
+      "sha256": "7b412d60044875a26bf3ce2341a7b50f38e6e32dcce215cb47045d7a2f6131f8"
+    },
+    {
+      "path": "skills/cangjie-lang-features/string/README.md",
+      "size": 12073,
+      "sha256": "67fc31310d76e10d17b62849c9511e7e150388ef6997701d57dac9c6ce0e9089"
+    },
+    {
+      "path": "skills/cangjie-lang-features/struct/README.md",
+      "size": 6005,
+      "sha256": "a89cbdbfb28a334a1fdf618fe78dcef76881dc838a10672d292f1ba6c9533b8c"
+    },
+    {
+      "path": "skills/cangjie-lang-features/type_system/README.md",
+      "size": 4550,
+      "sha256": "302414e3c0f5c4237ad3c73cf4c019c3d58eea8f3696f859547483b65984bc2d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/index.md",
+      "size": 7732,
+      "sha256": "300da9cb02aa206b0669ad41b9293999ba1c25d6b357f34b27048b7f96480c12"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/cangjie_package_compatibility.md",
+      "size": 1814,
+      "sha256": "f30ebf0fa14b076bd87240120c5a85fa74bc470781eef8ba3fb838a3c691f168"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/compile_options.md",
+      "size": 66728,
+      "sha256": "bbbd4266a4366926d766659f752e68ac9d88854f5d64fc0cb1661cecd23c86f6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/keyword.md",
+      "size": 1257,
+      "sha256": "0cac99c8c7cbcd5512846bc667f9b6d556e6b304a90916f9dad89ed4547d66c6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/linux_toolchain_install.md",
+      "size": 5517,
+      "sha256": "b16b0af089a1f56991f3c2b120bf3b990ca56b25815d992333976bb2b051d660"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/operator.md",
+      "size": 6676,
+      "sha256": "73835c2b3ae1ccc5dadb57ae42ccf7083e52270fd0457f13f46521b4b0447cff"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/operator_function.md",
+      "size": 3069,
+      "sha256": "5a1807ecc2f59a3dddd34630b98a0da414631032e9573f9b8467207997821d0c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/runtime_env.md",
+      "size": 14599,
+      "sha256": "f5c52099744b484d6fb0253995d3d7212f3ccb20af21689e1ba578aa6df46446"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Appendix/tokenkind_type.md",
+      "size": 8583,
+      "sha256": "c1e008cd01816a4b866e535bf36266abc0dd094f8ad2a3ae13e6fe47f0c57e3e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/array.md",
+      "size": 7673,
+      "sha256": "d94acdf4c1e745efda566725e2c752837e0279a6994e4f945acedd66d9c5d33e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/basic_operators.md",
+      "size": 13965,
+      "sha256": "1a299f2f322d53673c34b00d7f470130aa1beef216d9cf4370a30292b3ad9daa"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/bool.md",
+      "size": 557,
+      "sha256": "6224ae8cb4237e56b19d6a513a0b6b4e979bca9aca487daacf3224a87ab21ec2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/characters.md",
+      "size": 1680,
+      "sha256": "72b8bb6c828d5445a3802f8e2dceea065cd6bfb5af1d7ef4fdca32c49d96391f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/float.md",
+      "size": 2931,
+      "sha256": "71554ce1754238cca80bb70a390a029b09206f12cb399ccd0b1264ac7efa64d0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/integer.md",
+      "size": 5806,
+      "sha256": "655af9ce945b8d8a56f236b5c5773881afa632432dbd8497aac5c686239772c0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/nothing.md",
+      "size": 1348,
+      "sha256": "40c77d0334446b2a8894d7909caaa62fec69a0d65a491b5c04553183b140d861"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/range.md",
+      "size": 2980,
+      "sha256": "b4d1d04d471e673f727bf27fe2145a0de7f49f4ac7c9c15c79dac967b0755428"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/strings.md",
+      "size": 5276,
+      "sha256": "4cada27f1ff2e12c8d740a27e9d10f23aace75142a7ffefb75738248ba810eb1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/tuple.md",
+      "size": 3218,
+      "sha256": "2e95560783943febe33976e60443bbccb0b9bbb8f54eb93d243e4a44c5f0a114"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_data_type/unit.md",
+      "size": 393,
+      "sha256": "2635efdf2f94c72a8a4e6992bc21f814b6cb3d3b7a708c8f238a70ee8201080a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Basic_IO/basic_IO_overview.md",
+      "size": 3973,
+      "sha256": "b1c150c9cb29245f7992b37698e3e5d9698c47a05b76d40302b770255eb34637"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Basic_IO/basic_IO_process_stream.md",
+      "size": 5858,
+      "sha256": "7cc572e97737a565a959bd7c8b3a1b9ba327fb02c9bc0395a73d6d9ade0410d2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Basic_IO/basic_IO_source_stream.md",
+      "size": 7294,
+      "sha256": "7d90af9a44e0e8321e00ea7a3d77786ae950fde3074f0fcbf969c5979ad25203"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_programming_concepts/expression.md",
+      "size": 20664,
+      "sha256": "93c364e2dff9549f40ab9935b37d68599e1f956ab44ff2e3cb627ee3fad86e4d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_programming_concepts/function.md",
+      "size": 840,
+      "sha256": "7d0442eff193d7896593ad7e060f1943e2ef7c2a692c505c37d782f1c6c833a8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_programming_concepts/identifier.md",
+      "size": 2149,
+      "sha256": "af45b8938175d80974f17e00921da6a4455728ad1c0844510e507717aa804f99"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/basic_programming_concepts/program_structure.md",
+      "size": 14468,
+      "sha256": "605a9e3ad892c3f59874592220f585efcf9f793aab675298d32b4a3e9a4fbe14"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/class_and_interface/class.md",
+      "size": 28080,
+      "sha256": "dbff7727a4fdf59f5d54e2042b6de513153303b26494df9f65741bd60e9bd110"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/class_and_interface/interface.md",
+      "size": 15800,
+      "sha256": "9f56100a87495c3574dd855a15c360091b7cd0b0addce83b355a1bd56289c8f2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/class_and_interface/prop.md",
+      "size": 7966,
+      "sha256": "9b010adc0cde72768a4a80ec1972e07add9446f5111cd68afb204c0710b05538"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/class_and_interface/subtype.md",
+      "size": 4679,
+      "sha256": "9d2bc2644ea228092a4e87bd7bfb50699913301cbf4831b9f6f4be5cdf26d837"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/class_and_interface/typecast.md",
+      "size": 5624,
+      "sha256": "e31b6fcae277b9d6cbba8de7e905ba4e9ff5a888d0411b49e7fa2ade1acb78fc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/collections/collection_arraylist.md",
+      "size": 6252,
+      "sha256": "f061d022312ae52abacd64ad07f9a03779449a7516175f066b215d133258ed5e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/collections/collection_hashmap.md",
+      "size": 5836,
+      "sha256": "35958ee5fb0993cdc83bfa0eab3b7730f8f3d23b626af4fc5584740e9dff38e7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/collections/collection_hashset.md",
+      "size": 4335,
+      "sha256": "a6a6f46b16095cf3df7e1b180d37b3fc4b2d7f99f4c83f25798ff8940143fdcd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/collections/collection_iterable_collections.md",
+      "size": 1608,
+      "sha256": "460336211399298977a9d61e02ec8225a4a14ce17e5df43cb693877bfca1131b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/collections/collection_overview.md",
+      "size": 939,
+      "sha256": "03761a9747363177e163025a4afa54aa5cd3e9500856a0ccc6812693c0d86122"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/compile_and_build/cjc_usage.md",
+      "size": 1565,
+      "sha256": "bcb61981130c40a4fa3fffc0c1a5c856762b43f223f467a43f7579903ef97570"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/compile_and_build/cjpm_usage.md",
+      "size": 6742,
+      "sha256": "7a16346f89419136bf56871d6fb6b9355ea5c9c501c414718484c1e497c00a5c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/compile_and_build/conditional_compilation.md",
+      "size": 9128,
+      "sha256": "de16024438ee2038656d3e3af5124de2647e8f0a46ffb950e44396163da0cea8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/concurrency/concurrency_overview.md",
+      "size": 2903,
+      "sha256": "d7c2df860555fc92349a11e98f1972b4aefa96d34ea448b2f5561faa8b6e95c3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/concurrency/create_thread.md",
+      "size": 1128,
+      "sha256": "00866ff68dd1235e42ca5595c489a190df8ef23398a730f5a77362ee0fa50bb0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/concurrency/sleep.md",
+      "size": 667,
+      "sha256": "c1ff1cd8f5f7ef0f89643d664afa002e1577e9355a01189265bc733778a3b80c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/concurrency/sync.md",
+      "size": 22333,
+      "sha256": "75c7ea0cb3a3e1ff98e95f0d9988928a3847303569f3927e4565b4b792a1941a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/concurrency/terminal_thread.md",
+      "size": 1099,
+      "sha256": "a6661c3023844d2781f77115b046a60ade6dc066ddde0d2e579fe55f067f04a7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/concurrency/use_thread.md",
+      "size": 6339,
+      "sha256": "f21012a666a5f3f042dece2bf7f891f8563cb44d65f193ba5bce7fc85c33d2e2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/deploy_and_run/run.md",
+      "size": 1183,
+      "sha256": "fe5189b8f01ba2a412b357f2cfc828f95bf5b6c513f3c638b295faf4867c34cc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/deploy_and_run/runtime_deploy.md",
+      "size": 4076,
+      "sha256": "d827c7e45cab91118da18f1461b3b359734216a51ef08db639e4ef25e79389e0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/enum_and_pattern_match/enum.md",
+      "size": 5882,
+      "sha256": "6e0d50f6cacc50fc7e2b921463ac006ce17dae6c4da680ca32c2a2a38f3fd73c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/enum_and_pattern_match/match.md",
+      "size": 7777,
+      "sha256": "3f0751904d8c42c5c0f05ddb6f649cfa8c0ea7bc3136047b53f62e2721ac3a54"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/enum_and_pattern_match/option_type.md",
+      "size": 2299,
+      "sha256": "7ee6d098e41ef2fb97a0a2125064cf79d0570d74fc3679028662680343373d45"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/enum_and_pattern_match/other.md",
+      "size": 3605,
+      "sha256": "81d1f0ab2c861042987dd976ddca3471c30124fb49628d24f65bb40d61ea16df"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/enum_and_pattern_match/pattern_overview.md",
+      "size": 13399,
+      "sha256": "4933558a4154fba812aea8ebc6d6dd3c529b0759ee3ae18357c9061a2e8c8d44"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/enum_and_pattern_match/pattern_refutability.md",
+      "size": 2964,
+      "sha256": "55433ec39ddfa4ae43b41bca4357d88cfe90e6159c286ac60fd23df8dd7f3c5e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/error_handle/common_runtime_exceptions.md",
+      "size": 825,
+      "sha256": "8356c4572360dc47bf333a43c1dd9e0938dd684ddb10310b380866c030b0e79c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/error_handle/exception_overview.md",
+      "size": 3545,
+      "sha256": "4f6ce8d203afa6ed35d672d550d045a0cd2f3624b07d9cd266f70ef987cac01f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/error_handle/handle.md",
+      "size": 12847,
+      "sha256": "3541c1900e897483276ed25b46dc4f8955a927c46d768a8964b5ca82fd6ba2ac"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/error_handle/use_option.md",
+      "size": 5407,
+      "sha256": "31362e8fe18510c039cc57f47d46ef21cad459d6221c7194141e66412e795731"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/extension/access_rules.md",
+      "size": 11530,
+      "sha256": "56a3a3895c2710cd21d203317871770ecde5ba2e2817db319b7576877444d818"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/extension/direct_extension.md",
+      "size": 3669,
+      "sha256": "4690e050483df6e0ed711917ac863195c5db91bd5baa5966f134ea7a8cc7a881"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/extension/extend_overview.md",
+      "size": 1804,
+      "sha256": "a40853586610434210bcc096d0a9808bb8bd72e7a0fed249bd764b6aa8a49818"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/extension/interface_extension.md",
+      "size": 5720,
+      "sha256": "e70ed7e4c2d9f3d04119db8a0637cee0342ced7f683f076a71e737ff58db5a85"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/FFI/cangjie-c.md",
+      "size": 26826,
+      "sha256": "5986665471cb3a4a7de6167c7ea551595a491694276d23ae1ef12fa8f68e497d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/first_understanding/basic.md",
+      "size": 2973,
+      "sha256": "838e7e57c0c93baeb6b64f07ae9c6376c595c15d2150184f0a002a94c2390f1d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/first_understanding/hello_world.md",
+      "size": 2500,
+      "sha256": "84b02cfc3019b399f333312298b3a369969b129850245fdbf50dff2b0e72a84a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/first_understanding/install.md",
+      "size": 10277,
+      "sha256": "2429390bdc98ff5156824989bbd15259d09d3e82185816ef9480fe7bead901be"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/call_functions.md",
+      "size": 2812,
+      "sha256": "fbcae5ea9102a89afe875c1375765e4b007d0a35853bfa7902116d164756c018"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/closure.md",
+      "size": 5145,
+      "sha256": "dbced9dec6c2a40e10ad0980f817f59509c6c995d6b861f7f67a38d9cfaa0286"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/const_func_and_eval.md",
+      "size": 7444,
+      "sha256": "76547247305e7fd3cb10fc7c95a2941a939802691fd925d0b280c97cf744e3d7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/define_functions.md",
+      "size": 8094,
+      "sha256": "21a042af7800d833df6ab4e218770bab0f70c24980453ff4476721b77ace069a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/first_class_citizen.md",
+      "size": 4148,
+      "sha256": "6a09bbbbe71f4a4036bf4ccfb2d40e0a9842e7a568a9bbc6447363ff30c274c3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/function_call_desugar.md",
+      "size": 6869,
+      "sha256": "b49ab5a7814208d61c9511db96ed104eef6b24dfe2263d161ac02bb697f71fc6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/function_overloading.md",
+      "size": 6400,
+      "sha256": "113b28d2c26090677e96b14e972e4a90603dfd8006dab32c64a1807f02ee26e9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/lambda.md",
+      "size": 4418,
+      "sha256": "1cec481f059abafdd5d04da7d314e1ee636d19c6331438b4dd0335cde91f0837"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/nested_functions.md",
+      "size": 1655,
+      "sha256": "f98bf30c4951dd159f106f5217539c9e64087302da1cf05e1e126dc6e4e9eeab"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/function/operator_overloading.md",
+      "size": 9480,
+      "sha256": "8925e23396009466a460a861cddc38798d139eceb7475f0e35430f81e3a98f64"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_class.md",
+      "size": 1952,
+      "sha256": "6e9923a6f9646eab0d4272e5daa3414c5c3f8bed89710a5f16187c0b5aa230fe"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_constraint.md",
+      "size": 3932,
+      "sha256": "6130206c3af6e34567d58b875b1f2fb82c6249dc3c187121405d2f2257214ffc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_enum.md",
+      "size": 1681,
+      "sha256": "da244a006e26fe8ebe6f4fec4db1df0f3fddce7f409de6ca3c70ef119a8270a3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_function.md",
+      "size": 3933,
+      "sha256": "235320da4378466e1957c142fb498a6fe8c3400f6a2780a11d41cc954194328a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_interface.md",
+      "size": 758,
+      "sha256": "98687b094dd695d80fca0d3cf1d61d276ecc0d360b1e3ef40b77e385464d3ca9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_overview.md",
+      "size": 1827,
+      "sha256": "99c81f7dd048beec79f5042feab4b4a416c7c86c748220038c2ff19e4218c7ca"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_struct.md",
+      "size": 706,
+      "sha256": "9d2314be5ff083ae8ec3a2e1d33484ba89bc1b6119f9c0d83bf4c1e998043884"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/generic_subtype.md",
+      "size": 1903,
+      "sha256": "6b408a785c7d0f07c6f11f10174a396ea269b9e91ab233dfa61407380a221e4e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/generic/typealias.md",
+      "size": 3472,
+      "sha256": "809fcaac06dcbef4e64ba152f4da383ab9e2798bdd4e63a2211524bbfc5e0fdd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/builtin_compilation_flags.md",
+      "size": 7424,
+      "sha256": "5c87fb7692be1de795da6748e0bfa2d5f66bc2b5d00e1fa73869221574d88add"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/compiling_error_reporting_and_debugging.md",
+      "size": 10643,
+      "sha256": "a343239b78ca35e88aef4e31f79d8b63c3af079fd13f891752032e5c8353b771"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/defining_and_importing_macro_package.md",
+      "size": 3415,
+      "sha256": "09b23eddcc4b5c49e7812385904d71b84700981c51f8c5b3cb696d373f9cc3a6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/implementation_of_macros.md",
+      "size": 18059,
+      "sha256": "7b399b44be378ca62b63e5286bdc5a7af0e5d2e1d8fd84f4a3c6ceb2e75ce0fd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/macro_introduction.md",
+      "size": 4265,
+      "sha256": "4058d1e64d03147e0261abbb339ea03264548eb2879a24f53bb85ab9c42f86e2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/practical_case.md",
+      "size": 15064,
+      "sha256": "41202a51ec7bd85a41c6ce4a059775ed858efc2b6f92b26746f37f0c1ca6414f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/syntax_node.md",
+      "size": 10643,
+      "sha256": "7016f7f682700dacbd930aed5fa0ced936bc843367df7e5e260697ffea9b899b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Macro/Tokens_types_and_quote_expressions.md",
+      "size": 5330,
+      "sha256": "271fc20496133648c8703ea12d09b7e585302eeb4105ec43cbd6cec0f09554d9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Net/net_http.md",
+      "size": 2221,
+      "sha256": "06e7845fb5f6e50004a9757113627d78bd5020eb62427d4bd0899e7b9270e462"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Net/net_overview.md",
+      "size": 1334,
+      "sha256": "256ddd1526484a7cc87b4016e511b914f938b6635b4407b10db082491096a63a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Net/net_socket.md",
+      "size": 4097,
+      "sha256": "c61c49fd6dfbec41c26fd768344aebd1b9da85b1fa796aa6c3236a3048ab8b4b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/Net/net_websocket.md",
+      "size": 6682,
+      "sha256": "c09b204de8317975f92cea9971926ffea623dd852b89ddb918aa6455ab36d161"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/package/entry.md",
+      "size": 1676,
+      "sha256": "d4197231c2196808bed881291fc5cd544edb0b83954abb3dd20d051a0bec7274"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/package/import.md",
+      "size": 8802,
+      "sha256": "c4ed82b21cae4ae6283a60da6c055b291435daac6e9be3a5630b633c1b78f457"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/package/package_name.md",
+      "size": 2934,
+      "sha256": "f8b5178621156df38de158642026fd6361a70c6dffadeaa7602b9773ca90b4a0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/package/package_overview.md",
+      "size": 1074,
+      "sha256": "cc0aec128b391cbdc1d8a8497cd6237a04375c528bad2d38dab3590cd8811032"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/package/toplevel_access.md",
+      "size": 5581,
+      "sha256": "90d35fd1603f98d9a72d0145ebd3c52604ca5b20e104924902e406b8e7efd1db"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/reflect_and_annotation/anno.md",
+      "size": 13487,
+      "sha256": "de10d87b395ba92a9ef475aa14ed0cfb80eacf1fd47ec1a824287ed588983098"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/reflect_and_annotation/dynamic_feature.md",
+      "size": 6956,
+      "sha256": "82f001364c81a06219fa498f15fc0f69151dbf5f8ad20218d6c88056c07a96a7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/struct/create_instance.md",
+      "size": 2744,
+      "sha256": "0d12159716d9b7b179d8262bc80a8ab64a3864a7c1956e30593d5051099b3638"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/struct/define_struct.md",
+      "size": 8809,
+      "sha256": "061343eceae3934bc26ec1675572f2f801631f1727bb7242f4bc743c8df2784e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/kernel/source_zh_cn/struct/mut.md",
+      "size": 5658,
+      "sha256": "5dc073a34a79ef02ce8ff2566c125e327259f2ffcc5080852ffd33711edc82e3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/aspectCJ/aspectCJ_package_api/aspectCJ_package_classes.md",
+      "size": 4423,
+      "sha256": "2f2e0fdff9fc7103488e2e5e08db81e79d42234d41c76930740ae705e4437d79"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/aspectCJ/aspectCJ_package_overview.md",
+      "size": 3546,
+      "sha256": "593fa2dac608e6c2159dd173fbbeefc44e5867cae5208ca034b4a2e32b35a886"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/aspectCJ/aspectCJ_samples/aspectCJ_sample.md",
+      "size": 3374,
+      "sha256": "19a2229cf29d0a811511b543645323abf8d51813d040f97acaaa2d157119c264"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/compress/zlib/zlib_package_api/zlib_package_classes.md",
+      "size": 15749,
+      "sha256": "71034bd37d3bb80ef67c1101ce32bb8701285ce436b7e5ea1e91781cf98e2d5a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/compress/zlib/zlib_package_api/zlib_package_enums.md",
+      "size": 1328,
+      "sha256": "587f3dc03bcc6aaba44ec8cdf33e0da7b3cc79bb63b01e3082317f9bb29fa598"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/compress/zlib/zlib_package_api/zlib_package_exceptions.md",
+      "size": 443,
+      "sha256": "573c2c2a88d980b6c89a529e364c3ed9e660eb65e06a51b8924c879cb250e286"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/compress/zlib/zlib_package_overview.md",
+      "size": 3072,
+      "sha256": "0532fb0924f1e7b5fc52fb928e271cba52d945989e9cbdf0e7f454580a8e7b30"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/compress/zlib/zlib_samples/deflate_compress_decompress.md",
+      "size": 2455,
+      "sha256": "69976a3a207e99f8d1608f965c06f558fc8759643cd1167c9b7a0f1c9c51b049"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/compress/zlib/zlib_samples/gzip_compress_decompress.md",
+      "size": 2466,
+      "sha256": "337ade7c5d32bdebe3f404a485063ff9b36e4650e8b1ee2294dad0bc02f23787"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/crypto/crypto_package_api/crypto_package_classes.md",
+      "size": 22183,
+      "sha256": "29078c42cc6641bd324cdb1ac1a2ce807b36ffbf8d8316b03358bd7ccb9d7166"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/crypto/crypto_package_api/crypto_package_exceptions.md",
+      "size": 708,
+      "sha256": "b553036ba1df8d48f114eaa0a7da50f09fcaa335f7d7768fd3956387cc3f6898"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/crypto/crypto_package_api/crypto_package_structs.md",
+      "size": 5146,
+      "sha256": "1ab2284827b9e2efb25c4e897babab3fa9cba57668f54c0967006de133038f23"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/crypto/crypto_package_overview.md",
+      "size": 3914,
+      "sha256": "00a904404a60942f7c4e83926034204bdf1bc7e8189570809ff937f17f3c273c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/crypto/crypto_samples/sample_crypto.md",
+      "size": 509,
+      "sha256": "549bd52dc727dff88e5499328a80f2170976205be9fb475dec092701a6b02d47"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/crypto/crypto_samples/sample_secure_random.md",
+      "size": 475,
+      "sha256": "6d812adde350a6488589bc4acf31345e0b8c6ced86d56bd8633c0960bd1c1fea"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/digest/crypto_digest_package_overview.md",
+      "size": 4430,
+      "sha256": "5c44f6072fef60b5424cb8bbee96f20174f1c5a7cb71fcff2636499c6a3e9cb6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/digest/digest_package_api/digest_package_classes.md",
+      "size": 24038,
+      "sha256": "eec024d85a808947677cce01123c1e1f4b11ac7bc22f0cdb83032d62e6b431cd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/digest/digest_package_api/digest_package_exceptions.md",
+      "size": 678,
+      "sha256": "d8e476703ad2bc55fb01c3a24494002f76d9097fc785ba831cf88530e93c60ad"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/digest/digest_package_api/digest_package_structs.md",
+      "size": 3014,
+      "sha256": "e98fb43305d219320443b3a624ef8011ea1e35a4efc4971e57fe51e5489fba30"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/digest/digest_samples/sample_digest.md",
+      "size": 5247,
+      "sha256": "911a5aa6dde5865e596cafe5f808b1234d98f04a6aaa42cf72cd41e0fd1ef3b6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/keys/keys_package_api/keys_package_classes.md",
+      "size": 31662,
+      "sha256": "adddcab86aee9d2989cd1df5b1794b256b0c7e033b51e892a82dee6ea670dee4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/keys/keys_package_api/keys_package_enums.md",
+      "size": 4278,
+      "sha256": "9eeaa4aafbc53a5c5e1a6c392638fe3af66d39a63368ffe831671552c92c7028"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/keys/keys_package_api/keys_package_structs.md",
+      "size": 1407,
+      "sha256": "2bda3da7cf34fba1553ec05492d25cb046b39723f11c1677393a2277c1513ead"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/keys/keys_package_overview.md",
+      "size": 4778,
+      "sha256": "654413b1084d2a6fc455a76ce5ef4c7ec076fa7400a654af960c8b180a665328"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/keys/keys_samples/sample_keys.md",
+      "size": 4446,
+      "sha256": "53617c45c01535f41a7cc473cf0bf573e9f113df8b1a1302b9b73b936628dd5e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_api/x509_package_classes.md",
+      "size": 17568,
+      "sha256": "ae393dee694b234a352fe702057b2c06af1ddbd1e6032684cf07e2b18c151e52"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_api/x509_package_enums.md",
+      "size": 4829,
+      "sha256": "315c422a5a0f6fe745e52702d6d85f6b4c0322a73a9dce8d8dc901e2cd0c257b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_api/x509_package_exceptions.md",
+      "size": 604,
+      "sha256": "f31979f44a823fa32e77d02603beca04bdaa61fe74df01cbb314b6a677f6925f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_api/x509_package_interfaces.md",
+      "size": 9846,
+      "sha256": "56f5b54451cb8fa57dc7ead15985fc9aabcc5f89dfb46014370820ad8bf32716"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_api/x509_package_structs.md",
+      "size": 28447,
+      "sha256": "06e2e3d45b9e2a6ddd6ebf07143b0c732f0a64c9e01788d261f9acd5608abff3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_api/x509_package_type.md",
+      "size": 164,
+      "sha256": "4814ea08348ebfe84e17c675addc8c897930687d3e8abd50564b547871908721"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_package_overview.md",
+      "size": 7356,
+      "sha256": "65e77af7be053070098e2b5d153895d5485a255000a4dd5a6b1063a6c3584e2e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/crypto/x509/x509_samples/sample_x509.md",
+      "size": 6966,
+      "sha256": "8dcbff34187cbb726bf0f27771e5e9e3ca002943b567f739bf6d8d73377b7b24"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/base64/base64_package_api/base64_package_funcs.md",
+      "size": 764,
+      "sha256": "7ad3c0e5a5bc173eb1dfbde5924edc892bfa08b885e41f213bbb5bbfadccdcea"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/base64/base64_package_overview.md",
+      "size": 790,
+      "sha256": "05a90c5bc3bec2fdda75d97d352ac51e4a162d24a42be63bda25f2dcac00d432"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/base64/base64_samples/base64.md",
+      "size": 542,
+      "sha256": "09231b28bf76051ee7998d946b74bddfdbf78d6d73034f81bf3f699ef781990e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/hex/hex_package_api/hex_package_funcs.md",
+      "size": 743,
+      "sha256": "8338446a65b49d2c7fcd0cd31986b6a92532722755b0207e49bd4f695d760760"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/hex/hex_package_overview.md",
+      "size": 824,
+      "sha256": "3034f5b0fc51f271e1ba9f48d249ec9146bd89150f20c7ce9ca814feecf7064b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/hex/hex_samples/hex.md",
+      "size": 539,
+      "sha256": "f73d3b494d0646d2823c8f8f5133dfdcd328519db2d4fefe2160e762112913ec"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_package_api/encoding_json_package_classes.md",
+      "size": 27479,
+      "sha256": "7a5d0e5c8c422f8e4ab2c2d0edf041983305f9dee92e0515417c0c67f5b44f79"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_package_api/encoding_json_package_enums.md",
+      "size": 918,
+      "sha256": "67d2c3c744d76ab6dba71ea12fc6f4b07920d7b8578b69d84a6e64c062b020ac"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_package_api/encoding_json_package_exceptions.md",
+      "size": 795,
+      "sha256": "1dc111fdad26a3b8abb6c7e892cf120e68c6bfe7b6feb3528e3918a11333aa69"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_package_api/encoding_json_package_interfaces.md",
+      "size": 3074,
+      "sha256": "2b48c228bd4f7fd45be682124a1f796db4bab2b2a5d06c685faa485ab847e80c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_package_overview.md",
+      "size": 2525,
+      "sha256": "f4341395bab1960488d5dbda594f80d72b97d8e1ba0aedbe581f0e83c94b0e3e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_samples/json_array_sample.md",
+      "size": 1698,
+      "sha256": "4c24aa1e65fff5c3be0b0a1b5b9f9cb5159402f356bd532ae03b502154bd4f5d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_samples/json_value_sample.md",
+      "size": 1015,
+      "sha256": "0ce3a0477dfd5df6086fb04073e322f52f24330002f3877effb2fc3636e782c0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json/json_samples/to_json_sample.md",
+      "size": 2881,
+      "sha256": "edc6d957adf04aa921dff509ebcf548ccc9c11d5020a4c1ef4a7cfd9a3af349c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_package_api/encoding_json_stream_package_classes.md",
+      "size": 12681,
+      "sha256": "7e2d6e7a2b732753b813a726588d52bf74d876e1b5abbf2e67e49f7686dd6bc9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_package_api/encoding_json_stream_package_enums.md",
+      "size": 4455,
+      "sha256": "eb0a5b8f9166ed60e2344c4a813a085cb3f83c44994a44e7a64fd7608f01cf83"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_package_api/encoding_json_stream_package_interfaces.md",
+      "size": 37401,
+      "sha256": "ea519c89ffd55ada766ca99c25ffb4829266445905a896e527f4a865691b11b7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_package_api/encoding_json_stream_package_structs.md",
+      "size": 3453,
+      "sha256": "00276d612597502381a43f0e057e4ba0156c5edd7098b8c46e9016c10aa5fa69"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_package_overview.md",
+      "size": 2230,
+      "sha256": "02b1a244016cee9c11a0f7880a03a61df30714dc135180ba07a70ce4ff14bc90"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_samples/sample_json_reader.md",
+      "size": 2089,
+      "sha256": "b5ba6f0d74b1ac1ffae52bdf74e26cce08852a5dad80b215deb99a20e7b5bb6a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_samples/sample_json_writeconfig.md",
+      "size": 1261,
+      "sha256": "a26b9ca04e8dac6e9a9ecc4ad4bd933bef2b5d1103f70194a0e4c3fb16254dc7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/json_stream/json_stream_samples/sample_json_writer.md",
+      "size": 1214,
+      "sha256": "cd95c4c4b9681adb973fa7610e51c019d34e9f96d77641518678dccfa81ed1e2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/url/url_package_api/url_package_classes.md",
+      "size": 17096,
+      "sha256": "0e7a9fdf71584ff74dea77bf9ca66dcab0660343cf4d8d8d0ada72bd17442a26"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/url/url_package_api/url_package_exceptions.md",
+      "size": 1345,
+      "sha256": "f1bb3e4ece06b2deabef53ec6bf04710dd934b8e3d2ba3219fb4e65547862b81"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/url/url_package_overview.md",
+      "size": 3181,
+      "sha256": "be454b3c284ae4f7d281190133d69017e2815434d5c9c85a2c33c09bbb6ae30e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/url/url_samples/form.md",
+      "size": 1932,
+      "sha256": "20437e1999f513e5fd80c5f458968b4b9b4385a7d554c90b430833fc4860a80c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/encoding/url/url_samples/url_parse.md",
+      "size": 1721,
+      "sha256": "abdf2d82e7fab178ad1503d5ad959ead15a647734c2f8be0159406f1922f5e26"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_package_api/fuzz_package_classes.md",
+      "size": 33268,
+      "sha256": "b84153f30e4a0680963467498ad70ec28915f484612ab4f205d8b3517a097762"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_package_api/fuzz_package_constants_vars.md",
+      "size": 148,
+      "sha256": "e2eb3aeaed0f1984b50153114eb870fb3ebaa3573e7f43e9cdd66ec7a17a85e2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_package_api/fuzz_package_exceptions.md",
+      "size": 670,
+      "sha256": "3ab8f0ce3151cc5ab52ffcc034dfe4659345a2c6fdf6f364627a8575ed050b51"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_package_overview.md",
+      "size": 2491,
+      "sha256": "12a78b3e46da19b30af23bce0c9839d2e26c15a9c3c4bb6cda00935a66c0efd9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_samples/basic_fuzzing_test.md",
+      "size": 5699,
+      "sha256": "1552b21b1e770ca47348aeb0b3bb9e90b6dffc34a6a2022d05e6eaf604de41ef"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_samples/dataprovider_usage.md",
+      "size": 1755,
+      "sha256": "2310c10a2b2004653e04aff8d1089decdb4ae5439f584933363f5c439ec55414"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_samples/fake_coverage_usage.md",
+      "size": 3239,
+      "sha256": "40d5eefafda2156f590f3d90a0ef5c15e12454f2f9aadc4379afa9c6a6b1b3a6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_samples/print_cj-fuzz_usage.md",
+      "size": 422,
+      "sha256": "52f72f7a7a241bf07fc3151fb1153e01b1365313d5e2abc97a8bd11ab1e79925"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_samples/print_coverage.md",
+      "size": 1799,
+      "sha256": "b4609fa000186ee947016f0d45fd54649c2973feaf260c920818eb691db275f9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/fuzz/fuzz_samples/stack_backtrace_missing_solution.md",
+      "size": 4758,
+      "sha256": "d816a966a4064e3733c01126be94bf2ad5ff9bd5db6b034a9b3af10737893983"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/libs_overview.md",
+      "size": 14969,
+      "sha256": "0162636dd60ebb8fb1ee50f0732c0b9dce543582ccef7f8a0ae42a86593c7e2f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_api/log_package_classes.md",
+      "size": 16497,
+      "sha256": "32601e883c021a1bea9d995763d07ce8d1161bf3c88fe95d925b394361d22f72"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_api/log_package_exceptions.md",
+      "size": 710,
+      "sha256": "3c683490012cfef0e7384152f4fd84d6fe3764c6fe1b709f87d815b2fb13a931"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_api/log_package_funcs.md",
+      "size": 1435,
+      "sha256": "5b2308a2bea773fd7e8aeafb2a638fea6fe5cf2b5f68dd676bed1373577b0cec"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_api/log_package_interfaces.md",
+      "size": 6788,
+      "sha256": "b8e57ab8c088b5e8b048053efa1560b5abbb6886e16e4843851116928b75e47e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_api/log_package_structs.md",
+      "size": 6153,
+      "sha256": "04ed8894316b627affb5300cdeaf1a7a0f68d377dab900b464e25ece1851e3a3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_api/log_package_types.md",
+      "size": 227,
+      "sha256": "3eb75a301abb4f42aa155055bbf34b2b9e9640414e73ba387a30a52118c4bcfc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_package_overview.md",
+      "size": 2808,
+      "sha256": "e85d99170960547c23a96673e857ba55a16cf784c70f46ac0b6851e5736b8e35"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/log/log_samples/log_sample.md",
+      "size": 9879,
+      "sha256": "60febf5927c42bfc92154f519fca24d132b9d0d187147fa03c8f4bcfb6798de2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/logger/logger_package_api/logger_package_classes.md",
+      "size": 5604,
+      "sha256": "ba8276f4598514caedd2c836e6473a6464c38230fbcd38e416332fd9c803461c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/logger/logger_package_overview.md",
+      "size": 844,
+      "sha256": "6e000edbacb07f725619040907ff54663e034546b62d85177e8ab3dc18257510"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/logger/logger_samples/logger_sample.md",
+      "size": 12106,
+      "sha256": "34aeaf20b11ed66a617f4247209b039b30fd676abbe5c95da1481a3cc6b77f77"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_api/http_package_classes.md",
+      "size": 132757,
+      "sha256": "a6b8cebd875f3043f15e25fc751dd0673f29d495888dc7419ea7cb8b0d9d1ace"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_api/http_package_enums.md",
+      "size": 4416,
+      "sha256": "ed138f87ae57c93d0cbac1b9d369de22d775fe4f679a7a011fc23d2d7bb3472a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_api/http_package_exceptions.md",
+      "size": 2828,
+      "sha256": "07862095360c367420d3aa9186acd5776513120e289eddcb9567f91248dabcb1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_api/http_package_funcs.md",
+      "size": 1498,
+      "sha256": "edfeb1ecd596810fbbcc2442134510864c9653e2a55f920aa52b32018f159e81"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_api/http_package_interfaces.md",
+      "size": 13925,
+      "sha256": "46faa2fe967581fd82e66d6f7cd47aca400614245e91a458f2423a4eedaf639a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_api/http_package_structs.md",
+      "size": 24616,
+      "sha256": "5f448b2d10cfffe1f8acedca97bfb746a168a4cc286813b8c94db0c7c495fddf"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_package_overview.md",
+      "size": 13791,
+      "sha256": "d6ef2e89e63bddb2a7ad1e67f34aeef43b363774a6e1204a0b02573a58a16400"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_samples/cookie.md",
+      "size": 4751,
+      "sha256": "25a4ee1a8cbd0650ec71ec2e589f7200c8e62a2ef11c0f63f85b663321885f17"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_samples/h1_gzip.md",
+      "size": 1979,
+      "sha256": "d73a2e6d64f920c660513a7754e0821b59a785ac8be192e2030fb438d380a031"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_samples/http_client.md",
+      "size": 3611,
+      "sha256": "624e3ea4de062921db5eeca6e02e4fb23b70782f8c4b8f1893d4463f08f45c3a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_samples/http_server.md",
+      "size": 9620,
+      "sha256": "0084c0151abe51dced33a7f5bf078199a326fc1e980e2c27885435c14533df93"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_samples/log.md",
+      "size": 687,
+      "sha256": "d26d4806d5f7b0a658712e7bbbf8a09a777f852a1ae4c02910257938b88ae251"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/http/http_samples/webSocket.md",
+      "size": 4806,
+      "sha256": "32399fcbd30fa1f544892960cdb077911db5bd7551be20865bf3f1d0ef7a9d0e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_package_api/tls_package_classes.md",
+      "size": 16499,
+      "sha256": "2cd33502a949e6181e684783656b9ffcbe3cafc8b337b0b32abb62d4fa6789a6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_package_api/tls_package_enums.md",
+      "size": 10386,
+      "sha256": "97e5712cd1839926faf30fe79230eec3b454fdcb1d9d96256ac34e7d6d305b2a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_package_api/tls_package_exceptions.md",
+      "size": 588,
+      "sha256": "d11c27c5a4ec633c65dc51b080d52013d192272be3d3a7163c9bd79c54814dae"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_package_api/tls_package_structs.md",
+      "size": 12119,
+      "sha256": "ac1c8e729a20da8a853edc82206d8d6f493ec8abb1aaf89342d49b6106e15533"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_package_overview.md",
+      "size": 6692,
+      "sha256": "c47bb3e6091c3a51296e75af3aff0b69d74cc78f05d8cd0bc9543957e683f510"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_samples/cert_key.md",
+      "size": 1568,
+      "sha256": "d9af3c988db362b3f1a91aadfb81af4669636ee4753b6d242cccb9d5a0bd940d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_samples/client.md",
+      "size": 1280,
+      "sha256": "48eaa75d2dcf7fb1f77394f32431a64b1a9ac364ea9dc942edb07a3541903494"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_samples/hot_update_cert.md",
+      "size": 862,
+      "sha256": "2056ab2c052092262b882bd17c0986cb3f1ad002ede85f539224276b1bc86ab0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/net/tls/tls_samples/server.md",
+      "size": 1818,
+      "sha256": "fe17447e6ffd4be643d20d9f72763d94d5146df2481d990d740660275ab11993"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_package_api/serialization_package_classes.md",
+      "size": 9690,
+      "sha256": "9f8d9cd74765f2e767993b822a4ea5c0f8aeb69026f0da50a8beb9046028c6ae"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_package_api/serialization_package_exceptions.md",
+      "size": 714,
+      "sha256": "7d0df0c6b06ee2feaaab6fb42bf2b0fa274e9aae947e985f400e071353b8e63a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_package_api/serialization_package_functions.md",
+      "size": 954,
+      "sha256": "bbcebbffae41a330e4e754406f23f5195cd93caf0873afde4522517c9aac298a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_package_api/serialization_package_interfaces.md",
+      "size": 27390,
+      "sha256": "b8032e1bd79e922e2eaf1c0c9f5c6a4c91b2d17dab91961e7e1d5d3f40e5820b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_package_overview.md",
+      "size": 3675,
+      "sha256": "9afb5d87927f50d672424075825040dc84bb12dcbc4f5586de0b0221eac118ab"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_samples/serialize_and_deserialize_class.md",
+      "size": 3134,
+      "sha256": "f7457f33d2fafca3a2dbd3a5d6a06dacb8ec96de7b90e7d738c9dd763c10d005"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/serialization/serialization_samples/serialize_hashmap_and_hashset.md",
+      "size": 1873,
+      "sha256": "6de6702f20ab47538de5cca6cbea0b59a436352386ba0757d953d2e0ba1121b5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/unittest/data/data_package_api/data_package_classes.md",
+      "size": 1709,
+      "sha256": "d7577cd32756c41f363d27c30043b33aeb78203c9f3e8220e576274cd9e1d3dc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/unittest/data/data_package_api/data_package_functions.md",
+      "size": 9379,
+      "sha256": "bc0161621fb59772eb0da73da4c5fa38e46fc338edcc43c4fca7e2ba6808fa21"
+    },
+    {
+      "path": "skills/cangjie-original-docs/libs_stdx/unittest/data/data_package_overview.md",
+      "size": 2108,
+      "sha256": "361ec49dbf43a18b903f1e79c7407de9c7f58a2cc1bdf0b49ba84f070244f955"
+    },
+    {
+      "path": "skills/cangjie-original-docs/SKILL.md",
+      "size": 955,
+      "sha256": "8c840381f6c2e4f09dc0b02f0274325240e35fe4fbb3bbdabe679e29e31b2c37"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std.md",
+      "size": 20360,
+      "sha256": "8875442b7d6f332e57e106f1ca3268b6d80e889e17694676f7dc1bf8d8c8dd59"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_package_api/argopt_package_classes.md",
+      "size": 6789,
+      "sha256": "0bf1143c777ef179bdf8448f35e4b100dac7b22da061cf76976431f7ef771a90"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_package_api/argopt_package_enums.md",
+      "size": 2967,
+      "sha256": "fe0fd810dbf97e6f003cb4c4e07a178edd3c232d6810f483db01a79ad9acacb9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_package_api/argopt_package_exception.md",
+      "size": 758,
+      "sha256": "a55e76cf96098c2885c10218afd8ff54f1184dae18947151f3089a6e3a4319af"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_package_api/argopt_package_function.md",
+      "size": 3721,
+      "sha256": "388db31b00dfd2027f3d43ae7d13e313a43420bee8b4fbf90998875cba4ab044"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_package_api/argopt_package_struct.md",
+      "size": 700,
+      "sha256": "4411d17045ba9227c3f6ef35d9e9b56b20c0e73f9fd5e8fca776b684bb7b5f74"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_package_overview.md",
+      "size": 2900,
+      "sha256": "47db406dd4f5ac7d3e1f0cd535491c25b00c70e245b12f4faf92a0707a05d157"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_samples/argument_parse.md",
+      "size": 2058,
+      "sha256": "d78694fea779c20147252dd523dddacfe4f5e0967e43b9751d688a41bf6690af"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_samples/long_argument_parse.md",
+      "size": 580,
+      "sha256": "e2d61d9ad258a0b43fb8a6e7cba55f3f8a5c6652ce146986ea1c77edaf76eab8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/argopt/argopt_samples/short_argument_parse.md",
+      "size": 533,
+      "sha256": "fe3ebd09fa2571a34aad90d551650c6eb9d2db84ca0e22e42c888a81fca90eb6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_api/ast_package_classes.md",
+      "size": 342174,
+      "sha256": "1fa87d72eebfba4dbc0953359fad1369a236907118d902b67faa84ca30c5eafa"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_api/ast_package_enums.md",
+      "size": 27124,
+      "sha256": "504e35daffb22e5a8bb7a0574e430d316cd38d8a4a4895ec47cf7259578eef8c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_api/ast_package_exceptions.md",
+      "size": 2487,
+      "sha256": "d1af2d2196d4a708d483aecac8eef544695fe65c71a0e41264eeea8c9d489c05"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_api/ast_package_funcs.md",
+      "size": 21393,
+      "sha256": "db21aa74b299a07f2cd42a5124e8b9b2395415277b4254d6a71137a8d470ff34"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_api/ast_package_interfaces.md",
+      "size": 13960,
+      "sha256": "bc747f06e864953e05f051b2efd9ed2c3e925ab5597c4f876b8f87cdaf5a7464"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_api/ast_package_structs.md",
+      "size": 9583,
+      "sha256": "6209df79903b4efbc5846f3a7f229d228449464e2a6f5c9d9de5889f08a60c01"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_package_overview.md",
+      "size": 19316,
+      "sha256": "bed2a940e05c72a4b4b3bf76c59abf7764d96070aba853af06b8f82bb3683c9a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_samples/context.md",
+      "size": 2376,
+      "sha256": "6c475ce59d2f67f6241c1abe5bb90abc26bef742843546571d8f268772cd3513"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_samples/dump.md",
+      "size": 1121,
+      "sha256": "157054ffde908bc0791c6d87bb6487870062b82c360e8c5d8af16b64631df4ae"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_samples/operate.md",
+      "size": 1125,
+      "sha256": "83f4ece0bb55d9c68e8eea8514284d49252628c7af166ed56c874a41517af410"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_samples/parse.md",
+      "size": 5831,
+      "sha256": "a2e954ac9a574141c238a959fbba4ba10ebf3bba629fc8b23a4022a2d35e93b5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_samples/report.md",
+      "size": 2215,
+      "sha256": "417831120fb5d161d21fa32df057f42a4b952aed564bd8f40c2745d79549782d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ast/ast_samples/traverse.md",
+      "size": 1124,
+      "sha256": "8c627d39628ece752808dbc8310064b2b2231ed3898e2a692760fb5c819cc8f4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/binary/binary_package_api/binary_package_interfaces.md",
+      "size": 82887,
+      "sha256": "bcf6d29eb54fb55bb638117210ea499d4ad3e27682d16a2ab7bfd19867d68068"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/binary/binary_package_overview.md",
+      "size": 1350,
+      "sha256": "6a0df37af02dd3c37a9075a9bea3a04922a54a98345d9e4cc654652bca575632"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_api/collection_package_class.md",
+      "size": 131381,
+      "sha256": "fd8844b3c5f7c2cfc81a60992f16a9a44972ad3e71f45d830db9bfc5d5da079f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_api/collection_package_exception.md",
+      "size": 1478,
+      "sha256": "b6821991c17a0b8f114826fe9668dfd9f11357da89a729ed52eb21c4663e90b3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_api/collection_package_function.md",
+      "size": 18645,
+      "sha256": "c59f7c4a3d25ba257cf737514dca31f4bf94e12ababff814ef7405a73e4a7e64"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_api/collection_package_interface.md",
+      "size": 32034,
+      "sha256": "bfc5507971e54b172dc08d1b3d62f5273f0fd05f8fac932a270e04bf1668232d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_overview.md",
+      "size": 13272,
+      "sha256": "08dd6690af7edcb0647b63e62019b8fbf1519aed0df158ef55acf8e28ccb336a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_arraylist_add.md",
+      "size": 771,
+      "sha256": "afd89f2173b4fcab19779534631b8e3f3c8f116d643b964cc9c8ddcbb7a8004b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_arraylist_get_set.md",
+      "size": 495,
+      "sha256": "0ec9a47b69424ab5f30bfff8f358e7772b0ab6289b23f1c7512e83f1c50b199c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_arraylist_remove_clear_slice.md",
+      "size": 875,
+      "sha256": "c0edde54ae35b8f76a9f5eaf6986e3c63d2d9877858361aa5dcd6ed28ac48b15"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_hashmap_add_remove_clear.md",
+      "size": 824,
+      "sha256": "5dd293a4c8d5c5c45141923c674f4c5e98c72685fa39ac249f47ac81dc028791"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_hashmap_get_add_contains.md",
+      "size": 552,
+      "sha256": "9020fa3dab42facc4e2a0bf12ac941b13de21165fd9ba228ce637253f7189ce1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_hashset_add_iterator_remove.md",
+      "size": 1173,
+      "sha256": "b59254326fde0dfde4ad19a2d364f7ca5d777d3c8f0ff136d7f83df9d7efa0b5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_iterator.md",
+      "size": 643,
+      "sha256": "7ba90e695f772dc15db694455734d3c049ecda5d181356550f9958e4fc6ee660"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection/collection_package_samples/sample_treeset_add_iterator_remove.md",
+      "size": 580,
+      "sha256": "81af800c82160cbc2d780b9e1c712704add84fa8bfac66a4d3ef2bbcfb0af6dd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection_concurrent/collection_concurrent_package_api/collection_concurrent_class.md",
+      "size": 55660,
+      "sha256": "3fee6ff058d1c892bb14ea3cda4cb98f9741ab7a977e61a342c173069b124606"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection_concurrent/collection_concurrent_package_api/collection_concurrent_interface.md",
+      "size": 13348,
+      "sha256": "2697fd3e18bad99c1999fd3fd41564a31d154ede28fb7ab08502698e93e24c4d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection_concurrent/collection_concurrent_package_api/collection_concurrent_types.md",
+      "size": 927,
+      "sha256": "f6a23e5feb5a8c8aabe511c53b16b8a0cfc736bd7d90cf8a97f4bec1d0c16c17"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection_concurrent/collection_concurrent_package_overview.md",
+      "size": 3446,
+      "sha256": "85d9279b82f9c98551fdc8f9056d1d7a8dcaef576ff718cf2084a1b16df65479"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection_concurrent/collection_concurrent_samples/sample_concurrent_linked_queue.md",
+      "size": 792,
+      "sha256": "979b70045ef7b8be72e73e219edee73b19dfa061fc14d857f8d8202524c86586"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/collection_concurrent/collection_concurrent_samples/sample_concurrenthashmap.md",
+      "size": 1352,
+      "sha256": "7fa29ea793b6de748c5cc84cd1b073f38f8e735589d5c76e24ac6955bf0c6e5f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/console/console_package_api/console_package_class.md",
+      "size": 18345,
+      "sha256": "1403d738ce981d2260f0dd2dbca5e1f28b72c22f576726ad79bd571b4e8f2f1b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/console/console_package_overview.md",
+      "size": 2244,
+      "sha256": "06374507a26a6fcaf4292fb691eaad62057c09e4f97f8903b0fae6d5e949c1a9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/console/console_samples/console_sample.md",
+      "size": 931,
+      "sha256": "d258a9e6f7081d226c045b7cdcdb05ad4e6cba9208a5370c50b9d5d19ff1387a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/convert/convert_package_api/convert_package_interfaces.md",
+      "size": 78011,
+      "sha256": "d4e5697c878bafa8cf8789c39601c1d0a27bac5a7c9bb4425cb79936b2b2a7ed"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/convert/convert_package_overview.md",
+      "size": 5977,
+      "sha256": "1feef4c48bfca1334b3269ee0ee75d99e4e0e2988ee581394bdb28e301a1cfcc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/convert/convert_samples/convert_samples.md",
+      "size": 7862,
+      "sha256": "d855995591cd71e69043b389b069b489047e123f44668e3abc28dfe8be6e856f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_classes.md",
+      "size": 61604,
+      "sha256": "1be24486e36439d9b8f4c672a53bd624b0166f639b9e498827aedf781b007050"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_enums.md",
+      "size": 14572,
+      "sha256": "72bb21f3bed03efd727a8a717e84e866ff82675ba4f7ff2dd49bc5abf9e99cef"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_exceptions.md",
+      "size": 14493,
+      "sha256": "e2678a07660a54bdbf3fd31bbf7a0a6d1eff0e052d75b7da14a6a980afb42e47"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_funcs.md",
+      "size": 38516,
+      "sha256": "8478ae2adf4326da4e676cb63e89ec2a0bbdb7caffa7d18d5b3bad2b0df4b79e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_interfaces.md",
+      "size": 30480,
+      "sha256": "35a83366f2b87ad541358e7245970c8dfc333dccf6ed3600a1eb80764ac09d2e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_intrinsics.md",
+      "size": 112136,
+      "sha256": "039ba4f582d453565a9215462847d89f3474414451381eff56c5c8ea3e0d69bc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_structs.md",
+      "size": 112236,
+      "sha256": "1d05e150e1d07a5f80c9db845e9501d5aa410e13ea968ed7643f49dd87a0fb42"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_api/core_package_types.md",
+      "size": 585,
+      "sha256": "817cfcc31fc16e1f6155bf55560f565bf5a00f4e6db28dfb46ede9f34224fd5b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_package_overview.md",
+      "size": 21414,
+      "sha256": "7a9a40b76e31f36192e54d461afa793b7014b9de8ff05a2bfc921d4c7ad4c036"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_samples/core_cstring_sample.md",
+      "size": 1834,
+      "sha256": "49d40952748514db2a402b84b1fb4ae9cb9b93b10d12e5dcda89ab1fccf1d49e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/core/core_samples/core_spawn_sample.md",
+      "size": 2531,
+      "sha256": "3de4d885ae2a8281f5aa6c443c262da518d43770775839b5cf0789407acb309f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/crypto/cipher/cipher_package_api/cipher_package_interfaces.md",
+      "size": 3295,
+      "sha256": "7daddf8cd19de3f3516c3f8a5e15a05482c0574b2cbbd0cd6bde810b330f673f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/crypto/cipher/cipher_package_overview.md",
+      "size": 440,
+      "sha256": "659070d14765240c1a4fd2ba34399ef4d9b491f31e07fbbc960d9c88a21e1e33"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/crypto/digest/digest_package_api/digest_package_funcs.md",
+      "size": 4189,
+      "sha256": "137c4605a01c828ca802463a43a3a44c38dc23739fbf67c59b0bb617588c7fca"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/crypto/digest/digest_package_api/digest_package_interfaces.md",
+      "size": 2314,
+      "sha256": "abbc1e9e077e14bb8426b3a1257b16509a734de53697884518d0b327f5c100ce"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/crypto/digest/digest_package_overview.md",
+      "size": 1397,
+      "sha256": "18f81231b13ce1257f9673dc3605a712aacdda3ba984382ebfda8f7908216bf3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_package_api/database_sql_package_classes.md",
+      "size": 67161,
+      "sha256": "7682a5fac810a5b46a3a81c953444ed4aadf40555eb603f486025af109cba5c3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_package_api/database_sql_package_enums.md",
+      "size": 12310,
+      "sha256": "85160ebee5c40a4036c6a6145beccee7a94469464d997d514b69c52226783ece"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_package_api/database_sql_package_exceptions.md",
+      "size": 2186,
+      "sha256": "844815ad229dc08871dcf8e24ef3fd256591839f29dcd4f84a0dc7c5bc400ee9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_package_api/database_sql_package_interfaces.md",
+      "size": 22086,
+      "sha256": "0648e1f149bb98cc2ab9481c260aa2888e37e7055d49e9b898a7922c187f8592"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_package_overview.md",
+      "size": 15450,
+      "sha256": "80a9310ac8514f9716b30d4652b10b4614609bada4a76e0c2317e4c9000119bf"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_samples/db_get_connection.md",
+      "size": 948,
+      "sha256": "e77128887f4dbc6983e4eb91b7a631b501d73b3560d02e77540ce16f3efa8cff"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_samples/db_modify_table.md",
+      "size": 898,
+      "sha256": "e3b831423eef365846da6d5b8e00242cad9b568f6c2e7d472123bbd3454ae67b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_samples/db_operations.md",
+      "size": 3068,
+      "sha256": "1522588d9d0e41c9a4676b977fdd5cd15e092273e451249ca41bb04ddeb4d48c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/database_sql/database_sql_samples/db_transactions.md",
+      "size": 3557,
+      "sha256": "cde63534eb4973a5b961a0e37badc13598f6a32886f730878858f70a0773a2f9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/deriving/deriving_package_api/deriving_package_macros.md",
+      "size": 941,
+      "sha256": "6205f981c5f269876bf22b348563e563efce31e8d52b639130795c8bd2280e1e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/deriving/deriving_package_overview.md",
+      "size": 1989,
+      "sha256": "b702fe633f1726f0c347308fddbda541dd28f50190447ca5a4159605f88c59b8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/deriving/deriving_samples/deriving_user_guide.md",
+      "size": 8017,
+      "sha256": "f777ad6707a47fec2c0533756f42283baec092a0029041e4f4cddc042c4e74b4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/env/env_package_api/env_package_classes.md",
+      "size": 18724,
+      "sha256": "c49e8bacae051b8b29deb5afe802372d4e3447d145cf71d3b726111944e92fe5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/env/env_package_api/env_package_exceptions.md",
+      "size": 606,
+      "sha256": "198eb0fe9fd080e785ec4c4c0b7e050bd0f8d6fd3634c89d5b027536702bbd1c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/env/env_package_api/env_package_funcs.md",
+      "size": 6671,
+      "sha256": "8089673434f1897b0387739447d286866c3f743e179a575ab2a3a7f498ca2cb5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/env/env_package_overview.md",
+      "size": 4343,
+      "sha256": "b58dbb0fa0a389c6c2a9ec719b1980de27c3de7436a3bc208a5cbb5f4ed480cb"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/env/env_samples/env_sample.md",
+      "size": 1519,
+      "sha256": "a86ea60178db02aa30c11c2ce653d25ba861a998097844e9fd068aeb081f9772"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_package_api/fs_package_classes.md",
+      "size": 32368,
+      "sha256": "275ca8f7712fbd985293b5c392e676cb97483225a8f8a41948eb5daec556ef3e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_package_api/fs_package_enums.md",
+      "size": 2699,
+      "sha256": "e16b7922f293e2668aa8193018a66d8babcf2242db4cee4108d139010b7346bd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_package_api/fs_package_exceptions.md",
+      "size": 698,
+      "sha256": "1f0401db1c48a26fe08b02a829d24812d46b9d959f0a4933a3aecbbc5fa09ac2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_package_api/fs_package_funcs.md",
+      "size": 11984,
+      "sha256": "9db953f92b5b458f88c11cf875cb79de9b175e3730aff8f19e372a241ec7d508"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_package_api/fs_package_structs.md",
+      "size": 28577,
+      "sha256": "82865910765d4385ced3bd558c8e5b495a7ec9ac8f6dddae52685b0bb049b8d2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_package_overview.md",
+      "size": 4067,
+      "sha256": "27858b7dc4a445a3a44d9ed21e902e725c599c6ca3383b8e06a4dfc3752a7237"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_samples/directory_samples.md",
+      "size": 2021,
+      "sha256": "e12b0ecdf6073c39e964ea23347f027c4b7b7c36c4f7808c94f0c2a2979d2274"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_samples/file_samples.md",
+      "size": 3167,
+      "sha256": "70447cc57c543e27b764373223efa267df2f581f8f41542785daffe963392e8e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_samples/fileinfo_samples.md",
+      "size": 3029,
+      "sha256": "5266893fe9c0271412efb400c6e8c62901ef5182e3d45d59445de0bae4a51ac0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/fs/fs_samples/path_samples.md",
+      "size": 5059,
+      "sha256": "d01a49ba90b1f98aa6897022bee7e65a11ca71129bdfa4863815f0b9a53696d5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_package_api/io_package_classes.md",
+      "size": 71621,
+      "sha256": "915277bdd594bad49b4ed9c2397e647a4fe921587368dc929af9f6dd23eea55f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_package_api/io_package_enums.md",
+      "size": 547,
+      "sha256": "c103179c302f85906359ba7868ea94591a0b824380f9264396909b031207ecbb"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_package_api/io_package_exceptions.md",
+      "size": 1551,
+      "sha256": "4e7198e6f9edb77bc28fc557eb1a057d8ffce9774c22e374a7425cbad4afe768"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_package_api/io_package_funcs.md",
+      "size": 5647,
+      "sha256": "3c30cf0fa5b7c02eb4a1909f80122cf2c40f4d21aefa0f4924f9f135ff7f56e2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_package_api/io_package_interfaces.md",
+      "size": 2877,
+      "sha256": "f9bfd3b8d132d5daf2c0a51bbe0774da33cbdebbff14fce2a740269825e5f53b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_package_overview.md",
+      "size": 4183,
+      "sha256": "b77e2189afe4efb1239576db84820661b6193f8e1cc88f964629876614f9edd4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/buffered_input_stream.md",
+      "size": 588,
+      "sha256": "9fe19e88a03796a5fffaf23bef95fce529aea47566232a16acd1029d62e87547"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/buffered_output_stream.md",
+      "size": 684,
+      "sha256": "01a71c1ba5a584c3cd5c02050b153d92607b2b29d596f1bd582be152e72e2ba5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/byte_buffer.md",
+      "size": 913,
+      "sha256": "89cff7459992563e1a1b9d4fbd2b825b7427d7b8a5bfef171d0342e3055bf040"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/chained_input_stream.md",
+      "size": 1112,
+      "sha256": "9fcbf7afe660a254889174e1105e22a52eb9c2060dcc03c3c2e97942772f47f3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/multi_output_stream.md",
+      "size": 820,
+      "sha256": "7406e29f8689e99f060f232042515ea10276b74820d12c34867aa0b483f00535"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/string_reader.md",
+      "size": 760,
+      "sha256": "d1104c16d3d265f00b0cf216bfb8a5d02eb9e0e20f9e3b3cceea68431afdeae6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/io/io_samples/string_writer.md",
+      "size": 581,
+      "sha256": "835d0109a1e3d672b0f24172bea49337539a41058c64fd832bb789c8ce0d60fd"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math/math_package_api/math_package_enums.md",
+      "size": 1977,
+      "sha256": "4c9b76b0edc904509bc686e492b572da5cc485f30da6ea6b9d484cd7151cbc68"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math/math_package_api/math_package_funcs.md",
+      "size": 127667,
+      "sha256": "955ab34f54253f138d008df38cacabc04148ad4134992f629300c8c051042c6a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math/math_package_api/math_package_interfaces.md",
+      "size": 43050,
+      "sha256": "501d24f20261fd0cd5409d3f34ad097c7f1ce4a78de1aab81dc530cc98973d3f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math/math_package_overview.md",
+      "size": 27171,
+      "sha256": "d9e454393adab1bb13ef88bd113d9b8985866975847fa95231062f284c1c9e67"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math/math_samples/math_basic_operation.md",
+      "size": 1922,
+      "sha256": "5d1cdccdb6d2d70b36538ae7df64dae09500d8bb44e2fb121d1d81de5be1f89c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_package_api/math_numeric_package_enums.md",
+      "size": 1725,
+      "sha256": "c86ff13586d45ca73b05512e6c84e871ed87bbf26aa75801a6879d6f0e008418"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_package_api/math_numeric_package_funcs.md",
+      "size": 8753,
+      "sha256": "74b0a491b5b57ae134923504f42d6b9627d68506dec027e1740fbc4bc935bc46"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_package_api/math_numeric_package_structs.md",
+      "size": 133792,
+      "sha256": "6474ea301161cb407ad5af14bdabdd2d2bf6a3216508780f6229567ded58047f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_package_overview.md",
+      "size": 3688,
+      "sha256": "adff3ba5ca0ef330ebaf2a69b9aa8b0f2b082f466f3175ea75feb7540e20c399"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_samples/bigInt_basic_arithmetic.md",
+      "size": 853,
+      "sha256": "1512f29b8eac88132385a5b099e3214d0775299c7395636a5e07ffc22e21d4a7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_samples/bigInt_basic_prop.md",
+      "size": 451,
+      "sha256": "a6910e40ba9c44018761dafbb723f29411da1350e61363d1951958a28b407356"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_samples/bigInt_compare_opration.md",
+      "size": 933,
+      "sha256": "b61b03546a8e1331370be0efff5375ea430d60f6ad54b7ea9953bf7b2d535969"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_samples/decimal_basic_arithmetic.md",
+      "size": 1281,
+      "sha256": "f5b283eb2f0bc5e402d478b46a560d19d4cbd2ce7a593aa4f48e5b54fdf7f70d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_samples/decimal_basic_prop.md",
+      "size": 1384,
+      "sha256": "b8628d90873509a129e66b707c0a7b5f0a7b2f90e2ecbd6f19cd2e0144fda9b1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/math_numeric/math_numeric_samples/decimal_compare_opration.md",
+      "size": 1092,
+      "sha256": "7c38c0ead4a7f062f1a7888c42fbd628cbb7c05feb2ed70a99cd1127dee08d27"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_package_api/net_package_classes.md",
+      "size": 173480,
+      "sha256": "2ae3448e6a9c38d5f867bff9b2097d9cb803b49c536d0d4156356514ecf48ee8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_package_api/net_package_enums.md",
+      "size": 1827,
+      "sha256": "7ace30ccf0d4f57d0452e2b314724d6f1dba02a034d35f17e0c9da9eb4915baf"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_package_api/net_package_exceptions.md",
+      "size": 1585,
+      "sha256": "d9c08950918b72c43298c41fbbc54fc656b0e7a6e934e779e1f3be68f3180d76"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_package_api/net_package_interfaces.md",
+      "size": 10779,
+      "sha256": "76b5063d5c3572fe28c4256720ddf5849d393ba1161b93be4338e0c3c5867309"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_package_api/net_package_structs.md",
+      "size": 37094,
+      "sha256": "0018c9a8bb0292e18c413a981096cf282b05d2543b21872804e7b90e82d6da32"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_package_overview.md",
+      "size": 6399,
+      "sha256": "298cd89ae87bb58e2acdf6c062761750e996c7a1241ced6ccd7d012b19c44d09"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_samples/socket_option.md",
+      "size": 1046,
+      "sha256": "dacce3100d64b01c8e19ab9aa8f31cd410f39282bcaea044bc80650d7a4699a8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_samples/tcp.md",
+      "size": 958,
+      "sha256": "a88beae8291e8e52452a385d556cf7a2d816367da280dd898eb129d189c3f2ce"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_samples/udp.md",
+      "size": 1113,
+      "sha256": "923a7dea89afcdad6471be032f6360fed38beb2a8deebfcceb78caaa65bad95a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_samples/unix.md",
+      "size": 831,
+      "sha256": "d895c16bff602903392663c9db1f4b8d33049a0f0096769780b90302a3bd015c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/net/net_samples/unix_datagram.md",
+      "size": 1454,
+      "sha256": "88e8f298af7f1d561605b7db3b615a6e59c218b2495f279f79a06373ce0c7c04"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/objectpool/objectpool_package_api/objectpool_package_classes.md",
+      "size": 3651,
+      "sha256": "cb741d653f28d24c868bada6fac697b7bac8c4d9cb05a95c5f1b987393f6cb35"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/objectpool/objectpool_package_overview.md",
+      "size": 1569,
+      "sha256": "ba4babdd7db63345b73248e788a9e1dea78c2c4f42bc186b186cd8b3b586545b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_package_api/overflow_package_exceptions.md",
+      "size": 1665,
+      "sha256": "223b963fbcb7fe958a3a329fd1888e08855e50b0d1b9a8be32b7974bf4b780f7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_package_api/overflow_package_interfaces.md",
+      "size": 320545,
+      "sha256": "970ddb2afdbb107f685bbfa5f14bc67fa9727de772d464acda003dbb6f29e703"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_package_overview.md",
+      "size": 4267,
+      "sha256": "3b7cc1415bed40da4cc7dc91d61bffdfc159e4d524da1b5adb7256c5cbfe1c50"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_samples/option.md",
+      "size": 359,
+      "sha256": "13aa9889264e8fcf8f6c5df9915a239cef56b50c5ecb4b71bcf5b45165d46ef7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_samples/saturating.md",
+      "size": 395,
+      "sha256": "f24daafd3b823abfa54c3e8c12b56ed8814b24202b93df66eb958cca7a56a15b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_samples/throwing.md",
+      "size": 400,
+      "sha256": "f755b6a44a8c963a2c1b5f4e7cc62ea3d8e2bd3cc66fc3515122005ccd861f9e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/overflow/overflow_samples/wrapping.md",
+      "size": 443,
+      "sha256": "3b46c7723eb105a33839216dc99579003e03df656ecacba88bbf841c11ceb0f1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_package_api/posix_package_constants_vars.md",
+      "size": 39723,
+      "sha256": "71581c579f701465b3185167fa9477a970ab2078f27a5c00ed694680ef16d5d1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_package_api/posix_package_funcs.md",
+      "size": 62360,
+      "sha256": "b40fb715b11819f7802f77d6a60d74f0affc2932159ebc20ed822c65dfd62bcc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_package_overview.md",
+      "size": 37590,
+      "sha256": "bb90d510001745d1760d75ab36fcbe6efbb24abd64669787faee72096a3d520e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_samples/posix_get_file_content_samples.md",
+      "size": 1120,
+      "sha256": "478c2f48ebdc7bf96c2b94ffc2b3f144900fe85b2ba67c918d7064175feeb7ca"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_samples/posix_get_file_info_samples.md",
+      "size": 670,
+      "sha256": "ced7735ad13745bf202df2670805a886125323fb41014ea984b846354d5814f3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_samples/posix_get_os_envinfo_samples.md",
+      "size": 1601,
+      "sha256": "36a0fd289dc463889c85ae6bb8da03e39394bd69c2372165b57dad517768b829"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/posix/posix_samples/posix_process_samples.md",
+      "size": 742,
+      "sha256": "21f7d49150fe080db8032c462728d3406d364b488d258948dbef2d2a0f160850"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_package_api/process_package_classes.md",
+      "size": 30157,
+      "sha256": "d9bfa68347044c71331f4e4768702c711a08f0e22e3a46ae0b0d02e2d3bccda5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_package_api/process_package_enums.md",
+      "size": 1644,
+      "sha256": "4ec5c4d72921699234ccb7165e6f572be02ed5ffcdf0c5753711ca48a8375efe"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_package_api/process_package_exceptions.md",
+      "size": 588,
+      "sha256": "968825c712d58369f8158a530f57fd732b7f8b8fcf6964373380ad9f4bf1bc22"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_package_api/process_package_funcs.md",
+      "size": 12206,
+      "sha256": "530296af4d9c56791fd483f5cfa6b8c91885b647e60e3df6db109fbf5a5d6bab"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_package_overview.md",
+      "size": 7440,
+      "sha256": "59a8bcd68f3551e0f44f0783bae893bea2914c6e886ee29a3148b4523fa961e7"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_samples/process_sample.md",
+      "size": 537,
+      "sha256": "e4c42a971158b5bcf141a7cb67d89309b20a759d0b195757825513555663a9c3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/process/process_samples/process_subprocess_sample.md",
+      "size": 1036,
+      "sha256": "81549a1bbd5713c29b606efc577d267c1cd2f2a416eb4b6253933917abfc01ff"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/random/random_package_api/random_package_classes.md",
+      "size": 27680,
+      "sha256": "7361787ef984407c160fc7b80d4bdbd0cc70887c2be6d192a2a41083081e4b4e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/random/random_package_overview.md",
+      "size": 389,
+      "sha256": "3db2b69a553ae65d2d3b9faebcd8faa3d34f43a35572a4755105c428c34ca372"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ref/ref_package_api/ref_package_classes.md",
+      "size": 1734,
+      "sha256": "17be79b74981959bace8c498376ae8bc63a2c3014fd6802498f474fc4ef958ca"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ref/ref_package_api/ref_package_enums.md",
+      "size": 2156,
+      "sha256": "b32da3c8ded460f3408bbbc7c56e7c844db47a1dd7463d4400cbd5b3b4db1aa1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ref/ref_package_overview.md",
+      "size": 2156,
+      "sha256": "9ee5ae442b68d86148a002bf4b07ac5b400a2b68825f94e3847478c03fd05edc"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/ref/ref_samples/weakref_in_cache.md",
+      "size": 1817,
+      "sha256": "d2d58562c384485e955b946f8badd12bdebbff7f417976fe6ca75f06abc14f8a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_package_api/reflect_package_classes.md",
+      "size": 157737,
+      "sha256": "e64b944cbeceba3385bfd2656324daaa25b31669d04447a22f0321be360a7858"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_package_api/reflect_package_enums.md",
+      "size": 3370,
+      "sha256": "eecbe82e673884f9e39518083bb16f7bcc5f440ef1681109a3ff5e5e2661b817"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_package_api/reflect_package_exceptions.md",
+      "size": 5039,
+      "sha256": "2cd9371b1b253296316755d9271c6c6bfe168cadac159f2034a9a6dada0c5882"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_package_api/reflect_package_funcs.md",
+      "size": 1567,
+      "sha256": "892e28cebc0c158a71982a006d54abeefc49534c5b0b8e1d1273eb2d1e01f15e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_package_api/reflect_package_types.md",
+      "size": 199,
+      "sha256": "ad619676c3ebca6c0cf0e335cfb407afb7862cf87e15d1dd907f321591779a9d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_package_overview.md",
+      "size": 6423,
+      "sha256": "12b71cfcfaf30a063f1f77aed07dd7632c997c195dac3f511ab1e476135ff10c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_samples/annotation.md",
+      "size": 465,
+      "sha256": "7a70d3302f89ca8c0b8e532300a039210cf4215fa5edb31b8632a7d25b04e59a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_samples/dynload.md",
+      "size": 3461,
+      "sha256": "4acd1ee793155b92c225b65a2316a8907d46c4d9d4f1af306c6102dc8dc6c77a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_samples/memberInfo.md",
+      "size": 967,
+      "sha256": "315346ad7b435dff5a4979cffb0e4b7026bbb1258ca3babd5ec958dfeeafaa11"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/reflect/reflect_samples/typeInfo.md",
+      "size": 391,
+      "sha256": "172874429ab2a32704d401ba242d25aba828729e0840ed0637fed78cb7b60c4b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/regex/regex_package_api/regex_package_classes.md",
+      "size": 26346,
+      "sha256": "4a574235e6da5eebb435bf35c88b3a03b5c3ec79e74701f04c017e8158613016"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/regex/regex_package_api/regex_package_enums.md",
+      "size": 471,
+      "sha256": "f3bfe2bcbc1079d62cf6804235c7cbfdf5b2fa3d60ffdc7b9d60328b2c4869da"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/regex/regex_package_api/regex_package_exceptions.md",
+      "size": 762,
+      "sha256": "fe29e526944f87d7f0c46964248437247398280a476198cbe7b650e63cc99a40"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/regex/regex_package_api/regex_package_structs.md",
+      "size": 7849,
+      "sha256": "3a5d45b7a31a01e60ec3199713b059567dc7d04ce496b2337bf6cce670b7c219"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/regex/regex_package_overview.md",
+      "size": 12454,
+      "sha256": "457fee4ccc89e8f15d2007e4ded7917aaf9c8da17c3512e52a5587bf1001a2fe"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/regex/regex_samples/regex_sample.md",
+      "size": 5110,
+      "sha256": "18170306fc15f4e62791abc017bf7b264307328c7b3384cb4aaa54db935ff940"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/runtime/runtime_package_api/runtime_package_funcs.md",
+      "size": 7594,
+      "sha256": "c0335b46d6a03aa6d426ddcc6442bbf4e8fbacc814ee3f5abe7aab717482e79e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/runtime/runtime_package_api/runtime_package_structs.md",
+      "size": 3236,
+      "sha256": "bf396cb4c0fcacbd66b039833a3546b308c1660ab3bfa0bd63bbbb936a127042"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/runtime/runtime_package_overview.md",
+      "size": 4124,
+      "sha256": "bd9539f4f9f48514747a9366bed104b2848671f06dd0175558c6523d91d3b717"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sort/sort_package_api/sort_package_funcs.md",
+      "size": 24388,
+      "sha256": "50160b218b2178bc33532d6e6d2c9382eb58b28eda31a3b3fa6c0403bdfeb546"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sort/sort_package_api/sort_package_interfaces.md",
+      "size": 8817,
+      "sha256": "6773715ba89af24154a213385913426b8522465043fbd2044b525708702a5c9a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sort/sort_package_overview.md",
+      "size": 5835,
+      "sha256": "99645904380151fb5d06ac0ed796144263617d0ca3e83f144234bd0a92891f65"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sort/sort_samples/sort_sample_array.md",
+      "size": 3472,
+      "sha256": "692b367667535856cf2c07fdeb292eeb3aa0191328f7497e792aa08187b97dca"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/std_module_overview.md",
+      "size": 8848,
+      "sha256": "c45cd78e0cf630e615c4e244fe3b2a43e60da0f0b2bc3aa81dc25edd0a785f72"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_api/sync_package_classes.md",
+      "size": 166987,
+      "sha256": "4a0029d22e2d3366942fe37cfacf0c6378ffad70c20f127b698e43b94d0e72fb"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_api/sync_package_constants_vars.md",
+      "size": 446,
+      "sha256": "85629004a5a769464737bed990219fc165d4b4a79165511a0deab59bc4a93c13"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_api/sync_package_enums.md",
+      "size": 3276,
+      "sha256": "984dfda0aa3e06202132d544c4de98a7ab6cccceb2ff12bff834c1b3af438c82"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_api/sync_package_exceptions.md",
+      "size": 926,
+      "sha256": "70ba300b77e21ebb110eb7f0fc69e5ca5e74b8acd6e7ffd9c6546108770e37e0"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_api/sync_package_interfaces.md",
+      "size": 8865,
+      "sha256": "f3d3e4a38dc4f853466815e0f0ac68e1fc6812d2c22bb612c5571a308e7b2a1a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_api/sync_package_structs.md",
+      "size": 415,
+      "sha256": "6eadc8ee4c17cbbf82fb8e52f336800a7e71809603a8dbfec2a4c9f0bb0e0a22"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_package_overview.md",
+      "size": 9910,
+      "sha256": "d50208b9a2eeb353341dde59285e3e1e72ec366e068e1f2eaad6a67c20a0afa3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/sync/sync_samples/sync_samples.md",
+      "size": 4877,
+      "sha256": "8d622139f4d31b1e9bd874979a2985a918702945e11d0106ff9ff238ed8f7c5c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_package_api/time_package_classes.md",
+      "size": 11414,
+      "sha256": "d1b82bda2a85f99b1053018a9e9bf40a022423262bddfc96b4f00cbb9aff7c5a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_package_api/time_package_enums.md",
+      "size": 12126,
+      "sha256": "8bada3b9a4bce98737b168df9d7e7e91c607e437e420f38cf1e2108b16cf711d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_package_api/time_package_exceptions.md",
+      "size": 1808,
+      "sha256": "3d4b14df74f8988cf8a223e8c9718d973b820b121f89d43848f90b8bbab2aab1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_package_api/time_package_structs.md",
+      "size": 49354,
+      "sha256": "0a78cbacc8ef6cd6a5e01f26ebe0683fb2167692754b84f12435578a163d7db5"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_package_overview.md",
+      "size": 9625,
+      "sha256": "8380dcd291a0ed6b5d0308b041ddfa643e4c306becfa3c1411b55d9182b73dc1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_samples/datetime_compare.md",
+      "size": 1360,
+      "sha256": "77001786938232f91ba3d743b77be818cda2d17eaeeb0665464b0a822a15c125"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_samples/datetime_parse.md",
+      "size": 1001,
+      "sha256": "ccc28f73c717bb1428567abfc90309e18fc1e547a171ad5df0c732b8c90434d1"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_samples/datetime_prop.md",
+      "size": 1524,
+      "sha256": "6a0d8b90f2671025216cf2ace6af1b43d41756aea6d56c7ada9cb9852b319fe6"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_samples/datetime_tz.md",
+      "size": 898,
+      "sha256": "fbe11b6bcffeb17bae9b7bfffd67e107166e58f056a31087fd2780277ca0be3d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/time/time_samples/monotime_test.md",
+      "size": 475,
+      "sha256": "194ebe9d1dfa2b3f5da581489e61308de9c6d142b98ce211df4562a9f4035307"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unicode/unicode_package_api/unicode_package_enums.md",
+      "size": 450,
+      "sha256": "4642cc38edfa4c48177991ecb2212d89fba40e84f82894abeb8a5ebf0b14c191"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unicode/unicode_package_api/unicode_package_interfaces.md",
+      "size": 31133,
+      "sha256": "194f7a143f28875cdf45abfed7e838f73a6d3213433a080e73513d736bd6283c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unicode/unicode_package_overview.md",
+      "size": 1767,
+      "sha256": "a4f230d50c212512cacb579d2647c50f9e75117c6305f4344098cf473b4ac52d"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_classes.md",
+      "size": 48232,
+      "sha256": "001587a4f84b4aabec82067630286dc0fd3ad82ac59f12ed5d8e1aac512708d9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_enums.md",
+      "size": 5548,
+      "sha256": "ce8255ba06510bc215a3fbdd9e72abf8e2947748c8195e1442f1a5148e416fa4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_exceptions.md",
+      "size": 2742,
+      "sha256": "830c8cc76a9e1ca7f30c6ce67a8d26a2ce245d1c476cfd59f2cc203cf8ffa8aa"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_functions.md",
+      "size": 12035,
+      "sha256": "59370f18ef6539b86c7c73185bee1ace34290efa1e648d284eab598223404e51"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_interfaces.md",
+      "size": 16631,
+      "sha256": "21a505149d4d76488e9a09ca67b806ddf839443ea4104fb2e5f98a8fb6012160"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_structs.md",
+      "size": 41168,
+      "sha256": "7faf2f36eb558b04e1efbb6a3875438546372e8366e913f497303f489d7ae6bb"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_api/unittest_package_types.md",
+      "size": 518,
+      "sha256": "053b0d4defd5cca39807407d922a4464a750896fce3b553ba43bc91ed09daeec"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_package_overview.md",
+      "size": 24400,
+      "sha256": "21bdcd0714dfeeb9c9e5e219013430a1dc1557337b7960dcce6c35d389c18978"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_samples/unittest_basics.md",
+      "size": 22389,
+      "sha256": "6b483f19debce8ef4c4e21f2d02595bf045aceac92206a082800cf629f2ea116"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_samples/unittest_benchmarks.md",
+      "size": 19168,
+      "sha256": "5813c7a4448cd25014ef94ceac2c25d932e25bf23e53d1c4f71959ed23e3085b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_samples/unittest_dynamic_tests.md",
+      "size": 3811,
+      "sha256": "7ae228659add50f5d92b2ac69b46b43f6aff6614abd599d42b1bf719c7314486"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_samples/unittest_getting_started.md",
+      "size": 3940,
+      "sha256": "9ec46271697533d5c09c1d9a1d36df7e1781cd5596add83bbb73e1c0ead4cfde"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_samples/unittest_parameterized_tests.md",
+      "size": 17206,
+      "sha256": "6997811f774eeb5df7a843a916d7b8dc78ae26a5b690245bc150a3c69e983f11"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest/unittest_samples/unittest_test_templates.md",
+      "size": 4074,
+      "sha256": "a0aa96ec5ce98e726957130cfa16fb8fe709aef52432a513941a3b7514608efb"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_constants_vars.md",
+      "size": 857,
+      "sha256": "d5c19c1ff1d17bb865ef8d4e6bbd039ae4ae8e8966f3b901cf977831be6ea4a8"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_package_classes.md",
+      "size": 17109,
+      "sha256": "88d958c31af0fb6000467e894fa5411019f78153e63da6df0e93c8002f8248ff"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_package_enums.md",
+      "size": 2228,
+      "sha256": "71b7209233b471059a7d120e704a5ec9f72f9786919ff81e539c8c035b8edea9"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_package_exceptions.md",
+      "size": 314,
+      "sha256": "feb61a8f41021aea9931c3afd14c0ebe28cb00e0d9d105d3cf22c8c3ab9137de"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_package_functions.md",
+      "size": 2258,
+      "sha256": "54b185fcef352af0d24e90eb6d919a402ee1fb6cc12b2811cebd027e9df6f025"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_package_interfaces.md",
+      "size": 9348,
+      "sha256": "5f6bcacd46437a4d1addabd8c52b0cd1d2642f696bf5a4440ffd3c002bbb7e00"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_api/unittest_common_package_structs.md",
+      "size": 1912,
+      "sha256": "b08669151a9795a4ac7a3c0815b06acd84a29dedd83c173bfe68f3c5770e36a4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_common/unittest_common_package_overview.md",
+      "size": 5288,
+      "sha256": "b89413eec983f218cce09763a0f82106c9369dab78bd15bd666ea09e7676efaa"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_diff/unittest_diff_package_api/unittest_diff_package_interfaces.md",
+      "size": 9879,
+      "sha256": "0ef880a29b8367a72185a8e1f5d28ed22b174e3514fab3d3d17fd64c48415b66"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_diff/unittest_diff_package_overview.md",
+      "size": 669,
+      "sha256": "16068dbb49d499138f243fe1b855f17268b723f2d8450135a21a06090e2cd02e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_package_api/unittest_mock_package_classes.md",
+      "size": 55861,
+      "sha256": "a164771cce812b8a8bee477b408456ab2e98f62c9e54d1dfe2144b20166a9945"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_package_api/unittest_mock_package_enums.md",
+      "size": 2927,
+      "sha256": "fb60d26ab6832dad1356fd0c024033192de45ab0c7c8b5fc6acbac2f67d591e2"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_package_api/unittest_mock_package_exceptions.md",
+      "size": 3082,
+      "sha256": "e4e92dea6cca85dc77abf39db13d064e117cd321075008d81b840537b763b72c"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_package_api/unittest_mock_package_functions.md",
+      "size": 1615,
+      "sha256": "d4e32a4a27731e1d475975473046a7ce1df986124a76e898e2df4577f45ae8b3"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_package_api/unittest_mock_package_interfaces.md",
+      "size": 3605,
+      "sha256": "8b04ab6af27a4cdf8c22e266c88567432d02e07f96938117af8205ba2d08d606"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_package_overview.md",
+      "size": 8093,
+      "sha256": "353eabe4c3a6059a2352e934ed5e1715c730a66619af9dbea1d7f903876a4e2e"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_samples/mock_framework_basics.md",
+      "size": 15107,
+      "sha256": "e18cafd1aea9da4413247de813fe7ac20e6f68a9198a4d12db8b6d53febca453"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_samples/mock_framework_getting_started.md",
+      "size": 2763,
+      "sha256": "a437f08a4a403c8f8dca93d23d87b58605c47217cf462c7cd43ace7907ff28cf"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_samples/mock_framework_stubs.md",
+      "size": 15134,
+      "sha256": "01d468a994653fb2299e7d5dd816f15f6d8da946fe0cc5d40e998cf269299f51"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock/unittest_mock_samples/mock_framework_verification.md",
+      "size": 13654,
+      "sha256": "4c8f1170ad860d250b848a0974a05086417522c59428b0aaf10252f4eed65d95"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock_mockmacro/unittest_mock_mockmacro_package_api/unittest_mock_mockmacro_package_macros.md",
+      "size": 368,
+      "sha256": "109eef3a5753b94aa909fb8753740c2f669c8d034b2a13d0bde998d0008c7f25"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_mock_mockmacro/unittest_mock_mockmacro_package_overview.md",
+      "size": 780,
+      "sha256": "4daa4a7f79b771b6397fb7f5d8404ebd2f7905a5b5d34d5b94c4ecf9c9d38054"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_classes.md",
+      "size": 25214,
+      "sha256": "055b9de3bbe947c5742815a37a6e018b4b9ce8a54bb3d99484ec94bf36a7753b"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_functions.md",
+      "size": 1466,
+      "sha256": "2abf0524760c3e335598c1df3db2e1c767205aefcc36d3e555c9b5309ae8402a"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_interfaces.md",
+      "size": 115846,
+      "sha256": "c3e6c73ed713110738d6b73ce9a649b7e125d7f980cf4f62757ae36cb688ffda"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_prop_test/unittest_prop_test_package_api/unittest_prop_test_package_structs.md",
+      "size": 24796,
+      "sha256": "1cd9ff7f1a9e908223daeaebbf287a70e24021324e6166f50e020cc11478a766"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_prop_test/unittest_prop_test_package_overview.md",
+      "size": 4829,
+      "sha256": "00c309998fb046e1482b957200ede1f57866916cf4a7ad34fd02d3244b7e2924"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_testmacro/unittest_testmacro_package_api/unittest_testmacro_package_macros.md",
+      "size": 28202,
+      "sha256": "6f660f9b6c717ee5b5c1d517169e2ee434674943a453bbe405da515126a60bca"
+    },
+    {
+      "path": "skills/cangjie-original-docs/std/unittest_testmacro/unittest_testmacro_package_overview.md",
+      "size": 5681,
+      "sha256": "edbc582119ddd9b72f954c242a6734e88fdffe8e275389bc88dd23fb9190dc88"
+    },
+    {
+      "path": "skills/cangjie-original-docs/stdx.md",
+      "size": 10591,
+      "sha256": "20ab5fb7fadb8f6d291a0869c19aa53606fd0d6b28685df2ba73bfab083cc380"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/index.md",
+      "size": 720,
+      "sha256": "db366fa87c431deb141285e3b0e6df605bb2af2ae39b7872df5ba76205d8268f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cangjie-language-server/LSPServer_manual.md",
+      "size": 1366,
+      "sha256": "a49194ca381b10d1e2b9960ea97f5133d18b50069cdd60a269b37a1f058ce016"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/chir_dis_manual.md",
+      "size": 1067,
+      "sha256": "353355187eb254e37c7a8074a208d9381b5516a9bd381fec0ef90c53cef6ba99"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjcov_manual.md",
+      "size": 18558,
+      "sha256": "a0f636ed7c90bd7600d2ffcb3c57498311a5e55529fcee040f1680a9f3bb0095"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjdb_manual.md",
+      "size": 24565,
+      "sha256": "8b8b825b3e68608cc74a4036737c6d251237af8cfe7d652a810e1692589cba24"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjfmt_manual.md",
+      "size": 11211,
+      "sha256": "0b0d9e0298d809c00cf5f03971853ed3d65e6e1225ff7be4d537cf3c4ba533a4"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjlint_manual.md",
+      "size": 18022,
+      "sha256": "a267b4681933cd78d9e119a23758044d555289431c6f79a433a5b9b49c0d8f18"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjpm_manual.md",
+      "size": 94989,
+      "sha256": "2d0aadb714aac0d6b83d7834ebc92921127009526ddd285d248887df5cee171f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjprof_manual.md",
+      "size": 10094,
+      "sha256": "11106877fd3b69b7eec5f4fa420dd87ecf2c7b120e0e841527e38529d45a906f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/cmd-tools/cjtrace_recover_manual.md",
+      "size": 2834,
+      "sha256": "38d838f475567482cb5cdbb5186ef3fbe4cd133e28068a4fbcb67fd36cce376f"
+    },
+    {
+      "path": "skills/cangjie-original-docs/tools/source_zh_cn/command_line_overview.md",
+      "size": 320,
+      "sha256": "fc4c15a08b1e000079081ed1b7150671529ba89110accd8a9dc5e21021d20636"
+    },
+    {
+      "path": "skills/cangjie-std/args/README.md",
+      "size": 8551,
+      "sha256": "a0eeac9c18a2616487b3d26fb81b4e4040a1418779b31d6dc65dcf1201f6641d"
+    },
+    {
+      "path": "skills/cangjie-std/binary/README.md",
+      "size": 2426,
+      "sha256": "ddde64837c9c141c0f67ec8c173037a4743e07a2f0b52a003836baefd4f82974"
+    },
+    {
+      "path": "skills/cangjie-std/collection/README.md",
+      "size": 11330,
+      "sha256": "815cbbba4032f9b0ecf594cddcf5db7fd98be69881c91272f9c934b163304c65"
+    },
+    {
+      "path": "skills/cangjie-std/collection_concurrent/README.md",
+      "size": 5305,
+      "sha256": "4153ab16eb1be5d5f0ad1c3c001be9731632bfb16c34429e4616d4eb4e66f5a3"
+    },
+    {
+      "path": "skills/cangjie-std/convert/formattable.md",
+      "size": 4133,
+      "sha256": "0bcd039d1aafdc1ea8110692a9d09bb8b1848ae8a569ba4d019a39cddfdd556b"
+    },
+    {
+      "path": "skills/cangjie-std/convert/parsable.md",
+      "size": 3214,
+      "sha256": "0bf4ea19e9d9a594d110f7172a1a1a68101945e4b263f3014bcf99e02015005e"
+    },
+    {
+      "path": "skills/cangjie-std/core/README.md",
+      "size": 6843,
+      "sha256": "83fe61c47718f54ad972867da60c320031e724d35883d88ed8d1448d1cc1e4b1"
+    },
+    {
+      "path": "skills/cangjie-std/crypto_digest/README.md",
+      "size": 2569,
+      "sha256": "ad39aeed7675e8ce375aaad9279c2ab10af7a0dc60ccf09bef4459cda8b0b085"
+    },
+    {
+      "path": "skills/cangjie-std/deriving/README.md",
+      "size": 2680,
+      "sha256": "c74bf15b290a0fa7185d15fe59a88665295f8b1443bcaa5fa5882cefe32b56c5"
+    },
+    {
+      "path": "skills/cangjie-std/env/README.md",
+      "size": 2971,
+      "sha256": "37eef570a7fe5905eab1f0e381c4dd3b4d7fbb0075c0029f3385474a9199b698"
+    },
+    {
+      "path": "skills/cangjie-std/fs/README.md",
+      "size": 5838,
+      "sha256": "0b9f3534184b65e9913013ca457f5fdd62a371078bdaf71951aa6b2e0ebffae1"
+    },
+    {
+      "path": "skills/cangjie-std/io/README.md",
+      "size": 7028,
+      "sha256": "bcf0c9644d7c613795077b0f590c52e9823a802f1bf60d9b891ece0099bff11b"
+    },
+    {
+      "path": "skills/cangjie-std/math/README.md",
+      "size": 3978,
+      "sha256": "9655ea7b4866fdd74318c7fc07b9d688a7c392d08e5b64cdff9a94ebc3e11453"
+    },
+    {
+      "path": "skills/cangjie-std/math_numeric/README.md",
+      "size": 3870,
+      "sha256": "33fe9da02e416ef93575d83c630c7ef132ef8a642ea2f382f1dfab4065830edb"
+    },
+    {
+      "path": "skills/cangjie-std/net/README.md",
+      "size": 4209,
+      "sha256": "f1fbfdecfbd744ef6f7da58fd40b83aea447b4acb851987bc279f8379733e197"
+    },
+    {
+      "path": "skills/cangjie-std/net/TCP.md",
+      "size": 5377,
+      "sha256": "d63c5eb60b3d977e316be8551cabe7d2a78d680d1d823bd6f9841b7929873dd4"
+    },
+    {
+      "path": "skills/cangjie-std/net/UDP.md",
+      "size": 3313,
+      "sha256": "0ecbae15a0e0e5f0a1e78a0fd9f50cdb6022605bb0b413389bcb558a42696912"
+    },
+    {
+      "path": "skills/cangjie-std/net/UDS.md",
+      "size": 5022,
+      "sha256": "65bf8e61564fafc384eac619fe1cec5379e0a56da306c820a33b32147951b947"
+    },
+    {
+      "path": "skills/cangjie-std/overflow/README.md",
+      "size": 3616,
+      "sha256": "b9423b13e66af3149be0371fe517a8efa01adb5af2d6b6727c3aad8d68b1d619"
+    },
+    {
+      "path": "skills/cangjie-std/process/README.md",
+      "size": 3106,
+      "sha256": "4c562e25a891881ada129cf4bb7340ac1fec718db489017d0d5aada92af5db5c"
+    },
+    {
+      "path": "skills/cangjie-std/random/README.md",
+      "size": 1979,
+      "sha256": "7a8ad4dda5ea06cb4c6b84adcf3b7e2f4e1d481be18d3bfb43d6e28c16dde30a"
+    },
+    {
+      "path": "skills/cangjie-std/ref/README.md",
+      "size": 2711,
+      "sha256": "f5856b880830d54536c26d4322e405c62ef1079cfa2b1c9b03a09850b1fe8fd3"
+    },
+    {
+      "path": "skills/cangjie-std/reflect/README.md",
+      "size": 3691,
+      "sha256": "6b9d146a956578edd6cafe178b3d35f31ad935fe6d14b89105da54b0097ffb17"
+    },
+    {
+      "path": "skills/cangjie-std/regex/README.md",
+      "size": 4349,
+      "sha256": "2a4ab81ca2ec0e338adf560fcc134da8b199e744a2e0913f1412b55e0793a763"
+    },
+    {
+      "path": "skills/cangjie-std/SKILL.md",
+      "size": 6521,
+      "sha256": "df659706090313f5e186ff5ecd99eef4e77322ab7b8009ff2a4738811f554e33"
+    },
+    {
+      "path": "skills/cangjie-std/sort/README.md",
+      "size": 2984,
+      "sha256": "fd37bfde632317a2bc652ee511dc56f4b919f57477af40bbb8f80ce524ce3c92"
+    },
+    {
+      "path": "skills/cangjie-std/stdio/README.md",
+      "size": 7164,
+      "sha256": "490c4d0e66db9f74656826633e1c8c3698bf62071068e3feea1ced1dcf1be9fd"
+    },
+    {
+      "path": "skills/cangjie-std/sync/README.md",
+      "size": 3824,
+      "sha256": "eaed8c96b5fe5e4fbdec74af3633b3831ad50b59ab6fc0fde29960e0da7f7a9c"
+    },
+    {
+      "path": "skills/cangjie-std/time/README.md",
+      "size": 5437,
+      "sha256": "2e974739b3f34427a59b3a245b03e0f25720cee7707cd7dca4df643698407189"
+    },
+    {
+      "path": "skills/cangjie-std/unicode/README.md",
+      "size": 3078,
+      "sha256": "9a955a2b4c0cdb996504e86398800d06e7305484ae9763169e4020e1df0d53ba"
+    },
+    {
+      "path": "skills/cangjie-std/unittest/README.md",
+      "size": 10731,
+      "sha256": "e3882f7b7635541d46d93618ab5e8f70ad820440d40e9af82747a1d7323b2e17"
+    },
+    {
+      "path": "skills/cangjie-stdx/compress/README.md",
+      "size": 4347,
+      "sha256": "f1d7516654a79f92f27f436184decf8bf03d84bea7d5f5f0349b1dd6864fa57e"
+    },
+    {
+      "path": "skills/cangjie-stdx/config/README.md",
+      "size": 7144,
+      "sha256": "0f0faf93dadac0d5fb6cef39712439f65684edc37041c629cef6838b85f05f48"
+    },
+    {
+      "path": "skills/cangjie-stdx/crypto/README.md",
+      "size": 10680,
+      "sha256": "7fa07f5676c712524e359156f20b3a78447efd236ebca42347872e9d90eace07"
+    },
+    {
+      "path": "skills/cangjie-stdx/encoding/README.md",
+      "size": 6008,
+      "sha256": "7c1c500c42d0e217a9de1df4f62321015e933ba90a749cc97055b3e1e1bf4810"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_client/CHUNKED.md",
+      "size": 3753,
+      "sha256": "6f041991403099763a5c22ede8aa231586d8431a99ebf8ad61106c28960e1957"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_client/CONNECTOR.md",
+      "size": 3475,
+      "sha256": "acc562e797e2d45434fd8601e1add008fb89365868f679eb337955f54150c3ef"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_client/COOKIE.md",
+      "size": 5616,
+      "sha256": "c27043e8c7b468d8ce39d9c938f1398856aad65caa89323e5a325389a12bd071"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_client/HTTPS.md",
+      "size": 8211,
+      "sha256": "1502931296ea255e81ea02e8bf67bf0b6d3fde939095db7e5850b7f0de495ea1"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_client/README.md",
+      "size": 16396,
+      "sha256": "239cc5bbd680dcd845a5cb2725c3cda4f15146588e484c294d8f1c4aeab2fe86"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_server/CHUNKED.md",
+      "size": 3912,
+      "sha256": "24fcecc7b24a4da54ed19a46f4687199401f82699dea536e43bb047b259f9b2e"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_server/HTTPS.md",
+      "size": 7381,
+      "sha256": "eba27882703fa3ede7ca78a4c1bbf3a1ad9211f89b67395e49fff424eb0245cc"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_server/PUSH.md",
+      "size": 6161,
+      "sha256": "e9dabc08bd310494cc7717248d0139ea9101da7a59ba5846067e501014c53c20"
+    },
+    {
+      "path": "skills/cangjie-stdx/http_server/README.md",
+      "size": 13444,
+      "sha256": "6b8c8726975c0230746f12e05caebdab5caf14b36927be7bd7089c00f65e8f57"
+    },
+    {
+      "path": "skills/cangjie-stdx/json/README.md",
+      "size": 9523,
+      "sha256": "37b934be80041a2cd21e6ab12a690c6d2d707cf67b8cd9d830f5f91008a2c5fe"
+    },
+    {
+      "path": "skills/cangjie-stdx/log/README.md",
+      "size": 4859,
+      "sha256": "951813f50cc424108e57350eafc344eee7e67b335831cba1334ecbe6db6923f5"
+    },
+    {
+      "path": "skills/cangjie-stdx/serialization/README.md",
+      "size": 5072,
+      "sha256": "b30db7f5c719b0845a7bd3f3a7c6389437f1e200abd1a4a441ec098cc3dc939d"
+    },
+    {
+      "path": "skills/cangjie-stdx/SKILL.md",
+      "size": 2188,
+      "sha256": "660b0ea750910ba77fa73b8038420fcdb56f4f3968f3f61807ee42a0d2639b3f"
+    },
+    {
+      "path": "skills/cangjie-stdx/tls/BUILD.md",
+      "size": 3321,
+      "sha256": "ae328c12592ae5c31e63a4ae20d729616b50a7a09a4e0b3673e083970f8c83e2"
+    },
+    {
+      "path": "skills/cangjie-stdx/tls/README.md",
+      "size": 12717,
+      "sha256": "24104ad08dc489baed132cc300e1ea837ddf1aa8269598dde0ca7c98b027ec93"
+    },
+    {
+      "path": "skills/cangjie-stdx/websocket/README.md",
+      "size": 6259,
+      "sha256": "2a1e4feeee15db454225a506efe4c3b63eb45627a2f495bc51c9d207f2195a88"
+    }
+  ],
+  "acceptance": {
+    "status": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "report_path": "release-check.json"
+  }
+}

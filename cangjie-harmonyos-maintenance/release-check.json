@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "tool": "skill-release",
+  "tool_version": "0.1.0",
+  "created_at": "2026-05-25T02:08:42Z",
+  "status": "passed",
+  "inputs": {
+    "root": "<external>/CangjieSkills",
+    "bundle": "cangjie-harmonyos-maintenance",
+    "all": true
+  },
+  "output": {
+    "distribution": ".",
+    "report": "release-check.json",
+    "release_manifest": "release-manifest.json"
+  },
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "distribution_path": ".",
+    "skill_count": 3,
+    "package_count": 3,
+    "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50",
+    "bundle_name": "cangjie-harmonyos-maintenance",
+    "bundle_version": "1.0.0",
+    "markdown_scope": "skill-instructions",
+    "markdown_file_count": 8,
+    "local_reference_count": 0
+  },
+  "stages": [
+    {
+      "name": "preflight",
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0,
+      "issues": []
+    },
+    {
+      "name": "distribution_verify",
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0,
+      "issues": []
+    },
+    {
+      "name": "release_acceptance",
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0,
+      "issues": []
+    },
+    {
+      "name": "reference_integrity",
+      "status": "passed",
+      "errors": 0,
+      "warnings": 0,
+      "issues": []
+    }
+  ],
+  "issues": []
+}

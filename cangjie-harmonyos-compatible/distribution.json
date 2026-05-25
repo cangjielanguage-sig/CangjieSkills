@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "toolchain_version": "0.1.0",
+  "bundle_name": "cangjie-harmonyos-compatible",
+  "bundle_version": "1.0.0",
+  "packages": [
+    {
+      "name": "cj-hmos-build",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-diagnose",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-doc-search",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-project",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-requirements",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-stdx-config",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-interop",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-lang-core",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-original-docs",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-std",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-stdx",
+      "version": "1.0.0",
+      "optional": false
+    }
+  ],
+  "skills": [
+    {
+      "name": "cangjie-harmonyos-doc-search",
+      "source_path": "cangjie-harmonyos-doc-search",
+      "package_name": "cj-hmos-doc-search",
+      "distribution_path": "skills/cangjie-harmonyos-doc-search"
+    },
+    {
+      "name": "cangjie-lang-features",
+      "source_path": "cangjie-lang-features",
+      "package_name": "cj-lang-core",
+      "distribution_path": "skills/cangjie-lang-features"
+    },
+    {
+      "name": "cangjie-original-docs",
+      "source_path": "cangjie-original-docs",
+      "package_name": "cj-original-docs",
+      "distribution_path": "skills/cangjie-original-docs"
+    },
+    {
+      "name": "cangjie-std",
+      "source_path": "cangjie-std",
+      "package_name": "cj-std",
+      "distribution_path": "skills/cangjie-std"
+    },
+    {
+      "name": "cangjie-stdx",
+      "source_path": "cangjie-stdx",
+      "package_name": "cj-stdx",
+      "distribution_path": "skills/cangjie-stdx"
+    },
+    {
+      "name": "cangjie-arkts-interop",
+      "source_path": "cangjie_arkts_interop",
+      "package_name": "cj-interop",
+      "distribution_path": "skills/cangjie_arkts_interop"
+    },
+    {
+      "name": "harmonyos-app-diagnose",
+      "source_path": "harmonyos-app-diagnose",
+      "package_name": "cj-hmos-diagnose",
+      "distribution_path": "skills/harmonyos-app-diagnose"
+    },
+    {
+      "name": "harmonyos-build",
+      "source_path": "harmonyos-build",
+      "package_name": "cj-hmos-build",
+      "distribution_path": "skills/harmonyos-build"
+    },
+    {
+      "name": "harmonyos-project-init",
+      "source_path": "harmonyos-project-init",
+      "package_name": "cj-hmos-project",
+      "distribution_path": "skills/harmonyos-project-init"
+    },
+    {
+      "name": "harmonyos-requirements",
+      "source_path": "harmonyos-requirements",
+      "package_name": "cj-hmos-requirements",
+      "distribution_path": "skills/harmonyos-requirements"
+    },
+    {
+      "name": "harmonyos-stdx",
+      "source_path": "harmonyos-stdx",
+      "package_name": "cj-hmos-stdx-config",
+      "distribution_path": "skills/harmonyos-stdx"
+    }
+  ],
+  "generated_artifacts": [],
+  "created_at": "2026-05-25T02:05:27Z",
+  "git_commit": "41e227b5defd0a18a9a9c553f7091d3d69751e57"
+}

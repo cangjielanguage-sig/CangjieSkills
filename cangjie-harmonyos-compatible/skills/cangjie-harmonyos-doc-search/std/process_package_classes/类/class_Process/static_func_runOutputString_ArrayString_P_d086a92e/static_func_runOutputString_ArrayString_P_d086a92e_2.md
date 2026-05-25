@@ -1,0 +1,2 @@
+- [IllegalArgumentException](../../core/core_package_api/core_package_exceptions.md#class-illegalargumentexception) - 当入参 `command` 包含空字符，或者 `arguments` 数组中字符串中包含空字符，或者 `workingDirectory` 不是存在的目录或为空路径或包含空字符，或者 `environment` 表中 `key` 字符串中包含空字符或 `'='`，或 `value` 字符串中包含空字符，或者 `stdIn`、`stdOut`、`stdErr` 输入为文件模式，输入的文件已被关闭或删除时，抛出异常。
+- [ProcessException](process_package_exceptions.md#class-processexception) - 当内存分配失败，或者 `command` 对应的命令不存在，或者子进程不存在，或者标准流读取异常时，抛出异常。

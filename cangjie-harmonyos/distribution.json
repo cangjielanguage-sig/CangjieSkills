@@ -1,0 +1,262 @@
+{
+  "schema_version": "1.0",
+  "toolchain_version": "0.1.0",
+  "bundle_name": "cangjie-harmonyos",
+  "bundle_version": "1.0.0",
+  "packages": [
+    {
+      "name": "cj-hmos-app-agent",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-build",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-diagnose",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-doc-search",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-project",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-requirements",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-hmos-stdx-config",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-interop",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-lang-core",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-original-docs",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-std",
+      "version": "1.0.0",
+      "optional": false
+    },
+    {
+      "name": "cj-stdx",
+      "version": "1.0.0",
+      "optional": false
+    }
+  ],
+  "skills": [
+    {
+      "name": "cangjie-arkts-interop",
+      "source_path": "cangjie-arkts-interop",
+      "package_name": "cj-interop",
+      "distribution_path": "skills/cangjie-arkts-interop"
+    },
+    {
+      "name": "cangjie-harmonyos-doc-search",
+      "source_path": "cangjie-harmonyos-doc-search",
+      "package_name": "cj-hmos-doc-search",
+      "distribution_path": "skills/cangjie-harmonyos-doc-search"
+    },
+    {
+      "name": "cangjie-lang-features",
+      "source_path": "cangjie-lang-features",
+      "package_name": "cj-lang-core",
+      "distribution_path": "skills/cangjie-lang-features"
+    },
+    {
+      "name": "cangjie-original-docs",
+      "source_path": "cangjie-original-docs",
+      "package_name": "cj-original-docs",
+      "distribution_path": "skills/cangjie-original-docs"
+    },
+    {
+      "name": "cangjie-std",
+      "source_path": "cangjie-std",
+      "package_name": "cj-std",
+      "distribution_path": "skills/cangjie-std"
+    },
+    {
+      "name": "cangjie-stdx",
+      "source_path": "cangjie-stdx",
+      "package_name": "cj-stdx",
+      "distribution_path": "skills/cangjie-stdx"
+    },
+    {
+      "name": "harmonyos-app-agent-development",
+      "source_path": "harmonyos-app-agent-development",
+      "package_name": "cj-hmos-app-agent",
+      "distribution_path": "skills/harmonyos-app-agent-development"
+    },
+    {
+      "name": "harmonyos-app-diagnose",
+      "source_path": "harmonyos-app-diagnose",
+      "package_name": "cj-hmos-diagnose",
+      "distribution_path": "skills/harmonyos-app-diagnose"
+    },
+    {
+      "name": "harmonyos-build",
+      "source_path": "harmonyos-build",
+      "package_name": "cj-hmos-build",
+      "distribution_path": "skills/harmonyos-build"
+    },
+    {
+      "name": "harmonyos-project-init",
+      "source_path": "harmonyos-project-init",
+      "package_name": "cj-hmos-project",
+      "distribution_path": "skills/harmonyos-project-init"
+    },
+    {
+      "name": "harmonyos-requirements",
+      "source_path": "harmonyos-requirements",
+      "package_name": "cj-hmos-requirements",
+      "distribution_path": "skills/harmonyos-requirements"
+    },
+    {
+      "name": "harmonyos-stdx",
+      "source_path": "harmonyos-stdx",
+      "package_name": "cj-hmos-stdx-config",
+      "distribution_path": "skills/harmonyos-stdx"
+    }
+  ],
+  "generated_artifacts": [
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/aliases.json",
+      "size": 413532,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/apis.jsonl",
+      "size": 4948400,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/docs.jsonl",
+      "size": 16167316,
+      "reasons": [
+        "git_lfs_tracked",
+        "exceeds_gitcode_10_mib_limit",
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/examples.jsonl",
+      "size": 413306,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/manifest.json",
+      "size": 2190,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/search.db",
+      "size": 74240000,
+      "reasons": [
+        "git_lfs_tracked",
+        "exceeds_gitcode_10_mib_limit",
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "index/tasks.jsonl",
+      "size": 77439,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "build_index_v3.py",
+        "search_v3.py",
+        "SKILL.md",
+        "harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-module-configuration-file/modulejson5配置文件/deviceTypes标签_2more_c01d406e.md",
+        "scripts/enrich_existing_index_appdev.py"
+      ],
+      "recovery_command": "python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule"
+    }
+  ],
+  "created_at": "2026-05-25T02:02:38Z",
+  "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50"
+}

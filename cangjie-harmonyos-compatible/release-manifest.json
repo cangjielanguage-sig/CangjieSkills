@@ -3,7 +3,7 @@
   "artifact": "release-manifest",
   "tool": "skill-release",
   "tool_version": "0.1.0",
-  "created_at": "2026-05-25T02:06:50Z",
+  "created_at": "2026-05-25T02:18:17Z",
   "status": "passed",
   "release": {
     "distribution_path": ".",
@@ -93,7 +93,7 @@
     {
       "path": "distribution.json",
       "size": 3572,
-      "sha256": "86b71da2d142dd2a5bda3258df25f5951d6bbb3a49ac9db0be4455334ce1d3f2"
+      "sha256": "41c10bc2a93d57f09c29b674d5d105a92306fba55ab9c5cd93fa8587bad5cd56"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search/build_index_v3.py",

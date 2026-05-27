@@ -32,6 +32,10 @@ class LanguageConfig:
     resolve_function_name_fn: Optional[Callable] = None
     function_label_parens: bool = True
     extra_walk_fn: Optional[Callable] = None
+    member_types: frozenset = frozenset()
+    enum_value_parent: str = ""
+    extension_types: frozenset = frozenset()
+    extend_type_child: str = ""
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -172,17 +176,21 @@ def _get_cpp_func_name(node, source):
 _CANGJIE_CONFIG = LanguageConfig(
     ts_module="tree_sitter_cangjie",
     ts_language_fn="language",
-    class_types=frozenset({"structDefinition", "classDefinition", "enumDefinition"}),
-    function_types=frozenset({"functionDefinition"}),
+    class_types=frozenset({"structDefinition", "classDefinition", "enumDefinition", "interfaceDefinition"}),
+    function_types=frozenset({"functionDefinition", "init"}),
     import_types=frozenset({"importList"}),
     call_types=frozenset({"postfixExpression"}),
     name_field="name",
-    name_fallback_child_types=("structName", "className", "enumName", "funcName"),
+    name_fallback_child_types=("structName", "className", "enumName", "funcName", "interfaceName"),
     body_field="body",
-    body_fallback_child_types=("block", "classBody", "structBody", "enumBody"),
-    function_boundary_types=frozenset({"functionDefinition"}),
+    body_fallback_child_types=("block", "classBody", "structBody", "enumBody", "interfaceBody", "extendBody"),
+    function_boundary_types=frozenset({"functionDefinition", "init"}),
     import_handler=_import_cangjie,
     function_label_parens=True,
+    member_types=frozenset({"variableDeclaration", "propertyDeclaration"}),
+    enum_value_parent="enumBody",
+    extension_types=frozenset({"extendDefinition"}),
+    extend_type_child="extendType",
 )
 
 _PYTHON_CONFIG = LanguageConfig(
@@ -399,7 +407,6 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
     except Exception:
         return [], []
 
-    stem = file_path.stem
     str_path = str(file_path)
     category = _infer_category(str_path)
     namespace = _build_namespace(str_path)
@@ -409,6 +416,7 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
     seen_ids: set[str] = set()
     function_bodies: list = []
     label_to_nid: dict[str, str] = {}
+    node_by_id: dict[str, CodeNode] = {}
 
     def add_node(nid: str, label: str, api_kind: str, line: int, **kwargs):
         if nid not in seen_ids:
@@ -419,6 +427,7 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
                 **kwargs
             )
             nodes.append(node)
+            node_by_id[nid] = node
             label_to_nid[label.lower()] = nid
             label_to_nid[label.lower().rstrip("()").lstrip(".")] = nid
 
@@ -463,23 +472,52 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
             add_node(class_nid, class_name, api_kind, line)
             add_edge(file_nid, class_nid, EdgeRelation.CONTAINS.value, line)
 
-            # Inheritance
-            parent_type = _extract_inheritance(node, source, config, stem)
+            parent_type = _extract_inheritance(node, source, config)
             if parent_type:
-                parent_nid = _make_id(namespace, "class", parent_type)
-                if parent_nid not in seen_ids:
+                parent_lower = parent_type.lower().rstrip("()").lstrip(".")
+                existing_nid = label_to_nid.get(parent_lower)
+                if existing_nid and existing_nid in seen_ids:
+                    parent_nid = existing_nid
+                else:
+                    parent_nid = _make_id(namespace, "class", parent_type)
                     add_node(parent_nid, parent_type, "class", line)
                 add_edge(class_nid, parent_nid, EdgeRelation.EXTENDS.value, line)
-                # Update parent_type on class node
-                for n in nodes:
-                    if n.id == class_nid:
-                        n.parent_type = parent_type
-                        break
+                node_by_id[class_nid].parent_type = parent_type
+
+            body = _find_body(node, config)
+            if body:
+                if api_kind == "enum" and config.enum_value_parent:
+                    _extract_enum_values(body, source, class_nid, node_by_id)
+                for child in body.children:
+                    walk(child, parent_class_nid=class_nid)
+            return
+
+        if t in config.extension_types:
+            target_name = None
+            for child in node.children:
+                if child.type == config.extend_type_child:
+                    target_name = _read_text(child, source)
+                    break
+            if not target_name:
+                return
+
+            ext_nid = _make_id(namespace, "extension", target_name)
+            line = node.start_point[0] + 1
+            add_node(ext_nid, target_name, "extension", line)
+            add_edge(file_nid, ext_nid, EdgeRelation.CONTAINS.value, line)
+
+            tgt_nid = _make_id(namespace, "class", target_name)
+            if tgt_nid in seen_ids:
+                add_edge(ext_nid, tgt_nid, EdgeRelation.EXTENSION_OF.value, line)
+            else:
+                if _is_user_type(target_name):
+                    node_by_id[ext_nid].keywords.append(target_name)
+                    label_to_nid[target_name.lower()] = tgt_nid
 
             body = _find_body(node, config)
             if body:
                 for child in body.children:
-                    walk(child, parent_class_nid=class_nid)
+                    walk(child, parent_class_nid=ext_nid)
             return
 
         if t in config.function_types:
@@ -488,6 +526,8 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
                 declarator = node.child_by_field_name("declarator")
                 if declarator:
                     func_name = config.resolve_function_name_fn(declarator, source)
+            elif t == "init":
+                func_name = "init"
             else:
                 func_name = _resolve_name(node, source, config)
 
@@ -496,21 +536,31 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
 
             line = node.start_point[0] + 1
             if parent_class_nid:
-                func_nid = _make_id(parent_class_nid, func_name)
-                add_node(func_nid, f".{func_name}()", "function", line)
-                add_edge(parent_class_nid, func_nid, "method", line)
+                node_by_id[parent_class_nid].methods.append(func_name)
+                caller_nid = parent_class_nid
             else:
-                func_nid = _make_id(namespace, "function", func_name)
-                add_node(func_nid, f"{func_name}()", "function", line)
-                add_edge(file_nid, func_nid, EdgeRelation.CONTAINS.value, line)
+                caller_nid = _make_id(namespace, "function", func_name)
+                add_node(caller_nid, f"{func_name}()", "function", line)
+                add_edge(file_nid, caller_nid, EdgeRelation.CONTAINS.value, line)
 
             body = _find_body(node, config)
             if body:
-                function_bodies.append((func_nid, body))
+                function_bodies.append((caller_nid, body))
+
+            _extract_param_types(node, source, config, caller_nid, namespace, seen_ids,
+                                 label_to_nid, node_by_id, edges, str_path)
+            _extract_return_type(node, source, config, caller_nid, namespace, seen_ids,
+                                 label_to_nid, node_by_id, edges, str_path)
+            return
+
+        if t in config.member_types:
+            if parent_class_nid and parent_class_nid in node_by_id:
+                _extract_member(node, source, parent_class_nid, node_by_id, namespace,
+                                seen_ids, label_to_nid, edges, str_path, config)
             return
 
         if config.extra_walk_fn:
-            if config.extra_walk_fn(node, source, file_nid, stem, str_path,
+            if config.extra_walk_fn(node, source, file_nid, str_path,
                                      nodes, edges, seen_ids, function_bodies,
                                      parent_class_nid, add_node, add_edge):
                 return
@@ -520,13 +570,11 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
 
     walk(root)
 
-    # Call-graph pass
     seen_call_pairs: set = set()
     for func_nid, body_node in function_bodies:
         _walk_calls(body_node, func_nid, source, config, label_to_nid, seen_call_pairs,
-                    file_nid, str_path, edges, add_node, namespace)
+                     file_nid, str_path, edges, add_node, namespace)
 
-    # USES edges from keywords (referenced types)
     for node_obj in nodes:
         for kw in node_obj.keywords:
             target_id = _make_id(namespace, "class", kw)
@@ -540,9 +588,14 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
     return nodes, edges
 
 
-def _extract_inheritance(node, source, config, stem):
-    """Extract parent type from class node (language-specific)."""
-    if config.ts_module == "tree_sitter_python":
+def _extract_inheritance(node, source, config):
+    if config.ts_module == "tree_sitter_cangjie":
+        for child in node.children:
+            if child.type == "superOrInterface":
+                for sub in child.children:
+                    if sub.type == "identifier":
+                        return _read_text(sub, source)
+    elif config.ts_module == "tree_sitter_python":
         args = node.child_by_field_name("superclasses")
         if args:
             for arg in args.children:
@@ -570,6 +623,107 @@ def _extract_inheritance(node, source, config, stem):
                             return _read_text(name_child, source) if name_child else _read_text(sub.children[0], source)
                         return _read_text(sub, source)
     return ""
+
+
+_BUILTIN_TYPES = frozenset({
+    "Int", "Int8", "Int16", "Int32", "Int64", "UInt", "UInt8", "UInt16", "UInt32", "UInt64", "UIntNative",
+    "Float", "Float16", "Float32", "Float64",
+    "Bool", "Unit", "String", "CString", "Array", "Option", "Result", "Map", "Set", "HashMap", "HashSet",
+    "Nothing", "None", "CPointer", "CFunc", "RuneInt",
+})
+
+
+def _is_user_type(type_name: str) -> bool:
+    return type_name not in _BUILTIN_TYPES and not type_name.startswith("C")
+
+
+def _extract_type_name_from_userType(node, source) -> Optional[str]:
+    for child in node.children:
+        if child.type == "identifier":
+            name = _read_text(child, source)
+            if _is_user_type(name):
+                return name
+    return None
+
+
+def _extract_enum_values(body_node, source, class_nid, node_by_id):
+    for child in body_node.children:
+        if child.type == "identifier" and child.is_named:
+            value_name = _read_text(child, source)
+            if value_name and value_name[0].isupper():
+                node_by_id[class_nid].enum_values.append(value_name)
+
+
+def _extract_member(node, source, parent_nid, node_by_id, namespace,
+                    seen_ids, label_to_nid, edges, str_path, config):
+    t = node.type
+    if t == "variableDeclaration":
+        for child in node.children:
+            if child.type == "variableName":
+                for sub in child.children:
+                    if sub.type == "varBindingPattern":
+                        field_name = _read_text(sub, source)
+                        node_by_id[parent_nid].fields.append(field_name)
+                        break
+            if child.type == "userType":
+                type_name = _extract_type_name_from_userType(child, source)
+                if type_name:
+                    node_by_id[parent_nid].keywords.append(type_name)
+                    tgt_nid = _make_id(namespace, "class", type_name)
+                    if tgt_nid not in seen_ids:
+                        label_to_nid[type_name.lower()] = tgt_nid
+    elif t == "propertyDefinition":
+        for child in node.children:
+            if child.type == "propertyName":
+                field_name = _read_text(child, source)
+                node_by_id[parent_nid].fields.append(field_name)
+            if child.type == "userType":
+                type_name = _extract_type_name_from_userType(child, source)
+                if type_name:
+                    node_by_id[parent_nid].keywords.append(type_name)
+                    tgt_nid = _make_id(namespace, "class", type_name)
+                    if tgt_nid not in seen_ids:
+                        label_to_nid[type_name.lower()] = tgt_nid
+
+
+def _extract_param_types(node, source, config, caller_nid, namespace, seen_ids,
+                         label_to_nid, node_by_id, edges, str_path):
+    params_node = node.child_by_field_name("parameterList")
+    if not params_node:
+        return
+    for child in params_node.children:
+        if child.type in ("parameter", "namedParameter"):
+            for sub in child.children:
+                if sub.type in ("userType", "identifier"):
+                    type_name = None
+                    if sub.type == "userType":
+                        type_name = _extract_type_name_from_userType(sub, source)
+                    elif sub.type == "identifier" and _is_user_type(_read_text(sub, source)):
+                        type_name = _read_text(sub, source)
+                    if type_name and caller_nid in node_by_id:
+                        node_by_id[caller_nid].keywords.append(type_name)
+                        tgt_nid = _make_id(namespace, "class", type_name)
+                        if tgt_nid not in seen_ids:
+                            label_to_nid[type_name.lower()] = tgt_nid
+
+
+def _extract_return_type(node, source, config, caller_nid, namespace, seen_ids,
+                         label_to_nid, node_by_id, edges, str_path):
+    ret_node = node.child_by_field_name("returnType")
+    if not ret_node:
+        return
+    for child in ret_node.children:
+        if child.type in ("userType", "identifier"):
+            type_name = None
+            if child.type == "userType":
+                type_name = _extract_type_name_from_userType(child, source)
+            elif child.type == "identifier" and _is_user_type(_read_text(child, source)):
+                type_name = _read_text(child, source)
+            if type_name and caller_nid in node_by_id:
+                node_by_id[caller_nid].keywords.append(type_name)
+                tgt_nid = _make_id(namespace, "class", type_name)
+                if tgt_nid not in seen_ids:
+                    label_to_nid[type_name.lower()] = tgt_nid
 
 
 def _walk_calls(node, caller_nid, source, config, label_to_nid, seen_pairs,

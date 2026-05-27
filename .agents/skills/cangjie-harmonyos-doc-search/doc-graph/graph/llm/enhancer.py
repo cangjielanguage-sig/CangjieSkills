@@ -9,8 +9,8 @@ import urllib.error
 from pathlib import Path
 from typing import Optional
 
-API_KEY = "sk-49b6c73b205e4e12baeaf362310e29cf"
-API_BASE = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+API_KEY = "xxxx"
+API_BASE = "xxxxx"
 MODEL = "qwen3.6-plus"
 MAX_BATCH_CHARS = 40000
 LLM_TIMEOUT = 600

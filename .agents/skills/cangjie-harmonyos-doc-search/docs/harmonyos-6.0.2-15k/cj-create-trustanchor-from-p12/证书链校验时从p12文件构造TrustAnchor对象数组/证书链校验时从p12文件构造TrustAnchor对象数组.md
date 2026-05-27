@@ -1,0 +1,3 @@
+# 证书链校验时从p12文件构造TrustAnchor对象数组
+
+证书链校验时从p12文件构造TrustAnchor对象数组。

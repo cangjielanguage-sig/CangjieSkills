@@ -1,0 +1,53 @@
+### static func on(CallbackType, Callback1Argument\<LocationError>)
+
+```cangjie
+public static func on(`type`: CallbackType, callback: Callback1Argument<LocationError>): Unit
+```
+
+**功能：** 订阅持续定位过程中的错误码。
+
+**需要权限：** ohos.permission.APPROXIMATELY_LOCATION
+
+**系统能力：** SystemCapability.Location.Location.Core
+
+**起始版本：** 19
+
+**参数：**
+
+|参数名|类型|必填|默认值|说明|
+|:---|:---|:---|:---|:---|
+|\`type\`|[CallbackType](#enum-callbacktype)|是|-|设置事件类型。type为CallbackType.locationError，表示持续定位过程中的错误码变化。|
+|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[LocationError](#enum-locationerror)>|是|-|回调函数，返回持续定位过程中的错误码。|
+
+**异常：**
+
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[位置服务子系统错误码](../../errorcodes/cj-errorcode-geo_location_manager.md)。
+
+  | 错误码ID | 错误信息 |
+  |:-------- |:---------------------------------------- |
+  |201 | Permission verification failed. The application does not have the permission required to call the API.                 |
+  |401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.                 |
+  |801 | Capability not supported. Failed to call ${GeoLocationManager.on} due to limited device capabilities.          |
+  |3301000 | The location service is unavailable.                                           |
+
+**示例：**
+
+<!-- compile -->
+
+```cangjie
+// index.cj
+
+import ohos.base.*
+import kit.LocationKit.*
+
+// 此处代码可添加在依赖项定义中
+class TestCallbackLocationError <: Callback1Argument<LocationError> {
+    public init() {}
+    public open func invoke(loc: LocationError): Unit {
+        AppLog.info("Call invoke LocationError.")
+    }
+}
+
+let testCallbackLocationError = TestCallbackLocationError()
+GeoLocationManager.on(CallbackType.LocationErr, testCallbackLocationError)
+```

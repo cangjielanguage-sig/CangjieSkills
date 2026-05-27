@@ -1,0 +1,9 @@
+[package]
+  cjc-version = "1.0.5"
+  name = "macro_dsl"
+  description = "LINQ-like Query DSL using Cangjie macros"
+  version = "1.0.0"
+  output-type = "executable"
+
+[dependencies]
+  macros = { path = "./macros" }

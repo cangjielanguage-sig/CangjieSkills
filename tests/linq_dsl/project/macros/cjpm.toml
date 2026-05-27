@@ -1,0 +1,7 @@
+[package]
+  cjc-version = "1.0.5"
+  name = "macros"
+  description = "Query DSL macro package"
+  version = "1.0.0"
+  output-type = "static"
+  compile-option = "--compile-macro"

@@ -64,7 +64,7 @@ class CodeNode:
     """源码图谱节点（1定义=1节点）。"""
     id: str = ""
     label: str = ""
-    api_kind: str = ""              # class/interface/enum/function/extension
+    api_kind: str = ""              # class/interface/enum/struct/function/extension/file
 
     category: str = ""
     namespace: str = ""             # 命名空间（用于 ID 生成）
@@ -72,6 +72,7 @@ class CodeNode:
 
     parent_type: str = ""
     methods: list[str] = field(default_factory=list)
+    fields: list[str] = field(default_factory=list)  # 成员变量/属性名
     enum_values: list[str] = field(default_factory=list)
     keywords: list[str] = field(default_factory=list)  # 引用类型名
 
@@ -84,8 +85,8 @@ class CodeNode:
             "category": self.category, "namespace": self.namespace,
             "source_file": self.source_file,
             "parent_type": self.parent_type,
-            "methods": self.methods, "enum_values": self.enum_values,
-            "keywords": self.keywords,
+            "methods": self.methods, "fields": self.fields,
+            "enum_values": self.enum_values, "keywords": self.keywords,
             "community_id": self.community_id, "degree": self.degree,
         }
 
@@ -96,8 +97,8 @@ class CodeNode:
             category=d.get("category", ""), namespace=d.get("namespace", ""),
             source_file=d.get("source_file", ""),
             parent_type=d.get("parent_type", ""),
-            methods=d.get("methods", []), enum_values=d.get("enum_values", []),
-            keywords=d.get("keywords", []),
+            methods=d.get("methods", []), fields=d.get("fields", []),
+            enum_values=d.get("enum_values", []), keywords=d.get("keywords", []),
             community_id=d.get("community_id", -1), degree=d.get("degree", 0),
         )
 

@@ -6,7 +6,6 @@
 **/*api-key*
 **/LLM_API信息.txt
 **/graphify-out/
-**/index/
 !.agents/skills/cangjie-harmonyos-doc-search/index/
 !.agents/skills/cangjie-harmonyos-doc-search/index/**
 **/knowledge-graph-template/data/feedback/

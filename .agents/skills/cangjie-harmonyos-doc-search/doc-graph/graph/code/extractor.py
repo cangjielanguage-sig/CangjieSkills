@@ -34,6 +34,8 @@ class LanguageConfig:
     extra_walk_fn: Optional[Callable] = None
     member_types: frozenset = frozenset()
     enum_value_parent: str = ""
+    extension_types: frozenset = frozenset()
+    extend_type_child: str = ""
 
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
@@ -174,19 +176,21 @@ def _get_cpp_func_name(node, source):
 _CANGJIE_CONFIG = LanguageConfig(
     ts_module="tree_sitter_cangjie",
     ts_language_fn="language",
-    class_types=frozenset({"structDefinition", "classDefinition", "enumDefinition"}),
+    class_types=frozenset({"structDefinition", "classDefinition", "enumDefinition", "interfaceDefinition"}),
     function_types=frozenset({"functionDefinition", "init"}),
     import_types=frozenset({"importList"}),
     call_types=frozenset({"postfixExpression"}),
     name_field="name",
-    name_fallback_child_types=("structName", "className", "enumName", "funcName"),
+    name_fallback_child_types=("structName", "className", "enumName", "funcName", "interfaceName"),
     body_field="body",
-    body_fallback_child_types=("block", "classBody", "structBody", "enumBody"),
+    body_fallback_child_types=("block", "classBody", "structBody", "enumBody", "interfaceBody", "extendBody"),
     function_boundary_types=frozenset({"functionDefinition", "init"}),
     import_handler=_import_cangjie,
     function_label_parens=True,
     member_types=frozenset({"variableDeclaration", "propertyDeclaration"}),
     enum_value_parent="enumBody",
+    extension_types=frozenset({"extendDefinition"}),
+    extend_type_child="extendType",
 )
 
 _PYTHON_CONFIG = LanguageConfig(
@@ -470,8 +474,12 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
 
             parent_type = _extract_inheritance(node, source, config)
             if parent_type:
-                parent_nid = _make_id(namespace, "class", parent_type)
-                if parent_nid not in seen_ids:
+                parent_lower = parent_type.lower().rstrip("()").lstrip(".")
+                existing_nid = label_to_nid.get(parent_lower)
+                if existing_nid and existing_nid in seen_ids:
+                    parent_nid = existing_nid
+                else:
+                    parent_nid = _make_id(namespace, "class", parent_type)
                     add_node(parent_nid, parent_type, "class", line)
                 add_edge(class_nid, parent_nid, EdgeRelation.EXTENDS.value, line)
                 node_by_id[class_nid].parent_type = parent_type
@@ -482,6 +490,34 @@ def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode
                     _extract_enum_values(body, source, class_nid, node_by_id)
                 for child in body.children:
                     walk(child, parent_class_nid=class_nid)
+            return
+
+        if t in config.extension_types:
+            target_name = None
+            for child in node.children:
+                if child.type == config.extend_type_child:
+                    target_name = _read_text(child, source)
+                    break
+            if not target_name:
+                return
+
+            ext_nid = _make_id(namespace, "extension", target_name)
+            line = node.start_point[0] + 1
+            add_node(ext_nid, target_name, "extension", line)
+            add_edge(file_nid, ext_nid, EdgeRelation.CONTAINS.value, line)
+
+            tgt_nid = _make_id(namespace, "class", target_name)
+            if tgt_nid in seen_ids:
+                add_edge(ext_nid, tgt_nid, EdgeRelation.EXTENSION_OF.value, line)
+            else:
+                if _is_user_type(target_name):
+                    node_by_id[ext_nid].keywords.append(target_name)
+                    label_to_nid[target_name.lower()] = tgt_nid
+
+            body = _find_body(node, config)
+            if body:
+                for child in body.children:
+                    walk(child, parent_class_nid=ext_nid)
             return
 
         if t in config.function_types:

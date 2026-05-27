@@ -110,6 +110,7 @@ class EdgeRelation(Enum):
     CONTAINS = "contains"
     SEE_ALSO = "see_also"
     EXTENDS = "extends"
+    EXTENSION_OF = "extension_of"
     USES = "uses"
     # LLM 语义边
     RECOMMENDS_API = "recommends_api"

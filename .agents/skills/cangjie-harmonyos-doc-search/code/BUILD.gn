@@ -1,0 +1,48 @@
+# Copyright (c) 2025 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import("//build/templates/cangjie/cjc.gni")
+
+ability_cangjie_wrapper_packages_ohos = [
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/ability_constant:ohos.app.ability.ability_constant",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/common:ohos.app.ability.common",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/configuration:ohos.app.ability.configuration",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/ability_delegator_registry:ohos.app.ability.ability_delegator_registry",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/want:ohos.app.ability.want",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/application/event_hub:ohos.application.event_hub",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/completion_handler:ohos.app.ability.completion_handler",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/ui_ability:ohos.app.ability.ui_ability",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/open_link_options:ohos.app.ability.open_link_options",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app:ohos.app",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/context_constant:ohos.app.ability.context_constant",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/error_manager:ohos.app.ability.error_manager",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/application/test_runner:ohos.application.test_runner",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/ability:ohos.ability",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/dialog_request:ohos.app.ability.dialog_request",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/start_options:ohos.app.ability.start_options",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/ability_stage:ohos.app.ability.ability_stage",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/application/error_observer:ohos.application.error_observer",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/ability/ability_result:ohos.ability.ability_result",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/application:ohos.application",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/want_constant:ohos.app.ability.want_constant",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/app_recovery:ohos.app.ability.app_recovery",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/ability/connect_options:ohos.ability.connect_options",
+  "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability:ohos.app.ability",
+]
+ability_cangjie_wrapper_packages_kit = [
+  "//foundation/ability/ability_cangjie_wrapper/kit/AbilityKit:kit.AbilityKit",
+]
+copy_ohos_cangjie_sdk_api_lib("copy_sdk_ability_cangjie_libs") {
+  ohos_inputs = ability_cangjie_wrapper_packages_ohos
+  kit_inputs = ability_cangjie_wrapper_packages_kit
+}

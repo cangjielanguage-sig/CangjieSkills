@@ -1,0 +1,74 @@
+{
+  "name": "@ohos/ability_cangjie_wrapper",
+  "description": "The ability_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the ability_runtime subsystem.",
+  "version": "6.1",
+  "license": "Apache License 2.0",
+  "publishAs": "code-segment",
+  "segment": {
+      "destPath": "foundation/ability/ability_cangjie_wrapper"
+  },
+  "dirs": {},
+  "scripts": {},
+  "component": {
+      "name": "ability_cangjie_wrapper",
+      "subsystem": "ability",
+      "syscap": [],
+      "features": [],
+      "adapted_system_type": [
+          "standard"
+      ],
+      "rom": "1500KB",
+      "ram": "1536KB",
+      "hisysevent_config":[
+      ],
+      "deps": {
+        "components": [
+            "ability_runtime",
+            "access_token",
+            "accesscontrol_cangjie_wrapper",
+            "cangjie_ark_interop",
+            "arkui_cangjie_wrapper",
+            "hiviewdfx_cangjie_wrapper",
+            "bundlemanager_cangjie_wrapper",
+            "communication_cangjie_wrapper",
+            "global_cangjie_wrapper",
+            "multimedia_cangjie_wrapper",
+            "window_cangjie_wrapper",
+            "testfwk_cangjie_wrapper"
+         ]
+      },
+      "build": {
+        "sub_component": [
+          "//foundation/ability/ability_cangjie_wrapper/ohos:ability_package",
+          "//foundation/ability/ability_cangjie_wrapper/kit/AbilityKit:kit.AbilityKit"
+        ],
+        "inner_kits": [
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability:ohos.app.ability"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/ui_ability:ohos.app.ability.ui_ability"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/want:ohos.app.ability.want"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/ability_delegator_registry:ohos.app.ability.ability_delegator_registry"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper/ohos/app/ability/context_constant:ohos.app.ability.context_constant"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper/ohos/application/test_runner:ohos.application.test_runner"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper:copy_sdk_ability_cangjie_libs"
+          },
+          {
+            "name": "//foundation/ability/ability_cangjie_wrapper:copy_sdk_ability_cangjie_libs_kit"
+          }
+        ],
+        "test": []
+      }
+  }
+}

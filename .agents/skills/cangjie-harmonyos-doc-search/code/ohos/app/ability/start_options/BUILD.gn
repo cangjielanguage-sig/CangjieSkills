@@ -1,0 +1,41 @@
+# Copyright (c) 2025 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# The Cangjie API is in Beta. For details on its capabilities and limitations, please refer to the README file.
+
+import("//build/templates/cangjie/cjc.gni")
+
+ohos_cangjie_shared_library("ohos.app.ability.start_options") {
+  
+  if (is_mingw || is_mac){
+    sources = [ "../../../../mock/ohos.app.ability.start_options.cj" ]
+  } else {
+    sources = [ "start_options.cj" ]
+  }
+
+  cj_deps = [
+    "../ability_constant:ohos.app.ability.ability_constant",
+    "../completion_handler:ohos.app.ability.completion_handler",
+    "../context_constant:ohos.app.ability.context_constant",
+  ]
+
+  cj_external_deps = [
+    "bundlemanager_cangjie_wrapper:ohos.bundle.bundle_manager",
+    "cangjie_ark_interop:ohos.labels",
+    "multimedia_cangjie_wrapper:ohos.multimedia.image",
+    "window_cangjie_wrapper:ohos.window",
+  ]
+
+  subsystem_name = "ability"
+  part_name = "ability_cangjie_wrapper"
+}

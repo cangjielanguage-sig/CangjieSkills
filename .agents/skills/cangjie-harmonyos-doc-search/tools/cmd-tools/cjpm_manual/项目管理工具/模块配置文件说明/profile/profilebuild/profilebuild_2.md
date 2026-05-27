@@ -1,0 +1,2 @@
+- 若报错信息中包含形如 `because of combined module 'demo'` 的报错，说明模块 `demo` 被配置成了 `combined` 模块，并且存在 `demo` 的子包直接或间接依赖 `demo` 包的情况，开发者可以查找并删去该模块子包中存在的对 `root` 包的导入，或者直接去除 `combined` 配置，从而解决此类循环依赖；
+- 若报错信息中包含形如 `between combined modules` 的报错，说明该条目中两个 `root` 包对应模块都被配置成了 `combined` 模块，且存在模块间（包括子包之间）的相互依赖，开发者可以查找并删去其中一个 `combined` 模块对另一个 `combined` 模块的包导入，或者直接去除两个模块的 `combined` 配置，从而解决此类循环依赖。

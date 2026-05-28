@@ -1,0 +1,5 @@
+{"input":"鸿蒙应用白屏了怎么排查","expected_skills":["harmonyos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
+{"input":"帮我抓一下鸿蒙应用的运行日志","expected_skills":["harmonyos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
+{"input":"应用崩溃了需要分析原因","expected_skills":["harmonyos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
+{"input":"验证一下鸿蒙app的界面是否正常","expected_skills":["harmonyos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
+{"input":"鸿蒙应用有ANR问题怎么诊断","expected_skills":["harmonyos-app-diagnose"],"forbidden_skills":[],"min_rank":3}

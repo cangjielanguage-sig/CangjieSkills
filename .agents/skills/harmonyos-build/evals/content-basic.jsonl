@@ -1,0 +1,4 @@
+{"input":"鸿蒙项目怎么构建","expected_patterns":["构建","build","ohpm","assembleHap"],"min_score":0.6}
+{"input":"鸿蒙应用构建失败了怎么办","expected_patterns":["构建","日志","排查","build.log"],"min_score":0.6}
+{"input":"如何执行鸿蒙项目的编译打包","expected_patterns":["构建","build.py","项目根目录"],"min_score":0.6}
+{"input":"鸿蒙构建脚本怎么用","expected_patterns":["build.py","--project-root","ohpm"],"min_score":0.6}

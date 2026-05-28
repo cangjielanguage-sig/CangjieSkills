@@ -1,6 +1,6 @@
 ---
 name: harmonyos-stdx
-description: "在鸿蒙应用（Cangjie）开发中，当需要使用 stdx 拓展库（如 crypto、encoding、net、log、actors 等），或在构建/链接阶段出现 stdx 相关错误时，使用此 Skill 自动解压 stdx 包并在 entry/cjpm.toml 中配置 bin-dependencies.path-option。"
+description: "在鸿蒙应用（Cangjie）开发中，当需要使用 stdx 扩展库（如 crypto、encoding、net、log、actors 等），或在构建/链接阶段出现 stdx 相关错误（如找不到 stdx 模块、链接失败），或用户询问 fetch_stdx.py 脚本用法、cjpm.toml 中 bin-dependencies 配置时，使用此 Skill 自动解压 stdx 包并在 entry/cjpm.toml 中配置 bin-dependencies.path-option。"
 ---
 
 # 鸿蒙应用 stdx 依赖配置 Skill

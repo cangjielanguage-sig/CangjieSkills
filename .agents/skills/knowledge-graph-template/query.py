@@ -69,6 +69,12 @@ class GraphSession:
         preferred_merged_path = self._graph_dir / "merged" / "graph.json"
         legacy_merged_path = self._graph_dir / "merged" / "graph_layered.json"
         self._merged_path = preferred_merged_path if preferred_merged_path.exists() else legacy_merged_path
+        if not self._merged_path.exists():
+            rebuild_script = _PROJECT_ROOT / "scripts" / "rebuild_cangjie_graph.py"
+            raise FileNotFoundError(
+                "knowledge-graph-template 图谱数据缺失，无法加载 data/merged/graph.json。"
+                f" 请先执行 `python {rebuild_script}` 重建默认图谱。"
+            )
         self._feedback_dir = self._graph_dir / "feedback"
         self._enable_feedback = enable_feedback
 

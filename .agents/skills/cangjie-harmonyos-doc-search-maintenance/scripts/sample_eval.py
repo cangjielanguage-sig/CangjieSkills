@@ -18,7 +18,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS_DIR = SKILL_DIR / "evals"
+EVALS_DIR = SKILL_DIR / "doc-card" / "evals"
 DEFAULT_INPUT = EVALS_DIR / "eval_queries_full.jsonl"
 DEFAULT_OUTPUT = EVALS_DIR / "eval_queries_sampled.jsonl"
 

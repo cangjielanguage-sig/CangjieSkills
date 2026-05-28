@@ -6,7 +6,7 @@
 
 1. 生成当前文档 manifest：记录每个文档的路径、标题、大小和 sha256。
 2. 对比新旧 manifest：识别新增、删除、变更和疑似重命名文档。
-3. 重建索引/卡片：使用 `build_index_v3.py --mode rule` 或 `--mode rule+llm`。
+3. 重建索引/卡片：使用 `builder/build_index_v3.py --mode rule` 或 `--mode rule+llm`。
 4. 生成候选 query：基于 `doc_diff.json` 或真实搜索日志生成候选池。
 5. 校验评测集健康：检查路径是否失效、query 是否重复、覆盖分布是否异常。
 6. 运行发布评估：执行本地 V3 评测和失败分析。
@@ -16,7 +16,7 @@
 
 - `scripts/build_doc_manifest.py`：输入文档目录，输出 `doc_manifest_current.json`。
 - `scripts/diff_doc_manifest.py`：输入旧/新 manifest，输出 `doc_diff.json`。
-- `build_index_v3.py`：输入文档目录，输出 `tasks/apis/examples/docs/aliases/search.db/manifest`。
+- `builder/build_index_v3.py`：输入文档目录，输出 `tasks/apis/examples/docs/aliases/search.db/manifest`。
 - `scripts/generate_eval_candidates_from_doc_diff.py`：输入文档 diff 和索引，输出候选评测 JSONL。
 - `../cangjie-harmonyos-doc-search-maintenance/scripts/validate_eval_set.py`：输入评测集、索引和 manifest，输出 `eval-health.json`。
 - `scripts/run_release_eval.py`：输入索引和评测集，输出 release 报告。

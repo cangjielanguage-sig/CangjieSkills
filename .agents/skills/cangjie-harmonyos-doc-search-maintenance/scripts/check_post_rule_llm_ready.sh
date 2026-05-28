@@ -4,9 +4,10 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 DOC_SEARCH="${SKILLS}/cangjie-harmonyos-doc-search"
+DOC_CARD="${DOC_SEARCH}/doc-card"
 RECORDS="${SCRIPT_DIR}/../records"
 
-INDEX_MANIFEST="${DOC_SEARCH}/index/manifest.json"
+INDEX_MANIFEST="${DOC_CARD}/index/manifest.json"
 AB_AFTER="${RECORDS}/ab-15k-after-rule-llm.json"
 
 echo "== post rule+llm readiness check =="

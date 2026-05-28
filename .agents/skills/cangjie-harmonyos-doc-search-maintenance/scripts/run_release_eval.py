@@ -20,7 +20,10 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS_DIR = ROOT / "evals"
+DOC_CARD_DIR = ROOT / "doc-card"
+DOCS_DIR = ROOT / "docs"
+BUILDER = SKILLS_DIR / "cangjie-harmonyos-doc-search-maintenance" / "builder" / "build_index_v3.py"
+EVALS_DIR = DOC_CARD_DIR / "evals"
 DEFAULT_EVAL_SETS = (
     "eval_queries_user.jsonl",
     "eval_queries_app_agent_dev.jsonl",
@@ -104,7 +107,7 @@ def render_report(data: dict) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description="执行本地发布评估")
     parser.add_argument("--output-dir", required=True)
-    parser.add_argument("--index-dir", default=str(ROOT / "index"))
+    parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"))
     parser.add_argument("--rebuild-index", action="store_true")
     parser.add_argument("--previous-doc-manifest", default="")
     parser.add_argument("--eval-sets", default=",".join(DEFAULT_EVAL_SETS), help="逗号分隔评测集")
@@ -115,7 +118,7 @@ def main() -> None:
     index_dir = Path(args.index_dir)
 
     current_manifest = output_dir / "doc_manifest_current.json"
-    run([sys.executable, str(SCRIPT_DIR / "build_doc_manifest.py"), "--output", str(current_manifest)], ROOT)
+    run([sys.executable, str(SCRIPT_DIR / "build_doc_manifest.py"), "--root", str(DOCS_DIR), "--output", str(current_manifest)], ROOT)
 
     doc_diff = ""
     if args.previous_doc_manifest:
@@ -136,7 +139,7 @@ def main() -> None:
         doc_diff = str(doc_diff_path)
 
     if args.rebuild_index:
-        run([sys.executable, "build_index_v3.py", "--mode", "rule", "--index-dir", str(index_dir)], ROOT)
+        run([sys.executable, str(BUILDER), "--mode", "rule", "--index-dir", str(index_dir)], ROOT)
 
     eval_rows: list[dict] = []
     health_summary: dict[str, dict] = {}

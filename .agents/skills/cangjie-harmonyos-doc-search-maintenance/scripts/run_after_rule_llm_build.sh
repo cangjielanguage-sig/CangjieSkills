@@ -6,9 +6,10 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 DOC_SEARCH="${SKILLS}/cangjie-harmonyos-doc-search"
+DOC_CARD="${DOC_SEARCH}/doc-card"
 KG="${SKILLS}/knowledge-graph-template"
 RECORDS="${SCRIPT_DIR}/../records"
-INDEX_DIR="${INDEX_DIR:-${DOC_SEARCH}/index}"
+INDEX_DIR="${INDEX_DIR:-${DOC_CARD}/index}"
 GRAPH_DIR="${GRAPH_DIR:-${KG}/data}"
 SEEDS_OUT="${SEEDS_OUT:-${RECORDS}/v3_seeds_15k_post_llm.json}"
 AB_OUT="${AB_OUT:-${RECORDS}/ab-15k-after-rule-llm.json}"
@@ -56,7 +57,7 @@ fi
 
 echo "== run_ab_eval → ${AB_OUT}" >&2
 python3 "${SCRIPT_DIR}/run_ab_eval.py" \
-  --eval-dir "${DOC_SEARCH}/evals" \
+  --eval-dir "${DOC_CARD}/evals" \
   --index-dir "${INDEX_DIR}" \
   --graph-dir "${GRAPH_DIR}" \
   --splits real_session,paraphrase,composition \

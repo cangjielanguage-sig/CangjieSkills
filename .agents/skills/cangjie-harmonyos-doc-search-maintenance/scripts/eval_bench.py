@@ -17,7 +17,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS_DIR = SKILL_DIR / "evals"
+DOC_CARD_DIR = SKILL_DIR / "doc-card"
+EVALS_DIR = DOC_CARD_DIR / "evals"
 REMOTE_BACKENDS = ["cangjie-1.0.5", "harmonyos-6.0.2-15k"]
 
 
@@ -143,7 +144,7 @@ def make_openviking_search(host: str, port: int):
 
 
 def make_v3_search(index_dir: str, mode: str = "auto"):
-    sys.path.insert(0, str(SKILL_DIR))
+    sys.path.insert(0, str(DOC_CARD_DIR))
     from search_v3 import collect, load_index
 
     index = load_index(Path(index_dir))
@@ -174,7 +175,7 @@ def main() -> None:
     parser.add_argument("--backend", choices=["v3", "openviking"], default="v3")
     parser.add_argument("--host", default="111.229.30.227")
     parser.add_argument("--port", type=int, default=2026)
-    parser.add_argument("--index-dir", default=str(SKILL_DIR / "index"), help="V3 索引目录")
+    parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"), help="V3 索引目录")
     parser.add_argument("--mode", choices=["auto", "task", "api", "example", "doc"], default="auto", help="V3 查询模式")
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--output", default="", help="结果输出 JSON 路径")

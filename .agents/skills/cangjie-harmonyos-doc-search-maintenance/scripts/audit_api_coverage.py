@@ -14,9 +14,12 @@ import sys
 SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SEARCH_SKILL_DIR = MAINTENANCE_DIR.parent / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = SEARCH_SKILL_DIR / "doc-card"
+DOCS_DIR = SEARCH_SKILL_DIR / "docs"
+BUILDER_DIR = MAINTENANCE_DIR / "builder"
 API_COVERAGE_DIR = MAINTENANCE_DIR / "records" / "api-coverage"
 
-sys.path.insert(0, str(SEARCH_SKILL_DIR))
+sys.path.insert(0, str(BUILDER_DIR))
 
 from build_index_v3 import DOC_SOURCES, api_kind_from_path, discover_docs  # noqa: E402
 
@@ -47,7 +50,7 @@ def sample_paths(paths: list[str], limit: int = 30) -> list[str]:
 
 
 def build_report(index_dir: Path, gate_threshold: float = 1.0) -> dict:
-    docs = discover_docs(SEARCH_SKILL_DIR)
+    docs = discover_docs(DOCS_DIR)
     all_doc_paths = {record.path for record in docs}
 
     candidate_rows = []
@@ -286,7 +289,7 @@ def write_report(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="盘点 API 候选文档的结构化覆盖率")
-    parser.add_argument("--index-dir", default=str(SEARCH_SKILL_DIR / "index"))
+    parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"))
     parser.add_argument("--gate-threshold", type=float, default=1.0)
     args = parser.parse_args()
 

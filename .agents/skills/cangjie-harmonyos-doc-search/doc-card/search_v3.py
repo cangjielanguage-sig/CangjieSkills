@@ -305,6 +305,15 @@ def load_jsonl(path: Path, id_key: str) -> dict[str, dict]:
     return rows
 
 
+def is_lfs_pointer(path: Path) -> bool:
+    if not path.is_file() or path.stat().st_size > 512:
+        return False
+    try:
+        return path.read_text(encoding="utf-8", errors="replace").startswith("version https://git-lfs.github.com/spec/v1")
+    except OSError:
+        return False
+
+
 def load_index(index_dir: Path) -> dict:
     required = [
         index_dir / "manifest.json",
@@ -316,11 +325,22 @@ def load_index(index_dir: Path) -> dict:
         index_dir / "search.db",
     ]
     missing = [str(path.name) for path in required if not path.exists()]
-    if missing:
-        build_script = Path(__file__).resolve().parent / "build_index_v3.py"
+    pointers = [str(path.name) for path in required if is_lfs_pointer(path)]
+    if missing or pointers:
+        build_script = (
+            Path(__file__).resolve().parents[1].parent
+            / "cangjie-harmonyos-doc-search-maintenance"
+            / "builder"
+            / "build_index_v3.py"
+        )
+        detail = []
+        if missing:
+            detail.append(f"缺少: {', '.join(missing)}")
+        if pointers:
+            detail.append(f"LFS pointer 未还原: {', '.join(pointers)}")
         raise FileNotFoundError(
-            f"V3 索引不完整，缺少: {', '.join(missing)}。"
-            f" 请先执行 `python {build_script}`。"
+            f"V3 索引不完整，{'; '.join(detail)}。"
+            f" 请先执行 `git lfs pull`，或执行 `python {build_script}` 重建索引。"
         )
     return {
         "manifest": json.loads((index_dir / "manifest.json").read_text(encoding="utf-8")),

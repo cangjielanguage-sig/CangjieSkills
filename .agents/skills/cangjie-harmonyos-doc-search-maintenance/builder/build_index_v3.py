@@ -21,11 +21,14 @@ from threading import Lock
 from typing import Any
 
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-SKILL_DIR = SCRIPT_DIR.parent
-DOCS_DIR = SKILL_DIR / "docs"
-EVALS_DIR = SCRIPT_DIR / "evals"
-DEFAULT_INDEX_DIR = SCRIPT_DIR / "index"
+BUILDER_DIR = Path(__file__).resolve().parent
+MAINTENANCE_DIR = BUILDER_DIR.parent
+SKILLS_DIR = MAINTENANCE_DIR.parent
+DOC_SEARCH_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = DOC_SEARCH_DIR / "doc-card"
+DOCS_DIR = DOC_SEARCH_DIR / "docs"
+EVALS_DIR = DOC_CARD_DIR / "evals"
+DEFAULT_INDEX_DIR = DOC_CARD_DIR / "index"
 DOC_SOURCES = ("harmonyos-6.0.2-15k", "lang-features", "std", "stdx", "tools")
 EXAMPLE_HINTS = ("示例", "example", "demo")
 NOISE_HEADINGS = {"目录", "概述", "overview", "quick navigation"}
@@ -3433,8 +3436,8 @@ def build(
             "full_eval_query_count": full_eval_count,
         },
         "entrypoints": {
-            "search": "search_v3.py",
-            "build": "build_index_v3.py",
+            "search": "doc-card/search_v3.py",
+            "build": "../cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py",
         },
     }
     if llm_stats is not None:

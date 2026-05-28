@@ -23,7 +23,7 @@ OPENAI_BASE_URL="..." \
 OPENAI_API_KEY="..." \
 OPENAI_MODEL="..." \
 OPENAI_TEMPERATURE="0" \
-PYTHONDONTWRITEBYTECODE=1 python build_index_v3.py \
+PYTHONDONTWRITEBYTECODE=1 python .agents/skills/cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py \
   --mode rule+llm \
   --index-dir /tmp/cangjie-index-llm \
   --llm-card-types task,api,example,doc \

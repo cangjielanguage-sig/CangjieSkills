@@ -36,7 +36,7 @@ tags: [workflow, evaluation, maintenance, platform]
 文档更新后优先执行这一条可复用链路：
 
 ```bash
-cd .agents/skills/cangjie-harmonyos-doc-search
+cd .agents/skills/cangjie-harmonyos-doc-search-maintenance
 
 PYTHONDONTWRITEBYTECODE=1 python scripts/build_doc_manifest.py \
   --output /tmp/doc_manifest_current.json
@@ -46,7 +46,7 @@ PYTHONDONTWRITEBYTECODE=1 python scripts/diff_doc_manifest.py \
   --new /tmp/doc_manifest_current.json \
   --output /tmp/doc_diff.json
 
-PYTHONDONTWRITEBYTECODE=1 python build_index_v3.py \
+PYTHONDONTWRITEBYTECODE=1 python builder/build_index_v3.py \
   --mode rule \
   --index-dir /tmp/cangjie-index-rule
 
@@ -71,7 +71,7 @@ OPENAI_BASE_URL="..." \
 OPENAI_API_KEY="..." \
 OPENAI_MODEL="..." \
 OPENAI_TEMPERATURE="0" \
-PYTHONDONTWRITEBYTECODE=1 python build_index_v3.py \
+PYTHONDONTWRITEBYTECODE=1 python builder/build_index_v3.py \
   --mode rule+llm \
   --index-dir /tmp/cangjie-index-llm \
   --llm-card-types task,api,example,doc \

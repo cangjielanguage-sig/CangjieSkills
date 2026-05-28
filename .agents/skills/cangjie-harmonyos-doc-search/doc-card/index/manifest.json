@@ -26,7 +26,7 @@
   },
   "entrypoints": {
     "search": "search_v3.py",
-    "build": "build_index_v3.py"
+    "build": "../../cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py"
   },
   "llm": {
     "requested": 20128,

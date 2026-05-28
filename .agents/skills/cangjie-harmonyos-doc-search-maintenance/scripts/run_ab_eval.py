@@ -14,8 +14,9 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 DOC_SEARCH_DIR = ROOT / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = DOC_SEARCH_DIR / "doc-card"
 GRAPHIFY_DIR = ROOT / "knowledge-graph-template"
-DEFAULT_EVAL_DIR = DOC_SEARCH_DIR / "evals"
+DEFAULT_EVAL_DIR = DOC_CARD_DIR / "evals"
 
 
 def _import_module(name: str, path: Path):
@@ -29,7 +30,7 @@ def _import_module(name: str, path: Path):
     return module
 
 
-search_v3 = _import_module("search_v3_eval", DOC_SEARCH_DIR / "search_v3.py")
+search_v3 = _import_module("search_v3_eval", DOC_CARD_DIR / "search_v3.py")
 graph_query = _import_module("graph_query_eval", GRAPHIFY_DIR / "query.py")
 
 
@@ -155,7 +156,7 @@ def main() -> None:
     parser.add_argument("--eval-dir", default=str(DEFAULT_EVAL_DIR))
     parser.add_argument("--splits", default="real_session,paraphrase,composition")
     parser.add_argument("--limit", type=int, default=5)
-    parser.add_argument("--index-dir", default=str(DOC_SEARCH_DIR / "index"))
+    parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"))
     parser.add_argument("--graph-dir", default=str(GRAPHIFY_DIR / "data"))
     parser.add_argument("--output", default="")
     args = parser.parse_args()

@@ -17,15 +17,16 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = ROOT / "doc-card"
 MAINT_SCRIPTS = ROOT.parent / "cangjie-harmonyos-doc-search-maintenance" / "scripts"
 GRAPH_DATA = ROOT.parent / "knowledge-graph-template" / "data"
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="fusion 能力门禁（run_ab_eval）")
-    parser.add_argument("--index-dir", default=str(ROOT / "index"))
+    parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"))
     parser.add_argument("--graph-dir", default=str(GRAPH_DATA))
-    parser.add_argument("--eval-dir", default=str(ROOT / "evals"))
+    parser.add_argument("--eval-dir", default=str(DOC_CARD_DIR / "evals"))
     parser.add_argument("--splits", default="real_session,paraphrase,composition")
     parser.add_argument("--limit", type=int, default=8)
     parser.add_argument("--output", default="", help="可选：写入 JSON 报告")

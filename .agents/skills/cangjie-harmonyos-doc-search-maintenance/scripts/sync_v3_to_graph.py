@@ -32,7 +32,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-DEFAULT_INDEX_DIR = SKILL_DIR / "index"
+DEFAULT_INDEX_DIR = SKILL_DIR / "doc-card" / "index"
 
 
 def _normalize_id(raw: str) -> str:

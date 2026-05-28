@@ -13,8 +13,9 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS_DIR = ROOT / "evals"
-INDEX = ROOT / "index"
+DOC_CARD_DIR = ROOT / "doc-card"
+EVALS_DIR = DOC_CARD_DIR / "evals"
+INDEX = DOC_CARD_DIR / "index"
 BATCH3_OUT = EVALS_DIR / "eval_queries_user_appdev_batch3.jsonl"
 BLIND_OUT = EVALS_DIR / "eval_queries_user_appdev_blind.jsonl"
 

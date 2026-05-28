@@ -15,6 +15,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = ROOT / "doc-card"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(SCRIPT_DIR))
 
@@ -23,8 +24,8 @@ from eval_bench import load_eval_set, make_v3_search, run_benchmark  # noqa: E40
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="V3 自举回归门禁（eval_queries_full 等）")
-    parser.add_argument("--index-dir", default=str(ROOT / "index"))
-    parser.add_argument("--eval-set", default=str(ROOT / "evals" / "eval_queries_full.jsonl"))
+    parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"))
+    parser.add_argument("--eval-set", default=str(DOC_CARD_DIR / "evals" / "eval_queries_full.jsonl"))
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument(
         "--max-rows",

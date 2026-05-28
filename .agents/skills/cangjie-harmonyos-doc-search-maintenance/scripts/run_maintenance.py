@@ -17,6 +17,8 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SEARCH_SKILL_DIR = MAINTENANCE_DIR.parent / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = SEARCH_SKILL_DIR / "doc-card"
+BUILDER_DIR = MAINTENANCE_DIR / "builder"
 RECORDS_DIR = MAINTENANCE_DIR / "records"
 RUN_HISTORY_DIR = RECORDS_DIR / "run-history"
 BASELINES_DIR = RECORDS_DIR / "baselines"
@@ -26,7 +28,7 @@ GRAPHIFY_DATA_DIR = MAINTENANCE_DIR.parent / "knowledge-graph-template" / "data"
 API_GATE_THRESHOLD = 1.0
 DEFAULT_LLM_CARD_TYPES = "task,api,example,doc"
 
-sys.path.insert(0, str(SEARCH_SKILL_DIR))
+sys.path.insert(0, str(BUILDER_DIR))
 sys.path.insert(0, str(SCRIPT_DIR))
 
 from build_index_v3 import build as build_index, parse_card_types  # noqa: E402
@@ -254,7 +256,7 @@ def run_fusion_ab_gate(index_dir: Path, run_dir: Path) -> list[str]:
         sys.executable,
         str(SCRIPT_DIR / "run_ab_eval.py"),
         "--eval-dir",
-        str(SEARCH_SKILL_DIR / "evals"),
+        str(DOC_CARD_DIR / "evals"),
         "--index-dir",
         str(index_dir),
         "--graph-dir",
@@ -304,7 +306,7 @@ def check_openviking_endpoint(host: str, port: int, timeout: float = 3.0) -> str
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="运行 doc-search maintenance 流程")
-    parser.add_argument("--eval-set", default=str(SEARCH_SKILL_DIR / "evals" / "eval_queries.jsonl"))
+    parser.add_argument("--eval-set", default=str(DOC_CARD_DIR / "evals" / "eval_queries.jsonl"))
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--host", default="111.229.30.227")
     parser.add_argument("--port", type=int, default=2026)
@@ -529,7 +531,7 @@ def main() -> None:
             )
             sys.exit(1)
 
-    published_files = sync_index_dir(publish_source_dir, SEARCH_SKILL_DIR / "index")
+    published_files = sync_index_dir(publish_source_dir, DOC_CARD_DIR / "index")
     selected_api_audit = api_audit_rule if selected_mode == "rule" else api_audit_rule_llm
     write_api_audit_report(
         selected_api_audit,
@@ -555,7 +557,7 @@ def main() -> None:
         "publish_decision": publish_decision,
         "published_index": {
             "source_dir": str(publish_source_dir),
-            "target_dir": str(SEARCH_SKILL_DIR / "index"),
+            "target_dir": str(DOC_CARD_DIR / "index"),
             "files": published_files,
         },
         "benchmarks": benchmarks,

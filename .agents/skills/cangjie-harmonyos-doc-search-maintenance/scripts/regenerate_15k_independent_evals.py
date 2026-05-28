@@ -12,7 +12,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS = ROOT / "evals"
+EVALS = ROOT / "doc-card" / "evals"
 
 # 目录前缀（不含尾部 .md），与 15k 扁平化目录结构一致
 P = {

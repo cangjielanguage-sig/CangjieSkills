@@ -62,16 +62,16 @@ AB 对比和发布评估脚本位于 `../../cangjie-harmonyos-doc-search-mainten
 
 ## 索引构建
 
-首次使用 V3 前，需要先构建本地索引：
+首次使用 V3 前，需要通过维护 Skill 构建本地索引：
 
 ```bash
-python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/doc-card/build_index_v3.py --mode rule
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py --mode rule
 ```
 
 如需更高质量的离线卡片补全，可使用：
 
 ```bash
-python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/doc-card/build_index_v3.py --mode rule+llm
+python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py --mode rule+llm
 ```
 
 `rule+llm` 仅在构建阶段调用 OpenAI 兼容 API，查询运行时不要求用户配置任何外部模型参数。
@@ -134,7 +134,7 @@ V3 第一批重点覆盖高频 UI 场景：
 ## 注意事项
 
 - V3 不依赖远端 OpenViking 服务
-- `index/` 缺失时，直接提示执行 `build_index_v3.py`
+- `index/` 缺失时，直接提示执行 `../../cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py`
 - OpenViking 只作为 `../../cangjie-harmonyos-doc-search-maintenance/scripts/ab_test_openviking_vs_v3.py` 中的对照组，不作为默认入口
 - 用户态在线查询优先复用当前 agent 的理解能力，然后再调用本地检索
 - 若后续平台提供内部模型调用接口，再考虑把在线理解下沉为程序化能力；当前版本先按 skill 指令流执行

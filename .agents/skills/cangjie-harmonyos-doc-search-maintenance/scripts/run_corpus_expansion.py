@@ -14,6 +14,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 SKILLS_DIR = SCRIPT_DIR.parents[1]
 DOC_SEARCH_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
+BUILDER = SKILLS_DIR / "cangjie-harmonyos-doc-search-maintenance" / "builder" / "build_index_v3.py"
 GRAPHIFY_DIR = SKILLS_DIR / "knowledge-graph-template"
 
 
@@ -118,7 +119,7 @@ def main() -> None:
 
     run([
         sys.executable,
-        str(DOC_SEARCH_DIR / "build_index_v3.py"),
+        str(BUILDER),
         "--mode", "rule+llm",
         "--index-dir", str(v3_candidate),
         "--llm-cache-dir", env["LLM_CACHE_DIR"],
@@ -127,7 +128,7 @@ def main() -> None:
 
     run([
         sys.executable,
-        str(DOC_SEARCH_DIR / "scripts" / "sync_v3_to_graph.py"),
+        str(SCRIPT_DIR / "sync_v3_to_graph.py"),
         "--index-dir", str(v3_candidate),
         "--output", str(graph_seeds),
     ], dry_run=args.dry_run)

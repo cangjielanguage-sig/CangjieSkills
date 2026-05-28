@@ -4,12 +4,13 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 DOC_SEARCH="${SKILLS}/cangjie-harmonyos-doc-search"
+DOC_CARD="${DOC_SEARCH}/doc-card"
 RECORDS="${SCRIPT_DIR}/../records"
 
 BUILD_LOG="${BUILD_LOG:-/tmp/build_index_15k_full.err}"
 BUILD_MANIFEST_TMP="${BUILD_MANIFEST_TMP:-/tmp/build_index_15k_full_manifest.json}"
 AFTER_LOG="${AFTER_LOG:-/tmp/after_rule_llm_build.log}"
-INDEX_MANIFEST="${INDEX_MANIFEST:-${DOC_SEARCH}/index/manifest.json}"
+INDEX_MANIFEST="${INDEX_MANIFEST:-${DOC_CARD}/index/manifest.json}"
 AB_OUT="${AB_OUT:-${RECORDS}/ab-15k-after-rule-llm.json}"
 
 echo "=== pipeline status @ $(date -Is) ==="
@@ -71,4 +72,3 @@ if [[ -f "${AB_OUT}" ]]; then
 else
   echo "[ab_after_rule_llm] missing: ${AB_OUT}"
 fi
-

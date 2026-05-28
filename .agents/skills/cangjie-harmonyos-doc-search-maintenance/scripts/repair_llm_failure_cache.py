@@ -18,7 +18,10 @@ from typing import Any
 
 SKILLS_DIR = Path(__file__).resolve().parents[2]
 DOC_SEARCH = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-sys.path.insert(0, str(DOC_SEARCH))
+DOC_CARD = DOC_SEARCH / "doc-card"
+DOCS_DIR = DOC_SEARCH / "docs"
+BUILDER_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search-maintenance" / "builder"
+sys.path.insert(0, str(BUILDER_DIR))
 
 import build_index_v3 as b  # noqa: E402
 
@@ -80,7 +83,7 @@ def _fallback_payload(card_type: str, row: dict[str, Any]) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="为 LLM failure 生成 fallback cache")
-    parser.add_argument("--manifest", default=str(DOC_SEARCH / "index" / "manifest.json"))
+    parser.add_argument("--manifest", default=str(DOC_CARD / "index" / "manifest.json"))
     parser.add_argument("--cache-dir", required=True)
     parser.add_argument("--only-error-type", default="auth_or_permission")
     parser.add_argument("--dry-run", action="store_true")
@@ -96,7 +99,7 @@ def main() -> None:
         print(json.dumps({"status": "noop", "reason": "no matching failures"}, ensure_ascii=False))
         return
 
-    docs = b.discover_docs(DOC_SEARCH)
+    docs = b.discover_docs(DOCS_DIR)
     records_by_path = {record.path: record for record in docs}
     examples = b.find_examples(docs)
     apis = b.build_api_cards(docs, examples)

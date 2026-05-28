@@ -15,6 +15,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
+DOCS_ROOT = ROOT / "docs"
 DOC_SOURCES = ("harmonyos-6.0.2-15k", "lang-features", "std", "stdx", "tools")
 
 
@@ -64,7 +65,7 @@ def build_manifest(root: Path) -> dict:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="生成文档 manifest")
-    parser.add_argument("--root", default=str(ROOT), help="skill 根目录")
+    parser.add_argument("--root", default=str(DOCS_ROOT), help="文档根目录")
     parser.add_argument("--output", required=True, help="输出 JSON")
     args = parser.parse_args()
 

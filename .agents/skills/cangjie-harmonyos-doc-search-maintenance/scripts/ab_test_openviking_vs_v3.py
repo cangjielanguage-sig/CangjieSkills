@@ -24,7 +24,8 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS_DIR = SKILL_DIR / "evals"
+DOC_CARD_DIR = SKILL_DIR / "doc-card"
+EVALS_DIR = DOC_CARD_DIR / "evals"
 DEFAULT_A_HOST = "111.229.30.227"
 DEFAULT_A_PORT = 2026
 DEFAULT_A_BACKENDS = ("cangjie-1.0.5", "harmonyos-6.1.0.818")
@@ -267,7 +268,7 @@ def make_openviking_search(host: str, port: int, timeout: int, retries: int, bac
 
 
 def make_v3_search(index_dir: Path, mode: str, understanding_mode: str):
-    sys.path.insert(0, str(SKILL_DIR))
+    sys.path.insert(0, str(DOC_CARD_DIR))
     from search_v3 import collect, load_index
 
     index = load_index(index_dir)
@@ -538,7 +539,7 @@ def build_args() -> argparse.Namespace:
     parser.add_argument("--a-port", type=int, default=DEFAULT_A_PORT)
     parser.add_argument("--a-backends", default=",".join(DEFAULT_A_BACKENDS))
     parser.add_argument("--skip-a", action="store_true", help="只评测本地 V3，不触发 OpenViking 远端请求")
-    parser.add_argument("--b-index-dir", default=str(SKILL_DIR / "index"))
+    parser.add_argument("--b-index-dir", default=str(DOC_CARD_DIR / "index"))
     parser.add_argument("--b-mode", choices=("auto", "task", "api", "example", "doc"), default="auto")
     parser.add_argument("--b-understanding-mode", choices=("rule", "host-agent"), default="rule")
     parser.add_argument("--include-c", action="store_true", help="额外评测 C 组 V3 索引")

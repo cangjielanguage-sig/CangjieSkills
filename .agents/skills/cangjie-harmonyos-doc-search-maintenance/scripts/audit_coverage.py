@@ -14,9 +14,12 @@ import sys
 SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SEARCH_SKILL_DIR = MAINTENANCE_DIR.parent / "cangjie-harmonyos-doc-search"
+DOC_CARD_DIR = SEARCH_SKILL_DIR / "doc-card"
+DOCS_DIR = SEARCH_SKILL_DIR / "docs"
+BUILDER_DIR = MAINTENANCE_DIR / "builder"
 COVERAGE_DIR = MAINTENANCE_DIR / "records" / "coverage"
 
-sys.path.insert(0, str(SEARCH_SKILL_DIR))
+sys.path.insert(0, str(BUILDER_DIR))
 
 from build_index_v3 import DOC_SOURCES, discover_docs  # noqa: E402
 
@@ -56,13 +59,13 @@ def sample_paths(paths: list[str], limit: int = 20) -> list[str]:
 
 
 def build_report() -> dict:
-    docs = discover_docs(SEARCH_SKILL_DIR)
+    docs = discover_docs(DOCS_DIR)
     all_doc_paths = sorted(record.path for record in docs)
     all_doc_set = set(all_doc_paths)
     docs_by_source = Counter(record.source for record in docs)
     docs_by_group = Counter(path_group(record.path) for record in docs)
 
-    index_dir = SEARCH_SKILL_DIR / "index"
+    index_dir = DOC_CARD_DIR / "index"
     cards = {
         "tasks": load_jsonl(index_dir / "tasks.jsonl"),
         "apis": load_jsonl(index_dir / "apis.jsonl"),

@@ -14,12 +14,14 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-sys.path.insert(0, str(SKILL_DIR))
+DOC_CARD_DIR = SKILL_DIR / "doc-card"
+BUILDER_DIR = MAINTENANCE_DIR / "builder"
+sys.path.insert(0, str(BUILDER_DIR))
 
 from build_index_v3 import normalize_aliases, write_jsonl, write_search_db
 
 
-DEFAULT_INPUT_DIR = SKILL_DIR / "index"
+DEFAULT_INPUT_DIR = DOC_CARD_DIR / "index"
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:

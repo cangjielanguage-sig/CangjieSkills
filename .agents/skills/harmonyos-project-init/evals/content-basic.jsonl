@@ -1,0 +1,5 @@
+{"input":"帮我创建一个鸿蒙应用项目","expected_patterns":["项目","创建","目录","模板"],"min_score":0.6}
+{"input":"新建一个仓颉鸿蒙工程","expected_patterns":["仓颉","鸿蒙","项目","结构"],"min_score":0.6}
+{"input":"初始化一个HarmonyOS项目","expected_patterns":["初始化","项目","配置","bundleName"],"min_score":0.6}
+{"input":"帮我搭建一个鸿蒙App，从零开始","expected_patterns":["搭建","项目","模板","文件"],"min_score":0.6}
+{"input":"创建一个鸿蒙Hello World项目","expected_patterns":["Hello World","项目","创建","仓颉"],"min_score":0.6}

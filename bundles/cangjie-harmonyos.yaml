@@ -1,0 +1,21 @@
+name: cangjie-harmonyos
+version: "1.0.0"
+description: 鸿蒙仓颉开发场景，内置语言基础能力，并覆盖 App Agent、需求、初始化、检索、构建、诊断、stdx 配置和 ArkTS 互操作。
+packages:
+  - cj-lang-core
+  - cj-std
+  - cj-stdx
+  - cj-original-docs
+  - cj-hmos-app-agent
+  - cj-hmos-requirements
+  - cj-hmos-project
+  - cj-hmos-doc-search
+  - cj-hmos-build
+  - cj-hmos-diagnose
+  - cj-hmos-stdx-config
+  - cj-interop
+targets:
+  - codex
+  - claude-code
+  - cursor
+  - opencode

@@ -1,0 +1,8 @@
+name: cj-hmos-doc-search
+version: "1.0.0"
+description: 鸿蒙仓颉文档检索核心能力，覆盖任务卡、API 卡、示例卡和文档卡。
+skills:
+  - cangjie-harmonyos-doc-search
+owners:
+  - 戚刚毅
+  - 刘涵

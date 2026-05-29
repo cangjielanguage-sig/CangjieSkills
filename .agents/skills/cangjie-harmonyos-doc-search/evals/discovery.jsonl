@@ -1,0 +1,5 @@
+{"input":"我想查找鸿蒙仓颉的 List 组件文档","expected_skills":["cangjie-harmonyos-doc-search"],"forbidden_skills":[],"min_rank":3}
+{"input":"帮我搜索仓颉标准库 stdx 的 HTTP 模块用法","expected_skills":["cangjie-harmonyos-doc-search"],"forbidden_skills":[],"min_rank":3}
+{"input":"鸿蒙 ArkUI 的 Grid 布局怎么写","expected_skills":["cangjie-harmonyos-doc-search"],"forbidden_skills":[],"min_rank":3}
+{"input":"仓颉语言的 @Entry 装饰器怎么用","expected_skills":["cangjie-harmonyos-doc-search"],"forbidden_skills":[],"min_rank":3}
+{"input":"HarmonyOS 构建报错了，怎么查错误码对应的文档","expected_skills":["cangjie-harmonyos-doc-search"],"forbidden_skills":[],"min_rank":3}

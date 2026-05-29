@@ -162,9 +162,9 @@ def main() -> None:
 
     eval_dir = Path(args.eval_dir)
     split_files = {
-        "real_session": eval_dir / "eval_queries_real_session.jsonl",
-        "paraphrase": eval_dir / "eval_queries_paraphrase.jsonl",
-        "composition": eval_dir / "eval_queries_composition.jsonl",
+        "real_session": eval_dir / "search" / "eval_queries_real_session.jsonl",
+        "paraphrase": eval_dir / "search" / "eval_queries_paraphrase.jsonl",
+        "composition": eval_dir / "search" / "eval_queries_composition.jsonl",
     }
     selected = [s.strip() for s in args.splits.split(",") if s.strip()]
 

@@ -1,0 +1,5 @@
+{"input":"用 search_v3.py 搜索 List 组件的用法","expected_patterns":["search_v3.py","List","mode"],"min_score":0.6}
+{"input":"search_v3.py 的 --mode api 和 --mode example 有什么区别","expected_patterns":["--mode","api","example","API","示例"],"min_score":0.6}
+{"input":"如何用 search_v3.py 查找仓颉标准库的文档","expected_patterns":["search_v3.py","std","stdx","mode"],"min_score":0.6}
+{"input":"search_v3.py 构建本地索引的命令是什么","expected_patterns":["build_index_v3.py","--mode","rule"],"min_score":0.6}
+{"input":"如何用 search_v3.py 以 JSON 格式输出搜索结果","expected_patterns":["search_v3.py","--json","mode"],"min_score":0.6}

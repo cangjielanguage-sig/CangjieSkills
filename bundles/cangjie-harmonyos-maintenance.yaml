@@ -1,0 +1,12 @@
+name: cangjie-harmonyos-maintenance
+version: "1.0.0"
+description: 维护与增强场景，聚合检索索引维护、知识图谱增强和项目经验沉淀能力。
+packages:
+  - cj-hmos-doc-search-maintenance
+  - cj-hmos-knowledge-graph
+  - cj-hmos-evolution
+targets:
+  - codex
+  - claude-code
+  - cursor
+  - opencode

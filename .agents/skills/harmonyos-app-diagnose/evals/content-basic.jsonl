@@ -1,0 +1,5 @@
+{"input":"我的鸿蒙应用构建成功了但打开后白屏，怎么排查？","expected_patterns":["hilog","截图","控件树","白屏","诊断"],"min_score":0.6}
+{"input":"应用运行时崩溃了，日志里有SIGSEGV，帮我分析一下","expected_patterns":["崩溃","堆栈","hilog","源码","Signal"],"min_score":0.6}
+{"input":"我想验证一下鸿蒙应用的界面表现是否正常，该怎么做","expected_patterns":["截图","控件树","ui_capture","采集","验证"],"min_score":0.6}
+{"input":"鸿蒙应用的按钮点击没反应，怎么诊断交互问题","expected_patterns":["click","断言","交互","控件","场景"],"min_score":0.6}
+{"input":"应用有ANR问题，怎么抓日志分析","expected_patterns":["ANR","hilog","日志","主线程","阻塞"],"min_score":0.6}

@@ -1,0 +1,793 @@
+{
+  "skill": "harmonyos-stdx",
+  "status": "passed",
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 5,
+    "content_passed": 5,
+    "discovery_total": 5,
+    "discovery_passed": 5
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 0.96,
+    "pattern_score_avg": 0.96,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 0.96,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 75184.39662001329,
+    "latency_ms_p95": 140372.87670501973,
+    "token_total": 207351,
+    "cost_total": 0.0,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 5745,
+    "content_skill_context_slots_avg": 1149.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "harmonyos-stdx skill 能力概述",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "stdx 扩展库包含哪些模块",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "如何下载 stdx 二进制包",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "cjpm.toml 中如何配置 stdx 路径",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:5",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "input": "stdx 配置出错怎么排查",
+      "status": "passed",
+      "score": 0.8,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "鸿蒙项目构建时报 stdx 链接错误，需要配置 bin-dependencies",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "cjpm.toml 怎么配置 stdx 的 bin-dependencies",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "构建鸿蒙应用时链接报 stdx 相关错误",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:4",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "input": "需要在 entry/cjpm.toml 里配置 stdx 扩展库路径",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:5",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "input": "fetch_stdx.py 怎么下载 stdx 二进制包到鸿蒙项目",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "harmonyos-stdx skill 能力概述",
+      "runner": "agent-command",
+      "output": "harmonyos-stdx Skill 用于在 HarmonyOS Cangjie 应用中配置 stdx 扩展库依赖。\n\n核心能力：\n- 自动处理 stdx 二进制包下载、解压和工程配置。\n- 在需要使用 `crypto`、`encoding`、`net`、`log`、`actors` 等 stdx 模块时启用。\n- 在构建或链接出现 stdx 相关错误时排查并修复，如找不到 stdx 模块、链接失败等。\n- 配置 `entry/cjpm.toml` 中对应 target 的 `bin-dependencies.path-option`。\n- 支持 `x86_64` 模拟器/PC 和 `aarch64` 真机平台。\n\n覆盖的 stdx 能力包括：压缩解压、加解密/签名/摘要/证书、base64/hex/json/url 编解码、日志、网络通信与 TLS、序列化、模糊测试、Actor 并发模型、Effect 系统等。\n\n常用命令：`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 52840.08460002951,
+      "usage": {
+        "input_tokens": 20761,
+        "output_tokens": 809,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 483,
+        "total_tokens": 21570,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1149,
+        "codex_stdout_chars": 1691,
+        "codex_stderr_chars": 1435
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951011.538377,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"harmonyos-stdx Skill 用于在 HarmonyOS Cangjie 应用中配置 stdx 扩展库依赖。\\n\\n核心能力：\\n- 自动处理 stdx 二进制包下载、解压和工程配置。\\n- 在需要使用 `crypto`、`encoding`、`net`、`log`、`actors` 等 stdx 模块时启用。\\n- 在构建或链接出现 stdx 相关错误时排查并修复，如找不到 stdx 模块、链接失败等。\\n- 配置 `entry/cjpm.toml` 中对应 target 的 `bin-dependencies.path-option`。\\n- 支持 `x86_64` 模拟器/PC 和 `aarch64` 真机平台。\\n\\n覆盖的 stdx 能力包括：压缩解压、加解密/签名/摘要/证书、base64/hex/json/url 编解码、日志、网络通信与 TLS、序列化、模糊测试、Actor 并发模型、Effect 系统等。\\n\\n常用命令：`python .agents/skills/harmonyos-stdx/scripts/fetch_st..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20761,
+            "output_tokens": 809,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 483,
+            "total_tokens": 21570
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "stdx 扩展库包含哪些模块",
+      "runner": "agent-command",
+      "output": "stdx 扩展库包含这些模块：`aspectCJ`、`compress`、`crypto`、`encoding`、`fuzz`、`log`、`logger`、`net`、`serialization`、`unittest`、`actors`、`effect`。\n\n主要能力包括：压缩解压、加解密/签名/摘要/证书、base64/hex/json/url 编解码、日志、网络通信与 TLS、序列化、模糊测试、Actor 并发模型和 Effect 系统等。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-stdx",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-stdx",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 48562.79170000926,
+      "usage": {
+        "input_tokens": 20760,
+        "output_tokens": 718,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 21478,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1149,
+        "codex_stdout_chars": 1442,
+        "codex_stderr_chars": 1435
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951060.272139,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"stdx 扩展库包含这些模块：`aspectCJ`、`compress`、`crypto`、`encoding`、`fuzz`、`log`、`logger`、`net`、`serialization`、`unittest`、`actors`、`effect`。\\n\\n主要能力包括：压缩解压、加解密/签名/摘要/证书、base64/hex/json/url 编解码、日志、网络通信与 TLS、序列化、模糊测试、Actor 并发模型和 Effect 系统等。\",\"matched_skills\":[{\"name\":\"cangjie-stdx\",\"rank\":1},{\"name\":\"harmonyos-stdx\",\"rank\":2}],\"loaded_skills\":[\"harmonyos-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20760,
+            "output_tokens": 718,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 21478
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "如何下载 stdx 二进制包",
+      "runner": "agent-command",
+      "output": "stdx 二进制包需要按需从 GitCode 官方 releases 下载。\n\n下载全部平台：\n`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`\n\n只下载单个平台：\n`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform x86_64`\n`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform aarch64`\n\n下载来源：https://gitcode.com/Cangjie/cangjie_stdx/releases\n\n平台对应包：x86_64 用于模拟器/PC，aarch64 用于真机。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 61383.914200006984,
+      "usage": {
+        "input_tokens": 20759,
+        "output_tokens": 732,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 21491,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1149,
+        "codex_stdout_chars": 1578,
+        "codex_stderr_chars": 1435
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951121.8227754,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"stdx 二进制包需要按需从 GitCode 官方 releases 下载。\\n\\n下载全部平台：\\n`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`\\n\\n只下载单个平台：\\n`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform x86_64`\\n`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform aarch64`\\n\\n下载来源：https://gitcode.com/Cangjie/cangjie_stdx/releases\\n\\n平台对应包：x86_64 用于模拟器/PC，aarch64 用于真机。\",\"matched_skills\":[{\"name\":\"harmonyos-stdx\",\"rank\":1}],\"loaded_skills\":[\"harmonyos-stdx\"]..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20759,
+            "output_tokens": 732,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 21491
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "cjpm.toml 中如何配置 stdx 路径",
+      "runner": "agent-command",
+      "output": "在 `entry/cjpm.toml` 的目标平台 `bin-dependencies` 下配置 `path-option`，把 stdx 解压目录加入数组。\n\nx86_64 示例：\n```toml\n[target.x86_64-linux-ohos.bin-dependencies]\npath-option = [\n  \"${X86_64_OHOS_LIBS}\",\n  \"${X86_64_OHOS_MACRO_LIBS}\",\n  \"${X86_64_OHOS_KIT_LIBS}\",\n  \"C:/Users/zhangsan/MyApplication/cjnative/stdx\"\n]\n```\n\naarch64 示例：\n```toml\n[target.aarch64-linux-ohos.bin-dependencies]\npath-option = [\n  \"${AARCH64_OHOS_LIBS}\",\n  \"${AARCH64_OHOS_MACRO_LIBS}\",\n  \"${AARCH64_OHOS_KIT_LIBS}\",\n  \"C:/Users/zhangsan/MyApplication/cjnative/stdx\"\n]\n```\n\n如果还没有 stdx 包，先下载并解压：\n```bash\npython .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all\n```\n\n建议把 stdx 解压到项目根目录下的 `cjnative/stdx`；如果同时支持模拟器和真机，也可以分别放到 `cjnative/stdx-x86_64` 和 `cjnative/stdx-aarch64`，并在对应 target 中配置对应路径。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 139892.31249992736,
+      "usage": {
+        "input_tokens": 20763,
+        "output_tokens": 949,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 21712,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1149,
+        "codex_stdout_chars": 1952,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951261.9805174,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"在 `entry/cjpm.toml` 的目标平台 `bin-dependencies` 下配置 `path-option`，把 stdx 解压目录加入数组。\\n\\nx86_64 示例：\\n```toml\\n[target.x86_64-linux-ohos.bin-dependencies]\\npath-option = [\\n \\\"${X86_64_OHOS_LIBS}\\\",\\n \\\"${X86_64_OHOS_MACRO_LIBS}\\\",\\n \\\"${X86_64_OHOS_KIT_LIBS}\\\",\\n \\\"C:/Users/zhangsan/MyApplication/cjnative/stdx\\\"\\n]\\n```\\n\\naarch64 示例：\\n```toml\\n[target.aarch64-linux-ohos.bin-dependencies]\\npath-option = [\\n \\\"${AARCH64_OHOS_LIBS}\\\",\\n \\\"${AARCH64_OHOS_MACRO_LIBS}\\\",\\n \\\"${AARCH64_OHOS_KI..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20763,
+            "output_tokens": 949,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 21712
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:5",
+      "type": "content",
+      "input": "stdx 配置出错怎么排查",
+      "runner": "agent-command",
+      "output": "按这个顺序排查 stdx 配置问题：\n\n1. 检查 stdx 压缩包是否存在：`cangjie-stdx-ohos-*.zip`。缺失就运行：`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`。\n2. 检查是否已解压到项目目录：`<项目根>/cjnative/stdx`。如果同时支持模拟器和真机，建议分别放到 `cjnative/stdx-x86_64` 和 `cjnative/stdx-aarch64`。\n3. 检查 `entry/cjpm.toml` 的目标平台配置，确认 `[target.x86_64-linux-ohos.bin-dependencies]` 或 `[target.aarch64-linux-ohos.bin-dependencies]` 下的 `path-option` 已追加 stdx 解压路径。\n4. 确认平台包匹配：模拟器/PC 用 x86_64 包，真机用 aarch64 包。\n5. 如果仍报错，把完整构建错误贴出来，重点看是路径找不到、版本不匹配，还是链接阶段符号缺失。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 140766.06560009532,
+      "usage": {
+        "input_tokens": 20760,
+        "output_tokens": 858,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 21618,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1149,
+        "codex_stdout_chars": 1601,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951403.063423,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"按这个顺序排查 stdx 配置问题：\\n\\n1. 检查 stdx 压缩包是否存在：`cangjie-stdx-ohos-*.zip`。缺失就运行：`python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`。\\n2. 检查是否已解压到项目目录：`<项目根>/cjnative/stdx`。如果同时支持模拟器和真机，建议分别放到 `cjnative/stdx-x86_64` 和 `cjnative/stdx-aarch64`。\\n3. 检查 `entry/cjpm.toml` 的目标平台配置，确认 `[target.x86_64-linux-ohos.bin-dependencies]` 或 `[target.aarch64-linux-ohos.bin-dependencies]` 下的 `path-option` 已追加 stdx 解压路径。\\n4. 确认平台包匹配：模拟器/PC 用 x86_64 包，真机用 aarch64 包。\\n5. 如果仍报错，把完整构建错误贴出..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20760,
+            "output_tokens": 858,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 21618
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 0.8,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.8,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "鸿蒙项目构建时报 stdx 链接错误，需要配置 bin-dependencies",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 130432.84550006501,
+      "usage": {
+        "input_tokens": 19338,
+        "output_tokens": 583,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 19921,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1045,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951533.6395273,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"harmonyos-stdx\",\"rank\":1}],\"loaded_skills\":[\"harmonyos-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 19338,
+            "output_tokens": 583,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 19921
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "cjpm.toml 怎么配置 stdx 的 bin-dependencies",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 84927.99530003686,
+      "usage": {
+        "input_tokens": 19333,
+        "output_tokens": 596,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 19929,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1148,
+        "codex_stderr_chars": 615
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951618.7006686,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"harmonyos-stdx\",\"rank\":1},{\"name\":\"cangjie-stdx\",\"rank\":2}],\"loaded_skills\":[\"harmonyos-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 19333,
+            "output_tokens": 596,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 19929
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "构建鸿蒙应用时链接报 stdx 相关错误",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 2
+        },
+        {
+          "name": "harmonyos-build",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 33475.003400002606,
+      "usage": {
+        "input_tokens": 19335,
+        "output_tokens": 607,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 19942,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1640,
+        "codex_stderr_chars": 1397
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951652.300584,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"harmonyos-stdx\",\"rank\":1},{\"name\":\"cangjie-stdx\",\"rank\":2},{\"name\":\"harmonyos-build\",\"rank\":3}],\"loaded_skills\":[\"harmonyos-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 19335,
+            "output_tokens": 607,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 19942
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:4",
+      "type": "discovery",
+      "input": "需要在 entry/cjpm.toml 里配置 stdx 扩展库路径",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 29131.801299983636,
+      "usage": {
+        "input_tokens": 19340,
+        "output_tokens": 417,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 337,
+        "total_tokens": 19757,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1212,
+        "codex_stderr_chars": 1435
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951681.569681,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"harmonyos-stdx\",\"rank\":1},{\"name\":\"cangjie-stdx\",\"rank\":2}],\"loaded_skills\":[\"harmonyos-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 19340,
+            "output_tokens": 417,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 337,
+            "total_tokens": 19757
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:5",
+      "type": "discovery",
+      "input": "fetch_stdx.py 怎么下载 stdx 二进制包到鸿蒙项目",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 30431.152099976316,
+      "usage": {
+        "input_tokens": 19337,
+        "output_tokens": 596,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 19933,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1407,
+        "codex_stderr_chars": 1416
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1779951712.1301985,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"harmonyos-stdx\",\"rank\":1},{\"name\":\"cangjie-stdx\",\"rank\":2}],\"loaded_skills\":[\"harmonyos-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 19337,
+            "output_tokens": 596,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 19933
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "out\\eval\\harmonyos-stdx.json"
+}

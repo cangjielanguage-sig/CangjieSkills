@@ -1,0 +1,300 @@
+{"query": "enum ExposureMode doc 枚举，曝光模式。包含自动曝光、连续自动曝光和锁定曝光模式。", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/enum_ExposureMode.md"], "category": "semi-structured"}
+{"query": "怎么理解类_2 AST 节点类", "expected_paths": ["std/ast_package_overview/stdast/API_列表/类/类_2.md"], "category": "natural"}
+{"query": "PhotoOutput 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_CameraManager/func_createPhotoOutputP_76fff6d4.md"], "category": "exploration"}
+{"query": "怎么理解bm工具 Bundle Manager", "expected_paths": ["harmonyos-6.1-8k/Guide/tools/cj-bm-tool/bm工具/bm工具_6more_21fba881.md"], "category": "natural"}
+{"query": "VideoSessio_2more_959079d8 memory 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_VideoSession/class_VideoSessio_2more_959079d8.md"], "category": "error-driven"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-modal-transition/模态转场/使用bindMenu实现菜单弹出效_3more_8ed56cdd.md"], "category": "exploration"}
+{"query": "func isRelative() 使用异常 怎么排查", "expected_paths": ["std/fs_package_structs/结构体/struct_Path/func_isRelative_5more.md"], "category": "error-driven"}
+{"query": "enum SafeAreaType 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_SafeAreaType_2more_11d38ba7.md"], "category": "error-driven"}
+{"query": "如何使用RenderFit_15more_6300bce5 内容填充样式", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_RenderFit/enum_RenderFit_15more_6300bce5.md"], "category": "natural"}
+{"query": "extend Int16 <: ThrowingOp\\<Int16> 使用异常 怎么排查", "expected_paths": ["std/overflow_package_interfaces/接口/interface_ThrowingOpT/extend_Int16_ThrowingOpInt16/extend_Int16_ThrowingOpInt_7more.md"], "category": "error-driven"}
+{"query": "image 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/MediaLibraryKit/README_zh/.overview.md"], "category": "exploration"}
+{"query": "convert 使用示例 doc 示例： <!-- verify --> import std.convert.*", "expected_paths": ["std/convert_samples/convert_使用示例/convert_使用示例/convert_使用示例_1.md"], "category": "semi-structured"}
+{"query": "std_net 相关文档有哪些", "expected_paths": ["lang-features/Net/net_socket/.abstract.md"], "category": "exploration"}
+{"query": "ShadowOptions 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/class_ShadowOptions.md"], "category": "error-driven"}
+{"query": "func toTokens()", "expected_paths": ["std/ast_package_classes/类/class_MacroExpandDecl/func_toTokens_2more.md"], "category": "exact"}
+{"query": "struct_HttpStatusCode doc 本目录包含 Cangjie 语言中 HttpStatusCode 结构体的相关文", "expected_paths": ["stdx/net/http/http_package_api/http_package_structs/结构体/struct_HttpStatusCode/struct_HttpStatusCode/.overview.md"], "category": "semi-structured"}
+{"query": "怎么理解.abstract 网格布局创建", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-layout-development-create-grid/.abstract.md"], "category": "natural"}
+{"query": "怎么理解.abstract const函数", "expected_paths": ["lang-features/function/const_func_and_eval/const_函数和常量求值/.abstract.md"], "category": "natural"}
+{"query": "Want 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/AbilityKit/cj-apis-app-ability-want/.abstract.md"], "category": "exploration"}
+{"query": "BaseEvent_2more_769c8054 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/class_BaseEvent_2more_769c8054.md"], "category": "error-driven"}
+{"query": "如何使用class_InstanceFunctionInfo 实例函数信息类", "expected_paths": ["std/reflect_package_classes/类/class_InstanceFunctionInfo/.overview.md"], "category": "natural"}
+{"query": "如何使用客户端示例 TLS客户端", "expected_paths": ["stdx/net/tls/tls_samples/client/client.md"], "category": "natural"}
+{"query": "怎么理解使用帧动画实现小球抛物运动_2 使用帧动画实现小球抛物运动", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-animator/帧动画ohosanimator/使用帧动画实现小球抛物运动/使用帧动画实现小球抛物运动_2.md"], "category": "natural"}
+{"query": "const O_RDWR <sup>(deprecated)</sup> doc public const O_RDWR: Int32 = 0x2 功能：以读写模", "expected_paths": ["std/posix_package_constants_vars/常量变量/const_O_RDWR_supdeprecated_9more.md"], "category": "semi-structured"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/MediaLibraryKit/cj-apis-file-photo_access_helper/ohosfilephoto_access_helper相册管理模块/class_MediaAssetChangeRequest/class_MediaAssetC_3more_86a2e521.md"], "category": "exploration"}
+{"query": "怎么理解实验性功能选项 效应处理器", "expected_paths": ["lang-features/Appendix/compile_options/cjc_编译选项/实验性功能选项.md"], "category": "natural"}
+{"query": "怎么理解使用指导 stdx 使用指导", "expected_paths": ["stdx/libs_overview/仓颉编程语言扩展库_API/使用指导/使用指导_3more_dc944df9.md"], "category": "natural"}
+{"query": "window_error 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/.abstract.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/class_SystemBarProperties/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/class_Window/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/class_WindowProperties/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/enum_Orientation/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/enum_WindowCallbackType/.overview.md"], "category": "exploration"}
+{"query": "cj-graphic-drawing-shape", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-graphic-drawing-shape/.overview.md"], "category": "exact"}
+{"query": "class_On", "expected_paths": ["harmonyos-6.1-8k/API/TestKit/cj-apis-ui_test/ohosui_testUI测试/class_On/.overview.md"], "category": "exact"}
+{"query": "mock_framework 相关文档有哪些", "expected_paths": ["std/unittest_mock_package_classes/类/class_MethodActionSelectorTRet/class_MethodActionSelector_5more.md"], "category": "exploration"}
+{"query": "JSClass_4more_cc82173f", "expected_paths": ["harmonyos-6.1-8k/API/arkinterop/cj-apis-ark_interop/ohosark_interopArkTS互操作库/class_JSClass/class_JSClass_4more_cc82173f.md"], "category": "exact"}
+{"query": "怎么理解其他说明 Video组件说明", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-common-components-video-player/视频播放Video/其他说明_00ef471c.md"], "category": "natural"}
+{"query": "getMediaBase64ByName", "expected_paths": ["harmonyos-6.1-8k/API/LocalizationKit/cj-apis-resource_manager/ohosresource_manager资源管理/class_ResourceManager/func_getMediaBase_2more_6f4edcb9.md"], "category": "exact"}
+{"query": "特殊场景 doc 对于常驻的网络服务程序无法正常结束二进制文件并生成 `gcda` 覆盖率数据的场", "expected_paths": ["tools/cmd-tools/cjcov_manual/覆盖率统计工具/特殊场景.md"], "category": "semi-structured"}
+{"query": "Float16", "expected_paths": ["std/core_package_intrinsics/内置类型/Float16/Float16.md"], "category": "exact"}
+{"query": "如何使用ServerSocket 服务器Socket", "expected_paths": ["std/net_package_interfaces/接口/interface_ServerSocket.md"], "category": "natural"}
+{"query": "怎么理解.abstract RPC", "expected_paths": ["harmonyos-6.1-8k/API/IPCKit/cj-apis-rpc/ohosrpcRPC通信/.abstract.md"], "category": "natural"}
+{"query": "基础类型_7", "expected_paths": ["harmonyos-6.1-8k/Guide/database/cj-uniform-data-type-list/UTD预置列表/基础类型/基础类型_7.md"], "category": "exact"}
+{"query": "怎么理解获取数据库连接示例 数据库连接示例", "expected_paths": ["std/db_get_connection/db_get_connection.md"], "category": "natural"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/cangjie-arkts/operating_cangjie_objects/.abstract.md"], "category": "exploration"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkinterop/cj-apis-ark_interop/ohosark_interopArkTS互操作库/class_JSPromiseCapability.md"], "category": "exploration"}
+{"query": "CameraType 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/enum_CameraType.md"], "category": "exploration"}
+{"query": "animation 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-uicontext-animator/AnimatorResult/class_AnimatorResult/class_AnimatorRes_8more_b4cef95b.md"], "category": "exploration"}
+{"query": "class_JSClass", "expected_paths": ["harmonyos-6.1-8k/API/arkinterop/cj-apis-ark_interop/ohosark_interopArkTS互操作库/class_JSClass/.overview.md"], "category": "exact"}
+{"query": "限制条件 doc 1. @StorageProp/@StorageLink的参数必须为string", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-appstorage/AppStorage应用全局的UI状态存储/限制条件_d78fa6d6.md"], "category": "semi-structured"}
+{"query": "如何使用extend\\<T> Box\\<T> <: Hashable where T <: Hashable Box 哈希扩展", "expected_paths": ["std/core_package_classes/类/class_BoxT/extendT_BoxT_Hashable_wher_2more.md"], "category": "natural"}
+{"query": "enum BarMode", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_BarMode_2more_e87b16f7.md"], "category": "exact"}
+{"query": "validation_error 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/AbilityKit/cj-apis-app-ability-error_manager/ohosappabilityerror_manager错误管理模块/.abstract.md"], "category": "exploration"}
+{"query": "怎么理解ohosui_testUI测试 UI测试框架", "expected_paths": ["harmonyos-6.1-8k/API/TestKit/cj-apis-ui_test/ohosui_testUI测试/.overview.md"], "category": "natural"}
+{"query": "class UnixServerSocket 使用异常 怎么排查", "expected_paths": ["std/net_package_classes/类/class_UnixServerSocket/class_UnixServerSocket_8more.md"], "category": "error-driven"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/cangjie-arkts/arkts_import_cangjie/ArkTS_侧使用互操作代码/方式二使用_loadNativeModule_接口加载仓颉模块.md"], "category": "exploration"}
+{"query": "ohosresource_manager资源管理 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/LocalizationKit/cj-apis-resource_manager/ohosresource_manager资源管理/.overview.md"], "category": "error-driven"}
+{"query": "class_HuksKeyAlg class 本目录包含 `HuksKeyAlg` 类的 API 参考文档，主要用于定义 Ha", "expected_paths": ["harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/class_HuksKeyAlg/.overview.md"], "category": "semi-structured"}
+{"query": ".abstract error 怎么排查", "expected_paths": ["stdx/encoding/json/json_package_overview/.abstract.md"], "category": "error-driven"}
+{"query": "stdx.crypto.digest", "expected_paths": ["stdx/crypto/digest/crypto_digest_package_overview/crypto_digest_package_overview.md"], "category": "exact"}
+{"query": "怎么理解func write(Array<Byte>) write 方法", "expected_paths": ["std/io_package_classes/类/class_BufferedOutputStreamT_where_T_OutputStream/func_writeArrayByte_2more.md"], "category": "natural"}
+{"query": "cj-crypto-aes-sym-encrypt-decrypt-gcm-by-segment doc This directory serves as a comprehensive", "expected_paths": ["harmonyos-6.1-8k/Guide/security/CryptoArchitectureKit/cj-crypto-aes-sym-encrypt-decrypt-gcm-by-segment/.overview.md"], "category": "semi-structured"}
+{"query": "window_error 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/enum_WindowStageEventType.md"], "category": "exploration"}
+{"query": "UInt32 使用异常 怎么排查", "expected_paths": ["std/core_package_intrinsics/内置类型/UInt32/UInt32_5more.md"], "category": "error-driven"}
+{"query": "应用逻辑使用LocalStorage doc let storage = LocalStorage() let temp =", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-localstorage/LocalStorage页面级UI状态存储/使用场景/应用逻辑使用LocalStorag_2more_43f78349.md"], "category": "semi-structured"}
+{"query": "ReentrantMutex_supde_2more 使用异常 怎么排查", "expected_paths": ["std/sync_package_classes/类/class_ReentrantMutex_supde_2more.md"], "category": "error-driven"}
+{"query": "std_crypto 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/security/CryptoArchitectureKit/cj-crypto-sm4-sym-encrypt-decrypt-gcm-by-segment/使用SM4对称密钥GCM模式分段加解密/解密_a88442ba.md"], "category": "exploration"}
+{"query": "如何使用class_Support Support类", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-common_event_manager/ohoscommon_event_manager公共事件模块/class_Support/.overview.md", "harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-common_event_manager/ohoscommon_event_manager公共事件模块/class_Support/class_Support/.overview.md"], "category": "natural"}
+{"query": "permission_error 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/security/AccessToken/cj-request-user-authorization/.overview.md"], "category": "exploration"}
+{"query": "validation_error 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-errorcode-multimedia-camera/.overview.md"], "category": "exploration"}
+{"query": "Webview错误码", "expected_paths": ["harmonyos-6.1-8k/API/ArkWeb/cj-errorcode-webview/Webview错误码/.overview.md"], "category": "exact"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["tools/cmd-tools/cjfmt_manual/格式化工具/使用说明/.abstract.md"], "category": "exploration"}
+{"query": "关系型数据库 RelationalStore 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/ArkData/cj-apis-relational_store/.overview.md", "harmonyos-6.1-8k/API/ArkData/cj-apis-relational_store/ohosdatarelational_store关系型数据库/.overview.md", "harmonyos-6.1-8k/API/ArkData/cj-apis-relational_store/ohosdatarelational_store关系型数据库/class_CryptoParam/.overview.md", "harmonyos-6.1-8k/API/ArkData/cj-apis-relational_store/ohosdatarelational_store关系型数据库/class_RdbStore/.overview.md", "harmonyos-6.1-8k/API/ArkData/cj-apis-relational_store/ohosdatarelational_store关系型数据库/class_ResultSet/.overview.md", "harmonyos-6.1-8k/Guide/database/cj-data-persistence-by-rdb-store/.overview.md", "harmonyos-6.1-8k/Guide/database/cj-data-persistence-by-rdb-store/通过关系型数据库实现数据持久化/.overview.md", "harmonyos-6.1-8k/Guide/database/cj-data-persistence-by-rdb-store/通过关系型数据库实现数据持久化/开发步骤/.overview.md"], "category": "error-driven"}
+{"query": "ImageInterpo_2more_824ae72c", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_ImageInterpo_2more_824ae72c.md"], "category": "exact"}
+{"query": "怎么理解.abstract tools directory", "expected_paths": ["harmonyos-6.1-8k/Guide/tools/.abstract.md"], "category": "natural"}
+{"query": "fuzz_package_constants_vars doc 本目录专门用于存放 Fuzz 包中核心常量与变量的定义文档，重点在于管理软件的版", "expected_paths": ["stdx/fuzz/fuzz_package_api/fuzz_package_constants_vars/.overview.md"], "category": "semi-structured"}
+{"query": "怎么理解generic_interface 泛型接口", "expected_paths": ["lang-features/generic/generic_interface/.overview.md"], "category": "natural"}
+{"query": "ohos.multimedia.image（图片处理） 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/ImageKit/cj-apis-image/ohosmultimediaimage图片处理/ohosmultimediaima_4more_3896d330.md"], "category": "error-driven"}
+{"query": "代码覆盖率插桩选项 compile 怎么排查", "expected_paths": ["lang-features/Appendix/compile_options/cjc_编译选项/代码覆盖率插桩选项/.overview.md"], "category": "error-driven"}
+{"query": "interface_SortByExtensionT_supdeprecatedsup 使用异常 怎么排查", "expected_paths": ["std/sort_package_interfaces/接口/interface_SortByExtensionT_supdeprecatedsup/.overview.md"], "category": "error-driven"}
+{"query": "怎么理解示例代码2（设置退入场平移效果） 设置退入场平移效果示例", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-animation-pagetransition/页面间转场pageTransition/示例代码/示例代码2设置退入场平移效果_3b33f89f.md"], "category": "natural"}
+{"query": "static func springCurve(Float32, Float32, Float32, Float32)", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-curves/ohoscurves插值计算/class_Curves/static_func_springCurve_543da3f6.md"], "category": "exact"}
+{"query": "规则 doc This directory contains technical specif", "expected_paths": ["std/time_package_overview/stdtime/功能介绍/规则/.overview.md"], "category": "semi-structured"}
+{"query": "stdprocess module 相关文档有哪些", "expected_paths": ["std/process_package_overview/.abstract.md"], "category": "exploration"}
+{"query": "cj-permissions-for-enterprise-apps doc This directory serves as a specialized t", "expected_paths": ["harmonyos-6.1-8k/Guide/security/AccessToken/cj-permissions-for-enterprise-apps/.overview.md"], "category": "semi-structured"}
+{"query": "VideoProfile_2d32811c 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_VideoProfile_2d32811c.md"], "category": "error-driven"}
+{"query": "组件属性 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-text-input-textinput/TextInput/组件属性/.overview.md"], "category": "error-driven"}
+{"query": "ForEach", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-state-rendering-foreach/cj-state-rendering-foreach.md"], "category": "exact"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["stdx/unittest/data/data_package_api/data_package_functions/函数/func_csvTString_Rune_Rune_Rune_OptionRune_dc441bcf.md"], "category": "exploration"}
+{"query": "怎么理解func generateSymKey() 生成对称密钥", "expected_paths": ["harmonyos-6.1-8k/API/CryptoArchitectureKit/cj-apis-crypto/ohossecuritycrypto_framework加解密算法库框架/class_SymKeyGenerator/func_generateSymKey_c35d32fc.md"], "category": "natural"}
+{"query": "开发步骤_2 doc 3. 根据谓词指定的实例对象，对数据进行修改或删除。 调用update()方法修", "expected_paths": ["harmonyos-6.1-8k/Guide/database/cj-data-persistence-by-rdb-store/通过关系型数据库实现数据持久化/开发步骤/开发步骤_2.md"], "category": "semi-structured"}
+{"query": "MouseEvent class 用于描述鼠标事件的对象，包含按键、坐标和动作等信息。", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/class_MouseEvent.md"], "category": "semi-structured"}
+{"query": "init(CustomView, ?VoidCallback, ?Bool, ?DialogAlignment, ?Offset, ?Bool, ?UInt32, ?ResourceColor, ?Rectangle, ?AnimateParam, ?AnimateParam, ?Bool, ?ResourceColor, ?Length, ?Bool, ?Callback<DismissDialogAction,Unit>, ?Length, ?Length, ?Length, ?ResourceColor, ?EdgeStyles, ?ShadowOptions, ?BlurStyle) 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-dialog-customdialog/自定义弹窗CustomDialog/class_CustomDialogControllerOptions/initCustomView_VoidCallback_Bool_DialogAl_bc3df3cb/initCustomView_VoidCallback_Bool_DialogAl_bc3df3cb_1.md"], "category": "error-driven"}
+{"query": "compile_options doc This directory serves as a centralized t", "expected_paths": ["lang-features/Appendix/compile_options/.overview.md"], "category": "semi-structured"}
+{"query": "怎么理解func throwingNeg() throwingNeg", "expected_paths": ["std/overflow_package_interfaces/接口/interface_ThrowingOpT/extend_Int8_ThrowingOpInt8/func_throwingNeg_4more.md"], "category": "natural"}
+{"query": "ScrollBarDirection_02bbab19", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_ScrollBarDirection_02bbab19.md"], "category": "exact"}
+{"query": "怎么理解PerformanceAnalysisKit .overview", "expected_paths": ["harmonyos-6.1-8k/API/PerformanceAnalysisKit/.overview.md"], "category": "natural"}
+{"query": "struct LogLevel", "expected_paths": ["stdx/log/log_package_api/log_package_structs/结构体/struct_LogLevel/struct_LogLevel_15more_9129d4a7.md"], "category": "exact"}
+{"query": "class_EnumDecl class This directory serves as a comprehensive", "expected_paths": ["std/ast_package_classes/类/class_EnumDecl/.overview.md"], "category": "semi-structured"}
+{"query": "如何使用SharedTransitionEffectType 共享元素转场动效类型", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_SharedTransitionEffectType.md"], "category": "natural"}
+{"query": "嵌套宏之间的消息传递 error 怎么排查", "expected_paths": ["lang-features/Macro/implementation_of_macros/宏的实现/嵌套宏/嵌套宏之间的消息传递.md"], "category": "error-driven"}
+{"query": "API_列表 doc This directory serves as a comprehensive", "expected_paths": ["std/sort_package_overview/stdsort/API_列表/.overview.md"], "category": "semi-structured"}
+{"query": "使用AES对称密钥（ECB模式）加解密 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/security/CryptoArchitectureKit/cj-crypto-aes-sym-encrypt-decrypt-ecb/使用AES对称密钥ECB模式加解密/使用AES对称密钥ECB模式加解密_3more_fc5b5078.md"], "category": "error-driven"}
+{"query": "怎么理解operator func !=(Duration) 不等于操作符", "expected_paths": ["std/core_package_structs/结构体/struct_Duration/operator_func_Duration_4more.md"], "category": "natural"}
+{"query": "cj-request-user-authorization permission 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/security/AccessToken/cj-request-user-authorization/.overview.md"], "category": "error-driven"}
+{"query": "cj-development-intro doc This directory serves as a comprehensive", "expected_paths": ["harmonyos-6.1-8k/API/cj-development-intro/.overview.md"], "category": "semi-structured"}
+{"query": "static func write(AppEventInfo) 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/PerformanceAnalysisKit/cj-apis-hiappevent/ohoshiviewdfxhi_app_event应用事件打点/class_HiAppEvent/static_func_writeAppEventInfo.md"], "category": "error-driven"}
+{"query": "如何使用class_ObservedArrayListT ObservedArrayList", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-state-rendering-componentstatemanagement/组件级变量的状态管理/class_ObservedArrayListT/.overview.md"], "category": "natural"}
+{"query": "cj-huks-import-wrapped-key", "expected_paths": ["harmonyos-6.1-8k/Guide/security/UniversalKeystoreKit/cj-huks-import-wrapped-key/.overview.md"], "category": "exact"}
+{"query": "包列表_2 使用异常 怎么排查", "expected_paths": ["std/std_module_overview/仓颉编程语言标准库概述/包列表/包列表_2.md"], "category": "error-driven"}
+{"query": "getSupportedCameras compile 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_CameraManager/func_getSupported_3more_a4fe1896.md"], "category": "error-driven"}
+{"query": "MenuPolicy_b3784e92", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_MenuPolicy_b3784e92.md"], "category": "exact"}
+{"query": "DeviceCapability 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/LocalizationKit/cj-apis-resource_manager/ohosresource_manager资源管理/class_DeviceCapability_31931676.md"], "category": "exploration"}
+{"query": "toEncodeString function public func toEncodeString(): String 功能：", "expected_paths": ["stdx/encoding/url/url_package_api/url_package_classes/类/class_Form/func_toEncodeString_50a8b049.md"], "category": "semi-structured"}
+{"query": "class ReplaceFuncBody", "expected_paths": ["stdx/aspectCJ/aspectCJ_package_api/aspectCJ_package_classes/类/class_ReplaceFuncBody_70f36e91.md"], "category": "exact"}
+{"query": "JSExternal 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkinterop/cj-apis-ark_interop/ohosark_interopArkTS互操作库/class_JSExternal.md"], "category": "error-driven"}
+{"query": "AbilityLifecycleState", "expected_paths": ["harmonyos-6.1-8k/API/TestKit/cj-apis-ability_delegator_registry/ohosappabilityability_delegator_registryA_3e593c81/enum_AbilityLifecycleState.md"], "category": "exact"}
+{"query": "DigitIndicator", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-swiper/Swiper/基础类型定义/class_DigitIndicator.md"], "category": "exact"}
+{"query": "cj-image-decoding", "expected_paths": ["harmonyos-6.1-8k/Guide/media/image/cj-image-decoding/.overview.md"], "category": "exact"}
+{"query": "slider 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_SliderChangeMode.md"], "category": "exploration"}
+{"query": "class_Hilog doc 本目录包含仓颉语言中HiLog类的API参考文档，旨在指导应用和服务按指定级别输", "expected_paths": ["harmonyos-6.1-8k/API/PerformanceAnalysisKit/cj-apis-hilog/ohoshilogHiLog日志打印/class_Hilog/.overview.md"], "category": "semi-structured"}
+{"query": "process_sample doc This directory provides a comprehensive", "expected_paths": ["std/process_sample/.overview.md"], "category": "semi-structured"}
+{"query": "StringWriter 相关文档有哪些", "expected_paths": ["std/io_package_classes/类/class_StringWriterT_where_T_OutputStream/func_writelnUInt64_5more.md"], "category": "exploration"}
+{"query": "prop readTimeout class public override mut prop readTimeout: ?D", "expected_paths": ["stdx/net/tls/tls_package_api/tls_package_classes/类/class_TlsSocket/prop_readTimeout_7more_2561584a.md"], "category": "semi-structured"}
+{"query": "class RefType doc public class RefType <: TypeNode { publi", "expected_paths": ["std/ast_package_classes/类/class_RefType/class_RefType_9more.md"], "category": "semi-structured"}
+{"query": "README_zh", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/README_zh/.overview.md"], "category": "exact"}
+{"query": "scroll 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-common-components-text-input/.overview.md"], "category": "exploration"}
+{"query": "interface_ParsableT doc This directory contains API documentatio", "expected_paths": ["std/convert_package_interfaces/接口/interface_ParsableT/.overview.md"], "category": "semi-structured"}
+{"query": "如何使用ReentrantReadWriteMutex_supdeprecatedsup class ReentrantReadWriteMutex <sup>(deprecated)</sup>", "expected_paths": ["std/sync_package_classes/类/class_ReentrantReadWriteMutex_supdeprecatedsup.md"], "category": "natural"}
+{"query": "prop modifiers", "expected_paths": ["std/reflect_package_classes/类/class_TypeInfo/prop_modifiers_5more.md"], "category": "exact"}
+{"query": "cj-app-file-access 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/file-management/cj-app-file-access/.overview.md"], "category": "error-driven"}
+{"query": "模式的嵌套组合 enum Tuple 模式和 enum 模式可以嵌套任意模式。下面的代码展示了不同模式嵌套", "expected_paths": ["lang-features/enum_and_pattern_match/pattern_overview/模式概述/模式的嵌套组合_7e58753f.md"], "category": "semi-structured"}
+{"query": "const SOL_SOCKET <sup>(deprecated)</sup> doc public static const SOL_SOCKET: Int32 功能", "expected_paths": ["std/net_package_structs/结构体/struct_SocketOptions/const_SOL_SOCKET_supdeprec_3more.md"], "category": "semi-structured"}
+{"query": "ohosrequest上传下载 doc 本目录包含HarmonyOS系统中使用仓颉语言开发的文件上传下载模块API参考文", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-request-agent/ohosrequest上传下载/.overview.md"], "category": "semi-structured"}
+{"query": "开发步骤", "expected_paths": ["harmonyos-6.1-8k/Guide/dfx/cj-hiappevent-watcher-freeze-events-cangjie/订阅应用冻屏事件/开发步骤.md"], "category": "exact"}
+{"query": "组件可见区域变化事件 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-universal-event-visibleareachange/组件可见区域变化事件/组件可见区域变化事件_3more_f8ae14aa.md"], "category": "error-driven"}
+{"query": "enum BatteryPluggedType", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-battery_info/ohosbattery_info电量信息/enum_BatteryPluggedType.md"], "category": "exact"}
+{"query": "`@Expect` 宏", "expected_paths": ["std/unittest_testmacro_package_macros/宏/Expect_宏_6more.md"], "category": "exact"}
+{"query": "怎么理解enum SafeAreaType 安全区域类型", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_SafeAreaType_2more_11d38ba7.md"], "category": "natural"}
+{"query": "std_net 相关文档有哪些", "expected_paths": ["std/net_package_classes/类/class_TcpServerSocket/func_getSocketOptionBoolIn_5more.md", "std/net_package_classes/类/class_TcpSocket/func_getSocketOptionBoolIn_5more.md", "std/net_package_classes/类/class_UdpSocket/func_getSocketOptionBoolIn_5more.md", "std/net_package_classes/类/class_UnixSocket/func_getSocketOptionBoolIn_5more.md"], "category": "exploration"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["std/fileinfo_samples/fileinfo_samples.md"], "category": "exploration"}
+{"query": "enum DisplayOrientation", "expected_paths": ["harmonyos-6.1-8k/API/AbilityKit/cj-apis-bundle_manager/ohosbundlebundle_managerbundleManager管理/enum_DisplayOrientation.md"], "category": "exact"}
+{"query": "unittest_common_package_functions", "expected_paths": ["std/unittest_common_package_functions/.overview.md"], "category": "exact"}
+{"query": "RangeExpr 相关文档有哪些", "expected_paths": ["std/ast_package_classes/类/class_RangeExpr/.abstract.md"], "category": "exploration"}
+{"query": "怎么理解.abstract 数据库类", "expected_paths": ["std/database_sql_package_classes/类/.abstract.md"], "category": "natural"}
+{"query": "image 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/ImageKit/cj-apis-image/ohosmultimediaimage图片处理/class_ImagePacker/func_packToFileImageSource_Int32_PackingOption.md"], "category": "exploration"}
+{"query": "func acosh(Float16) 使用异常 怎么排查", "expected_paths": ["std/math_package_funcs/函数/func_acoshFloat16_4more.md"], "category": "error-driven"}
+{"query": "class SymKey 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/CryptoArchitectureKit/cj-apis-crypto/ohossecuritycrypto_framework加解密算法库框架/class_SymKey.md"], "category": "error-driven"}
+{"query": "getActiveProfile function 获取当前生效的配置信息。", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_PhotoOutput/func_getActivePro_2more_e86dd8a2.md"], "category": "semi-structured"}
+{"query": "relational_store 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/ArkData/cj-apis-relational_store/ohosdatarelational_store关系型数据库/enum_ConflictReso_3more_16ca541e.md"], "category": "exploration"}
+{"query": "怎么理解RSAECBOAEPSHA256 RSA ECB OAEP SHA256", "expected_paths": ["harmonyos-6.1-8k/Guide/security/UniversalKeystoreKit/cj-huks-encryption-decryption/加解密/开发案例/RSAECBOAEPSHA256/.overview.md"], "category": "natural"}
+{"query": "finishSession 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/func_finishSessionHuksHandleId_HuksOptions_Bytes.md"], "category": "error-driven"}
+{"query": "refresh 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-macro-state/State宏组件内状态/观察变化和行为表现/.abstract.md"], "category": "exploration"}
+{"query": "Support_3", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-common_event_manager/ohoscommon_event_manager公共事件模块/class_Support/class_Support/class_Support_3.md"], "category": "exact"}
+{"query": "功能介绍 doc unittest.mock 包提供仓颉单元测试的**mock 框架**，提供 A", "expected_paths": ["std/unittest_mock_package_overview/stdunittestmock/功能介绍.md"], "category": "semi-structured"}
+{"query": "func set\\<T>(String, T)", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-state-rendering-appstatemanagement/应用级变量的状态管理/class_LocalStorage/func_setTString_T_5more_d945fe6e.md"], "category": "exact"}
+{"query": "cj-macro-observed-and-publish 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-macro-observed-and-publish/.overview.md"], "category": "error-driven"}
+{"query": "initSession function public func initSession(keyAlias: String", "expected_paths": ["harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/func_initSessionString_HuksOptions.md"], "category": "semi-structured"}
+{"query": "应用定义类型_5 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/database/cj-uniform-data-type-list/UTD预置列表/应用定义类型/应用定义类型_5.md"], "category": "error-driven"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["tools/cmd-tools/chir_dis_manual/.overview.md"], "category": "exploration"}
+{"query": "怎么理解11102001 非法的观察者名称 11102001", "expected_paths": ["harmonyos-6.1-8k/API/PerformanceAnalysisKit/cj-errorcode-hiappevent/应用事件打点错误码/11102001_非法的观察者名称_7more_87fae833.md"], "category": "natural"}
+{"query": "func readUntil((Rune)->Bool) doc public func readUntil(predicate: (Rune)-", "expected_paths": ["std/io_package_classes/类/class_StringReaderT_where_T_InputStream/func_readUntilRune-Bool_3more.md"], "category": "semi-structured"}
+{"query": "Basic Services Kit（基础服务）（Beta特性） 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/README_zh/README_zh.md"], "category": "error-driven"}
+{"query": "Profile_4more_6e2de170 class 相机配置信息项，包含输出格式和分辨率。", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_Profile_4more_6e2de170.md"], "category": "semi-structured"}
+{"query": "ohosgeo_location_manager位置服务 permission 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/LocationKit/cj-apis-geo_location_manager/ohosgeo_location_manager位置服务/.overview.md"], "category": "error-driven"}
+{"query": "func removeResource(String) doc public func removeResource(path: String)", "expected_paths": ["harmonyos-6.1-8k/API/LocalizationKit/cj-apis-resource_manager/ohosresource_manager资源管理/class_ResourceManager/func_removeResourceStri_275bb90c.md"], "category": "semi-structured"}
+{"query": "怎么理解sample_treeset_add_iterator_remove TreeSet 示例", "expected_paths": ["std/sample_treeset_add_iterator_remove/.overview.md"], "category": "natural"}
+{"query": "示例代码 doc 本目录包含使用仓颉语言编写的ArkUI Flex布局代码示例。文档详细演示了Fl", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-row-column-stack-flex/Flex/示例代码/.overview.md"], "category": "semi-structured"}
+{"query": "func_readCharacteristicValueBleCharacteri_a623c1c9_2 doc try { let gattClient = createGattClientD", "expected_paths": ["harmonyos-6.1-8k/API/ConnectivityKit/cj-apis-bluetooth-ble/ohosbluetoothble蓝牙ble模块/class_GattClientDevice/func_readCharacteristicValueBleCharacteri_a623c1c9/func_readCharacteristicValueBleCharacteri_a623c1c9_2.md"], "category": "semi-structured"}
+{"query": "extend_Int32_ThrowingOpInt32", "expected_paths": ["std/overflow_package_interfaces/接口/interface_ThrowingOpT/extend_Int32_ThrowingOpInt32/.overview.md"], "category": "exact"}
+{"query": "\"target\"", "expected_paths": ["tools/cmd-tools/cjpm_manual/项目管理工具/模块配置文件说明/target/target.md"], "category": "exact"}
+{"query": "interface RandomSource doc 提供 Arbitrary 所需的随机生成基础类型数据的能力。", "expected_paths": ["std/unittest_prop_test_package_interfaces/接口/interface_RandomSource/interface_RandomSource.md"], "category": "semi-structured"}
+{"query": "extend Float64 <: JSInteropType<Float64>", "expected_paths": ["harmonyos-6.1-8k/API/arkinterop/cj-apis-ark_interop/ohosark_interopArkTS互操作库/extend_Float64_JSInteropTypeFloat64.md"], "category": "exact"}
+{"query": "ListItem 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-layout-development-create-list/创建列表List/响应列表项侧滑_3more_60a53273.md", "harmonyos-6.1-8k/Guide/arkui-cj/cj-layout-development-create-list/创建列表List/布局与约束.md"], "category": "error-driven"}
+{"query": "怎么理解digest_package_classes .overview", "expected_paths": ["stdx/crypto/digest/digest_package_api/digest_package_classes/.overview.md"], "category": "natural"}
+{"query": ".abstract error 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/connectivity/bluetooth/cj-gatt-development-guide/连接和传输数据/开发步骤/.abstract.md"], "category": "error-driven"}
+{"query": "static func isCookieAllowed()", "expected_paths": ["harmonyos-6.1-8k/API/ArkWeb/cj-apis-webview/ohoswebwebviewWebview/class_WebCookieManager/static_func_isCoo_4more_9f85f47a.md"], "category": "exact"}
+{"query": ".abstract error 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/tools/cj-aa-tool/aa工具/启动命令start/.abstract.md"], "category": "error-driven"}
+{"query": "Link宏父子双向同步", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-macro-link/Link宏父子双向同步/.overview.md"], "category": "exact"}
+{"query": "示例_2", "expected_paths": ["harmonyos-6.1-8k/Guide/security/UniversalKeystoreKit/cj-huks-import-wrapped-key/加密导入密钥/示例/示例_2.md"], "category": "exact"}
+{"query": "cj-apis-bundle_manager", "expected_paths": ["harmonyos-6.1-8k/API/AbilityKit/cj-apis-bundle_manager/.overview.md"], "category": "exact"}
+{"query": ".abstract error 怎么排查", "expected_paths": ["lang-features/basic_data_type/basic_operators/基本操作符/.abstract.md"], "category": "error-driven"}
+{"query": "怎么理解实现页面间的跳转 页面跳转", "expected_paths": ["harmonyos-6.1-8k/Guide/cj-start/start/quick-start/cj-quick-start-first-cangjie-app/构建第一个OpenHarmony应用仓颉/实现页面间的跳转_2more_c5f33de4.md"], "category": "natural"}
+{"query": "cj-location-kit-intro doc 本目录提供了Location Kit的入门级介绍文档，旨在帮助开发者深入理解位置", "expected_paths": ["harmonyos-6.1-8k/Guide/location/cj-location-kit-intro/.overview.md"], "category": "semi-structured"}
+{"query": "func getAllKVStoreId(String) 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/ArkData/cj-apis-distributed_kv_store/ohosdatadistributed_kv_store分布式键值数据库/class_KVManager/func_getAllKVStor_2more_bbc93ff5.md"], "category": "error-driven"}
+{"query": "ForEach 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-state-rendering-foreach/cj-state-rendering-foreach.md"], "category": "error-driven"}
+{"query": "interface Flash doc public interface Flash <: FlashQuery { f", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/interface_Flash.md"], "category": "semi-structured"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-uicontext-uicontext/UIContext/.overview.md"], "category": "exploration"}
+{"query": "互操作使用案例 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/cangjie-arkts/cj-arkts_using_example/cj-arkts_using_example.md"], "category": "error-driven"}
+{"query": "怎么理解按钮 Button .overview", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/cj-common-components-button/按钮Button/.overview.md"], "category": "natural"}
+{"query": "拍照会话 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_PhotoOutput/class_PhotoOutput_3more_95431260.md"], "category": "exploration"}
+{"query": "权限列表 doc 本目录包含HarmonyOS API 12相关的权限参考文档，涵盖了蓝牙、相机、", "expected_paths": ["harmonyos-6.1-8k/Guide/security/AccessToken/cj-permissions-for-all-user/开放权限用户授权/权限列表/.overview.md"], "category": "semi-structured"}
+{"query": "CompressInputStream", "expected_paths": ["stdx/compress/zlib/zlib_package_api/zlib_package_classes/类/class_CompressInputStream.md"], "category": "exact"}
+{"query": "TupleType", "expected_paths": ["std/ast_package_classes/类/class_TupleType.md"], "category": "exact"}
+{"query": "OnceType_3more_898ef9bc enum 表示控件的类型，用于UI测试。包含DialogShow（对话框控件）和Toast", "expected_paths": ["harmonyos-6.1-8k/API/TestKit/cj-apis-ui_test/ohosui_testUI测试/enum_OnceType_3more_898ef9bc.md"], "category": "semi-structured"}
+{"query": "func wrappingSub(UInt64) doc public func wrappingSub(y: UInt64): UInt", "expected_paths": ["std/overflow_package_interfaces/接口/interface_WrappingOpT/extend_UInt64_WrappingOpUInt64/func_wrappingSubUInt64.md"], "category": "semi-structured"}
+{"query": "list 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/website/.abstract.md"], "category": "exploration"}
+{"query": "class ArrayIterator\\<T>", "expected_paths": ["std/core_package_classes/类/class_ArrayIteratorT.md"], "category": "exact"}
+{"query": "var resumeFrom", "expected_paths": ["harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-http/ohosnethttp数据请求/class_HttpRequestOptions/var_resumeFrom_5more_6d7b87e3.md"], "category": "exact"}
+{"query": "static func lseek(Int32, Int64, WhenceType) class 调整文件偏移指针位置。", "expected_paths": ["harmonyos-6.1-8k/API/CoreFileKit/cj-apis-file_fs/ohosfilefs文件管理/class_FileIo/static_func_lseek_2more_c72091f4.md"], "category": "semi-structured"}
+{"query": "如何使用extend\\<T> ArrayList\\<T> <: JsonDeserializable\\<ArrayList\\<T>> where T <: JsonDeserializable\\<T> ArrayList JsonDeserializable", "expected_paths": ["stdx/encoding/json_stream/json_stream_package_api/encoding_json_stream_package_interfaces/接口/interface_JsonDeserializableT/extendT_ArrayList_3more_9759b244.md"], "category": "natural"}
+{"query": "HuksTag 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/class_HuksKeyAlg/.abstract.md", "harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/class_HuksKeySize/.abstract.md", "harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/class_HuksTag/.abstract.md", "harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/class_HuksTag/class_HuksTag/.abstract.md"], "category": "exploration"}
+{"query": "dump 使用异常 怎么排查", "expected_paths": ["std/dump/.overview.md"], "category": "error-driven"}
+{"query": "怎么理解class PackingOption PackingOption", "expected_paths": ["harmonyos-6.1-8k/API/ImageKit/cj-apis-image/ohosmultimediaimage图片处理/class_PackingOption/class_PackingOpti_6more_0bbd78cb.md"], "category": "natural"}
+{"query": "怎么理解func closeConn() 关闭连接", "expected_paths": ["stdx/net/http/http_package_api/http_package_classes/类/class_WebSocket/func_closeConn_2more_bcc4be0f.md"], "category": "natural"}
+{"query": "短命令行参数解析 <sup>(deprecated)</sup>", "expected_paths": ["std/short_argument_parse/short_argument_parse.md"], "category": "exact"}
+{"query": "unittest_benchmarks doc The `unittest_benchmarks` directory serv", "expected_paths": ["std/unittest_benchmarks/.overview.md"], "category": "semi-structured"}
+{"query": "MediaAlbumC_3more_b69f19a6 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/MediaLibraryKit/cj-apis-file-photo_access_helper/ohosfilephoto_access_helper相册管理模块/class_MediaAlbumChangeRequest/class_MediaAlbumC_3more_b69f19a6.md"], "category": "error-driven"}
+{"query": "管理应用窗口", "expected_paths": ["harmonyos-6.1-8k/Guide/windowmanager/cj-application-window-stage/管理应用窗口/管理应用窗口_4more_78e2c7f6.md"], "category": "exact"}
+{"query": "怎么理解结构体 .overview", "expected_paths": ["std/regex_package_structs/结构体/.overview.md"], "category": "natural"}
+{"query": "appstorage 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-state-management-overview/状态管理概述/.abstract.md"], "category": "exploration"}
+{"query": "Direction_2more_9e12c231 enum 用于定义元素布局方向的枚举类型，包含从左到右、从右到左和自动方向等成员。", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/enum_Direction_2more_9e12c231.md"], "category": "semi-structured"}
+{"query": "func generateSymKey()", "expected_paths": ["harmonyos-6.1-8k/API/CryptoArchitectureKit/cj-apis-crypto/ohossecuritycrypto_framework加解密算法库框架/class_SymKeyGenerator/func_generateSymKey_c35d32fc.md"], "category": "exact"}
+{"query": "func traverse(Visitor) 使用异常 怎么排查", "expected_paths": ["std/ast_package_classes/类/class_MacroDecl/func_traverseVisitor.md"], "category": "error-driven"}
+{"query": "once 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/SensorServiceKit/cj-apis-sensor/ohossensor传感器/func_onceTSensorI_2more_186715b9.md"], "category": "error-driven"}
+{"query": "class HiTraceMeter", "expected_paths": ["harmonyos-6.1-8k/API/PerformanceAnalysisKit/cj-apis-hi_tracemeter/ohoshi_trace_meter性能打点/class_HiTraceMeter.md"], "category": "exact"}
+{"query": "SqlException 相关文档有哪些", "expected_paths": ["std/database_sql_package_exceptions/database_sql_package_exceptions.md"], "category": "exploration"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/CoreFileKit/cj-apis-file_fs/ohosfilefs文件管理/class_Stream/func_readArrayByt_2more_78f86a32.md"], "category": "exploration"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["lang-features/FFI/cangjie-c/仓颉-C_互操作/.overview.md"], "category": "exploration"}
+{"query": "Matrix2D", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-canvas-drawing-matrix2d/Matrix2D/Matrix2D_2more_1199360c.md"], "category": "exact"}
+{"query": "怎么理解cj-text-input-search .overview", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-text-input-search/.overview.md"], "category": "natural"}
+{"query": "下拉刷新 task 为滚动列表增加下拉刷新交互。", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-refresh/Refresh/.abstract.md", "harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-refresh/Refresh/.overview.md", "harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-refresh/Refresh/Refresh_7more_03b18765.md", "harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-refresh/Refresh/示例代码.md"], "category": "semi-structured"}
+{"query": "怎么理解class_RawSocket .overview", "expected_paths": ["std/net_package_classes/类/class_RawSocket/.overview.md"], "category": "natural"}
+{"query": "Socket 编程 使用异常 怎么排查", "expected_paths": ["lang-features/Net/net_socket/net_socket.md"], "category": "error-driven"}
+{"query": "怎么理解.abstract 原子整数64", "expected_paths": ["std/sync_package_classes/类/class_AtomicInt64/.abstract.md"], "category": "natural"}
+{"query": "RichEditor 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-text-input-richeditor/RichEditor/基础类型定义/class_RichEditorTextSpa_2149f365.md"], "category": "exploration"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/tools/cj-app-check-tool/扫描工具/扫描工具_5more_84373cc8.md"], "category": "exploration"}
+{"query": "怎么理解func update(Array\\<SqlDbType>) <sup>(deprecated)</sup> update 方法", "expected_paths": ["std/database_sql_package_interfaces/接口/interface_Statement/func_updateArraySqlDbTy_4e70bac6.md"], "category": "natural"}
+{"query": "aes 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/security/UniversalKeystoreKit/cj-huks-import-key-in-plaintext/明文导入密钥/.overview.md"], "category": "exploration"}
+{"query": "怎么理解.abstract 堆叠容器", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-row-column-stack-stack/.abstract.md"], "category": "natural"}
+{"query": "示例 example 这里演示如何使用 C 互操作以及 `write/read` 接口对一个结构体进行", "expected_paths": ["lang-features/FFI/cangjie-c/仓颉-C_互操作/示例_bc85959f.md"], "category": "semi-structured"}
+{"query": "class_StringBuilder 使用异常 怎么排查", "expected_paths": ["std/core_package_classes/类/class_StringBuilder/.overview.md"], "category": "error-driven"}
+{"query": "怎么理解class Support class_Support_1", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-common_event_manager/ohoscommon_event_manager公共事件模块/class_Support/class_Support/class_Support_1.md"], "category": "natural"}
+{"query": "cj-create-custom-components 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/paradigm/cj-create-custom-components/.overview.md"], "category": "error-driven"}
+{"query": "示例3（设置TabBar的布局模式） doc 本示例通过barMode分别实现了页签均分布局和以实际长度布局，且展示了当页签布", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-navigation-switching-tabs/Tabs/示例代码/示例3设置TabBar的布局模式_cb72a2fd.md"], "category": "semi-structured"}
+{"query": "前景色设置", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-universal-attribute-foregroundcolor/cj-universal-attribute-foregroundcolor.md"], "category": "exact"}
+{"query": "static func rotate(?RotateOptions) class 设置组件转场时的旋转效果。", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-animation-transition/组件内转场transition/class_TransitionEffect/static_func_rotat_5more_a8c1b6bc.md"], "category": "semi-structured"}
+{"query": "cj-canvas-drawing-path2d doc This directory provides comprehensive te", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-canvas-drawing-path2d/.overview.md"], "category": "semi-structured"}
+{"query": "var timestamp class public var timestamp: Int64 **功能：** 时间戳。", "expected_paths": ["harmonyos-6.1-8k/API/ConnectivityKit/cj-apis-wifi_manager/ohoswifi_managerWLAN/class_WifiScanInfo/var_timestamp_3b183459.md"], "category": "semi-structured"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkinterop/cj-apis-ark_interop/ohosark_interopArkTS互操作库/class_JSNull_3more_120ed670.md"], "category": "exploration"}
+{"query": "UnixSocket_7more", "expected_paths": ["std/net_package_classes/类/class_UnixSocket/class_UnixSocket_7more.md"], "category": "exact"}
+{"query": "arkui-cj 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/.overview.md"], "category": "error-driven"}
+{"query": "ohos.security.huks（通用密钥库系统） doc huks模块向应用提供密钥库能力，包括密钥管理及密钥的密码学操作等功能。 HUK", "expected_paths": ["harmonyos-6.1-8k/API/UniversalKeystoreKit/cj-apis-security_huks/ohossecurityhuks通用密钥库系统/ohossecurityhuks通_4more_8edc63d5.md"], "category": "semi-structured"}
+{"query": "CryptoArchitectureKit 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/security/CryptoArchitectureKit/.overview.md"], "category": "error-driven"}
+{"query": "限制条件", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-macro-state/State宏组件内状态/限制条件_4b32b0aa.md"], "category": "exact"}
+{"query": "animation 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-animation-pagetransition/页面间转场pageTransition/示例代码/.overview.md"], "category": "exploration"}
+{"query": "如何使用BatteryHealthState 电池健康状态枚举", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-battery_info/ohosbattery_info电量信息/enum_BatteryHealthState.md"], "category": "natural"}
+{"query": "class SheetDismiss", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/class_SheetDismis_2more_6a5ae928.md"], "category": "exact"}
+{"query": "怎么理解.abstract 字符串读取器", "expected_paths": ["std/string_reader/.abstract.md"], "category": "natural"}
+{"query": "interface 相关文档有哪些", "expected_paths": ["std/core_package_interfaces/接口/interface_ComparableT.md"], "category": "exploration"}
+{"query": "arkts_interop 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/cangjie-arkts/cj-arkts_interoperability_lib/cj-arkts_interoperability_lib.md"], "category": "exploration"}
+{"query": "怎么理解.abstract 权限指南", "expected_paths": ["harmonyos-6.1-8k/Guide/security/AccessToken/cj-permissions-for-all/.abstract.md"], "category": "natural"}
+{"query": "怎么理解.abstract 状态管理目录", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/state_management/cj-macro-state/.abstract.md"], "category": "natural"}
+{"query": "class_定义 doc 本目录包含仓颉编程语言中关于类（class）定义的核心文档。内容涵盖了类的语法结", "expected_paths": ["lang-features/class_and_interface/class/类/class_定义/.overview.md"], "category": "semi-structured"}
+{"query": "NetCapabilities", "expected_paths": ["harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-connection/ohosnetconnection网络连接管理/class_NetCapabilities.md"], "category": "exact"}
+{"query": "嵌套滚动", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-scroll/Scroll/示例代码/.overview.md", "harmonyos-6.1-8k/Guide/arkui-cj/cj-sheet-page/绑定半模态页面bindSheet/使用嵌套滚动交互.md", "harmonyos-6.1-8k/Guide/web/cj-web-nested-scrolling/.abstract.md", "harmonyos-6.1-8k/Guide/web/cj-web-nested-scrolling/.overview.md", "harmonyos-6.1-8k/Guide/web/cj-web-nested-scrolling/Web组件嵌套滚动/.abstract.md", "harmonyos-6.1-8k/Guide/web/cj-web-nested-scrolling/Web组件嵌套滚动/.overview.md", "harmonyos-6.1-8k/Guide/web/cj-web-nested-scrolling/Web组件嵌套滚动/Web组件嵌套滚动_1.md", "harmonyos-6.1-8k/Guide/web/cj-web-nested-scrolling/Web组件嵌套滚动/Web组件嵌套滚动_2.md"], "category": "exact"}
+{"query": "cj-errorcode-crypto error 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/CryptoArchitectureKit/cj-errorcode-crypto/.overview.md"], "category": "error-driven"}
+{"query": "extend\\<T> Array\\<T> <: Arbitrary\\<Array\\<T>> where T <: Arbitrary\\<T> 使用异常 怎么排查", "expected_paths": ["std/unittest_prop_test_package_interfaces/接口/interface_ArbitraryT/extendT_ArrayT_ArbitraryAr_3more.md"], "category": "error-driven"}
+{"query": "func remove(K, (V) -> Bool) <sup>(deprecated)</sup> 使用异常 怎么排查", "expected_paths": ["std/collection_concurrent_class/类/class_ConcurrentHashMapK_V_where_K_Hashab_a35a4b2e/func_removeK_V_-_Bool_supd_3more.md"], "category": "error-driven"}
+{"query": "std_fs 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/security/AccessToken/cj-declare-permissions/.overview.md"], "category": "exploration"}
+{"query": "网络连接管理 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/network/cj-net-connection-manager/网络连接管理/网络连接管理_6more_65fa1dd8.md"], "category": "error-driven"}
+{"query": "怎么理解.abstract X509CertificateRequest", "expected_paths": ["stdx/crypto/x509/x509_package_api/x509_package_classes/类/class_X509CertificateRequest/.abstract.md"], "category": "natural"}
+{"query": "initResourceStr_ResourceStr_ResourceStr_B_1044e969 class 本目录包含Cangjie语言的API参考文档，专注于ArkUI框架中带有两个确认", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-dialog-alertdialog/警告弹窗AlertDialog/class_AlertDialogParamWithButtons/initResourceStr_ResourceStr_ResourceStr_B_1044e969/.overview.md"], "category": "semi-structured"}
+{"query": "unsafe 使用异常 怎么排查", "expected_paths": ["lang-features/FFI/cangjie-c/仓颉-C_互操作/unsafe_3more_9ef482d3.md"], "category": "error-driven"}
+{"query": "navigation 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-navigation-switching-navigation/Navigation/Navigation_5more_5a96f268.md"], "category": "exploration"}
+{"query": "如何使用tsvTString func_tsvTString_Rune_Rune_OptionRune_Opti_df17eecf_2", "expected_paths": ["stdx/unittest/data/data_package_api/data_package_functions/函数/func_tsvTString_Rune_Rune_OptionRune_Opti_df17eecf/func_tsvTString_Rune_Rune_OptionRune_Opti_df17eecf_2.md"], "category": "natural"}
+{"query": "cjpm 相关文档有哪些", "expected_paths": ["tools/cmd-tools/cjpm_manual/项目管理工具/模块配置文件说明/profile/profilebuild/profilebuild_1.md"], "category": "exploration"}
+{"query": "class Thread doc public class Thread {} 功能：获取线程 ID 及名字、查询", "expected_paths": ["std/core_package_classes/类/class_Thread.md"], "category": "semi-structured"}
+{"query": "如何使用HTTP 网络请求 HTTP", "expected_paths": ["harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-http/.overview.md", "harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-http/ohosnethttp数据请求/.overview.md", "harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-http/ohosnethttp数据请求/class_HttpRequest/.overview.md", "harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-http/ohosnethttp数据请求/class_HttpRequestOptions/.overview.md", "harmonyos-6.1-8k/API/NetworkKit/cj-apis-net-http/ohosnethttp数据请求/class_PerformanceTiming/.overview.md", "harmonyos-6.1-8k/Guide/network/cj-http-request/HTTP数据请求/.overview.md", "harmonyos-6.1-8k/Guide/network/cj-http-request/HTTP数据请求/requestInStream接口开发步骤/.overview.md", "harmonyos-6.1-8k/Guide/network/cj-http-request/HTTP数据请求/证书锁定/.overview.md"], "category": "natural"}
+{"query": "怎么理解示例代码 线性渐变示例", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-universal-attribute-gradientcolor/颜色渐变/示例代码.md"], "category": "natural"}
+{"query": "struct Duration 使用异常 怎么排查", "expected_paths": ["std/core_package_structs/结构体/struct_Duration/struct_Duration_8more.md"], "category": "error-driven"}
+{"query": "ArkUI 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/README_zh/ArkUI方舟UI框架Beta特性/ArkUI方舟UI框架Beta特性_2.md"], "category": "exploration"}
+{"query": "struct AddressFamily", "expected_paths": ["std/net_package_structs/结构体/struct_AddressFamily/struct_AddressFamily_11more.md"], "category": "exact"}
+{"query": "如何使用IfExpr_10more 条件表达式类", "expected_paths": ["std/ast_package_classes/类/class_IfExpr/class_IfExpr_10more.md"], "category": "natural"}
+{"query": "asin function 计算单精度浮点数的反正弦函数值，返回弧度值。", "expected_paths": ["std/math_package_funcs/函数/func_asinFloat32_6more.md"], "category": "semi-structured"}
+{"query": "interface DatagramSocket 使用异常 怎么排查", "expected_paths": ["std/net_package_interfaces/接口/interface_DatagramSocket/interface_DatagramSocket_5more.md"], "category": "error-driven"}
+{"query": "如何使用Configuration 窗口配置", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-window/ohoswindow窗口/class_Configuration.md"], "category": "natural"}
+{"query": "aspectCJ", "expected_paths": ["stdx/aspectCJ/.overview.md"], "category": "exact"}
+{"query": "PromptAction", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-uicontext-promptaction/PromptAction/PromptAction_2more_7d881490.md"], "category": "exact"}
+{"query": "class CameraOutputCapability doc 表示相机输出能力，包含支持的预览、拍照、录像配置信息集合以及支持的metadat", "expected_paths": ["harmonyos-6.1-8k/API/CameraKit/cj-apis-multimedia-camera/ohosmultimediacamera相机管理/class_CameraOutpu_4more_374d3718.md"], "category": "semi-structured"}
+{"query": "使用方法", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/cangjie-arkts/cj-arkts_interoperability_macro/仓颉-ArkTS_声明式互操作宏/使用方法/使用方法_2more_ced857cc.md"], "category": "exact"}
+{"query": "std.unittest.diff package 相关文档有哪些", "expected_paths": ["std/unittest_diff_package_overview/.abstract.md"], "category": "exploration"}
+{"query": "bluetooth 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/connectivity/cj-terminology/Connectivity_Kit术语/.overview.md"], "category": "exploration"}
+{"query": "struct BatchInputProvider\\<T> doc public struct BatchInputProvider<T> <: B", "expected_paths": ["std/unittest_package_structs/结构体/struct_BatchInputProviderT_2more.md"], "category": "semi-structured"}
+{"query": "refresh 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/arkui-cj/rendering_control/cj-rendering-control-lazyforeach/LazyForEach数据懒加载/组件创建规则/非首次渲染/改变数据子属性.md"], "category": "exploration"}
+{"query": "list 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-scroll-swipe-scroll/Scroll/示例代码/示例代码5设置限位滚动_2more_d9defdbc.md"], "category": "exploration"}
+{"query": "row 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-common-types/基础类型定义/class_ContextMenuOptions/initPosition_OptionPlacement_Bool_Length__ec2b476b/initPosition_OptionPlacement_Bool_Length__ec2b476b_1.md"], "category": "exploration"}
+{"query": "posix_get_file_info_samples", "expected_paths": ["std/posix_get_file_info_samples/.overview.md"], "category": "exact"}
+{"query": "http 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/learn-cj/FFI/cj-cangjie-overview/cj-cangjie-overview.md"], "category": "exploration"}
+{"query": "怎么理解extend UInt8 <: Shrink\\<UInt8> UInt8 Shrink", "expected_paths": ["std/unittest_prop_test_package_interfaces/接口/interface_ShrinkT/extend_UInt8_ShrinkUInt8_6more.md"], "category": "natural"}
+{"query": "接收指定网络的状态变化通知", "expected_paths": ["harmonyos-6.1-8k/Guide/network/cj-net-connection-manager/网络连接管理/接收指定网络的状态变化通知.md"], "category": "exact"}
+{"query": "device_info 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-device_info/.abstract.md"], "category": "exploration"}
+{"query": "const SIGTTIN <sup>(deprecated)</sup>", "expected_paths": ["std/posix_package_constants_vars/常量变量/const_SIGTTIN_supdeprecate_8more.md"], "category": "exact"}
+{"query": "func toString() doc public override func toString(): String", "expected_paths": ["harmonyos-6.1-8k/API/BasicServicesKit/cj-apis-settings/ohossettings设置数据项名称/enum_Display/func_toString_e7a7d153.md"], "category": "semi-structured"}
+{"query": "怎么理解作用域 程序结构", "expected_paths": ["lang-features/basic_programming_concepts/program_structure/程序结构/作用域.md"], "category": "natural"}
+{"query": "使用 spy 和 mock 对象 doc **spy** 对象和 **mock** 对象在配置上是类似的，只不过 spy", "expected_paths": ["std/mock_framework_basics/mock_基础概念及用法/使用_spy_和_mock_对象_2more.md"], "category": "semi-structured"}
+{"query": "开发步骤 doc 1. 若要使用键值型数据库，首先要获取一个KVManager实例，用于管理数据库", "expected_paths": ["harmonyos-6.1-8k/Guide/database/cj-data-persistence-by-kv-store/通过键值型数据库实现数据持久化/开发步骤/开发步骤_1.md"], "category": "semi-structured"}
+{"query": "UInt64 相关文档有哪些", "expected_paths": ["std/binary_package_interfaces/接口/interface_BigEndianOrderT/extend_UInt64_BigEndianOrderUInt64.md"], "category": "exploration"}
+{"query": "aes 相关文档有哪些", "expected_paths": ["harmonyos-6.1-8k/Guide/security/CryptoArchitectureKit/cj-crypto-aes-sym-encrypt-decrypt-cbc/.overview.md"], "category": "exploration"}
+{"query": "func on(ListenerType, Callback1Argument\\<FoldStatus>) 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/API/arkui-cj/cj-apis-display/ohosdisplay屏幕属性/func_onListenerTy_2more_03fcfcdf.md"], "category": "error-driven"}
+{"query": "怎么理解服务端 BLE GATT服务端", "expected_paths": ["harmonyos-6.1-8k/Guide/connectivity/bluetooth/cj-gatt-development-guide/连接和传输数据/开发步骤/服务端/.overview.md"], "category": "natural"}
+{"query": "语法树节点打印 使用异常 怎么排查", "expected_paths": ["std/dump/dump.md"], "category": "error-driven"}
+{"query": "怎么理解process_package_exceptions 进程包异常", "expected_paths": ["std/process_package_exceptions/.overview.md"], "category": "natural"}
+{"query": "应用程序包概述 使用异常 怎么排查", "expected_paths": ["harmonyos-6.1-8k/Guide/cj-start/basic-knowledge/cj-application-package-overview/应用程序包概述/.overview.md"], "category": "error-driven"}

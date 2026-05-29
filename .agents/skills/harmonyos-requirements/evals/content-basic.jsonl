@@ -1,0 +1,5 @@
+{"input":"帮我做一个鸿蒙应用的用户登录页面，支持手机号和邮箱登录","expected_patterns":["登录","功能","确认"],"min_score":0.6}
+{"input":"我想开发一个鸿蒙智能家居控制App，能控制灯光、空调和窗帘","expected_patterns":["功能","确认","设计"],"min_score":0.6}
+{"input":"实现一个鸿蒙应用的消息推送功能，支持离线推送和通知栏展示","expected_patterns":["功能","推送","通知"],"min_score":0.6}
+{"input":"帮我做一个鸿蒙电商App的商品详情页，包含图片轮播、规格选择和加购功能","expected_patterns":["功能","商品","确认"],"min_score":0.6}
+{"input":"开发一个鸿蒙应用的个人中心页面，展示用户信息、订单列表和设置入口","expected_patterns":["功能","页面","确认"],"min_score":0.6}

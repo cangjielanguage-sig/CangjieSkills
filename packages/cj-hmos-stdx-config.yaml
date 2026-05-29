@@ -1,0 +1,8 @@
+name: cj-hmos-stdx-config
+version: "1.0.0"
+description: 鸿蒙仓颉项目 stdx 依赖解压与 cjpm 配置。
+skills:
+  - harmonyos-stdx
+owners:
+  - 戚刚毅
+  - 刘涵

@@ -1,0 +1,4 @@
+{"input":"帮我构建鸿蒙应用","expected_skills":["harmonyos-build"],"forbidden_skills":[],"min_rank":3}
+{"input":"鸿蒙项目编译打包","expected_skills":["harmonyos-build"],"forbidden_skills":[],"min_rank":6}
+{"input":"执行 ohpm install 和 assembleHap","expected_skills":["harmonyos-build"],"forbidden_skills":[],"min_rank":1}
+{"input":"鸿蒙构建失败排查","expected_skills":["harmonyos-build"],"forbidden_skills":[],"min_rank":2}

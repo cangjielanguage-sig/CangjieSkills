@@ -1,0 +1,5 @@
+{"input":"帮我分析一下鸿蒙应用的登录需求，需要支持多种登录方式","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
+{"input":"我想做一个鸿蒙应用，帮我梳理一下需求和设计方案","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
+{"input":"鸿蒙应用开发前需要做需求分析和技术方案设计","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
+{"input":"帮我把模糊的鸿蒙开发需求转化为可执行的功能清单","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
+{"input":"鸿蒙App的需求澄清、方案设计与验收定义怎么做","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}

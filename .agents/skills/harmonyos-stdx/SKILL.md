@@ -11,7 +11,22 @@ description: "在鸿蒙应用（Cangjie）开发中，当需要使用 stdx 拓�
 
 触发时机：编码需要 stdx 模块 / 构建链接出现 stdx 相关错误 / 用户明确要求
 
-## 内置资源
+## 按需下载资源
+
+stdx 二进制压缩包不随默认发布包内置，避免大文件影响 `npx skills add` 和 GitCode 推送。需要配置 stdx 时，先从 GitCode 官方 releases 下载目标平台包：
+
+```bash
+python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all
+```
+
+也可以只下载单个平台：
+
+```bash
+python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform x86_64
+python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform aarch64
+```
+
+下载来源：https://gitcode.com/Cangjie/cangjie_stdx/releases
 
 | 平台 | 压缩包 | 场景 |
 |------|--------|------|
@@ -23,9 +38,10 @@ description: "在鸿蒙应用（Cangjie）开发中，当需要使用 stdx 拓�
 检测到未配置 stdx 依赖时自动执行，不询问用户
 
 1. 确定工程根目录和目标平台（x86_64 或 aarch64）
-2. 创建目标目录 `<项目根>/cjnative/stdx`，解压对应平台 zip 包
-3. 在 `entry/cjpm.toml` 对应 target 节追加 stdx 路径
-4. 两个平台都需要时分别解压到 `cjnative/stdx-x86_64` 和 `cjnative/stdx-aarch64`
+2. 检查对应平台 zip 包是否存在；缺失时先运行 `python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`
+3. 创建目标目录 `<项目根>/cjnative/stdx`，解压对应平台 zip 包
+4. 在 `entry/cjpm.toml` 对应 target 节追加 stdx 路径
+5. 两个平台都需要时分别解压到 `cjnative/stdx-x86_64` 和 `cjnative/stdx-aarch64`
 
 x86_64 配置示例：
 
@@ -72,8 +88,9 @@ API 详情请使用 cangjie-harmonyos-doc-search 或 cangjie_stdx Skill 检索
 
 ## 排错
 
-1. 检查 `<项目根>/cjnative/stdx` 是否已解压 → 未解压则执行自动解压
-2. 检查 `entry/cjpm.toml` 是否已配置 stdx 路径 → 未配置则自动追加
-3. 确认目标平台匹配 → x86_64 用 x86_64 包，aarch64 用 aarch64 包
-4. 仍报错 → 要求用户贴出完整错误信息，判断是路径、版本还是符号问题
+1. 检查 `cangjie-stdx-ohos-*.zip` 是否存在 → 缺失则运行 `python .agents/skills/harmonyos-stdx/scripts/fetch_stdx.py --platform all`
+2. 检查 `<项目根>/cjnative/stdx` 是否已解压 → 未解压则执行自动解压
+3. 检查 `entry/cjpm.toml` 是否已配置 stdx 路径 → 未配置则自动追加
+4. 确认目标平台匹配 → x86_64 用 x86_64 包，aarch64 用 aarch64 包
+5. 仍报错 → 要求用户贴出完整错误信息，判断是路径、版本还是符号问题
 

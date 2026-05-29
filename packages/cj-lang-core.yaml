@@ -1,0 +1,5 @@
+name: cj-lang-core
+version: "1.0.0"
+description: 语言核心 Hub，覆盖语法、类型系统、泛型、宏、并发、项目管理等核心主题。
+skills:
+  - cangjie-lang-features

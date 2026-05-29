@@ -3,6 +3,3 @@ version: "1.0.0"
 description: 基于知识图谱的语义、组合、架构和邻域推理增强能力。
 skills:
   - knowledge-graph-template
-owners:
-  - 戚刚毅
-  - 刘涵

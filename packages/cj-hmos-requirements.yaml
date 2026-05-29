@@ -3,6 +3,3 @@ version: "1.0.0"
 description: 鸿蒙仓颉应用需求分析、方案设计与验收定义。
 skills:
   - harmonyos-requirements
-owners:
-  - 戚刚毅
-  - 刘涵

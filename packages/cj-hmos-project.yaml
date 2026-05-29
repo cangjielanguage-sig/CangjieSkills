@@ -3,6 +3,3 @@ version: "1.0.0"
 description: 鸿蒙仓颉项目初始化入口，生成可运行项目模板。
 skills:
   - harmonyos-project-init
-owners:
-  - 戚刚毅
-  - 刘涵

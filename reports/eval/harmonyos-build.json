@@ -1,0 +1,810 @@
+{
+  "skill": "harmonyos-build",
+  "status": "passed",
+  "summary": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 4,
+    "content_passed": 4,
+    "discovery_total": 4,
+    "discovery_passed": 4
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 0.875,
+    "latency_ms_avg": 14562.0,
+    "latency_ms_p95": 20129.3,
+    "token_total": 23556,
+    "cost_total": 0.412137,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 1560,
+    "content_skill_context_slots_avg": 390.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "鸿蒙项目怎么构建",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "鸿蒙应用构建失败了怎么办",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "如何执行鸿蒙项目的编译打包",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "鸿蒙构建脚本怎么用",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "帮我构建鸿蒙应用",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "鸿蒙项目编译打包",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "执行 ohpm install 和 assembleHap",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:4",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "input": "鸿蒙构建失败排查",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "鸿蒙项目怎么构建",
+      "runner": "agent-command",
+      "output": "鸿蒙项目构建流程如下：\n\n**1. 执行构建**\n```bash\npython .agents/skills/harmonyos-build/build.py --project-root <项目根目录>\n```\n其中 `--project-root` 可选，默认当前工作目录。构建脚本会串联执行 `ohpm install` → `SyncCangjieResource` → `assembleHap`。\n\n**2. 判定结果**\n- 日志含 `BUILD SUCCESSFUL` 即为成功，跳过签名不影响。\n- 完整日志写入项目目录下的 `build.log`，排查时必须阅读此文件。\n\n**3. 构建失败排查（按顺序）**\n1. 先查阅 Evolution.md 匹配已有经验记录\n2. 基于日志分析修复后重建\n3. 使用 cangjie-harmonyos-doc-search 检索文档\n4. 日志信息不足时，在 DevEco Studio 重建并提供报错信息\n\n**4. 成功后沉淀**\n构建成功后，将遇到的难点和解决方案记录到 Evolution.md，供后续参考。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-evolution",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build"
+      ],
+      "tool_calls": [],
+      "latency_ms": 15683.0,
+      "usage": {
+        "input_tokens": 2723,
+        "output_tokens": 606,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3329,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 390,
+        "claude_stdout_chars": 6272,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.056561,
+      "error": null,
+      "timestamp": 1780037747.3367953,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"鸿蒙项目构建流程如下：\\n\\n**1. 执行构建**\\n```bash\\npython .agents/skills/harmonyos-build/build.py --project-root <项目根目录>\\n```\\n其中 `--project-root` 可选，默认当前工作目录。构建脚本会串联执行 `ohpm install` → `SyncCangjieResource` → `assembleHap`。\\n\\n**2. 判定结果**\\n- 日志含 `BUILD SUCCESSFUL` 即为成功，跳过签名不影响。\\n- 完整日志写入项目目录下的 `build.log`，排查时必须阅读此文件。\\n\\n**3. 构建失败排查（按顺序）**\\n1. 先查阅 Evolution.md 匹配已有经验记录\\n2. 基于日志分析修复后重建\\n3. 使用 cangjie-harmonyos-doc-search 检索文档\\n4. 日志信息不足时，在 DevEco Studio 重建并提供报错信息\\n\\n**4. 成功后沉淀**\\n构建成功后，..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "鸿蒙应用构建失败了怎么办",
+      "runner": "agent-command",
+      "output": "我来帮你解决鸿蒙应用构建失败的问题。根据标准的排查流程，建议按以下步骤操作：\n\n## 构建失败排查步骤\n\n**第一步：查看构建日志**\n- 检查项目目录下的 `build.log` 文件，这是排查的关键依据\n- 日志中会包含具体的错误信息和失败原因\n\n**第二步：按优先级排查**\n\n1. **查看 Evolution.md** - 首先检查是否有之前遇到的相同问题和解决方案\n2. **分析日志定位问题** - 根据日志中的错误信息进行针对性修复\n3. **检索开发文档** - 如果日志信息不明确，使用文档检索工具查找相关解决方案\n4. **请求协助** - 如果以上步骤都无法解决，建议在 DevEco Studio 中重新构建并提供完整的错误信息\n\n**第三步：常见问题处理**\n- 如果启动时提示路径不存在，检查构建配置中的路径常量\n- 确保 `ohpm install` 依赖安装成功\n- 验证 Cangjie 资源同步是否正常\n\n构建成功的标准是日志中包含 `BUILD SUCCESSFUL`，跳过签名步骤不影响构建结果。\n\n如果需要执行具体的构建命令，可以使用：\n```bash\npython .agents/skills/harmonyos-build/build.py --project-root <项目根目录>\n```",
+      "final_status": "passed",
+      "matched_skills": [],
+      "loaded_skills": [],
+      "tool_calls": [],
+      "latency_ms": 19491.0,
+      "usage": {
+        "input_tokens": 2725,
+        "output_tokens": 593,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3318,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 390,
+        "claude_stdout_chars": 6100,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.07070599999999999,
+      "error": null,
+      "timestamp": 1780037770.4139352,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "我来帮你解决鸿蒙应用构建失败的问题。根据标准的排查流程，建议按以下步骤操作： ## 构建失败排查步骤 **第一步：查看构建日志** - 检查项目目录下的 `build.log` 文件，这是排查的关键依据 - 日志中会包含具体的错误信息和失败原因 **第二步：按优先级排查** 1. **查看 Evolution.md** - 首先检查是否有之前遇到的相同问题和解决方案 2. **分析日志定位问题** - 根据日志中的错误信息进行针对性修复 3. **检索开发文档** - 如果日志信息不明确，使用文档检索工具查找相关解决方案 4. **请求协助** - 如果以上步骤都无法解决，建议在 DevEco Studio 中重新构建并提供完整的错误信息 **第三步：常见问题处理** - 如果启动时提示路径不存在，检查构建配置中的路径常量 - 确保 `ohpm install` 依赖安装成功 - 验证 Cangjie 资源同步是否正常 构建成功的标准是日志中包含 `BUILD SUCCESSFUL`，跳过签名步骤不影响构建结果。 如果需要执行具体的构建命令，可以使用： ```bash pytho..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "如何执行鸿蒙项目的编译打包",
+      "runner": "agent-command",
+      "output": "执行鸿蒙项目编译打包的步骤如下：\n\n### 步骤 1：执行构建命令\n\n```bash\npython .agents/skills/harmonyos-build/build.py --project-root <项目根目录>\n```\n\n- `--project-root` 可选，默认当前工作目录\n- 该脚本会串联执行 `ohpm install` → `SyncCangjieResource` → `assembleHap`\n- `DEVECO_HOME` 等路径常量在 build.py 顶部，按需修改\n\n### 步骤 2：判定构建结果\n\n- 日志含 `BUILD SUCCESSFUL` 即为成功，跳过签名不影响\n- 完整日志写入项目目录 `build.log`，排查时必读此文件\n- 若启动即报路径不存在，检查 build.py 顶部常量配置\n\n### 步骤 3：失败排查（按顺序，禁止跳步）\n\n1. **查 Evolution.md** — 用 harmonyos-evolution skill 匹配已有经验记录\n2. **仓颉技能调试** — 未命中则基于日志分析修复后重建\n3. **文档检索** — 仍未解决则用 cangjie-harmonyos-doc-search 检索相关文档\n4. **请求用户协助** — 日志信息不足时要求用户在 DevEco Studio 重建并提供报错信息\n\n### 步骤 4：成功沉淀\n\n构建成功后用 harmonyos-evolution skill 将遇到的难点和解决方案写入 Evolution.md（失败方案不得写入）。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-evolution",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build"
+      ],
+      "tool_calls": [],
+      "latency_ms": 16131.0,
+      "usage": {
+        "input_tokens": 2725,
+        "output_tokens": 523,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3248,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 390,
+        "claude_stdout_chars": 5909,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.038988,
+      "error": null,
+      "timestamp": 1780037790.2047424,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"执行鸿蒙项目编译打包的步骤如下：\\n\\n### 步骤 1：执行构建命令\\n\\n```bash\\npython .agents/skills/harmonyos-build/build.py --project-root <项目根目录>\\n```\\n\\n- `--project-root` 可选，默认当前工作目录\\n- 该脚本会串联执行 `ohpm install` → `SyncCangjieResource` → `assembleHap`\\n- `DEVECO_HOME` 等路径常量在 build.py 顶部，按需修改\\n\\n### 步骤 2：判定构建结果\\n\\n- 日志含 `BUILD SUCCESSFUL` 即为成功，跳过签名不影响\\n- 完整日志写入项目目录 `build.log`，排查时必读此文件\\n- 若启动即报路径不存在，检查 build.py 顶部常量配置\\n\\n### 步骤 3：失败排查（按顺序，禁止跳步）\\n\\n1. **查 Evolution.md** — 用 harmonyos-evolution skill 匹..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "鸿蒙构建脚本怎么用",
+      "runner": "agent-command",
+      "output": "鸿蒙构建脚本通过 `python .agents/skills/harmonyos-build/build.py --project-root <项目根目录>` 执行，`--project-root` 可选，默认当前工作目录。脚本串联执行 `ohpm install` → `SyncCangjieResource` → `assembleHap` 三步。构建日志输出到项目目录 `build.log`，日志含 `BUILD SUCCESSFUL` 即表示成功。若构建失败，按以下顺序排查：先查 Evolution.md 匹配已有经验，再基于日志分析修复，仍未解决则用文档检索，日志信息不足时需用户在 DevEco Studio 重建并提供报错。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build"
+      ],
+      "tool_calls": [],
+      "latency_ms": 8778.0,
+      "usage": {
+        "input_tokens": 2725,
+        "output_tokens": 253,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2978,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 390,
+        "claude_stdout_chars": 4431,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.032238,
+      "error": null,
+      "timestamp": 1780037802.5767393,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"鸿蒙构建脚本通过 `python .agents/skills/harmonyos-build/build.py --project-root <项目根目录>` 执行，`--project-root` 可选，默认当前工作目录。脚本串联执行 `ohpm install` → `SyncCangjieResource` → `assembleHap` 三步。构建日志输出到项目目录 `build.log`，日志含 `BUILD SUCCESSFUL` 即表示成功。若构建失败，按以下顺序排查：先查 Evolution.md 匹配已有经验，再基于日志分析修复，仍未解决则用文档检索，日志信息不足时需用户在 DevEco Studio 重建并提供报错。\",\"matched_skills\":[{\"name\":\"harmonyos-build\",\"rank\":1}],\"loaded_skills\":[\"harmonyos-build\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null}"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "帮我构建鸿蒙应用",
+      "runner": "agent-command",
+      "output": "根据您的需求，推荐使用 harmonyos-build 技能来执行鸿蒙应用的构建流程。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-project-init",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build"
+      ],
+      "tool_calls": [],
+      "latency_ms": 9704.0,
+      "usage": {
+        "input_tokens": 2233,
+        "output_tokens": 312,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2545,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 4935,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.050536,
+      "error": null,
+      "timestamp": 1780037815.5818017,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"根据您的需求，推荐使用 harmonyos-build 技能来执行鸿蒙应用的构建流程。\", \"matched_skills\": [ {\"name\": \"harmonyos-build\", \"rank\": 1}, {\"name\": \"harmonyos-project-init\", \"rank\": 2} ], \"loaded_skills\": [\"harmonyos-build\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "鸿蒙项目编译打包",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-stdx",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build"
+      ],
+      "tool_calls": [],
+      "latency_ms": 16400.0,
+      "usage": {
+        "input_tokens": 2233,
+        "output_tokens": 406,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2639,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5930,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.053210999999999994,
+      "error": null,
+      "timestamp": 1780037835.5166593,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"\", \"matched_skills\": [ {\"name\": \"harmonyos-build\", \"rank\": 1}, {\"name\": \"harmonyos-stdx\", \"rank\": 2}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 3} ], \"loaded_skills\": [\"harmonyos-build\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "执行 ohpm install 和 assembleHap",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build"
+      ],
+      "tool_calls": [],
+      "latency_ms": 9836.0,
+      "usage": {
+        "input_tokens": 2234,
+        "output_tokens": 262,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2496,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 4700,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.048621,
+      "error": null,
+      "timestamp": 1780037848.9434252,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"harmonyos-build\", \"rank\": 1} ], \"loaded_skills\": [\"harmonyos-build\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:4",
+      "type": "discovery",
+      "input": "鸿蒙构建失败排查",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-build",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-evolution",
+          "rank": 2
+        },
+        {
+          "name": "doc-card",
+          "rank": 3
+        },
+        {
+          "name": "harmonyos-stdx",
+          "rank": 4
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 5
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-build",
+        "harmonyos-evolution",
+        "doc-card",
+        "harmonyos-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20473.0,
+      "usage": {
+        "input_tokens": 2232,
+        "output_tokens": 771,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3003,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6915,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.061276,
+      "error": null,
+      "timestamp": 1780037872.7232676,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"harmonyos-build\", \"rank\": 1}, {\"name\": \"harmonyos-evolution\", \"rank\": 2}, {\"name\": \"doc-card\", \"rank\": 3}, {\"name\": \"harmonyos-stdx\", \"rank\": 4}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 5} ], \"loaded_skills\": [\"harmonyos-build\", \"harmonyos-evolution\", \"doc-card\", \"harmonyos-stdx\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\harmonyos-build.json"
+}

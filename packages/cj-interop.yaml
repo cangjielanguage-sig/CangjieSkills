@@ -3,6 +3,3 @@ version: "1.0.0"
 description: 仓颉与 ArkTS 互操作，覆盖 ArkTS 调仓颉、仓颉调 ArkTS 和混合 UI。
 skills:
   - cangjie_arkts_interop
-owners:
-  - 戚刚毅
-  - 刘涵

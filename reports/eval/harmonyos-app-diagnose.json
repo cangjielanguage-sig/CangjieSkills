@@ -1,0 +1,1004 @@
+{
+  "skill": "harmonyos-app-diagnose",
+  "status": "passed",
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 5,
+    "content_passed": 5,
+    "discovery_total": 5,
+    "discovery_passed": 5
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 0.88,
+    "pattern_score_avg": 0.88,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 0.88,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 20723.7,
+    "latency_ms_p95": 27056.5,
+    "token_total": 64379,
+    "cost_total": 0.781102,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 13800,
+    "content_skill_context_slots_avg": 2760.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "我的鸿蒙应用构建成功了但打开后白屏，怎么排查？",
+      "status": "passed",
+      "score": 0.8,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "应用运行时崩溃了，日志里有SIGSEGV，帮我分析一下",
+      "status": "passed",
+      "score": 0.8,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "我想验证一下鸿蒙应用的界面表现是否正常，该怎么做",
+      "status": "passed",
+      "score": 0.8,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "鸿蒙应用的按钮点击没反应，怎么诊断交互问题",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:5",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "input": "应用有ANR问题，怎么抓日志分析",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "鸿蒙应用白屏了怎么排查",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "帮我抓一下鸿蒙应用的运行日志",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "应用崩溃了需要分析原因",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:4",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "input": "验证一下鸿蒙app的界面是否正常",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:5",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "input": "鸿蒙应用有ANR问题怎么诊断",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "我的鸿蒙应用构建成功了但打开后白屏，怎么排查？",
+      "runner": "agent-command",
+      "output": "鸿蒙应用构建成功但白屏，可按以下步骤排查：\n\n## 1. 确认设备连接\n```powershell\nhdc list targets\n```\n\n## 2. 采集 UI 状态（截图 + 控件树）\n```powershell\npython \"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\" --emulator 5555 --hap \"entry/build/default/outputs/default/entry-default-unsigned.hap\" --out ./ui_capture_output\n```\n查看 `ui_capture_output/screenshot.png` 和 `layout.json`，确认控件树是否为空或仅有根节点。\n\n## 3. 采集 hilog 日志（关键）\n白屏通常有运行时异常，必须抓日志：\n```powershell\nhdc shell hilog -r                                          # 清空旧日志\nhdc shell aa start -a <abilityName> -b <bundleName>         # 启动应用\nStart-Sleep 5\nhdc shell hilog -x > ./ui_capture_output/hilog_full.txt     # 导出全量日志\nhdc shell \"hilog -L E\" > ./ui_capture_output/hilog_error.txt # 提取错误\n```\n\n## 4. 重点排查方向\n| 关键词 | 含义 | 排查方向 |\n|--------|------|----------|\n| `NullPointerException` / `nullptr` | 空引用 | 变量初始化时序、生命周期 |\n| `Cannot read property` / `is not callable` | ArkTS 运行时错误 | 错误消息 + 调用栈 |\n| `Ability not found` | Ability 解析失败 | `module.json5` abilities 配置 |\n| `libark_jsruntime` 崩溃 | ArkCompiler 层 | 互操作类型不匹配 / FFI |\n| `Permission denied` | 权限不足 | `module.json5` 添加 `requestPermissions` |\n\n## 5. 其他常见原因\n- **EntryAbility 未正确配置**：检查 `module.json5` 中 skills 是否误含 `entity.system.home`，导致启动到了系统桌面\n- **页面路由未初始化**：确认 `EntryAbility` 的 `onWindowCreate` 中是否正确加载了首页组件\n- **hap 未安装**：用 `hdc install -r <hap路径>` 重新安装\n- **资源缺失**：检查 `AppScope/resources/` 下基础资源是否完整\n\n拿到 hilog 错误日志后，可进一步定位具体崩溃位置。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 26655.0,
+      "usage": {
+        "input_tokens": 25789,
+        "output_tokens": 841,
+        "cached_input_tokens": 4096,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 26630,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2760,
+        "claude_stdout_chars": 8286,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.180781,
+      "error": null,
+      "timestamp": 1780037503.4435625,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"鸿蒙应用构建成功但白屏，可按以下步骤排查：\\n\\n## 1. 确认设备连接\\n```powershell\\nhdc list targets\\n```\\n\\n## 2. 采集 UI 状态（截图 + 控件树）\\n```powershell\\npython \\\"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\\\" --emulator 5555 --hap \\\"entry/build/default/outputs/default/entry-default-unsigned.hap\\\" --out ./ui_capture_output\\n```\\n查看 `ui_capture_output/screenshot.png` 和 `layout.json`，确认控件树是否为空或仅有根节点。\\n\\n## 3. 采集 hilog 日志（关键）\\n白屏通常有运行时异常，必须抓日志：\\n```powershell\\nhdc shell hilog -r # 清空旧日志\\nhdc shell aa start -a <..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 0.8,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.8,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "应用运行时崩溃了，日志里有SIGSEGV，帮我分析一下",
+      "runner": "agent-command",
+      "output": "SIGSEGV 是原生崩溃信号，表示程序访问了非法内存地址。按以下步骤排查：\n\n**1. 从日志中提取崩溃堆栈**\n```powershell\nhdc shell hilog | Select-String \"SIGSEGV\" -Context 0,30\n```\n关注崩溃堆栈中的函数名和源码行号，定位到具体 `.cj` 文件。\n\n**2. 常见 SIGSEGV 根因**\n- **空指针解引用**：访问已释放或未初始化的对象，检查变量生命周期和初始化时序\n- **互操作 FFI 问题**：仓颉调用 ArkTS/原生层时类型不匹配或内存管理冲突，检查 `@Interop` 注解和类型映射\n- **数组越界**：访问超出分配范围的内存\n- **悬垂引用**：对象被 GC 回收后仍有引用指向其内存\n\n**3. 进一步诊断**\n```powershell\n# 清空旧日志后复现，获取干净堆栈\nhdc shell hilog -r\nhdc shell aa start -a <abilityName> -b <bundleName>\n# 复现崩溃后\nhdc shell hilog -x > ./hilog_full.txt\nhdc shell \"hilog -L E\" > ./hilog_error.txt\n```\n\n**4. 结合源码分析**\n- 从堆栈找到崩溃函数 → 对应源码行\n- 检查该行是否有空引用、数组访问、FFI 调用\n- 如涉及仓颉与 ArkTS 互操作，检查类型映射和生命周期管理\n\n建议将完整崩溃日志（含堆栈）贴出来，我可以帮你定位具体源码位置。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-lang-features",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 17434.0,
+      "usage": {
+        "input_tokens": 5311,
+        "output_tokens": 600,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 5911,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2760,
+        "claude_stdout_chars": 6056,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.082466,
+      "error": null,
+      "timestamp": 1780037524.4900346,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"SIGSEGV 是原生崩溃信号，表示程序访问了非法内存地址。按以下步骤排查：\\n\\n**1. 从日志中提取崩溃堆栈**\\n```powershell\\nhdc shell hilog | Select-String \\\"SIGSEGV\\\" -Context 0,30\\n```\\n关注崩溃堆栈中的函数名和源码行号，定位到具体 `.cj` 文件。\\n\\n**2. 常见 SIGSEGV 根因**\\n- **空指针解引用**：访问已释放或未初始化的对象，检查变量生命周期和初始化时序\\n- **互操作 FFI 问题**：仓颉调用 ArkTS/原生层时类型不匹配或内存管理冲突，检查 `@Interop` 注解和类型映射\\n- **数组越界**：访问超出分配范围的内存\\n- **悬垂引用**：对象被 GC 回收后仍有引用指向其内存\\n\\n**3. 进一步诊断**\\n```powershell\\n# 清空旧日志后复现，获取干净堆栈\\nhdc shell hilog -r\\nhdc shell aa start -a <abilityName> -b <b..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 0.8,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.8,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "我想验证一下鸿蒙应用的界面表现是否正常，该怎么做",
+      "runner": "agent-command",
+      "output": "验证鸿蒙应用界面表现是否正常，可按以下流程操作：\n\n**前置条件**\n- 构建已通过（BUILD SUCCESSFUL）\n- `hdc list targets` 有可用设备（模拟器或真机）\n- 应用已安装，或有 .hap 文件\n\n**步骤 1：确认设备连接**\n```powershell\nhdc list targets\n```\n- 输出含 `127.0.0.1:<port>` → 模拟器，后续传 `--emulator <port>`\n- 输出为设备 SN → USB 设备\n- 输出为空 → 先启动模拟器或连接设备\n\n**步骤 2：采集 UI 状态**\n```powershell\ncd <鸿蒙项目目录>\npython \"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\" --emulator 5555 \\\n  --hap \"entry/build/default/outputs/default/entry-default-unsigned.hap\" \\\n  --out ./ui_capture_output\n```\n\n采集产物（ui_capture_output/）：\n- `screenshot.png` — 视觉表现\n- `layout.json` — 控件树（结构事实）\n- `ui_summary.md` — 统计摘要\n\n**步骤 3：自动生成交互场景并执行**\n扫描 `entry/src/` 的 `.cj` 文件，与控件树交叉匹配，自动生成 `auto_scenario.json` 并执行交互验证。\n\n**步骤 4：hilog 日志采集（如有异常）**\n```powershell\nhdc shell hilog -r\nhdc shell aa start -a <abilityName> -b <bundleName>\nStart-Sleep 5\nhdc shell hilog -x > ./ui_capture_output/hilog_full.txt\nhdc shell \"hilog -L E\" > ./ui_capture_output/hilog_error.txt\n```\n\n**步骤 5：分析诊断**\n按以下维度评估：\n- 控件完整性：是否白屏、关键控件是否存在\n- 交互可用性：clickable/scrollable 状态\n- 布局合理性：重叠/溢出/截断\n- 视觉审美：字号、可点击区域尺寸\n- 运行时健康：hilog ERROR/FATAL\n- 数据与业务：状态变量与 UI 一致性\n\n如需使用自动化诊断工具，可调用 `harmonyos-app-diagnose` Skill 完成全流程采集与分析。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20890.0,
+      "usage": {
+        "input_tokens": 5308,
+        "output_tokens": 882,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 6190,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2760,
+        "claude_stdout_chars": 7411,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.089061,
+      "error": null,
+      "timestamp": 1780037548.9603298,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"验证鸿蒙应用界面表现是否正常，可按以下流程操作：\\n\\n**前置条件**\\n- 构建已通过（BUILD SUCCESSFUL）\\n- `hdc list targets` 有可用设备（模拟器或真机）\\n- 应用已安装，或有 .hap 文件\\n\\n**步骤 1：确认设备连接**\\n```powershell\\nhdc list targets\\n```\\n- 输出含 `127.0.0.1:<port>` → 模拟器，后续传 `--emulator <port>`\\n- 输出为设备 SN → USB 设备\\n- 输出为空 → 先启动模拟器或连接设备\\n\\n**步骤 2：采集 UI 状态**\\n```powershell\\ncd <鸿蒙项目目录>\\npython \\\"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\\\" --emulator 5555 \\\\\\n --hap \\\"entry/build/default/outputs/default/entry-default-unsigned.h..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 0.8,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.8,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "鸿蒙应用的按钮点击没反应，怎么诊断交互问题",
+      "runner": "agent-command",
+      "output": "鸿蒙应用按钮点击无响应，可按以下步骤诊断：\n\n**1. 确认设备连接**\n```powershell\nhdc list targets\n```\n\n**2. 采集 UI 状态**（截图 + 控件树）\n```powershell\npython \"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\" --emulator 5555 --hap \"entry/build/default/outputs/default/entry-default-unsigned.hap\" --out ./ui_capture_output\n```\n检查控件树中按钮的 `clickable` 属性是否为 `true`，确认按钮未被其他控件遮挡。\n\n**3. 源码 + 控件树交叉验证**\n扫描 `.cj` 源码中的 `.onClick(...)` 绑定，与控件树中的可交互节点匹配，确认事件是否正确绑定到目标控件。\n\n**4. 执行交互场景验证**\n生成场景 JSON 自动点击按钮并断言结果：\n```json\n{\n  \"name\": \"按钮点击测试\",\n  \"steps\": [\n    {\"action\": \"click\", \"target\": {\"text\": \"按钮文字\"}},\n    {\"action\": \"wait\", \"seconds\": 1}\n  ],\n  \"assertions\": [\n    {\"type\": \"text_changed\", \"target\": {\"key\": \"状态变量绑定的控件\"}}\n  ]\n}\n```\n```powershell\npython \"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\" --emulator 5555 --scenario ./scenario.json --out ./ui_capture_output\n```\n\n**5. 抓取 hilog 日志**\n```powershell\nhdc shell hilog -r\n# 复现点击操作\nhdc shell hilog -x > ./hilog_full.txt\nhdc shell \"hilog -L E\" > ./hilog_error.txt\n```\n关注 `NullPointerException`、`Cannot read property`、`ANR` 等关键词。\n\n**6. 常见原因**\n- 控件树中按钮 `clickable: false` → 检查 `.enabled()` 或手势冲突\n- 事件未绑定 → 源码缺少 `.onClick(...)` 或绑定了错误控件\n- 主线程阻塞导致 ANR → 日志中出现 `ANR` 关键词\n- 控件被遮挡 → 控件树层级中其他控件覆盖在按钮上方\n- 空引用崩溃 → 日志中 `NullPointerException`，检查回调中的变量初始化\n\n最终结合截图、控件树、hilog 三重验证定位根因。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 27385.0,
+      "usage": {
+        "input_tokens": 5307,
+        "output_tokens": 925,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 6232,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2760,
+        "claude_stdout_chars": 8180,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.090751,
+      "error": null,
+      "timestamp": 1780037579.9377577,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"鸿蒙应用按钮点击无响应，可按以下步骤诊断：\\n\\n**1. 确认设备连接**\\n```powershell\\nhdc list targets\\n```\\n\\n**2. 采集 UI 状态**（截图 + 控件树）\\n```powershell\\npython \\\"<skills_dir>/harmonyos-app-diagnose/ui_capture.py\\\" --emulator 5555 --hap \\\"entry/build/default/outputs/default/entry-default-unsigned.hap\\\" --out ./ui_capture_output\\n```\\n检查控件树中按钮的 `clickable` 属性是否为 `true`，确认按钮未被其他控件遮挡。\\n\\n**3. 源码 + 控件树交叉验证**\\n扫描 `.cj` 源码中的 `.onClick(...)` 绑定，与控件树中的可交互节点匹配，确认事件是否正确绑定到目标控件。\\n\\n**4. 执行交互场景验证**\\n生成场景 JSON 自动点击按..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:5",
+      "type": "content",
+      "input": "应用有ANR问题，怎么抓日志分析",
+      "runner": "agent-command",
+      "output": "ANR 日志抓取与分析步骤：\n\n**1. 抓取 hilog 日志**\n```powershell\nhdc shell hilog -r                                          # 清空旧日志\nhdc shell aa start -a <abilityName> -b <bundleName>         # 启动应用\nStart-Sleep 5                                                # 等待复现 ANR\nhdc shell hilog -x > ./hilog_full.txt                       # 导出全量日志\nhdc shell \"hilog -L E\" > ./hilog_error.txt                   # 提取错误级别\n```\n\n**2. 关键过滤**\n```powershell\n# 按包名过滤\nhdc shell hilog | Select-String \"<bundleName>\" > ./hilog_app.txt\n# 按标签过滤\nhdc shell \"hilog -T AceAbility\" > ./hilog_ace.txt\n```\n\n**3. ANR 特征关键词**\n| 关键词 | 含义 | 排查方向 |\n|--------|------|----------|\n| `ANR` / `Application Not Responding` | 主线程阻塞 | 耗时操作异步化 |\n| `Signal:11(SIGSEGV)` | 原生崩溃 | 堆栈函数名→源码行 |\n| `NullPointerException` | 空引用 | 变量初始化时序、生命周期 |\n\n**4. 分析原则**\n- 先 FATAL/ERROR 后 WARN，优先致命问题\n- 关注崩溃前 0.5-2 秒日志（往往含根因）\n- 堆栈截断时用 `hilog -G 2M` 增大缓冲区重采\n- 建议清空→操作→采集至少 2 次确认\n- 日志 + 控件树 + 截图交叉验证\n\n**5. ANR 根因方向**：主线程做了耗时操作（网络/IO/数据库），应将耗时逻辑移到子线程或使用异步 API。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 17315.0,
+      "usage": {
+        "input_tokens": 5305,
+        "output_tokens": 683,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 5988,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2760,
+        "claude_stdout_chars": 6885,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.084931,
+      "error": null,
+      "timestamp": 1780037600.9602847,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"ANR 日志抓取与分析步骤：\\n\\n**1. 抓取 hilog 日志**\\n```powershell\\nhdc shell hilog -r # 清空旧日志\\nhdc shell aa start -a <abilityName> -b <bundleName> # 启动应用\\nStart-Sleep 5 # 等待复现 ANR\\nhdc shell hilog -x > ./hilog_full.txt # 导出全量日志\\nhdc shell \\\"hilog -L E\\\" > ./hilog_error.txt # 提取错误级别\\n```\\n\\n**2. 关键过滤**\\n```powershell\\n# 按包名过滤\\nhdc shell hilog | Select-String \\\"<bundleName>\\\" > ./hilog_app.txt\\n# 按标签过滤\\nhdc shell \\\"hilog -T AceAbility\\\" > ./hilog_ace.txt\\n```\\n\\n**3. ANR 特征关键词**\\n| 关键词 |..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "鸿蒙应用白屏了怎么排查",
+      "runner": "agent-command",
+      "output": "排查鸿蒙应用白屏问题，建议优先使用 harmonyos-app-diagnose Skill 来采集设备上的 UI 截图、控件树和 hilog 运行日志，分析界面状态与运行时异常。同时可查阅 cangjie-harmonyos-doc-search 中的相关文档获取白屏常见原因和解决方案。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "harmonyos-evolution",
+          "rank": 3
+        },
+        {
+          "name": "doc-card",
+          "rank": 4
+        },
+        {
+          "name": "harmonyos-build",
+          "rank": 5
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose",
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 24408.0,
+      "usage": {
+        "input_tokens": 2235,
+        "output_tokens": 684,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2919,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 7168,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.069531,
+      "error": null,
+      "timestamp": 1780037628.7028434,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"排查鸿蒙应用白屏问题，建议优先使用 harmonyos-app-diagnose Skill 来采集设备上的 UI 截图、控件树和 hilog 运行日志，分析界面状态与运行时异常。同时可查阅 cangjie-harmonyos-doc-search 中的相关文档获取白屏常见原因和解决方案。\", \"matched_skills\": [ {\"name\": \"harmonyos-app-diagnose\", \"rank\": 1}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2}, {\"name\": \"harmonyos-evolution\", \"rank\": 3}, {\"name\": \"doc-card\", \"rank\": 4}, {\"name\": \"harmonyos-build\", \"rank\": 5} ], \"loaded_skills\": [\"harmonyos-app-diagnose\", \"cangjie-harmonyos-doc-search\"], \"tool_calls\": [], \"f..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "帮我抓一下鸿蒙应用的运行日志",
+      "runner": "agent-command",
+      "output": "要抓取鸿蒙应用的运行日志，推荐使用 harmonyos-app-diagnose 技能，它支持自动抓取设备上的 hilog 运行日志并分析运行时异常。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "doc-card",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20643.0,
+      "usage": {
+        "input_tokens": 2238,
+        "output_tokens": 359,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2597,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6107,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.048636,
+      "error": null,
+      "timestamp": 1780037652.7252636,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"要抓取鸿蒙应用的运行日志，推荐使用 harmonyos-app-diagnose 技能，它支持自动抓取设备上的 hilog 运行日志并分析运行时异常。\", \"matched_skills\": [ {\"name\": \"harmonyos-app-diagnose\", \"rank\": 1}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2}, {\"name\": \"doc-card\", \"rank\": 3} ], \"loaded_skills\": [\"harmonyos-app-diagnose\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "应用崩溃了需要分析原因",
+      "runner": "agent-command",
+      "output": "应用崩溃需要分析原因，建议使用 harmonyos-app-diagnose 技能，该技能专门用于诊断应用崩溃、ANR、运行时错误等问题。它会采集设备上的 hilog 运行日志并分析异常原因。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        },
+        {
+          "name": "harmonyos-evolution",
+          "rank": 4
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 17883.0,
+      "usage": {
+        "input_tokens": 2233,
+        "output_tokens": 562,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2795,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6471,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.054636000000000004,
+      "error": null,
+      "timestamp": 1780037673.8996305,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"应用崩溃需要分析原因，建议使用 harmonyos-app-diagnose 技能，该技能专门用于诊断应用崩溃、ANR、运行时错误等问题。它会采集设备上的 hilog 运行日志并分析异常原因。\", \"matched_skills\": [ { \"name\": \"harmonyos-app-diagnose\", \"rank\": 1 }, { \"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2 }, { \"name\": \"doc-graph\", \"rank\": 3 }, { \"name\": \"harmonyos-evolution\", \"rank\": 4 } ], \"loaded_skills\": [ \"harmonyos-app-diagnose\" ], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:4",
+      "type": "discovery",
+      "input": "验证一下鸿蒙app的界面是否正常",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 15367.0,
+      "usage": {
+        "input_tokens": 2236,
+        "output_tokens": 274,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2510,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5087,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.047566,
+      "error": null,
+      "timestamp": 1780037692.5674508,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"\", \"matched_skills\": [ {\"name\": \"harmonyos-app-diagnose\", \"rank\": 1} ], \"loaded_skills\": [\"harmonyos-app-diagnose\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:5",
+      "type": "discovery",
+      "input": "鸿蒙应用有ANR问题怎么诊断",
+      "runner": "agent-command",
+      "output": "针对鸿蒙应用 ANR 问题，建议使用 harmonyos-app-diagnose 技能来诊断。该技能可以采集设备上的 UI 截图与控件树、抓取 hilog 运行日志，专门用于诊断应用崩溃/ANR/运行时错误，并给出迭代建议。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "harmonyos-app-diagnose",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "harmonyos-app-diagnose"
+      ],
+      "tool_calls": [],
+      "latency_ms": 19257.0,
+      "usage": {
+        "input_tokens": 2236,
+        "output_tokens": 371,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2607,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5773,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.032743,
+      "error": null,
+      "timestamp": 1780037715.2617564,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"针对鸿蒙应用 ANR 问题，建议使用 harmonyos-app-diagnose 技能来诊断。该技能可以采集设备上的 UI 截图与控件树、抓取 hilog 运行日志，专门用于诊断应用崩溃/ANR/运行时错误，并给出迭代建议。\", \"matched_skills\": [ {\"name\": \"harmonyos-app-diagnose\", \"rank\": 1}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2} ], \"loaded_skills\": [\"harmonyos-app-diagnose\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\harmonyos-app-diagnose.json"
+}

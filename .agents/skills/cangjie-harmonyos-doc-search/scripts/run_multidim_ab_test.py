@@ -56,7 +56,7 @@ def merge_and_dedup() -> list[dict]:
     merged = []
 
     for filename in eval_files:
-        path = EVALS_DIR / filename
+        path = EVALS_DIR / "search" / filename
         if not path.exists():
             print(f"警告: {filename} 不存在，跳过")
             continue

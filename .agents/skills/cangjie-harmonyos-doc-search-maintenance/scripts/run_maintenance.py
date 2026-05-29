@@ -269,7 +269,7 @@ def check_openviking_endpoint(host: str, port: int, timeout: float = 3.0) -> str
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="运行 doc-search maintenance 流程")
-    parser.add_argument("--eval-set", default=str(SEARCH_SKILL_DIR / "evals" / "eval_queries.jsonl"))
+    parser.add_argument("--eval-set", default=str(SEARCH_SKILL_DIR / "evals" / "search" / "eval_queries.jsonl"))
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--host", default="111.229.30.227")
     parser.add_argument("--port", type=int, default=2026)

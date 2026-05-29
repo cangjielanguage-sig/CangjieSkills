@@ -17,8 +17,8 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 SKILL_DIR = SCRIPT_DIR.parent
 EVALS_DIR = SKILL_DIR / "evals"
-DEFAULT_INPUT = EVALS_DIR / "eval_queries_full.jsonl"
-DEFAULT_OUTPUT = EVALS_DIR / "eval_queries_sampled.jsonl"
+DEFAULT_INPUT = EVALS_DIR / "search" / "eval_queries_full.jsonl"
+DEFAULT_OUTPUT = EVALS_DIR / "search" / "eval_queries_sampled.jsonl"
 
 CATEGORIES = ["exact", "semi-structured", "natural", "error-driven", "exploration"]
 CARD_TYPES = ["api", "task", "example", "doc"]

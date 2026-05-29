@@ -168,4 +168,4 @@ python <CangjieSkills>/.agents/skills/harmonyos-app-agent-development/scripts/va
   --output /tmp/harmonyos-app-agent-goal-planning-health.json
 ```
 
-用例位于 `evals/goal_planning_cases.jsonl`，用于覆盖“双通道路由”和“用户目标到查询计划”的设计质量；它不调用外部 LLM，也不替代 `cangjie-harmonyos-doc-search` 的检索评测。
+用例位于 `evals/planning/goal_planning_cases.jsonl`，用于覆盖”双通道路由”和”用户目标到查询计划”的设计质量；它不调用外部 LLM，也不替代 `cangjie-harmonyos-doc-search` 的检索评测。

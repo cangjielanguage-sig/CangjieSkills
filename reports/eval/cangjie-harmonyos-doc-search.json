@@ -1,0 +1,1077 @@
+{
+  "skill": "cangjie-harmonyos-doc-search",
+  "status": "failed",
+  "summary": {
+    "total": 10,
+    "passed": 9,
+    "failed": 1,
+    "must_failed": 1,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 5,
+    "content_passed": 5,
+    "discovery_total": 5,
+    "discovery_passed": 4
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 0.8,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.25,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 0.9,
+    "latency_ms_avg": 60850.8,
+    "latency_ms_p95": 205661.85000000006,
+    "token_total": 70549,
+    "cost_total": 0.893276,
+    "tool_call_count": 5,
+    "tool_call_error_count": 4,
+    "content_skill_context_slots_total": 13720,
+    "content_skill_context_slots_avg": 2744.0
+  },
+  "failed_cases": [
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
+      "severity": "MUST",
+      "reason": "expected skill not matched: cangjie-harmonyos-doc-search; claude reported an error",
+      "reasons": [
+        "expected skill not matched: cangjie-harmonyos-doc-search",
+        "claude reported an error"
+      ],
+      "status": "failed",
+      "score": 0.0,
+      "errorCode": "E_EVAL_RUNTIME_FAILED",
+      "expected": {
+        "expected_skills": [
+          "cangjie-harmonyos-doc-search"
+        ],
+        "forbidden_skills": [],
+        "min_rank": 3
+      },
+      "actualOutputSummary": "API Error: Request rejected (429) · Too many requests"
+    }
+  ],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "用 search_v3.py 搜索 List 组件的用法",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "search_v3.py 的 --mode api 和 --mode example 有什么区别",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "如何用 search_v3.py 查找仓颉标准库的文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "search_v3.py 构建本地索引的命令是什么",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:5",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "input": "如何用 search_v3.py 以 JSON 格式输出搜索结果",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "我想查找鸿蒙仓颉的 List 组件文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "帮我搜索仓颉标准库 stdx 的 HTTP 模块用法",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
+      "status": "failed",
+      "score": 0.0,
+      "severity": "MUST",
+      "reason": "expected skill not matched: cangjie-harmonyos-doc-search; claude reported an error",
+      "reasons": [
+        "expected skill not matched: cangjie-harmonyos-doc-search",
+        "claude reported an error"
+      ],
+      "errorCode": "E_EVAL_RUNTIME_FAILED",
+      "expected": {
+        "expected_skills": [
+          "cangjie-harmonyos-doc-search"
+        ],
+        "forbidden_skills": [],
+        "min_rank": 3
+      },
+      "actualOutputSummary": "API Error: Request rejected (429) · Too many requests"
+    },
+    {
+      "id": "discovery.jsonl:4",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "input": "仓颉语言的 @Entry 装饰器怎么用",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:5",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "input": "HarmonyOS 构建报错了，怎么查错误码对应的文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "用 search_v3.py 搜索 List 组件的用法",
+      "runner": "agent-command",
+      "output": "使用 cangjie-harmonyos-doc-search Skill 的 search_v3.py 搜索 List 组件用法：\n\n```bash\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"List\" --mode api --json --limit 5\n```\n\n此命令将以 API 模式搜索 List 组件的结构化文档，返回任务卡、API 卡、示例卡和文档卡四层信息。\n\n如果需要查看 List 的代码示例，可补充执行：\n```bash\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"List 组件示例\" --mode example\n```\n\n如果需要了解 List 的功能实现方式（如创建滑动列表），可使用：\n```bash\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"滑动列表\" --mode task\n```",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [
+        {
+          "name": "powershell",
+          "status": "failed"
+        },
+        {
+          "name": "powershell",
+          "status": "failed"
+        },
+        {
+          "name": "powershell",
+          "status": "failed"
+        }
+      ],
+      "latency_ms": 26956.0,
+      "usage": {
+        "input_tokens": 26892,
+        "output_tokens": 763,
+        "cached_input_tokens": 95872,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 27655,
+        "tool_call_count": 3,
+        "tool_call_error_count": 3,
+        "skill_context_slots": 2744,
+        "claude_stdout_chars": 11250,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.241014,
+      "error": null,
+      "timestamp": 1780019975.6490235,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "tool_call",
+          "tool": "powershell",
+          "raw_tool": "PowerShell",
+          "status": "failed",
+          "exit_code": 1,
+          "error": "This command requires approval"
+        },
+        {
+          "type": "tool_call",
+          "tool": "powershell",
+          "raw_tool": "PowerShell",
+          "status": "failed",
+          "exit_code": 1,
+          "error": "This command requires approval"
+        },
+        {
+          "type": "tool_call",
+          "tool": "powershell",
+          "raw_tool": "PowerShell",
+          "status": "failed",
+          "exit_code": 1,
+          "error": "This command requires approval"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"使用 cangjie-harmonyos-doc-search Skill 的 search_v3.py 搜索 List 组件用法：\\n\\n```bash\\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \\\"List\\\" --mode api --json --limit 5\\n```\\n\\n此命令将以 API 模式搜索 List 组件的结构化文档，返回任务卡、API 卡、示例卡和文档卡四层信息。\\n\\n如果需要查看 List 的代码示例，可补充执行：\\n```bash\\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \\\"List 组件示例\\\" --mode example\\n```\\n\\n如果需要了解 List 的功能实现方式（如创建滑动列表），可使用：\\n```bash\\npython .agents/skills/cangjie-harmonyos-doc-search/..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "search_v3.py 的 --mode api 和 --mode example 有什么区别",
+      "runner": "agent-command",
+      "output": "`--mode api` 优先返回 API 卡（组件、属性、事件、装饰器、接口的定义与参数说明），并补相关任务和示例；适用于明确查询某个 API 或属性名的场景。\n\n`--mode example` 优先返回示例卡（代码写法、demo），并补相关 API 和任务；适用于准备写代码、需要参考实际用法的场景。\n\n典型用法：先 `--mode api` 确认接口细节，再 `--mode example` 补代码写法。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 13478.0,
+      "usage": {
+        "input_tokens": 5892,
+        "output_tokens": 394,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 6286,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2744,
+        "claude_stdout_chars": 5070,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.080271,
+      "error": null,
+      "timestamp": 1780019992.817278,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"`--mode api` 优先返回 API 卡（组件、属性、事件、装饰器、接口的定义与参数说明），并补相关任务和示例；适用于明确查询某个 API 或属性名的场景。\\n\\n`--mode example` 优先返回示例卡（代码写法、demo），并补相关 API 和任务；适用于准备写代码、需要参考实际用法的场景。\\n\\n典型用法：先 `--mode api` 确认接口细节，再 `--mode example` 补代码写法。\", \"matched_skills\": [ {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 1} ], \"loaded_skills\": [\"cangjie-harmonyos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "如何用 search_v3.py 查找仓颉标准库的文档",
+      "runner": "agent-command",
+      "output": "使用 `search_v3.py` 查找仓颉标准库文档的方法：\n\n**基本命令**\n```bash\n# 在 CangjieSkills 仓库根目录下执行\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"<查询内容>\" --mode <模式>\n```\n\n**检索模式说明**\n- `--mode auto`（默认）：自动判定查询意图，适合不确定查什么类型时\n- `--mode api`：优先返回 API 卡，适合查找具体类、接口、函数\n- `--mode task`：优先返回任务卡，适合「如何做 X」类问题\n- `--mode example`：优先返回示例卡，适合找代码写法\n- `--mode doc`：优先返回原始文档\n\n**查找标准库文档的示例**\n```bash\n# 查找某个 std 模块的用法\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"ArrayList 用法\" --mode api\n\n# 查找标准库中的集合类\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"集合类 Collection\" --mode task\n\n# 查找标准库示例代码\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"HashMap 遍历示例\" --mode example\n\n# 输出 JSON 格式（便于程序解析）\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"std 文件操作\" --mode auto --json --limit 5\n```\n\n**注意**\n- 索引覆盖来源包括 `std`（标准库）和 `stdx`（扩展标准库），支持查找标准库文档\n- 如果尚未构建索引，需先执行：`python .agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule`\n- 查询时无需配置任何 API Key 或外部服务，纯本地检索",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-std",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 3
+        },
+        {
+          "name": "cangjie-original-docs",
+          "rank": 4
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20313.0,
+      "usage": {
+        "input_tokens": 5892,
+        "output_tokens": 800,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 6692,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2744,
+        "claude_stdout_chars": 7389,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.089671,
+      "error": null,
+      "timestamp": 1780020016.74689,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"使用 `search_v3.py` 查找仓颉标准库文档的方法：\\n\\n**基本命令**\\n```bash\\n# 在 CangjieSkills 仓库根目录下执行\\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3.py \\\"<查询内容>\\\" --mode <模式>\\n```\\n\\n**检索模式说明**\\n- `--mode auto`（默认）：自动判定查询意图，适合不确定查什么类型时\\n- `--mode api`：优先返回 API 卡，适合查找具体类、接口、函数\\n- `--mode task`：优先返回任务卡，适合「如何做 X」类问题\\n- `--mode example`：优先返回示例卡，适合找代码写法\\n- `--mode doc`：优先返回原始文档\\n\\n**查找标准库文档的示例**\\n```bash\\n# 查找某个 std 模块的用法\\npython .agents/skills/cangjie-harmonyos-doc-search/search_v3..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "search_v3.py 构建本地索引的命令是什么",
+      "runner": "agent-command",
+      "output": "构建本地索引的命令是使用 `build_index_v3.py`（不是 search_v3.py）：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule\n```\n\n如需更高质量的离线卡片补全（调用 OpenAI 兼容 API），可使用：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule+llm\n```\n\n构建产物会写入 `index/` 目录，包含 manifest.json、tasks.jsonl、apis.jsonl、examples.jsonl、docs.jsonl、aliases.json、search.db。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 22926.0,
+      "usage": {
+        "input_tokens": 5890,
+        "output_tokens": 459,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 6349,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2744,
+        "claude_stdout_chars": 6063,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.092276,
+      "error": null,
+      "timestamp": 1780020043.2894711,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"构建本地索引的命令是使用 `build_index_v3.py`（不是 search_v3.py）：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule\\n```\\n\\n如需更高质量的离线卡片补全（调用 OpenAI 兼容 API），可使用：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/build_index_v3.py --mode rule+llm\\n```\\n\\n构建产物会写入 `index/` 目录，包含 manifest.json、tasks.jsonl、apis.jsonl、examples.jsonl、docs.jsonl、aliases.json、search.db。\", \"matched_skills\": [ { \"name\": \"cangjie..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:5",
+      "type": "content",
+      "input": "如何用 search_v3.py 以 JSON 格式输出搜索结果",
+      "runner": "agent-command",
+      "output": "要以 JSON 格式输出搜索结果，在调用 `search_v3.py` 时添加 `--json` 参数即可：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"查询内容\" --json\n```\n\n可结合 `--mode` 和 `--limit` 使用：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"List\" --mode api --json --limit 5\n```\n\n`--json` 输出包含以下稳定字段：`query`、`mode`、`understanding`、`tasks`、`apis`、`examples`、`docs`、`paths`。\n\n```json\n{\n  \"output\": \"要以 JSON 格式输出搜索结果，在调用 search_v3.py 时添加 --json 参数即可：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py \\\"查询内容\\\" --json\\n```\\n\\n可结合 --mode 和 --limit 使用：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py \\\"List\\\" --mode api --json --limit 5\\n```\\n\\n--json 输出包含以下稳定字段：query、mode、understanding、tasks、apis、examples、docs、paths。\",\n  \"matched_skills\": [\n    {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 1}\n  ],\n  \"loaded_skills\": [\"cangjie-harmonyos-doc-search\"],\n  \"tool_calls\": [],\n  \"final_status\": \"passed\",\n  \"usage\": {},\n  \"cost\": null\n}\n```",
+      "final_status": "passed",
+      "matched_skills": [],
+      "loaded_skills": [],
+      "tool_calls": [],
+      "latency_ms": 50871.0,
+      "usage": {
+        "input_tokens": 5893,
+        "output_tokens": 580,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 6473,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2744,
+        "claude_stdout_chars": 7833,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.08493099999999999,
+      "error": null,
+      "timestamp": 1780020097.5509126,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "要以 JSON 格式输出搜索结果，在调用 `search_v3.py` 时添加 `--json` 参数即可： ```bash python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"查询内容\" --json ``` 可结合 `--mode` 和 `--limit` 使用： ```bash python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search/search_v3.py \"List\" --mode api --json --limit 5 ``` `--json` 输出包含以下稳定字段：`query`、`mode`、`understanding`、`tasks`、`apis`、`examples`、`docs`、`paths`。 ```json { \"output\": \"要以 JSON 格式输出搜索结果，在调用 search_v3.py 时添加 --json 参数即可：\\n\\n```bash\\npyt..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "我想查找鸿蒙仓颉的 List 组件文档",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-std",
+          "rank": 2
+        },
+        {
+          "name": "knowledge-graph-template",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 31596.0,
+      "usage": {
+        "input_tokens": 2885,
+        "output_tokens": 418,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3303,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6604,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.056926000000000004,
+      "error": null,
+      "timestamp": 1780020132.468867,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-harmonyos-doc-search\",\"rank\":1},{\"name\":\"cangjie-std\",\"rank\":2},{\"name\":\"knowledge-graph-template\",\"rank\":3}],\"loaded_skills\":[\"cangjie-harmonyos-doc-search\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null}"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "帮我搜索仓颉标准库 stdx 的 HTTP 模块用法",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-stdx",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-original-docs",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 14127.0,
+      "usage": {
+        "input_tokens": 2890,
+        "output_tokens": 355,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3245,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5028,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.050051000000000005,
+      "error": null,
+      "timestamp": 1780020149.9147515,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"cangjie-stdx\", \"rank\": 1}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2}, {\"name\": \"cangjie-original-docs\", \"rank\": 3} ], \"loaded_skills\": [\"cangjie-stdx\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
+      "runner": "agent-command",
+      "output": "API Error: Request rejected (429) · Too many requests",
+      "final_status": "failed",
+      "matched_skills": [],
+      "loaded_skills": [],
+      "tool_calls": [
+        {
+          "name": "skill",
+          "status": "failed"
+        },
+        {
+          "name": "read_file",
+          "status": "success"
+        }
+      ],
+      "latency_ms": 242511.0,
+      "usage": {
+        "input_tokens": 3156,
+        "output_tokens": 536,
+        "cached_input_tokens": 52032,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3692,
+        "tool_call_count": 2,
+        "tool_call_error_count": 1,
+        "claude_stdout_chars": 14469,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.075989,
+      "error": "claude reported an error",
+      "timestamp": 1780020395.5081198,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "tool_call",
+          "tool": "skill",
+          "raw_tool": "Skill",
+          "status": "failed",
+          "exit_code": 1,
+          "error": "<tool_use_error>Unknown skill: cangjie-harmonyos-doc-search</tool_use_error>"
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "raw_tool": "Read",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "model_message",
+          "summary": "API Error: Request rejected (429) · Too many requests"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "failed",
+      "score": 0.0,
+      "reasons": [
+        "expected skill not matched: cangjie-harmonyos-doc-search",
+        "claude reported an error"
+      ],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:4",
+      "type": "discovery",
+      "input": "仓颉语言的 @Entry 装饰器怎么用",
+      "runner": "agent-command",
+      "output": "@Entry 是仓颉 HarmonyOS 应用开发中的入口装饰器，用于标记应用的入口页面组件。使用方式是在组件定义上方添加 @Entry 装饰器，配合 @Component 装饰器一起使用，标记该组件为应用启动时加载的首页。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-lang-features",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 160624.0,
+      "usage": {
+        "input_tokens": 2886,
+        "output_tokens": 452,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3338,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 7704,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.058286,
+      "error": null,
+      "timestamp": 1780020559.4603374,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"@Entry 是仓颉 HarmonyOS 应用开发中的入口装饰器，用于标记应用的入口页面组件。使用方式是在组件定义上方添加 @Entry 装饰器，配合 @Component 装饰器一起使用，标记该组件为应用启动时加载的首页。\", \"matched_skills\": [ {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 1}, {\"name\": \"cangjie-lang-features\", \"rank\": 2} ], \"loaded_skills\": [\"cangjie-harmonyos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:5",
+      "type": "discovery",
+      "input": "HarmonyOS 构建报错了，怎么查错误码对应的文档",
+      "runner": "agent-command",
+      "output": "遇到 HarmonyOS 构建报错时，可以通过以下方式查询错误码对应的文档：\n\n1. **使用 cangjie-harmonyos-doc-search 技能进行检索**：该技能专门支持构建报错日志的知识检索，提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，可以直接将错误码或报错信息输入进行查询。\n\n2. **查阅 harmonyos-evolution 中的经验记录**：如果之前遇到过类似的构建错误并已沉淀解决方案，可以在 Evolution.md 中查找匹配的历史经验。\n\n3. **查看鸿蒙官方文档中的错误码参考**：通过文档检索技能搜索具体错误码（如错误码数字或关键词），可以定位到官方的错误码说明文档。\n\n建议将具体的错误信息（错误码、报错日志）提供给我，我可以帮你直接检索对应的文档和解决方案。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "harmonyos-evolution",
+          "rank": 2
+        },
+        {
+          "name": "harmonyos-build",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 25106.0,
+      "usage": {
+        "input_tokens": 2886,
+        "output_tokens": 630,
+        "cached_input_tokens": 24576,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3516,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 7318,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.063861,
+      "error": null,
+      "timestamp": 1780020587.9567575,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"遇到 HarmonyOS 构建报错时，可以通过以下方式查询错误码对应的文档：\\n\\n1. **使用 cangjie-harmonyos-doc-search 技能进行检索**：该技能专门支持构建报错日志的知识检索，提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，可以直接将错误码或报错信息输入进行查询。\\n\\n2. **查阅 harmonyos-evolution 中的经验记录**：如果之前遇到过类似的构建错误并已沉淀解决方案，可以在 Evolution.md 中查找匹配的历史经验。\\n\\n3. **查看鸿蒙官方文档中的错误码参考**：通过文档检索技能搜索具体错误码（如错误码数字或关键词），可以定位到官方的错误码说明文档。\\n\\n建议将具体的错误信息（错误码、报错日志）提供给我，我可以帮你直接检索对应的文档和解决方案。\", \"matched_skills\": [ { \"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 1 }, { \"name\": \"harmonyos-evolution\",..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-harmonyos-doc-search.json"
+}

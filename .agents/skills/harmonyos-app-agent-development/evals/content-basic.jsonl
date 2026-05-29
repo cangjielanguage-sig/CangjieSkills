@@ -1,0 +1,5 @@
+{"input":"我想开发一个鸿蒙App，从零开始怎么做","expected_patterns":["项目初始化","harmonyos-project-init","需求","构建","AppScope"],"min_score":0.6}
+{"input":"帮我用仓颉开发一个鸿蒙页面，包含列表和详情","expected_patterns":["查询计划","仓颉","ArkUI","组件","构建"],"min_score":0.6}
+{"input":"鸿蒙App构建失败了，报了一堆错误怎么处理","expected_patterns":["Evolution","build.log","错误关键词","检索","修复"],"min_score":0.6}
+{"input":"鸿蒙应用运行时白屏怎么排查","expected_patterns":["截图","控件树","hilog","harmonyos-app-diagnose","运行诊断"],"min_score":0.6}
+{"input":"开发鸿蒙App时怎么查仓颉组件和API的用法","expected_patterns":["cangjie-harmonyos-doc-search","search_v3.py","模式","查询"],"min_score":0.6}

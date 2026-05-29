@@ -1,0 +1,5 @@
+{"input":"帮我开发一个鸿蒙仓颉App，包含首页和个人中心","expected_skills":["harmonyos-app-agent-development"],"forbidden_skills":[],"min_rank":1}
+{"input":"我有一个鸿蒙项目构建报错，帮我看下怎么修","expected_skills":["harmonyos-app-agent-development"],"forbidden_skills":[],"min_rank":2}
+{"input":"继续完善我的鸿蒙应用，加一个设置页面","expected_skills":["harmonyos-app-agent-development"],"forbidden_skills":[],"min_rank":1}
+{"input":"鸿蒙App运行时崩溃了，帮我诊断一下","expected_skills":["harmonyos-app-agent-development"],"forbidden_skills":[],"min_rank":2}
+{"input":"用仓颉写一个鸿蒙待办事项App","expected_skills":["harmonyos-app-agent-development"],"forbidden_skills":[],"min_rank":1}

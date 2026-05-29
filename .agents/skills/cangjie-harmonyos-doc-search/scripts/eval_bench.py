@@ -168,7 +168,7 @@ def print_summary(result: dict) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="文档检索评测")
-    parser.add_argument("--eval-set", default=str(EVALS_DIR / "eval_queries.jsonl"))
+    parser.add_argument("--eval-set", default=str(EVALS_DIR / "search" / "eval_queries.jsonl"))
     parser.add_argument("--backend", choices=["v3", "openviking"], default="v3")
     parser.add_argument("--host", default="111.229.30.227")
     parser.add_argument("--port", type=int, default=2026)

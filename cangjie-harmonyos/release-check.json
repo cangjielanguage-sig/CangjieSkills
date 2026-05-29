@@ -2,12 +2,12 @@
   "schema_version": "1.0",
   "tool": "skill-release",
   "tool_version": "0.1.0",
-  "created_at": "2026-05-25T02:18:07Z",
+  "created_at": "2026-05-29T03:05:31Z",
   "status": "passed",
   "inputs": {
     "root": "<external>/CangjieSkills",
     "bundle": "cangjie-harmonyos",
-    "all": true
+    "all": false
   },
   "output": {
     "distribution": ".",
@@ -20,7 +20,7 @@
     "distribution_path": ".",
     "skill_count": 12,
     "package_count": 12,
-    "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50",
+    "git_commit": "578bd4ea75b83ff6c12bd46bcc77004b12f52804",
     "bundle_name": "cangjie-harmonyos",
     "bundle_version": "1.0.0",
     "markdown_scope": "skill-instructions",

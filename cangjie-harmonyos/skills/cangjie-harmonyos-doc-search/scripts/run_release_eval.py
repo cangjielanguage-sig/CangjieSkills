@@ -136,7 +136,7 @@ def main() -> None:
     for eval_name in [item.strip() for item in args.eval_sets.split(",") if item.strip()]:
         eval_path = Path(eval_name)
         if not eval_path.is_absolute():
-            eval_path = EVALS_DIR / eval_name
+            eval_path = EVALS_DIR / "search" / eval_name
         eval_label = eval_path.name
         if not eval_path.exists():
             print(f"skip missing eval set: {eval_name}", file=sys.stderr)

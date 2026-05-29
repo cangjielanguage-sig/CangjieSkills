@@ -529,7 +529,7 @@ def parse_backends(value: str) -> tuple[str, ...]:
 
 def build_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="OpenViking 远端检索与 V3 本地索引 AB 评测")
-    parser.add_argument("--eval-set", default=str(EVALS_DIR / "eval_queries.jsonl"))
+    parser.add_argument("--eval-set", default=str(EVALS_DIR / "search" / "eval_queries.jsonl"))
     parser.add_argument("--sample-size", type=int, default=0, help="按 card_type + category 分层抽样；0 表示全量")
     parser.add_argument("--sample-seed", type=int, default=20260422)
     parser.add_argument("--a-host", default=DEFAULT_A_HOST)

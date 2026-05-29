@@ -2,7 +2,7 @@
 # 批量运行所有评测集的AB测试（排除全量种子库）
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-EVALS_DIR="$SCRIPT_DIR/../evals"
+EVALS_DIR="$SCRIPT_DIR/../evals/search"
 OUTPUT_DIR="$SCRIPT_DIR/ab-results-all"
 
 mkdir -p "$OUTPUT_DIR"

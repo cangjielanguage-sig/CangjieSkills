@@ -137,7 +137,7 @@ def validate(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="校验 App Agent 目标规划用例")
-    parser.add_argument("--eval-set", default=str(Path(__file__).resolve().parent.parent / "evals" / "goal_planning_cases.jsonl"))
+    parser.add_argument("--eval-set", default=str(Path(__file__).resolve().parent.parent / "evals" / "planning" / "goal_planning_cases.jsonl"))
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
 

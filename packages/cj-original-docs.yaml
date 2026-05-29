@@ -3,6 +3,3 @@ version: "1.0.0"
 description: 原始文档 fallback，覆盖语言、标准库、扩展标准库、工具链原始文档。
 skills:
   - cangjie-original-docs
-owners:
-  - 王音强
-  - 多域共建

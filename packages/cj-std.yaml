@@ -3,5 +3,3 @@ version: "1.0.0"
 description: 标准库 Hub，作为核心类型、集合、IO、网络、并发、测试等标准库速查入口。
 skills:
   - cangjie-std
-owners:
-  - 夏松

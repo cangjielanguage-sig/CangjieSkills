@@ -1,4 +1,12 @@
-"""源码图谱搜索引擎 — OR+累加打分 + brief模式 + 直接/关联分离。"""
+"""源码图谱搜索引擎 — OR+累加打分策略，支持 api_kind 类型过滤。
+
+搜索流程：分词→社区过滤→逐节点打分→排序→邻居扩展关联推荐。
+
+与 DocSearchEngine 的差异：
+- 无倒排索引（源码图节点数较少，全量打分开销可控）
+- 支持 api_kind 过滤：查询中出现 "class/interface/enum" 时，同类型节点加权 1.2x
+- 打分维度：label精确(100) > label包含(60) > keyword精确(40) > keyword包含(25) > method/enum匹配(25)
+"""
 from __future__ import annotations
 
 import re
@@ -10,6 +18,11 @@ from graph.base_search import _tokenize_en, _parse_community_prefix
 
 
 def _extract_kind_filter(query: str) -> str | None:
+    """从查询中提取 api_kind 过滤词。
+
+    如 "class List" → "class", "interface Runnable" → "interface"
+    用于搜索时对同类型节点加权 1.2x。
+    """
     query_lower = query.lower()
     for keyword, kind in CODE_KIND_MAP.items():
         if keyword in query_lower:
@@ -18,10 +31,15 @@ def _extract_kind_filter(query: str) -> str | None:
 
 
 def score_code_node(query: str, node: CodeNode, query_tokens: list[str]) -> tuple[float, str]:
-    """OR + 累加打分策略（源码图）。
+    """OR + 累加打分策略（源码图）— 各词元独立匹配，分数累加。
+
+    Args:
+        query: 原始查询字符串（用于 api_kind 过滤）
+        node: 待打分的源码节点
+        query_tokens: 英文词元列表
 
     Returns:
-        (score, best_match_type)
+        (score, best_match_type): 累加分数和最高优先级匹配类型
     """
     score = 0.0
     best_match = ""
@@ -67,13 +85,17 @@ def score_code_node(query: str, node: CodeNode, query_tokens: list[str]) -> tupl
 
 
 class CodeSearchEngine:
-    """源码图搜索引擎。"""
+    """源码图搜索引擎 — 全量打分（源码图节点数较少，无需倒排索引）。
+
+    生命周期：build() 加载节点+邻居 → search() 查询
+    """
 
     def __init__(self) -> None:
         self.nodes: dict[str, CodeNode] = {}
         self.neighbors: dict[str, list[tuple[str, str]]] = {}
 
     def build(self, nodes: dict[str, CodeNode], neighbors: dict[str, list[tuple[str, str]]]) -> None:
+        """加载节点和邻居数据。源码图不构建倒排索引，全量打分。"""
         self.nodes = nodes
         self.neighbors = neighbors
 

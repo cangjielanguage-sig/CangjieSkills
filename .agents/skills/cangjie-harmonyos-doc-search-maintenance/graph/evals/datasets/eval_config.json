@@ -1,0 +1,204 @@
+{
+  "version": "20260518-v2.2",
+  "description": "知识图谱Skill完整测评配置 - 去除冗余字段，均匀分布各类型",
+  "datasets": {
+    "comprehensive": {
+      "file": "eval_queries_comprehensive.jsonl",
+      "count": 228,
+      "description": "综合测评集：11类型×20条均匀分布，去除expected_keywords等冗余字段",
+      "fields": ["query", "intent", "category", "acceptable_paths", "acceptable_paths_count", "source"],
+      "path_setting_rules": {
+        "api_lookup": {"count": 1, "reason": "精确查找只有1个唯一答案"},
+        "enumeration": {"count": 1, "reason": "枚举查询需要具体属性/方法列表文档"},
+        "reverse_lookup": {"count": 1, "reason": "逆向查询定位到唯一组件/方案"},
+        "how_to": {"count": 1, "reason": "用法查询定位到唯一用法文档"},
+        "constrained": {"count": 1, "reason": "约束查询定位到唯一解决方案文档"},
+        "semantic_fuzzy": {"count": "1-3", "reason": "模糊查询需多文档覆盖不同解决方案"},
+        "comparison": {"count": 2, "reason": "对比查询需要两个概念各自的核心文档"},
+        "composition": {"count": "概念数", "reason": "组合查询每个概念1条核心文档"},
+        "cross_ecosystem": {"count": "1-2", "reason": "跨生态类比可能对应1或多个鸿蒙组件"},
+        "workflow": {"count": "1-2", "reason": "流程查询需要步骤涉及的多个文档"},
+        "performance_boundary": {"count": "1-2", "reason": "性能边界需要多个优化方案文档"}
+      },
+      "categories_distribution": {
+        "api_lookup": 20,
+        "enumeration": 20,
+        "reverse_lookup": 22,
+        "how_to": 22,
+        "constrained": 20,
+        "semantic_fuzzy": 22,
+        "comparison": 20,
+        "composition": 20,
+        "cross_ecosystem": 20,
+        "workflow": 20,
+        "performance_boundary": 22
+      },
+      "acceptable_paths_count_distribution": {
+        "1条路径": 160,
+        "2条路径": 50,
+        "3条路径": 18
+      },
+      "baseline": {
+        "success@1": 0.70,
+        "success@3": 0.85,
+        "success@5": 0.92,
+        "mrr": 0.70
+      }
+    }
+  },
+  "path_design_principles": {
+    "rule_1": {
+      "name": "精确唯一原则",
+      "applicable_types": ["api_lookup", "enumeration", "reverse_lookup", "how_to", "constrained"],
+      "description": "这些类型查询意图明确，答案应该是唯一的具体文档路径",
+      "example": {
+        "query": "HttpRequest的timeout参数怎么设置",
+        "acceptable_paths": ["cj-apis-net-http\\ohosnethttp数据请求\\class_HttpRequestOptions\\.overview.md"],
+        "count": 1
+      }
+    },
+    "rule_2": {
+      "name": "多解覆盖原则",
+      "applicable_types": ["semantic_fuzzy", "performance_boundary"],
+      "description": "模糊/症状描述可能有多种解决方案，需要覆盖相关文档",
+      "example": {
+        "query": "列表滑动卡顿怎么优化",
+        "acceptable_paths": [
+          "cj-scroll-swipe-list\\List\\List_2more.md",
+          "cj-state-rendering-lazyforeach\\LazyForEach\\.overview.md",
+          "cj-scroll-swipe-list\\List\\基础类型定义\\class_ListScroller\\.overview.md"
+        ],
+        "count": 3
+      }
+    },
+    "rule_3": {
+      "name": "双侧对比原则",
+      "applicable_types": ["comparison"],
+      "description": "对比查询需要A和B各自的核心文档",
+      "example": {
+        "query": "List和LazyForEach有什么区别",
+        "acceptable_paths": [
+          "cj-scroll-swipe-list\\List\\List_2more.md",
+          "cj-state-rendering-lazyforeach\\LazyForEach\\.overview.md"
+        ],
+        "count": 2
+      }
+    },
+    "rule_4": {
+      "name": "概念均分原则",
+      "applicable_types": ["composition"],
+      "description": "组合查询每个概念提供1条核心文档",
+      "example": {
+        "query": "做一个带下拉刷新的网络列表页",
+        "concepts": ["List", "Refresh", "HTTP"],
+        "acceptable_paths": [
+          "cj-scroll-swipe-list\\List\\List_2more.md",
+          "cj-scroll-swipe-refresh\\Refresh\\Refresh_4more.md",
+          "cj-apis-net-http\\ohosnethttp数据请求\\class_HttpRequestOptions\\.overview.md"
+        ],
+        "count": 3
+      }
+    },
+    "rule_5": {
+      "name": "映射对应原则",
+      "applicable_types": ["cross_ecosystem"],
+      "description": "跨生态类比可能对应1个或多个鸿蒙组件",
+      "example": {
+        "query": "Android的RecyclerView在鸿蒙对应什么",
+        "acceptable_paths": [
+          "cj-scroll-swipe-list\\List\\List_2more.md",
+          "cj-state-rendering-lazyforeach\\LazyForEach\\.overview.md"
+        ],
+        "count": 2
+      }
+    },
+    "rule_6": {
+      "name": "流程串联原则",
+      "applicable_types": ["workflow"],
+      "description": "流程查询需要覆盖主要步骤涉及的文档",
+      "example": {
+        "query": "HTTP请求的完整流程是什么",
+        "acceptable_paths": [
+          "cj-apis-net-http\\ohosnethttp数据请求\\.overview.md",
+          "cj-apis-net-http\\ohosnethttp数据请求\\class_HttpRequestOptions\\.overview.md"
+        ],
+        "count": 2
+      }
+    }
+  },
+  "metrics": {
+    "primary": [
+      {"name": "success@1", "description": "Top1命中率", "weight": 0.30},
+      {"name": "success@3", "description": "Top3命中率", "weight": 0.25},
+      {"name": "success@5", "description": "Top5命中率", "weight": 0.20},
+      {"name": "mrr", "description": "平均排名倒数", "weight": 0.25}
+    ],
+    "efficiency": [
+      {"name": "latency_p50_ms", "description": "耗时50分位", "threshold": 50},
+      {"name": "latency_p95_ms", "description": "耗时95分位", "threshold": 100},
+      {"name": "latency_p99_ms", "description": "耗时99分位", "threshold": 200}
+    ],
+    "quality": [
+      {"name": "path_hit_rate", "description": "路径命中率（具体路径匹配）"},
+      {"name": "category_coverage", "description": "各类型覆盖率"}
+    ]
+  },
+  "verified_paths": {
+    "source": "cli_search_verification",
+    "method": "所有路径通过python cli.py search命令验证",
+    "path_format": "完整具体路径，如 cj-scroll-swipe-list\\List\\List_2more.md",
+    "examples": {
+      "cj-scroll-swipe-list\\List\\List_2more.md": "List组件核心文档",
+      "cj-state-rendering-lazyforeach\\LazyForEach\\.overview.md": "LazyForEach懒加载文档",
+      "cj-scroll-swipe-refresh\\Refresh\\Refresh_4more.md": "Refresh下拉刷新文档",
+      "cj-apis-net-http\\ohosnethttp数据请求\\.overview.md": "HTTP网络请求概述",
+      "cj-apis-net-http\\ohosnethttp数据请求\\class_HttpRequestOptions\\.overview.md": "HttpRequest配置参数",
+      "cj-apis-webview\\ohoswebviewWebview\\.overview.md": "WebView组件概述",
+      "cj-apis-webview\\ohoswebviewWebview\\class_WebviewController\\.overview.md": "WebviewController",
+      "cj-apis-bluetooth-ble\\ohosbluetoothble蓝牙ble模块\\.overview.md": "蓝牙BLE模块",
+      "cj-apis-timer\\Timer定时器\\Timer定时器_3more.md": "Timer定时器",
+      "cj-apis-relational_store\\ohosrelational_store关系型数据库\\.overview.md": "关系型数据库",
+      "cj-uiability-usage\\UIAbility组件基本用法\\UIAbility组件基本用法_2more.md": "UIAbility用法",
+      "cj-apis-ability\\ohosabilityAbility\\class_UIAbility\\.overview.md": "UIAbility类",
+      "cj-apis-ability\\ohosabilityAbility\\class_AbilityLifecycleCallback\\.overview.md": "生命周期回调",
+      "cj-apis-device_info\\ohosdevice_info设备信息\\class_DeviceInfo\\.overview.md": "DeviceInfo类",
+      "cj-apis-background_task_mgr\\ohosbackground_task_mgr后台任务管理\\.overview.md": "后台任务管理",
+      "cj-apis-notification_manager\\ohosnotification_manager通知管理模块\\.overview.md": "通知管理",
+      "cj-apis-router\\ohosrouter页面路由\\class_Router\\.overview.md": "Router路由",
+      "cj-navigation-navigation\\cj-navigation-navigation.md": "Navigation导航",
+      "cj-appstorage\\.overview.md": "AppStorage",
+      "cj-localstorage\\.overview.md": "LocalStorage",
+      "cj-persiststorage\\.overview.md": "PersistentStorage",
+      "cj-environment\\cj-environment.md": "Environment",
+      "cj-animation-animateto\\.overview.md": "animateTo显式动画",
+      "cj-animation-animation\\.overview.md": "animation隐式动画",
+      "cj-animation-geometrytransition\\cj-animation-geometrytransition.md": "geometryTransition转场",
+      "cj-animation-pagetransition\\.overview.md": "页面转场",
+      "cj-animation-transition\\.overview.md": "组件内转场"
+    }
+  },
+  "evaluation_settings": {
+    "top_k": 5,
+    "path_match_mode": "exact_or_parent",
+    "match_rules": [
+      "完整路径精确匹配",
+      "父目录匹配（如 cj-scroll-swipe-list\\List\\List_2more.md 匹配 cj-scroll-swipe-list）"
+    ],
+    "timeout_ms": 500,
+    "parallel_workers": 4,
+    "report_format": "json"
+  },
+  "category_baseline": {
+    "api_lookup": {"success@1": 0.95, "reason": "精确查询应高命中率"},
+    "enumeration": {"success@1": 0.90, "reason": "枚举查询明确"},
+    "reverse_lookup": {"success@1": 0.85, "reason": "逆向查询定位清晰"},
+    "how_to": {"success@1": 0.80, "reason": "用法查询有明确答案"},
+    "constrained": {"success@3": 0.70, "reason": "约束查询较复杂"},
+    "semantic_fuzzy": {"success@3": 0.80, "reason": "模糊查询需多解覆盖"},
+    "comparison": {"success@3": 0.85, "reason": "对比查询需双侧命中"},
+    "composition": {"success@5": 0.85, "reason": "组合查询需多概念覆盖"},
+    "cross_ecosystem": {"success@3": 0.80, "reason": "跨生态类比需映射准确"},
+    "workflow": {"success@5": 0.85, "reason": "流程查询需多步骤覆盖"},
+    "performance_boundary": {"success@5": 0.80, "reason": "性能问题需多方案覆盖"}
+  }
+}

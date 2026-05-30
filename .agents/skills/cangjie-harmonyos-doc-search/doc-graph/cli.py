@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""仓颉鸿蒙知识图谱 — 命令行工具。
+"""仓颉鸿蒙知识图谱 — 搜索运行时 CLI。
+
+构建子命令已迁至 cangjie-harmonyos-doc-search-maintenance/graph/builder/build_cli.py。
+本 CLI 仅提供搜索、遍历和导出功能。
+
+各子命令说明：
+- search: 关键词搜索图谱，定位文档/API/代码定义
+- path: 查找两个节点之间的关系路径（需要 NetworkX）
+- explain: 展示节点详细元数据（标签、关键词、邻居等）
+- neighbors: 获取节点的直接邻居列表
+- god-nodes: 度最高的核心节点排行（需要 NetworkX）
+- surprises: 跨社区的惊奇连接（需要 NetworkX）
+- stats/graphs: 图谱统计和可用图谱列表
+- export: 导出图谱为 JSON/HTML/报告格式
 
 用法：
-    python cli.py build-doc ../docs/harmonyos-6.0.2-15k [-o data/doc/graph.json] [--enhance]
-    python cli.py build-code src/ [-o data/code/graph.json]
-    python cli.py build docs/ [-o data/full/graph.json] [--enhance]
-    python cli.py build-subgraph docs/harmonyos --name harmonyos [--enhance]
-    python cli.py merge data/subgraphs/*/graph.json --output data/merged/graph.json
-    python cli.py enhance-graph data/merged/graph.json --docs-dir ../docs/
-    python cli.py search "List 组件"
+    python cli.py search "List 组件" --graph doc -b -k 5
     python cli.py path "UIAbility" "WindowStage"
     python cli.py explain "List"
     python cli.py neighbors "List"
@@ -16,27 +23,30 @@
     python cli.py surprises
     python cli.py stats
     python cli.py graphs
+    python cli.py export --format html --graph data/doc/graph.json
 """
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
+# 将 doc-graph 目录加入 sys.path，确保子模块导入正常
 _PROJECT_ROOT = Path(__file__).resolve().parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 from query import create_session
-from core.constants import LAYER_NAMES, LAYER_NAMES_FULL, DEFAULT_GRAPH_PATH
+from core.constants import LAYER_NAMES, DEFAULT_GRAPH_PATH
 
 
 def _ensure_utf8():
+    """确保 stdout/stderr 使用 UTF-8 编码 — Windows 环境下中文输出必需。"""
     if sys.stdout.encoding != 'utf-8':
         sys.stdout.reconfigure(encoding='utf-8')
 
 
 def cmd_search(args):
+    """搜索命令 — 调用 GraphSession.search() 并输出结果。"""
     session = create_session()
     result = session.search(args.query, top_k=args.limit, graph=args.graph)
 
@@ -45,6 +55,8 @@ def cmd_search(args):
     print(f"使用图谱: {result.graph_used}")
     print(f"耗时: {result.latency_ms:.1f}ms")
 
+    # brief 模式仅输出 label + source_file，Agent 默认使用
+    # full 模式输出完整信息（含查询、图谱、耗时）
     if args.brief:
         print(result.to_brief_text())
     else:
@@ -132,289 +144,13 @@ def cmd_surprises(args):
         print(f"  {i}. {edge['source_label']} (社区 {edge['source_community']}) → {edge['target_label']} (社区 {edge['target_community']})")
 
 
-def cmd_build_doc(args):
-    """构建文档图。提取 → build_subgraph → nx.Graph → 可可选 enhance → cluster → annotate → save。"""
-    _ensure_utf8()
-    from graph.doc.builder import build_doc_graph, build_doc_nx_graph
-    from graph.builders import save_graph, cluster, assign_communities_to_nodes, annotate_layers
-
-    root = Path(args.path).resolve()
-    directed = args.directed
-    default_output = _PROJECT_ROOT / "data" / "doc" / "graph.json"
-    output_path = Path(args.output) if args.output else default_output
-
-    print(f"\n构建文档图: {root}")
-    nodes, neighbors = build_doc_graph(root)
-    print(f"  提取节点: {len(nodes)}, 边: {sum(len(v) for v in neighbors.values()) // 2}")
-
-    G = build_doc_nx_graph(nodes, neighbors, directed=directed)
-    print(f"  NetworkX: {G.number_of_nodes()} 节点, {G.number_of_edges()} 边")
-
-    if args.enhance:
-        print("\nLLM 信息增强...")
-        try:
-            from graph.llm.pipeline import enhance_graph_from_files
-            from networkx.readwrite import json_graph as _jg
-            import tempfile
-
-            graph_data = _jg.node_link_data(G, edges="links")
-            source_files = [n.source_file for n in nodes.values() if n.source_file]
-
-            temp_output = Path(tempfile.mktemp(suffix=".json"))
-            enhance_graph_from_files(
-                graph_data,
-                source_files,
-                root,
-                output_path=temp_output,
-            )
-
-            if temp_output.exists():
-                from graph.builders import load_graph
-                G = load_graph(temp_output)
-                temp_output.unlink()
-                print(f"  增强完成")
-        except Exception as e:
-            print(f"  LLM 增强失败: {e}")
-            import traceback
-            traceback.print_exc()
-
-    _cluster_and_annotate(G)
-    save_graph(G, output_path)
-    print(f"\n完成！保存至 {output_path}")
-
-
-def cmd_build_code(args):
-    """构建源码图。提取 → build_subgraph → nx.Graph → cluster → annotate → save."""
-    _ensure_utf8()
-    from graph.code.builder import build_code_graph, build_code_nx_graph
-    from graph.builders import save_graph, cluster, assign_communities_to_nodes, annotate_layers
-
-    root = Path(args.path).resolve()
-    directed = args.directed
-    default_output = _PROJECT_ROOT / "data" / "code" / "graph.json"
-    output_path = Path(args.output) if args.output else default_output
-
-    print(f"\n构建源码图: {root}")
-    nodes, neighbors = build_code_graph(root)
-    print(f"  提取节点: {len(nodes)}, 边: {sum(len(v) for v in neighbors.values()) // 2}")
-
-    G = build_code_nx_graph(nodes, neighbors, directed=directed)
-    print(f"  NetworkX: {G.number_of_nodes()} 节点, {G.number_of_edges()} 边")
-
-    _cluster_and_annotate(G)
-    save_graph(G, output_path)
-    print(f"\n完成！保存至 {output_path}")
-
-
-def _extract_and_build(root, directed=False):
-    """公共编排逻辑：扫描 → 提取 → 构建子图。"""
-    from graph.builders import detect, build_subgraph
-
-    print(f"\n扫描目录: {root}")
-    detected = detect(root)
-    code_files = detected.get("files", {}).get("code", [])
-    doc_files = detected.get("files", {}).get("document", [])
-
-    print(f"文件数: {detected['total_files']}")
-    print(f"词数: ~{detected['total_words']}")
-
-    if detected.get("warning"):
-        print(f"警告: {detected['warning']}")
-
-    doc_nodes = {}
-    doc_neighbors = {}
-    if doc_files:
-        print(f"\n文档提取 ({len(doc_files)} 个文件)...")
-        from graph.doc.builder import build_doc_graph
-        doc_nodes, doc_neighbors = build_doc_graph(root)
-        print(f"  节点: {len(doc_nodes)}, 边: {sum(len(v) for v in doc_neighbors.values()) // 2}")
-
-    code_nodes = {}
-    code_neighbors = {}
-    if code_files:
-        print(f"\n代码提取 ({len(code_files)} 个文件)...")
-        from graph.code.builder import build_code_graph
-        code_nodes, code_neighbors = build_code_graph(root)
-        print(f"  节点: {len(code_nodes)}, 边: {sum(len(v) for v in code_neighbors.values()) // 2}")
-
-    if not doc_nodes and not code_nodes:
-        print("\n错误: 无提取结果，图谱为空")
-        return None, None, None
-
-    print("\n构建图谱...")
-    G = build_subgraph(doc_nodes, doc_neighbors, code_nodes, code_neighbors, directed=directed)
-    print(f"  节点: {G.number_of_nodes()}")
-    print(f"  边: {G.number_of_edges()}")
-
-    return G, doc_nodes, doc_neighbors
-
-
-def _cluster_and_annotate(G):
-    """公共聚类+分层逻辑。"""
-    from graph.builders import cluster, assign_communities_to_nodes, annotate_layers
-
-    print("\n聚类...")
-    communities = cluster(G)
-    assign_communities_to_nodes(G, communities)
-    print(f"  社区: {len(communities)}")
-
-    print("\n分层标注...")
-    annotate_layers(G)
-    layer_dist = {}
-    for _, data in G.nodes(data=True):
-        layer = data.get("layer", 3)
-        layer_dist[layer] = layer_dist.get(layer, 0) + 1
-    print(f"  L1: {layer_dist.get(1, 0)}, L2: {layer_dist.get(2, 0)}, L3: {layer_dist.get(3, 0)}")
-
-    return communities
-
-
-def cmd_build(args):
-    """构建图谱。编排：doc提取 + code提取 → 合并 → 聚类 → 分层 → 保存。"""
-    _ensure_utf8()
-    from graph.builders import save_graph, load_graph
-
-    root = Path(args.path).resolve()
-    directed = args.directed
-
-    default_output = _PROJECT_ROOT / "data" / "full" / "graph.json"
-    output_path = Path(args.output) if args.output else default_output
-
-    if args.cluster_only:
-        if not output_path.exists():
-            print(f"错误: 图谱不存在: {output_path}")
-            print("  先运行 build 命令创建图谱")
-            return
-
-        print(f"\n重新聚类: {output_path}")
-        G = load_graph(output_path)
-        print(f"  节点: {G.number_of_nodes()}, 边: {G.number_of_edges()}")
-        _cluster_and_annotate(G)
-        save_graph(G, output_path)
-        print(f"\n完成！图谱保存至: {output_path}")
-        return
-
-    G, doc_nodes, doc_neighbors = _extract_and_build(root, directed=directed)
-    if G is None:
-        return
-
-    if args.enhance and doc_nodes:
-        print("\nLLM 信息增强 (Doc Only)...")
-        try:
-            from graph.llm.pipeline import enhance_graph_from_files
-            from networkx.readwrite import json_graph as _jg
-
-            graph_data = _jg.node_link_data(G, edges="links")
-            source_files = [n.source_file for n in doc_nodes.values() if n.source_file]
-
-            temp_output = output_path.with_suffix(".tmp_enhanced.json")
-
-            enhance_graph_from_files(
-                graph_data,
-                source_files,
-                root,
-                output_path=temp_output
-            )
-
-            if temp_output.exists():
-                G = load_graph(temp_output)
-                temp_output.unlink()
-            print(f"  增强完成")
-        except Exception as e:
-            print(f"  LLM 增强失败: {e}")
-            import traceback
-            traceback.print_exc()
-
-    _cluster_and_annotate(G)
-    save_graph(G, output_path)
-    print(f"\n完成！图谱保存至: {output_path}")
-
-
-def cmd_build_subgraph(args):
-    """构建子图谱。"""
-    _ensure_utf8()
-    from graph.builders import save_graph
-
-    root = Path(args.path).resolve()
-    name = args.name
-    directed = args.directed
-
-    output_dir = Path("data/subgraphs") / name
-    output_path = output_dir / "graph.json"
-
-    print(f"\n构建子图谱: {name}")
-    print(f"输入目录: {root}")
-    print(f"输出路径: {output_path}")
-
-    G, doc_nodes, doc_neighbors = _extract_and_build(root, directed=directed)
-    if G is None:
-        return
-
-    if args.enhance and doc_nodes:
-        print("\nLLM 信息增强...")
-        try:
-            from graph.llm.pipeline import enhance_graph_from_files
-            from networkx.readwrite import json_graph as _jg
-
-            graph_data = _jg.node_link_data(G, edges="links")
-            source_files = [n.source_file for n in doc_nodes.values() if n.source_file]
-
-            temp_output = output_path.with_suffix(".tmp_enhanced.json")
-
-            enhance_graph_from_files(
-                graph_data,
-                source_files,
-                root,
-                output_path=temp_output
-            )
-
-            if temp_output.exists():
-                from graph.builders import load_graph
-                G = load_graph(temp_output)
-                temp_output.unlink()
-            print(f"  增强完成")
-        except Exception as e:
-            print(f"  LLM 增强失败: {e}")
-
-    _cluster_and_annotate(G)
-    G.graph["subgraph_name"] = name
-
-    save_graph(G, output_path)
-    print(f"\n完成！子图谱保存至: {output_path}")
-
-
-def cmd_merge(args):
-    """合并多个子图谱。"""
-    from graph.builders import merge_graphs
-
-    graph_paths = args.graphs
-    output_path = args.output
-    deduplicate = not args.no_deduplicate
-    recluster = not args.no_recluster
-    directed = args.directed
-
-    print(f"\n合并图谱:")
-    print(f"  输入: {len(graph_paths)} 个图谱")
-    for p in graph_paths:
-        print(f"    - {p}")
-    print(f"  输出: {output_path}")
-    print(f"  去重: {deduplicate}")
-    print(f"  重聚类: {recluster}")
-
-    G = merge_graphs(
-        graph_paths,
-        output_path,
-        deduplicate=deduplicate,
-        recluster=recluster,
-        annotate=True,
-        directed=directed,
-    )
-
-    print(f"\n完成！合并图谱: {G.number_of_nodes()} 节点, {G.number_of_edges()} 边")
-
-
 def cmd_export(args):
-    """导出图谱。"""
+    """导出命令 — 将图谱导出为 JSON/HTML/报告格式。
+
+    支持节点裁剪：当 --max-nodes 大于 0 且图谱节点数超过限制时，
+    仅保留度最高的 max-nodes 个节点，避免 HTML 导出过于庞大。
+    缺少 community 信息时发出警告（社区分组是 HTML 可视化的核心）。
+    """
     from export import to_json, to_html, generate_report
     from engines import GraphifyEngine
 
@@ -443,10 +179,7 @@ def cmd_export(args):
             communities.setdefault(int(cid), []).append(node_id)
 
     if not communities:
-        print("图谱缺少 community 信息，正在聚类...")
-        from graph.builders.cluster import cluster, assign_communities_to_nodes
-        communities = cluster(G)
-        assign_communities_to_nodes(G, communities)
+        print("注意: 图谱缺少 community 信息，导出将不含社区分组。如需社区信息请通过维护 Skill 重新构建图谱。")
 
     output_dir = Path(args.output_dir) if args.output_dir else graph_path.parent
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -488,63 +221,9 @@ def cmd_export(args):
         print(f"未知格式: {format_name}。可用: json, html, report, all")
 
 
-def cmd_enhance_graph(args):
-    """对已有图谱进行 LLM 增强。"""
-    _ensure_utf8()
-    from graph.llm.pipeline import enhance_graph_from_files
-
-    graph_path = Path(args.graph)
-    if not graph_path.exists():
-        print(f"错误: 图谱文件不存在: {graph_path}")
-        return
-
-    print(f"加载图谱: {graph_path}")
-    with open(graph_path, encoding="utf-8") as f:
-        graph_data = json.load(f)
-
-    nodes = graph_data.get("nodes", [])
-    if isinstance(nodes, dict):
-        nodes = list(nodes.values())
-
-    source_files = []
-    for node in nodes:
-        sf = node.get("source_file", "")
-        if sf:
-            source_files.append(sf)
-
-    print(f"找到 {len(source_files)} 个 Doc 节点待增强")
-
-    if args.docs_dir:
-        docs_dir = Path(args.docs_dir)
-    else:
-        docs_dir = None
-
-    if docs_dir and not docs_dir.exists():
-        print(f"错误: 文档目录不存在: {docs_dir}")
-        print("  请使用 --docs-dir 指定文档根目录")
-        return
-
-    output_path = Path(args.output) if args.output else graph_path
-
-    enhance_graph_from_files(
-        graph_data,
-        source_files,
-        docs_dir,
-        batch_chars=args.batch_chars,
-        batch_limit=args.batch_limit,
-        resume=not args.no_resume,
-        output_path=output_path,
-        total_timeout=args.total_timeout,
-    )
-
-    print(f"\n增强完成，图谱已保存至: {output_path}")
-
-
 def main():
-    parser = argparse.ArgumentParser(description="仓颉鸿蒙知识图谱 CLI")
+    parser = argparse.ArgumentParser(description="仓颉鸿蒙知识图谱搜索 CLI（构建功能已迁至 maintenance skill）")
     subparsers = parser.add_subparsers(dest="command", help="子命令")
-
-    # ── 查询类 ──
 
     p_search = subparsers.add_parser("search", help="搜索图谱（定位文档）")
     p_search.add_argument("query", help="查询字符串")
@@ -568,8 +247,6 @@ def main():
     p_neighbors.add_argument("--limit", type=int, default=20, help="数量上限")
     p_neighbors.set_defaults(func=cmd_neighbors)
 
-    # ── 图计算类 ──
-
     p_god = subparsers.add_parser("god-nodes", help="核心节点（连接最多）")
     p_god.add_argument("--top-n", type=int, default=10, help="数量")
     p_god.set_defaults(func=cmd_god_nodes)
@@ -578,70 +255,18 @@ def main():
     p_surprises.add_argument("--top-n", type=int, default=5, help="数量")
     p_surprises.set_defaults(func=cmd_surprises)
 
-    # ── 信息类 ──
-
     p_stats = subparsers.add_parser("stats", help="显示统计")
     p_stats.set_defaults(func=cmd_stats)
 
     p_graphs = subparsers.add_parser("graphs", help="列出可用图谱")
     p_graphs.set_defaults(func=cmd_graphs)
 
-    # ── 构建类 ──
-
-    p_build_doc = subparsers.add_parser("build-doc", help="构建文档图（1文件=1节点）")
-    p_build_doc.add_argument("path", help="文档输入目录")
-    p_build_doc.add_argument("--output", "-o", help="输出路径（默认 data/doc/graph.json）")
-    p_build_doc.add_argument("--directed", action="store_true", help="生成有向图")
-    p_build_doc.add_argument("--enhance", action="store_true", help="启用 LLM 信息增强")
-    p_build_doc.set_defaults(func=cmd_build_doc)
-
-    p_build_code = subparsers.add_parser("build-code", help="构建源码图（1定义=1节点，多语言 AST）")
-    p_build_code.add_argument("path", help="源码输入目录")
-    p_build_code.add_argument("--output", "-o", help="输出路径（默认 data/code/graph.json）")
-    p_build_code.add_argument("--directed", action="store_true", help="生成有向图")
-    p_build_code.set_defaults(func=cmd_build_code)
-
-    p_build = subparsers.add_parser("build", help="构建图谱（编排 doc + code + 可选 LLM 增强）")
-    p_build.add_argument("path", nargs="?", default=".", help="输入目录（默认当前目录）")
-    p_build.add_argument("--output", help="输出路径（默认 data/full/graph.json）")
-    p_build.add_argument("--enhance", action="store_true", help="启用 LLM 信息增强")
-    p_build.add_argument("--directed", action="store_true", help="生成有向图")
-    p_build.add_argument("--cluster-only", action="store_true", help="仅重新聚类（不提取）")
-    p_build.set_defaults(func=cmd_build)
-
-    p_build_subgraph = subparsers.add_parser("build-subgraph", help="构建子图谱")
-    p_build_subgraph.add_argument("path", help="输入目录")
-    p_build_subgraph.add_argument("--name", required=True, help="子图谱名称（如 api/core/ui）")
-    p_build_subgraph.add_argument("--enhance", action="store_true", help="启用 LLM 信息增强")
-    p_build_subgraph.add_argument("--directed", action="store_true", help="生成有向图")
-    p_build_subgraph.set_defaults(func=cmd_build_subgraph)
-
-    p_merge = subparsers.add_parser("merge", help="合并多个子图谱")
-    p_merge.add_argument("graphs", nargs="+", help="图谱文件路径（多个）")
-    p_merge.add_argument("--output", required=True, help="合并后的输出路径")
-    p_merge.add_argument("--no-deduplicate", action="store_true", help="不去重")
-    p_merge.add_argument("--no-recluster", action="store_true", help="不重新聚类")
-    p_merge.add_argument("--directed", action="store_true", help="生成有向图")
-    p_merge.set_defaults(func=cmd_merge)
-
-    # ── 导出/增强类 ──
-
     p_export = subparsers.add_parser("export", help="导出图谱")
     p_export.add_argument("--format", choices=["json", "html", "report", "all"], default="all", help="导出格式")
     p_export.add_argument("--graph", default=DEFAULT_GRAPH_PATH, help="图谱路径")
     p_export.add_argument("--output-dir", help="输出目录")
-    p_export.add_argument("--max-nodes", type=int, default=0, help="HTML导出最大节点数（0=不限制，超过5000时建议设值，如5000）")
+    p_export.add_argument("--max-nodes", type=int, default=0, help="HTML导出最大节点数（0=不限制）")
     p_export.set_defaults(func=cmd_export)
-
-    p_enhance = subparsers.add_parser("enhance-graph", help="对已有图谱进行 LLM 增强（仅 Doc 节点）")
-    p_enhance.add_argument("graph", help="图谱文件路径（JSON）")
-    p_enhance.add_argument("--docs-dir", help="文档根目录（必填，不再硬编码推断）")
-    p_enhance.add_argument("--output", "-o", help="输出路径（默认覆盖原文件）")
-    p_enhance.add_argument("--batch-chars", type=int, default=15000, help="单批次最大字符数（默认 15000）")
-    p_enhance.add_argument("--batch-limit", type=int, default=0, help="最多处理批次数（0=全量）")
-    p_enhance.add_argument("--total-timeout", type=int, default=0, help="整个流程总超时秒数（0=不限制，6小时=21600）")
-    p_enhance.add_argument("--no-resume", action="store_true", help="不跳过已增强节点")
-    p_enhance.set_defaults(func=cmd_enhance_graph)
 
     args = parser.parse_args()
     if hasattr(args, "func"):

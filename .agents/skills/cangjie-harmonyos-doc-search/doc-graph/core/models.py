@@ -1,4 +1,13 @@
-"""数据模型 — 双图统一（doc/code），双语字段严格分离。"""
+"""数据模型 — 双图统一（doc/code），双语字段严格分离。
+
+本模块定义了 doc-graph 子系统的核心数据结构：
+- DocNode/CodeNode: 图谱节点，承载搜索和展示所需的所有元数据
+- Edge/EdgeRelation: 边关系，区分确定性边和 LLM 推断边
+- Hit/SearchResult: 搜索结果，分为直接命中和关联推荐两类
+
+设计原则：中英文字段严格分离（keywords_zh vs keywords_en），
+避免跨语言混淆导致搜索偏差；所有模型均提供 to_dict/from_dict 序列化支持。
+"""
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -9,7 +18,13 @@ from enum import Enum
 
 @dataclass
 class DocNode:
-    """文档图谱节点（1文件=1节点）。"""
+    """文档图谱节点（1文件=1节点）— 代表一篇鸿蒙仓颉开发文档。
+
+    关键设计：
+    - 双语分离：keywords_zh/keywords_en 严格分开，搜索时独立匹配
+    - layer 分层：1=指南/概览（概念层），2=API/错误码（参考层），打分时概念层权重更高
+    - category 定社区：std/stdx/lang/harmonyos/tools，用于查询前缀限定范围
+    """
     id: str = ""
     label: str = ""
     label_zh: str = ""
@@ -27,9 +42,9 @@ class DocNode:
     namespace: str = ""             # 命名空间（用于 ID 生成和边构建）
     source_file: str = ""
 
-    community_id: int = -1
-    degree: int = 0
-    is_god_node: bool = False
+    community_id: int = -1          # 图谱社区检测结果
+    degree: int = 0                 # 邻居数量
+    is_god_node: bool = False       # 度最高的核心节点标记
 
     extra: dict = field(default_factory=dict)
 
@@ -61,7 +76,13 @@ class DocNode:
 
 @dataclass
 class CodeNode:
-    """源码图谱节点（1定义=1节点）。"""
+    """源码图谱节点（1定义=1节点）— 代表仓颉语言中的一个类型/函数/枚举等代码定义。
+
+    与 DocNode 的关键差异：
+    - 无双语分离，keywords 存引用类型名（如 "ArrayList"）
+    - methods/fields/enum_values 提供细粒度匹配维度
+    - api_kind 区分 class/interface/enum/function/extension/file
+    """
     id: str = ""
     label: str = ""
     api_kind: str = ""              # class/interface/enum/struct/function/extension/file
@@ -70,7 +91,7 @@ class CodeNode:
     namespace: str = ""             # 命名空间（用于 ID 生成）
     source_file: str = ""
 
-    parent_type: str = ""
+    parent_type: str = ""           # 所属类型（如嵌套类的父类）
     methods: list[str] = field(default_factory=list)
     fields: list[str] = field(default_factory=list)  # 成员变量/属性名
     enum_values: list[str] = field(default_factory=list)
@@ -106,21 +127,28 @@ class CodeNode:
 # === 边模型 ===
 
 class EdgeRelation(Enum):
-    # 确定性边
-    CONTAINS = "contains"
-    SEE_ALSO = "see_also"
-    EXTENDS = "extends"
-    EXTENSION_OF = "extension_of"
-    USES = "uses"
-    # LLM 语义边
-    RECOMMENDS_API = "recommends_api"
-    ALTERNATIVE_TO = "alternative_to"
-    TYPICALLY_USED_WITH = "typically_used_with"
-    SEMANTICALLY_SIMILAR_TO = "semantically_similar_to"
+    # 确定性边 — 建图时从文档结构/代码引用中提取，置信度高
+    CONTAINS = "contains"           # 文档包含子页面/类型包含成员
+    SEE_ALSO = "see_also"           # 文档间的交叉引用
+    EXTENDS = "extends"             # 类继承关系
+    EXTENSION_OF = "extension_of"   # 扩展关系
+    USES = "uses"                    # 代码中使用/引用关系
+    # LLM 语义边 — 由大模型推断，置信度较低
+    RECOMMENDS_API = "recommends_api"              # 推荐搭配使用的 API
+    ALTERNATIVE_TO = "alternative_to"              # 可替代方案
+    TYPICALLY_USED_WITH = "typically_used_with"    # 常见组合使用
+    SEMANTICALLY_SIMILAR_TO = "semantically_similar_to"  # 语义相似
 
 
 @dataclass
 class Edge:
+    """边 — 描述两个节点之间的关系。
+
+    confidence 三级分类：
+    - EXTRACTED: 从文档结构/代码引用中确定性提取
+    - INFERRED: LLM 推断（如推荐搭配）
+    - AMBIGUOUS: 模糊推断，需要人工审核
+    """
     source: str = ""
     target: str = ""
     relation: str = ""
@@ -154,16 +182,22 @@ class Hit:
 
 @dataclass
 class SearchResult:
-    """搜索结果（直接命中与关联推荐分离）。"""
+    """搜索结果 — 将直接命中与关联推荐分离输出。
+
+    设计逻辑：直接命中是基于查询词的语义匹配结果，
+    关联推荐是基于直接命中节点的邻居边扩展，分数减半（*0.5）。
+    这样用户既能看到精确匹配，也能发现上下文相关的知识。
+    """
     query: str
     direct_hits: list[Hit] = field(default_factory=list)
     related_hits: list[Hit] = field(default_factory=list)
     graph_used: str = ""            # "doc" | "code" | "merged"
     latency_ms: float = 0.0
 
-    # 兼容旧接口：paths / nodes
+    # 兼容旧接口：paths / nodes，方便上层代码平滑迁移
     @property
     def paths(self) -> list[str]:
+        """所有命中结果对应的文件路径列表（直接命中 + 关联推荐）。"""
         return [h.source_file for h in self.direct_hits] + [h.source_file for h in self.related_hits]
 
     @property

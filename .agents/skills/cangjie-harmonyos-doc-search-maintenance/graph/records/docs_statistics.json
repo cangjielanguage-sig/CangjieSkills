@@ -1,0 +1,38 @@
+{
+  "total": {
+    "files": 1,
+    "chinese_chars": 940,
+    "english_words": 550,
+    "symbols": {
+      "空格": 9623,
+      "换行": 492,
+      "数字": 86,
+      "标点符号": 852,
+      "其他符号": 3355
+    },
+    "total_symbols": 14408
+  },
+  "by_directory": {
+    "root": {
+      "files": 1,
+      "chinese_chars": 940,
+      "english_words": 550,
+      "symbols": {
+        "空格": 9623,
+        "换行": 492,
+        "数字": 86,
+        "标点符号": 852,
+        "其他符号": 3355
+      },
+      "total_symbols": 14408
+    }
+  },
+  "file_details": [
+    {
+      "path": "ARCHITECTURE.md",
+      "chinese": 940,
+      "english": 550,
+      "symbols": 14408
+    }
+  ]
+}

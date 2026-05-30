@@ -1,4 +1,13 @@
-"""文档图谱搜索引擎 — OR+累加打分 + brief模式 + 直接/关联分离。"""
+"""文档图谱搜索引擎 — OR+累加打分策略，支持倒排索引加速。
+
+搜索流程：分词→倒排索引定位候选→逐节点 OR+累加打分→排序→邻居扩展关联推荐。
+
+打分策略详解（OR + 累加）：
+- 多个词元独立匹配，分数累加（OR 逻辑，不要求全部匹配）
+- 匹配维度优先级：label精确(100) > keyword精确(60) > label包含(40) > keyword包含(25) > description包含(20)
+- 最终分数乘以层级权重（概念层 *2.5, API层 *1.8）
+- god_node 在概览性查询时额外加成 1.2x
+"""
 from __future__ import annotations
 
 import re
@@ -13,9 +22,19 @@ LAYER_WEIGHTS: dict[int, float] = DOC_LAYER_WEIGHTS
 
 
 def score_node(query: str, node: DocNode, en_terms: list[str], zh_terms: list[str]) -> tuple[float, str]:
-    """OR + 累加打分策略。
+    """OR + 累加打分策略 — 核心搜索算法。
 
-    核心原则：仅基于语义内容打分，移除建图知识（路径/ID）干扰。
+    原则：仅基于节点语义内容（label/keyword/description）打分，
+    移除建图知识（路径/ID）干扰，保证搜索结果的语义相关性。
+
+    Args:
+        query: 原始查询字符串（用于 god_node 加成判断）
+        node: 待打分的文档节点
+        en_terms: 英文词元列表
+        zh_terms: 中文词元列表
+
+    Returns:
+        (score, best_match_type): 累加分数和最高优先级匹配类型
     """
     score = 0.0
     best_match = ""
@@ -84,7 +103,11 @@ def score_node(query: str, node: DocNode, en_terms: list[str], zh_terms: list[st
 
 
 class DocSearchEngine:
-    """文档图搜索引擎。"""
+    """文档图搜索引擎 — 使用倒排索引加速候选定位。
+
+    生命周期：build() 加载节点+邻居 → _build_inverted_index() 构倒排索引 → search() 查询
+    与 BaseSearchEngine 的差异：使用倒排索引先缩小候选集，避免对全部节点逐一打分。
+    """
 
     def __init__(self) -> None:
         self.nodes: dict[str, DocNode] = {}
@@ -92,12 +115,18 @@ class DocSearchEngine:
         self.inverted_index: dict[str, set[str]] = {}
 
     def build(self, nodes: dict[str, DocNode], neighbors: dict[str, list[tuple[str, str]]]) -> None:
+        """加载节点和邻居数据，并构建倒排索引。"""
         self.nodes = nodes
         self.neighbors = neighbors
         self._build_inverted_index()
 
     def _build_inverted_index(self) -> None:
-        """构建倒排索引以加速搜索。"""
+        """构建倒排索引 — 从节点元数据中提取所有可搜索词元，映射到节点 ID。
+
+        索引覆盖范围：label、label_zh、keywords_en、keywords_zh、description_en、description_zh
+        英文词元同时存储原始形式和小写形式，以支持大小写不敏感匹配。
+        英文复合词（如 "PhotoOutput"）会被拆分为子词元（"Photo", "Output"）单独索引。
+        """
         index: dict[str, set[str]] = {}
         
         def add_term(term: str, node_id: str) -> None:
@@ -140,7 +169,15 @@ class DocSearchEngine:
         self.inverted_index = index
 
     def search(self, query: str, top_k: int = 5) -> SearchResult:
-        """重写 search 以支持倒排索引优化。"""
+        """搜索文档图 — 使用倒排索引优化候选定位。
+
+        流程：
+        1. 解析社区前缀，分离查询词元
+        2. 通过倒排索引收集所有包含任一词元的节点 ID（候选集）
+        3. 若候选集覆盖超过50%节点，退化为全量扫描（索引效果不佳）
+        4. 对候选集逐节点调用 score_node 打分
+        5. 排序取 top_k 直接命中 + 邻居扩展关联推荐
+        """
         t0 = time.perf_counter()
 
         community, clean_query = _parse_community_prefix(query)
@@ -155,15 +192,19 @@ class DocSearchEngine:
 
         candidate_ids = set()
         if self.inverted_index:
+            # 通过倒排索引收集包含任一查询词元的节点
             for term in all_terms:
                 if term in self.inverted_index:
                     candidate_ids.update(self.inverted_index[term])
             
+            # 索引无命中时退化为全量扫描
             if not candidate_ids:
                 candidate_ids = set(candidates.keys())
             else:
+                # 社区过滤：候选集与社区节点集取交集
                 if community:
                     candidate_ids &= set(candidates.keys())
+                # 倒排索引退化保护：候选集超过50%时全量扫描更高效
                 if len(candidate_ids) > len(candidates) * 0.5:
                     candidate_ids = set(candidates.keys())
         else:

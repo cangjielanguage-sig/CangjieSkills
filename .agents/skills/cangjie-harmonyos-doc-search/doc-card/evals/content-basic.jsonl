@@ -1,5 +1,0 @@
-{"input":"用 search_v3.py 查询 List 组件的 API 用法，给出完整命令","expected_patterns":["search_v3.py","List","--mode api"],"min_score":0.6}
-{"input":"search_v3.py --mode api/example/auto/task 分别适合什么场景","expected_patterns":["search_v3.py","--mode","api","example","auto","task"],"min_score":0.6}
-{"input":"用 search_v3.py 查鸿蒙 WebView loadUrl headers 的文档，应提取哪些关键词","expected_patterns":["search_v3.py","WebView","loadUrl","headers"],"min_score":0.6}
-{"input":"doc-card 本地索引构建完成后，index/ 目录下包含哪些文件","expected_patterns":["index","tasks.jsonl","apis.jsonl","examples.jsonl","search.db"],"min_score":0.6}
-{"input":"search_v3.py 如何以 JSON 格式输出并限制返回条数","expected_patterns":["search_v3.py","--json","--limit"],"min_score":0.6}

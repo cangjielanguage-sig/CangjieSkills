@@ -2,6 +2,10 @@
 
 所有图谱后端（graphify、neo4j、自定义等）必须实现此接口。
 职责：图计算、路径查找、导出支持（不包含搜索逻辑）。
+
+设计说明：搜索功能由 graph/doc/search.py 和 graph/code/search.py 独立实现，
+本接口仅服务于需要 NetworkX 等图计算库的高级操作（path/god-nodes/surprises），
+以及图谱的加载、保存和导出。两者通过 GraphSession._load_engine() 按需桥接。
 """
 
 from abc import ABC, abstractmethod
@@ -11,24 +15,24 @@ from typing import Optional
 
 @dataclass
 class NodeInfo:
-    """节点信息（用于图计算和导出）。"""
+    """节点信息（用于图计算和导出）— 与搜索 Hit 模型不同，包含图拓扑属性。"""
     id: str
     label: str
     source_file: str
-    layer: int = 3
-    community: int = 0
-    degree: int = 0
-    source_dir: str = ""
+    layer: int = 3          # 默认3表示未分类；1=概念层, 2=API层
+    community: int = 0      # 社区编号，对应 COMMUNITIES 列表的索引
+    degree: int = 0         # 节点度（连接数），god-nodes 排序依据
+    source_dir: str = ""    # 源文件所在目录（导出时用于分组）
     extra: dict = field(default_factory=dict)
 
 
 @dataclass
 class EdgeInfo:
-    """边信息。"""
+    """边信息 — 描述两个节点之间的关系。"""
     source: str
     target: str
-    relation: str = "conceptually_related_to"
-    confidence: str = "EXTRACTED"
+    relation: str = "conceptually_related_to"   # 默认关系类型
+    confidence: str = "EXTRACTED"                # EXTRACTED=确定性边, INFERRED=推断边, AMBIGUOUS=模糊边
     weight: float = 1.0
 
 
@@ -37,6 +41,8 @@ class GraphEngine(ABC):
 
     实现新的图谱后端时，继承此类并实现所有抽象方法。
     注意：搜索逻辑已迁移至 graph/ 目录，本接口仅保留图计算与导出功能。
+
+    生命周期：load() → 使用 find_path/explain_node/get_neighbors → 可选 save()
     """
 
     @abstractmethod

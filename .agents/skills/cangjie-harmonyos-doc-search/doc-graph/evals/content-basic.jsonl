@@ -1,5 +1,0 @@
-{"input":"用 doc-graph 的 CLI 搜索 List 组件相关文档，给出完整命令","expected_patterns":["cli.py","search","List","--graph doc"],"min_score":0.6}
-{"input":"doc-graph 的 neighbors 命令怎么用，查看某个节点的关联文档","expected_patterns":["cli.py","neighbors"],"min_score":0.6}
-{"input":"doc-graph 的 path 命令怎么查找两个节点之间的路径","expected_patterns":["cli.py","path"],"min_score":0.6}
-{"input":"doc-graph 的 god-nodes 命令有什么作用","expected_patterns":["cli.py","god-nodes"],"min_score":0.6}
-{"input":"doc-graph 搜索返回的 source_file 路径怎么拼接成完整绝对路径来读取","expected_patterns":["source_file","docs/","拼接"],"min_score":0.6}

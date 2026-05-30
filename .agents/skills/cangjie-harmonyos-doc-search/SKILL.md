@@ -103,34 +103,6 @@ source_file: "harmonyos-6.0.2-15k/cj-scroll-swipe-list/List/.overview.md"
 | 关键词过多/噪音 | 减少噪音词，聚焦 core |
 | CLI 不可用 | 回退到 Glob/Grep，但仍遵守"只读 Top 1-2"限制 |
 
-## 索引构建
-
-首次使用或文档更新后，通过维护 Skill 构建卡片索引：
-
-```bash
-python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py --mode rule
-```
-
-如需离线 LLM 语义增强：
-
-```bash
-python <CangjieSkills>/.agents/skills/cangjie-harmonyos-doc-search-maintenance/builder/build_index_v3.py --mode rule+llm
-```
-
-`rule+llm` 仅在构建阶段调用 OpenAI 兼容 API，查询运行时不要求用户配置任何外部模型参数。
-
-构建产物写入 `doc-card/index/`：
-
-- `manifest.json`
-- `tasks.jsonl`
-- `apis.jsonl`
-- `examples.jsonl`
-- `docs.jsonl`
-- `aliases.json`
-- `search.db`
-
-日常检索仍使用顶层 `unified_search.py`，不直接调用构建脚本。
-
 ## 子技能
 
 仅在需要深入理解引擎内部机制时参阅：

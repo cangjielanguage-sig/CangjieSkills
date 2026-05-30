@@ -1,9 +1,15 @@
-"""Unified search entry point for cangjie-harmonyos-doc-search.
+"""Unified search entry point — 统一搜索入口，编排 card 和 graph 双引擎。
 
-Orchestrates card (doc-card/search_v3.py) and graph (doc-graph/cli.py)
-engines, merges results into a unified SearchResult format.
+本模块是 cangjie-harmonyos-doc-search Skill 的顶层入口，负责：
+1. 调用 doc-card 引擎（search_v3.py）获取卡片搜索结果
+2. 调用 doc-graph 引擎（cli.py）获取图谱搜索结果
+3. 融合两引擎结果（fuse_results），去重并按引擎优先级排序
 
-Usage:
+引擎优先级：card+graph（双引擎命中）> graph > card
+融合策略：graph 直接命中取前3，关联取前2；card 结果补充不重叠的命中；
+双引擎重叠时标记为 "card+graph"，优先级最高。
+
+用法：
     python unified_search.py "List 列表" --json --limit 5
     python unified_search.py "List" --engine card --json
     python unified_search.py "卡顿" --engine graph --json
@@ -29,14 +35,18 @@ GRAPH_DIR = SKILL_DIR / "doc-graph"
 
 @dataclass
 class Hit:
+    """统一搜索命中项 — 跨引擎融合后的最小结果单元。
+
+    engine 字段标识来源："card" / "graph" / "card+graph"（双引擎重叠命中）。
+    """
     node_id: str
     label: str
     source_file: str
     score: float
     match_type: str = ""
-    related_from: str = ""
-    relation_type: str = ""
-    engine: str = ""
+    related_from: str = ""          # 关联推荐来源节点标签
+    relation_type: str = ""         # 关联边类型（如 "see_also"）
+    engine: str = ""                # 结果引擎来源：card / graph / card+graph
 
     def to_dict(self):
         d = {
@@ -85,6 +95,10 @@ class SearchResult:
 
 
 def run_card(query, limit=5):
+    """调用 doc-card 引擎（search_v3.py）获取卡片搜索结果。
+
+    通过子进程执行，超时30秒。返回解析后的 JSON dict，失败返回 None。
+    """
     script = CARD_DIR / "search_v3.py"
     cmd = [
         sys.executable, str(script),
@@ -104,7 +118,12 @@ def run_card(query, limit=5):
 
 
 def run_graph(query, limit=5, brief=True):
-    script = GRAPH_DIR / "cli.py"
+    """调用 doc-graph 引擎（cli.py）获取图谱搜索结果。
+
+    通过子进程执行，超时30秒。解析 brief 格式输出文本，
+    将 "直接命中" 和 "关联推荐" 两个分区分别解析为 Hit 列表。
+    返回 {"direct": [...], "related": [...]} dict，失败返回 None。
+    """
     args = [sys.executable, str(script), "search", query, "--graph", "doc", "-k", str(limit)]
     if brief:
         args.append("-b")
@@ -144,7 +163,10 @@ def run_graph(query, limit=5, brief=True):
 
 
 def run_graph_cmd(cmd_name, *args):
-    script = GRAPH_DIR / "cli.py"
+    """调用 doc-graph CLI 的非搜索命令（neighbors/path/god-nodes 等）。
+
+    直接透传子进程输出，不做解析。
+    """
     full_args = [sys.executable, str(script), cmd_name] + list(args)
     try:
         result = subprocess.run(
@@ -157,6 +179,11 @@ def run_graph_cmd(cmd_name, *args):
 
 
 def parse_graph_brief_line(line):
+    """解析 graph 引擎 brief 格式的单行命中。
+
+    格式示例："[85.0] List | harmonyos-6.0.2-15k/Guide/..."
+    返回 Hit 对象，解析失败返回 None。
+    """
     try:
         score_end = line.index("]")
         score = float(line[1:score_end])
@@ -173,6 +200,11 @@ def parse_graph_brief_line(line):
 
 
 def parse_graph_related_line(line):
+    """解析 graph 引擎 brief 格式的关联推荐行。
+
+    格式示例："[42.5] ScrollView | path/to/doc (来自 List, see_also)"
+    括号内的 "来自 X, 关系类型" 被提取到 related_from 和 relation_type。
+    """
     from_match = ""
     relation = ""
     source_file_clean = ""
@@ -197,10 +229,14 @@ def parse_graph_related_line(line):
     return hit
 
 
-TOP_DIR = "harmonyos-6.0.2-15k"
+TOP_DIR = "harmonyos-6.0.2-15k"  # 文档仓库顶层目录名，用于路径规范化
 
 
 def _strip_top_dir(path):
+    """去掉 TOP_DIR 前缀 — 用于去重比较时忽略顶层目录差异。
+
+    例如 "harmonyos-6.0.2-15k/API/std.List.md" → "API/std.List.md"
+    """
     for sep in ("\\", "/"):
         prefix = TOP_DIR + sep
         if path.startswith(prefix):
@@ -209,14 +245,23 @@ def _strip_top_dir(path):
 
 
 def _ensure_top_dir(path):
-    path = path.replace("\\", "/")
-    for sep in ("\\", "/"):
+    """确保路径包含 TOP_DIR 前缀 — 用于最终输出时统一路径格式。
+
+    例如 "API/std.List.md" → "harmonyos-6.0.2-15k/API/std.List.md"
+    如果路径已有 TOP_DIR 前缀则不重复添加。
+    """
         if path.startswith(TOP_DIR + sep):
             return path
     return TOP_DIR + "/" + path
 
 
 def extract_card_paths(card_result):
+    """从 card 引擎结果中提取所有文件路径和标题映射。
+
+    遍历 tasks/apis/examples/docs 四个分区，收集每个 item 的 paths 和 title。
+    同时收集顶层的 paths 字段（可能有未被分区包含的路径）。
+    返回 (paths列表, {path→title}映射)。
+    """
     paths = []
     titles_by_path = {}
     if not card_result:
@@ -236,6 +281,12 @@ def extract_card_paths(card_result):
 
 
 def normalize_source_file(path):
+    """规范化源文件路径 — 去掉冗余的中间目录层级。
+
+    当路径中遇到仓库根目录名（如 harmonyos-6.0.2-15k、lang-features、std 等）
+    时，重置路径栈，只保留根目录名及其之后的路径段。
+    这确保了不同层级来源的路径能统一比较和展示。
+    """
     p = Path(path)
     parts = []
     for part in p.parts:
@@ -247,6 +298,16 @@ def normalize_source_file(path):
 
 
 def fuse_results(query, card_result, graph_result, limit=5):
+    """融合 card 和 graph 双引擎搜索结果 — 核心编排逻辑。
+
+    融合策略：
+    1. graph 直接命中取前3，关联取前2（graph 结果语义相关性更强）
+    2. card 结果补充与 graph 不重叠的命中（前3个），扩展覆盖面
+    3. 重叠命中标记为 "card+graph"，优先级最高
+    4. 最终按引擎优先级排序：card+graph(0) > graph(1) > card(2)
+    5. 直接命中上限6个，关联上限2个
+    6. 所有路径统一确保包含 TOP_DIR 前缀
+    """
     result = SearchResult(query=query, engine="fusion")
 
     graph_direct = []
@@ -298,6 +359,11 @@ def fuse_results(query, card_result, graph_result, limit=5):
 
 
 def sort_hit_key(hit):
+    """排序键 — 引擎优先级为主键，分数为副键（降序）。
+
+    引擎优先级：card+graph(0) > graph(1) > card(2) > 其他(3)
+    同引擎内按分数从高到低排列。
+    """
     engine_order = {"card+graph": 0, "graph": 1, "card": 2}
     return (engine_order.get(hit.engine, 3), -hit.score)
 

@@ -1,4 +1,12 @@
-"""统一查询入口 — 双图隔离（doc/code），直接接受 agent 传来的关键词。"""
+"""统一查询入口 — 双图隔离（doc/code），直接接受 agent 传来的关键词。
+
+本模块是 doc-graph 子系统对外的核心 API。GraphSession 管理 doc/code 两个搜索引擎
+的生命周期，根据查询类型选择引擎或合并结果。高级图计算操作（path/god-nodes/surprises）
+通过延迟加载 GraphifyEngine（需要 NetworkX）实现。
+
+设计决策：搜索引擎（DocSearchEngine/CodeSearchEngine）与图计算引擎（GraphifyEngine）
+分离，前者轻量无外部依赖，后者需要 NetworkX，仅在需要时按需加载。
+"""
 from __future__ import annotations
 
 import json
@@ -12,16 +20,24 @@ from graph.code.search import CodeSearchEngine
 
 
 class GraphSession:
-    """图谱查询会话，支持 doc 图和 code 图双引擎。"""
+    """图谱查询会话 — 管理 doc/code 双引擎和 GraphifyEngine 的生命周期。
+
+    生命周期：create_session() → 自动加载可用图谱 → search/explain/neighbors → 可选 path/god-nodes
+    延迟加载：_load_engine() 仅在 path/god-nodes/surprises 等图计算命令时才加载 NetworkX 图。
+    """
 
     def __init__(self, graph_dir: str = None):
         self.doc_engine: Optional[DocSearchEngine] = None
         self.code_engine: Optional[CodeSearchEngine] = None
         self._graph_dir = Path(graph_dir) if graph_dir else Path(__file__).resolve().parent / "data"
-        self._engine = None
+        self._engine = None  # GraphifyEngine 实例，延迟加载
 
     def _load_engine(self):
-        """延迟加载 GraphifyEngine（仅在 path/god-nodes 等图计算命令需要时）。"""
+        """延迟加载 GraphifyEngine — 仅在 path/god-nodes 等图计算命令需要时触发。
+
+        加载优先级：merged/graph.json > doc/graph.json
+        （合并图谱包含更多节点，路径查找更全面）
+        """
         if self._engine is not None:
             return self._engine
         from engines import GraphifyEngine
@@ -39,7 +55,10 @@ class GraphSession:
         return None
 
     def load_doc_graph(self, graph_path: str | Path | None = None) -> None:
-        """加载文档图谱。"""
+        """加载文档图谱 — 支持 dict/list 两种节点格式，边字段兼容 edges/links 两种命名。
+
+        优先级：显式指定路径 > doc/graph.json > merged/graph.json > 不加载
+        """
         if graph_path is None:
             doc_path = self._graph_dir / "doc" / "graph.json"
             merged_path = self._graph_dir / "merged" / "graph.json"
@@ -56,6 +75,7 @@ class GraphSession:
 
         data = json.loads(path.read_text(encoding="utf-8"))
 
+        # 兼容两种 JSON 格式：dict（node_id 为键）和 list（node_id 在值中）
         nodes = {}
         nodes_data = data.get("nodes", {})
         if isinstance(nodes_data, dict):
@@ -67,6 +87,7 @@ class GraphSession:
                 if nid:
                     nodes[nid] = DocNode.from_dict(ndata)
 
+        # 构建无向邻接表：每条边双向注册，边字段兼容 edges/links 两种命名
         neighbors = {nid: [] for nid in nodes}
         edge_list = data.get("edges", data.get("links", []))
         for edge in edge_list:
@@ -147,7 +168,11 @@ class GraphSession:
         return self.code_engine.search(query, top_k=top_k)
 
     def _merge_results(self, doc_result: Optional[SearchResult], code_result: Optional[SearchResult], original_query: str) -> SearchResult:
-        """融合双图搜索结果。"""
+        """融合双图搜索结果 — 基于 source_file 去重，避免同一文档重复出现。
+
+        doc 结果优先（因为是概念性文档），code 结果补充。
+        取两个引擎中较大的 latency_ms 作为总耗时。
+        """
         merged = SearchResult(query=original_query, graph_used="both")
         seen_paths = set()
 
@@ -192,7 +217,10 @@ class GraphSession:
         return eng.find_path(node_a, node_b, max_depth=max_depth)
 
     def neighbors(self, node_id: str, max_count: int = 20) -> list:
-        """获取邻居节点（优先从搜索引擎，回退到 GraphifyEngine）。"""
+        """获取邻居节点 — 优先从搜索引擎（内存中的邻接表），回退到 GraphifyEngine（NetworkX）。
+
+        搜索引擎加载更快且不需要额外依赖，因此优先使用。
+        """
         if self.doc_engine and node_id in self.doc_engine.nodes:
             neighbor_ids = [nid for nid, _ in self.doc_engine.neighbors.get(node_id, [])[:max_count]]
             return [self.doc_engine.nodes[nid] for nid in neighbor_ids if nid in self.doc_engine.nodes]

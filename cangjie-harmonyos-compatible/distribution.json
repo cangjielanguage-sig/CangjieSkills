@@ -128,7 +128,159 @@
       "distribution_path": "skills/harmonyos-stdx"
     }
   ],
-  "generated_artifacts": [],
-  "created_at": "2026-05-25T02:16:00Z",
-  "git_commit": "41e227b5defd0a18a9a9c553f7091d3d69751e57"
+  "generated_artifacts": [
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/aliases.json",
+      "size": 662801,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/apis.jsonl",
+      "size": 7948152,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/docs.jsonl",
+      "size": 23698055,
+      "reasons": [
+        "git_lfs_tracked",
+        "exceeds_gitcode_10_mib_limit",
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/examples.jsonl",
+      "size": 751274,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/manifest.json",
+      "size": 2258,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md",
+        "doc-graph/ARCHITECTURE.md",
+        "doc-graph/graph/builders/detect.py"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/search.db",
+      "size": 110440448,
+      "reasons": [
+        "git_lfs_tracked",
+        "exceeds_gitcode_10_mib_limit",
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-card/index/tasks.jsonl",
+      "size": 167906,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "SKILL.md",
+        "doc-card/search_v3.py",
+        "doc-card/SKILL.md"
+      ],
+      "recovery_command": "python unified_search.py \"<query>\" [options]"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-graph/data/doc/graph.json",
+      "size": 10812187,
+      "reasons": [
+        "exceeds_gitcode_10_mib_limit",
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "doc-graph/ARCHITECTURE.md",
+        "doc-graph/BUILD_GUIDE.md",
+        "doc-graph/cli.py",
+        "doc-graph/query.py",
+        "doc-graph/SKILL.md"
+      ],
+      "recovery_command": "python cli.py build-doc docs/ -o data/doc/graph.json"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-graph/eval/datasets/eval_queries_comprehensive.jsonl",
+      "size": 71822,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "doc-graph/ARCHITECTURE.md",
+        "doc-graph/BUILD_GUIDE.md",
+        "doc-graph/eval/datasets/eval_config.json"
+      ],
+      "recovery_command": "python cli.py build-doc docs/ -o data/doc/graph.json"
+    },
+    {
+      "skill_source_path": "cangjie-harmonyos-doc-search",
+      "path": "doc-graph/eval/datasets/eval_queries_comprehensive_deduped.jsonl",
+      "size": 77471,
+      "reasons": [
+        "generated_artifact_candidate"
+      ],
+      "evidence": [
+        "doc-graph/ARCHITECTURE.md",
+        "doc-graph/BUILD_GUIDE.md",
+        "doc-graph/eval/analyze_miss_detail.py",
+        "doc-graph/eval/check_data.py",
+        "doc-graph/eval/classify_miss_types.py"
+      ],
+      "recovery_command": "python cli.py build-doc docs/ -o data/doc/graph.json"
+    }
+  ],
+  "created_at": "2026-05-30T01:55:35Z",
+  "git_commit": "5af4e6571a7f010119d831a4a7f10e676603a294"
 }

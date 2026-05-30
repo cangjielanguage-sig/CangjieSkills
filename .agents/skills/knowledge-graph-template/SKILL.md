@@ -1,6 +1,6 @@
 ---
 name: knowledge-graph-template
-description: "鸿蒙仓颉知识图谱，基于 graphify v7 构建。与 cangjie-harmonyos-doc-search 平权：V3 负责精确 API/属性/错误码/穷举检索，本 Skill 负责语义/组合/架构/跨生态类比/邻域推理。共享同一套文档源（harmonyos-6.1-8k / lang-features / std / stdx / tools），通过 MCP 暴露 7 个工具给 code agent。"
+description: "当需要语义搜索、组合查询、跨生态类比或邻域推理时使用此 Skill。鸿蒙仓颉知识图谱，基于 graphify v7 构建，与 cangjie-harmonyos-doc-search 平权：V3 负责精确 API/属性/错误码/穷举检索，本 Skill 负责语义/组合/架构/跨生态类比/邻域推理。共享同一套文档源（harmonyos-6.1-8k / lang-features / std / stdx / tools），通过 MCP 暴露 7 个工具给 code agent。"
 trigger: /build-graph
 ---
 

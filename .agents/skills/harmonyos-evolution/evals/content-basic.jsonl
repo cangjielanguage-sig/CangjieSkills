@@ -1,0 +1,5 @@
+{"input":"鸿蒙应用构建失败了，之前有遇到过类似问题吗","expected_patterns":["Evolution","经验","记录","查阅","匹配"],"min_score":0.6}
+{"input":"怎么把这次构建遇到的问题记录下来","expected_patterns":["Evolution","记录","沉淀","写入","经验"],"min_score":0.6}
+{"input":"构建成功了，想把这次排查的难点保存起来","expected_patterns":["记录","经验","Evolution","沉淀","解决方案"],"min_score":0.6}
+{"input":"鸿蒙构建报错了，有没有之前的经验可以参考","expected_patterns":["查阅","经验","匹配","Evolution","排查"],"min_score":0.6}
+{"input":"如何维护鸿蒙项目的构建经验文档","expected_patterns":["Evolution","记录","维护","经验","方案"],"min_score":0.6}

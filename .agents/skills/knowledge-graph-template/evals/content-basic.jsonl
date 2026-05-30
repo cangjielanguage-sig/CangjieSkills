@@ -1,0 +1,5 @@
+{"input":"如何用知识图谱分析项目结构","expected_patterns":["图谱","搜索","节点","遍历"],"min_score":0.6}
+{"input":"帮我找鸿蒙组件之间的关联关系","expected_patterns":["关联","邻居","路径","社区"],"min_score":0.6}
+{"input":"我想了解某个 API 的上下游依赖","expected_patterns":["依赖","路径","连接","图"],"min_score":0.6}
+{"input":"如何构建代码知识图谱来辅助开发","expected_patterns":["构建","文档","图谱","分析"],"min_score":0.6}
+{"input":"跨模块的组件怎么配合使用","expected_patterns":["模块","配合","关联","搜索"],"min_score":0.6}

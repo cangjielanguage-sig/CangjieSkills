@@ -1,0 +1,5 @@
+{"input":"我想用知识图谱分析项目结构，发现隐藏的关联","expected_skills":["knowledge-graph-template"],"forbidden_skills":[],"min_rank":3}
+{"input":"帮我搜索鸿蒙组件之间的语义关系和依赖链","expected_skills":["knowledge-graph-template"],"forbidden_skills":[],"min_rank":3}
+{"input":"如何构建代码图谱来理解模块间的调用关系","expected_skills":["knowledge-graph-template"],"forbidden_skills":[],"min_rank":3}
+{"input":"我想找某个概念相关的所有 API 和文档","expected_skills":["knowledge-graph-template"],"forbidden_skills":[],"min_rank":3}
+{"input":"跨生态的功能类比，比如鸿蒙版的 RecyclerView 是什么","expected_skills":["knowledge-graph-template"],"forbidden_skills":[],"min_rank":3}

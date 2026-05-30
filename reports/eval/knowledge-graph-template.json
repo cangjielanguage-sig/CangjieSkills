@@ -1,0 +1,1019 @@
+{
+  "skill": "knowledge-graph-template",
+  "status": "passed",
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 5,
+    "content_passed": 5,
+    "discovery_total": 5,
+    "discovery_passed": 5
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 0.85,
+    "pattern_score_avg": 0.85,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 0.85,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.2,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 20294.1,
+    "latency_ms_p95": 32488.250000000007,
+    "token_total": 72332,
+    "cost_total": 0.728315,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 19010,
+    "content_skill_context_slots_avg": 3802.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "如何用知识图谱分析项目结构",
+      "status": "passed",
+      "score": 0.75,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "帮我找鸿蒙组件之间的关联关系",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "我想了解某个 API 的上下游依赖",
+      "status": "passed",
+      "score": 0.75,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "如何构建代码知识图谱来辅助开发",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:5",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "input": "跨模块的组件怎么配合使用",
+      "status": "passed",
+      "score": 0.75,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "我想用知识图谱分析项目结构，发现隐藏的关联",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "帮我搜索鸿蒙组件之间的语义关系和依赖链",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "如何构建代码图谱来理解模块间的调用关系",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:4",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "input": "我想找某个概念相关的所有 API 和文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:5",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "input": "跨生态的功能类比，比如鸿蒙版的 RecyclerView 是什么",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "如何用知识图谱分析项目结构",
+      "runner": "agent-command",
+      "output": "使用知识图谱分析项目结构的核心流程如下：\n\n## 1. 放入项目资料\n\n将项目的文档、代码和配置放入 `docs/` 目录：\n```bash\ncp your_docs/*.md docs/\ncp your_code/*.cj docs/\ncp your_examples/* docs/\n```\n支持格式：`.md`, `.txt`, `.rst`, `.cj`, `.py`, `.js`, `.ts`, `.java`, `.go`, `.rs`, `.json`, `.yaml` 等。\n\n## 2. 构建图谱\n\n```bash\npython cli.py build docs/ --output data/my-graph.json\n```\n构建完成后会生成：\n- `data/my-graph.json` — 图谱数据\n- `data/GRAPH_REPORT.md` — 分析报告（核心节点、惊奇连接、建议问题）\n\n## 3. 分析项目结构\n\n### 查看核心节点（God Nodes）\n连接最多的概念代表项目核心：\n```bash\npython cli.py god-nodes --top-n 10\n```\n\n### 发现隐式关联（惊奇连接）\n跨社区的边揭示模块间隐藏的依赖：\n```bash\npython cli.py surprises --top-n 5\n```\n\n### 查找模块间依赖路径\n```bash\npython cli.py path \"模块A\" \"模块B\"\n```\n\n### 图遍历发现关联\n```bash\npython cli.py traverse \"某个概念\" --depth 3\n```\n\n## 4. Python API 方式\n\n```python\nfrom query import create_session\n\nsession = create_session()\nsession.load_graph(\"data/my-graph.json\")\n\n# 核心节点\ngod_nodes = session.god_nodes(top_n=10)\n\n# 惊奇连接（跨模块关联）\nsurprises = session.surprises(top_n=5)\n\n# 发现依赖路径\npath = session.find_path(\"UIAbility\", \"MyComponent\")\n\n# 建议问题（图谱能回答什么）\nquestions = session.suggest_questions(top_n=7)\n```\n\n## 5. 三层图谱结构\n\n| 层级 | 内容 | 用途 |\n|------|------|------|\n| L1 概念层 | 文档、指南、概述 | 快速定位文档 |\n| L2 API 层 | 类、接口、组件定义 | 定位 API |\n| L3 实现层 | 函数、属性、测试代码 | 深入实现细节 |\n\n## 6. 大型项目：子图谱构建\n\n```bash\n# 按模块构建\npython cli.py build-subgraph docs/api --name api\npython cli.py build-subgraph docs/core --name core\n\n# 合并\npython cli.py merge data/subgraphs/api/graph.json data/subgraphs/core/graph.json --output data/merged/graph.json\n```\n\n核心价值：让 AI 理解项目结构，发现你不知道的关联。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 27321.0,
+      "usage": {
+        "input_tokens": 26325,
+        "output_tokens": 899,
+        "cached_input_tokens": 1024,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 27224,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3802,
+        "claude_stdout_chars": 7970,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.154612,
+      "error": null,
+      "timestamp": 1780123948.1336038,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"使用知识图谱分析项目结构的核心流程如下：\\n\\n## 1. 放入项目资料\\n\\n将项目的文档、代码和配置放入 `docs/` 目录：\\n```bash\\ncp your_docs/*.md docs/\\ncp your_code/*.cj docs/\\ncp your_examples/* docs/\\n```\\n支持格式：`.md`, `.txt`, `.rst`, `.cj`, `.py`, `.js`, `.ts`, `.java`, `.go`, `.rs`, `.json`, `.yaml` 等。\\n\\n## 2. 构建图谱\\n\\n```bash\\npython cli.py build docs/ --output data/my-graph.json\\n```\\n构建完成后会生成：\\n- `data/my-graph.json` — 图谱数据\\n- `data/GRAPH_REPORT.md` — 分析报告（核心节点、惊奇连接、建议问题）\\n\\n## 3. 分析项目结构\\n\\n### 查看核心节点（God Nodes）\\n连..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 0.75,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.75,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "帮我找鸿蒙组件之间的关联关系",
+      "runner": "agent-command",
+      "output": "使用 knowledge-graph-template 知识图谱 Skill 可以高效查找鸿蒙组件之间的关联关系。该 Skill 提供 7 个 MCP 工具，专门用于语义搜索、组合查询和组件依赖关系分析。\n\n**查找组件关联关系的方法：**\n\n1. **语义搜索组件** — 使用 `query_graph` 工具搜索目标组件\n   ```\n   query_graph(\"列表组件\")  # 搜索 List、Scroll 等列表相关组件\n   ```\n\n2. **查看组件邻居（典型搭配）** — 使用 `get_neighbors` 获取与某组件常一起使用的其他组件\n   ```\n   get_neighbors(\"List\")  # List 组件的典型搭档：ListItem、Scroller、Refresh 等\n   ```\n\n3. **发现领域核心组件** — 使用 `god_nodes` 获取连接度最高的核心组件\n   ```\n   god_nodes(top_n=10)  # 项目中最重要的 10 个核心概念/组件\n   ```\n\n4. **查找两个组件之间的路径** — 使用 `shortest_path` 发现组件间的关联链\n   ```\n   shortest_path(\"Button\", \"Navigation\")  # Button 和 Navigation 之间的关联路径\n   ```\n\n5. **查看功能社区** — 使用 `get_community` 获取同一功能领域的所有组件\n   ```\n   get_community(\"UI组件\")  # UI 相关的全部组件\n   ```\n\n**典型查询场景：**\n- 「List 和 Refresh 怎么配合」→ `get_neighbors(\"List\")` + `shortest_path(\"List\", \"Refresh\")`\n- 「带下拉刷新的网络列表页涉及哪些组件」→ `query_graph(\"下拉刷新 列表 网络\")`\n- 「鸿蒙 UI 框架的核心 API」→ `god_nodes()` 查看领域核心\n\n该 Skill 基于 graphify v7 构建，与 cangjie-harmonyos-doc-search 平权：V3 负责精确 API/属性/错误码检索，knowledge-graph-template 负责语义/组合/架构/跨生态类比/邻域推理。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 36716.0,
+      "usage": {
+        "input_tokens": 6871,
+        "output_tokens": 1147,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 8018,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3802,
+        "claude_stdout_chars": 9458,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.124628,
+      "error": null,
+      "timestamp": 1780123988.8899648,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"使用 knowledge-graph-template 知识图谱 Skill 可以高效查找鸿蒙组件之间的关联关系。该 Skill 提供 7 个 MCP 工具，专门用于语义搜索、组合查询和组件依赖关系分析。\\n\\n**查找组件关联关系的方法：**\\n\\n1. **语义搜索组件** — 使用 `query_graph` 工具搜索目标组件\\n ```\\n query_graph(\\\"列表组件\\\") # 搜索 List、Scroll 等列表相关组件\\n ```\\n\\n2. **查看组件邻居（典型搭配）** — 使用 `get_neighbors` 获取与某组件常一起使用的其他组件\\n ```\\n get_neighbors(\\\"List\\\") # List 组件的典型搭档：ListItem、Scroller、Refresh 等\\n ```\\n\\n3. **发现领域核心组件** — 使用 `god_nodes` 获取连接度最高的核心组件\\n ```\\n god_nodes(top_n=10) # 项目中最重要的 10 个核心概念/组件\\n ```\\..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "我想了解某个 API 的上下游依赖",
+      "runner": "agent-command",
+      "output": "了解某个 API 的上下游依赖，推荐使用知识图谱（knowledge-graph-template）的 MCP 工具：\n\n1. **get_node** — 查看 API 节点详情，包括所属社区和层信息\n2. **get_neighbors** — 获取该 API 的邻居节点，即直接上下游依赖\n3. **shortest_path** — 查找两个 API 之间的依赖路径\n4. **query_graph** — 语义搜索相关概念\n\n如果需要精确查找 API 定义、属性、事件等，可配合 cangjie-harmonyos-doc-search 进行穷举检索。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 14209.0,
+      "usage": {
+        "input_tokens": 6869,
+        "output_tokens": 411,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 7280,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3802,
+        "claude_stdout_chars": 5401,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.05486,
+      "error": null,
+      "timestamp": 1780124007.0412621,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"了解某个 API 的上下游依赖，推荐使用知识图谱（knowledge-graph-template）的 MCP 工具：\\n\\n1. **get_node** — 查看 API 节点详情，包括所属社区和层信息\\n2. **get_neighbors** — 获取该 API 的邻居节点，即直接上下游依赖\\n3. **shortest_path** — 查找两个 API 之间的依赖路径\\n4. **query_graph** — 语义搜索相关概念\\n\\n如果需要精确查找 API 定义、属性、事件等，可配合 cangjie-harmonyos-doc-search 进行穷举检索。\", \"matched_skills\": [ {\"name\": \"knowledge-graph-template\", \"rank\": 1}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2} ], \"loaded_skills\": [\"knowledge-graph-template\"], \"tool_calls\":..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 0.75,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.75,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "如何构建代码知识图谱来辅助开发",
+      "runner": "agent-command",
+      "output": "使用 `knowledge-graph-template` Skill 可以快速构建代码知识图谱。核心流程如下：\n\n**1. 放入资料**\n```bash\ncp your_docs/*.md docs/\ncp your_code/*.cj docs/\n```\n支持格式：`.md`, `.txt`, `.rst`, `.cj`, `.py`, `.js`, `.ts`, `.java`, `.go`, `.rs`, `.c`, `.cpp`, `.json`, `.yaml`, `.toml`\n\n**2. 构建图谱**\n```bash\n# AST 模式（默认，无 API 成本）\npython cli.py build docs/ --output data/my-graph.json\n\n# 语义模式（需要 OPENAI_API_KEY，提取概念和跨文档关联）\npython cli.py build docs/ --mode deep --output data/my-graph.json\n```\n\n**3. 大项目可分模块构建再合并**\n```bash\npython cli.py build-subgraph docs/api --name api\npython cli.py build-subgraph docs/core --name core\npython cli.py merge data/subgraphs/api/graph.json data/subgraphs/core/graph.json --output data/merged/graph.json\n```\n\n**4. 查询图谱辅助开发**\n```bash\npython cli.py search \"你的概念\" --limit 5      # 搜索\npython cli.py traverse \"概念\" --depth 3       # 图遍历发现关联\npython cli.py path \"概念A\" \"概念B\"            # 路径查询\npython cli.py god-nodes --top-n 10            # 核心节点\npython cli.py surprises --top-n 5             # 惊奇连接\n```\n\n**三层图谱结构**：\n- L1 概念层（文档、指南）权重 ×1.5\n- L2 API 层（类、接口、组件）权重 ×2.0\n- L3 实现层（函数、属性）权重 ×0.2\n\n**Python API 调用示例**：\n```python\nfrom query import create_session\nsession = create_session()\nsession.load_graph(\"data/my-graph.json\")\nresult = session.search(\"你的概念\", limit=10)\nfor path in result.paths:\n    print(path)\n```\n\n图谱构建后会生成分析报告（`data/GRAPH_REPORT.md`），包含核心节点、惊奇连接和建议问题，帮助 AI 理解项目结构、发现隐式关联。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-lang-features",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 24633.0,
+      "usage": {
+        "input_tokens": 6870,
+        "output_tokens": 834,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 7704,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3802,
+        "claude_stdout_chars": 8071,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.100868,
+      "error": null,
+      "timestamp": 1780124035.613171,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"使用 `knowledge-graph-template` Skill 可以快速构建代码知识图谱。核心流程如下：\\n\\n**1. 放入资料**\\n```bash\\ncp your_docs/*.md docs/\\ncp your_code/*.cj docs/\\n```\\n支持格式：`.md`, `.txt`, `.rst`, `.cj`, `.py`, `.js`, `.ts`, `.java`, `.go`, `.rs`, `.c`, `.cpp`, `.json`, `.yaml`, `.toml`\\n\\n**2. 构建图谱**\\n```bash\\n# AST 模式（默认，无 API 成本）\\npython cli.py build docs/ --output data/my-graph.json\\n\\n# 语义模式（需要 OPENAI_API_KEY，提取概念和跨文档关联）\\npython cli.py build docs/ --mode deep --output data/my-graph.json\\n```\\n\\n**3. 大项目可分模..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:5",
+      "type": "content",
+      "input": "跨模块的组件怎么配合使用",
+      "runner": "agent-command",
+      "output": "跨模块组件配合使用主要有以下几种方式：\n\n1. **模块间引用**：在 `cjpm.toml` 的 `[dependencies]` 中声明依赖其他模块，即可使用该模块暴露的公共 API。\n\n2. **接口契约**：通过定义公共接口（`interface`）实现模块解耦，模块 A 依赖接口而非模块 B 的具体实现。\n\n3. **包（package）机制**：将相关组件组织在同一 package 下，通过 `package.cj` 的 `export` 语句控制对外暴露的内容，其他模块 `import` 后使用。\n\n4. **仓颉与 ArkTS 跨语言配合**：若涉及鸿蒙 UI 层，可通过 `cangjie-arkts-interop` 技能实现仓颉与 ArkTS 互调，仓颉负责业务逻辑，ArkTS 负责 UI 渲染。\n\n建议查询顺序：\n- 若知道具体模块名/组件名 → 使用 `cangjie-harmonyos-doc-search` 精确搜索\n- 若是跨概念组合（如「带下拉刷新的列表 + 网络请求」）→ 使用 `knowledge-graph-template` 语义搜索\n\n如需进一步定位具体模块的配合方式，请提供涉及的模块或组件名称。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-lang-features",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20891.0,
+      "usage": {
+        "input_tokens": 6868,
+        "output_tokens": 577,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 7445,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3802,
+        "claude_stdout_chars": 5951,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.059005,
+      "error": null,
+      "timestamp": 1780124060.4467769,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"跨模块组件配合使用主要有以下几种方式：\\n\\n1. **模块间引用**：在 `cjpm.toml` 的 `[dependencies]` 中声明依赖其他模块，即可使用该模块暴露的公共 API。\\n\\n2. **接口契约**：通过定义公共接口（`interface`）实现模块解耦，模块 A 依赖接口而非模块 B 的具体实现。\\n\\n3. **包（package）机制**：将相关组件组织在同一 package 下，通过 `package.cj` 的 `export` 语句控制对外暴露的内容，其他模块 `import` 后使用。\\n\\n4. **仓颉与 ArkTS 跨语言配合**：若涉及鸿蒙 UI 层，可通过 `cangjie-arkts-interop` 技能实现仓颉与 ArkTS 互调，仓颉负责业务逻辑，ArkTS 负责 UI 渲染。\\n\\n建议查询顺序：\\n- 若知道具体模块名/组件名 → 使用 `cangjie-harmonyos-doc-search` 精确搜索\\n- 若是跨概念组合（如「带下拉刷新的列表 + 网络请求」）→ 使用 `..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 0.75,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.75,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "我想用知识图谱分析项目结构，发现隐藏的关联",
+      "runner": "agent-command",
+      "output": "推荐使用 knowledge-graph-template 技能。该技能基于 graphify v7 构建了鸿蒙仓颉知识图谱，专门用于语义搜索、组合查询、跨生态类比和邻域推理，能够帮助你发现项目中隐藏的关联关系。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 16292.0,
+      "usage": {
+        "input_tokens": 2530,
+        "output_tokens": 299,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2829,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5688,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.045768,
+      "error": null,
+      "timestamp": 1780124080.339022,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"推荐使用 knowledge-graph-template 技能。该技能基于 graphify v7 构建了鸿蒙仓颉知识图谱，专门用于语义搜索、组合查询、跨生态类比和邻域推理，能够帮助你发现项目中隐藏的关联关系。\", \"matched_skills\": [ {\"name\": \"knowledge-graph-template\", \"rank\": 1} ], \"loaded_skills\": [\"knowledge-graph-template\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "帮我搜索鸿蒙组件之间的语义关系和依赖链",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 13594.0,
+      "usage": {
+        "input_tokens": 2530,
+        "output_tokens": 293,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2823,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5411,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.030215000000000006,
+      "error": null,
+      "timestamp": 1780124097.5272954,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"knowledge-graph-template\",\"rank\":1},{\"name\":\"cangjie-harmonyos-doc-search\",\"rank\":2}],\"loaded_skills\":[\"knowledge-graph-template\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null}"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "如何构建代码图谱来理解模块间的调用关系",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-original-docs",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 13065.0,
+      "usage": {
+        "input_tokens": 2528,
+        "output_tokens": 338,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2866,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5349,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.050223,
+      "error": null,
+      "timestamp": 1780124113.944653,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"\", \"matched_skills\": [ { \"name\": \"knowledge-graph-template\", \"rank\": 1 }, { \"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2 }, { \"name\": \"cangjie-original-docs\", \"rank\": 3 } ], \"loaded_skills\": [ \"knowledge-graph-template\" ], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:4",
+      "type": "discovery",
+      "input": "我想找某个概念相关的所有 API 和文档",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "knowledge-graph-template",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-lang-features",
+          "rank": 3
+        },
+        {
+          "name": "cangjie-std",
+          "rank": 4
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 5
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-harmonyos-doc-search",
+        "knowledge-graph-template"
+      ],
+      "tool_calls": [],
+      "latency_ms": 24733.0,
+      "usage": {
+        "input_tokens": 2525,
+        "output_tokens": 791,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3316,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6883,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.05884299999999999,
+      "error": null,
+      "timestamp": 1780124142.29066,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 1}, {\"name\": \"knowledge-graph-template\", \"rank\": 2}, {\"name\": \"cangjie-lang-features\", \"rank\": 3}, {\"name\": \"cangjie-std\", \"rank\": 4}, {\"name\": \"cangjie-stdx\", \"rank\": 5} ], \"loaded_skills\": [\"cangjie-harmonyos-doc-search\", \"knowledge-graph-template\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:5",
+      "type": "discovery",
+      "input": "跨生态的功能类比，比如鸿蒙版的 RecyclerView 是什么",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "knowledge-graph-template",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "knowledge-graph-template",
+        "cangjie-harmonyos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 11487.0,
+      "usage": {
+        "input_tokens": 2530,
+        "output_tokens": 297,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2827,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5049,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.049293000000000003,
+      "error": null,
+      "timestamp": 1780124157.0813072,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "PowerShell",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskOutput",
+            "TaskStop",
+            "TodoWrite",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"knowledge-graph-template\", \"rank\": 1}, {\"name\": \"cangjie-harmonyos-doc-search\", \"rank\": 2} ], \"loaded_skills\": [ \"knowledge-graph-template\", \"cangjie-harmonyos-doc-search\" ], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\knowledge-graph-template.json"
+}

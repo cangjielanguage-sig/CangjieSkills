@@ -1,0 +1,5 @@
+{"input":"鸿蒙构建失败了，帮我查一下有没有之前的经验","expected_skills":["harmonyos-evolution"],"forbidden_skills":[],"min_rank":3}
+{"input":"怎么记录鸿蒙构建中遇到的难点和解决方案","expected_skills":["harmonyos-evolution"],"forbidden_skills":[],"min_rank":3}
+{"input":"构建成功了，把这次的经验沉淀一下","expected_skills":["harmonyos-evolution"],"forbidden_skills":[],"min_rank":3}
+{"input":"有没有鸿蒙构建问题的排查经验库","expected_skills":["harmonyos-evolution"],"forbidden_skills":[],"min_rank":3}
+{"input":"想把鸿蒙开发中踩过的坑记录下来","expected_skills":["harmonyos-evolution"],"forbidden_skills":[],"min_rank":3}

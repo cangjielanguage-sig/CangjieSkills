@@ -4,16 +4,16 @@
 
 ## 默认评测集
 
-- `evals/eval_queries_user.jsonl`
-- `evals/eval_queries_app_agent_dev.jsonl`
-- `evals/eval_queries_user_appdev.jsonl`
-- `evals/eval_queries_user_appdev_next.jsonl`
-- `evals/eval_queries_user_appdev_frozen.jsonl`
-- `evals/eval_queries_user_appdev_batch2.jsonl`
-- `evals/eval_queries_user_appdev_batch3.jsonl`
-- `evals/eval_queries_user_appdev_blind.jsonl`
+- `evals/search/eval_queries_user.jsonl`
+- `evals/search/eval_queries_app_agent_dev.jsonl`
+- `evals/search/eval_queries_user_appdev.jsonl`
+- `evals/search/eval_queries_user_appdev_next.jsonl`
+- `evals/search/eval_queries_user_appdev_frozen.jsonl`
+- `evals/search/eval_queries_user_appdev_batch2.jsonl`
+- `evals/search/eval_queries_user_appdev_batch3.jsonl`
+- `evals/search/eval_queries_user_appdev_blind.jsonl`
 
-可额外传入新的严格 blind，例如 `evals/eval_queries_user_appdev_blind_20260424.jsonl`。
+可额外传入新的严格 blind，例如 `evals/search/eval_queries_user_appdev_blind_20260424.jsonl`。
 
 ## 核心指标
 
@@ -26,9 +26,9 @@
 
 ## 门禁
 
-- `evals/eval_queries_user.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
-- `evals/eval_queries_app_agent_dev.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
-- `evals/eval_queries_user_appdev*.jsonl`：`success@5 >= 0.95` 且 `error_rate = 0`。
+- `evals/search/eval_queries_user.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
+- `evals/search/eval_queries_app_agent_dev.jsonl`：`success@5 >= 0.98` 且 `error_rate = 0`。
+- `evals/search/eval_queries_user_appdev*.jsonl`：`success@5 >= 0.95` 且 `error_rate = 0`。
 - 严格新 blind：`success@5 >= 0.80` 且 `error_rate = 0`。
 - 健康检查有阻塞级 `missing_path`：直接 blocked。
 

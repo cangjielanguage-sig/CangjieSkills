@@ -1,0 +1,5 @@
+{"input":"我想查找鸿蒙仓颉的 List 组件文档","expected_skills":["doc-card"],"forbidden_skills":[],"min_rank":1}
+{"input":"帮我搜索鸿蒙 WebView loadUrl headers 的 API 用法","expected_skills":["doc-card"],"forbidden_skills":[],"min_rank":1}
+{"input":"鸿蒙构建报错日志里的错误码怎么查对应文档","expected_skills":["doc-card"],"forbidden_skills":[],"min_rank":1}
+{"input":"帮我查鸿蒙仓颉 Router.pushUrl 参数文档","expected_skills":["doc-card"],"forbidden_skills":[],"min_rank":1}
+{"input":"鸿蒙仓颉示例代码里 LazyForEach 怎么写","expected_skills":["doc-card"],"forbidden_skills":[],"min_rank":1}

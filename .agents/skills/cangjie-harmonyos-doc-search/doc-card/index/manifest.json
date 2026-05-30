@@ -21,7 +21,7 @@
     "llm_enriched_docs": 14824
   },
   "eval": {
-    "full_eval_queries": "evals/eval_queries_full.jsonl",
+    "full_eval_queries": "evals/search/eval_queries_full.jsonl",
     "full_eval_query_count": 93486
   },
   "entrypoints": {

@@ -27,7 +27,7 @@ SKILLS_DIR = MAINTENANCE_DIR.parent
 DOC_SEARCH_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
 DOC_CARD_DIR = DOC_SEARCH_DIR / "doc-card"
 DOCS_DIR = DOC_SEARCH_DIR / "docs"
-EVALS_DIR = DOC_CARD_DIR / "evals"
+EVALS_DIR = DOC_CARD_DIR / "evals" / "search"
 DEFAULT_INDEX_DIR = DOC_CARD_DIR / "index"
 DOC_SOURCES = ("harmonyos-6.0.2-15k", "lang-features", "std", "stdx", "tools")
 EXAMPLE_HINTS = ("示例", "example", "demo")
@@ -3432,7 +3432,7 @@ def build(
             "llm_enriched_docs": sum(1 for row in doc_cards if row.get("generation_mode") == "rule+llm"),
         },
         "eval": {
-            "full_eval_queries": "evals/eval_queries_full.jsonl",
+            "full_eval_queries": "evals/search/eval_queries_full.jsonl",
             "full_eval_query_count": full_eval_count,
         },
         "entrypoints": {

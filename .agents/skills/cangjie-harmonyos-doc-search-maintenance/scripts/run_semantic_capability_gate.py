@@ -26,7 +26,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="fusion 能力门禁（run_ab_eval）")
     parser.add_argument("--index-dir", default=str(DOC_CARD_DIR / "index"))
     parser.add_argument("--graph-dir", default=str(GRAPH_DATA))
-    parser.add_argument("--eval-dir", default=str(DOC_CARD_DIR / "evals"))
+    parser.add_argument("--eval-dir", default=str(DOC_CARD_DIR / "evals" / "search"))
     parser.add_argument("--splits", default="real_session,paraphrase,composition")
     parser.add_argument("--limit", type=int, default=8)
     parser.add_argument("--output", default="", help="可选：写入 JSON 报告")

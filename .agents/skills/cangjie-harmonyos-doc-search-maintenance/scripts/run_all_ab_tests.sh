@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 DOC_SEARCH="${SKILLS_DIR}/cangjie-harmonyos-doc-search"
 DOC_CARD="${DOC_SEARCH}/doc-card"
-EVALS_DIR="${DOC_CARD}/evals"
+EVALS_DIR="${DOC_CARD}/evals/search"
 OUTPUT_DIR="$SCRIPT_DIR/ab-results-all"
 
 mkdir -p "$OUTPUT_DIR"

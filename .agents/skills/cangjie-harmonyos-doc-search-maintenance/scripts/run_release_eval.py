@@ -23,7 +23,7 @@ ROOT = SKILLS_DIR / "cangjie-harmonyos-doc-search"
 DOC_CARD_DIR = ROOT / "doc-card"
 DOCS_DIR = ROOT / "docs"
 BUILDER = SKILLS_DIR / "cangjie-harmonyos-doc-search-maintenance" / "builder" / "build_index_v3.py"
-EVALS_DIR = DOC_CARD_DIR / "evals"
+EVALS_DIR = DOC_CARD_DIR / "evals" / "search"
 DEFAULT_EVAL_SETS = (
     "eval_queries_user.jsonl",
     "eval_queries_app_agent_dev.jsonl",

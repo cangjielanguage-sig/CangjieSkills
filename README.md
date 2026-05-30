@@ -1,6 +1,6 @@
 # CangjieSkills Release Bundle
 
-CangjieSkills 是面向仓颉语言与 HarmonyOS 仓颉应用开发的 Skills 发行包仓库。当前稳定发行标签为 `release-1.0.0`，根目录下按使用场景拆分为 4 个可独立安装的 bundle。
+CangjieSkills 是面向仓颉语言与 HarmonyOS 仓颉应用开发的 Skills 发行包仓库。当前稳定发行标签为 `release-1.0.1`，根目录下按使用场景拆分为 4 个可独立安装的 bundle。
 
 当前仓库地址：<https://gitcode.com/Cangjie-SIG/CangjieSkills>
 
@@ -10,16 +10,16 @@ CangjieSkills 是面向仓颉语言与 HarmonyOS 仓颉应用开发的 Skills �
 
 ```bash
 # 语言基础场景：仓颉语法、标准库、扩展库、原始文档兜底
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-language-basic -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-language-basic -y
 
 # HarmonyOS 仓颉应用开发场景：推荐给普通 HarmonyOS/Cangjie App 开发者
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-harmonyos -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-harmonyos -y
 
 # HarmonyOS 兼容包开发场景：推荐给普通 HarmonyOS/Cangjie App 开发者
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-harmonyos-compatible -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-harmonyos-compatible -y
 
 # 维护与增强场景：检索索引维护、知识图谱、项目经验沉淀，不建议普通用户默认安装
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-harmonyos-maintenance -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-harmonyos-maintenance -y
 ```
 
 如果已经克隆了本仓库，也可以从本地目录安装：
@@ -70,7 +70,7 @@ Bundle：`cangjie-language-basic`
 安装命令：
 
 ```bash
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-language-basic -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-language-basic -y
 ```
 
 ## HarmonyOS 开发场景
@@ -95,7 +95,7 @@ Bundle：`cangjie-harmonyos`
 安装命令：
 
 ```bash
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-harmonyos -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-harmonyos -y
 ```
 
 ## HarmonyOS 兼容包开发场景
@@ -121,7 +121,7 @@ Bundle：`cangjie-harmonyos-compatible`
 安装命令：
 
 ```bash
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-harmonyos-compatible -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-harmonyos-compatible -y
 ```
 
 ## 维护与增强场景
@@ -137,7 +137,7 @@ Bundle：`cangjie-harmonyos-maintenance`
 安装命令：
 
 ```bash
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.0/cangjie-harmonyos-maintenance -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.1/cangjie-harmonyos-maintenance -y
 ```
 
 ## 发行文件
@@ -150,4 +150,4 @@ npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills/-/tree/release-1.0.
 | `release-manifest.json` | 发布清单、文件摘要、生成产物记录 |
 | `release-check.json` | 发布检查结果 |
 
-当前发布标签：`release-1.0.0`。
+当前发布标签：`release-1.0.1`。

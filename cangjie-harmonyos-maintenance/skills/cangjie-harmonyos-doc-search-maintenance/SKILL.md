@@ -92,7 +92,7 @@ PYTHONDONTWRITEBYTECODE=1 python build_index_v3.py \
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python scripts/generate_appdev_eval_batch3_blind.py \
-  --strict-blind-out evals/eval_queries_user_appdev_blind_YYYYMMDD.jsonl \
+  --strict-blind-out evals/search/eval_queries_user_appdev_blind_YYYYMMDD.jsonl \
   --strict-source strict-blind-YYYYMMDD
 ```
 
@@ -127,7 +127,7 @@ PYTHONDONTWRITEBYTECODE=1 python scripts/analyze_search_logs.py \
 - 全量发布评估：7 套评测集，合计 814 条，`release status = pass`
 - 全量评测：所有套件 `success@5 = 1.0`、`error_rate = 0.0`
 - 健康检查：所有套件 `blocking = false`、`issue_counts = {}`
-- 严格 blind：`evals/eval_queries_user_appdev_blind_20260424.jsonl`，80 条，首跑 `success@1 = 0.875`、`success@5 = 1.0`
+- 严格 blind：`evals/search/eval_queries_user_appdev_blind_20260424.jsonl`，80 条，首跑 `success@1 = 0.875`、`success@5 = 1.0`
 
 ## 参考资料
 

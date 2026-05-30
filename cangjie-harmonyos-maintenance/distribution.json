@@ -213,6 +213,6 @@
       "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
     }
   ],
-  "created_at": "2026-05-25T02:03:49Z",
-  "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50"
+  "created_at": "2026-05-30T07:00:25Z",
+  "git_commit": "933b60040b855cb8ef595ec8df683ca26341ae96"
 }

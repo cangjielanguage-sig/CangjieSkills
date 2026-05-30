@@ -3,7 +3,7 @@
   "artifact": "release-manifest",
   "tool": "skill-release",
   "tool_version": "0.1.0",
-  "created_at": "2026-05-25T02:18:27Z",
+  "created_at": "2026-05-30T07:01:07Z",
   "status": "passed",
   "release": {
     "distribution_path": ".",
@@ -11,12 +11,12 @@
     "manifest_path": "release-manifest.json",
     "bundle_name": "cangjie-harmonyos-maintenance",
     "bundle_version": "1.0.0",
-    "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50"
+    "git_commit": "933b60040b855cb8ef595ec8df683ca26341ae96"
   },
   "source": {
     "repo": null,
     "repo_provided": false,
-    "git_commit": "6114b52d81de97223e9ed0f39310f4ea3a3cfd50",
+    "git_commit": "933b60040b855cb8ef595ec8df683ca26341ae96",
     "bundle_manifest": null,
     "package_manifests": [],
     "skills": [
@@ -217,7 +217,7 @@
     {
       "path": "distribution.json",
       "size": 6341,
-      "sha256": "970131571fba046bcef779a8d1c7a2c055e73bcc820572032d8fa211a1f49bbf"
+      "sha256": "dde1736af3b6b7475e8e61a5fff43ad6779015b69f8bcf9996464fc28146b339"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/records/baselines/.gitkeep",
@@ -231,13 +231,13 @@
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/evaluation-guide.md",
-      "size": 1892,
-      "sha256": "5a3d20891028b5de77cf06c0a4190a682a2c75a7a04b96399cf5471cf75670b9"
+      "size": 1976,
+      "sha256": "65aa87dbb319e92163d85f79c299568f8f8f1ef9c7ceaa761633243a523cf6b8"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/indexing-rules.md",
-      "size": 1201,
-      "sha256": "df14f6bfc8183b21fd0c3a22ec8bf3a85d8ef64f4bf551eaba8d50fdea702211"
+      "size": 1208,
+      "sha256": "e21a7e807fc01937617669d78103f330b5ad195a1af929f1ac0acc70cf4a8255"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/llm-enrichment.md",
@@ -276,8 +276,8 @@
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_ab_eval.py",
-      "size": 7798,
-      "sha256": "5d24845ba16d572f12b6c9cecbb0c95e87c13d26d55de51b6249df5c75ea9e47"
+      "size": 7831,
+      "sha256": "db2179f2b631b3ffb8cbdebdf3bec348ac0ac9b701107b6961a53561583afc54"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_corpus_expansion.py",
@@ -286,18 +286,18 @@
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_maintenance.py",
-      "size": 20793,
-      "sha256": "407f9638897b830f39ef15916ece519e17b72ebbcb05245648446230f467ea13"
+      "size": 20804,
+      "sha256": "7574ae7d362c8345c5b9c51cca1c04ac81b137879c0d0b7d6a09a0e5ecf313c3"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/SKILL.md",
-      "size": 5472,
-      "sha256": "cfb0a1dbb3e53f7addecd516557d1ea424b0520e8b77e5b5d03f17770aef2ae7"
+      "size": 5486,
+      "sha256": "6209c37ccf5f4617b5bb2062c2b8c3e08c78362190c4960f244b7adb4be5fd09"
     },
     {
       "path": "skills/harmonyos-evolution/SKILL.md",
-      "size": 2342,
-      "sha256": "619361283f303a9e67d499e6f542e569cd3d40e267e227d3fecd3e0c0e48cc3b"
+      "size": 2372,
+      "sha256": "ff0f21bfa3c0debba19469ed803c726237b320405fe3484971c7a0799b85d749"
     },
     {
       "path": "skills/knowledge-graph-template/analysis/__init__.py",
@@ -596,8 +596,8 @@
     },
     {
       "path": "skills/knowledge-graph-template/SKILL.md",
-      "size": 13288,
-      "sha256": "ef13025b2a807f66d7ea209964323355ecc727e4b89b4948db79c96ac0f924fc"
+      "size": 13378,
+      "sha256": "a71dbbd043d723a3e7b279082874f4f47f5a96edaea42fd67b82c368e65013f7"
     }
   ],
   "acceptance": {

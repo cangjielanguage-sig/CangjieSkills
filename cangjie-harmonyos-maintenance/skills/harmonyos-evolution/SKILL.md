@@ -1,6 +1,6 @@
 ---
 name: harmonyos-evolution
-description: "鸿蒙应用开发经验沉淀 Skill。构建成功后使用此 Skill 将本次遇到的难点和解决方案记录到 Evolution.md，构建失败排查时优先查阅 Evolution.md 匹配已有经验。禁止将未验证方案写入。"
+description: "当鸿蒙应用构建失败需要排查经验或构建成功需要沉淀经验时使用此 Skill。它能将遇到的难点和已验证解决方案记录到 Evolution.md，构建失败时优先查阅已有经验快速定位问题。禁止将未验证方案写入。"
 ---
 
 # 鸿蒙应用经验沉淀 Skill

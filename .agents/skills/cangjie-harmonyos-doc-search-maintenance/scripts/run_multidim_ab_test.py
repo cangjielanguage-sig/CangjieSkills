@@ -10,7 +10,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
-EVALS_DIR = SKILL_DIR / "doc-card" / "evals"
+EVALS_DIR = SKILL_DIR / "doc-card" / "evals" / "search"
 OUTPUT_DIR = SCRIPT_DIR / "ab-results-multidim"
 
 

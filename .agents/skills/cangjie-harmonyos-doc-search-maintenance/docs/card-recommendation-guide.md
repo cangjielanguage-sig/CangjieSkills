@@ -263,7 +263,7 @@ JSONL 方便人工 review、diff 和调试；`search.db` 负责查询时快速�
 构建阶段还会生成：
 
 ```text
-doc-card/evals/eval_queries_full.jsonl
+doc-card/evals/search/eval_queries_full.jsonl
 ```
 
 它由 `write_full_eval_queries(...)` 生成，会为 task/api/example/doc 四类卡片构造多类 query：

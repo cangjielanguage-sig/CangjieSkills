@@ -18,7 +18,7 @@ MAINTENANCE_DIR = SCRIPT_DIR.parent
 SKILLS_DIR = MAINTENANCE_DIR.parent
 SKILL_DIR = SKILLS_DIR / "cangjie-harmonyos-doc-search"
 DOC_CARD_DIR = SKILL_DIR / "doc-card"
-EVALS_DIR = DOC_CARD_DIR / "evals"
+EVALS_DIR = DOC_CARD_DIR / "evals" / "search"
 REMOTE_BACKENDS = ["cangjie-1.0.5", "harmonyos-6.0.2-15k"]
 
 

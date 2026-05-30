@@ -56,6 +56,6 @@
 
 评测产物：
 
-- 每次构建会生成 `evals/eval_queries_full.jsonl`
+- 每次构建会生成 `evals/search/eval_queries_full.jsonl`
 - 每张 `task/api/example/doc` 至少生成多类 query
 - 分类至少包含 `exact / natural / semi-structured / error-driven / exploration`

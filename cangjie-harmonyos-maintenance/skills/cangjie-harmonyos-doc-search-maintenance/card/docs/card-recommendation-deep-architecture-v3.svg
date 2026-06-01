@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <filter id="sketchy" x="-4%" y="-4%" width="108%" height="108%">
+      <feTurbulence type="turbulence" baseFrequency="0.022" numOctaves="4" seed="14" result="turbulence"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="1.8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch-blue" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#93c5fd" stroke-width="1.3" opacity="0.38"/></pattern>
+    <pattern id="hatch-green" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#6ee7b7" stroke-width="1.3" opacity="0.38"/></pattern>
+    <pattern id="hatch-orange" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#f4c56f" stroke-width="1.3" opacity="0.38"/></pattern>
+    <pattern id="hatch-purple" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#b4a0e8" stroke-width="1.3" opacity="0.38"/></pattern>
+    <pattern id="hatch-red" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="10" stroke="#fca5a5" stroke-width="1.3" opacity="0.38"/></pattern>
+    <marker id="arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 2 3 L 10 6 L 2 9 Z" fill="#2563eb"/></marker>
+    <marker id="arrow-green" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 2 3 L 10 6 L 2 9 Z" fill="#15803d"/></marker>
+    <marker id="arrow-orange" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 2 3 L 10 6 L 2 9 Z" fill="#c2410c"/></marker>
+    <marker id="arrow-purple" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path d="M 2 3 L 10 6 L 2 9 Z" fill="#7c3aed"/></marker>
+  </defs>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&amp;family=ZCOOL+KuaiLe&amp;display=swap');
+    text { font-family: 'Ma Shan Zheng', 'ZCOOL KuaiLe', 'STKaiti', 'KaiTi', cursive; }
+    .label-en { font-family: 'Comic Sans MS', 'Segoe Print', 'Bradley Hand', cursive, sans-serif; }
+    .title { font-size: 36px; font-weight: 700; fill: #111827; }
+    .subtitle { font-size: 18px; fill: #475569; }
+    .lane-title { font-size: 24px; font-weight: 700; }
+    .box-title { font-size: 20px; font-weight: 700; fill: #0f172a; }
+    .small { font-size: 16px; fill: #334155; }
+    .tiny { font-size: 14px; fill: #475569; }
+    .formula { font-size: 17px; fill: #1f2937; }
+  </style>
+  <rect x="0" y="0" width="1600" height="900" fill="#fffdf7"/>
+  <text x="56" y="58" class="title">卡片推荐方案技术架构</text>
+  <text x="58" y="90" class="subtitle">离线把文档结构化成卡片；SQLite .db 承载本地召回；在线阶段只读索引并做规则重排</text>
+
+<rect x="44" y="118" width="478" height="638" rx="22" fill="url(#hatch-blue)" stroke="#2563eb" stroke-width="3.4" filter="url(#sketchy)"/>
+<rect x="44" y="118" width="478" height="638" rx="22" fill="#dbeafe" opacity="0.76"/>
+<rect x="562" y="118" width="476" height="638" rx="22" fill="url(#hatch-green)" stroke="#15803d" stroke-width="3.4" filter="url(#sketchy)"/>
+<rect x="562" y="118" width="476" height="638" rx="22" fill="#d1fae5" opacity="0.76"/>
+<rect x="1078" y="118" width="478" height="638" rx="22" fill="url(#hatch-orange)" stroke="#c2410c" stroke-width="3.4" filter="url(#sketchy)"/>
+<rect x="1078" y="118" width="478" height="638" rx="22" fill="#fef3c7" opacity="0.76"/>
+<text x="74" y="156" class="lane-title" fill="#1e40af">① 离线构建面</text>
+<text x="592" y="156" class="lane-title" fill="#065f46">② 共享索引面</text>
+<text x="1108" y="156" class="lane-title" fill="#92400e">③ 在线查询面</text>
+<rect x="76" y="190" width="170" height="96" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="161.0" y="218" class="box-title" text-anchor="middle">原始文档</text>
+<text x="92" y="245" class="tiny label-en" font-size="14">Markdown 文件</text>
+<text x="92" y="263" class="tiny label-en" font-size="14">API / 指南 / 示例</text>
+<text x="92" y="281" class="tiny label-en" font-size="14">保留 source path</text>
+<rect x="292" y="190" width="190" height="96" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="387.0" y="218" class="box-title" text-anchor="middle">DocRecord</text>
+<text x="308" y="245" class="tiny label-en" font-size="14">path / source</text>
+<text x="308" y="263" class="tiny label-en" font-size="14">title / content</text>
+<text x="308" y="281" class="tiny label-en" font-size="14">summary</text>
+<rect x="76" y="350" width="180" height="118" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="166.0" y="378" class="box-title" text-anchor="middle">卡片抽取</text>
+<text x="92" y="405" class="tiny label-en" font-size="14">task 任务卡</text>
+<text x="92" y="423" class="tiny label-en" font-size="14">api 接口卡</text>
+<text x="92" y="441" class="tiny label-en" font-size="14">example 示例卡</text>
+<text x="92" y="459" class="tiny label-en" font-size="14">doc 原文卡</text>
+<rect x="300" y="350" width="182" height="118" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="391.0" y="378" class="box-title" text-anchor="middle">字段识别</text>
+<text x="316" y="405" class="tiny label-en" font-size="14">doc_kind / tags</text>
+<text x="316" y="423" class="tiny label-en" font-size="14">mode / intent</text>
+<text x="316" y="441" class="tiny label-en" font-size="14">object / problem</text>
+<text x="316" y="459" class="tiny label-en" font-size="14">source_paths</text>
+<rect x="76" y="548" width="180" height="116" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="166.0" y="576" class="box-title" text-anchor="middle">关系补全</text>
+<text x="92" y="603" class="tiny label-en" font-size="14">recommended_apis</text>
+<text x="92" y="621" class="tiny label-en" font-size="14">example_ids</text>
+<text x="92" y="639" class="tiny label-en" font-size="14">related_docs</text>
+<text x="92" y="657" class="tiny label-en" font-size="14">aliases</text>
+<rect x="300" y="548" width="182" height="116" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="391.0" y="576" class="box-title" text-anchor="middle">语义增强</text>
+<text x="316" y="603" class="tiny label-en" font-size="14">仅构建期可用 LLM</text>
+<text x="316" y="621" class="tiny label-en" font-size="14">补 query / alias</text>
+<text x="316" y="639" class="tiny" font-size="14">不改事实身份字段</text>
+<rect x="178" y="684" width="170" height="68" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="3" filter="url(#sketchy)"/>
+<text x="263.0" y="712" class="box-title" text-anchor="middle">写入产物</text>
+<text x="194" y="739" class="tiny label-en" font-size="14">JSONL + SQLite</text>
+<rect x="604" y="190" width="392" height="126" rx="12" fill="#f0fdfa" stroke="#15803d" stroke-width="3" filter="url(#sketchy)"/>
+<text x="800.0" y="218" class="box-title" text-anchor="middle">统一卡片模型</text>
+<text x="620" y="245" class="tiny label-en" font-size="14">identity: id / type / source_paths</text>
+<text x="620" y="263" class="tiny label-en" font-size="14">text: title / aliases / summary</text>
+<text x="620" y="281" class="tiny label-en" font-size="14">route: mode / intent / object / problem</text>
+<text x="620" y="299" class="tiny label-en" font-size="14">evidence: snippets / relations</text>
+<path d="M 654.0 415 C 654.0 386, 946.0 386, 946.0 415 L 946.0 518 C 946.0 548, 654.0 548, 654.0 518 Z" fill="#f0fdfa" stroke="#15803d" stroke-width="3" filter="url(#sketchy)"/>
+<ellipse cx="800" cy="415" rx="146.0" ry="25" fill="#ffffff" opacity="0.52" stroke="#15803d" stroke-width="2.5" filter="url(#sketchy)"/>
+<text x="800" y="424" class="box-title label-en" text-anchor="middle">search.db</text>
+<text x="676.0" y="456" class="tiny label-en" font-size="14">cards: card_id + metadata_json</text>
+<text x="676.0" y="474" class="tiny label-en" font-size="14">cards_fts: title / alias / summary</text>
+<text x="676.0" y="492" class="tiny label-en" font-size="14">content: 用于 BM25 全文召回</text>
+<text x="676.0" y="510" class="tiny" font-size="14">查询阶段只读，不依赖网络</text>
+<rect x="604" y="610" width="178" height="94" rx="12" fill="#f0fdfa" stroke="#15803d" stroke-width="3" filter="url(#sketchy)"/>
+<text x="693.0" y="638" class="box-title" text-anchor="middle">JSONL</text>
+<text x="620" y="665" class="tiny" font-size="14">人工审查</text>
+<text x="620" y="683" class="tiny label-en" font-size="14">diff / 回滚</text>
+<text x="620" y="701" class="tiny" font-size="14">发布前检查</text>
+<rect x="818" y="610" width="178" height="94" rx="12" fill="#f0fdfa" stroke="#15803d" stroke-width="3" filter="url(#sketchy)"/>
+<text x="907.0" y="638" class="box-title" text-anchor="middle">评测集</text>
+<text x="834" y="665" class="tiny label-en" font-size="14">候选 query</text>
+<text x="834" y="683" class="tiny label-en" font-size="14">golden card</text>
+<text x="834" y="701" class="tiny label-en" font-size="14">blind 轮换</text>
+<rect x="1110" y="190" width="178" height="96" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1199.0" y="218" class="box-title" text-anchor="middle">用户问题</text>
+<text x="1126" y="245" class="tiny" font-size="14">自然语言输入</text>
+<text x="1126" y="263" class="tiny label-en" font-size="14">API / 任务 / 报错</text>
+<rect x="1342" y="190" width="178" height="96" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1431.0" y="218" class="box-title" text-anchor="middle">问题理解</text>
+<text x="1358" y="245" class="tiny label-en" font-size="14">识别 mode</text>
+<text x="1358" y="263" class="tiny" font-size="14">提取意图对象</text>
+<text x="1358" y="281" class="tiny" font-size="14">判断问题类型</text>
+<rect x="1110" y="366" width="178" height="104" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1199.0" y="394" class="box-title" text-anchor="middle">Query 扩展</text>
+<text x="1126" y="421" class="tiny" font-size="14">别名与同义词</text>
+<text x="1126" y="439" class="tiny" font-size="14">中英混搜</text>
+<text x="1126" y="457" class="tiny label-en" font-size="14">API 符号补全</text>
+<rect x="1342" y="366" width="178" height="104" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1431.0" y="394" class="box-title" text-anchor="middle">FTS 召回</text>
+<text x="1358" y="421" class="tiny label-en" font-size="14">SQLite FTS5</text>
+<text x="1358" y="439" class="tiny label-en" font-size="14">BM25 TopN</text>
+<text x="1358" y="457" class="tiny" font-size="14">得到候选卡</text>
+<rect x="1110" y="550" width="190" height="114" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1205.0" y="578" class="box-title" text-anchor="middle">规则重排</text>
+<text x="1126" y="605" class="tiny" font-size="14">卡片类型优先级</text>
+<text x="1126" y="623" class="tiny label-en" font-size="14">mode / intent 加分</text>
+<text x="1126" y="641" class="tiny label-en" font-size="14">API 与示例关系</text>
+<text x="1126" y="659" class="tiny" font-size="14">路径与问题加权</text>
+<rect x="1340" y="550" width="180" height="114" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1430.0" y="578" class="box-title" text-anchor="middle">TopK 输出</text>
+<text x="1356" y="605" class="tiny" font-size="14">推荐卡片</text>
+<text x="1356" y="623" class="tiny" font-size="14">使用场景</text>
+<text x="1356" y="641" class="tiny label-en" font-size="14">source_paths</text>
+<text x="1356" y="659" class="tiny" font-size="14">阅读顺序</text>
+<rect x="1224" y="682" width="182" height="68" rx="12" fill="#fff7ed" stroke="#c2410c" stroke-width="3" filter="url(#sketchy)"/>
+<text x="1315.0" y="710" class="box-title" text-anchor="middle">原文确认</text>
+<text x="1240" y="737" class="tiny label-en" font-size="14">按 source_paths 回读</text>
+<path d="M 246 238 C 260 238, 276 238, 292 238" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 387 286 C 390 315, 206 318, 166 350" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 256 408 C 270 408, 286 408, 300 408" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 166 468 C 166 496, 166 520, 166 548" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 391 468 C 391 496, 391 520, 391 548" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 166 664 C 170 684, 192 704, 222 718" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 391 664 C 386 690, 356 704, 348 718" fill="none" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<path d="M 348 718 C 442 720, 522 670, 604 657" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<path d="M 482 408 C 535 355, 562 287, 604 253" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<text x="494" y="702" class="tiny" fill="#15803d">构建产物</text>
+<text x="500" y="333" class="tiny" fill="#15803d">字段进入模型</text>
+<path d="M 800 316 C 800 340, 800 360, 800 390" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<path d="M 742 544 C 705 570, 675 590, 670 610" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<path d="M 858 544 C 895 570, 910 590, 907 610" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<path d="M 1288 238 C 1305 238, 1324 238, 1342 238" fill="none" stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<path d="M 1431 286 C 1431 326, 1199 326, 1199 366" fill="none" stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<path d="M 1288 418 C 1305 418, 1324 418, 1342 418" fill="none" stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<path d="M 1431 470 C 1431 514, 1204 510, 1204 550" fill="none" stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<path d="M 1300 607 C 1312 607, 1325 607, 1340 607" fill="none" stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<path d="M 1430 664 C 1430 688, 1378 702, 1406 716" fill="none" stroke="#c2410c" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<path d="M 946 455 C 1012 455, 1058 426, 1110 418" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<text x="960" y="450" class="tiny" fill="#15803d">读取索引</text>
+<path d="M 946 535 C 1018 548, 1068 574, 1110 600" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)"/>
+<text x="978" y="535" class="tiny" fill="#15803d">候选重排</text>
+<path d="M 996 657 C 1045 650, 1084 634, 1110 618" fill="none" stroke="#15803d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow-green)" stroke-dasharray="12 9"/>
+<text x="994" y="641" class="tiny" fill="#15803d">评测验证</text>
+<rect x="74" y="790" width="470" height="54" rx="14" fill="url(#hatch-red)" stroke="#dc2626" stroke-width="3" filter="url(#sketchy)"/>
+<rect x="74" y="790" width="470" height="54" rx="14" fill="#fee2e2" opacity="0.76"/>
+<text x="96" y="814" class="tiny label-en" font-size="15">硬约束：查询阶段不调用 LLM；事实依据回到 source_paths</text>
+<text x="96" y="833" class="tiny label-en" font-size="15">LLM 只允许在构建阶段补语义字段</text>
+<rect x="604" y="790" width="780" height="54" rx="14" fill="url(#hatch-purple)" stroke="#7c3aed" stroke-width="3" filter="url(#sketchy)"/>
+<rect x="604" y="790" width="780" height="54" rx="14" fill="#ede9fe" opacity="0.76"/>
+<text x="628" y="813" class="formula label-en">score = BM25(title×10, alias×8, summary×5, content×2)</text>
+<text x="628" y="833" class="formula label-en">      + mode / intent / object / id / path / problem bonus</text>
+<circle cx="1440" cy="803" r="7" fill="#2563eb"/><text x="1456" y="809" class="tiny">构建流</text>
+<circle cx="1440" cy="827" r="7" fill="#15803d"/><text x="1456" y="833" class="tiny">索引读写</text>
+<circle cx="1440" cy="851" r="7" fill="#c2410c"/><text x="1456" y="857" class="tiny">查询流</text>
+</svg>

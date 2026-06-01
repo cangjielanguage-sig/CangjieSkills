@@ -3,7 +3,7 @@
   "artifact": "release-manifest",
   "tool": "skill-release",
   "tool_version": "0.1.0",
-  "created_at": "2026-05-30T07:01:07Z",
+  "created_at": "2026-06-01T02:12:12Z",
   "status": "passed",
   "release": {
     "distribution_path": ".",
@@ -11,12 +11,12 @@
     "manifest_path": "release-manifest.json",
     "bundle_name": "cangjie-harmonyos-maintenance",
     "bundle_version": "1.0.0",
-    "git_commit": "933b60040b855cb8ef595ec8df683ca26341ae96"
+    "git_commit": "c78bf0755f33cd202d1125e64c9bdf9d4a840de5"
   },
   "source": {
     "repo": null,
     "repo_provided": false,
-    "git_commit": "933b60040b855cb8ef595ec8df683ca26341ae96",
+    "git_commit": "c78bf0755f33cd202d1125e64c9bdf9d4a840de5",
     "bundle_manifest": null,
     "package_manifests": [],
     "skills": [
@@ -31,573 +31,403 @@
         "source_path": "harmonyos-evolution",
         "package_name": "cj-hmos-evolution",
         "distribution_path": "skills/harmonyos-evolution"
-      },
-      {
-        "name": "knowledge-graph-template",
-        "source_path": "knowledge-graph-template",
-        "package_name": "cj-hmos-knowledge-graph",
-        "distribution_path": "skills/knowledge-graph-template"
       }
     ]
   },
   "generated_artifacts": [
     {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/GRAPH_REPORT.md",
-      "size": 2652,
+      "skill_source_path": "cangjie-harmonyos-doc-search-maintenance",
+      "path": "card/records/docs_manifest_15k.json",
+      "size": 3978732,
       "reasons": [
         "generated_artifact_candidate"
       ],
       "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "SKILL.md",
-        "analysis/README.md"
+        "card/README.md"
       ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/graph.json",
-      "size": 6039746,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/graph_layered.json",
-      "size": 26796550,
-      "reasons": [
-        "git_lfs_tracked",
-        "exceeds_gitcode_10_mib_limit",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "SKILL.md",
-        "analysis/README.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/graph_layered_llm.json",
-      "size": 26805346,
-      "reasons": [
-        "git_lfs_tracked",
-        "exceeds_gitcode_10_mib_limit",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "SKILL.md",
-        "analysis/README.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/semantic/enhanced_queries_cache.json",
-      "size": 133,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "query_llm.py",
-        "builders/cache.py",
-        "builders/detect.py",
-        "builders/extract_ast.py"
-      ],
-      "recovery_command": "No command required; cache is regenerated on demand."
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/harmonyos/graph.json",
-      "size": 6842134,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/lang-features/graph.json",
-      "size": 476757,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/std/graph.json",
-      "size": 3554406,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/stdx/graph.json",
-      "size": 720416,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/tools/graph.json",
-      "size": 68165,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
+      "recovery_command": "python card/builder/build_index_v3.py --mode rule --index-dir doc-card/index"
     }
   ],
   "files": [
     {
       "path": "distribution.json",
-      "size": 6341,
-      "sha256": "dde1736af3b6b7475e8e61a5fff43ad6779015b69f8bcf9996464fc28146b339"
+      "size": 1415,
+      "sha256": "f3b6d8ff425990b5a4c514f2b32e0fb604bc024c1a9c9a64707540a14013f2d0"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/records/baselines/.gitkeep",
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/builder/build_index_v3.py",
+      "size": 156227,
+      "sha256": "97c9573d0ef40d875bc161dcd73af1ca9edd33985a036b205eda34cb481397ee"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/builder/high_value_tasks_ext.py",
+      "size": 37908,
+      "sha256": "6542ebc58ba22874cc5164f3c2c82f75aedf3c5638a9925905f2d2afa1c14606"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/docs/card-recommendation-deep-architecture-v3.png",
+      "size": 810218,
+      "sha256": "d7ddc2254cab2f129bf8390cb5bfb428dcd1636e5e22451fe00de9d73f412762"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/docs/card-recommendation-deep-architecture-v3.svg",
+      "size": 18291,
+      "sha256": "2bfd85f0a6c8e49a2e3a02adb8d073516df02c76ce51a6c07582d96804ca88a9"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/docs/card-recommendation-guide.md",
+      "size": 26572,
+      "sha256": "3869049e66f5402b22c569cb5b68c9a011b6bc79ee2a8a9c3c5eff5b20befb41"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/README.md",
+      "size": 5849,
+      "sha256": "ee841193417280ac02eab858a3bc83cc20a312fff822c4e96825aa99315f8dbc"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/ab-15k-after-expansion.json",
+      "size": 53238,
+      "sha256": "59c36eaca694342855f84ac406e0f144891f4c37558b06bb28d20a958ddb7deb"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/ab-15k-after-rule-llm.json",
+      "size": 168745,
+      "sha256": "c92640d979b9319227a0bd1a69f97d692197b8701b89e0747cfe365a4d729c65"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/ab-15k-baseline.json",
+      "size": 168639,
+      "sha256": "2512ee693833e41f41987550e33cee1597a5135967cb53af41275ffda6963550"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/ab-15k-post-rule-llm-template.md",
+      "size": 944,
+      "sha256": "c73a17b523ef387331ea27cc129c6bae9523ea610c98c1c9e8a794a06dfe5df0"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/baselines/.gitkeep",
       "size": 2,
       "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/records/run-history/.gitkeep",
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/baselines/15k-initial.json",
+      "size": 168639,
+      "sha256": "2512ee693833e41f41987550e33cee1597a5135967cb53af41275ffda6963550"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/expansion-8k-to-15k.md",
+      "size": 622,
+      "sha256": "e3c2ec09006c8823e042459b16b8c65dd915531bfff7fa2759c5dc6f1079cf9c"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/run-history/.gitkeep",
       "size": 2,
       "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/evaluation-guide.md",
-      "size": 1976,
-      "sha256": "65aa87dbb319e92163d85f79c299568f8f8f1ef9c7ceaa761633243a523cf6b8"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/v3-regression-gate-15k-post-rule-llm.json",
+      "size": 1001470,
+      "sha256": "531a465ed3003aa9b7de8a25275cc8d1c440e8852e8d7d2bde2ede42fc3052b1"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/indexing-rules.md",
-      "size": 1208,
-      "sha256": "e21a7e807fc01937617669d78103f330b5ad195a1af929f1ac0acc70cf4a8255"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/v3_seeds_15k.json",
+      "size": 3591363,
+      "sha256": "62034daee2d0751cc76a2c55aca40fb8103bf205d88f2024eedd992e325623a8"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/llm-enrichment.md",
-      "size": 1491,
-      "sha256": "59fc7a9cad09a53ffe501d8ad2775d5cc7f6d01ccb46a0808a57d02ab887cd21"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/records/v3_seeds_15k_post_llm.json",
+      "size": 3578995,
+      "sha256": "e86ebb65f6aa0e28c938f4da38aec1e00674c284ff5714895d67763c6dc8526d"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/troubleshooting.md",
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/references/evaluation-guide.md",
+      "size": 1892,
+      "sha256": "5a3d20891028b5de77cf06c0a4190a682a2c75a7a04b96399cf5471cf75670b9"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/references/indexing-rules.md",
+      "size": 1201,
+      "sha256": "df14f6bfc8183b21fd0c3a22ec8bf3a85d8ef64f4bf551eaba8d50fdea702211"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/references/llm-enrichment.md",
+      "size": 1555,
+      "sha256": "c43818651eb977426418af1dee0ef5756dc5a8c6c48a22d0cdaee9eba5695933"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/references/troubleshooting.md",
       "size": 2325,
       "sha256": "1cf3d8d86af857924e239adfe38faecadb64e535c6576b5c72e525c6b918dfb4"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/references/workflow-overview.md",
-      "size": 2273,
-      "sha256": "cc40c720f0450b054d696f54b2a0098270bfd6073fbcec77dbd4c5e8dad6381c"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/references/workflow-overview.md",
+      "size": 2345,
+      "sha256": "8e0d0244326e17d7f877a740b3b513676cb8bab86839f1667f9a92d233a04dcc"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/audit_api_coverage.py",
-      "size": 11518,
-      "sha256": "95e9d555ef432edbce5498f60dab64d5cb9172a05f78488de5d6df48bd0d1692"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/analyze_user_eval_failures.py",
+      "size": 2962,
+      "sha256": "d0ee14b011df444c112a806d9ace3cbe56eec2946a852e5390a03dccb2460878"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/audit_coverage.py",
-      "size": 11878,
-      "sha256": "c2889582fde6e96f93a670c0da6dde0f8415ba8f9e218a18e855036430baf80d"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/audit_api_coverage.py",
+      "size": 11628,
+      "sha256": "b827fa0d2ffe94f58f8949cae4a8190f958e4d845d0c14c6457bc00a76dda093"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/env.example",
-      "size": 295,
-      "sha256": "053d60332b3198f3731c3aa4446e37330ffa2c71c71a7ae0349a9552b1c55162"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/audit_coverage.py",
+      "size": 11988,
+      "sha256": "1b6adbdaa8e8a13196a70453c1c6a04537945e19330f9b3e5d3c444c30327c65"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/load_env.sh",
-      "size": 1195,
-      "sha256": "528c018529f71f893f54af880203d9bd197f958027042567519cf61446d7e6cf"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/build_doc_manifest.py",
+      "size": 2483,
+      "sha256": "4acac973f3029fae8cc7be11c29e3691baca2e0b6e949e42bd57b46cd4772490"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_ab_eval.py",
-      "size": 7831,
-      "sha256": "db2179f2b631b3ffb8cbdebdf3bec348ac0ac9b701107b6961a53561583afc54"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/diff_doc_manifest.py",
+      "size": 3238,
+      "sha256": "dba345cf2276c783d67f99ab75b2db9535a0215a1fdf24fa0d277a4c3e9d2721"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_corpus_expansion.py",
-      "size": 6230,
-      "sha256": "3f9708b956e0b6ee2da9c057e2377cc9f821255e62c28c9cb442304a0a7f93c7"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/enrich_existing_index_appdev.py",
+      "size": 13047,
+      "sha256": "726ce510ab5c085f07bd1afac9a87636be7878d27bf0580dba90cdd235150b15"
     },
     {
-      "path": "skills/cangjie-harmonyos-doc-search-maintenance/scripts/run_maintenance.py",
-      "size": 20804,
-      "sha256": "7574ae7d362c8345c5b9c51cca1c04ac81b137879c0d0b7d6a09a0e5ecf313c3"
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/eval_bench.py",
+      "size": 8662,
+      "sha256": "5bbcf196935ec0ca8f3ac5d2d727ec0d54190c54fbce9c0aede3f9b62fc30f46"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/load_env.sh",
+      "size": 2240,
+      "sha256": "e32eb0f7907f3759999a69c01b1f7f299dbcf5aee6562ca6e8f0370b652da8bb"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/repair_llm_failure_cache.py",
+      "size": 6063,
+      "sha256": "8e58830b3fd8aa4a9304f39ce255a75e5d3493b84f081440c6b9b1a0d3a7de81"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/run_ab_eval.py",
+      "size": 10272,
+      "sha256": "5f64cb5e4e61f44b48b86f8efef6bbbe76bbbde2da20cb7e267b61e58771ea07"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/run_corpus_expansion.py",
+      "size": 6286,
+      "sha256": "b16c404359592b69ad2817dfc6132aefbb6f52f654835af7b467d0c100466add"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/run_maintenance.py",
+      "size": 27512,
+      "sha256": "3f1b122aa0b1610f619a7516b2b025e42513cab7eb1e39daf0da006d4768e83b"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/run_semantic_capability_gate.py",
+      "size": 3768,
+      "sha256": "1645b58d20fc6dfe1460eea7cd152273144fd235f1dd3e59ed65b0d7359011df"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/run_v3_regression_gate.py",
+      "size": 3080,
+      "sha256": "01d5d5e192b2de5d96612eafe4d19f13d1b84faf83016aa5e51c43704baa3947"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/card/scripts/sync_v3_to_graph.py",
+      "size": 7905,
+      "sha256": "b445a19a448b717f68b347320b6ddb555d866d0e5738c41c09209a7c4ca13d44"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/README.md",
+      "size": 6328,
+      "sha256": "1800ffb9ec2696d596578f61977b88fe410d8e83f09da3a8037f0c8a099771ba"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/analyze_search_logs.py",
+      "size": 5830,
+      "sha256": "2985b2f31dd514d45b87ba7995b65c68d186dc86799736186439b600e497cbf9"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/generate_appdev_eval_batch3_blind.py",
+      "size": 10249,
+      "sha256": "0dd6787509711a14e6a91f3a0898b471402f91ea353954113853ef5b01d3f852"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/generate_eval_candidates_from_doc_diff.py",
+      "size": 4769,
+      "sha256": "3e6ab953711d7f02f4ff231fe4f8d511c70029eb3adda04ab5dda3a74cbb3e73"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/record_search_feedback.py",
+      "size": 2107,
+      "sha256": "630aa39cc63c880a60b75a869360a788038890047bda30300f33752bbed2bf6b"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/regenerate_15k_independent_evals.py",
+      "size": 19220,
+      "sha256": "5ddf7e4fc930c47138f3e82713a884c1830b9124cb84759b3080fcbb9911743b"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/run_ab_eval.py",
+      "size": 9654,
+      "sha256": "e3105a9f2906e361fdfac4d9b60fc1d453d90967d1fc3af4758c67d9662c7fa1"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/run_maintenance.py",
+      "size": 27418,
+      "sha256": "4549b9925dfff49ac0e8f5eb005c6d6417863f3447600d6181dd95a655848536"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/run_release_eval.py",
+      "size": 10210,
+      "sha256": "d7ea1ea7a268be77bb0c4f0060ee094b183bafe27082d76547d087e5a2aa4c2b"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/fusion/scripts/validate_eval_set.py",
+      "size": 11039,
+      "sha256": "ad9464392919feca6e2f50f9b782a88b6841808e8293fc5690f8e2f285abc74e"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/build_cli.py",
+      "size": 9573,
+      "sha256": "b8591b3e0787690967ebd15da10f104e6f6b9c1313d8bf3f19a0dd31a6a96136"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/builders/__init__.py",
+      "size": 1127,
+      "sha256": "f8c67c31ed62a46ed9c0406215a23f40c5204a67f4dd9fce7605c337f368e852"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/builders/build.py",
+      "size": 8956,
+      "sha256": "a072d2b648c00c312863ea278096c42632b292fbf1cb85d7db004771f7792426"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/builders/cache.py",
+      "size": 4570,
+      "sha256": "81c9f61887fb0b8abf42a65592a3fc52c35c00764970af1e8203d90aed91e8eb"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/builders/cluster.py",
+      "size": 3614,
+      "sha256": "b2fe500fcc8bb81c3dcf8e06aa41bc2b8b15eccdeb832cbd79240fe3dbf930ac"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/builders/detect.py",
+      "size": 14256,
+      "sha256": "8faccb6d693cdba1f1677bcb2b011e0e4cf05cf0a9dad80b71d96a24315655d0"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/builders/validate.py",
+      "size": 3369,
+      "sha256": "8c9a417e9e93af08650a7c38b662b6da9b8b346d558632635ad61828c92706bf"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/code/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/code/builder.py",
+      "size": 1792,
+      "sha256": "224c907a511910e42234fdb7eba13b46de6c543349223a5f20ea5783cbf27165"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/code/extractor.py",
+      "size": 39896,
+      "sha256": "b0014b3061aae260c17dc982b38a2d87edb268ff7609e194408a1157aaa2c0f9"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/doc/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/doc/builder.py",
+      "size": 6243,
+      "sha256": "a491ed41e63cf3f828c045d841132e28c9866ccf39865a0ebedf0d700ec05ac9"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/doc/extractor.py",
+      "size": 28318,
+      "sha256": "daee0415751a3c75670ce4283cdd2334cde0f6e5dc171c814959865f4b888347"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/llm/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/llm/enhancer.py",
+      "size": 14890,
+      "sha256": "62d91b0913161014a2b69d384d58776a85e4c533ed3308f26d50d76bd7b699f9"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/builder/llm/pipeline.py",
+      "size": 6837,
+      "sha256": "55759e0dc4079cb82b443584565cebc8522425847c7ef63117b6c6f3ce7cb9e3"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/README.md",
+      "size": 6142,
+      "sha256": "3801d541ac3f83cb5a40e925fa127a860e993e19043df1b04ace903c29177e68"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/records/docs_statistics.json",
+      "size": 733,
+      "sha256": "85ae0f602d3a69aa760e3cb8830758f885e69daa12adb097e1183cdd224a37da"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/references/ARCHITECTURE.md",
+      "size": 30015,
+      "sha256": "b02f899e3cde8a5607838404f00943fd5b7b55af6b4cbc1d452b2dfbd5bacbf0"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/references/BUILD_GUIDE.md",
+      "size": 16703,
+      "sha256": "8290f7e58d7c19c544255ce3277ee5d31094d9568ed837ce25417d3925132a91"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/scripts/build_code_graph.py",
+      "size": 361,
+      "sha256": "4f767374a352e4834b046a2c6414ff966f86c9e51d39bc9649a0ab093ca87304"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/scripts/build_doc_graph.py",
+      "size": 359,
+      "sha256": "e42b929c6361621e6a95194b04572f3f33c66b9b2053ddd6293d74174fbef96f"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/scripts/docs_statistics.py",
+      "size": 7160,
+      "sha256": "ec839f203f7dec9b4f8afdfc8bdf8774e909d254eba36da7963884b6c4e4676b"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/scripts/run_graph_release_eval.py",
+      "size": 542,
+      "sha256": "e7fdb37743690002f384e6e361c7aa22c5c9f273156786e69c658df7579a7090"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/graph/scripts/validate_graph_data.py",
+      "size": 1853,
+      "sha256": "ff4a93c6c3f18b50b193268ef9001f9629b4e91486133abdf4ff85c49b7a4668"
+    },
+    {
+      "path": "skills/cangjie-harmonyos-doc-search-maintenance/README.md",
+      "size": 4719,
+      "sha256": "741c8e537de6eb890bd7235b5751e2290c1699f3aabcf3bd72abe060935a0c84"
     },
     {
       "path": "skills/cangjie-harmonyos-doc-search-maintenance/SKILL.md",
-      "size": 5486,
-      "sha256": "6209c37ccf5f4617b5bb2062c2b8c3e08c78362190c4960f244b7adb4be5fd09"
+      "size": 9577,
+      "sha256": "5ec36d25102201714f2453c3207dfad123fddd907a0dda1f2fcaf3124fbc7736"
     },
     {
       "path": "skills/harmonyos-evolution/SKILL.md",
       "size": 2372,
       "sha256": "ff0f21bfa3c0debba19469ed803c726237b320405fe3484971c7a0799b85d749"
-    },
-    {
-      "path": "skills/knowledge-graph-template/analysis/__init__.py",
-      "size": 223,
-      "sha256": "f93ab2a04a1833ce14f984ee411e4d385687c9950313ec1bb98781fa64cd36f4"
-    },
-    {
-      "path": "skills/knowledge-graph-template/analysis/analyze.py",
-      "size": 12883,
-      "sha256": "4f4941916e43a3be5709973bc73481241ba2e44af060682bd4673dfc0c371cf5"
-    },
-    {
-      "path": "skills/knowledge-graph-template/analysis/README.md",
-      "size": 12211,
-      "sha256": "2bcc6e57ad9d463297a8a6a79ddab3ff27d1be44595c3c66511bf433303b523a"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/__init__.py",
-      "size": 1795,
-      "sha256": "27a099958fa89ab646ee989ca9b39e85d31da3e47019379948fb679e3070577e"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/build.py",
-      "size": 12319,
-      "sha256": "2f7e46b5d5484ff03d5b96742e2f324eb2c1ca15dc71158c18c599ec05a97274"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/cache.py",
-      "size": 4570,
-      "sha256": "81c9f61887fb0b8abf42a65592a3fc52c35c00764970af1e8203d90aed91e8eb"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/cluster.py",
-      "size": 3611,
-      "sha256": "117a47e0486f94da71c0b2cda18048cb0835df991dc8083cde1b6e620de4a25e"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/detect.py",
-      "size": 12178,
-      "sha256": "f28cad983cf408982c79f1b398f6bd95a3c65376a5e0175109adbf788e7b1736"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/extract_ast.py",
-      "size": 156180,
-      "sha256": "0027f711732fd51bd74d34474f05bfb247d2925ff559aae09bbf0f926d6ad6a2"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/extract_semantic.py",
-      "size": 7360,
-      "sha256": "64c37acd9381f8ab4f2da66f71c9b8768fee636d4e599dc81dd3be5bf9a6a1fd"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/extract_semantic_llm.py",
-      "size": 24091,
-      "sha256": "7068507c91951b24bcd57a60784fbef22ef25c45a7c9cfc2494f1d1cbdd6623d"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/extract_semantic_llm.py.md",
-      "size": 7118,
-      "sha256": "e0cf5cc4d03cfe014e261c7e83cfc55d909ce1502ff7c1a591dab2c13b5fdb5c"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/llm_semantic_builder.py",
-      "size": 4599,
-      "sha256": "d8c02164eb06763c50d130c828d393536f621ddf99959375e3d89593f616a6a1"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/llm_semantic_builder_v2.py",
-      "size": 6401,
-      "sha256": "00d2a8e6721afc1ffdb00118ae67b7ca2741ea5bd7fdc287856adad658b372dd"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/llm_semantic_framework.py",
-      "size": 1378,
-      "sha256": "0198b3a09cb38e1ec3c80dedb70683b8962fd8f1c59c6d9a91cb50eda25d5d8e"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/merge_semantic_edges.py",
-      "size": 3844,
-      "sha256": "cd676c772f42d20651842187497ca54f1746eaab0dda1436a5b132fb31240012"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/query_enhancer.py",
-      "size": 7548,
-      "sha256": "f2882014b97271c1399a3a04ab8887643d3ed55a1f85c6f54b2665c73440ad38"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/README.md",
-      "size": 20290,
-      "sha256": "08714815d6186282a6daeb6dac8f99c6d2e240f482465e4bc26021ff6f958023"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/security.py",
-      "size": 7677,
-      "sha256": "7d45c0a70fc5096d5fbfae7c7da39586bc0acad4e8aa68b5aea0695c03361e42"
-    },
-    {
-      "path": "skills/knowledge-graph-template/builders/validate.py",
-      "size": 3369,
-      "sha256": "8c9a417e9e93af08650a7c38b662b6da9b8b346d558632635ad61828c92706bf"
-    },
-    {
-      "path": "skills/knowledge-graph-template/cli.py",
-      "size": 34527,
-      "sha256": "8b3c20ed45350ae57b13eecf4ee40a04eb8656d06a2a00982e976725faf3bebf"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/__init__.py",
-      "size": 308,
-      "sha256": "0d62ef9630eadc89f6a979fddaf332f7c3888b421005d627772929054187b92e"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/layer.py",
-      "size": 3737,
-      "sha256": "3629b88880f70235005259c38c2476852529a54b369a26f60f3b6391bc17eae3"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/models.py",
-      "size": 1453,
-      "sha256": "f66f43de0fe7c88fd4a9709e2753b02f655b0906cd0f40d9dedded8757c87ce8"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/README.md",
-      "size": 19498,
-      "sha256": "075bde49c120200dda0505f90c5a0f4e7c70754b847642b9934cf4ebba437ddf"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/search.py",
-      "size": 2261,
-      "sha256": "262daed33f2f1cb08adc7c62eb8bc8699b6086d42796d93200582db55ea1df69"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/smart_router.py",
-      "size": 13684,
-      "sha256": "f897a2b8804b2a284b20a3be65b00d3f5559142f145272c630f703aa0888d42c"
-    },
-    {
-      "path": "skills/knowledge-graph-template/core/traversal.py",
-      "size": 11260,
-      "sha256": "af92a038236aef4546375cc89c1ae798fe84275229f65fe78070b18776186865"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/.gitkeep",
-      "size": 5,
-      "sha256": "f01a374e9c81e3db89b3a42940c4d6a5447684986a1296e42bf13f196eed6295"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/ARCHITECTURE.md",
-      "size": 27123,
-      "sha256": "592906a261a20abcb8f900fbc58316a1429d4671ffa23b9b99c944d36d7914a6"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/harmonyos-6.1-8k",
-      "size": 51,
-      "sha256": "6cc76fd4466321e463c225b29a97820f69af959d6a98cb8fbd79ce29c3eb2824"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/lang-features",
-      "size": 48,
-      "sha256": "837caa5c624b294856d838414ca69ed88aa88dff2a2324486472560a02906d60"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/std",
-      "size": 38,
-      "sha256": "6cfc0cf0015513f176cb6e9b9acca770af3bba29c9bce1febc7fe3779caef8c2"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/stdx",
-      "size": 39,
-      "sha256": "a98ac49e6ae749c0e33d8c056e319a7d5f1688bafe775d24c6bdecea14e816d8"
-    },
-    {
-      "path": "skills/knowledge-graph-template/docs/tools",
-      "size": 40,
-      "sha256": "7dc362ded4afa32a197fa7c726f90478b53dee1cd7cff7dd268f206a54695f82"
-    },
-    {
-      "path": "skills/knowledge-graph-template/engines/__init__.py",
-      "size": 412,
-      "sha256": "f3baee85a4bef2f43ae8d1c8ab51f14257d97e6db1021a3817b1a1154bbc18ea"
-    },
-    {
-      "path": "skills/knowledge-graph-template/engines/base.py",
-      "size": 4080,
-      "sha256": "f8dfc457f9bd39b44265b383ce0024cfdfaff711c6f80d888b7d6d682d452430"
-    },
-    {
-      "path": "skills/knowledge-graph-template/engines/graphify_engine.py",
-      "size": 14727,
-      "sha256": "90cfd4fe96aacf10764cbeabb78e557fae6b566517758fc76c4d5961f5e30d90"
-    },
-    {
-      "path": "skills/knowledge-graph-template/engines/README.md",
-      "size": 15810,
-      "sha256": "6f0011d78384f67aaa70bba7e49d3882a984b48ce57faad0a281360b56796692"
-    },
-    {
-      "path": "skills/knowledge-graph-template/engines/registry.py",
-      "size": 1200,
-      "sha256": "b1dc1cc7b2d1d09bb6ff2c530a59da64becf1813d0bc2975a469171e3d64e178"
-    },
-    {
-      "path": "skills/knowledge-graph-template/export/__init__.py",
-      "size": 345,
-      "sha256": "2e9d84f392bb246d829d4c60813f3d522e8ce648bdd1f0d917c0752339c41700"
-    },
-    {
-      "path": "skills/knowledge-graph-template/export/html.py",
-      "size": 5982,
-      "sha256": "3b36c8018ac8520d94e90cf1aff065011d449ab393b6dcd8a1352d0a2f309ce8"
-    },
-    {
-      "path": "skills/knowledge-graph-template/export/json.py",
-      "size": 2886,
-      "sha256": "7c6ab656a4752cf70f06012c4e0469c904608bc3d8854a61f141bfc03e886e0a"
-    },
-    {
-      "path": "skills/knowledge-graph-template/export/README.md",
-      "size": 13636,
-      "sha256": "4e39aeeda71ad211daf53c0a445b0376ff47ebf8cc18cdf06840dabec3552ba5"
-    },
-    {
-      "path": "skills/knowledge-graph-template/export/report.py",
-      "size": 3079,
-      "sha256": "5ba47283a29bf123d047df8bf6594a589067d301e684c76fb96dcc2b10322061"
-    },
-    {
-      "path": "skills/knowledge-graph-template/feedback/__init__.py",
-      "size": 247,
-      "sha256": "6a03e0a7f69ecb9fe13b83b7bf1d825332fc439c980908c0fe471fcb28c8f9e8"
-    },
-    {
-      "path": "skills/knowledge-graph-template/feedback/analyzer.py",
-      "size": 5185,
-      "sha256": "3a400541dff46704342066b69ee7d55943fd86c52196764973e40226f06e55b6"
-    },
-    {
-      "path": "skills/knowledge-graph-template/feedback/collector.py",
-      "size": 5186,
-      "sha256": "4ff9e0e01f650bb8795eeee329b7eaf08db519bfb35cf13419d4cd895266618b"
-    },
-    {
-      "path": "skills/knowledge-graph-template/feedback/optimizer.py",
-      "size": 5372,
-      "sha256": "923f0c2a45c63980aebd1ebc9d4a22fe2e276697516938b6c349ea5a61433d47"
-    },
-    {
-      "path": "skills/knowledge-graph-template/feedback/README.md",
-      "size": 19153,
-      "sha256": "af41a542bb8940af4bd528a9aa7e4ce91c5e84d5e14d3f482bc1e690acef744d"
-    },
-    {
-      "path": "skills/knowledge-graph-template/mcp_server.py",
-      "size": 11547,
-      "sha256": "e3d17c7b2b63eaec9897870a7f00866a4b8f1040a79274b5d9fe017dc38e0949"
-    },
-    {
-      "path": "skills/knowledge-graph-template/MCP_USAGE.md",
-      "size": 1977,
-      "sha256": "0bb1e78360fa703d4d31a355a9e45d0864229b8f418d94001c1966e1ffff6da2"
-    },
-    {
-      "path": "skills/knowledge-graph-template/query.py",
-      "size": 13855,
-      "sha256": "dce407e8e0352ea4ce29acbc2284535fd5e8b4fdfc3efe3644c7f9797424ddc6"
-    },
-    {
-      "path": "skills/knowledge-graph-template/query_llm.py",
-      "size": 3794,
-      "sha256": "edba784018988aa3c77d5145cce35fa5746e2f98c29f417e544109065fb4b2cc"
-    },
-    {
-      "path": "skills/knowledge-graph-template/README.md",
-      "size": 1034,
-      "sha256": "663d9a371555d8a84dd8345352da416b71d06d765d020ae1ea9f73e4c0fbe388"
-    },
-    {
-      "path": "skills/knowledge-graph-template/scripts/.gitkeep",
-      "size": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "path": "skills/knowledge-graph-template/scripts/docs_statistics.json",
-      "size": 10406,
-      "sha256": "571247183ed3edefea35d02da3c56187b5cc83099c0fcb8beefa2243e7c27258"
-    },
-    {
-      "path": "skills/knowledge-graph-template/scripts/docs_statistics.py",
-      "size": 7041,
-      "sha256": "1b3445c192b2e9471d40369b12cc172d204c856427180cb6ddc32a2b920ad61d"
-    },
-    {
-      "path": "skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py",
-      "size": 2879,
-      "sha256": "7b8d859134aefafec1bc205aea36e936646fbe369049a9d220a44b53881d7591"
-    },
-    {
-      "path": "skills/knowledge-graph-template/SKILL.md",
-      "size": 13378,
-      "sha256": "a71dbbd043d723a3e7b279082874f4f47f5a96edaea42fd67b82c368e65013f7"
     }
   ],
   "acceptance": {

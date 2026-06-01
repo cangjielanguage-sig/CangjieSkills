@@ -13,11 +13,6 @@
       "name": "cj-hmos-evolution",
       "version": "1.0.0",
       "optional": false
-    },
-    {
-      "name": "cj-hmos-knowledge-graph",
-      "version": "1.0.0",
-      "optional": false
     }
   ],
   "skills": [
@@ -32,187 +27,22 @@
       "source_path": "harmonyos-evolution",
       "package_name": "cj-hmos-evolution",
       "distribution_path": "skills/harmonyos-evolution"
-    },
-    {
-      "name": "knowledge-graph-template",
-      "source_path": "knowledge-graph-template",
-      "package_name": "cj-hmos-knowledge-graph",
-      "distribution_path": "skills/knowledge-graph-template"
     }
   ],
   "generated_artifacts": [
     {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/GRAPH_REPORT.md",
-      "size": 2652,
+      "skill_source_path": "cangjie-harmonyos-doc-search-maintenance",
+      "path": "card/records/docs_manifest_15k.json",
+      "size": 3978732,
       "reasons": [
         "generated_artifact_candidate"
       ],
       "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "SKILL.md",
-        "analysis/README.md"
+        "card/README.md"
       ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/graph.json",
-      "size": 6039746,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/graph_layered.json",
-      "size": 26796550,
-      "reasons": [
-        "git_lfs_tracked",
-        "exceeds_gitcode_10_mib_limit",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "SKILL.md",
-        "analysis/README.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/merged/graph_layered_llm.json",
-      "size": 26805346,
-      "reasons": [
-        "git_lfs_tracked",
-        "exceeds_gitcode_10_mib_limit",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "SKILL.md",
-        "analysis/README.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/semantic/enhanced_queries_cache.json",
-      "size": 133,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "query_llm.py",
-        "builders/cache.py",
-        "builders/detect.py",
-        "builders/extract_ast.py"
-      ],
-      "recovery_command": "No command required; cache is regenerated on demand."
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/harmonyos/graph.json",
-      "size": 6842134,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/lang-features/graph.json",
-      "size": 476757,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/std/graph.json",
-      "size": 3554406,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/stdx/graph.json",
-      "size": 720416,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
-    },
-    {
-      "skill_source_path": "knowledge-graph-template",
-      "path": "data/subgraphs/tools/graph.json",
-      "size": 68165,
-      "reasons": [
-        "git_lfs_tracked",
-        "generated_artifact_candidate"
-      ],
-      "evidence": [
-        "cli.py",
-        "mcp_server.py",
-        "query.py",
-        "README.md",
-        "SKILL.md"
-      ],
-      "recovery_command": "python .agents/skills/knowledge-graph-template/scripts/rebuild_cangjie_graph.py"
+      "recovery_command": "python card/builder/build_index_v3.py --mode rule --index-dir doc-card/index"
     }
   ],
-  "created_at": "2026-05-30T07:00:25Z",
-  "git_commit": "933b60040b855cb8ef595ec8df683ca26341ae96"
+  "created_at": "2026-06-01T02:11:52Z",
+  "git_commit": "c78bf0755f33cd202d1125e64c9bdf9d4a840de5"
 }

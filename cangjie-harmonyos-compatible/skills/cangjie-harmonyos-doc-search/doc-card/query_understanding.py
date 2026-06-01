@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
-"""查询理解器，支持规则理解结果归一化。"""
+"""查询理解器 — 基于规则将用户查询解析为结构化意图，指导搜索策略。
+
+本模块是 doc-card 搜索流水线的第一步，负责将原始查询拆解为：
+- intent_type: 查询意图类型（troubleshooting/exploration/api_lookup/build_feature/example_lookup/quickstart）
+- primary_objects: 查询涉及的核心对象领域（如 web/location/camera 等）
+- preferred_result: 应优先返回的卡片类型（task/api/example/doc）
+- identifiers: 查询中的技术标识符（如 "hasCookie" "requestPermissionsFromUser"）
+
+这些理解结果被 search_v3.py 的 collect() 函数用于：
+1. 选择搜索模式（task/api/example/doc）
+2. 扩展查询词（DOMAIN_QUERY_EXPANSIONS + ACTION_QUERY_EXPANSIONS）
+3. 重排序结果（rerank_score 使用 understanding 的 objects/identifiers/intent_type）
+
+支持两种模式：
+- rule: 纯规则推断（understand()），无外部依赖
+- host-agent: 允许上层 agent 传入部分理解结果（understand_host_agent()），规则推断补充缺失字段
+"""
 
 from __future__ import annotations
 
@@ -9,6 +25,8 @@ from typing import Any
 
 
 OBJECT_HINTS = {
+    # 对象领域 → 触发关键词列表。detect_objects() 通过这些映射将查询中的词匹配到领域。
+    # 例：查询含 "cookie" → 命中 "web" 领域；含 "定位" → 命中 "location" 领域
     "list": ["list", "列表"],
     "grid": ["grid", "网格"],
     "image": ["image", "图片"],
@@ -96,6 +114,8 @@ OBJECT_HINTS = {
 }
 
 PROPERTY_TOKENS = {
+    # 技术属性标识符 — 用于判断查询是否属于 api_lookup 意图。
+    # 出现这些词时，has_property_pattern() 返回 True，触发 API 卡片优先返回。
     "objectfit",
     "alignitems",
     "justifycontent",
@@ -221,6 +241,7 @@ PROPERTY_TOKENS = {
 }
 
 EXPLICIT_API_HINT_WORDS = (
+    # 明确指向 API/接口的中文关键词 — 出现任一词即判定为 api_lookup
     "属性",
     "事件",
     "api",
@@ -232,6 +253,7 @@ EXPLICIT_API_HINT_WORDS = (
 )
 
 EXPLICIT_API_PHRASES = (
+    # 明确指向组件级 API 的短语 — 比 EXPLICIT_API_HINT_WORDS 更具体
     "组件属性",
     "组件事件",
     "通用属性",
@@ -239,6 +261,8 @@ EXPLICIT_API_PHRASES = (
 )
 
 PROPERTY_QUERY_WORDS = (
+    # 属性查询词 — 与 PROPERTY_TOKENS 配合使用。
+    # 查询同时包含查询词和属性标识符时判定为 api_lookup
     "怎么配",
     "怎么设",
     "怎么设置",
@@ -256,6 +280,7 @@ PROPERTY_QUERY_WORDS = (
 )
 
 TROUBLESHOOTING_WORDS = (
+    # 排障意图触发词 — 出现时 intent_type = "troubleshooting"
     "错误",
     "失败",
     "异常",
@@ -268,6 +293,7 @@ TROUBLESHOOTING_WORDS = (
 )
 
 EXPLORATION_WORDS = (
+    # 探索意图触发词 — 出现时 intent_type = "exploration"，优先返回 api 类卡片
     "有哪些",
     "概览",
     "相关文档",
@@ -277,6 +303,7 @@ EXPLORATION_WORDS = (
 )
 
 EXAMPLE_WORDS = (
+    # 示例意图触发词 — 出现时 intent_type = "example_lookup"
     "示例",
     "示例代码",
     "demo",
@@ -308,15 +335,24 @@ GENERIC_ACTION_WORDS = (
 
 
 def extract_identifiers(query: str) -> list[str]:
+    """从查询中提取技术标识符（英文 camelCase/snake_case 词元）。
+
+    用于 rerank_score 中与卡片元数据的 identifiers/aliases 精确匹配。
+    长度 < 2 的词元被过滤（如单个字母 "a" 不作为标识符）。
+    """
     tokens = re.findall(r"\b[A-Za-z_][A-Za-z0-9_.-]*\b", query)
     return list(dict.fromkeys(token for token in tokens if len(token) >= 2))
 
 
 def has_property_pattern(query: str) -> bool:
-    lowered = query.lower()
-    identifiers = extract_identifiers(query)
-    if any(word in lowered for word in EXPLICIT_API_HINT_WORDS):
-        return True
+    """判断查询是否包含属性/API查询模式 — 五种判定规则。
+
+    1. 显式 API 提示词（"属性"、"接口"等）
+    2. 显式组件 API 短语（"组件属性"、"组件事件"等）
+    3. 查询词 + camelCase/属性标识符组合（"怎么设置 objectFit"）
+    4. 中文 + 英文标识符混合模式（"列表 的 LazyForEach"）
+    5. 纯属性标识符（如 "rawfile" 出现即视为属性查询）
+    """
     if any(phrase in lowered for phrase in EXPLICIT_API_PHRASES):
         return True
     if any(word in lowered for word in PROPERTY_QUERY_WORDS):
@@ -347,14 +383,14 @@ def has_explicit_api_identifier(query: str) -> bool:
 
 
 def detect_objects(query: str) -> list[str]:
-    lowered = query.lower()
-    objects = [
-        key
-        for key, hints in OBJECT_HINTS.items()
-        if any(hint in lowered for hint in hints)
-    ]
-    if any(phrase in lowered for phrase in ("怎么定位", "问题定位", "错误定位", "出问题怎么定位")):
-        objects = [item for item in objects if item != "location"]
+    """从查询中检测核心对象领域 — 基于 OBJECT_HINTS 映射和特殊规则。
+
+    特殊修正逻辑：
+    - "定位" 出现在排障语境时（"怎么定位"、"问题定位"）不映射到 location 领域
+    - "分布式 kv" 明确映射到 distributed_storage 并排除 relational_store
+    - "相机设备" 映射到 camera 并排除 device_info
+    - 无匹配对象时默认为 "general"
+    """
     identifiers = extract_identifiers(query)
     if any(token.lower() == "objectfit" for token in identifiers):
         objects.append("image")
@@ -386,8 +422,11 @@ def detect_objects(query: str) -> list[str]:
 
 
 def detect_intent_type(query: str) -> str:
-    lowered = query.lower()
-    if any(word in lowered for word in TROUBLESHOOTING_WORDS):
+    """从查询中推断意图类型 — 按优先级逐级匹配。
+
+    优先级：troubleshooting > exploration > example_lookup > api_lookup > build_feature > quickstart
+    默认兜底为 build_feature（表示"我想要做某事"的开发意图）。
+    """
         return "troubleshooting"
     if any(word in lowered for word in EXPLORATION_WORDS):
         return "exploration"
@@ -432,8 +471,16 @@ def preferred_result(intent_type: str) -> str:
 
 
 def preferred_result_for_query(query: str, intent_type: str) -> str:
-    lowered = query.lower()
-    component_api_tokens = (
+    """根据查询内容和意图类型，决定优先返回的卡片类型（task/api/doc/example）。
+
+    这是查询理解中最复杂的函数，包含大量领域特定规则。
+    设计原则：
+    - 大多数组件查询优先返回 api（更精确）
+    - 排障/错误码查询优先返回 doc（需要完整上下文）
+    - 纯 API 标识符查询优先返回 api
+    - 生活周期/指南类查询优先返回 doc
+    - 根据 intent_type 调整优先级（api_lookup → api, build_feature → task）
+    """
         "textarea",
         "搜索框",
         "checkbox",
@@ -603,7 +650,11 @@ def search_strategy(preferred: str, intent_type: str) -> dict[str, Any]:
 
 
 def normalize_understanding(payload: dict[str, Any], mode: str = "rule") -> dict[str, Any]:
-    raw_query = str(payload.get("raw_query") or payload.get("query") or "")
+    """归一化理解结果 — 将原始理解数据转化为标准化的输出格式。
+
+    对缺失字段提供兜底值，确保 downstream 消费者（search_v3.py）始终拿到完整结构。
+    规则：primary_objects 空时默认 ["general"]，search_strategy 缺失时自动推导。
+    """
     normalized_query = str(payload.get("normalized_query") or re.sub(r"\s+", " ", raw_query).strip())
     intent_type = str(payload.get("intent_type") or "build_feature")
     preferred = str(payload.get("preferred_result") or preferred_result(intent_type))
@@ -642,9 +693,11 @@ def normalize_understanding(payload: dict[str, Any], mode: str = "rule") -> dict
 
 
 def understand(query: str) -> dict[str, Any]:
-    intent_type = detect_intent_type(query)
-    identifiers = extract_identifiers(query)
-    preferred = preferred_result_for_query(query, intent_type)
+    """纯规则推断 — 从原始查询生成完整理解结果，无外部依赖。
+
+    流程：detect_intent_type → detect_objects → extract_identifiers →
+    preferred_result_for_query → search_strategy → normalize_understanding
+    """
     return normalize_understanding(
         {
             "raw_query": query,
@@ -662,10 +715,11 @@ def understand(query: str) -> dict[str, Any]:
 
 
 def understand_host_agent(query: str, payload: dict[str, Any]) -> dict[str, Any]:
-    merged = dict(payload)
-    merged.setdefault("raw_query", query)
-    merged.setdefault("normalized_query", re.sub(r"\s+", " ", query).strip())
-    return normalize_understanding(merged, mode="host-agent")
+    """融合 agent 提供的理解结果 — 允许上层 LLM 补充 objects/intent 等字段。
+
+    payload 中已有字段优先保留，缺失字段由规则推断补充。
+    mode 标记为 "host-agent"，便于 downstream 区分理解来源。
+    """
 
 
 def main() -> None:

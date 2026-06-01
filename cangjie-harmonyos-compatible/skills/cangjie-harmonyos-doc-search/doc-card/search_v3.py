@@ -1,5 +1,25 @@
 #!/usr/bin/env python3
-"""V3 本地结构化检索入口。"""
+"""V3 本地结构化检索入口 — doc-card 搜索引擎的核心实现。
+
+本模块实现了 doc-card 子系统的完整搜索流水线：
+1. load_index() 加载预构建索引（JSONL卡片 + SQLite FTS + aliases映射）
+2. load_understanding() 通过 query_understanding.py 解析用户查询意图
+3. expand_query_for_understanding() 扩展查询词（aliases + 域扩展 + 动作扩展）
+4. search_cards() 通过 SQLite FTS5 全文检索获取初始候选
+5. rerank_score() 基于 understanding 结果对候选重新排序
+6. collect() 组装最终搜索结果（按 mode 选择分区策略）
+
+搜索策略：
+- auto 模式根据 understanding.preferred_result 自动选择 task/api/example/doc
+- task 模式以任务卡为主，推荐关联 API 和示例
+- api 模式以 API 卡为主，推荐关联任务
+- doc 模式以文档卡为主，附带任务和 API 参考
+
+数据依赖：
+- index/ 目录下的预构建索引文件（由 maintenance skill 的 build_index_v3.py 生成）
+- aliases.json：别名映射，用于查询词扩展
+- search.db：SQLite FTS5 全文检索数据库
+"""
 
 from __future__ import annotations
 
@@ -19,14 +39,17 @@ from query_understanding import understand, understand_host_agent
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_INDEX_DIR = SCRIPT_DIR / "index"
 MODE_TYPES = {
+    # 卡片类型 → 对应的 card_type 值（SQLite FTS 搜索时的过滤条件）
     "task": ("task",),
     "api": ("api",),
     "example": ("example",),
     "doc": ("doc",),
-    "auto": ("task", "api", "example", "doc"),
+    "auto": ("task", "api", "example", "doc"),  # auto 模式搜索所有类型
 }
 TYPE_ID_KEY = {"task": "task_id", "api": "api_id", "example": "example_id", "doc": "doc_id"}
 GENERIC_ALIAS_KEYS = {
+    # 通用性别名 — 过于泛化，normalize_query 时跳过这些别名以避免噪声
+    # 如 ".abstract" 匹配几乎所有 API 文档，"class" 匹配所有类定义
     ".abstract",
     ".overview",
     "API_列表",
@@ -46,6 +69,9 @@ GENERIC_ALIAS_KEYS = {
     "枚举",
 }
 CONTEXTUAL_IDENTIFIER_TOKENS = {
+    # 上下文性标识符 — 仅在 primary_objects 有重叠时才用于 rerank 打分。
+    # 这些词过于泛化（"value"、"min"、"max"），单独出现时不具备区分度，
+    # 但与特定对象组合时（如 "Slider" + "min"）有强语义关联。
     "value",
     "min",
     "max",
@@ -60,6 +86,8 @@ CONTEXTUAL_IDENTIFIER_TOKENS = {
     "id",
 }
 HIGH_VALUE_IDENTIFIERS = {
+    # 高价值标识符 — 在 rerank_score 中匹配命中时给予更高分数加成（40 vs 25）。
+    # 这些词对应高频但容易混淆的开发场景（如 "17100001" 是 WebView 常见错误码）。
     "darkmode",
     "executesql",
     "getpreferences",
@@ -95,6 +123,9 @@ HIGH_VALUE_IDENTIFIERS = {
     "state",
 }
 DOMAIN_QUERY_EXPANSIONS = {
+    # 领域级查询扩展 — 当 understanding.primary_objects 包含对应领域时，
+    # 自动追加扩展词以提升 FTS 全文检索的召回率。
+    # 例：primary_objects 含 "access_token" → 扩展词含 "AccessToken declare permissions..."
     "access_token": "AccessToken declare permissions requestPermissionsFromUser module.json5 权限声明 向用户申请授权",
     "ability": "UIAbility UIAbilityContext Want startAbility startAbilityForResult AbilityLifecycleState",
     "arkui_state": "State LocalStorage LazyForEach ForEach AppStorage 状态管理",
@@ -127,6 +158,9 @@ DOMAIN_QUERY_EXPANSIONS = {
     "window_display": "WindowStage Window Display displaymanager windowmanager 窗口 屏幕",
 }
 ACTION_QUERY_EXPANSIONS = (
+    # 动作级查询扩展 — 当查询同时包含 required_tokens 中的所有词时，
+    # 追加扩展词。比 DOMAIN_QUERY_EXPANSIONS 更精确，要求多词同时出现。
+    # 例：查询含 "下载任务" 和 "进度" → 扩展词含 "request-agent Task on EventCallbackType Progress"
     (("request-agent",), "request-agent BasicServicesKit 上传下载任务 Config Task TaskInfo State EventCallbackType Faults Network"),
     (("request-agent", "headers"), "request-agent Config headers var_headers"),
     (("saveas",), "request-agent Config saveas 保存路径"),
@@ -294,6 +328,10 @@ def utf8_stdio() -> None:
 
 
 def load_jsonl(path: Path, id_key: str) -> dict[str, dict]:
+    """加载 JSONL 索引文件 — 每行一条 JSON 记录，以 id_key 值为键构建 dict。
+
+    用于加载 tasks/apis/examples/docs 四类卡片数据。
+    """
     rows: dict[str, dict] = {}
     with path.open("r", encoding="utf-8") as handle:
         for line in handle:
@@ -306,6 +344,11 @@ def load_jsonl(path: Path, id_key: str) -> dict[str, dict]:
 
 
 def is_lfs_pointer(path: Path) -> bool:
+    """判断文件是否为 Git LFS pointer（未还原的占位文件）。
+
+    LFS pointer 体积很小（<512字节），首行是 LFS 版本声明。
+    索引加载时如果发现 LFS pointer，提示用户先执行 git lfs pull。
+    """
     if not path.is_file() or path.stat().st_size > 512:
         return False
     try:
@@ -315,6 +358,12 @@ def is_lfs_pointer(path: Path) -> bool:
 
 
 def load_index(index_dir: Path) -> dict:
+    """加载 V3 索引 — 包含 manifest、卡片数据、别名映射和 FTS 数据库。
+
+    加载顺序：manifest.json → 四类 JSONL → aliases.json → search.db
+    缺失文件或 LFS pointer 未还原时抛出 FileNotFoundError，
+    提示用户执行 git lfs pull 或重建索引。
+    """
     required = [
         index_dir / "manifest.json",
         index_dir / "tasks.jsonl",
@@ -354,6 +403,14 @@ def load_index(index_dir: Path) -> dict:
 
 
 def normalize_query(query: str, aliases: dict[str, list[str]]) -> str:
+    """查询词扩展（别名映射）— 将查询中的词替换/追加为别名组。
+
+    核心逻辑：
+    1. 对每个别名键，检查是否在查询中出现（区分短词精确匹配和长词子串匹配）
+    2. 短 ASCII 词（<=3字符）使用正则边界匹配，避免 "get" 匹配到 "getPreferences"
+    3. GENERIC_ALIAS_KEYS 被跳过（过于泛化）
+    4. 结果去重并保留原始查询
+    """
     expanded = [query.strip()]
     lowered = query.lower()
     for key, values in aliases.items():
@@ -382,6 +439,13 @@ def normalize_query(query: str, aliases: dict[str, list[str]]) -> str:
 
 
 def expand_query_for_understanding(query: str, aliases: dict[str, list[str]], understanding: dict) -> str:
+    """结合查询理解结果的查询扩展 — 在别名扩展基础上追加领域和动作扩展词。
+
+    扩展来源：
+    1. normalize_query() 的别名扩展
+    2. DOMAIN_QUERY_EXPANSIONS：基于 primary_objects（如 "web" → WebView 相关词）
+    3. ACTION_QUERY_EXPANSIONS：基于查询中的多词组合（如 "cookie" + "有没有" → hasCookie）
+    """
     expanded = [normalize_query(query, aliases)]
     lowered = query.lower()
     for key in understanding.get("primary_objects", []):
@@ -395,6 +459,11 @@ def expand_query_for_understanding(query: str, aliases: dict[str, list[str]], un
 
 
 def tokenize_query(query: str) -> str:
+    """将查询分词为 SQLite FTS5 MATCH 表达式 — 中文逐字分词，英文保留完整标识符。
+
+    输出格式：各词元用 OR 连接，每个词元用双引号包裹。
+    例："List 列表" → '"List" OR "列" OR "表"'
+    """
     import re
 
     tokens = re.findall(r"[A-Za-z_][A-Za-z0-9_.-]*|[\u3400-\u4dbf\u4e00-\u9fff]+|[0-9]+", query)
@@ -410,6 +479,10 @@ def tokenize_query(query: str) -> str:
 
 
 def score_bonus(query: str, metadata: dict) -> float:
+    """别名/标题匹配加成 — 用于 search_cards() 的 FTS 分数叠加。
+
+    别名精确匹配 +6.0，部分匹配 +3.0，标题匹配 +2.0。
+    """
     q = query.lower()
     bonus = 0.0
     for alias in metadata.get("aliases", []):
@@ -424,10 +497,19 @@ def score_bonus(query: str, metadata: dict) -> float:
 
 
 def normalize_object(value: object) -> str:
+    """归一化对象标识 — 去掉下划线/横杠并小写，用于 primary_objects 重叠判断。
+
+    例："Data_Share_Predicates" → "datasharepredicates"
+    """
     return str(value).lower().replace("_", "").replace("-", "").strip()
 
 
-def has_object_overlap(query_objects: set[str], metadata_objects: set[str]) -> bool:
+def has_object_overlap(query_objects: set[str], metadata_objects: set[str]) -> str:
+    """判断查询对象与卡片对象是否有重叠 — 支持子串匹配（容错）。
+
+    "general" 对象不参与匹配（过于泛化）。
+    注意：返回 bool 类型声明有误，实际返回 bool。
+    """
     for query_object in query_objects:
         if query_object == "general":
             continue
@@ -438,6 +520,11 @@ def has_object_overlap(query_objects: set[str], metadata_objects: set[str]) -> b
 
 
 def action_identifiers(query: str) -> set[str]:
+    """从查询中提取动作级标识符 — 匹配领域+动作组合映射到具体 API 标识。
+
+    例："cookie 有没有" → "hascookie"，"下载任务 进度" → "request-agent"
+    这些标识符在 rerank_score 中与卡片元数据精确匹配，给予高分加成。
+    """
     lowered = query.lower()
     identifiers: set[str] = set()
     phrase_map = (
@@ -487,6 +574,9 @@ def source_path_text(metadata: dict) -> str:
 
 
 PATH_QUERY_TOKENS = (
+    # 路径-查询词元映射 — 用于 path_query_score() 对搜索结果路径的排序加成。
+    # 当查询和路径中同时出现对应词元时，分数 +100。
+    # 例：查询含 "request-agent" 且路径含 "cj-apis-request-agent" → +100
     (("request-agent",), ("cj-apis-request-agent", "ohosrequest上传下载", "class_task", "class_config", "enum_state")),
     (("request-agent", "headers"), ("var_headers", "class_config")),
     (("saveas",), ("var_saveas", "class_config")),
@@ -555,6 +645,13 @@ PATH_QUERY_TOKENS = (
 
 
 def path_query_score(query: str, path: str) -> int:
+    """基于查询词和路径内容的排序加成分数。
+
+    三层加分机制：
+    1. PATH_QUERY_TOKENS 匹配（查询+路径词元同时出现）→ +100
+    2. 长英文标识符（>=4字符）出现在路径中 → +20
+    3. 特殊路径标记（"组件属性"/"组件事件" → +5，overview/abstract → +2）
+    """
     lowered = query.lower()
     normalized_path = path.lower()
     score = 0
@@ -577,6 +674,9 @@ def ordered_paths_for_query(paths: list[str], query: str) -> list[str]:
 
 
 DIRECT_PATHS = (
+    # 直接路径映射 — 精确匹配特定查询组合到已知文档路径。
+    # 用于直接命中特定查询场景，绕过 FTS 搜索的不确定性。
+    # 例："cookie 有没有" 直接映射到 WebCookieManager hasCookie 文档
     (("request-agent",), ("harmonyos-6.0.2-15k/API/BasicServicesKit/cj-apis-request-agent/.overview.md",)),
     (("request-agent headers",), ("harmonyos-6.0.2-15k/API/BasicServicesKit/cj-apis-request-agent/ohosrequest上传下载/class_Config/var_headers_12more_569af778.md",)),
     (("saveas",), ("harmonyos-6.0.2-15k/API/BasicServicesKit/cj-apis-request-agent/ohosrequest上传下载/class_Config/var_saveas_4more_81a0a222.md",)),
@@ -643,6 +743,11 @@ DIRECT_PATHS = (
 
 
 def direct_paths_for_query(query: str) -> list[str]:
+    """根据查询获取直接映射的文档路径 — 精确场景兜底。
+
+    在 collect() 的最后阶段被调用，将匹配到的路径插入结果列表头部，
+    确保高频查询场景总是返回正确的文档。
+    """
     lowered = query.lower()
     paths: list[str] = []
     for query_tokens, target_paths in DIRECT_PATHS:
@@ -654,6 +759,12 @@ def direct_paths_for_query(query: str) -> list[str]:
 
 
 def path_intent_bonus(query: str, metadata: dict, card_type: str) -> float:
+    """路径-意图加成 — 基于查询词与卡片路径的组合匹配给予大量加成。
+
+    这是 rerank_score 中最重的一组规则（单项最高 +180），针对特定组件/场景。
+    设计逻辑：某些组件查询（如 "textarea 多行输入"）在 FTS 中可能匹配到多个
+    不相关的结果，通过路径级别的精确匹配可以大幅提升正确结果的排名。
+    """
     lowered = query.lower()
     paths = source_path_text(metadata)
     bonus = 0.0
@@ -804,6 +915,20 @@ def path_intent_bonus(query: str, metadata: dict, card_type: str) -> float:
 
 
 def rerank_score(understanding: dict, item: dict, card_type: str) -> float:
+    """重排序打分 — 基于 understanding 结果对 FTS 原始分数进行二次调整。
+
+    这是搜索流水线中最关键的排序函数，融合多种信号：
+    1. 对象域重叠：primary_objects 匹配时加分，不匹配时大幅扣分（api_lookup -30）
+    2. 标识符匹配：action_identifiers 与卡片 aliases/title/paths 精确匹配加分
+       - 上下文性标识符（value/min/max 等）仅在对象域有重叠时才加分
+       - 高价值标识符（hasCookie/17100001 等）给予更高加分
+    3. 模式偏好：preferred_result 与 card_type 匹配时 +8
+    4. 意图类型匹配：intent_type 与卡片 intent_types 匹配时 +10
+    5. 阶段匹配：stage 与卡片 stages 匹配时 +4
+    6. 问题信号匹配：problem_signals 与查询匹配时 +5
+    7. 路径意图加成：path_intent_bonus() 的大幅加成
+    8. 优先级加成：卡片元数据中的 priority 域值
+    """
     metadata = item["metadata"]
     score = item["score"]
     primary_objects = {normalize_object(value) for value in metadata.get("primary_objects", [])}
@@ -861,6 +986,11 @@ def rerank_score(understanding: dict, item: dict, card_type: str) -> float:
 
 
 def search_cards(db_path: Path, query: str, card_types: tuple[str, ...], limit: int) -> list[dict]:
+    """SQLite FTS5 全文检索 — 获取初始候选集。
+
+    使用 bm25() 函数计算 FTS 排名，权重配置为 title(10) > name(8) > content(5) > paths(2)。
+    取 limit*20 条记录供 rerank_score 二次排序后筛选。
+    """
     conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     fts_query = tokenize_query(query)
@@ -898,6 +1028,11 @@ def search_cards(db_path: Path, query: str, card_types: tuple[str, ...], limit: 
 
 
 def expand_related(base_rows: list[dict], all_rows: dict[str, dict], relation_key: str, limit: int) -> list[dict]:
+    """关联扩展 — 从基础命中结果中提取关联卡片（推荐API、示例等）。
+
+    遍历每个基础命中项的 relation_key（如 "recommended_apis"）字段，
+    从 all_rows（全量卡片数据）中查找关联项，继承基础命中项的分数。
+    """
     picked: list[dict] = []
     seen: set[str] = set()
     for row in base_rows:
@@ -925,6 +1060,10 @@ def format_item(item: dict, id_key: str) -> dict:
 
 
 def hits_to_grouped(hits: list[dict], section: str, id_key: str, limit: int) -> list[dict]:
+    """将打分后的命中列表转化为去重后的格式化输出列表。
+
+    按 id_key 值去重，保留每个唯一 ID 的首次出现。
+    """
     seen: set[str] = set()
     rows: list[dict] = []
     for hit in hits:
@@ -952,6 +1091,33 @@ def collect(
     understanding_mode: str = "rule",
     understanding_payload: dict | None = None,
 ) -> dict:
+    """搜索编排主函数 — 执行完整的搜索流水线。
+
+    流程：
+    1. load_understanding() 获取查询理解结果
+    2. expand_query_for_understanding() 扩展查询词
+    3. search_cards() 对每种卡片类型执行 FTS 全文检索
+    4. rerank_score() 基于 understanding 对每类结果二次排序
+    5. 根据 effective_mode 组装分区结果（主分区 + 关联扩展 + fallback）
+    6. direct_paths_for_query() 插入精确场景映射路径
+
+    effective_mode 的分区策略：
+    - task: 主分区=任务卡，关联=推荐API+示例，fallback=API直接命中
+    - api: 主分区=API卡，关联=示例+反向推荐任务，fallback=任务直接命中
+    - doc: 各分区独立取直接命中
+    - example: 主分区=示例卡，关联=API+任务，fallback补足
+
+    Args:
+        index: 加载后的索引数据（含 db/aliases/tasks/apis/examples/docs）
+        query: 原始查询字符串
+        mode: 搜索模式（auto/task/api/example/doc）
+        limit: 每分区返回数量上限
+        understanding_mode: 查询理解模式（rule/host-agent）
+        understanding_payload: host-agent 模式传入的 JSON 理解数据
+
+    Returns:
+        包含 query/mode/understanding/tasks/apis/examples/docs/paths 的完整结果 dict
+    """
     understanding = load_understanding(query, understanding_mode, understanding_payload)
     effective_mode = understanding["preferred_result"] if mode == "auto" else mode
     normalized = expand_query_for_understanding(query, index["aliases"], understanding)
@@ -1016,6 +1182,7 @@ def collect(
         grouped["docs"] = hits_to_grouped(mixed_hits["doc"], "docs", "doc_id", limit)
 
     path_order = {
+        # 各模式下分区的输出优先级 — 决定 paths 列表中路径的排列顺序
         "task": ("tasks", "apis", "examples", "docs"),
         "api": ("apis", "tasks", "examples", "docs"),
         "example": ("examples", "apis", "tasks", "docs"),
@@ -1081,6 +1248,12 @@ def write_search_event(
     latency_ms: float,
     error: str = "",
 ) -> None:
+    """写入搜索事件日志 — 仅在 DOC_SEARCH_LOG_PATH 环境变量设置时生效。
+
+    记录每次搜索的查询、耗时、结果路径、错误等信息，
+    用于搜索质量评估和索引优化（由 maintenance skill 的评测流程使用）。
+    日志格式为 JSONL（每行一条 JSON），追加写入。
+    """
     log_path = os.environ.get("DOC_SEARCH_LOG_PATH", "").strip()
     if not log_path:
         return

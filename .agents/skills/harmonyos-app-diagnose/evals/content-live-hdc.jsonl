@@ -1,0 +1,1 @@
+{"id":"live-hdc-ui-and-log-capture","input":"模拟器已经打开了。请直接用已连接设备诊断当前前台界面是否正常，采集截图、控件树和 hilog 证据（保存到 ui_capture_output/），并给出结论和下一步建议；不要安装新包或重启应用。","validator_command":"python evals/validate_live_hdc.py","validator_timeout_seconds":180,"allow_workspace_edits":true,"score_weights":{"validator":1.0},"min_score":0.9}

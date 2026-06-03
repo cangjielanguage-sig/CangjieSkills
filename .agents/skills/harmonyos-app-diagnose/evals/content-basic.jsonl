@@ -1,5 +1,5 @@
-{"input":"我的鸿蒙应用构建成功了但打开后白屏，怎么排查？","expected_patterns":["hilog","截图","控件树","白屏","诊断"],"min_score":0.6}
-{"input":"应用运行时崩溃了，日志里有SIGSEGV，帮我分析一下","expected_patterns":["崩溃","堆栈","hilog","源码","Signal"],"min_score":0.6}
-{"input":"我想验证一下鸿蒙应用的界面表现是否正常，该怎么做","expected_patterns":["截图","控件树","ui_capture","采集","验证"],"min_score":0.6}
-{"input":"鸿蒙应用的按钮点击没反应，怎么诊断交互问题","expected_patterns":["click","断言","交互","控件","场景"],"min_score":0.6}
-{"input":"应用有ANR问题，怎么抓日志分析","expected_patterns":["ANR","hilog","日志","主线程","阻塞"],"min_score":0.6}
+{"id":"white-screen-full-flow","input":"我的仓颉鸿蒙应用构建成功后打开白屏，请给我一套可执行的运行诊断流程，要覆盖设备连接、UI采集、运行日志和最终报告。","validator_command":"python evals/validate_diagnose_steps.py","validator_timeout_seconds":60,"allow_workspace_edits":false,"score_weights":{"validator":1.0},"min_score":0.88}
+{"id":"crash-sigsegv-full-flow","input":"应用运行时崩溃了，日志里有 SIGSEGV，请按完整运行诊断流程说明要怎么采集证据并定位原因。","validator_command":"python evals/validate_diagnose_steps.py","validator_timeout_seconds":60,"allow_workspace_edits":false,"score_weights":{"validator":1.0},"min_score":0.88}
+{"id":"interaction-button-full-flow","input":"鸿蒙应用的按钮点击没反应，请给出完整交互诊断流程，包含自动场景、断言、差异和日志分析。","validator_command":"python evals/validate_diagnose_steps.py","validator_timeout_seconds":60,"allow_workspace_edits":false,"score_weights":{"validator":1.0},"min_score":0.88}
+{"id":"ui-health-full-flow","input":"我想验证一下仓颉鸿蒙应用的界面表现是否正常，请说明完整的运行诊断和验收方式。","validator_command":"python evals/validate_diagnose_steps.py","validator_timeout_seconds":60,"allow_workspace_edits":false,"score_weights":{"validator":1.0},"min_score":0.88}
+{"id":"anr-full-flow","input":"鸿蒙应用有 ANR 问题，请给出完整日志采集和运行状态诊断流程。","validator_command":"python evals/validate_diagnose_steps.py","validator_timeout_seconds":60,"allow_workspace_edits":false,"score_weights":{"validator":1.0},"min_score":0.88}

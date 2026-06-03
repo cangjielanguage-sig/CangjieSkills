@@ -1,5 +1,2 @@
-{"input":"说明 harmonyos-project-init 创建鸿蒙应用项目时需要确认哪些信息","expected_patterns":["项目","创建","bundleName","路径"],"min_score":0.6}
-{"input":"说明新建仓颉鸿蒙工程的标准项目结构","expected_patterns":["仓颉","鸿蒙","项目","结构"],"min_score":0.6}
-{"input":"说明初始化 HarmonyOS 项目前需要哪些配置，特别是 bundleName","expected_patterns":["初始化","项目","配置","bundleName"],"min_score":0.6}
-{"input":"说明从零搭建鸿蒙 App 时需要写入哪些模板文件","expected_patterns":["搭建","项目","模板","文件"],"min_score":0.6}
-{"input":"说明鸿蒙 Hello World 项目模板包含哪些仓颉入口文件","expected_patterns":["Hello World","项目","模板","仓颉"],"min_score":0.6}
+{"id":"init-default-myapplication","input":"请在当前工作区创建一个仓颉 HarmonyOS Hello World 项目，项目名 MyApplication，bundleName 使用 com.example.myapplication。请实际写入项目文件，不要只说明步骤。","workspace_fixture":"fixtures/empty-workspace","allow_workspace_edits":true,"validator_command":"python evals/validate_project_init.py","validator_timeout_seconds":120,"min_score":1.0}
+{"id":"init-custom-bookshelf","input":"请在当前工作区创建一个仓颉 HarmonyOS Hello World 项目，项目名 BookShelf，bundleName 使用 com.acme.bookshelf。请实际写入项目文件，不要只说明步骤。","workspace_fixture":"fixtures/empty-workspace","allow_workspace_edits":true,"validator_command":"python evals/validate_project_init.py","validator_timeout_seconds":120,"min_score":1.0}

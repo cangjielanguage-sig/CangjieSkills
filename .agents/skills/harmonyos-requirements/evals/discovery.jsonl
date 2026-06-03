@@ -1,5 +1,4 @@
-{"input":"帮我分析一下鸿蒙应用的登录需求，需要支持多种登录方式","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
-{"input":"我想做一个鸿蒙应用，帮我梳理一下需求和设计方案","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
-{"input":"鸿蒙应用开发前需要做需求分析和技术方案设计","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
-{"input":"帮我把模糊的鸿蒙开发需求转化为可执行的功能清单","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
-{"input":"鸿蒙App的需求澄清、方案设计与验收定义怎么做","expected_skills":["harmonyos-requirements"],"forbidden_skills":[],"min_rank":3}
+{"input":"帮我分析一下鸿蒙应用的登录需求，需要支持手机号、邮箱和第三方登录。","expected_skills":["harmonyos-requirements"],"min_rank":1}
+{"input":"我想做一个鸿蒙应用，先帮我做需求澄清、功能清单和技术方案设计。","expected_skills":["harmonyos-requirements"],"min_rank":1}
+{"input":"鸿蒙 App 开发前，请把模糊需求整理成页面组件拆分、状态管理方案和验收标准。","expected_skills":["harmonyos-requirements"],"min_rank":2}
+{"input":"这个鸿蒙功能还没想清楚，帮我列出待确认项、边界条件和验收标准。","expected_skills":["harmonyos-requirements"],"min_rank":2}

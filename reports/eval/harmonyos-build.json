@@ -531,7 +531,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\"",
+          "command": "ls -la \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\"",
           "exit_code": 0
         },
         {
@@ -547,7 +547,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\.agents\" 2>/dev/null || echo \"No .agents dir\"",
+          "command": "ls -la \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\.agents\" 2>/dev/null || echo \"No .agents dir\"",
           "exit_code": 0
         },
         {
@@ -555,7 +555,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -laR \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\entry\"",
+          "command": "ls -laR \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\entry\"",
           "exit_code": 0
         },
         {
@@ -563,7 +563,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -laR \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\config\"",
+          "command": "ls -laR \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\config\"",
           "exit_code": 0
         },
         {
@@ -578,7 +578,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -laR \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\.agents\\skills\"",
+          "command": "ls -laR \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\.agents\\skills\"",
           "exit_code": 0
         },
         {
@@ -597,7 +597,7 @@
           "tool": "cd",
           "raw_tool": "Bash",
           "status": "failed",
-          "command": "cd \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\" && python .agents/skills/harmonyos-build/build.py --project-root .",
+          "command": "cd \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\" && python .agents/skills/harmonyos-build/build.py --project-root .",
           "exit_code": 1,
           "error": "Exit code 7 >>> ohpm install --all --registry https://ohpm.openharmony.cn/ohpm/ --strict_ssl true ohpm install completed >>> node hvigorw.js --mode module -p module=entry@default SyncCangjieResource --analyze=normal --parallel --incremental --no-daemon ERROR EVC001 Missing generated resource mapping. See Evolution.md record FIX-EVC001."
         },
@@ -621,7 +621,7 @@
           "tool": "echo",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "echo \"resource mapping synced\" > \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\config\\fixed.txt\"",
+          "command": "echo \"resource mapping synced\" > \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\\config\\fixed.txt\"",
           "exit_code": 0
         },
         {
@@ -644,7 +644,7 @@
           "tool": "cd",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "cd \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\" && python .agents/skills/harmonyos-build/build.py --project-root .",
+          "command": "cd \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_iek0d_sc\\workspace\" && python .agents/skills/harmonyos-build/build.py --project-root .",
           "exit_code": 0
         },
         {
@@ -829,7 +829,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la /c/Users/张睿鸣/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/",
+          "command": "ls -la /c/Users/xxx/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/",
           "exit_code": 0
         },
         {
@@ -852,7 +852,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la /c/Users/张睿鸣/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/entry/ && ls -la /c/Users/张睿鸣/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/.agents/",
+          "command": "ls -la /c/Users/xxx/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/entry/ && ls -la /c/Users/xxx/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/.agents/",
           "exit_code": 0
         },
         {
@@ -860,7 +860,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -laR /c/Users/张睿鸣/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/",
+          "command": "ls -laR /c/Users/xxx/AppData/Local/Temp/skill_cli_eval_workspace_ilyq0ar7/workspace/",
           "exit_code": 0
         },
         {

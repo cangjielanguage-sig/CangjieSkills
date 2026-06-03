@@ -318,7 +318,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la \"C:\\Users\\张睿鸣\\AppData\\Local\\Temp\\skill_cli_eval_workspace_3xxqodo3\\workspace\"",
+          "command": "ls -la \"C:\\Users\\xxx\\AppData\\Local\\Temp\\skill_cli_eval_workspace_3xxqodo3\\workspace\"",
           "exit_code": 0
         },
         {
@@ -435,7 +435,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la /c/Users/张睿鸣/AppData/Local/Temp/skill_cli_eval_workspace_1uep4h5l/workspace/",
+          "command": "ls -la /c/Users/xxx/AppData/Local/Temp/skill_cli_eval_workspace_1uep4h5l/workspace/",
           "exit_code": 0
         },
         {
@@ -548,7 +548,7 @@
           "tool": "ls",
           "raw_tool": "Bash",
           "status": "completed",
-          "command": "ls -la /c/Users/张睿鸣/AppData/Local/Temp/skill_cli_eval_workspace_kb6vfmxo/workspace",
+          "command": "ls -la /c/Users/xxx/AppData/Local/Temp/skill_cli_eval_workspace_kb6vfmxo/workspace",
           "exit_code": 0
         },
         {

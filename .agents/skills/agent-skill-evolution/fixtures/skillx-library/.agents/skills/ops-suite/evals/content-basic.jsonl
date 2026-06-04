@@ -1,0 +1,1 @@
+{"id":"ops-suite-content","input":"构建并检查发布产物","expected_patterns":["构建","检查","dist"],"min_score":0.5}

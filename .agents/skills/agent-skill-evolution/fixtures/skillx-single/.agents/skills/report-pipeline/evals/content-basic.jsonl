@@ -1,0 +1,1 @@
+{"id":"report-pipeline-content","input":"如何把 CSV 转换成 JSON 报告？","expected_patterns":["CSV","JSON","report_tool"],"min_score":0.6}

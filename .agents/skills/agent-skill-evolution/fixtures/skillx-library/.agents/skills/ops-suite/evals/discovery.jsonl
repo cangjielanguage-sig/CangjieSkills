@@ -1,0 +1,1 @@
+{"id":"ops-suite-discovery","input":"构建并检查发布产物","expected_skills":["ops-suite"],"forbidden_skills":[],"min_rank":1}

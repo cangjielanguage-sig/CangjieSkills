@@ -1,0 +1,16 @@
+{
+  "screen": "form",
+  "nodes": [
+    {
+      "id": "submit",
+      "role": "button",
+      "enabled": true,
+      "visible": true
+    },
+    {
+      "id": "loading-overlay",
+      "role": "overlay",
+      "visible": true
+    }
+  ]
+}

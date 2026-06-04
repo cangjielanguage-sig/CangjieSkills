@@ -1,0 +1,332 @@
+{
+  "skill": "cangjie-stdx",
+  "status": "passed",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 2,
+    "content_passed": 2,
+    "discovery_total": 2,
+    "discovery_passed": 2
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 128303.62714995863,
+    "latency_ms_p95": 135840.45226495946,
+    "token_total": 70153,
+    "cost_total": 0.0,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 1204,
+    "content_skill_context_slots_avg": 602.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "json-and-http",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "仓颉 stdx 的 JSON 编解码和 HTTP 客户端、服务端分别查哪些文档？HTTPS、Cookie 和分块传输的进阶文档在哪里？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "websocket-tls-encoding-crypto",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "仓颉 stdx 的 WebSocket、TLS、Base64、Hex、URL 编码和 X509 证书分别应查哪些文档？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-https-cookie-json",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "仓颉 stdx 怎么发 HTTPS 请求、管理 Cookie 并解析 JSON？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-websocket-tls-crypto",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "仓颉 stdx 的 WebSocket、TLS、Base64 和 X509 怎么用？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "json-and-http",
+      "type": "content",
+      "input": "仓颉 stdx 的 JSON 编解码和 HTTP 客户端、服务端分别查哪些文档？HTTPS、Cookie 和分块传输的进阶文档在哪里？",
+      "runner": "agent-command",
+      "output": "请查阅 `cangjie-stdx` Skill 中的以下文档：\n\n- JSON 编解码：`json/README.md`，覆盖 `stdx.encoding.json` 和 `stdx.encoding.json.stream`\n- HTTP/HTTPS 客户端：`http_client/README.md`\n- HTTP/HTTPS 服务端：`http_server/README.md`\n- 客户端 HTTPS 配置：`http_client/HTTPS.md`\n- 服务端 HTTPS 配置：`http_server/HTTPS.md`\n- Cookie 管理：`http_client/COOKIE.md`\n- 客户端分块上传与 Trailer：`http_client/CHUNKED.md`\n- 服务端分块响应与 Trailer：`http_server/CHUNKED.md`",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 111790.06849997677,
+      "usage": {
+        "input_tokens": 17661,
+        "output_tokens": 339,
+        "cached_input_tokens": 9600,
+        "reasoning_output_tokens": 108,
+        "total_tokens": 18000,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 602,
+        "codex_stdout_chars": 1322,
+        "codex_stderr_chars": 7761
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558043.2402768,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"请查阅 `cangjie-stdx` Skill 中的以下文档：\\n\\n- JSON 编解码：`json/README.md`，覆盖 `stdx.encoding.json` 和 `stdx.encoding.json.stream`\\n- HTTP/HTTPS 客户端：`http_client/README.md`\\n- HTTP/HTTPS 服务端：`http_server/README.md`\\n- 客户端 HTTPS 配置：`http_client/HTTPS.md`\\n- 服务端 HTTPS 配置：`http_server/HTTPS.md`\\n- Cookie 管理：`http_client/COOKIE.md`\\n- 客户端分块上传与 Trailer：`http_client/CHUNKED.md`\\n- 服务端分块响应与 Trailer：`http_server/CHUNKED.md`\",\"matched_skills\":[{\"name\":\"cangjie-stdx\",\"rank\":1}],\"loaded_skills\":[\"cangjie-..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 17661,
+            "output_tokens": 339,
+            "cached_input_tokens": 9600,
+            "reasoning_output_tokens": 108,
+            "total_tokens": 18000
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "websocket-tls-encoding-crypto",
+      "type": "content",
+      "input": "仓颉 stdx 的 WebSocket、TLS、Base64、Hex、URL 编码和 X509 证书分别应查哪些文档？",
+      "runner": "agent-command",
+      "output": "应查询以下文档：\n- WebSocket：`websocket/README.md`，对应 `stdx.net.http` 的客户端/服务端升级、帧读写、分片与关闭流程。\n- TLS：`tls/README.md`，对应 `stdx.net.tls`；构建配置另查 `tls/BUILD.md`。\n- Base64、Hex、URL 编码：统一查询 `encoding/README.md`，分别对应 `stdx.encoding.base64`、`stdx.encoding.hex`、`stdx.encoding.url`。\n- X509 证书：查询 `crypto/README.md`，对应 `stdx.crypto` 的 X509 数字证书处理；涉及 TLS 证书验证与解析时，也可结合 `tls/README.md`。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 136375.45259995386,
+      "usage": {
+        "input_tokens": 17658,
+        "output_tokens": 319,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 80,
+        "total_tokens": 17977,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 602,
+        "codex_stdout_chars": 1167,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558180.0221028,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"应查询以下文档：\\n- WebSocket：`websocket/README.md`，对应 `stdx.net.http` 的客户端/服务端升级、帧读写、分片与关闭流程。\\n- TLS：`tls/README.md`，对应 `stdx.net.tls`；构建配置另查 `tls/BUILD.md`。\\n- Base64、Hex、URL 编码：统一查询 `encoding/README.md`，分别对应 `stdx.encoding.base64`、`stdx.encoding.hex`、`stdx.encoding.url`。\\n- X509 证书：查询 `crypto/README.md`，对应 `stdx.crypto` 的 X509 数字证书处理；涉及 TLS 证书验证与解析时，也可结合 `tls/README.md`。\",\"matched_skills\":[{\"name\":\"cangjie-stdx\",\"rank\":1}],\"loaded_skills\":[\"cangjie-stdx\"],\"tool_calls\":[],\"final_status\":..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 17658,
+            "output_tokens": 319,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 80,
+            "total_tokens": 17977
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discover-https-cookie-json",
+      "type": "discovery",
+      "input": "仓颉 stdx 怎么发 HTTPS 请求、管理 Cookie 并解析 JSON？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 132240.2037999127,
+      "usage": {
+        "input_tokens": 16885,
+        "output_tokens": 220,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 153,
+        "total_tokens": 17105,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 796,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558313.5318503,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-stdx\",\"rank\":1}],\"loaded_skills\":[\"cangjie-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16885,
+            "output_tokens": 220,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 153,
+            "total_tokens": 17105
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discover-websocket-tls-crypto",
+      "type": "discovery",
+      "input": "仓颉 stdx 的 WebSocket、TLS、Base64 和 X509 怎么用？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-stdx",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-stdx"
+      ],
+      "tool_calls": [],
+      "latency_ms": 132808.78369999118,
+      "usage": {
+        "input_tokens": 16889,
+        "output_tokens": 182,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 115,
+        "total_tokens": 17071,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 796,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558447.099786,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-stdx\",\"rank\":1}],\"loaded_skills\":[\"cangjie-stdx\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16889,
+            "output_tokens": 182,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 115,
+            "total_tokens": 17071
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-stdx.json"
+}

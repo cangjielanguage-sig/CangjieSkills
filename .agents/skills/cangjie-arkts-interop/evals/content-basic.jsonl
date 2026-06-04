@@ -1,0 +1,2 @@
+{"id":"arkts-calls-cangjie-macro","input":"ArkTS 要调用仓颉普通函数和异步函数。请根据此 Skill 说明优先方案、两种注解写法，以及会生成什么 ArkTS 侧产物。","expected_patterns":["@Interop","Async","Promise","d.ts"],"min_score":0.7}
+{"id":"cangjie-calls-arkts-runtime","input":"仓颉代码需要主动调用 ArkTS 系统模块。请根据此 Skill 说明应使用的互操作库与核心运行时 API，并解释它和 @Interop 宏的分工。","expected_patterns":["ohos.ark_interop","JSRuntime","JSContext","requireSystemNativeModule","@Interop"],"min_score":0.7}

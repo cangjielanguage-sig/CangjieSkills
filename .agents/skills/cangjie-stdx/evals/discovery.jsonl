@@ -1,0 +1,2 @@
+{"id":"discover-https-cookie-json","input":"仓颉 stdx 怎么发 HTTPS 请求、管理 Cookie 并解析 JSON？","expected_skills":["cangjie-stdx"],"forbidden_skills":[],"min_rank":3}
+{"id":"discover-websocket-tls-crypto","input":"仓颉 stdx 的 WebSocket、TLS、Base64 和 X509 怎么用？","expected_skills":["cangjie-stdx"],"forbidden_skills":[],"min_rank":3}

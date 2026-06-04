@@ -1,0 +1,336 @@
+{
+  "skill": "cangjie-arkts-interop",
+  "status": "passed",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 2,
+    "content_passed": 2,
+    "discovery_total": 2,
+    "discovery_passed": 2
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 81443.06432502344,
+    "latency_ms_p95": 130834.47522001807,
+    "token_total": 76335,
+    "cost_total": 0.0,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 6652,
+    "content_skill_context_slots_avg": 3326.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "arkts-calls-cangjie-macro",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "ArkTS 要调用仓颉普通函数和异步函数。请根据此 Skill 说明优先方案、两种注解写法，以及会生成什么 ArkTS 侧产物。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "cangjie-calls-arkts-runtime",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "仓颉代码需要主动调用 ArkTS 系统模块。请根据此 Skill 说明应使用的互操作库与核心运行时 API，并解释它和 @Interop 宏的分工。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-arkts-export-async",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "ArkTS 需要调用仓颉导出的异步函数，如何用 @Interop 生成 Promise 和 .d.ts？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-cangjie-require-arkts-module",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "仓颉代码如何通过 JSRuntime 调用 ArkTS 系统模块？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "arkts-calls-cangjie-macro",
+      "type": "content",
+      "input": "ArkTS 要调用仓颉普通函数和异步函数。请根据此 Skill 说明优先方案、两种注解写法，以及会生成什么 ArkTS 侧产物。",
+      "runner": "agent-command",
+      "output": "优先使用声明式互操作宏 `@Interop`，仅当宏无法覆盖需求时，才使用 `ohos.ark_interop` 手工注册。\n\n两种注解写法：\n- 普通函数：`@Interop[ArkTS]`，ArkTS 侧按普通函数调用。\n- 异步函数：`@Interop[ArkTS, Async]`，ArkTS 侧返回 `Promise`，例如仓颉返回 `Float64` 时生成 `Promise<number>`。\n\n生成 ArkTS API 后，会产生 ArkTS 类型声明文件（如 `cangjie/types/lib<包名>/Index.d.ts`）和互操作胶水层。ArkTS 可根据生成的声明导入对应 `lib<包名>.so` 并调用仓颉函数。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-arkts-interop",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-arkts-interop"
+      ],
+      "tool_calls": [],
+      "latency_ms": 131058.32850001752,
+      "usage": {
+        "input_tokens": 20681,
+        "output_tokens": 355,
+        "cached_input_tokens": 9600,
+        "reasoning_output_tokens": 107,
+        "total_tokens": 21036,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3326,
+        "codex_stdout_chars": 1148,
+        "codex_stderr_chars": 7460
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780559292.0557845,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"优先使用声明式互操作宏 `@Interop`，仅当宏无法覆盖需求时，才使用 `ohos.ark_interop` 手工注册。\\n\\n两种注解写法：\\n- 普通函数：`@Interop[ArkTS]`，ArkTS 侧按普通函数调用。\\n- 异步函数：`@Interop[ArkTS, Async]`，ArkTS 侧返回 `Promise`，例如仓颉返回 `Float64` 时生成 `Promise<number>`。\\n\\n生成 ArkTS API 后，会产生 ArkTS 类型声明文件（如 `cangjie/types/lib<包名>/Index.d.ts`）和互操作胶水层。ArkTS 可根据生成的声明导入对应 `lib<包名>.so` 并调用仓颉函数。\",\"matched_skills\":[{\"name\":\"cangjie-arkts-interop\",\"rank\":1}],\"loaded_skills\":[\"cangjie-arkts-interop\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20681,
+            "output_tokens": 355,
+            "cached_input_tokens": 9600,
+            "reasoning_output_tokens": 107,
+            "total_tokens": 21036
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "cangjie-calls-arkts-runtime",
+      "type": "content",
+      "input": "仓颉代码需要主动调用 ArkTS 系统模块。请根据此 Skill 说明应使用的互操作库与核心运行时 API，并解释它和 @Interop 宏的分工。",
+      "runner": "agent-command",
+      "output": "仓颉代码主动调用 ArkTS 系统模块时，应使用底层互操作库 `ohos.ark_interop`。核心调用流程是：创建 `JSRuntime()`，通过 `runtime.mainContext` 获取 `JSContext`，再调用 `context.requireSystemNativeModule(\"模块名\")` 加载系统模块；返回值可通过 `asObject()` 转为对象，并使用 `callMethod(...)` 或取得 `JSFunction` 后调用。常用核心类型包括 `JSRuntime`、`JSContext`、`JSValue`、`JSObject` 和 `JSFunction`。调用从对象取出的方法时，需要注意传入正确的 `thisArg`，并遵守运行时绑定线程和 JSValue 生命周期约束。\n\n`@Interop` 宏主要负责相反方向：将仓颉 API 声明式导出给 ArkTS，并自动生成 `.d.ts` 与互操作胶水层。它适合 ArkTS 调用仓颉函数、异步函数、类、接口和枚举。对于仓颉主动调用 ArkTS 系统模块，仍以 `ohos.ark_interop` 的运行时 API 为主。宏生成的胶水层底层也依赖 `ark_interop`，但通常不应使用手工注册接口去重复导出宏已导出的同名符号。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-arkts-interop",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-arkts-interop"
+      ],
+      "tool_calls": [],
+      "latency_ms": 129565.97330002114,
+      "usage": {
+        "input_tokens": 20683,
+        "output_tokens": 445,
+        "cached_input_tokens": 9600,
+        "reasoning_output_tokens": 82,
+        "total_tokens": 21128,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 3326,
+        "codex_stdout_chars": 1392,
+        "codex_stderr_chars": 7460
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780559421.8158138,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"仓颉代码主动调用 ArkTS 系统模块时，应使用底层互操作库 `ohos.ark_interop`。核心调用流程是：创建 `JSRuntime()`，通过 `runtime.mainContext` 获取 `JSContext`，再调用 `context.requireSystemNativeModule(\\\"模块名\\\")` 加载系统模块；返回值可通过 `asObject()` 转为对象，并使用 `callMethod(...)` 或取得 `JSFunction` 后调用。常用核心类型包括 `JSRuntime`、`JSContext`、`JSValue`、`JSObject` 和 `JSFunction`。调用从对象取出的方法时，需要注意传入正确的 `thisArg`，并遵守运行时绑定线程和 JSValue 生命周期约束。\\n\\n`@Interop` 宏主要负责相反方向：将仓颉 API 声明式导出给 ArkTS，并自动生成 `.d.ts` 与互操作胶水层。它适合 ArkTS 调用仓颉函数、异步函数、类、接口和枚举。对于仓颉主动调用 ArkTS 系统模块，仍..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 20683,
+            "output_tokens": 445,
+            "cached_input_tokens": 9600,
+            "reasoning_output_tokens": 82,
+            "total_tokens": 21128
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discover-arkts-export-async",
+      "type": "discovery",
+      "input": "ArkTS 需要调用仓颉导出的异步函数，如何用 @Interop 生成 Promise 和 .d.ts？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-arkts-interop",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-arkts-interop"
+      ],
+      "tool_calls": [],
+      "latency_ms": 32388.81090003997,
+      "usage": {
+        "input_tokens": 16895,
+        "output_tokens": 174,
+        "cached_input_tokens": 9600,
+        "reasoning_output_tokens": 103,
+        "total_tokens": 17069,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1037,
+        "codex_stderr_chars": 10393
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780559454.3441792,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-arkts-interop\",\"rank\":1}],\"loaded_skills\":[\"cangjie-arkts-interop\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16895,
+            "output_tokens": 174,
+            "cached_input_tokens": 9600,
+            "reasoning_output_tokens": 103,
+            "total_tokens": 17069
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discover-cangjie-require-arkts-module",
+      "type": "discovery",
+      "input": "仓颉代码如何通过 JSRuntime 调用 ArkTS 系统模块？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-arkts-interop",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-harmonyos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-arkts-interop"
+      ],
+      "tool_calls": [],
+      "latency_ms": 32759.144600015134,
+      "usage": {
+        "input_tokens": 16889,
+        "output_tokens": 213,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 127,
+        "total_tokens": 17102,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 1093,
+        "codex_stderr_chars": 10359
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780559487.2950149,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-arkts-interop\",\"rank\":1},{\"name\":\"cangjie-harmonyos-doc-search\",\"rank\":2}],\"loaded_skills\":[\"cangjie-arkts-interop\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16889,
+            "output_tokens": 213,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 127,
+            "total_tokens": 17102
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-arkts-interop.json"
+}

@@ -1,0 +1,2 @@
+{"id":"json-and-http","input":"仓颉 stdx 的 JSON 编解码和 HTTP 客户端、服务端分别查哪些文档？HTTPS、Cookie 和分块传输的进阶文档在哪里？","expected_patterns":["json","http_client","http_server","HTTPS","COOKIE","CHUNKED"],"min_score":0.7}
+{"id":"websocket-tls-encoding-crypto","input":"仓颉 stdx 的 WebSocket、TLS、Base64、Hex、URL 编码和 X509 证书分别应查哪些文档？","expected_patterns":["websocket","tls","encoding","crypto","Base64","X509"],"min_score":0.7}

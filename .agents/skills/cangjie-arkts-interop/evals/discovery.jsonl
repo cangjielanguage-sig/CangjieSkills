@@ -1,0 +1,2 @@
+{"id":"discover-arkts-export-async","input":"ArkTS 需要调用仓颉导出的异步函数，如何用 @Interop 生成 Promise 和 .d.ts？","expected_skills":["cangjie-arkts-interop"],"forbidden_skills":[],"min_rank":3}
+{"id":"discover-cangjie-require-arkts-module","input":"仓颉代码如何通过 JSRuntime 调用 ArkTS 系统模块？","expected_skills":["cangjie-arkts-interop"],"forbidden_skills":[],"min_rank":3}

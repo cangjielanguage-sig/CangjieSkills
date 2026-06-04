@@ -1,0 +1,2 @@
+{"id":"process-regex-weakref","input":"仓颉中启动子进程、执行正则替换和使用 WeakRef 做缓存分别应查哪些标准库文档与 API？","expected_patterns":["std.process","launch","std.regex","replace","std.ref","WeakRef"],"min_score":0.7}
+{"id":"network-and-unittest","input":"仓颉 TCP、UDP、UDS 网络编程和单元测试分别有哪些标准库文档入口与关键 API 或注解？","expected_patterns":["std.net","TCP","UDP","UDS","std.unittest","@Test"],"min_score":0.7}

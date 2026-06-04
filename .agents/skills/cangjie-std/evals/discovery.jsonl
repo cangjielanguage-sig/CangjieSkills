@@ -1,0 +1,2 @@
+{"id":"discover-process-regex","input":"仓颉标准库怎么启动子进程并读取输出，还要做正则替换？","expected_skills":["cangjie-std"],"forbidden_skills":[],"min_rank":3}
+{"id":"discover-weakref-network-test","input":"仓颉里 WeakRef 怎么做缓存，TCP、UDP 和 @Test 单测怎么写？","expected_skills":["cangjie-std"],"forbidden_skills":[],"min_rank":3}

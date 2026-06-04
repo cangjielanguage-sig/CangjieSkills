@@ -1,0 +1,423 @@
+{
+  "skill": "cangjie-std",
+  "status": "passed",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 2,
+    "content_passed": 2,
+    "discovery_total": 2,
+    "discovery_passed": 2
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 158319.25984995905,
+    "latency_ms_p95": 230409.915465035,
+    "token_total": 160732,
+    "cost_total": 0.0,
+    "tool_call_count": 7,
+    "tool_call_error_count": 6,
+    "content_skill_context_slots_total": 3270,
+    "content_skill_context_slots_avg": 1635.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "process-regex-weakref",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "仓颉中启动子进程、执行正则替换和使用 WeakRef 做缓存分别应查哪些标准库文档与 API？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "network-and-unittest",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "仓颉 TCP、UDP、UDS 网络编程和单元测试分别有哪些标准库文档入口与关键 API 或注解？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-process-regex",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "仓颉标准库怎么启动子进程并读取输出，还要做正则替换？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-weakref-network-test",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "仓颉里 WeakRef 怎么做缓存，TCP、UDP 和 @Test 单测怎么写？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "process-regex-weakref",
+      "type": "content",
+      "input": "仓颉中启动子进程、执行正则替换和使用 WeakRef 做缓存分别应查哪些标准库文档与 API？",
+      "runner": "agent-command",
+      "output": "分别查阅以下标准库文档与 API：\n\n- 启动子进程：`std.process` 文档。使用 `launch` 创建子进程；简单执行命令可用 `execute`，需要获取输出可用 `executeWithOutput`；通过 `SubProcess` 配置标准流重定向、等待或终止进程。\n- 执行正则替换：`std.regex` 文档。使用 `Regex.replace` 替换首个匹配项，使用 `Regex.replaceAll` 替换全部匹配项。\n- 使用弱引用做缓存：`std.ref` 文档。使用 `WeakRef` 保存不阻止对象回收的缓存引用，并按需要配置 `CleanupPolicy.EAGER` 或 `CleanupPolicy.DEFERRED` 清理策略。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-std",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-std"
+      ],
+      "tool_calls": [],
+      "latency_ms": 127951.92719995975,
+      "usage": {
+        "input_tokens": 18537,
+        "output_tokens": 355,
+        "cached_input_tokens": 11648,
+        "reasoning_output_tokens": 113,
+        "total_tokens": 18892,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1635,
+        "codex_stdout_chars": 1197,
+        "codex_stderr_chars": 7352
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558059.4893765,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"分别查阅以下标准库文档与 API：\\n\\n- 启动子进程：`std.process` 文档。使用 `launch` 创建子进程；简单执行命令可用 `execute`，需要获取输出可用 `executeWithOutput`；通过 `SubProcess` 配置标准流重定向、等待或终止进程。\\n- 执行正则替换：`std.regex` 文档。使用 `Regex.replace` 替换首个匹配项，使用 `Regex.replaceAll` 替换全部匹配项。\\n- 使用弱引用做缓存：`std.ref` 文档。使用 `WeakRef` 保存不阻止对象回收的缓存引用，并按需要配置 `CleanupPolicy.EAGER` 或 `CleanupPolicy.DEFERRED` 清理策略。\",\"matched_skills\":[{\"name\":\"cangjie-std\",\"rank\":1}],\"loaded_skills\":[\"cangjie-std\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 18537,
+            "output_tokens": 355,
+            "cached_input_tokens": 11648,
+            "reasoning_output_tokens": 113,
+            "total_tokens": 18892
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "network-and-unittest",
+      "type": "content",
+      "input": "仓颉 TCP、UDP、UDS 网络编程和单元测试分别有哪些标准库文档入口与关键 API 或注解？",
+      "runner": "agent-command",
+      "output": "文档入口均来自 `cangjie-std`：\n\n- 网络总览：`./net/README.md`（`std.net`）\n- TCP：`./net/TCP.md`\n- UDP：`./net/UDP.md`\n- UDS：`./net/UDS.md`\n- 单元测试：`./unittest/README.md`（`std.unittest`）\n\n关键 API/注解：\n\n- 通用网络：`IPAddress`、`IPSocketAddress`、`SocketAddress`、`SocketOptions`、`SocketException`。\n- TCP：服务端使用 `TcpServerSocket`、`bind()`、`accept()`；客户端使用 `TcpSocket`、`connect()`；连接通过 `read()`、`write()`、`close()` 收发与释放资源。\n- UDP：使用 `UdpSocket`、`bind()`、`sendTo()`、`receiveFrom()`；也可通过 `connect()`/`disconnect()` 后使用 `send()`/`receive()`。\n- UDS：流式通信使用 `UnixServerSocket`、`UnixSocket`、`UnixSocketAddress`；数据报通信使用 `UnixDatagramSocket`。核心流程同样是 `bind()`、`accept()`/`connect()`、`read()`/`write()` 或 `sendTo()`/`receiveFrom()`。UDS 不支持 Windows。\n- 单元测试：`@Test`、`@TestCase`；断言 `@Assert`、`@Expect`、`@PowerAssert`、`@AssertThrows`；生命周期 `@BeforeAll`、`@AfterAll`、`@BeforeEach`、`@AfterEach`；参数化测试使用 `@TestCase[x in source]`；性能测试使用 `@Bench`；Mock/Spy 与桩配置使用 `Mock`、`Spy`、`@On`。\n\n官方参考：[std.net](https://docs.cangjie-lang.cn/docs/1.0.4/libs/std/net/net_package_overview.html)、[std.unittest](https://docs.cangjie-lang.cn/docs/1.0.0/libs/std/unittest/unittest_package_overview.html)。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-std",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-std"
+      ],
+      "tool_calls": [
+        {
+          "name": "shell_command",
+          "status": "failed"
+        },
+        {
+          "name": "list_mcp_resources",
+          "status": "success"
+        },
+        {
+          "name": "mcp__node_repl.js",
+          "status": "failed"
+        },
+        {
+          "name": "web.run",
+          "status": "success"
+        },
+        {
+          "name": "read_file",
+          "status": "failed"
+        },
+        {
+          "name": "js",
+          "status": "failed"
+        }
+      ],
+      "latency_ms": 248020.60230006464,
+      "usage": {
+        "input_tokens": 103577,
+        "output_tokens": 4020,
+        "cached_input_tokens": 61952,
+        "reasoning_output_tokens": 2844,
+        "total_tokens": 107597,
+        "tool_call_count": 7,
+        "tool_call_error_count": 6,
+        "skill_context_slots": 1635,
+        "codex_tool_commands": [
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\net\\\\TCP.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\SKILL.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\net\\\\UDP.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\net\\\\UDS.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\unittest\\\\README.md\""
+        ],
+        "codex_tool_count": 5,
+        "codex_stdout_chars": 10722,
+        "codex_stderr_chars": 16318
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558307.980278,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"我会使用 `cangjie-std` 的网络与单元测试文档入口，核对 TCP、UDP、UDS 和 unittest 的关键 API/注解。\",\"matched_skills\":[{\"name\":\"cangjie-std\",\"rank\":1},{\"name\":\"cangjie-original-docs\",\"rank\":2}],\"loaded_skills\":[\"cangjie-std\"],\"tool_calls\":[],\"final_status\":\"failed\",\"usage\":{},\"cost\":null,\"error\":\"Must inspect skill files before answering\"}"
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\net\\\\TCP.md\"",
+          "status": "failed",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\SKILL.md\"",
+          "status": "failed",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\net\\\\UDP.md\"",
+          "status": "failed",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\net\\\\UDS.md\"",
+          "status": "failed",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-std\\\\unittest\\\\README.md\"",
+          "status": "failed",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "list_mcp_resources",
+          "status": "completed"
+        },
+        {
+          "type": "tool_call",
+          "tool": "js",
+          "status": "failed"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"文档入口均来自 `cangjie-std`：\\n\\n- 网络总览：`./net/README.md`（`std.net`）\\n- TCP：`./net/TCP.md`\\n- UDP：`./net/UDP.md`\\n- UDS：`./net/UDS.md`\\n- 单元测试：`./unittest/README.md`（`std.unittest`）\\n\\n关键 API/注解：\\n\\n- 通用网络：`IPAddress`、`IPSocketAddress`、`SocketAddress`、`SocketOptions`、`SocketException`。\\n- TCP：服务端使用 `TcpServerSocket`、`bind()`、`accept()`；客户端使用 `TcpSocket`、`connect()`；连接通过 `read()`、`write()`、`close()` 收发与释放资源。\\n- UDP：使用 `UdpSocket`、`bind()`、`sendTo()`、`receiveFrom()`；也可通过 `connect()`/`discon..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 103577,
+            "output_tokens": 4020,
+            "cached_input_tokens": 61952,
+            "reasoning_output_tokens": 2844,
+            "total_tokens": 107597
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discover-process-regex",
+      "type": "discovery",
+      "input": "仓颉标准库怎么启动子进程并读取输出，还要做正则替换？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-std",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-original-docs",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-std",
+        "cangjie-original-docs"
+      ],
+      "tool_calls": [],
+      "latency_ms": 130616.02339986712,
+      "usage": {
+        "input_tokens": 16888,
+        "output_tokens": 230,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 145,
+        "total_tokens": 17118,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 868,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558438.9325092,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-std\",\"rank\":1},{\"name\":\"cangjie-original-docs\",\"rank\":2}],\"loaded_skills\":[\"cangjie-std\",\"cangjie-original-docs\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16888,
+            "output_tokens": 230,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 145,
+            "total_tokens": 17118
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discover-weakref-network-test",
+      "type": "discovery",
+      "input": "仓颉里 WeakRef 怎么做缓存，TCP、UDP 和 @Test 单测怎么写？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-std",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-lang-features",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-std"
+      ],
+      "tool_calls": [],
+      "latency_ms": 126688.4864999447,
+      "usage": {
+        "input_tokens": 16890,
+        "output_tokens": 235,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 157,
+        "total_tokens": 17125,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 842,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558565.7785938,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-std\",\"rank\":1},{\"name\":\"cangjie-lang-features\",\"rank\":2}],\"loaded_skills\":[\"cangjie-std\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16890,
+            "output_tokens": 235,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 157,
+            "total_tokens": 17125
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-std.json"
+}

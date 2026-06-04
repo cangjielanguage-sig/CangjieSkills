@@ -1,0 +1,342 @@
+{
+  "skill": "cangjie-lang-features",
+  "status": "passed",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 2,
+    "content_passed": 2,
+    "discovery_total": 2,
+    "discovery_passed": 2
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 119037.68205002416,
+    "latency_ms_p95": 136840.50066509517,
+    "token_total": 72335,
+    "cost_total": 0.0,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 3286,
+    "content_skill_context_slots_avg": 1643.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "option-and-pattern-match",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "仓颉语言中 Option、?.、??、if-let 和 match 穷举规则应查哪些专题？请根据此 Skill 给出文档入口和关键概念。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "generic-concurrency-macro-cffi",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "仓颉的泛型 where 约束、spawn 并发、宏以及 C 互操作分别应查哪些专题文档？请根据此 Skill 给出入口。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-option-pattern",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "仓颉 Option 的 ?. 和 ?? 怎么用，match 需要穷举吗？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-generic-concurrency-cffi",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "仓颉的泛型 where 约束、spawn 并发和 CFFI 怎么写？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "option-and-pattern-match",
+      "type": "content",
+      "input": "仓颉语言中 Option、?.、??、if-let 和 match 穷举规则应查哪些专题？请根据此 Skill 给出文档入口和关键概念。",
+      "runner": "agent-command",
+      "output": "应重点查阅两个专题：\n1. `./option/README.md`（Option 类型）：涵盖 `Option<T>`、`?T` 简写、自动包装、`Some`/`None` 模式解构、空值安全调用 `?.`、合并操作符 `??`、`if-let` 与 `while-let`。\n2. `./pattern_match/README.md`（模式匹配）：涵盖 `match` 表达式、枚举/绑定/通配符等模式、模式嵌套、守卫 `where`、可反驳性，以及 `match` 的穷举性规则。对于非穷举枚举或无法静态覆盖全部情况的匹配，通常需要通配模式 `_` 兜底。\n\n补充入口：`./error_handle/README.md`，用于了解 `Option` 在错误处理场景中的 `?.`、`??` 和 `getOrThrow()`。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-lang-features",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-lang-features"
+      ],
+      "tool_calls": [],
+      "latency_ms": 76372.64749989845,
+      "usage": {
+        "input_tokens": 18671,
+        "output_tokens": 442,
+        "cached_input_tokens": 9600,
+        "reasoning_output_tokens": 163,
+        "total_tokens": 19113,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1643,
+        "codex_stdout_chars": 1412,
+        "codex_stderr_chars": 8172
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558007.2784004,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"应重点查阅两个专题：\\n1. `./option/README.md`（Option 类型）：涵盖 `Option<T>`、`?T` 简写、自动包装、`Some`/`None` 模式解构、空值安全调用 `?.`、合并操作符 `??`、`if-let` 与 `while-let`。\\n2. `./pattern_match/README.md`（模式匹配）：涵盖 `match` 表达式、枚举/绑定/通配符等模式、模式嵌套、守卫 `where`、可反驳性，以及 `match` 的穷举性规则。对于非穷举枚举或无法静态覆盖全部情况的匹配，通常需要通配模式 `_` 兜底。\\n\\n补充入口：`./error_handle/README.md`，用于了解 `Option` 在错误处理场景中的 `?.`、`??` 和 `getOrThrow()`。\",\"matched_skills\":[{\"name\":\"cangjie-lang-features\",\"rank\":1}],\"loaded_skills\":[\"cangjie-lang-features\"],\"tool_call..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 18671,
+            "output_tokens": 442,
+            "cached_input_tokens": 9600,
+            "reasoning_output_tokens": 163,
+            "total_tokens": 19113
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "generic-concurrency-macro-cffi",
+      "type": "content",
+      "input": "仓颉的泛型 where 约束、spawn 并发、宏以及 C 互操作分别应查哪些专题文档？请根据此 Skill 给出入口。",
+      "runner": "agent-command",
+      "output": "请查阅 `cangjie-lang-features` Skill 中的以下专题入口：\n- 泛型 `where` 约束：`./generic/README.md`\n- `spawn` 并发：`./concurrency/README.md`\n- 宏与元编程：`./macro/README.md`\n- C 互操作/CFFI：`./cffi/README.md`",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-lang-features",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-lang-features"
+      ],
+      "tool_calls": [],
+      "latency_ms": 137717.340500094,
+      "usage": {
+        "input_tokens": 18674,
+        "output_tokens": 229,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 73,
+        "total_tokens": 18903,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1643,
+        "codex_stdout_chars": 1001,
+        "codex_stderr_chars": 6757
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558145.3662028,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"请查阅 `cangjie-lang-features` Skill 中的以下专题入口：\\n- 泛型 `where` 约束：`./generic/README.md`\\n- `spawn` 并发：`./concurrency/README.md`\\n- 宏与元编程：`./macro/README.md`\\n- C 互操作/CFFI：`./cffi/README.md`\",\"matched_skills\":[{\"name\":\"cangjie-lang-features\",\"rank\":1}],\"loaded_skills\":[\"cangjie-lang-features\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 18674,
+            "output_tokens": 229,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 73,
+            "total_tokens": 18903
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discover-option-pattern",
+      "type": "discovery",
+      "input": "仓颉 Option 的 ?. 和 ?? 怎么用，match 需要穷举吗？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-lang-features",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-lang-features"
+      ],
+      "tool_calls": [],
+      "latency_ms": 131871.7416001018,
+      "usage": {
+        "input_tokens": 16885,
+        "output_tokens": 211,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 144,
+        "total_tokens": 17096,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 814,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558277.5371203,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-lang-features\",\"rank\":1}],\"loaded_skills\":[\"cangjie-lang-features\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16885,
+            "output_tokens": 211,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 144,
+            "total_tokens": 17096
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discover-generic-concurrency-cffi",
+      "type": "discovery",
+      "input": "仓颉的泛型 where 约束、spawn 并发和 CFFI 怎么写？",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-lang-features",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-std",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-original-docs",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-lang-features",
+        "cangjie-std",
+        "cangjie-original-docs"
+      ],
+      "tool_calls": [],
+      "latency_ms": 130188.99860000238,
+      "usage": {
+        "input_tokens": 16892,
+        "output_tokens": 331,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 226,
+        "total_tokens": 17223,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 942,
+        "codex_stderr_chars": 7078
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558407.9389205,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-lang-features\",\"rank\":1},{\"name\":\"cangjie-std\",\"rank\":2},{\"name\":\"cangjie-original-docs\",\"rank\":3}],\"loaded_skills\":[\"cangjie-lang-features\",\"cangjie-std\",\"cangjie-original-docs\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16892,
+            "output_tokens": 331,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 226,
+            "total_tokens": 17223
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-lang-features.json"
+}

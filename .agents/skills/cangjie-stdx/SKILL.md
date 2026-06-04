@@ -1,6 +1,6 @@
 ---
 name: cangjie-stdx
-description: "提供仓颉语言扩展标准库stdx常用功能速查文档，包括stdx配置构建/json编解码/日志/编码/压缩/序列化/HTTP客户端/HTTP服务端/WebSocket/TLS安全通信等"
+description: "当需要查询仓颉扩展标准库 stdx 的 API、示例、配置或使用方式时使用此 Skill；提供 JSON 编解码、日志、编码、压缩、序列化、HTTP、WebSocket、TLS 和加密功能速查文档。"
 ---
 
 请按需查询当前目录下的工具文档：

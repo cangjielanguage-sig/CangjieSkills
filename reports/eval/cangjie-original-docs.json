@@ -1,0 +1,340 @@
+{
+  "skill": "cangjie-original-docs",
+  "status": "passed",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 2,
+    "content_passed": 2,
+    "discovery_total": 2,
+    "discovery_passed": 2
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 133912.5996750081,
+    "latency_ms_p95": 139553.71696004877,
+    "token_total": 69519,
+    "cost_total": 0.0,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 566,
+    "content_skill_context_slots_avg": 283.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "raw-language-and-tools-search",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "专题文档不足时，如何在此 Skill 的原始文档中定位仓颉语言细节与 cjpm 工具链手册？请说明索引入口和搜索顺序。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "raw-std-and-stdx-indexes",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "需要核对仓颉标准库与扩展标准库的原始 API 文档时，应从此 Skill 的哪些索引和目录开始？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-raw-language-tools",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "现有专题 Skill 没覆盖这个仓颉编译器细节，我要查原始语言文档和 cjc、cjpm 工具链手册。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discover-raw-library-definitions",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "我需要核对仓颉 std 和 stdx 原始 API 文档中的完整定义。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "raw-language-and-tools-search",
+      "type": "content",
+      "input": "专题文档不足时，如何在此 Skill 的原始文档中定位仓颉语言细节与 cjpm 工具链手册？请说明索引入口和搜索顺序。",
+      "runner": "agent-command",
+      "output": "专题文档不足时，使用 `cangjie-original-docs` 按索引自上而下检索：\n\n1. 定位仓颉语言细节：先查看 `kernel/index.md`，再进入对应语言特性、语法规则或编译构建文档；若索引不能直接定位，再在 `kernel` 目录中使用关键词和模式匹配搜索。\n2. 定位 cjpm 工具链手册：先查看 `tools/index.md`，找到 cjpm 对应章节后阅读具体文档；若索引结果不足，再在 `tools` 目录中搜索 `cjpm`、命令名、配置项或报错关键词。\n3. 搜索顺序统一为：专题 Skill → 原始文档顶层索引 → 对应分类索引与具体文档 → 在限定目录内关键词搜索 → 扩展同义词或报错模式继续搜索。\n\n其他原始文档入口包括标准库 `std.md` 和扩展标准库 `stdx.md`。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-original-docs",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-original-docs"
+      ],
+      "tool_calls": [],
+      "latency_ms": 140650.9831000585,
+      "usage": {
+        "input_tokens": 17334,
+        "output_tokens": 462,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 165,
+        "total_tokens": 17796,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 283,
+        "codex_stdout_chars": 1247,
+        "codex_stderr_chars": 7351
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558072.28423,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"专题文档不足时，使用 `cangjie-original-docs` 按索引自上而下检索：\\n\\n1. 定位仓颉语言细节：先查看 `kernel/index.md`，再进入对应语言特性、语法规则或编译构建文档；若索引不能直接定位，再在 `kernel` 目录中使用关键词和模式匹配搜索。\\n2. 定位 cjpm 工具链手册：先查看 `tools/index.md`，找到 cjpm 对应章节后阅读具体文档；若索引结果不足，再在 `tools` 目录中搜索 `cjpm`、命令名、配置项或报错关键词。\\n3. 搜索顺序统一为：专题 Skill → 原始文档顶层索引 → 对应分类索引与具体文档 → 在限定目录内关键词搜索 → 扩展同义词或报错模式继续搜索。\\n\\n其他原始文档入口包括标准库 `std.md` 和扩展标准库 `stdx.md`。\",\"matched_skills\":[{\"name\":\"cangjie-original-docs\",\"rank\":1}],\"loaded_skills\":[\"cangjie-original-docs\"],\"tool_call..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 17334,
+            "output_tokens": 462,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 165,
+            "total_tokens": 17796
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "raw-std-and-stdx-indexes",
+      "type": "content",
+      "input": "需要核对仓颉标准库与扩展标准库的原始 API 文档时，应从此 Skill 的哪些索引和目录开始？",
+      "runner": "agent-command",
+      "output": "核对仓颉标准库原始 API 文档时，从 `std.md` 索引开始，再进入 `std` 目录检索；核对扩展标准库原始 API 文档时，从 `stdx.md` 索引开始，再进入 `libs_stdx` 目录检索。应基于各级目录索引自上而下查找，并使用关键词或模式匹配核对具体 API。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-original-docs",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-original-docs"
+      ],
+      "tool_calls": [],
+      "latency_ms": 133335.87549999356,
+      "usage": {
+        "input_tokens": 17328,
+        "output_tokens": 263,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 103,
+        "total_tokens": 17591,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 283,
+        "codex_stdout_chars": 955,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558206.4625773,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"核对仓颉标准库原始 API 文档时，从 `std.md` 索引开始，再进入 `std` 目录检索；核对扩展标准库原始 API 文档时，从 `stdx.md` 索引开始，再进入 `libs_stdx` 目录检索。应基于各级目录索引自上而下查找，并使用关键词或模式匹配核对具体 API。\",\"matched_skills\":[{\"name\":\"cangjie-original-docs\",\"rank\":1}],\"loaded_skills\":[\"cangjie-original-docs\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 17328,
+            "output_tokens": 263,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 103,
+            "total_tokens": 17591
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discover-raw-language-tools",
+      "type": "discovery",
+      "input": "现有专题 Skill 没覆盖这个仓颉编译器细节，我要查原始语言文档和 cjc、cjpm 工具链手册。",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-original-docs",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-original-docs"
+      ],
+      "tool_calls": [],
+      "latency_ms": 129266.7104001157,
+      "usage": {
+        "input_tokens": 16904,
+        "output_tokens": 166,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 99,
+        "total_tokens": 17070,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 813,
+        "codex_stderr_chars": 6631
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558336.7609556,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-original-docs\",\"rank\":1}],\"loaded_skills\":[\"cangjie-original-docs\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16904,
+            "output_tokens": 166,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 99,
+            "total_tokens": 17070
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discover-raw-library-definitions",
+      "type": "discovery",
+      "input": "我需要核对仓颉 std 和 stdx 原始 API 文档中的完整定义。",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-original-docs",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-std",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-stdx",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-original-docs"
+      ],
+      "tool_calls": [],
+      "latency_ms": 132396.8296998646,
+      "usage": {
+        "input_tokens": 16888,
+        "output_tokens": 174,
+        "cached_input_tokens": 13696,
+        "reasoning_output_tokens": 82,
+        "total_tokens": 17062,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "codex_stdout_chars": 890,
+        "codex_stderr_chars": 7079
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1780558470.0605843,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-original-docs\",\"rank\":1},{\"name\":\"cangjie-std\",\"rank\":2},{\"name\":\"cangjie-stdx\",\"rank\":3}],\"loaded_skills\":[\"cangjie-original-docs\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 16888,
+            "output_tokens": 174,
+            "cached_input_tokens": 13696,
+            "reasoning_output_tokens": 82,
+            "total_tokens": 17062
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-original-docs.json"
+}

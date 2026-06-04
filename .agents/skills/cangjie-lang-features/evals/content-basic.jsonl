@@ -1,0 +1,2 @@
+{"id":"option-and-pattern-match","input":"仓颉语言中 Option、?.、??、if-let 和 match 穷举规则应查哪些专题？请根据此 Skill 给出文档入口和关键概念。","expected_patterns":["Option","option","pattern_match","match","if-let"],"min_score":0.7}
+{"id":"generic-concurrency-macro-cffi","input":"仓颉的泛型 where 约束、spawn 并发、宏以及 C 互操作分别应查哪些专题文档？请根据此 Skill 给出入口。","expected_patterns":["generic","concurrency","macro","cffi","where","spawn"],"min_score":0.7}

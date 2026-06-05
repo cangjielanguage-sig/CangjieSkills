@@ -65,6 +65,8 @@ python unified_search.py "<query>" [options]
 
 `--engine graph` 可附加子命令：`--cmd neighbors <node>` / `path <s> <t>` / `god-nodes [n]` / `community <id>` / `explain <node>`。
 
+> **Windows 注意**：PowerShell 会吞掉 `""` 空字符串参数，导致图遍历命令参数错位。已内置自动修正，调用时**无需传空 query**，直接 `--engine graph --cmd neighbors List` 即可。加 `--json` 可获取结构化输出。
+
 详细调用示例见 `SKILL_DETAIL.md`。
 
 ## 步骤 3：结果解读

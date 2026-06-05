@@ -222,6 +222,7 @@ def cmd_export(args):
 
 
 def main():
+    _ensure_utf8()
     parser = argparse.ArgumentParser(description="仓颉鸿蒙知识图谱搜索 CLI（构建功能已迁至 maintenance skill）")
     subparsers = parser.add_subparsers(dest="command", help="子命令")
 

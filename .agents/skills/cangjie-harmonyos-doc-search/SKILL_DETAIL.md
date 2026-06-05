@@ -66,10 +66,12 @@ python unified_search.py "卡顿优化" --engine graph --json --limit 5
 # 构建报错
 python unified_search.py "BarState enum Scroll" --engine card --json --limit 3
 
-# 图遍历
-python unified_search.py "" --engine graph --cmd neighbors List
-python unified_search.py "" --engine graph --cmd path UIAbility WindowStage
-python unified_search.py "" --engine graph --cmd god-nodes 10
+# 图遍历（无需传空 query，已内置 Windows 兼容）
+python unified_search.py --engine graph --cmd neighbors List
+python unified_search.py --engine graph --cmd neighbors List --json
+python unified_search.py --engine graph --cmd path UIAbility WindowStage
+python unified_search.py --engine graph --cmd god-nodes
+python unified_search.py --engine graph --cmd god-nodes 20
 ```
 
 ## 6. 完整工作流示例

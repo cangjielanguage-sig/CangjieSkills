@@ -167,6 +167,7 @@ def run_graph_cmd(cmd_name, *args):
     """调用 doc-graph CLI 的非搜索命令（neighbors/path/god-nodes 等）。
 
     直接透传子进程输出，不做解析。
+    Windows 子进程 stdout 含 \r\n 行尾，统一替换为 \n 避免双行尾显示异常。
     """
     script = GRAPH_DIR / "cli.py"
     full_args = [sys.executable, str(script), cmd_name] + list(args)
@@ -175,7 +176,7 @@ def run_graph_cmd(cmd_name, *args):
             full_args, capture_output=True, cwd=str(GRAPH_DIR), timeout=30,
             env=UTF8_ENV
         )
-        return result.stdout.decode("utf-8", errors="replace")
+        return result.stdout.decode("utf-8", errors="replace").replace("\r", "")
     except (subprocess.TimeoutExpired, FileNotFoundError):
         return f"Error: graph command '{cmd_name}' failed"
 
@@ -391,8 +392,34 @@ def main():
     args = parser.parse_args()
 
     if args.engine == "graph" and args.cmd:
-        output = run_graph_cmd(args.cmd, *args.cmd_args)
-        print(output)
+        # When --cmd is active, all positional args should be cmd_args.
+        # argparse distributes them between query and cmd_args, so merge
+        # them back. This also fixes Windows PowerShell stripping "" which
+        # causes arg misplacement.
+        cmd_args_final = []
+        if args.query:
+            cmd_args_final.append(args.query)
+        cmd_args_final.extend(args.cmd_args)
+        # Some cli.py subcommands use flags (e.g. god-nodes --top-n)
+        # instead of positional args. Convert numeric args for those.
+        FLAG_MAP = {"god-nodes": "--top-n", "neighbors": "--limit"}
+        if args.cmd in FLAG_MAP and cmd_args_final:
+            last = cmd_args_final[-1]
+            try:
+                int(last)
+                cmd_args_final[-1] = FLAG_MAP[args.cmd]
+                cmd_args_final.append(last)
+            except ValueError:
+                pass
+        output = run_graph_cmd(args.cmd, *cmd_args_final)
+        if args.json:
+            print(json.dumps({
+                "command": args.cmd,
+                "args": cmd_args_final,
+                "output": output
+            }, ensure_ascii=False, indent=2))
+        else:
+            print(output)
         return
 
     if not args.query:

@@ -62,12 +62,15 @@ class GraphifyEngine(GraphEngine):
         self._graph = json_graph.node_link_graph(data, edges="links")
         self._graph_path = str(path)
 
-        # 构建节点索引：同时注册 ID、norm_label、label 三种查找键
         self._node_index = {}
         for nid, ndata in self._graph.nodes(data=True):
-            self._node_index[nid] = ndata
-            self._node_index[ndata.get("norm_label", "").lower()] = ndata
-            self._node_index[ndata.get("label", "").lower()] = ndata
+            self._node_index[nid] = nid
+            norm = ndata.get("norm_label", "").lower()
+            if norm:
+                self._node_index[norm] = nid
+            label_lower = ndata.get("label", "").lower()
+            if label_lower:
+                self._node_index[label_lower] = nid
 
     def find_path(self, node_a: str, node_b: str, max_depth: int = 5) -> list[NodeInfo]:
         """查找两个节点之间的最短路径（BFS），限制最大深度。
@@ -182,6 +185,5 @@ class GraphifyEngine(GraphEngine):
             return identifier
         lower = identifier.lower()
         if lower in self._node_index:
-            ndata = self._node_index[lower]
-            return ndata.get("id", lower)
+            return self._node_index[lower]
         return None

@@ -201,11 +201,14 @@ class GraphSession:
         return merged
 
     def explain(self, node_id: str, graph: str = "doc") -> str:
-        """解释节点。"""
+        """解释节点。支持传入 label 或 node_id，自动解析。"""
+        resolved = self._resolve_node_id(node_id)
+        if resolved is None:
+            return f"Node {node_id} not found."
         if graph == "code" and self.code_engine:
-            return self.code_engine.explain(node_id)
+            return self.code_engine.explain(resolved)
         elif self.doc_engine:
-            return self.doc_engine.explain(node_id)
+            return self.doc_engine.explain(resolved)
         return f"Node {node_id} not found."
 
     def find_path(self, node_a: str, node_b: str, max_depth: int = 5) -> list:
@@ -216,20 +219,42 @@ class GraphSession:
             return []
         return eng.find_path(node_a, node_b, max_depth=max_depth)
 
+    def _resolve_node_id(self, query: str) -> str | None:
+        """将用户输入的 label/id/名称解析为内部 node_id。
+
+        优先精确匹配 node_id，再匹配 label（大小写不敏感），最后匹配 label_zh。
+        """
+        for engine in (self.doc_engine, self.code_engine):
+            if engine is None:
+                continue
+            if query in engine.nodes:
+                return query
+            q_lower = query.lower()
+            for nid, node in engine.nodes.items():
+                if node.label.lower() == q_lower:
+                    return nid
+                if node.label_zh and node.label_zh == query:
+                    return nid
+        return None
+
     def neighbors(self, node_id: str, max_count: int = 20) -> list:
         """获取邻居节点 — 优先从搜索引擎（内存中的邻接表），回退到 GraphifyEngine（NetworkX）。
 
+        支持传入 label 或 node_id：若 node_id 不在引擎中，先通过 _resolve_node_id 查找。
         搜索引擎加载更快且不需要额外依赖，因此优先使用。
         """
-        if self.doc_engine and node_id in self.doc_engine.nodes:
-            neighbor_ids = [nid for nid, _ in self.doc_engine.neighbors.get(node_id, [])[:max_count]]
+        resolved = self._resolve_node_id(node_id)
+        if resolved is None:
+            return []
+        if self.doc_engine and resolved in self.doc_engine.nodes:
+            neighbor_ids = [nid for nid, _ in self.doc_engine.neighbors.get(resolved, [])[:max_count]]
             return [self.doc_engine.nodes[nid] for nid in neighbor_ids if nid in self.doc_engine.nodes]
-        if self.code_engine and node_id in self.code_engine.nodes:
-            neighbor_ids = [nid for nid, _ in self.code_engine.neighbors.get(node_id, [])[:max_count]]
+        if self.code_engine and resolved in self.code_engine.nodes:
+            neighbor_ids = [nid for nid, _ in self.code_engine.neighbors.get(resolved, [])[:max_count]]
             return [self.code_engine.nodes[nid] for nid in neighbor_ids if nid in self.code_engine.nodes]
         eng = self._load_engine()
         if eng is not None:
-            return eng.get_neighbors(node_id, max_count=max_count)
+            return eng.get_neighbors(resolved, max_count=max_count)
         return []
 
     def god_nodes(self, top_n: int = 10) -> list[dict]:

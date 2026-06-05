@@ -353,6 +353,10 @@ def has_property_pattern(query: str) -> bool:
     4. 中文 + 英文标识符混合模式（"列表 的 LazyForEach"）
     5. 纯属性标识符（如 "rawfile" 出现即视为属性查询）
     """
+    lowered = query.lower()
+    identifiers = extract_identifiers(query)
+    if any(word in lowered for word in EXPLICIT_API_HINT_WORDS):
+        return True
     if any(phrase in lowered for phrase in EXPLICIT_API_PHRASES):
         return True
     if any(word in lowered for word in PROPERTY_QUERY_WORDS):
@@ -391,6 +395,14 @@ def detect_objects(query: str) -> list[str]:
     - "相机设备" 映射到 camera 并排除 device_info
     - 无匹配对象时默认为 "general"
     """
+    lowered = query.lower()
+    objects = [
+        key
+        for key, hints in OBJECT_HINTS.items()
+        if any(hint in lowered for hint in hints)
+    ]
+    if any(phrase in lowered for phrase in ("怎么定位", "问题定位", "错误定位", "出问题怎么定位")):
+        objects = [item for item in objects if item != "location"]
     identifiers = extract_identifiers(query)
     if any(token.lower() == "objectfit" for token in identifiers):
         objects.append("image")
@@ -427,6 +439,8 @@ def detect_intent_type(query: str) -> str:
     优先级：troubleshooting > exploration > example_lookup > api_lookup > build_feature > quickstart
     默认兜底为 build_feature（表示"我想要做某事"的开发意图）。
     """
+    lowered = query.lower()
+    if any(word in lowered for word in TROUBLESHOOTING_WORDS):
         return "troubleshooting"
     if any(word in lowered for word in EXPLORATION_WORDS):
         return "exploration"
@@ -481,6 +495,8 @@ def preferred_result_for_query(query: str, intent_type: str) -> str:
     - 生活周期/指南类查询优先返回 doc
     - 根据 intent_type 调整优先级（api_lookup → api, build_feature → task）
     """
+    lowered = query.lower()
+    component_api_tokens = (
         "textarea",
         "搜索框",
         "checkbox",
@@ -655,6 +671,7 @@ def normalize_understanding(payload: dict[str, Any], mode: str = "rule") -> dict
     对缺失字段提供兜底值，确保 downstream 消费者（search_v3.py）始终拿到完整结构。
     规则：primary_objects 空时默认 ["general"]，search_strategy 缺失时自动推导。
     """
+    raw_query = str(payload.get("raw_query") or payload.get("query") or "")
     normalized_query = str(payload.get("normalized_query") or re.sub(r"\s+", " ", raw_query).strip())
     intent_type = str(payload.get("intent_type") or "build_feature")
     preferred = str(payload.get("preferred_result") or preferred_result(intent_type))
@@ -698,6 +715,9 @@ def understand(query: str) -> dict[str, Any]:
     流程：detect_intent_type → detect_objects → extract_identifiers →
     preferred_result_for_query → search_strategy → normalize_understanding
     """
+    intent_type = detect_intent_type(query)
+    identifiers = extract_identifiers(query)
+    preferred = preferred_result_for_query(query, intent_type)
     return normalize_understanding(
         {
             "raw_query": query,
@@ -720,6 +740,10 @@ def understand_host_agent(query: str, payload: dict[str, Any]) -> dict[str, Any]
     payload 中已有字段优先保留，缺失字段由规则推断补充。
     mode 标记为 "host-agent"，便于 downstream 区分理解来源。
     """
+    merged = dict(payload)
+    merged.setdefault("raw_query", query)
+    merged.setdefault("normalized_query", re.sub(r"\s+", " ", query).strip())
+    return normalize_understanding(merged, mode="host-agent")
 
 
 def main() -> None:

@@ -504,7 +504,7 @@ def normalize_object(value: object) -> str:
     return str(value).lower().replace("_", "").replace("-", "").strip()
 
 
-def has_object_overlap(query_objects: set[str], metadata_objects: set[str]) -> str:
+def has_object_overlap(query_objects: set[str], metadata_objects: set[str]) -> bool:
     """判断查询对象与卡片对象是否有重叠 — 支持子串匹配（容错）。
 
     "general" 对象不参与匹配（过于泛化）。

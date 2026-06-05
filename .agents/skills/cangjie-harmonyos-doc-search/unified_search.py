@@ -124,6 +124,7 @@ def run_graph(query, limit=5, brief=True):
     将 "直接命中" 和 "关联推荐" 两个分区分别解析为 Hit 列表。
     返回 {"direct": [...], "related": [...]} dict，失败返回 None。
     """
+    script = GRAPH_DIR / "cli.py"
     args = [sys.executable, str(script), "search", query, "--graph", "doc", "-k", str(limit)]
     if brief:
         args.append("-b")
@@ -167,6 +168,7 @@ def run_graph_cmd(cmd_name, *args):
 
     直接透传子进程输出，不做解析。
     """
+    script = GRAPH_DIR / "cli.py"
     full_args = [sys.executable, str(script), cmd_name] + list(args)
     try:
         result = subprocess.run(
@@ -250,6 +252,8 @@ def _ensure_top_dir(path):
     例如 "API/std.List.md" → "harmonyos-6.0.2-15k/API/std.List.md"
     如果路径已有 TOP_DIR 前缀则不重复添加。
     """
+    path = path.replace("\\", "/")
+    for sep in ("\\", "/"):
         if path.startswith(TOP_DIR + sep):
             return path
     return TOP_DIR + "/" + path

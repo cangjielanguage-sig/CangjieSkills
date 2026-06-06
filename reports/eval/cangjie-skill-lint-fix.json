@@ -1,0 +1,613 @@
+﻿{
+  "skill": "cangjie-skill-lint-fix",
+  "status": "passed",
+  "summary": {
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 3,
+    "content_passed": 3,
+    "discovery_total": 3,
+    "discovery_passed": 3
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 0.9166666666666666,
+    "pattern_score_avg": 0.9166666666666666,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 0.9166666666666666,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 4944.333333333333,
+    "latency_ms_p95": 7144.75,
+    "token_total": 151633,
+    "cost_total": 0.826865,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 7227,
+    "content_skill_context_slots_avg": 2409.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "我准备修复一个 Skill 的 lint 告警。请按 cangjie-skill-lint-fix 给出必须执行的顺序、报告目录和最终验收条件。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "如果当前机器没有 skill-lint 和 skill-eval，按此 Skill 应该安装哪个 release，并执行什么安装验证命令？",
+      "status": "passed",
+      "score": 0.75,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "skill-lint 报 E-1 缺少 evals。请说明补用例后必须怎样用真实 agent 验证。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "帮我把某个 Skill 的 skill-lint warning 全部修掉，最后重新跑 lint 到 0 warnings。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "skill-lint 报 E-1 缺 evals，请补真实用例并用 Codex 或 Claude agent 跑 skill-eval。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "扫描用户输入的 Skill 目录，把 lint 报告写到 reports/lint，修完后确认 0 errors 0 warnings。",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "我准备修复一个 Skill 的 lint 告警。请按 cangjie-skill-lint-fix 给出必须执行的顺序、报告目录和最终验收条件。",
+      "runner": "agent-command",
+      "output": "## cangjie-skill-lint-fix 执行顺序、报告目录和最终验收条件\n\n### 执行顺序\n\n1. **Step 0: 确认目标目录** — 确定要修复的 Skill 目录路径（如 `.agents/skills/<skill-name>`），在仓库根目录执行命令并为报告创建 `reports/lint` 和 `reports/eval` 目录。\n\n2. **Step 1: 安装/检查 Skill-CLI** — 确认 `skill-lint` 和 `skill-eval` 可用；若缺失则从 `https://gitcode.com/cjse/Skill-CLI/tags/release-1.0.0` 克隆安装。\n\n3. **Step 2: 运行 Lint 扫描** — 对目标目录执行 `skill-lint --path <target> --format json --out reports/lint/<skill-name>.json`，分析 `errors[]` 和 `warnings[]`。\n\n4. **Step 3: 修复诊断** — 按报告逐条修复所有 errors 和 warnings（包括 C-1~C-12、W-1~W-4、X-1~X-5、R-1、E-1 等规则）。\n\n5. **Step 4: 补充/修复 Evals** — 创建或修复 `evals/content-basic.jsonl` 和 `evals/discovery.jsonl`。\n\n6. **Step 5: 真实 Agent Eval** — 用 `skill-eval --runner agent-command` 执行（必须用 `agent-command`，不能用 `--runner static`），报告写入 `reports/eval/<skill-name>.json`。\n\n7. **Step 6: 最终 Lint 门禁** — 再次运行 `skill-lint` 验收，确保 0 errors / 0 warnings。\n\n### 报告目录\n\n| 报告类型 | 路径 |\n|---------|------|\n| Lint 报告 | `reports/lint/<skill-name>.json` |\n| Eval 报告 | `reports/eval/<skill-name>.json` |\n| 中间轮次 Eval | `reports/eval/<skill-name>.round-N.json` |\n\n### 最终验收条件\n\n- `summary.errors` **必须为 0**\n- `summary.warnings` **必须为 0**\n- `errors` 数组为空\n- `warnings` 数组为空\n- Eval 报告已生成且包含真实 agent 执行痕迹",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-skill-lint-fix",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-skill-lint-fix"
+      ],
+      "tool_calls": [],
+      "latency_ms": 7515.0,
+      "usage": {
+        "input_tokens": 26109,
+        "output_tokens": 1004,
+        "cached_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 27113,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2409,
+        "claude_stdout_chars": 7897,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.15564499999999998,
+      "error": null,
+      "timestamp": 1780283981.8822644,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "deepseek-v4-flash",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"## cangjie-skill-lint-fix 执行顺序、报告目录和最终验收条件\\n\\n### 执行顺序\\n\\n1. **Step 0: 确认目标目录** — 确定要修复的 Skill 目录路径（如 `.agents/skills/<skill-name>`），在仓库根目录执行命令并为报告创建 `reports/lint` 和 `reports/eval` 目录。\\n\\n2. **Step 1: 安装/检查 Skill-CLI** — 确认 `skill-lint` 和 `skill-eval` 可用；若缺失则从 `https://gitcode.com/cjse/Skill-CLI/tags/release-1.0.0` 克隆安装。\\n\\n3. **Step 2: 运行 Lint 扫描** — 对目标目录执行 `skill-lint --path <target> --format json --out reports/lint/<skill-name>.json`，分析 `errors[]` 和 `warnings[]`。\\n\\n4. **Ste..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "如果当前机器没有 skill-lint 和 skill-eval，按此 Skill 应该安装哪个 release，并执行什么安装验证命令？",
+      "runner": "agent-command",
+      "output": "根据 cangjie-skill-lint-fix 的 Step 1 说明，当机器没有 skill-lint 和 skill-eval 时，应从 https://gitcode.com/cjse/Skill-CLI/tags/release-1.0.0 安装该 tag 对应的 Skill-CLI。安装步骤为：先用 git clone --branch release-1.0.0 --depth 1 克隆仓库，然后用 pip install -e 安装。安装验证命令为：skill-lint --help 和 skill-eval --help。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-skill-lint-fix",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-skill-lint-fix"
+      ],
+      "tool_calls": [],
+      "latency_ms": 5013.0,
+      "usage": {
+        "input_tokens": 26106,
+        "output_tokens": 603,
+        "cached_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 26709,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2409,
+        "claude_stdout_chars": 6176,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.145605,
+      "error": null,
+      "timestamp": 1780283990.8161147,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "deepseek-v4-flash",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"根据 cangjie-skill-lint-fix 的 Step 1 说明，当机器没有 skill-lint 和 skill-eval 时，应从 https://gitcode.com/cjse/Skill-CLI/tags/release-1.0.0 安装该 tag 对应的 Skill-CLI。安装步骤为：先用 git clone --branch release-1.0.0 --depth 1 克隆仓库，然后用 pip install -e 安装。安装验证命令为：skill-lint --help 和 skill-eval --help。\", \"matched_skills\": [{\"name\": \"cangjie-skill-lint-fix\", \"rank\": 1}], \"loaded_skills\": [\"cangjie-skill-lint-fix\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 0.75,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.75,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "skill-lint 报 E-1 缺少 evals。请说明补用例后必须怎样用真实 agent 验证。",
+      "runner": "agent-command",
+      "output": "补完 evals 用例后，必须用真实 agent CLI 做 end-to-end 验证，步骤如下：\n\n1. **确定 agent CLI**：优先用 `codex`，没有则用 `claude`。通过检查 `Get-Command codex` 或 `Get-Command claude` 决定。\n\n2. **构造 agent command**：\n   - Codex: `python -m skill_cli.eval_tools.codex_exec_agent_adapter`\n   - Claude: `python -m skill_cli.eval_tools.claude_code_agent_adapter`\n\n3. **运行 skill-eval 并指定真实 agent runner**：\n   ```\n   skill-eval --path <target-skill-dir> --mode all --out reports/eval/<skill-name>.json --timeout 600 --progress --runner agent-command --agent-command <agent-adapter> --emit-trace\n   ```\n\n   ⚠️ **关键约束**：\n   - 必须使用 `--runner agent-command`，**不能用 `--runner static`** 替代。static runner 只做模式匹配，无法验证 Skill 在真实 agent 对话中的行为。\n   - 如果 agent CLI 未安装、未登录、网络不通或额度不足，停止并报告阻塞原因，不能包装为通过。\n\n4. **处理 eval 结果**：\n   - 失败原因若是用例 schema/assert/fixture 或 Skill 内容不合理，修复后重跑。\n   - 失败原因若是 agent CLI 环境问题，如实报告用户。\n   - 保留 eval 报告在 `reports/eval/<skill-name>.json`。\n\n5. **最终门禁**：eval 通过后，再次运行 `skill-lint` 确认 `0 errors, 0 warnings`。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-skill-lint-fix",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-skill-lint-fix"
+      ],
+      "tool_calls": [],
+      "latency_ms": 6034.0,
+      "usage": {
+        "input_tokens": 26102,
+        "output_tokens": 672,
+        "cached_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 26774,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2409,
+        "claude_stdout_chars": 6788,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.14731000000000002,
+      "error": null,
+      "timestamp": 1780284000.8854961,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "deepseek-v4-flash",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"补完 evals 用例后，必须用真实 agent CLI 做 end-to-end 验证，步骤如下：\\n\\n1. **确定 agent CLI**：优先用 `codex`，没有则用 `claude`。通过检查 `Get-Command codex` 或 `Get-Command claude` 决定。\\n\\n2. **构造 agent command**：\\n - Codex: `python -m skill_cli.eval_tools.codex_exec_agent_adapter`\\n - Claude: `python -m skill_cli.eval_tools.claude_code_agent_adapter`\\n\\n3. **运行 skill-eval 并指定真实 agent runner**：\\n ```\\n skill-eval --path <target-skill-dir> --mode all --out reports/eval/<skill-name>.json --timeout 600 --pro..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "帮我把某个 Skill 的 skill-lint warning 全部修掉，最后重新跑 lint 到 0 warnings。",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-skill-lint-fix",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-skill-lint-fix"
+      ],
+      "tool_calls": [],
+      "latency_ms": 2817.0,
+      "usage": {
+        "input_tokens": 23292,
+        "output_tokens": 264,
+        "cached_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 23556,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 4707,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.12306,
+      "error": null,
+      "timestamp": 1780284007.2796037,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "deepseek-v4-flash",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"\", \"matched_skills\": [ {\"name\": \"cangjie-skill-lint-fix\", \"rank\": 1} ], \"loaded_skills\": [\"cangjie-skill-lint-fix\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "skill-lint 报 E-1 缺 evals，请补真实用例并用 Codex 或 Claude agent 跑 skill-eval。",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-skill-lint-fix",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-skill-lint-fix"
+      ],
+      "tool_calls": [],
+      "latency_ms": 3858.0,
+      "usage": {
+        "input_tokens": 23296,
+        "output_tokens": 393,
+        "cached_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 23689,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5222,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.126305,
+      "error": null,
+      "timestamp": 1780284014.6884952,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "deepseek-v4-flash",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"\", \"matched_skills\": [ { \"name\": \"cangjie-skill-lint-fix\", \"rank\": 1 } ], \"loaded_skills\": [ \"cangjie-skill-lint-fix\" ], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "扫描用户输入的 Skill 目录，把 lint 报告写到 reports/lint，修完后确认 0 errors 0 warnings。",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-skill-lint-fix",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-skill-lint-fix"
+      ],
+      "tool_calls": [],
+      "latency_ms": 4429.0,
+      "usage": {
+        "input_tokens": 23293,
+        "output_tokens": 499,
+        "cached_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 23792,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5570,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.12894,
+      "error": null,
+      "timestamp": 1780284022.6863012,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "deepseek-v4-flash",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"\", \"matched_skills\": [ {\"name\": \"cangjie-skill-lint-fix\", \"rank\": 1} ], \"loaded_skills\": [\"cangjie-skill-lint-fix\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null } ```"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-skill-lint-fix.json"
+}

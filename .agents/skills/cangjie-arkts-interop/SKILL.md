@@ -180,7 +180,7 @@ func doSth(context: JSContext, callInfo: JSCallInfo): JSValue {
 
 宏路径若可用 `class` 直接导出，通常更简单；此模式多在需要 **手搓对象表面** 时使用。
 
-（示例可参考本仓库文档快照：`skills/cangjie-harmonyos-doc-search/application-dev/operating_cangjie_objects/ArkTS_访问仓颉数据/JSExternal.md`）
+（示例可参考本仓库文档快照：`skills/cangjie-hmos-doc-search/application-dev/operating_cangjie_objects/ArkTS_访问仓颉数据/JSExternal.md`）
 
 ---
 
@@ -227,10 +227,10 @@ func tryLoadArkTSModule() {
 ## 6. 参考资料
 
 - OpenHarmony 仓颉文档目录（互操作总入口）：https://gitcode.com/openharmony/docs_cangjie/tree/master/zh-cn/application-dev/learn-cj/FFI/cangjie-arkts
-- 本仓库随附文档快照（可用 `cangjie-harmonyos-doc-search` 检索）：
-  - **声明式互操作宏**：`skills/cangjie-harmonyos-doc-search/application-dev/cj-arkts_interoperability_macro/仓颉-ArkTS_声明式互操作宏/`
-  - **互操作库（手工方式，宏的备选）**：`skills/cangjie-harmonyos-doc-search/application-dev/cj-arkts_interoperability_lib/cj-arkts_interoperability_lib.md`
+- 本仓库随附文档快照（可用 `cangjie-hmos-doc-search` 检索）：
+  - **声明式互操作宏**：`skills/cangjie-hmos-doc-search/application-dev/cj-arkts_interoperability_macro/仓颉-ArkTS_声明式互操作宏/`
+  - **互操作库（手工方式，宏的备选）**：`skills/cangjie-hmos-doc-search/application-dev/cj-arkts_interoperability_lib/cj-arkts_interoperability_lib.md`
   - **宏使用方法（含 Generate 流程）**：`.../使用方法/使用方法_2more.md`
   - **场景：异步/接口/类/枚举**：`.../场景详细说明/场景详细说明_4more.md`
   - **类型映射表**：`.../类型映射.md`
-  - **互操作概述**：`skills/cangjie-harmonyos-doc-search/application-dev/cangjie_arkts_overview/cangjie_arkts_overview.md`
+  - **互操作概述**：`skills/cangjie-hmos-doc-search/application-dev/cangjie_arkts_overview/cangjie_arkts_overview.md`

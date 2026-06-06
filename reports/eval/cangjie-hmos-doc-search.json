@@ -1,0 +1,1064 @@
+﻿{
+  "skill": "cangjie-hmos-doc-search",
+  "status": "passed",
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 5,
+    "content_passed": 5,
+    "discovery_total": 5,
+    "discovery_passed": 5
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 1.0,
+    "pattern_score_avg": 1.0,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 1.0,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.4,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 34907.1,
+    "latency_ms_p95": 75403.40000000002,
+    "token_total": 73219,
+    "cost_total": 0.778463,
+    "tool_call_count": 2,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 8125,
+    "content_skill_context_slots_avg": 1625.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "说明 cangjie-hmos-doc-search 的日常搜索入口，并给出查询 List 组件文档的命令示例",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "解释 unified_search.py 的 --engine fusion、card、graph 分别适合什么场景",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "要查鸿蒙 WebView loadUrl headers 文档，应该提取哪些关键词并使用哪个搜索入口",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "cangjie-hmos-doc-search 构建本地索引的命令是什么",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:5",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "input": "说明 unified_search.py 如何以 JSON 格式输出搜索结果",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "我想查找鸿蒙仓颉的 List 组件文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "帮我搜索鸿蒙 WebView loadUrl headers 的用法",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:3",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:4",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "input": "帮我查鸿蒙仓颉 Router.pushUrl 参数文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:5",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "input": "HarmonyOS 构建报错了，怎么查错误码对应的文档",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "说明 cangjie-hmos-doc-search 的日常搜索入口，并给出查询 List 组件文档的命令示例",
+      "runner": "agent-command",
+      "output": "## cangjie-hmos-doc-search 日常搜索入口\n\n**日常检索入口**：顶层 `unified_search.py`，位于 Skill 目录下：\n```\nD:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\n```\n\nSkill 文档明确指出：日常检索始终使用顶层 `unified_search.py`，无需直接调用子技能 CLI（doc-card / doc-graph），也不直接调用构建脚本。\n\n## 命令格式\n\n```bash\npython unified_search.py \"<query>\" [options]\n```\n\n| 参数 | 默认值 | 说明 |\n|------|--------|------|\n| `query` | — | 关键词 |\n| `--engine` | `fusion` | `fusion` / `card` / `graph` |\n| `--json` | off | 输出 JSON 格式 |\n| `--limit` | `5` | 命中数量上限 |\n\n## 查询 List 组件文档的命令示例\n\n```bash\npython \"D:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\" \"List\" --engine fusion --limit 5\n```\n\n使用 `--engine card` 可进行更精确的 API/组件精确匹配：\n\n```bash\npython \"D:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\" \"List\" --engine card --limit 5\n```\n\n使用 `--json` 获取结构化输出：\n\n```bash\npython \"D:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\" \"List\" --json --limit 5\n```",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 29609.0,
+      "usage": {
+        "input_tokens": 23844,
+        "output_tokens": 758,
+        "cached_input_tokens": 1024,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 24602,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1625,
+        "claude_stdout_chars": 7784,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.13868200000000003,
+      "error": null,
+      "timestamp": 1780043552.949543,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"## cangjie-hmos-doc-search 日常搜索入口\\n\\n**日常检索入口**：顶层 `unified_search.py`，位于 Skill 目录下：\\n```\\nD:\\\\cangjie_skills\\\\CangjieSkills\\\\.agents\\\\skills\\\\cangjie-hmos-doc-search\\\\unified_search.py\\n```\\n\\nSkill 文档明确指出：日常检索始终使用顶层 `unified_search.py`，无需直接调用子技能 CLI（doc-card / doc-graph），也不直接调用构建脚本。\\n\\n## 命令格式\\n\\n```bash\\npython unified_search.py \\\"<query>\\\" [options]\\n```\\n\\n| 参数 | 默认值 | 说明 |\\n|------|--------|------|\\n| `query` | — | 关键词 |\\n| `--engine` | `fusion` | `fusion` / `card` ..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "解释 unified_search.py 的 --engine fusion、card、graph 分别适合什么场景",
+      "runner": "agent-command",
+      "output": "unified_search.py 的 --engine 参数有三个选项，适用场景如下：\n\n1. **fusion**（默认）：通用检索引擎，适合大多数查询场景。当不确定用哪个引擎时，优先使用 fusion。它融合多种检索策略，覆盖面最广。\n\n2. **card**：适合精确的 API 查询和构建报错排查。例如查询具体 API 用法（如 `--engine card --query \"NavPathStack.pushPath\"`），或根据编译错误信息定位问题（如 `cannot convert X to type Y`）。card 引擎基于结构化卡片索引（tasks/apis/examples/docs），精确度高。\n\n3. **graph**：适合需要图谱遍历的场景，支持子命令：\n   - `--cmd neighbors <node>` — 查询某节点的邻居\n   - `--cmd path <s> <t>` — 查询两个节点间的路径\n   - `--cmd god-nodes [n]` — 查询核心枢纽节点\n   - `--cmd community <id>` — 查询某个社区/聚类\n   - `--cmd explain <node>` — 解释某个节点\n   适用于跨模块关联分析、API 依赖链路追踪、语义模糊问题的扩散检索。\n\n简单来说：日常查询用 fusion，精确 API/报错用 card，图谱遍历/关联分析用 graph。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 25517.0,
+      "usage": {
+        "input_tokens": 4380,
+        "output_tokens": 596,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 4976,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1625,
+        "claude_stdout_chars": 6258,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.04704,
+      "error": null,
+      "timestamp": 1780043582.0140707,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"unified_search.py 的 --engine 参数有三个选项，适用场景如下：\\n\\n1. **fusion**（默认）：通用检索引擎，适合大多数查询场景。当不确定用哪个引擎时，优先使用 fusion。它融合多种检索策略，覆盖面最广。\\n\\n2. **card**：适合精确的 API 查询和构建报错排查。例如查询具体 API 用法（如 `--engine card --query \\\"NavPathStack.pushPath\\\"`），或根据编译错误信息定位问题（如 `cannot convert X to type Y`）。card 引擎基于结构化卡片索引（tasks/apis/examples/docs），精确度高。\\n\\n3. **graph**：适合需要图谱遍历的场景，支持子命令：\\n - `--cmd neighbors <node>` — 查询某节点的邻居\\n - `--cmd path <s> <t>` — 查询两个节点间的路径\\n - `--cmd god-nodes [n]` — 查询核心枢纽节点\\n - `-..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "要查鸿蒙 WebView loadUrl headers 文档，应该提取哪些关键词并使用哪个搜索入口",
+      "runner": "agent-command",
+      "output": "针对查询「鸿蒙 WebView loadUrl headers 文档」，关键词提取与搜索入口建议如下：\n\n## 关键词提取\n\n按 core/context/synonym 三层分类：\n\n| 层级 | 关键词 | 说明 |\n|------|--------|------|\n| **core**（1-2词） | WebView, loadUrl | 最高区分度术语，WebView 是组件名，loadUrl 是目标方法 |\n| **context**（1-3词） | headers | 限定 loadUrl 的具体参数侧面 |\n| **synonym**（0-2词） | Web, resourceLoad | 概念级联想，可选。resourceLoad 对应鸿蒙中 WebView 资源加载的语义 |\n\n合并后查询串建议：`WebView loadUrl headers`\n\n## 搜索入口选择\n\n根据场景指引，**精确 API 查询应使用 `--engine card`**：\n\n```bash\npython unified_search.py \"WebView loadUrl headers\" --engine card\n```\n\n理由：\n- loadUrl 是具体 API 方法名，属于「精确 API/构建报错」场景\n- card 引擎直接匹配 API 卡片，命中率更高\n- fusion 在此场景下也可用（作为默认引擎），但 card 更精准\n\n若 card 结果不理想，可回退到 fusion：\n\n```bash\npython unified_search.py \"WebView loadUrl headers\" --engine fusion\n```\n\n## 注意事项\n\n- 关键词总数控制在 10 词以内（当前 3-4 词，符合要求）\n- 若搜索无结果，可能需要尝试去掉 `headers` 缩小范围：`WebView loadUrl`\n- 读取结果时只看 Top 1-2 的 source_file，先看 overview.md 再按 Quick Navigation 定位子文件",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-card",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 57436.0,
+      "usage": {
+        "input_tokens": 4384,
+        "output_tokens": 593,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 4977,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1625,
+        "claude_stdout_chars": 7929,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.051221,
+      "error": null,
+      "timestamp": 1780043642.8308015,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"针对查询「鸿蒙 WebView loadUrl headers 文档」，关键词提取与搜索入口建议如下：\\n\\n## 关键词提取\\n\\n按 core/context/synonym 三层分类：\\n\\n| 层级 | 关键词 | 说明 |\\n|------|--------|------|\\n| **core**（1-2词） | WebView, loadUrl | 最高区分度术语，WebView 是组件名，loadUrl 是目标方法 |\\n| **context**（1-3词） | headers | 限定 loadUrl 的具体参数侧面 |\\n| **synonym**（0-2词） | Web, resourceLoad | 概念级联想，可选。resourceLoad 对应鸿蒙中 WebView 资源加载的语义 |\\n\\n合并后查询串建议：`WebView loadUrl headers`\\n\\n## 搜索入口选择\\n\\n根据场景指引，**精确 API 查询应使用 `--engine card`**：\\n\\n```bash\\npython ..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "cangjie-hmos-doc-search 构建本地索引的命令是什么",
+      "runner": "agent-command",
+      "output": "构建本地索引的命令是：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule\n```\n\n如需离线 LLM 语义增强，使用：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule+llm\n```\n\n其中 `<CangjieSkills>` 需替换为实际的 CangjieSkills 仓库根目录路径（如 `D:\\cangjie_skills\\CangjieSkills`）。\n\n构建产物会写入 `doc-card/index/` 目录，包含 manifest.json、tasks.jsonl、apis.jsonl、examples.jsonl、docs.jsonl、aliases.json、search.db 等文件。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search-maintenance",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 28160.0,
+      "usage": {
+        "input_tokens": 4380,
+        "output_tokens": 341,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 4721,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1625,
+        "claude_stdout_chars": 6594,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.044531,
+      "error": null,
+      "timestamp": 1780043674.5811734,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"构建本地索引的命令是：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule\\n```\\n\\n如需离线 LLM 语义增强，使用：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule+llm\\n```\\n\\n其中 `<CangjieSkills>` 需替换为实际的 CangjieSkills 仓库根目录路径（如 `D:\\\\cangjie_skills\\\\CangjieSkills`）。\\n\\n构建产物会写入 `doc-card/index/` 目录，包含 manifest.json、tasks.jsonl、apis.jsonl、examp..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:5",
+      "type": "content",
+      "input": "说明 unified_search.py 如何以 JSON 格式输出搜索结果",
+      "runner": "agent-command",
+      "output": "## unified_search.py JSON 输出格式\n\n### 启用方式\n\n在命令行添加 `--json` 参数：\n\n```bash\npython unified_search.py \"<query>\" --json\n```\n\n### 实现原理\n\n`--json` 是 argparse 布尔标志（第316行）。当设置为 True 时，程序调用 `SearchResult.to_dict()` 将结果序列化为 JSON，使用 `json.dumps(result.to_dict(), ensure_ascii=False, indent=2)` 输出，支持中文字符直接显示并美化缩进。\n\n未设置 `--json` 时，调用 `result.to_brief_text()` 输出纯文本摘要。\n\n### JSON 结构\n\n```json\n{\n  \"query\": \"搜索关键词\",\n  \"engine\": \"fusion\",\n  \"direct_hits\": [ ... ],\n  \"related_hits\": [ ... ]\n}\n```\n\n**顶层字段：**\n- `query`：原始查询字符串\n- `engine`：使用的引擎类型（`\"fusion\"`、`\"card\"` 或 `\"graph\"`）\n- `direct_hits`：直接命中结果数组（上限6条）\n- `related_hits`：关联推荐结果数组（上限2条）\n\n### Hit 对象字段\n\n**必选字段：**\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| `label` | string | 匹配节点的显示名称 |\n| `source_file` | string | 源文档相对路径（反斜杠已转为正斜杠） |\n| `engine` | string | 来源引擎：`\"card\"`、`\"graph\"` 或 `\"card+graph\"` |\n\n**条件字段（仅在有值时出现）：**\n| 字段 | 类型 | 条件 | 说明 |\n|------|------|------|------|\n| `score` | float | `score > 0` | 相关性分数（≥400 高度相关、200-400 较相关、<100 疑似噪声） |\n| `related_from` | string | 非空 | 推荐来源节点的 label |\n| `relation_type` | string | 非空 | 关系类型（如图谱中的边标签） |\n\n### 示例\n\n```bash\npython unified_search.py \"List\" --json --limit 2\n```\n\n输出：\n```json\n{\n  \"query\": \"List\",\n  \"engine\": \"fusion\",\n  \"direct_hits\": [\n    {\n      \"label\": \"List\",\n      \"source_file\": \"harmonyos-6.0.2-15k/api/arkts/ts-basic-container-list.md\",\n      \"engine\": \"card+graph\",\n      \"score\": 12.5\n    }\n  ],\n  \"related_hits\": [\n    {\n      \"label\": \"Grid\",\n      \"source_file\": \"harmonyos-6.0.2-15k/api/arkts/ts-basic-container-grid.md\",\n      \"engine\": \"graph\",\n      \"score\": 8.3,\n      \"related_from\": \"List\",\n      \"relation_type\": \"RELATED_TO\"\n    }\n  ]\n}\n```\n\n### 注意事项\n\n- `direct_hits` 最多6条，`related_hits` 最多2条（在 `fuse_results` 中限制）\n- 当 card 和 graph 引擎同时命中同一文档时，engine 字段合并为 `\"card+graph\"`\n- 路径统一添加 `harmonyos-6.0.2-15k/` 前缀",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [
+        {
+          "name": "agent",
+          "status": "success"
+        },
+        {
+          "name": "read_file",
+          "status": "success"
+        }
+      ],
+      "latency_ms": 90104.0,
+      "usage": {
+        "input_tokens": 17353,
+        "output_tokens": 1333,
+        "cached_input_tokens": 34816,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 18686,
+        "tool_call_count": 2,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1625,
+        "claude_stdout_chars": 40418,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.254604,
+      "error": null,
+      "timestamp": 1780043768.3932521,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "tool_call",
+          "tool": "agent",
+          "raw_tool": "Agent",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "raw_tool": "Read",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"## unified_search.py JSON 输出格式\\n\\n### 启用方式\\n\\n在命令行添加 `--json` 参数：\\n\\n```bash\\npython unified_search.py \\\"<query>\\\" --json\\n```\\n\\n### 实现原理\\n\\n`--json` 是 argparse 布尔标志（第316行）。当设置为 True 时，程序调用 `SearchResult.to_dict()` 将结果序列化为 JSON，使用 `json.dumps(result.to_dict(), ensure_ascii=False, indent=2)` 输出，支持中文字符直接显示并美化缩进。\\n\\n未设置 `--json` 时，调用 `result.to_brief_text()` 输出纯文本摘要。\\n\\n### JSON 结构\\n\\n```json\\n{\\n \\\"query\\\": \\\"搜索关键词\\\",\\n \\\"engine\\\": \\\"fusion\\\",\\n \\\"direct_hits\\\": [ ... ],\\n \\\"related..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "我想查找鸿蒙仓颉的 List 组件文档",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-card",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 21396.0,
+      "usage": {
+        "input_tokens": 2554,
+        "output_tokens": 325,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2879,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6076,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.048272999999999996,
+      "error": null,
+      "timestamp": 1780043793.0287423,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 1}, {\"name\": \"doc-card\", \"rank\": 2}, {\"name\": \"doc-graph\", \"rank\": 3} ], \"loaded_skills\": [\"cangjie-hmos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "帮我搜索鸿蒙 WebView loadUrl headers 的用法",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-graph",
+          "rank": 2
+        },
+        {
+          "name": "doc-card",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20415.0,
+      "usage": {
+        "input_tokens": 2555,
+        "output_tokens": 539,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3094,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6307,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.043808,
+      "error": null,
+      "timestamp": 1780043816.9613163,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ { \"name\": \"cangjie-hmos-doc-search\", \"rank\": 1 }, { \"name\": \"doc-graph\", \"rank\": 2 }, { \"name\": \"doc-card\", \"rank\": 3 } ], \"loaded_skills\": [ \"cangjie-hmos-doc-search\" ], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:3",
+      "type": "discovery",
+      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
+      "runner": "agent-command",
+      "output": "",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "doc-card",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "doc-card",
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 24632.0,
+      "usage": {
+        "input_tokens": 2555,
+        "output_tokens": 405,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 2960,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6366,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.04298299999999999,
+      "error": null,
+      "timestamp": 1780043844.8273304,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"doc-card\", \"rank\": 1}, {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 2}, {\"name\": \"doc-graph\", \"rank\": 3} ], \"loaded_skills\": [\"doc-card\", \"cangjie-hmos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:4",
+      "type": "discovery",
+      "input": "帮我查鸿蒙仓颉 Router.pushUrl 参数文档",
+      "runner": "agent-command",
+      "output": "用户查询 Router.pushUrl 参数文档，属于鸿蒙仓颉开发 API 用法检索场景，最匹配的技能是 cangjie-hmos-doc-search 及其子技能 doc-card / doc-graph。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-card",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 22377.0,
+      "usage": {
+        "input_tokens": 2555,
+        "output_tokens": 516,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3071,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 6048,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.055963,
+      "error": null,
+      "timestamp": 1780043870.4831743,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"用户查询 Router.pushUrl 参数文档，属于鸿蒙仓颉开发 API 用法检索场景，最匹配的技能是 cangjie-hmos-doc-search 及其子技能 doc-card / doc-graph。\", \"matched_skills\": [ {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 1}, {\"name\": \"doc-card\", \"rank\": 2}, {\"name\": \"doc-graph\", \"rank\": 3} ], \"loaded_skills\": [\"cangjie-hmos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 4,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:5",
+      "type": "discovery",
+      "input": "HarmonyOS 构建报错了，怎么查错误码对应的文档",
+      "runner": "agent-command",
+      "output": "要查询 HarmonyOS 构建报错对应的文档，可以使用以下 Skill：\n1. **doc-card** — 提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，专门支持构建报错日志知识检索，可直接根据错误码或错误信息定位相关文档。\n2. **cangjie-hmos-doc-search** — 鸿蒙仓颉开发文档检索，支持语义模糊问题定位，适合用错误信息作为 query 搜索相关开发指南。\n3. **doc-graph** — 仓颉鸿蒙开发文档知识图谱检索，适用于通过错误码关键词进行语义模糊检索，快速定位问题原因和解决方案。\n\n推荐优先使用 doc-card 的构建报错日志检索功能，若未找到再使用 cangjie-hmos-doc-search 进行更广泛的文档搜索。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "doc-card",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "doc-card",
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 29425.0,
+      "usage": {
+        "input_tokens": 2555,
+        "output_tokens": 698,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3253,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 7049,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.051358,
+      "error": null,
+      "timestamp": 1780043903.474084,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"要查询 HarmonyOS 构建报错对应的文档，可以使用以下 Skill：\\n1. **doc-card** — 提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，专门支持构建报错日志知识检索，可直接根据错误码或错误信息定位相关文档。\\n2. **cangjie-hmos-doc-search** — 鸿蒙仓颉开发文档检索，支持语义模糊问题定位，适合用错误信息作为 query 搜索相关开发指南。\\n3. **doc-graph** — 仓颉鸿蒙开发文档知识图谱检索，适用于通过错误码关键词进行语义模糊检索，快速定位问题原因和解决方案。\\n\\n推荐优先使用 doc-card 的构建报错日志检索功能，若未找到再使用 cangjie-hmos-doc-search 进行更广泛的文档搜索。\", \"matched_skills\": [ {\"name\": \"doc-card\", \"rank\": 1}, {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 2}, {\"name\": \"doc-graph..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 5,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-hmos-doc-search.json"
+}

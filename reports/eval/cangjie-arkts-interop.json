@@ -1,4 +1,4 @@
-{
+﻿{
   "skill": "cangjie-arkts-interop",
   "status": "passed",
   "summary": {
@@ -283,7 +283,7 @@
           "rank": 1
         },
         {
-          "name": "cangjie-harmonyos-doc-search",
+          "name": "cangjie-hmos-doc-search",
           "rank": 2
         }
       ],
@@ -309,7 +309,7 @@
       "session_interactions": [
         {
           "type": "model_message",
-          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-arkts-interop\",\"rank\":1},{\"name\":\"cangjie-harmonyos-doc-search\",\"rank\":2}],\"loaded_skills\":[\"cangjie-arkts-interop\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
+          "summary": "{\"output\":\"\",\"matched_skills\":[{\"name\":\"cangjie-arkts-interop\",\"rank\":1},{\"name\":\"cangjie-hmos-doc-search\",\"rank\":2}],\"loaded_skills\":[\"cangjie-arkts-interop\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null,\"error\":null}"
         },
         {
           "type": "model_turn",

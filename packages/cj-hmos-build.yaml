@@ -2,4 +2,4 @@ name: cj-hmos-build
 version: "1.0.0"
 description: 鸿蒙仓颉项目构建、日志采集与失败排查。
 skills:
-  - harmonyos-build
+  - cangjie-hmos-build

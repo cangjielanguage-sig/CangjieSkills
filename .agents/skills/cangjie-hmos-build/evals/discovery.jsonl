@@ -1,0 +1,4 @@
+{"input":"帮我在当前目录真实构建仓颉鸿蒙应用，不要只给命令。","expected_skills":["cangjie-hmos-build"],"min_rank":1}
+{"input":"鸿蒙项目编译打包并生成 build.log，该用哪个 skill？","expected_skills":["cangjie-hmos-build"],"min_rank":2}
+{"input":"执行 ohpm install、SyncCangjieResource 和 assembleHap 的构建流程。","expected_skills":["cangjie-hmos-build"],"min_rank":1}
+{"input":"鸿蒙构建失败了，请按日志、Evolution.md、文档检索的顺序排查。","expected_skills":["cangjie-hmos-build"],"min_rank":2}

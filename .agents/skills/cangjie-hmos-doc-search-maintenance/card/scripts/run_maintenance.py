@@ -1,0 +1,607 @@
+#!/usr/bin/env python3
+"""运行 doc-search card 分区的重建、评测与记录沉淀流程。
+
+这是 card 分区维护的主入口脚本，执行以下流水线步骤：
+1. 构建 rule 和 rule+llm 两份 V3 卡片索引
+2. 运行 LLM 增强完整度门禁（enrichment_gate）
+3. 运行 API 覆盖率审计（audit_api_coverage）
+4. 运行 V3 自举评测 + 可选的 OpenViking 远端基线对比
+5. 运行 LLM 回归门禁（rule+llm 不得劣于 pure rule）
+6. 可选运行 fusion AB 门禁（fusion 不得劣于单引擎）
+7. 选择最优发布模式并同步索引到 doc-card/index
+
+任一门禁失败即中断并记录失败报告；全部通过后发布索引、写 baseline 和 changelog。
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import shutil
+import subprocess
+import sys
+import urllib.error
+import urllib.request
+from datetime import datetime
+from pathlib import Path
+
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+CARD_DIR = SCRIPT_DIR.parent
+MAINTENANCE_DIR = CARD_DIR.parent
+SEARCH_SKILL_DIR = MAINTENANCE_DIR.parent / "cangjie-hmos-doc-search"
+DOC_CARD_DIR = SEARCH_SKILL_DIR / "doc-card"
+DOC_GRAPH_DIR = SEARCH_SKILL_DIR / "doc-graph"
+CARD_BUILDER_DIR = CARD_DIR / "builder"
+CARD_RECORDS_DIR = CARD_DIR / "records"
+CARD_EVALS_DIR = CARD_DIR / "evals"
+CARD_RUN_HISTORY_DIR = CARD_RECORDS_DIR / "run-history"
+CARD_CARD_BASELINES_DIR = CARD_RECORDS_DIR / "baselines"
+CARD_CHANGELOG_PATH = CARD_RECORDS_DIR / "changelog.md"
+WORKFLOW_VERSION = "v3-stage4-15k-card"
+API_GATE_THRESHOLD = 1.0  # API 覆盖率门禁阈值：coverage_ratio 必须 >= 1.0（即全部覆盖）
+DEFAULT_LLM_CARD_TYPES = "task,api,example,doc"
+
+sys.path.insert(0, str(CARD_BUILDER_DIR))
+sys.path.insert(0, str(SCRIPT_DIR))
+
+from build_index_v3 import build as build_index, parse_card_types  # noqa: E402
+from audit_api_coverage import build_report as build_api_audit_report, write_report as write_api_audit_report  # noqa: E402
+from eval_bench import load_eval_set, make_openviking_search, make_v3_search, run_benchmark  # noqa: E402
+
+
+def write_text(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+
+
+def sync_index_dir(source_dir: Path, target_dir: Path) -> list[str]:
+    """将构建好的索引文件同步到 doc-card/index 发布目录。
+    包含 manifest、四类卡片 JSONL、aliases 和 search.db。"""
+    target_dir.mkdir(parents=True, exist_ok=True)
+    synced: list[str] = []
+    for name in ("manifest.json", "tasks.jsonl", "apis.jsonl", "examples.jsonl", "docs.jsonl", "aliases.json", "search.db"):
+        source = source_dir / name
+        target = target_dir / name
+        shutil.copy2(source, target)
+        synced.append(str(target))
+    return synced
+
+
+def overall_metrics(result: dict) -> dict:
+    return result["summary"]["overall"]
+
+
+def choose_publish_mode(benchmarks: dict) -> tuple[str, dict]:
+    """根据评测指标选择发布模式：rule 还是 rule+llm。
+
+    选择策略：MRR 优先 → recall@5 次优 → rule 稳定性兜底。
+    当指标完全相等时偏好 rule（无 LLM 依赖更稳定）。
+    返回 (selected_mode, publish_decision_dict)。"""
+    rule = overall_metrics(benchmarks["v3-rule"])
+    rule_llm = overall_metrics(benchmarks["v3-rule+llm"])
+    choices = {
+        "rule": rule,
+        "rule+llm": rule_llm,
+    }
+    selected_mode = max(
+        choices,
+        # 排序键: (mrr, recall@5, rule 稳定性加分) — rule 模式加 1 分作为兜底偏好
+        key=lambda mode: (
+            choices[mode]["mrr"],
+            choices[mode]["recall@5"],
+            1 if mode == "rule" else 0,
+        ),
+    )
+    compare_mode = "rule+llm" if selected_mode == "rule" else "rule"
+    selected = choices[selected_mode]
+    compare = choices[compare_mode]
+    reason = (
+        f"按 mrr 优先、recall@5 次优、rule 稳定性兜底 选择 {selected_mode}；"
+        f"{selected_mode}.mrr={selected['mrr']} vs {compare_mode}.mrr={compare['mrr']}，"
+        f"{selected_mode}.recall@5={selected['recall@5']} vs {compare_mode}.recall@5={compare['recall@5']}。"
+    )
+    return selected_mode, {
+        "selected_mode": selected_mode,
+        "comparison_mode": compare_mode,
+        "reason": reason,
+        "selected_metrics": selected,
+        "comparison_metrics": compare,
+    }
+
+
+def llm_full_enrichment_gate(manifest: dict, llm_card_types: tuple[str, ...]) -> list[str]:
+    """LLM 增强完整度门禁：检查 rule+llm 构建中每种卡片类型的
+    enriched 和 succeeded 数量是否与总数一致。
+    任一类型有缺口即返回失败原因列表。"""
+    counts = manifest.get("counts", {})
+    llm = manifest.get("llm", {})
+    reasons: list[str] = []
+    if llm.get("failed", 0):
+        reasons.append(f"rule+llm failed={llm.get('failed')}")
+    expected_keys = {
+        "task": ("tasks", "llm_enriched_tasks"),
+        "api": ("apis", "llm_enriched_apis"),
+        "example": ("examples", "llm_enriched_examples"),
+        "doc": ("docs", "llm_enriched_docs"),
+    }
+    by_type = llm.get("by_card_type", {})
+    for card_type in llm_card_types:
+        total_key, enriched_key = expected_keys[card_type]
+        expected = counts.get(total_key, 0)
+        enriched = counts.get(enriched_key, 0)
+        succeeded = by_type.get(card_type, {}).get("succeeded", enriched)
+        if enriched != expected or succeeded != expected:
+            reasons.append(f"{card_type}: enriched={enriched}/{expected}, succeeded={succeeded}/{expected}")
+    return reasons
+
+
+def llm_regression_gate(benchmarks: dict) -> list[str]:
+    """LLM 回归门禁：rule+llm 的 recall@5/recall@10/mrr 不得低于 pure rule，
+    同时按评测类别逐项比对，防止 LLM 在局部类别引入退化。"""
+    rule = overall_metrics(benchmarks["v3-rule"])
+    rule_llm = overall_metrics(benchmarks["v3-rule+llm"])
+    reasons: list[str] = []
+    for key in ("recall@5", "recall@10", "mrr"):
+        if rule_llm[key] < rule[key]:
+            reasons.append(f"{key}: rule+llm={rule_llm[key]} < rule={rule[key]}")
+    for category, rule_metrics in benchmarks["v3-rule"]["summary"].items():
+        if category == "overall":
+            continue
+        llm_metrics = benchmarks["v3-rule+llm"]["summary"].get(category, {})
+        for key in ("recall@5", "recall@10", "mrr"):
+            if llm_metrics.get(key, 0) < rule_metrics.get(key, 0):
+                reasons.append(f"{category}.{key}: rule+llm={llm_metrics.get(key, 0)} < rule={rule_metrics.get(key, 0)}")
+    return reasons
+
+
+def markdown_summary(report: dict) -> str:
+    llm = report["builds"]["rule+llm"].get("llm", {})
+    publish = report.get("publish_decision")
+    api_audit = report.get("api_audit", {})
+    lines = [
+        f"# doc-search maintenance run",
+        "",
+        f"- **timestamp**: {report['timestamp']}",
+        f"- **status**: {report.get('status', 'success')}",
+        f"- **workflow_version**: {report['workflow_version']}",
+        f"- **note**: {report['note'] or '无'}",
+        f"- **eval_set**: `{report['eval_set']}`",
+        f"- **limit**: {report['limit']}",
+        "",
+        "## Build",
+        "",
+        f"- `rule`: tasks={report['builds']['rule']['counts']['tasks']}, apis={report['builds']['rule']['counts']['apis']}, examples={report['builds']['rule']['counts']['examples']}, docs={report['builds']['rule']['counts'].get('docs', 0)}",
+        f"- `rule+llm`: tasks={report['builds']['rule+llm']['counts']['tasks']}, apis={report['builds']['rule+llm']['counts']['apis']}, examples={report['builds']['rule+llm']['counts']['examples']}, docs={report['builds']['rule+llm']['counts'].get('docs', 0)}",
+        f"- `rule+llm llm_stats`: requested={llm.get('requested', 0)}, succeeded={llm.get('succeeded', 0)}, failed={llm.get('failed', 0)}, skipped={llm.get('skipped', 0)}, batch_fallbacks={llm.get('batch_fallbacks', 0)}",
+        f"- `rule+llm provider_status`: {llm.get('provider_status', 'unknown')}",
+        f"- `rule+llm provider_stop_reason`: {llm.get('provider_stop_reason', '无')}",
+        "",
+        "## API Audit",
+        "",
+        f"- `rule`: coverage={api_audit.get('rule', {}).get('coverage_ratio', 0):.2%}, covered={api_audit.get('rule', {}).get('covered_docs', 0)}/{api_audit.get('rule', {}).get('total_docs', 0)}, invalid_paths={api_audit.get('rule', {}).get('invalid_source_paths', 0)}, passed={api_audit.get('rule', {}).get('gate_passed', False)}",
+        f"- `rule+llm`: coverage={api_audit.get('rule+llm', {}).get('coverage_ratio', 0):.2%}, covered={api_audit.get('rule+llm', {}).get('covered_docs', 0)}/{api_audit.get('rule+llm', {}).get('total_docs', 0)}, invalid_paths={api_audit.get('rule+llm', {}).get('invalid_source_paths', 0)}, passed={api_audit.get('rule+llm', {}).get('gate_passed', False)}",
+    ]
+    if report.get("status") in {"failed_api_gate", "failed_gate", "failed_regression_gate", "failed_fusion_gate"}:
+        lines.extend(["", "## Gate Failure", ""])
+        for reason in report.get("gate_failure_reasons", []):
+            lines.append(f"- {reason}")
+        lines.append("")
+    elif publish:
+        lines.extend(
+            [
+                "",
+                "## Published Index",
+                "",
+                f"- `selected_publish_mode`: `{publish['selected_mode']}`",
+                f"- `selection_reason`: {publish['reason']}",
+                f"- `default_index_dir`: `{report['published_index']['target_dir']}`",
+                f"- `published_from`: `{report['published_index']['source_dir']}`",
+                "",
+                "## Benchmarks",
+                "",
+            ]
+        )
+    for name, result in report["benchmarks"].items():
+        if "error" in result:
+            lines.extend(
+                [
+                    f"### {name}",
+                    f"- error: {result['error']}",
+                    "",
+                ]
+            )
+            continue
+        overall = result["summary"]["overall"]
+        lines.extend(
+            [
+                f"### {name}",
+                f"- recall@5: {overall['recall@5']}",
+                f"- recall@10: {overall['recall@10']}",
+                f"- mrr: {overall['mrr']}",
+                f"- latency_p50_ms: {overall['latency_p50_ms']}",
+                f"- latency_p95_ms: {overall['latency_p95_ms']}",
+                "",
+            ]
+        )
+    misses = {
+        name: [row["query"] for row in result.get("details", []) if row["mrr"] == 0]
+        for name, result in report["benchmarks"].items()
+    }
+    lines.append("## Misses")
+    lines.append("")
+    for name, items in misses.items():
+        lines.append(f"### {name}")
+        if "error" in report["benchmarks"][name]:
+            lines.append(f"- skipped: {report['benchmarks'][name]['error']}")
+            lines.append("")
+            continue
+        if not items:
+            lines.append("- 无")
+        else:
+            for item in items[:10]:
+                lines.append(f"- {item}")
+        lines.append("")
+    return "\n".join(lines).strip() + "\n"
+
+
+def append_changelog(timestamp: str, report: dict) -> None:
+    publish = report.get("publish_decision")
+    llm = report["builds"]["rule+llm"].get("llm", {})
+    api_rule = report.get("api_audit", {}).get("rule", {})
+    date = f"{timestamp[:4]}-{timestamp[4:6]}-{timestamp[6:8]}"
+    if report.get("status") in {"failed_api_gate", "failed_gate", "failed_regression_gate", "failed_fusion_gate"}:
+        line = (
+            f"- {date}：maintenance 运行失败，"
+            f"{report['workflow_version']}，"
+            f"门禁未通过，"
+            f"coverage={api_rule.get('coverage_ratio', 0):.2%}，"
+            f"reasons={'；'.join(report.get('gate_failure_reasons', []))}。"
+        )
+    else:
+        overall = publish["selected_metrics"]
+        line = (
+            f"- {date}：完成一次 maintenance 运行，"
+            f"{report['workflow_version']}，"
+            f"发布 {publish['selected_mode']}，"
+            f"api coverage={api_rule.get('coverage_ratio', 0):.2%}，"
+            f"recall@5={overall['recall@5']}，mrr={overall['mrr']}，"
+            f"llm failed={llm.get('failed', 0)}，"
+            f"provider={llm.get('provider_status', 'unknown')}。"
+        )
+    existing = CARD_CHANGELOG_PATH.read_text(encoding="utf-8") if CARD_CHANGELOG_PATH.exists() else "# doc-search Maintenance Changelog\n\n"
+    if not existing.endswith("\n"):
+        existing += "\n"
+    existing += line + "\n"
+    CARD_CHANGELOG_PATH.write_text(existing, encoding="utf-8")
+
+
+def run_fusion_ab_gate(index_dir: Path, run_dir: Path) -> list[str]:
+    """对候选索引跑 V3/doc-graph/fusion 独立 AB；要求 fusion recall 不低于单引擎。
+
+    通过子进程调用 run_ab_eval.py，使用 1e-9 浮点容差避免精度问题。
+    任何 split 的 fusion recall 低于 V3 或 graphify 即判失败。"""
+    out_json = run_dir / "fusion-ab-report.json"
+    cmd = [
+        sys.executable,
+        str(SCRIPT_DIR / "run_ab_eval.py"),
+        "--eval-dir",
+        str(CARD_EVALS_DIR),
+        "--index-dir",
+        str(index_dir),
+        "--graph-dir",
+        str(DOC_GRAPH_DATA_DIR),
+        "--splits",
+        "real_session,paraphrase,composition",
+        "--limit",
+        "8",
+        "--output",
+        str(out_json),
+    ]
+    subprocess.run(cmd, check=True)
+    data = json.loads(out_json.read_text(encoding="utf-8"))
+    reasons: list[str] = []
+    for split, payload in data.get("splits", {}).items():
+        v3 = float(payload["v3"]["recall_at_k"])
+        graph = float(payload["graphify"]["recall_at_k"])
+        fusion = float(payload["fusion"]["recall_at_k"])
+        if fusion + 1e-9 < v3:
+            reasons.append(f"fusion_ab:{split}: fusion={fusion} < v3={v3}")
+        if fusion + 1e-9 < graph:
+            reasons.append(f"fusion_ab:{split}: fusion={fusion} < graphify={graph}")
+    return reasons
+
+
+def check_openviking_endpoint(host: str, port: int, timeout: float = 3.0) -> str | None:
+    """探测 OpenViking 远端搜索接口是否可用。返回 None 表示可用，
+    否则返回错误描述字符串。维护流程默认跳过远端评测以避免依赖外网。"""
+    url = f"http://{host}:{port}/api/v1/search/find"
+    payload = json.dumps({"query": "list", "limit": 1}).encode("utf-8")
+    headers = {
+        "Content-Type": "application/json",
+        "X-API-Key": ",20250329.ljj",
+    }
+    request = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+    try:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
+            body = json.loads(response.read().decode("utf-8"))
+        if body.get("status") != "ok":
+            return f"OpenViking 接口返回非 ok 状态: {body.get('status')}"
+        return None
+    except urllib.error.HTTPError as exc:
+        return f"HTTP {exc.code}: {exc.reason}"
+    except urllib.error.URLError as exc:
+        return f"连接错误: {exc.reason}"
+    except Exception as exc:  # noqa: BLE001
+        return str(exc)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="运行 doc-search maintenance 流程")
+    parser.add_argument("--eval-set", default=str(CARD_EVALS_DIR / "content-basic.jsonl"))
+    parser.add_argument("--limit", type=int, default=10)
+    parser.add_argument("--host", default="111.229.30.227")
+    parser.add_argument("--port", type=int, default=2026)
+    parser.add_argument("--note", default="")
+    parser.add_argument("--llm-card-types", default=DEFAULT_LLM_CARD_TYPES)
+    parser.add_argument("--llm-concurrency", type=int, default=24)
+    parser.add_argument("--llm-cache-dir", default=str(CARD_RECORDS_DIR / "llm-cache"))
+    parser.add_argument("--allow-rule-fallback", action="store_true", help="允许 rule+llm 指标退化时发布 rule；默认退化即失败")
+    parser.add_argument(
+        "--openviking",
+        action="store_true",
+        help="启用 OpenViking 远端基线评测（默认关闭，避免维护流程依赖外网）",
+    )
+    parser.add_argument(
+        "--skip-openviking",
+        action="store_true",
+        help="已废弃：与未传 --openviking 等价，仅为兼容旧参数",
+    )
+    parser.add_argument(
+        "--fusion-ab-gate",
+        action="store_true",
+        help="发布前对候选索引运行 fusion AB（run_ab_eval），fusion recall 必须不低于 V3 与 graphify",
+    )
+    args = parser.parse_args()
+
+    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    run_dir = CARD_RUN_HISTORY_DIR / timestamp
+    rule_index_dir = run_dir / "index-rule"
+    rule_llm_index_dir = run_dir / "index-rule-llm"
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    eval_set = load_eval_set(args.eval_set)
+
+    llm_card_types = parse_card_types(args.llm_card_types)
+    rule_manifest = build_index(rule_index_dir, mode="rule")
+    rule_llm_manifest = build_index(
+        rule_llm_index_dir,
+        mode="rule+llm",
+        llm_card_types=llm_card_types,
+        llm_concurrency=max(1, args.llm_concurrency),
+        llm_cache_dir=Path(args.llm_cache_dir) if args.llm_cache_dir else None,
+    )
+    llm_gate_failure_reasons = llm_full_enrichment_gate(rule_llm_manifest, llm_card_types)
+
+    api_audit_rule = build_api_audit_report(rule_index_dir, gate_threshold=API_GATE_THRESHOLD)
+    api_audit_rule_llm = build_api_audit_report(rule_llm_index_dir, gate_threshold=API_GATE_THRESHOLD)
+    write_api_audit_report(
+        api_audit_rule,
+        run_dir / "api-coverage-rule.json",
+        run_dir / "api-coverage-rule.md",
+    )
+    write_api_audit_report(
+        api_audit_rule_llm,
+        run_dir / "api-coverage-rule-llm.json",
+        run_dir / "api-coverage-rule-llm.md",
+    )
+    api_audit_summary = {
+        "rule": {
+            "total_docs": api_audit_rule["candidates"]["total_docs"],
+            "covered_docs": api_audit_rule["candidates"]["covered_docs"],
+            "coverage_ratio": api_audit_rule["candidates"]["coverage_ratio"],
+            "invalid_source_paths": len(api_audit_rule["integrity"]["invalid_source_paths"]),
+            "duplicate_source_path_hits": len(api_audit_rule["integrity"]["duplicate_candidate_source_path_hits"]),
+            "gate_passed": api_audit_rule["gate"]["passed"],
+            "gate_reasons": api_audit_rule["gate"]["reasons"],
+        },
+        "rule+llm": {
+            "total_docs": api_audit_rule_llm["candidates"]["total_docs"],
+            "covered_docs": api_audit_rule_llm["candidates"]["covered_docs"],
+            "coverage_ratio": api_audit_rule_llm["candidates"]["coverage_ratio"],
+            "invalid_source_paths": len(api_audit_rule_llm["integrity"]["invalid_source_paths"]),
+            "duplicate_source_path_hits": len(api_audit_rule_llm["integrity"]["duplicate_candidate_source_path_hits"]),
+            "gate_passed": api_audit_rule_llm["gate"]["passed"],
+            "gate_reasons": api_audit_rule_llm["gate"]["reasons"],
+        },
+    }
+    gate_failure_reasons = [
+        *[f"rule+llm: {reason}" for reason in llm_gate_failure_reasons],
+        *[f"rule: {reason}" for reason in api_audit_rule["gate"]["reasons"]],
+        *[f"rule+llm: {reason}" for reason in api_audit_rule_llm["gate"]["reasons"]],
+    ]
+    if gate_failure_reasons:
+        report = {
+            "timestamp": timestamp,
+            "status": "failed_gate",
+            "workflow_version": WORKFLOW_VERSION,
+            "note": args.note,
+            "llm_card_types": list(llm_card_types),
+            "eval_set": args.eval_set,
+            "limit": args.limit,
+            "builds": {
+                "rule": rule_manifest,
+                "rule+llm": rule_llm_manifest,
+            },
+            "api_audit": api_audit_summary,
+            "gate_failure_reasons": gate_failure_reasons,
+            "benchmarks": {},
+        }
+        write_text(run_dir / "report.json", json.dumps(report, ensure_ascii=False, indent=2))
+        write_text(run_dir / "report.md", markdown_summary(report))
+        append_changelog(timestamp, report)
+        print(
+            json.dumps(
+                {
+                    "run_dir": str(run_dir),
+                    "status": "failed_gate",
+                    "reasons": gate_failure_reasons,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        sys.exit(1)
+
+    benchmarks = {
+        "v3-rule": run_benchmark(make_v3_search(str(rule_index_dir), "auto"), eval_set, limit=args.limit),
+        "v3-rule+llm": run_benchmark(make_v3_search(str(rule_llm_index_dir), "auto"), eval_set, limit=args.limit),
+    }
+
+    if not args.openviking or args.skip_openviking:
+        benchmarks["openviking"] = {"error": "skipped (默认跳过；传 --openviking 启用远端基线)"}
+    else:
+        openviking_error = check_openviking_endpoint(args.host, args.port)
+        if openviking_error:
+            benchmarks["openviking"] = {"error": openviking_error}
+        else:
+            benchmarks["openviking"] = run_benchmark(make_openviking_search(args.host, args.port), eval_set, limit=args.limit)
+
+    regression_failure_reasons = llm_regression_gate(benchmarks)
+    if regression_failure_reasons and not args.allow_rule_fallback:
+        report = {
+            "timestamp": timestamp,
+            "status": "failed_regression_gate",
+            "workflow_version": WORKFLOW_VERSION,
+            "note": args.note,
+            "llm_card_types": list(llm_card_types),
+            "eval_set": args.eval_set,
+            "limit": args.limit,
+            "builds": {
+                "rule": rule_manifest,
+                "rule+llm": rule_llm_manifest,
+            },
+            "api_audit": api_audit_summary,
+            "gate_failure_reasons": regression_failure_reasons,
+            "benchmarks": benchmarks,
+        }
+        write_text(run_dir / "report.json", json.dumps(report, ensure_ascii=False, indent=2))
+        write_text(run_dir / "report.md", markdown_summary(report))
+        append_changelog(timestamp, report)
+        print(
+            json.dumps(
+                {
+                    "run_dir": str(run_dir),
+                    "status": "failed_regression_gate",
+                    "reasons": regression_failure_reasons,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        sys.exit(1)
+
+    selected_mode, publish_decision = choose_publish_mode(benchmarks)
+    publish_source_dir = rule_index_dir if selected_mode == "rule" else rule_llm_index_dir
+
+    if args.fusion_ab_gate:
+        if not DOC_GRAPH_DATA_DIR.is_dir():
+            report = {
+                "timestamp": timestamp,
+                "status": "failed_fusion_gate",
+                "workflow_version": WORKFLOW_VERSION,
+                "note": args.note,
+                "llm_card_types": list(llm_card_types),
+                "eval_set": args.eval_set,
+                "limit": args.limit,
+                "builds": {"rule": rule_manifest, "rule+llm": rule_llm_manifest},
+                "api_audit": api_audit_summary,
+                "benchmarks": benchmarks,
+                "gate_failure_reasons": [f"doc-graph data 目录不存在: {DOC_GRAPH_DATA_DIR}"],
+            }
+            write_text(run_dir / "report.json", json.dumps(report, ensure_ascii=False, indent=2))
+            write_text(run_dir / "report.md", markdown_summary(report))
+            append_changelog(timestamp, report)
+            print(json.dumps({"run_dir": str(run_dir), "status": "failed_fusion_gate"}, ensure_ascii=False, indent=2))
+            sys.exit(1)
+        seeds_path = run_dir / "v3_seeds.json"
+        subprocess.run(
+            [
+                sys.executable,
+                str(SCRIPT_DIR / "sync_v3_to_graph.py"),
+                "--index-dir",
+                str(publish_source_dir),
+                "--output",
+                str(seeds_path),
+            ],
+            check=True,
+        )
+        fusion_failures = run_fusion_ab_gate(publish_source_dir, run_dir)
+        if fusion_failures:
+            report = {
+                "timestamp": timestamp,
+                "status": "failed_fusion_gate",
+                "workflow_version": WORKFLOW_VERSION,
+                "note": args.note,
+                "llm_card_types": list(llm_card_types),
+                "eval_set": args.eval_set,
+                "limit": args.limit,
+                "builds": {"rule": rule_manifest, "rule+llm": rule_llm_manifest},
+                "api_audit": api_audit_summary,
+                "benchmarks": benchmarks,
+                "gate_failure_reasons": fusion_failures,
+            }
+            write_text(run_dir / "report.json", json.dumps(report, ensure_ascii=False, indent=2))
+            write_text(run_dir / "report.md", markdown_summary(report))
+            append_changelog(timestamp, report)
+            print(
+                json.dumps(
+                    {"run_dir": str(run_dir), "status": "failed_fusion_gate", "reasons": fusion_failures},
+                    ensure_ascii=False,
+                    indent=2,
+                )
+            )
+            sys.exit(1)
+
+    published_files = sync_index_dir(publish_source_dir, DOC_CARD_DIR / "index")
+    selected_api_audit = api_audit_rule if selected_mode == "rule" else api_audit_rule_llm
+    write_api_audit_report(
+        selected_api_audit,
+        CARD_RECORDS_DIR / "api-coverage" / f"{timestamp}.json",
+        CARD_RECORDS_DIR / "api-coverage" / f"{timestamp}.md",
+        latest_json=CARD_RECORDS_DIR / "api-coverage" / "latest.json",
+        latest_md=CARD_RECORDS_DIR / "api-coverage" / "latest.md",
+    )
+
+    report = {
+        "timestamp": timestamp,
+        "status": "success",
+        "workflow_version": WORKFLOW_VERSION,
+        "note": args.note,
+        "llm_card_types": list(llm_card_types),
+        "eval_set": args.eval_set,
+        "limit": args.limit,
+        "builds": {
+            "rule": rule_manifest,
+            "rule+llm": rule_llm_manifest,
+        },
+        "api_audit": api_audit_summary,
+        "publish_decision": publish_decision,
+        "published_index": {
+            "source_dir": str(publish_source_dir),
+            "target_dir": str(DOC_CARD_DIR / "index"),
+            "files": published_files,
+        },
+        "benchmarks": benchmarks,
+    }
+
+    write_text(run_dir / "report.json", json.dumps(report, ensure_ascii=False, indent=2))
+    write_text(run_dir / "report.md", markdown_summary(report))
+    write_text(CARD_BASELINES_DIR / f"{timestamp}.json", json.dumps(report, ensure_ascii=False, indent=2))
+    write_text(CARD_BASELINES_DIR / "latest.json", json.dumps(report, ensure_ascii=False, indent=2))
+    append_changelog(timestamp, report)
+
+    print(json.dumps({"run_dir": str(run_dir), "baseline": str(CARD_BASELINES_DIR / "latest.json")}, ensure_ascii=False, indent=2))
+
+
+if __name__ == "__main__":
+    main()

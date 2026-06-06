@@ -1,5 +1,0 @@
-{"input":"说明 cangjie-harmonyos-doc-search 的日常搜索入口，并给出查询 List 组件文档的命令示例","expected_patterns":["unified_search.py","List","--engine"],"min_score":0.6}
-{"input":"解释 unified_search.py 的 --engine fusion、card、graph 分别适合什么场景","expected_patterns":["--engine","fusion","card","graph"],"min_score":0.6}
-{"input":"要查鸿蒙 WebView loadUrl headers 文档，应该提取哪些关键词并使用哪个搜索入口","expected_patterns":["unified_search.py","WebView","loadUrl","headers"],"min_score":0.6}
-{"input":"cangjie-harmonyos-doc-search 构建本地索引的命令是什么","expected_patterns":["build_index_v3.py","--mode","rule"],"min_score":0.6}
-{"input":"说明 unified_search.py 如何以 JSON 格式输出搜索结果","expected_patterns":["unified_search.py","--json","--limit"],"min_score":0.6}

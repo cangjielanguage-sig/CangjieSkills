@@ -16,7 +16,7 @@ npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git#cangjie-harmony
 
 ## 安装后配置
 
-构建路径直接写在 `harmonyos-build/build.py` 顶部。如果你的 DevEco Studio 安装位置与默认值不同，请打开该文件修改对应平台的常量：
+构建路径直接写在 `cangjie-hmos-build/build.py` 顶部。如果你的 DevEco Studio 安装位置与默认值不同，请打开该文件修改对应平台的常量：
 
 ```python
 # Windows 默认路径
@@ -39,13 +39,13 @@ DEVECO_HOME_MACOS = "/Applications/DevEco-Studio.app/Contents"
 
 | 分类 | Skill | 说明 |
 |------|-------|------|
-| **鸿蒙开发** | `cangjie-harmonyos-doc-search` | 基于Openviking的鸿蒙开发文档语义检索 |
-| | `harmonyos-project-init` | 从零初始化可运行的仓颉鸿蒙项目模板（含完整目录与配置） |
-| | `harmonyos-requirements` | 鸿蒙需求分析与设计 Skill（需求分析→方案设计→知识搜集） |
-| | `harmonyos-build` | 标准构建与日志采集，失败按固定优先级排查（Evolution→基础技能→文档检索） |
-| | `harmonyos-evolution` | 仅沉淀 BUILD SUCCESSFUL 后的已验证经验，失败排查优先复用历史记录 |
-| | `harmonyos-stdx` | 鸿蒙项目 stdx 依赖自动解压与 `entry/cjpm.toml` 路径配置 |
-| | `harmonyos-app-diagnose` | 构建成功后采集截图与控件树、抓取 hilog 日志，结合源码生成交互测试场景，进行 UI 验证与运行时崩溃/异常诊断 |
+| **鸿蒙开发** | `cangjie-hmos-doc-search` | 基于Openviking的鸿蒙开发文档语义检索 |
+| | `cangjie-hmos-project-init` | 从零初始化可运行的仓颉鸿蒙项目模板（含完整目录与配置） |
+| | `cangjie-hmos-requirements` | 鸿蒙需求分析与设计 Skill（需求分析→方案设计→知识搜集） |
+| | `cangjie-hmos-build` | 标准构建与日志采集，失败按固定优先级排查（Evolution→基础技能→文档检索） |
+| | `cangjie-hmos-evolution` | 仅沉淀 BUILD SUCCESSFUL 后的已验证经验，失败排查优先复用历史记录 |
+| | `cangjie-hmos-stdx` | 鸿蒙项目 stdx 依赖自动解压与 `entry/cjpm.toml` 路径配置 |
+| | `cangjie-hmos-app-diagnose` | 构建成功后采集截图与控件树、抓取 hilog 日志，结合源码生成交互测试场景，进行 UI 验证与运行时崩溃/异常诊断 |
 | **仓颉语言** | `cangjie-lang-features` | 仓颉语言核心特性优先参考（语法、类型、泛型、并发、项目管理等） |
 | **互操作** | `cangjie-arkts-interop` | 仓颉与 ArkTS 互操作实战（@Interop 宏优先，库方式兜底） |
 | **标准库** | `cangjie-std` | 仓颉标准库常用功能速查（核心类型、集合、IO、网络、并发、正则等） |

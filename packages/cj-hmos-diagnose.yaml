@@ -2,4 +2,4 @@ name: cj-hmos-diagnose
 version: "1.0.0"
 description: 鸿蒙应用截图、控件树、hilog 采集与运行诊断。
 skills:
-  - harmonyos-app-diagnose
+  - cangjie-hmos-app-diagnose

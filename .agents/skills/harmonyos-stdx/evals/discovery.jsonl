@@ -1,5 +1,0 @@
-{"input":"鸿蒙项目构建时报 stdx 链接错误，需要配置 bin-dependencies","expected_skills":["harmonyos-stdx"],"forbidden_skills":[],"min_rank":3}
-{"input":"cjpm.toml 怎么配置 stdx 的 bin-dependencies","expected_skills":["harmonyos-stdx"],"forbidden_skills":[],"min_rank":3}
-{"input":"构建鸿蒙应用时链接报 stdx 相关错误","expected_skills":["harmonyos-stdx"],"forbidden_skills":[],"min_rank":3}
-{"input":"需要在 entry/cjpm.toml 里配置 stdx 扩展库路径","expected_skills":["harmonyos-stdx"],"forbidden_skills":[],"min_rank":3}
-{"input":"fetch_stdx.py 怎么下载 stdx 二进制包到鸿蒙项目","expected_skills":["harmonyos-stdx"],"forbidden_skills":[],"min_rank":3}

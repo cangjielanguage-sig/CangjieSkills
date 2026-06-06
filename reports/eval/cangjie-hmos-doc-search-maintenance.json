@@ -1,0 +1,440 @@
+﻿{
+  "skill": "cangjie-hmos-doc-search-maintenance",
+  "status": "passed",
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 2,
+    "content_passed": 2,
+    "discovery_total": 2,
+    "discovery_passed": 2
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 0.875,
+    "pattern_score_avg": 0.875,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 0.875,
+    "discovery_hit_rate": 1.0,
+    "loaded_skill_hit_rate": 1.0,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": 1.0,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 15115.5,
+    "latency_ms_p95": 20107.2,
+    "token_total": 42352,
+    "cost_total": 0.30479600000000007,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 8688,
+    "content_skill_context_slots_avg": 4344.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "文档更新后如何重新生成 doc-search 的最新索引结果？",
+      "status": "passed",
+      "score": 0.75,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "维护 cangjie-hmos-doc-search 时必须保留哪些记录？",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:1",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "input": "文档更新后重跑 cangjie-hmos-doc-search 的索引和评测",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "discovery.jsonl:2",
+      "type": "discovery",
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "input": "需要给 doc-search 跑 rule+llm 并保留记录",
+      "status": "passed",
+      "score": 1.0,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "文档更新后如何重新生成 doc-search 的最新索引结果？",
+      "runner": "agent-command",
+      "output": "文档更新后重新生成 doc-search 最新索引结果的标准流程如下（在 cangjie-hmos-doc-search-maintenance 目录下执行）：\n\n1. **生成当前文档 manifest**\n```bash\nPYTHONDONTWRITEBYTECODE=1 python scripts/build_doc_manifest.py --output /tmp/doc_manifest_current.json\n```\n\n2. **对比新旧 manifest，生成 diff**\n```bash\nPYTHONDONTWRITEBYTECODE=1 python scripts/diff_doc_manifest.py --old /tmp/doc_manifest_old.json --new /tmp/doc_manifest_current.json --output /tmp/doc_diff.json\n```\n\n3. **重建 rule 索引**\n```bash\nPYTHONDONTWRITEBYTECODE=1 python builder/build_index_v3.py --mode rule --index-dir /tmp/cangjie-index-rule\n```\n\n4. **（可选）基于文档 diff 生成候选评测 query**\n```bash\nPYTHONDONTWRITEBYTECODE=1 python scripts/generate_eval_candidates_from_doc_diff.py --doc-diff /tmp/doc_diff.json --index-dir /tmp/cangjie-index-rule --output /tmp/eval_candidates_from_doc_diff.jsonl\n```\n\n5. **运行发布评估，得出 pass/gray_release/blocked 结论**\n```bash\nPYTHONDONTWRITEBYTECODE=1 python scripts/run_release_eval.py --index-dir /tmp/cangjie-index-rule --output-dir /tmp/cangjie-release-eval\n```\n\n**关键约束：**\n- 默认先写临时索引目录（如 /tmp/cangjie-index-rule），不直接覆盖正式 index/。\n- 发布前必须通过 run_release_eval.py 评估。\n- 健康检查出现 `missing_path` 时发布必须 blocked。\n- 若需要更高质量的语义卡片，可使用 `--mode rule+llm` 并配置 OpenAI 兼容 API 环境变量，构建后执行 `scripts/run_after_rule_llm_build.sh` 做收尾。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search-maintenance",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search-maintenance"
+      ],
+      "tool_calls": [],
+      "latency_ms": 18669.0,
+      "usage": {
+        "input_tokens": 27166,
+        "output_tokens": 603,
+        "cached_input_tokens": 1024,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 27769,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 4344,
+        "claude_stdout_chars": 7031,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.15677400000000002,
+      "error": null,
+      "timestamp": 1780130203.5709167,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "```json { \"output\": \"文档更新后重新生成 doc-search 最新索引结果的标准流程如下（在 cangjie-hmos-doc-search-maintenance 目录下执行）：\\n\\n1. **生成当前文档 manifest**\\n```bash\\nPYTHONDONTWRITEBYTECODE=1 python scripts/build_doc_manifest.py --output /tmp/doc_manifest_current.json\\n```\\n\\n2. **对比新旧 manifest，生成 diff**\\n```bash\\nPYTHONDONTWRITEBYTECODE=1 python scripts/diff_doc_manifest.py --old /tmp/doc_manifest_old.json --new /tmp/doc_manifest_current.json --output /tmp/doc_diff.json\\n```\\n\\n3. **重建 rule 索引**\\n```bash\\nPYTHONDO..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 0.75,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.75,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "维护 cangjie-hmos-doc-search 时必须保留哪些记录？",
+      "runner": "agent-command",
+      "output": "维护 cangjie-hmos-doc-search 时必须保留以下记录：\n\n1. **发布评测产物**（`scripts/run_release_eval.py` 输出）：\n   - `release-summary.json`：机器可读发布结论\n   - `release-report.md`：人类可读报告\n   - `eval-health-summary.json`：各评测集健康检查汇总\n   - 每套评测目录下的 `summary.json`、`details.jsonl`、`failure-summary.json`、`eval-health.json`\n\n2. **文档变更记录**：`doc_manifest_current.json`（当前文档 manifest）、`doc_diff.json`（新旧对比结果）\n\n3. **严格 Blind 基线**：新 blind 集首跑结果必须立即记录为基线；若后续基于该 blind 调参，该集降级为回归集，需生成新时间戳 blind\n\n4. **候选评测素材**：`generate_eval_candidates_from_doc_diff.py` 和 `analyze_search_logs.py` 产物进入候选池，失败不阻塞发布但必须记录\n\n5. **Fusion AB 记录**：`records/ab-15k-after-rule-llm.json`（rule+llm 构建后自动写入）\n\n6. **搜索日志**：如开启本地搜索事件收集，日志不得包含 API key、环境变量、用户工程代码或完整文档正文",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search-maintenance",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search-maintenance"
+      ],
+      "tool_calls": [],
+      "latency_ms": 20361.0,
+      "usage": {
+        "input_tokens": 7714,
+        "output_tokens": 620,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 8334,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 4344,
+        "claude_stdout_chars": 6530,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.07348700000000001,
+      "error": null,
+      "timestamp": 1780130227.552953,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{ \"output\": \"维护 cangjie-hmos-doc-search 时必须保留以下记录：\\n\\n1. **发布评测产物**（`scripts/run_release_eval.py` 输出）：\\n - `release-summary.json`：机器可读发布结论\\n - `release-report.md`：人类可读报告\\n - `eval-health-summary.json`：各评测集健康检查汇总\\n - 每套评测目录下的 `summary.json`、`details.jsonl`、`failure-summary.json`、`eval-health.json`\\n\\n2. **文档变更记录**：`doc_manifest_current.json`（当前文档 manifest）、`doc_diff.json`（新旧对比结果）\\n\\n3. **严格 Blind 基线**：新 blind 集首跑结果必须立即记录为基线；若后续基于该 blind 调参，该集降级为回归集，需生成新时间戳 blind\\n\\n4. **候选评测素材**：`generate..."
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 1.0,
+      "validator_score": null
+    },
+    {
+      "case_id": "discovery.jsonl:1",
+      "type": "discovery",
+      "input": "文档更新后重跑 cangjie-hmos-doc-search 的索引和评测",
+      "runner": "agent-command",
+      "output": "将使用 cangjie-hmos-doc-search-maintenance 技能来完成文档更新后的索引重建与评测流程。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search-maintenance",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search-maintenance"
+      ],
+      "tool_calls": [],
+      "latency_ms": 9755.0,
+      "usage": {
+        "input_tokens": 2793,
+        "output_tokens": 302,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3095,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 4860,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.03429,
+      "error": null,
+      "timestamp": 1780130240.9267657,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"将使用 cangjie-hmos-doc-search-maintenance 技能来完成文档更新后的索引重建与评测流程。\",\"matched_skills\":[{\"name\":\"cangjie-hmos-doc-search-maintenance\",\"rank\":1},{\"name\":\"cangjie-hmos-doc-search\",\"rank\":2}],\"loaded_skills\":[\"cangjie-hmos-doc-search-maintenance\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null}"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    },
+    {
+      "case_id": "discovery.jsonl:2",
+      "type": "discovery",
+      "input": "需要给 doc-search 跑 rule+llm 并保留记录",
+      "runner": "agent-command",
+      "output": "需要使用 cangjie-hmos-doc-search-maintenance 技能来为 doc-search 运行 rule+llm 评测并保留记录。该技能提供了完整的 LLM 离线增强、评测集健康检查和发布门禁流程。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search-maintenance",
+          "rank": 1
+        },
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 2
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search-maintenance"
+      ],
+      "tool_calls": [],
+      "latency_ms": 11677.0,
+      "usage": {
+        "input_tokens": 2791,
+        "output_tokens": 363,
+        "cached_input_tokens": 20480,
+        "cache_creation_input_tokens": 0,
+        "total_tokens": 3154,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "claude_stdout_chars": 5125,
+        "claude_stderr_chars": 0
+      },
+      "cost": 0.040245,
+      "error": null,
+      "timestamp": 1780130256.2248678,
+      "session_interactions": [
+        {
+          "type": "system_init",
+          "model": "mimo-v2.5-pro[1m]",
+          "tools": [
+            "Task",
+            "AskUserQuestion",
+            "Bash",
+            "CronCreate",
+            "CronDelete",
+            "CronList",
+            "EnterPlanMode",
+            "EnterWorktree",
+            "ExitPlanMode",
+            "ExitWorktree",
+            "Glob",
+            "Grep",
+            "NotebookEdit",
+            "Read",
+            "ScheduleWakeup",
+            "Skill",
+            "TaskCreate",
+            "TaskGet",
+            "TaskList",
+            "TaskOutput",
+            "TaskStop",
+            "TaskUpdate",
+            "WaitForMcpServers",
+            "WebFetch",
+            "WebSearch",
+            "Workflow"
+          ],
+          "permissionMode": "default"
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"需要使用 cangjie-hmos-doc-search-maintenance 技能来为 doc-search 运行 rule+llm 评测并保留记录。该技能提供了完整的 LLM 离线增强、评测集健康检查和发布门禁流程。\",\"matched_skills\":[{\"name\":\"cangjie-hmos-doc-search-maintenance\",\"rank\":1},{\"name\":\"cangjie-hmos-doc-search\",\"rank\":2}],\"loaded_skills\":[\"cangjie-hmos-doc-search-maintenance\"],\"tool_calls\":[],\"final_status\":\"passed\",\"usage\":{},\"cost\":null}"
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\discovery.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 1.0,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": []
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-hmos-doc-search-maintenance.json"
+}

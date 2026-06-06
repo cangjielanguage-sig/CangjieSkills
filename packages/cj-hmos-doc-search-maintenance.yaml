@@ -2,4 +2,4 @@ name: cj-hmos-doc-search-maintenance
 version: "1.0.0"
 description: 文档更新、索引和卡片重建、LLM 离线增强、评测集健康检查与发布门禁。
 skills:
-  - cangjie-harmonyos-doc-search-maintenance
+  - cangjie-hmos-doc-search-maintenance

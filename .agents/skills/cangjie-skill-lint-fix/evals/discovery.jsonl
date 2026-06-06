@@ -1,0 +1,3 @@
+{"input":"帮我把某个 Skill 的 skill-lint warning 全部修掉，最后重新跑 lint 到 0 warnings。","expected_skills":["cangjie-skill-lint-fix"],"forbidden_skills":[],"min_rank":3}
+{"input":"skill-lint 报 E-1 缺 evals，请补真实用例并用 Codex 或 Claude agent 跑 skill-eval。","expected_skills":["cangjie-skill-lint-fix"],"forbidden_skills":[],"min_rank":3}
+{"input":"扫描用户输入的 Skill 目录，把 lint 报告写到 reports/lint，修完后确认 0 errors 0 warnings。","expected_skills":["cangjie-skill-lint-fix"],"forbidden_skills":[],"min_rank":3}

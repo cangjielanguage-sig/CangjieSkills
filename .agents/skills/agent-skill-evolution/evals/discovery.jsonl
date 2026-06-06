@@ -1,1 +1,0 @@
-{"id":"discover-select-paper-route","input":"请在 Trace2Skill、SkillX 和 XSkill 之间选择主路线与增强模块来改进这个 Agent Skill。","expected_skills":["agent-skill-evolution"],"forbidden_skills":[],"min_rank":3}

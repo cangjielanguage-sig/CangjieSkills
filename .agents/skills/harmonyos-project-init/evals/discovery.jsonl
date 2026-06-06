@@ -1,5 +1,0 @@
-{"input":"帮我创建一个鸿蒙应用项目","expected_skills":["harmonyos-project-init"],"forbidden_skills":[],"min_rank":3}
-{"input":"新建一个仓颉鸿蒙工程","expected_skills":["harmonyos-project-init"],"forbidden_skills":[],"min_rank":3}
-{"input":"初始化一个HarmonyOS项目","expected_skills":["harmonyos-project-init"],"forbidden_skills":[],"min_rank":3}
-{"input":"帮我搭建一个鸿蒙App，从零开始","expected_skills":["harmonyos-project-init"],"forbidden_skills":[],"min_rank":3}
-{"input":"我要开发一个HarmonyOS应用，帮我创建项目结构","expected_skills":["harmonyos-project-init"],"forbidden_skills":[],"min_rank":3}

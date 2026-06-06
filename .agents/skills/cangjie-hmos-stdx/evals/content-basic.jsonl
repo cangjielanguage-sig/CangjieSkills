@@ -1,0 +1,5 @@
+{"input":"cangjie-hmos-stdx skill 能力概述","expected_patterns":["fetch_stdx","cjpm.toml","stdx","解压","bin-dependencies","path-option"],"min_score":0.8}
+{"input":"stdx 扩展库包含哪些模块","expected_patterns":["crypto","encoding","net","log","actors","compress","serialization"],"min_score":0.8}
+{"input":"如何下载 stdx 二进制包","expected_patterns":["fetch_stdx.py","--platform","x86_64","aarch64","gitcode"],"min_score":0.8}
+{"input":"cjpm.toml 中如何配置 stdx 路径","expected_patterns":["bin-dependencies","path-option","target.x86_64-linux-ohos","target.aarch64-linux-ohos","cjnative/stdx"],"min_score":0.8}
+{"input":"stdx 配置出错怎么排查","expected_patterns":["zip","解压","cjpm.toml","目标平台","错误信息"],"min_score":0.8}

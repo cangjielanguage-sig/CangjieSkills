@@ -1,6 +1,6 @@
 ---
 name: cangjie-skillx-layered-refinement
-description: "用于进化已有 Agent Skill：从 rollout 中执行 planning / functional / atomic 三层技能抽取，并按 merge/decompose、general filter、tool schema filter 与 add/modify/keep 迭代精炼目标 Skill。用于用户要求记录 SkillX rollout、从成功/失败轨迹进化已有 Skill、治理技能库重复能力时。"
+description: "当需要从 Rollout Record 对已有 Agent Skill 做 SkillX 分层抽取与精炼时使用此 Skill：读取 cangjie-rollout-collector 生成的记录，执行 planning / functional / atomic 三层技能抽取，并按 merge/decompose、general filter、tool schema filter 与 add/modify/keep 治理目标 Skill。"
 ---
 
 # 仓颉 SkillX 分层抽取与精炼
@@ -8,51 +8,14 @@ description: "用于进化已有 Agent Skill：从 rollout 中执行 planning / 
 本 Skill 负责 SkillX 的三层抽取与迭代精炼；`cangjie-xskill-evolution` 负责 XSkill 技能流/经验流治理。不要混用二者：需要 planning / functional / atomic 分层、技能合并过滤和 add/modify/keep 更新时使用本 Skill；需要把稳定技能流与上下文敏感经验流分离时使用 `cangjie-xskill-evolution`。
 
 
-## 模式选择
+## 职责边界
 
-- 模式 A：获取 rollout。与目标 Skill 一起使用时，在目标 Skill 完成任务后输出兼容 `cangjie-xskill-evolution` 的 `Rollout Summary`，不写文件。
-- 模式 B：分层抽取与精炼。读取一个或多个 rollout，按 Tool Summary -> Plan Extract -> Functional/Atomic Extract -> Merge/Decompose -> General Filter -> Tool Schema Filter -> Update 执行治理；只有用户明确要求写入时才修改目标 Skill。
+- 采集 rollout 使用 `cangjie-rollout-collector` 生成并集中保存 `Rollout Record`；本 Skill 不执行采集或持久化。
+- 本 Skill 负责分层抽取与精炼：读取一个或多个 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找；兼容旧版 `Rollout Summary`），按 Tool Summary -> Plan Extract -> Functional/Atomic Extract -> Merge/Decompose -> General Filter -> Tool Schema Filter -> Update 执行治理；只有用户明确要求写入时才修改目标 Skill。
 
-## 模式 A：Rollout Summary
+## 输入与分组
 
-在目标 Skill 完成任务后，按以下格式输出。保持字段名与 `cangjie-xskill-evolution` 兼容；不要发明未观察到的事实。
-
-```markdown
-## Rollout Summary
-
-- task_id: <同一任务多次执行时保持一致；未知则从任务主题生成稳定短名>
-- rollout_id: <本次执行唯一 ID，如 R001 或日期加序号>
-- target_skill: <被治理 Skill 名称>
-- outcome: success | partial | failure | blocked
-- 原始任务: <用户任务>
-- 关键约束: <用户要求、环境限制、禁止事项>
-
-### 步骤表
-
-| 步骤 | 动作/工具 | 参数/输入 | 推理依据 | 结果 | 已用经验 |
-| --- | --- | --- | --- | --- | --- |
-| S1 | <操作或工具调用> | <参数、文件、输入或无> | <为什么这样做；可标注关键路径/非关键路径> | <观察到的结果> | <经验 ID 或无> |
-
-### 失败、绕路与回退
-
-- <记录探索、调试、错误、backtracking、blocked 原因及影响；没有则写无>
-
-### 可迁移模式
-
-- 模式描述: <可复用流程、工具模式、失败规避或验收规则>
-  通用性: 高 | 中 | 低
-  来源步骤: <如 S2-S4；优先标注关键路径步骤>
-
-### 最终结果
-
-- <交付物、验证结果、未完成项>
-```
-
-模式 A 是无状态的：只输出 rollout，由用户或编排层保存到对话、剪贴板或文件。本 Skill 不维护 rollout 存储。
-
-## 模式 B：输入与分组
-
-输入可以是粘贴的 rollout Markdown，也可以是用户指定的 rollout 文件。先按 `target_skill` 分组，再按 `task_id` 分组；禁止把不同目标 Skill 的候选技能混合精炼。
+输入可以是粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown；读取旧版 `Rollout Summary` 时先按字段语义映射为 `Rollout Record`。用户显式指定旧目录文件路径时，可作为普通输入读取；不得自动扫描旧治理 Skill 的 `records/rollouts/`。先按 `target_skill` 分组，再按 `task_id` 分组；禁止把不同目标 Skill 的候选技能混合精炼。
 
 读取 rollout 时执行容错：
 
@@ -66,6 +29,7 @@ description: "用于进化已有 Agent Skill：从 rollout 中执行 planning / 
 - `partial`：只抽取已验证有效片段，默认标为 `pending`。
 - `failure`：只用于失败模式、过滤、防错或 rejected/pending 判断，不进入稳定主流程。
 - `blocked`：作为 failure 子类处理，只记录阻塞条件和规避提示。
+- `not_verified`：只产生 `pending` 候选，不得直接进入稳定主流程。
 
 ## 候选 JSON 契约
 
@@ -110,7 +74,7 @@ description: "用于进化已有 Agent Skill：从 rollout 中执行 planning / 
 
 执行规则：
 
-- 将轨迹压缩为高层步骤，而不是逐个复述工具调用。
+- 将 rollout 压缩为高层步骤，而不是逐个复述工具调用。
 - 合并同一目标下的连续动作。
 - 排除能力探索、调试、失败调用、回退和试错步骤。
 - 保留关键 API、工具或命令名称，确保其他 agent 能复用。
@@ -216,7 +180,7 @@ planning 候选的 `content` 使用有序步骤；每步写自然语言子目标
 
 ## 治理摘要
 
-模式 B 每次结束都输出：
+每次治理结束都输出：
 
 ```markdown
 ## SkillX 治理摘要
@@ -238,8 +202,9 @@ planning 候选的 `content` 使用有序步骤；每步写自然语言子目标
 
 ## 最小检查清单
 
-- 模式 A 输出仍兼容 `cangjie-xskill-evolution` 的 `Rollout Summary` 字段。
-- 模式 B 阶段顺序是 summary -> plan -> functional/atomic -> merge/decompose -> general filter -> tool schema filter -> update。
+- 采集 rollout 已交给 `cangjie-rollout-collector`；本 Skill 只处理已有 `Rollout Record`。
+- 未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 自动查找 rollout。
+- 治理阶段顺序是 summary -> plan -> functional/atomic -> merge/decompose -> general filter -> tool schema filter -> update。
 - 每条有效 rollout 都有 `task_id`、`rollout_id`、`target_skill` 和 `outcome`。
 - 每个候选 JSON 都包含 `metadata.cluster_id` 和 `metadata.extraction_epoch`。
 - 成功 rollout 才能支撑稳定主流程；失败、blocked、partial 只参与防错、过滤或 pending/rejected 判断。

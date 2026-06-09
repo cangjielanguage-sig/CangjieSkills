@@ -1,5 +1,7 @@
-{"input":"说明 cangjie-hmos-doc-search 的日常搜索入口，并给出查询 List 组件文档的命令示例","expected_patterns":["unified_search.py","List","--engine"],"min_score":0.6}
-{"input":"解释 unified_search.py 的 --engine fusion、card、graph 分别适合什么场景","expected_patterns":["--engine","fusion","card","graph"],"min_score":0.6}
-{"input":"要查鸿蒙 WebView loadUrl headers 文档，应该提取哪些关键词并使用哪个搜索入口","expected_patterns":["unified_search.py","WebView","loadUrl","headers"],"min_score":0.6}
-{"input":"cangjie-hmos-doc-search 构建本地索引的命令是什么","expected_patterns":["build_index_v3.py","--mode","rule"],"min_score":0.6}
-{"input":"说明 unified_search.py 如何以 JSON 格式输出搜索结果","expected_patterns":["unified_search.py","--json","--limit"],"min_score":0.6}
+{"input":"我要写一个仓颉鸿蒙应用，需要申请蓝牙和网络权限，且需要在界面上放置能操控的web组件，我应该怎么做？","expected_patterns":["unified_search\\.py","子意图|拆分|分别搜索","ohos\\.permission\\.(ACCESS_BLUETOOTH|USE_BLUETOOTH|INTERNET)","WebView|Web组件","--engine"],"pattern_weights":[4,3,2,2,1],"min_score":0.45}
+{"input":"我的鸿蒙仓颉应用列表滑动很卡，怎么优化？","expected_patterns":["unified_search\\.py","LazyForEach|懒加载","性能优化","--engine\\s+(card|fusion)","core|关键词"],"pattern_weights":[4,3,2,1,1],"min_score":0.45}
+{"input":"我之前写Android的，鸿蒙的Activity对应什么？页面跳转怎么写？","expected_patterns":["unified_search\\.py","UIAbility","Navigation|Router","Activity","跨生态|synonym"],"pattern_weights":[4,3,2,1,1],"min_score":0.45}
+{"input":"仓颉构建报错：cannot convert an integer literal to type 'Enum-BarState'，怎么解决？","expected_patterns":["unified_search\\.py","BarState","--engine\\s+card","core|关键词","enum"],"pattern_weights":[4,3,2,1,1],"min_score":0.45}
+{"input":"我需要写一个界面，界面上有图形，点击后图形会变化，变化有动画效果","expected_patterns":["unified_search\\.py","子意图|拆分|分别搜索","animation|animate|属性动画|组件动画","TapGesture|手势|gesture","Shape|图形"],"pattern_weights":[4,3,2,1,1],"min_score":0.45}
+{"input":"我要调用摄像头，应该怎么写","expected_patterns":["unified_search\\.py","camera|Camera","ohos\\.permission\\.CAMERA|CAMERA.*权限","--engine\\s+(card|fusion)","source_file|docs/"],"pattern_weights":[4,3,2,1,1],"min_score":0.45}
+{"input":"搜索结果里 score 是 350 的文档值得读吗？应该怎么读取原文？","expected_patterns":["unified_search\\.py","较相关|200.*400","source_file","docs/","Top.*1.*2|只读"],"pattern_weights":[3,3,2,2,2],"min_score":0.45}

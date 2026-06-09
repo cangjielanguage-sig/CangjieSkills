@@ -1,59 +1,21 @@
 ---
 name: cangjie-xskill-evolution
-description: "基于双流框架治理已有仓颉 Skill。用于两种场景：与被治理 Skill 一起使用时，在目标 Skill 执行完成后总结 rollout；或读取一个或多个 rollout，按 target_skill 与 task_id 分组生成技能流 delta K 和经验流 delta e，输出治理建议或在写入模式下更新目标 Skill。"
+description: "当需要基于双流框架治理已有仓颉 Skill 时使用此 Skill：读取 cangjie-rollout-collector 生成的一个或多个 Rollout Record，按 target_skill 与 task_id 分组生成技能流 delta K 和经验流 delta e，输出治理建议；用户明确要求写入时更新目标 Skill。"
 ---
 
 # 仓颉 XSkill 双流进化
 
 ## 目的
 
-使用双流思想治理已有仓颉 Skill：技能流沉淀稳定任务级流程，经验流沉淀上下文敏感的动作级建议。本 Skill 处理文本 rollout、工具调用、推理步骤、失败/回退和可迁移知识。
+使用双流思想治理已有仓颉 Skill：技能流沉淀稳定任务级流程，经验流沉淀上下文敏感的动作级建议。本 Skill 处理文本 rollout、工具调用、失败/回退和可迁移知识。采集和保存 rollout 使用 `cangjie-rollout-collector`，本 Skill 不执行采集持久化。
 
-本 Skill 有两种模式：
+本 Skill 的职责是双流治理：
 
-- 模式 A：获取 rollout。与被治理 Skill 一起使用时，目标 Skill 执行完成后只输出 rollout summary，不修改文件。
-- 模式 B：治理 Skill。读取一条或多条 rollout，生成 `delta K` 与 `delta e`，输出治理建议；只有用户明确要求写入时才修改目标 Skill。
+- 读取一条或多条 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找；兼容旧版 `Rollout Summary`），生成 `delta K` 与 `delta e`，输出治理建议；只有用户明确要求写入时才修改目标 Skill。
 
-## 模式 A：获取 Rollout
+## 治理 Skill
 
-在被治理 Skill 完成后，按以下契约总结本次执行。保持可审计，不补写未观察到的事实。
-
-```markdown
-## Rollout Summary
-
-- task_id: <同一任务多次执行时保持一致；未知则从任务主题生成稳定短名>
-- rollout_id: <本次执行唯一 ID，如 R001 或日期加序号>
-- target_skill: <被治理 Skill 名称>
-- outcome: success | partial | failure | blocked
-- 原始任务: <用户任务>
-- 关键约束: <用户要求、环境限制、禁止事项>
-
-### 步骤表
-
-| 步骤 | 动作/工具 | 参数/输入 | 推理依据 | 结果 | 已用经验 |
-| --- | --- | --- | --- | --- | --- |
-| S1 | <操作> | <参数> | <为什么这样做> | <观察到的结果> | <经验 ID 或无> |
-
-### 失败、绕路与回退
-
-- <记录 detour、错误、backtracking、blocked 原因及影响；没有则写无>
-
-### 可迁移模式
-
-- 模式描述: <可复用流程、工具模式、失败规避或验收规则>
-  通用性: 高 | 中 | 低
-  来源步骤: <如 S2-S4>
-
-### 最终结果
-
-- <交付物、验证结果、未完成项>
-```
-
-模式 A 是无状态的：只输出 rollout，由用户或编排层保存到对话、剪贴板或文件。本 Skill 不维护 rollout 存储。
-
-## 模式 B：治理 Skill
-
-输入可以是粘贴的 rollout Markdown，也可以是用户指定的 rollout 文件。先按 `target_skill` 分组，分别执行治理流程并分别输出审计摘要；每个 `target_skill` 组内再按 `task_id` 分组做跨 rollout 分析，禁止把不同 Skill 的 `delta K` 或 `delta e` 混在一起。
+输入可以是粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown；读取旧版 `Rollout Summary` 时先按字段语义映射为 `Rollout Record`。用户显式指定旧目录文件路径时，可作为普通输入读取；不得自动扫描旧治理 Skill 的 `records/rollouts/`。先按 `target_skill` 分组，分别执行治理流程并分别输出审计摘要；每个 `target_skill` 组内再按 `task_id` 分组做跨 rollout 分析，禁止把不同 Skill 的 `delta K` 或 `delta e` 混在一起。
 
 读取 rollout 时先做容错检查：
 
@@ -68,6 +30,7 @@ description: "基于双流框架治理已有仓颉 Skill。用于两种场景：
 - 只有 `failure`：只提取规避型经验或防错候选，不写入稳定主流程。
 - `partial`：提取有效部分，标注未完成步骤和不达标结果，整体默认 `pending`。
 - `blocked`：视为 failure 子类，只提取阻塞规避经验，不提取流程候选。
+- `not_verified`：只产生 `pending` 建议，不得直接进入 `accepted` 的 `delta K` 或 `delta e`。
 
 ## 技能流：生成并治理 Delta K
 
@@ -191,11 +154,11 @@ description: "基于双流框架治理已有仓颉 Skill。用于两种场景：
 - 状态: accepted | pending | rejected
 ```
 
-经验 ID 默认使用目标 Skill 缩写加自增序号，例如 `E-HMOS-BUILD-001`；无法确定缩写时使用 `E001`。目标 Skill 没有 `references/experiences.md` 时，在治理建议中标注“需新建”；只有写入模式才创建文件。
+经验 ID 默认使用目标 Skill 缩写加自增序号，例如 `E-HMOS-BUILD-001`；无法确定缩写时使用 `E001`。目标 Skill 没有 `references/experiences.md` 时，在治理建议中标注“需新建”；只有用户明确要求写入时才创建文件。
 
 ## 经验使用入口治理
 
-在模式 B 中只要有 `accepted` 的 `delta e` 会新增或更新 `references/experiences.md`，就必须同时检查目标 `SKILL.md` 是否说明如何消费经验。
+治理过程中只要有 `accepted` 的 `delta e` 会新增或更新 `references/experiences.md`，就必须同时检查目标 `SKILL.md` 是否说明如何消费经验。
 
 - 若目标 `SKILL.md` 已有等价说明，保持不变，并在治理摘要中写明“经验入口已存在”。
 - 若目标 `SKILL.md` 没有说明，或只创建了 `references/experiences.md` 但未说明如何使用，生成一个配套 `delta K` 的 `add` 或 `modify` 操作，写入目标 `SKILL.md` 的合适位置。
@@ -212,7 +175,7 @@ description: "基于双流框架治理已有仓颉 Skill。用于两种场景：
 
 ## 写入与拒写规则
 
-- 用户只要求“总结 rollout”时，只执行模式 A。
+- 用户只要求“总结 rollout”或“保存 rollout”时，交给 `cangjie-rollout-collector`；本 Skill 不执行采集持久化。
 - 用户要求“评审”“建议”或“给出治理方案”时，只输出治理建议，不修改文件。
 - 用户明确要求“治理”“更新”“改进目标 Skill”且当前会话允许写入时，才修改目标 Skill。
 - 原始 rollout、证据文件和用户未授权修改的 Skill 不得改写。
@@ -222,7 +185,7 @@ description: "基于双流框架治理已有仓颉 Skill。用于两种场景：
 
 ## 治理摘要
 
-模式 B 每次结束都输出摘要：
+每次治理结束都输出摘要：
 
 ```markdown
 ## 治理摘要
@@ -242,6 +205,8 @@ description: "基于双流框架治理已有仓颉 Skill。用于两种场景：
 ## 最小检查清单
 
 - 已按 `target_skill` 分组，未混合不同 Skill 的知识。
+- 采集 rollout 已交给 `cangjie-rollout-collector`；本 Skill 只处理已有 `Rollout Record`。
+- 未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 自动查找 rollout。
 - 每条有效 rollout 都有 `task_id`、`rollout_id`、`target_skill` 和 `outcome`，或已记录缺失并跳过。
 - 每个 `delta K` 和 `delta e` 都可追溯到具体 rollout。
 - `delta K` 与 `delta e` 都先以 JSON 操作中间态表达，再转成 Markdown 落位。

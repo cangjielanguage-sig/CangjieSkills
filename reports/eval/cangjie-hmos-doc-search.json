@@ -1,78 +1,251 @@
-﻿{
+{
   "skill": "cangjie-hmos-doc-search",
-  "status": "passed",
+  "status": "failed",
   "summary": {
-    "total": 10,
-    "passed": 10,
-    "failed": 0,
-    "must_failed": 0,
+    "total": 7,
+    "passed": 3,
+    "failed": 4,
+    "must_failed": 4,
     "should_failed": 0,
     "may_failed": 0,
-    "content_total": 5,
-    "content_passed": 5,
-    "discovery_total": 5,
-    "discovery_passed": 5
+    "content_total": 7,
+    "content_passed": 3,
+    "discovery_total": 0,
+    "discovery_passed": 0
   },
   "metrics": {
-    "content_pass_rate": 1.0,
-    "answer_score_avg": 1.0,
-    "pattern_score_avg": 1.0,
+    "content_pass_rate": 0.42857142857142855,
+    "answer_score_avg": 0.4274891774891775,
+    "pattern_score_avg": 0.4274891774891775,
     "validator_score_avg": null,
-    "pattern_coverage_avg": 1.0,
-    "discovery_hit_rate": 1.0,
+    "pattern_coverage_avg": 0.4571428571428572,
+    "discovery_hit_rate": null,
     "loaded_skill_hit_rate": null,
     "forbidden_misfire_rate": null,
     "forbidden_misfire_count": 0,
-    "avg_expected_rank": 1.4,
+    "avg_expected_rank": null,
     "tool_call_accuracy": null,
     "tool_call_f1": null,
     "trace_complete_rate": 1.0,
     "runtime_evidence_rate": 1.0,
-    "latency_ms_avg": 34907.1,
-    "latency_ms_p95": 75403.40000000002,
-    "token_total": 73219,
-    "cost_total": 0.778463,
-    "tool_call_count": 2,
-    "tool_call_error_count": 0,
-    "content_skill_context_slots_total": 8125,
-    "content_skill_context_slots_avg": 1625.0
+    "latency_ms_avg": 146603.54417142767,
+    "latency_ms_p95": 297743.60069000395,
+    "token_total": 1144370,
+    "cost_total": 0.0,
+    "tool_call_count": 34,
+    "tool_call_error_count": 8,
+    "content_skill_context_slots_total": 10283,
+    "content_skill_context_slots_avg": 1469.0
   },
-  "failed_cases": [],
-  "cases": [
+  "failed_cases": [
     {
       "id": "content-basic.jsonl:1",
       "type": "content",
       "file": "evals\\content-basic.jsonl",
       "line": 1,
-      "input": "说明 cangjie-hmos-doc-search 的日常搜索入口，并给出查询 List 组件文档的命令示例",
-      "status": "passed",
-      "score": 1.0,
+      "input": "我要写一个仓颉鸿蒙应用，需要申请蓝牙和网络权限，且需要在界面上放置能操控的web组件，我应该怎么做？",
       "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
+      "reason": "answer_score 0.333 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', '--engine']",
+      "reasons": [
+        "answer_score 0.333 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', '--engine']"
+      ],
+      "status": "failed",
+      "score": 0.3333333333333333,
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "子意图|拆分|分别搜索",
+          "ohos\\.permission\\.(ACCESS_BLUETOOTH|USE_BLUETOOTH|INTERNET)",
+          "WebView|Web组件",
+          "--engine"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ]
+      },
+      "actualOutputSummary": "可以按三块做：权限声明、用户授权、Web组件控制。 1. 在 `entry/src/main/module.json5` 的 `module.requestPermissions` 中声明权限。网络权限 `ohos.permission.INTERNET` 是 `system_grant`，声明即可；蓝牙接入/连接通常需要 `ohos.permission.ACCESS_BLUETOOTH`，它是 `user_grant`，还要运行时弹窗申请。按场景可再声明 `ohos.permission.USE_BLUETOOTH`、`ohos.permission.DISCOVER_BLUETOOTH`。 ```json \"requestPermissions\": [ { \"name\": \"ohos.permission.INTERNET\" }, { \"name\": \"ohos.permission.USE_BLUETOOTH\" }, { \"name\": \"ohos.permission.DISCOVER_BLUETOOTH\" }, { \"name\": \"ohos.permission.A..."
     },
     {
       "id": "content-basic.jsonl:2",
       "type": "content",
       "file": "evals\\content-basic.jsonl",
       "line": 2,
-      "input": "解释 unified_search.py 的 --engine fusion、card、graph 分别适合什么场景",
-      "status": "passed",
-      "score": 1.0,
+      "input": "我的鸿蒙仓颉应用列表滑动很卡，怎么优化？",
       "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
+      "reason": "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '性能优化', '--engine\\\\s+(card|fusion)', 'core|关键词']",
+      "reasons": [
+        "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '性能优化', '--engine\\\\s+(card|fusion)', 'core|关键词']"
+      ],
+      "status": "failed",
+      "score": 0.2727272727272727,
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "LazyForEach|懒加载",
+          "性能优化",
+          "--engine\\s+(card|fusion)",
+          "core|关键词"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      },
+      "actualOutputSummary": "列表滑动卡顿通常先从“减少每帧工作量”和“降低列表项重建成本”排查： 1. 优先使用适合长列表的懒加载列表能力，例如 List 搭配 LazyForEach，避免一次性创建大量子组件。 2. 列表项组件保持轻量：不要在 item 构建函数里做复杂计算、同步 IO、图片解码、网络请求或频繁日志输出。 3. 给数据项提供稳定唯一 key，避免数据刷新、插入、删除时整批重建列表项。 4. 图片列表要做缩略图、缓存和懒加载，避免原图直接进入列表渲染；滑动中尽量不要触发大图解码。 5. 控制状态刷新范围：不要把整个列表依赖到一个频繁变化的全局状态上，优先让单个 item 只订阅自己需要的数据。 6. 避免在 onScroll / 手势回调里频繁 setState、排序、过滤或触发重布局；需要统计滚动位置时做节流。 7. 如果 item 高度复杂，拆掉不必要的嵌套布局、阴影、模糊、动画和透明叠层，先保证列表项布局稳定。 8. 分页加载数据，不要一次把大量数据塞进列表；追加数据时只更新新增部分。 排查顺序建议是：先确认是否使用懒加载列表，再看 item 是否过重，然后检查 key 和状态刷新范..."
+    },
+    {
+      "id": "content-basic.jsonl:4",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "input": "仓颉构建报错：cannot convert an integer literal to type 'Enum-BarState'，怎么解决？",
+      "severity": "MUST",
+      "reason": "answer_score 0.364 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '--engine\\\\s+card', 'enum']",
+      "reasons": [
+        "answer_score 0.364 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '--engine\\\\s+card', 'enum']"
+      ],
+      "status": "failed",
+      "score": 0.36363636363636365,
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "BarState",
+          "--engine\\s+card",
+          "core|关键词",
+          "enum"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      },
+      "actualOutputSummary": "这个报错的本质是：某个参数需要 `BarState` 枚举，但代码传了整数面量，例如 `0`、`1`、`2`。仓颉不会把整数隐式转换成枚举。 把整数改成对应的枚举成员即可，例如： ```cangjie // 错误 .scrollBar(1) // 正确：按实际语义选择 .scrollBar(BarState.Auto) .scrollBar(BarState.On) .scrollBar(BarState.Off) ``` 如果值来自配置或变量，不要直接传 `Int`，先显式映射成 `BarState`： ```cangjie let state = if (v == 0) { BarState.Off } else if (v == 1) { BarState.Auto } else { BarState.On } .scrollBar(state) ``` 排查时直接定位报错行附近所有传给 `BarState` 形参的位置。按该类错误的检索策略，关键词应聚焦 `BarState`，不要用整段错误信息做关键词。"
+    },
+    {
+      "id": "content-basic.jsonl:5",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 5,
+      "input": "我需要写一个界面，界面上有图形，点击后图形会变化，变化有动画效果",
+      "severity": "MUST",
+      "reason": "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', 'TapGesture|手势|gesture']",
+      "reasons": [
+        "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', 'TapGesture|手势|gesture']"
+      ],
+      "status": "failed",
+      "score": 0.2727272727272727,
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "子意图|拆分|分别搜索",
+          "animation|animate|属性动画|组件动画",
+          "TapGesture|手势|gesture",
+          "Shape|图形"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      },
+      "actualOutputSummary": "可以按“状态驱动 UI”的方式实现：用 `@State` 保存图形当前状态，界面绘制图形，点击事件里切换状态，再给状态变化绑定动画。 示例思路： ```cj @Entry @Component struct Index { @State private var changed: Bool = false build() { Column() { Circle() .width(this.changed ? 160 : 100) .height(this.changed ? 160 : 100) .fill(this.changed ? Color.Orange : Color.Blue) .scale(this.changed ? 1.2 : 1.0) .animation(.easeInOut(duration: 300)) .onClick(() => { this.changed = !this.changed }) } .width('100%') .height('100%') .justifyContent(FlexAlign.Center) } } ``` 如果图形..."
+    }
+  ],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "我要写一个仓颉鸿蒙应用，需要申请蓝牙和网络权限，且需要在界面上放置能操控的web组件，我应该怎么做？",
+      "status": "failed",
+      "score": 0.3333333333333333,
+      "severity": "MUST",
+      "reason": "answer_score 0.333 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', '--engine']",
+      "reasons": [
+        "answer_score 0.333 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', '--engine']"
+      ],
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "子意图|拆分|分别搜索",
+          "ohos\\.permission\\.(ACCESS_BLUETOOTH|USE_BLUETOOTH|INTERNET)",
+          "WebView|Web组件",
+          "--engine"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ]
+      },
+      "actualOutputSummary": "可以按三块做：权限声明、用户授权、Web组件控制。 1. 在 `entry/src/main/module.json5` 的 `module.requestPermissions` 中声明权限。网络权限 `ohos.permission.INTERNET` 是 `system_grant`，声明即可；蓝牙接入/连接通常需要 `ohos.permission.ACCESS_BLUETOOTH`，它是 `user_grant`，还要运行时弹窗申请。按场景可再声明 `ohos.permission.USE_BLUETOOTH`、`ohos.permission.DISCOVER_BLUETOOTH`。 ```json \"requestPermissions\": [ { \"name\": \"ohos.permission.INTERNET\" }, { \"name\": \"ohos.permission.USE_BLUETOOTH\" }, { \"name\": \"ohos.permission.DISCOVER_BLUETOOTH\" }, { \"name\": \"ohos.permission.A..."
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "我的鸿蒙仓颉应用列表滑动很卡，怎么优化？",
+      "status": "failed",
+      "score": 0.2727272727272727,
+      "severity": "MUST",
+      "reason": "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '性能优化', '--engine\\\\s+(card|fusion)', 'core|关键词']",
+      "reasons": [
+        "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '性能优化', '--engine\\\\s+(card|fusion)', 'core|关键词']"
+      ],
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "LazyForEach|懒加载",
+          "性能优化",
+          "--engine\\s+(card|fusion)",
+          "core|关键词"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      },
+      "actualOutputSummary": "列表滑动卡顿通常先从“减少每帧工作量”和“降低列表项重建成本”排查： 1. 优先使用适合长列表的懒加载列表能力，例如 List 搭配 LazyForEach，避免一次性创建大量子组件。 2. 列表项组件保持轻量：不要在 item 构建函数里做复杂计算、同步 IO、图片解码、网络请求或频繁日志输出。 3. 给数据项提供稳定唯一 key，避免数据刷新、插入、删除时整批重建列表项。 4. 图片列表要做缩略图、缓存和懒加载，避免原图直接进入列表渲染；滑动中尽量不要触发大图解码。 5. 控制状态刷新范围：不要把整个列表依赖到一个频繁变化的全局状态上，优先让单个 item 只订阅自己需要的数据。 6. 避免在 onScroll / 手势回调里频繁 setState、排序、过滤或触发重布局；需要统计滚动位置时做节流。 7. 如果 item 高度复杂，拆掉不必要的嵌套布局、阴影、模糊、动画和透明叠层，先保证列表项布局稳定。 8. 分页加载数据，不要一次把大量数据塞进列表；追加数据时只更新新增部分。 排查顺序建议是：先确认是否使用懒加载列表，再看 item 是否过重，然后检查 key 和状态刷新范..."
     },
     {
       "id": "content-basic.jsonl:3",
       "type": "content",
       "file": "evals\\content-basic.jsonl",
       "line": 3,
-      "input": "要查鸿蒙 WebView loadUrl headers 文档，应该提取哪些关键词并使用哪个搜索入口",
+      "input": "我之前写Android的，鸿蒙的Activity对应什么？页面跳转怎么写？",
       "status": "passed",
-      "score": 1.0,
+      "score": 0.5454545454545454,
       "severity": "MUST",
       "reason": "",
       "reasons": [],
@@ -83,87 +256,88 @@
       "type": "content",
       "file": "evals\\content-basic.jsonl",
       "line": 4,
-      "input": "cangjie-hmos-doc-search 构建本地索引的命令是什么",
-      "status": "passed",
-      "score": 1.0,
+      "input": "仓颉构建报错：cannot convert an integer literal to type 'Enum-BarState'，怎么解决？",
+      "status": "failed",
+      "score": 0.36363636363636365,
       "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
+      "reason": "answer_score 0.364 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '--engine\\\\s+card', 'enum']",
+      "reasons": [
+        "answer_score 0.364 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '--engine\\\\s+card', 'enum']"
+      ],
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "BarState",
+          "--engine\\s+card",
+          "core|关键词",
+          "enum"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      },
+      "actualOutputSummary": "这个报错的本质是：某个参数需要 `BarState` 枚举，但代码传了整数面量，例如 `0`、`1`、`2`。仓颉不会把整数隐式转换成枚举。 把整数改成对应的枚举成员即可，例如： ```cangjie // 错误 .scrollBar(1) // 正确：按实际语义选择 .scrollBar(BarState.Auto) .scrollBar(BarState.On) .scrollBar(BarState.Off) ``` 如果值来自配置或变量，不要直接传 `Int`，先显式映射成 `BarState`： ```cangjie let state = if (v == 0) { BarState.Off } else if (v == 1) { BarState.Auto } else { BarState.On } .scrollBar(state) ``` 排查时直接定位报错行附近所有传给 `BarState` 形参的位置。按该类错误的检索策略，关键词应聚焦 `BarState`，不要用整段错误信息做关键词。"
     },
     {
       "id": "content-basic.jsonl:5",
       "type": "content",
       "file": "evals\\content-basic.jsonl",
       "line": 5,
-      "input": "说明 unified_search.py 如何以 JSON 格式输出搜索结果",
+      "input": "我需要写一个界面，界面上有图形，点击后图形会变化，变化有动画效果",
+      "status": "failed",
+      "score": 0.2727272727272727,
+      "severity": "MUST",
+      "reason": "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', 'TapGesture|手势|gesture']",
+      "reasons": [
+        "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', 'TapGesture|手势|gesture']"
+      ],
+      "errorCode": "E_EVAL_ASSERTION_FAILED",
+      "expected": {
+        "expected_patterns": [
+          "unified_search\\.py",
+          "子意图|拆分|分别搜索",
+          "animation|animate|属性动画|组件动画",
+          "TapGesture|手势|gesture",
+          "Shape|图形"
+        ],
+        "min_score": 0.45,
+        "pattern_weights": [
+          4,
+          3,
+          2,
+          1,
+          1
+        ]
+      },
+      "actualOutputSummary": "可以按“状态驱动 UI”的方式实现：用 `@State` 保存图形当前状态，界面绘制图形，点击事件里切换状态，再给状态变化绑定动画。 示例思路： ```cj @Entry @Component struct Index { @State private var changed: Bool = false build() { Column() { Circle() .width(this.changed ? 160 : 100) .height(this.changed ? 160 : 100) .fill(this.changed ? Color.Orange : Color.Blue) .scale(this.changed ? 1.2 : 1.0) .animation(.easeInOut(duration: 300)) .onClick(() => { this.changed = !this.changed }) } .width('100%') .height('100%') .justifyContent(FlexAlign.Center) } } ``` 如果图形..."
+    },
+    {
+      "id": "content-basic.jsonl:6",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 6,
+      "input": "我要调用摄像头，应该怎么写",
       "status": "passed",
-      "score": 1.0,
+      "score": 0.45454545454545453,
       "severity": "MUST",
       "reason": "",
       "reasons": [],
       "errorCode": null
     },
     {
-      "id": "discovery.jsonl:1",
-      "type": "discovery",
-      "file": "evals\\discovery.jsonl",
-      "line": 1,
-      "input": "我想查找鸿蒙仓颉的 List 组件文档",
+      "id": "content-basic.jsonl:7",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 7,
+      "input": "搜索结果里 score 是 350 的文档值得读吗？应该怎么读取原文？",
       "status": "passed",
-      "score": 1.0,
-      "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
-    },
-    {
-      "id": "discovery.jsonl:2",
-      "type": "discovery",
-      "file": "evals\\discovery.jsonl",
-      "line": 2,
-      "input": "帮我搜索鸿蒙 WebView loadUrl headers 的用法",
-      "status": "passed",
-      "score": 1.0,
-      "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
-    },
-    {
-      "id": "discovery.jsonl:3",
-      "type": "discovery",
-      "file": "evals\\discovery.jsonl",
-      "line": 3,
-      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
-      "status": "passed",
-      "score": 1.0,
-      "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
-    },
-    {
-      "id": "discovery.jsonl:4",
-      "type": "discovery",
-      "file": "evals\\discovery.jsonl",
-      "line": 4,
-      "input": "帮我查鸿蒙仓颉 Router.pushUrl 参数文档",
-      "status": "passed",
-      "score": 1.0,
-      "severity": "MUST",
-      "reason": "",
-      "reasons": [],
-      "errorCode": null
-    },
-    {
-      "id": "discovery.jsonl:5",
-      "type": "discovery",
-      "file": "evals\\discovery.jsonl",
-      "line": 5,
-      "input": "HarmonyOS 构建报错了，怎么查错误码对应的文档",
-      "status": "passed",
-      "score": 1.0,
+      "score": 0.75,
       "severity": "MUST",
       "reason": "",
       "reasons": [],
@@ -174,350 +348,10 @@
     {
       "case_id": "content-basic.jsonl:1",
       "type": "content",
-      "input": "说明 cangjie-hmos-doc-search 的日常搜索入口，并给出查询 List 组件文档的命令示例",
+      "input": "我要写一个仓颉鸿蒙应用，需要申请蓝牙和网络权限，且需要在界面上放置能操控的web组件，我应该怎么做？",
       "runner": "agent-command",
-      "output": "## cangjie-hmos-doc-search 日常搜索入口\n\n**日常检索入口**：顶层 `unified_search.py`，位于 Skill 目录下：\n```\nD:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\n```\n\nSkill 文档明确指出：日常检索始终使用顶层 `unified_search.py`，无需直接调用子技能 CLI（doc-card / doc-graph），也不直接调用构建脚本。\n\n## 命令格式\n\n```bash\npython unified_search.py \"<query>\" [options]\n```\n\n| 参数 | 默认值 | 说明 |\n|------|--------|------|\n| `query` | — | 关键词 |\n| `--engine` | `fusion` | `fusion` / `card` / `graph` |\n| `--json` | off | 输出 JSON 格式 |\n| `--limit` | `5` | 命中数量上限 |\n\n## 查询 List 组件文档的命令示例\n\n```bash\npython \"D:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\" \"List\" --engine fusion --limit 5\n```\n\n使用 `--engine card` 可进行更精确的 API/组件精确匹配：\n\n```bash\npython \"D:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\" \"List\" --engine card --limit 5\n```\n\n使用 `--json` 获取结构化输出：\n\n```bash\npython \"D:\\cangjie_skills\\CangjieSkills\\.agents\\skills\\cangjie-hmos-doc-search\\unified_search.py\" \"List\" --json --limit 5\n```",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 1
-        }
-      ],
-      "loaded_skills": [
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 29609.0,
-      "usage": {
-        "input_tokens": 23844,
-        "output_tokens": 758,
-        "cached_input_tokens": 1024,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 24602,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "skill_context_slots": 1625,
-        "claude_stdout_chars": 7784,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.13868200000000003,
-      "error": null,
-      "timestamp": 1780043552.949543,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "{\"output\":\"## cangjie-hmos-doc-search 日常搜索入口\\n\\n**日常检索入口**：顶层 `unified_search.py`，位于 Skill 目录下：\\n```\\nD:\\\\cangjie_skills\\\\CangjieSkills\\\\.agents\\\\skills\\\\cangjie-hmos-doc-search\\\\unified_search.py\\n```\\n\\nSkill 文档明确指出：日常检索始终使用顶层 `unified_search.py`，无需直接调用子技能 CLI（doc-card / doc-graph），也不直接调用构建脚本。\\n\\n## 命令格式\\n\\n```bash\\npython unified_search.py \\\"<query>\\\" [options]\\n```\\n\\n| 参数 | 默认值 | 说明 |\\n|------|--------|------|\\n| `query` | — | 关键词 |\\n| `--engine` | `fusion` | `fusion` / `card` ..."
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\content-basic.jsonl",
-      "line": 1,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": [],
-      "pattern_score": 1.0,
-      "validator_score": null
-    },
-    {
-      "case_id": "content-basic.jsonl:2",
-      "type": "content",
-      "input": "解释 unified_search.py 的 --engine fusion、card、graph 分别适合什么场景",
-      "runner": "agent-command",
-      "output": "unified_search.py 的 --engine 参数有三个选项，适用场景如下：\n\n1. **fusion**（默认）：通用检索引擎，适合大多数查询场景。当不确定用哪个引擎时，优先使用 fusion。它融合多种检索策略，覆盖面最广。\n\n2. **card**：适合精确的 API 查询和构建报错排查。例如查询具体 API 用法（如 `--engine card --query \"NavPathStack.pushPath\"`），或根据编译错误信息定位问题（如 `cannot convert X to type Y`）。card 引擎基于结构化卡片索引（tasks/apis/examples/docs），精确度高。\n\n3. **graph**：适合需要图谱遍历的场景，支持子命令：\n   - `--cmd neighbors <node>` — 查询某节点的邻居\n   - `--cmd path <s> <t>` — 查询两个节点间的路径\n   - `--cmd god-nodes [n]` — 查询核心枢纽节点\n   - `--cmd community <id>` — 查询某个社区/聚类\n   - `--cmd explain <node>` — 解释某个节点\n   适用于跨模块关联分析、API 依赖链路追踪、语义模糊问题的扩散检索。\n\n简单来说：日常查询用 fusion，精确 API/报错用 card，图谱遍历/关联分析用 graph。",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 1
-        }
-      ],
-      "loaded_skills": [
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 25517.0,
-      "usage": {
-        "input_tokens": 4380,
-        "output_tokens": 596,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 4976,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "skill_context_slots": 1625,
-        "claude_stdout_chars": 6258,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.04704,
-      "error": null,
-      "timestamp": 1780043582.0140707,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "```json { \"output\": \"unified_search.py 的 --engine 参数有三个选项，适用场景如下：\\n\\n1. **fusion**（默认）：通用检索引擎，适合大多数查询场景。当不确定用哪个引擎时，优先使用 fusion。它融合多种检索策略，覆盖面最广。\\n\\n2. **card**：适合精确的 API 查询和构建报错排查。例如查询具体 API 用法（如 `--engine card --query \\\"NavPathStack.pushPath\\\"`），或根据编译错误信息定位问题（如 `cannot convert X to type Y`）。card 引擎基于结构化卡片索引（tasks/apis/examples/docs），精确度高。\\n\\n3. **graph**：适合需要图谱遍历的场景，支持子命令：\\n - `--cmd neighbors <node>` — 查询某节点的邻居\\n - `--cmd path <s> <t>` — 查询两个节点间的路径\\n - `--cmd god-nodes [n]` — 查询核心枢纽节点\\n - `-..."
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\content-basic.jsonl",
-      "line": 2,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": [],
-      "pattern_score": 1.0,
-      "validator_score": null
-    },
-    {
-      "case_id": "content-basic.jsonl:3",
-      "type": "content",
-      "input": "要查鸿蒙 WebView loadUrl headers 文档，应该提取哪些关键词并使用哪个搜索入口",
-      "runner": "agent-command",
-      "output": "针对查询「鸿蒙 WebView loadUrl headers 文档」，关键词提取与搜索入口建议如下：\n\n## 关键词提取\n\n按 core/context/synonym 三层分类：\n\n| 层级 | 关键词 | 说明 |\n|------|--------|------|\n| **core**（1-2词） | WebView, loadUrl | 最高区分度术语，WebView 是组件名，loadUrl 是目标方法 |\n| **context**（1-3词） | headers | 限定 loadUrl 的具体参数侧面 |\n| **synonym**（0-2词） | Web, resourceLoad | 概念级联想，可选。resourceLoad 对应鸿蒙中 WebView 资源加载的语义 |\n\n合并后查询串建议：`WebView loadUrl headers`\n\n## 搜索入口选择\n\n根据场景指引，**精确 API 查询应使用 `--engine card`**：\n\n```bash\npython unified_search.py \"WebView loadUrl headers\" --engine card\n```\n\n理由：\n- loadUrl 是具体 API 方法名，属于「精确 API/构建报错」场景\n- card 引擎直接匹配 API 卡片，命中率更高\n- fusion 在此场景下也可用（作为默认引擎），但 card 更精准\n\n若 card 结果不理想，可回退到 fusion：\n\n```bash\npython unified_search.py \"WebView loadUrl headers\" --engine fusion\n```\n\n## 注意事项\n\n- 关键词总数控制在 10 词以内（当前 3-4 词，符合要求）\n- 若搜索无结果，可能需要尝试去掉 `headers` 缩小范围：`WebView loadUrl`\n- 读取结果时只看 Top 1-2 的 source_file，先看 overview.md 再按 Quick Navigation 定位子文件",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 1
-        },
-        {
-          "name": "doc-card",
-          "rank": 2
-        }
-      ],
-      "loaded_skills": [
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 57436.0,
-      "usage": {
-        "input_tokens": 4384,
-        "output_tokens": 593,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 4977,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "skill_context_slots": 1625,
-        "claude_stdout_chars": 7929,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.051221,
-      "error": null,
-      "timestamp": 1780043642.8308015,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "```json { \"output\": \"针对查询「鸿蒙 WebView loadUrl headers 文档」，关键词提取与搜索入口建议如下：\\n\\n## 关键词提取\\n\\n按 core/context/synonym 三层分类：\\n\\n| 层级 | 关键词 | 说明 |\\n|------|--------|------|\\n| **core**（1-2词） | WebView, loadUrl | 最高区分度术语，WebView 是组件名，loadUrl 是目标方法 |\\n| **context**（1-3词） | headers | 限定 loadUrl 的具体参数侧面 |\\n| **synonym**（0-2词） | Web, resourceLoad | 概念级联想，可选。resourceLoad 对应鸿蒙中 WebView 资源加载的语义 |\\n\\n合并后查询串建议：`WebView loadUrl headers`\\n\\n## 搜索入口选择\\n\\n根据场景指引，**精确 API 查询应使用 `--engine card`**：\\n\\n```bash\\npython ..."
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\content-basic.jsonl",
-      "line": 3,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": [],
-      "pattern_score": 1.0,
-      "validator_score": null
-    },
-    {
-      "case_id": "content-basic.jsonl:4",
-      "type": "content",
-      "input": "cangjie-hmos-doc-search 构建本地索引的命令是什么",
-      "runner": "agent-command",
-      "output": "构建本地索引的命令是：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule\n```\n\n如需离线 LLM 语义增强，使用：\n\n```bash\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule+llm\n```\n\n其中 `<CangjieSkills>` 需替换为实际的 CangjieSkills 仓库根目录路径（如 `D:\\cangjie_skills\\CangjieSkills`）。\n\n构建产物会写入 `doc-card/index/` 目录，包含 manifest.json、tasks.jsonl、apis.jsonl、examples.jsonl、docs.jsonl、aliases.json、search.db 等文件。",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 1
-        },
-        {
-          "name": "cangjie-hmos-doc-search-maintenance",
-          "rank": 2
-        }
-      ],
-      "loaded_skills": [
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 28160.0,
-      "usage": {
-        "input_tokens": 4380,
-        "output_tokens": 341,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 4721,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "skill_context_slots": 1625,
-        "claude_stdout_chars": 6594,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.044531,
-      "error": null,
-      "timestamp": 1780043674.5811734,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "```json { \"output\": \"构建本地索引的命令是：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule\\n```\\n\\n如需离线 LLM 语义增强，使用：\\n\\n```bash\\npython <CangjieSkills>/.agents/skills/cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py --mode rule+llm\\n```\\n\\n其中 `<CangjieSkills>` 需替换为实际的 CangjieSkills 仓库根目录路径（如 `D:\\\\cangjie_skills\\\\CangjieSkills`）。\\n\\n构建产物会写入 `doc-card/index/` 目录，包含 manifest.json、tasks.jsonl、apis.jsonl、examp..."
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\content-basic.jsonl",
-      "line": 4,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": [],
-      "pattern_score": 1.0,
-      "validator_score": null
-    },
-    {
-      "case_id": "content-basic.jsonl:5",
-      "type": "content",
-      "input": "说明 unified_search.py 如何以 JSON 格式输出搜索结果",
-      "runner": "agent-command",
-      "output": "## unified_search.py JSON 输出格式\n\n### 启用方式\n\n在命令行添加 `--json` 参数：\n\n```bash\npython unified_search.py \"<query>\" --json\n```\n\n### 实现原理\n\n`--json` 是 argparse 布尔标志（第316行）。当设置为 True 时，程序调用 `SearchResult.to_dict()` 将结果序列化为 JSON，使用 `json.dumps(result.to_dict(), ensure_ascii=False, indent=2)` 输出，支持中文字符直接显示并美化缩进。\n\n未设置 `--json` 时，调用 `result.to_brief_text()` 输出纯文本摘要。\n\n### JSON 结构\n\n```json\n{\n  \"query\": \"搜索关键词\",\n  \"engine\": \"fusion\",\n  \"direct_hits\": [ ... ],\n  \"related_hits\": [ ... ]\n}\n```\n\n**顶层字段：**\n- `query`：原始查询字符串\n- `engine`：使用的引擎类型（`\"fusion\"`、`\"card\"` 或 `\"graph\"`）\n- `direct_hits`：直接命中结果数组（上限6条）\n- `related_hits`：关联推荐结果数组（上限2条）\n\n### Hit 对象字段\n\n**必选字段：**\n| 字段 | 类型 | 说明 |\n|------|------|------|\n| `label` | string | 匹配节点的显示名称 |\n| `source_file` | string | 源文档相对路径（反斜杠已转为正斜杠） |\n| `engine` | string | 来源引擎：`\"card\"`、`\"graph\"` 或 `\"card+graph\"` |\n\n**条件字段（仅在有值时出现）：**\n| 字段 | 类型 | 条件 | 说明 |\n|------|------|------|------|\n| `score` | float | `score > 0` | 相关性分数（≥400 高度相关、200-400 较相关、<100 疑似噪声） |\n| `related_from` | string | 非空 | 推荐来源节点的 label |\n| `relation_type` | string | 非空 | 关系类型（如图谱中的边标签） |\n\n### 示例\n\n```bash\npython unified_search.py \"List\" --json --limit 2\n```\n\n输出：\n```json\n{\n  \"query\": \"List\",\n  \"engine\": \"fusion\",\n  \"direct_hits\": [\n    {\n      \"label\": \"List\",\n      \"source_file\": \"harmonyos-6.0.2-15k/api/arkts/ts-basic-container-list.md\",\n      \"engine\": \"card+graph\",\n      \"score\": 12.5\n    }\n  ],\n  \"related_hits\": [\n    {\n      \"label\": \"Grid\",\n      \"source_file\": \"harmonyos-6.0.2-15k/api/arkts/ts-basic-container-grid.md\",\n      \"engine\": \"graph\",\n      \"score\": 8.3,\n      \"related_from\": \"List\",\n      \"relation_type\": \"RELATED_TO\"\n    }\n  ]\n}\n```\n\n### 注意事项\n\n- `direct_hits` 最多6条，`related_hits` 最多2条（在 `fuse_results` 中限制）\n- 当 card 和 graph 引擎同时命中同一文档时，engine 字段合并为 `\"card+graph\"`\n- 路径统一添加 `harmonyos-6.0.2-15k/` 前缀",
-      "final_status": "passed",
+      "output": "可以按三块做：权限声明、用户授权、Web组件控制。\n\n1. 在 `entry/src/main/module.json5` 的 `module.requestPermissions` 中声明权限。网络权限 `ohos.permission.INTERNET` 是 `system_grant`，声明即可；蓝牙接入/连接通常需要 `ohos.permission.ACCESS_BLUETOOTH`，它是 `user_grant`，还要运行时弹窗申请。按场景可再声明 `ohos.permission.USE_BLUETOOTH`、`ohos.permission.DISCOVER_BLUETOOTH`。\n\n```json\n\"requestPermissions\": [\n  { \"name\": \"ohos.permission.INTERNET\" },\n  { \"name\": \"ohos.permission.USE_BLUETOOTH\" },\n  { \"name\": \"ohos.permission.DISCOVER_BLUETOOTH\" },\n  {\n    \"name\": \"ohos.permission.ACCESS_BLUETOOTH\",\n    \"reason\": \"$string:bluetooth_reason\",\n    \"usedScene\": { \"abilities\": [\"EntryAbility\"], \"when\": \"inuse\" }\n  }\n]\n```\n\n2. 对 `ACCESS_BLUETOOTH` 这类 `user_grant` 权限，在使用蓝牙能力前调用 `AbilityAccessCtrl.createAtManager().requestPermissionsFromUser(stageContext, [\"ohos.permission.ACCESS_BLUETOOTH\"], callback)`。回调里 `authResults` 为 `0` 表示已授权，`-1` 表示未授权，`2` 通常表示权限未声明、权限名非法等。用户拒绝后，后续应引导到设置页或用 `requestPermissionOnSetting`。\n\n3. 界面上放 Web 组件时使用 `WebviewController` 绑定 `Web`。一个 `Web` 组件对应一个独立 controller；`src` 不建议用 `@State` 动态改地址，页面跳转用 `controller.loadUrl()`。需要控制网页时，可用按钮调用 `loadUrl()`、`backward()`、`backOrForward()`、`runJavaScript()` / `runJavaScriptExt()`，其中执行 JS 应在页面加载完成后，比如 `onPageEnd` 后调用。\n\n```cangjie\nimport ohos.state_macro_manage.*\nimport kit.ArkWeb.*\nimport kit.UIKit.Web\n\n@Entry\n@Component\nclass EntryView {\n    let webController = WebviewController()\n\n    func build() {\n        Column(10) {\n            Button(\"load\").onClick {\n                _ => webController.loadUrl(\"https://www.example.com\")\n            }\n            Button(\"back\").onClick {\n                _ => webController.backward()\n            }\n            Button(\"runJS\").onClick {\n                _ => webController.runJavaScript(\"htmlTest()\", { err, data => () })\n            }\n            Web(src: \"https://www.example.com\", controller: webController)\n                .onPageEnd { _ => AppLog.info(\"web page loaded\") }\n        }\n    }\n}\n```\n\n如果 Web 只加载 `resources/rawfile` 本地页面且页面内不访问网络，可以不依赖 `INTERNET`；加载远端页面、网络图片、接口请求、WebSocket 等都应声明 `ohos.permission.INTERNET`。",
+      "final_status": "failed",
       "matched_skills": [
         {
           "name": "cangjie-hmos-doc-search",
@@ -529,100 +363,614 @@
       ],
       "tool_calls": [
         {
-          "name": "agent",
+          "name": "shell_command",
           "status": "success"
         },
         {
           "name": "read_file",
           "status": "success"
+        },
+        {
+          "name": "get-childitem",
+          "status": "success"
+        },
+        {
+          "name": "python",
+          "status": "failed"
+        },
+        {
+          "name": "rg",
+          "status": "success"
+        },
+        {
+          "name": "rg",
+          "status": "failed"
         }
       ],
-      "latency_ms": 90104.0,
+      "latency_ms": 349752.5573000021,
       "usage": {
-        "input_tokens": 17353,
-        "output_tokens": 1333,
-        "cached_input_tokens": 34816,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 18686,
-        "tool_call_count": 2,
-        "tool_call_error_count": 0,
-        "skill_context_slots": 1625,
-        "claude_stdout_chars": 40418,
-        "claude_stderr_chars": 0
+        "input_tokens": 899789,
+        "output_tokens": 7413,
+        "cached_input_tokens": 657920,
+        "reasoning_output_tokens": 3699,
+        "total_tokens": 907202,
+        "tool_call_count": 30,
+        "tool_call_error_count": 6,
+        "skill_context_slots": 1469,
+        "codex_tool_commands": [
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\SKILL.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-ChildItem .agents\\\\skills\\\\cangjie-hmos-doc-search\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-ChildItem .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs | Select-Object -First 20\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'python unified_search.py \"蓝牙 权限 requestPermissions\" --engine fusion --json --limit 5'",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'python unified_search.py \"网络 权限 INTERNET\" --engine fusion --json --limit 5'",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'python unified_search.py \"Web Webview Web组件 controller\" --engine fusion --json --limit 5'",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"Web|Webview|Web组件|WebController|Controller\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"INTERNET|网络权限|ohos.permission.INTERNET|requestPermissions|权限\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"BLUETOOTH|蓝牙|ohos.permission.ACCESS_BLUETOOTH|ohos.permission.USE_BLUETOOTH|ohos.permission.DISCOVER_BLUETOOTH|权限\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k | rg \\\"cj-web|Web\\\\\\\\|web\\\"\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k | rg \\\"permission|permissions|AccessToken|蓝牙|bluetooth\\\"\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-app-permissions\\\\cj-app-permissions.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-web\\\\Web\\\\Web_3more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-component-overview\\\\cj-web-component-overview.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\class_WebviewController_6more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\func_loadUrlString_2more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\func_runJavaScriptExtString_AsyncCallback_816d67f4.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\func_backOrForwardInt32_3more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.(ACCESS|USE|DISCOVER|MANAGE).*BLUETOOTH|BLUETOOTH\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all* .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-bluetooth-*\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.INTERNET|INTERNET\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all* .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-image-video-image\\\\Image\\\\Image_3more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"requestPermissions|requestPermissionOnSetting|requestPermissionsFromUser\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-request-user-authorization* .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-declare-permissions .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-ability_access_ctrl\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.[A-Z_]*BLUETOOTH|BLUETOOTH\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k -g \\\"*.md\\\"\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.INTERNET\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k -g \\\"*.md\\\"\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all-user\\\\开放权限用户授权\\\\权限列表\\\\ohospermissionACCESS_BLUE_15more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all\\\\开放权限系统授权\\\\权限列表\\\\ohospermissionUSE_BLUETOO_25more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-ability_access_ctrl\\\\ohosability_access_ctrl程序访问控制管理\\\\class_AtManager\\\\func_requestPermissionsFromUserStageConte_0ed5bc91.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-declare-permissions\\\\声明权限\\\\声明权限_3more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-page-loading-with-web-components\\\\使用Web组件加载页面\\\\使用Web组件加载页面_2more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\ohoswebviewWebview_5more.md\"",
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-in-app-frontend-page-function-invoking\\\\cj-web-in-app-frontend-page-function-invoking.md\""
+        ],
+        "codex_tool_count": 30,
+        "codex_stdout_chars": 1901527,
+        "codex_stderr_chars": 5103
       },
-      "cost": 0.254604,
+      "cost": null,
       "error": null,
-      "timestamp": 1780043768.3932521,
+      "timestamp": 1781078494.856454,
       "session_interactions": [
         {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\SKILL.md\"",
+          "status": "completed",
+          "exit_code": 0
         },
         {
           "type": "tool_call",
-          "tool": "agent",
-          "raw_tool": "Agent",
+          "tool": "get-childitem",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-ChildItem .agents\\\\skills\\\\cangjie-hmos-doc-search\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "get-childitem",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-ChildItem .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs | Select-Object -First 20\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "python",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'python unified_search.py \"蓝牙 权限 requestPermissions\" --engine fusion --json --limit 5'",
+          "status": "declined",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "python",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'python unified_search.py \"网络 权限 INTERNET\" --engine fusion --json --limit 5'",
+          "status": "declined",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "python",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command 'python unified_search.py \"Web Webview Web组件 controller\" --engine fusion --json --limit 5'",
+          "status": "declined",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"Web|Webview|Web组件|WebController|Controller\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"INTERNET|网络权限|ohos.permission.INTERNET|requestPermissions|权限\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"BLUETOOTH|蓝牙|ohos.permission.ACCESS_BLUETOOTH|ohos.permission.USE_BLUETOOTH|ohos.permission.DISCOVER_BLUETOOTH|权限\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k | rg \\\"cj-web|Web\\\\\\\\|web\\\"\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg --files .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k | rg \\\"permission|permissions|AccessToken|蓝牙|bluetooth\\\"\"",
           "status": "completed",
           "exit_code": 0
         },
         {
           "type": "tool_call",
           "tool": "read_file",
-          "raw_tool": "Read",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-app-permissions\\\\cj-app-permissions.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-web\\\\Web\\\\Web_3more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-component-overview\\\\cj-web-component-overview.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\class_WebviewController_6more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\func_loadUrlString_2more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\func_runJavaScriptExtString_AsyncCallback_816d67f4.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\class_WebviewController\\\\func_backOrForwardInt32_3more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.(ACCESS|USE|DISCOVER|MANAGE).*BLUETOOTH|BLUETOOTH\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all* .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-bluetooth-*\"",
+          "status": "failed",
+          "exit_code": 1
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.INTERNET|INTERNET\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all* .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-image-video-image\\\\Image\\\\Image_3more.md\"",
+          "status": "failed",
+          "exit_code": 1
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"requestPermissions|requestPermissionOnSetting|requestPermissionsFromUser\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-request-user-authorization* .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-declare-permissions .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-ability_access_ctrl\"",
+          "status": "failed",
+          "exit_code": 1
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.[A-Z_]*BLUETOOTH|BLUETOOTH\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k -g \\\"*.md\\\"\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "rg",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"rg -n \\\"ohos.permission.INTERNET\\\" .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k -g \\\"*.md\\\"\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all-user\\\\开放权限用户授权\\\\权限列表\\\\ohospermissionACCESS_BLUE_15more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-permissions-for-all\\\\开放权限系统授权\\\\权限列表\\\\ohospermissionUSE_BLUETOO_25more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-ability_access_ctrl\\\\ohosability_access_ctrl程序访问控制管理\\\\class_AtManager\\\\func_requestPermissionsFromUserStageConte_0ed5bc91.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-declare-permissions\\\\声明权限\\\\声明权限_3more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-page-loading-with-web-components\\\\使用Web组件加载页面\\\\使用Web组件加载页面_2more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-apis-webview\\\\ohoswebviewWebview\\\\ohoswebviewWebview_5more.md\"",
+          "status": "completed",
+          "exit_code": 0
+        },
+        {
+          "type": "tool_call",
+          "tool": "read_file",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -Raw -Encoding UTF8 .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\docs\\\\harmonyos-6.0.2-15k\\\\cj-web-in-app-frontend-page-function-invoking\\\\cj-web-in-app-frontend-page-function-invoking.md\"",
           "status": "completed",
           "exit_code": 0
         },
         {
           "type": "model_message",
-          "summary": "{\"output\":\"## unified_search.py JSON 输出格式\\n\\n### 启用方式\\n\\n在命令行添加 `--json` 参数：\\n\\n```bash\\npython unified_search.py \\\"<query>\\\" --json\\n```\\n\\n### 实现原理\\n\\n`--json` 是 argparse 布尔标志（第316行）。当设置为 True 时，程序调用 `SearchResult.to_dict()` 将结果序列化为 JSON，使用 `json.dumps(result.to_dict(), ensure_ascii=False, indent=2)` 输出，支持中文字符直接显示并美化缩进。\\n\\n未设置 `--json` 时，调用 `result.to_brief_text()` 输出纯文本摘要。\\n\\n### JSON 结构\\n\\n```json\\n{\\n \\\"query\\\": \\\"搜索关键词\\\",\\n \\\"engine\\\": \\\"fusion\\\",\\n \\\"direct_hits\\\": [ ... ],\\n \\\"related..."
+          "summary": "{\"output\":\"可以按三块做：权限声明、用户授权、Web组件控制。\\n\\n1. 在 `entry/src/main/module.json5` 的 `module.requestPermissions` 中声明权限。网络权限 `ohos.permission.INTERNET` 是 `system_grant`，声明即可；蓝牙接入/连接通常需要 `ohos.permission.ACCESS_BLUETOOTH`，它是 `user_grant`，还要运行时弹窗申请。按场景可再声明 `ohos.permission.USE_BLUETOOTH`、`ohos.permission.DISCOVER_BLUETOOTH`。\\n\\n```json\\n\\\"requestPermissions\\\": [\\n { \\\"name\\\": \\\"ohos.permission.INTERNET\\\" },\\n { \\\"name\\\": \\\"ohos.permission.USE_BLUETOOTH\\\" },\\n { \\\"name\\\": \\\"ohos.permission.DISCOVER_BLUET..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 899789,
+            "output_tokens": 7413,
+            "cached_input_tokens": 657920,
+            "reasoning_output_tokens": 3699,
+            "total_tokens": 907202
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "failed",
+      "score": 0.3333333333333333,
+      "reasons": [
+        "answer_score 0.333 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', '--engine']"
+      ],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.3333333333333333,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "我的鸿蒙仓颉应用列表滑动很卡，怎么优化？",
+      "runner": "agent-command",
+      "output": "列表滑动卡顿通常先从“减少每帧工作量”和“降低列表项重建成本”排查：\n\n1. 优先使用适合长列表的懒加载列表能力，例如 List 搭配 LazyForEach，避免一次性创建大量子组件。\n2. 列表项组件保持轻量：不要在 item 构建函数里做复杂计算、同步 IO、图片解码、网络请求或频繁日志输出。\n3. 给数据项提供稳定唯一 key，避免数据刷新、插入、删除时整批重建列表项。\n4. 图片列表要做缩略图、缓存和懒加载，避免原图直接进入列表渲染；滑动中尽量不要触发大图解码。\n5. 控制状态刷新范围：不要把整个列表依赖到一个频繁变化的全局状态上，优先让单个 item 只订阅自己需要的数据。\n6. 避免在 onScroll / 手势回调里频繁 setState、排序、过滤或触发重布局；需要统计滚动位置时做节流。\n7. 如果 item 高度复杂，拆掉不必要的嵌套布局、阴影、模糊、动画和透明叠层，先保证列表项布局稳定。\n8. 分页加载数据，不要一次把大量数据塞进列表；追加数据时只更新新增部分。\n\n排查顺序建议是：先确认是否使用懒加载列表，再看 item 是否过重，然后检查 key 和状态刷新范围，最后用设备日志/性能工具观察是否有主线程阻塞、频繁 GC 或图片解码尖峰。若你能贴出 List/LazyForEach 相关代码，我可以按具体代码指出哪里会导致滑动掉帧。",
+      "final_status": "failed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-card",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 143542.34699999506,
+      "usage": {
+        "input_tokens": 22226,
+        "output_tokens": 1002,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 23228,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1469,
+        "codex_stdout_chars": 1740,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781078638.570825,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"列表滑动卡顿通常先从“减少每帧工作量”和“降低列表项重建成本”排查：\\n\\n1. 优先使用适合长列表的懒加载列表能力，例如 List 搭配 LazyForEach，避免一次性创建大量子组件。\\n2. 列表项组件保持轻量：不要在 item 构建函数里做复杂计算、同步 IO、图片解码、网络请求或频繁日志输出。\\n3. 给数据项提供稳定唯一 key，避免数据刷新、插入、删除时整批重建列表项。\\n4. 图片列表要做缩略图、缓存和懒加载，避免原图直接进入列表渲染；滑动中尽量不要触发大图解码。\\n5. 控制状态刷新范围：不要把整个列表依赖到一个频繁变化的全局状态上，优先让单个 item 只订阅自己需要的数据。\\n6. 避免在 onScroll / 手势回调里频繁 setState、排序、过滤或触发重布局；需要统计滚动位置时做节流。\\n7. 如果 item 高度复杂，拆掉不必要的嵌套布局、阴影、模糊、动画和透明叠层，先保证列表项布局稳定。\\n8. 分页加载数据，不要一次把大量数据塞进列表；追加数据时只更新新增部分。\\n\\n排查顺序建议是：先确认是否使用懒加载列表，再看 i..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 22226,
+            "output_tokens": 1002,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 23228
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "failed",
+      "score": 0.2727272727272727,
+      "reasons": [
+        "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '性能优化', '--engine\\\\s+(card|fusion)', 'core|关键词']"
+      ],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.2727272727272727,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "我之前写Android的，鸿蒙的Activity对应什么？页面跳转怎么写？",
+      "runner": "agent-command",
+      "output": "Android 的 Activity 在鸿蒙里最接近的是 UIAbility，但不要一一照搬理解。\n\n对应关系可以这样看：\n- Android Activity：一个带生命周期、窗口和页面入口的组件\n- HarmonyOS UIAbility：应用的 UI 入口和生命周期容器，负责创建窗口、加载首页\n- ArkUI 页面 / 组件：更接近你平时在 Activity 里承载的具体页面内容\n\n也就是说：UIAbility 类似 Activity 的“外壳”，真正的页面通常用 ArkUI 组件和 Navigation 路由管理。\n\n页面跳转常用两类：\n\n1. 应用内页面跳转：推荐用 Navigation + NavPathStack\n\n示意：\n```ts\n@Entry\n@Component\nstruct Index {\n  private stack: NavPathStack = new NavPathStack()\n\n  build() {\n    Navigation(this.stack) {\n      Button('去详情页')\n        .onClick(() => {\n          this.stack.pushPath({ name: 'DetailPage', param: { id: 1001 } })\n        })\n    }\n  }\n}\n```\n\n返回：\n```ts\nthis.stack.pop()\n```\n\n2. 跳到另一个 Ability：类似 Android startActivity，用 startAbility + Want\n\n```ts\nlet want = {\n  bundleName: 'com.example.demo',\n  abilityName: 'SecondAbility'\n}\n\nthis.context.startAbility(want)\n```\n\n迁移心智：以前 Android 里“Activity 跳 Activity”的很多场景，在鸿蒙里通常不要拆成多个 UIAbility，而是在一个 UIAbility 内用 Navigation 管理页面栈；只有跨独立入口、跨模块、跨应用能力时，才考虑启动另一个 Ability。",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-card",
+          "rank": 2
+        },
+        {
+          "name": "doc-graph",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 139620.89299999934,
+      "usage": {
+        "input_tokens": 22229,
+        "output_tokens": 1005,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 23234,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1469,
+        "codex_stdout_chars": 2192,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781078778.364485,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"Android 的 Activity 在鸿蒙里最接近的是 UIAbility，但不要一一照搬理解。\\n\\n对应关系可以这样看：\\n- Android Activity：一个带生命周期、窗口和页面入口的组件\\n- HarmonyOS UIAbility：应用的 UI 入口和生命周期容器，负责创建窗口、加载首页\\n- ArkUI 页面 / 组件：更接近你平时在 Activity 里承载的具体页面内容\\n\\n也就是说：UIAbility 类似 Activity 的“外壳”，真正的页面通常用 ArkUI 组件和 Navigation 路由管理。\\n\\n页面跳转常用两类：\\n\\n1. 应用内页面跳转：推荐用 Navigation + NavPathStack\\n\\n示意：\\n```ts\\n@Entry\\n@Component\\nstruct Index {\\n private stack: NavPathStack = new NavPathStack()\\n\\n build() {\\n Navigation(this.stack) {\\n Button('去详情页'..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 22229,
+            "output_tokens": 1005,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 23234
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 0.5454545454545454,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.5454545454545454,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:4",
+      "type": "content",
+      "input": "仓颉构建报错：cannot convert an integer literal to type 'Enum-BarState'，怎么解决？",
+      "runner": "agent-command",
+      "output": "这个报错的本质是：某个参数需要 `BarState` 枚举，但代码传了整数面量，例如 `0`、`1`、`2`。仓颉不会把整数隐式转换成枚举。\n\n把整数改成对应的枚举成员即可，例如：\n\n```cangjie\n// 错误\n.scrollBar(1)\n\n// 正确：按实际语义选择\n.scrollBar(BarState.Auto)\n.scrollBar(BarState.On)\n.scrollBar(BarState.Off)\n```\n\n如果值来自配置或变量，不要直接传 `Int`，先显式映射成 `BarState`：\n\n```cangjie\nlet state = if (v == 0) {\n    BarState.Off\n} else if (v == 1) {\n    BarState.Auto\n} else {\n    BarState.On\n}\n.scrollBar(state)\n```\n\n排查时直接定位报错行附近所有传给 `BarState` 形参的位置。按该类错误的检索策略，关键词应聚焦 `BarState`，不要用整段错误信息做关键词。",
+      "final_status": "failed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [
+        {
+          "name": "shell_command",
+          "status": "failed"
+        },
+        {
+          "name": "get-childitem",
+          "status": "failed"
+        }
+      ],
+      "latency_ms": 176389.3686000083,
+      "usage": {
+        "input_tokens": 45376,
+        "output_tokens": 2996,
+        "cached_input_tokens": 24320,
+        "reasoning_output_tokens": 2586,
+        "total_tokens": 48372,
+        "tool_call_count": 1,
+        "tool_call_error_count": 1,
+        "skill_context_slots": 1469,
+        "codex_tool_commands": [
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-ChildItem -Path .agents\\\\skills\\\\cangjie-hmos-doc-search -Force | Select-Object Name,Mode,Length\""
+        ],
+        "codex_tool_count": 1,
+        "codex_stdout_chars": 2558,
+        "codex_stderr_chars": 479
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781078954.937958,
+      "session_interactions": [
+        {
+          "type": "tool_call",
+          "tool": "get-childitem",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-ChildItem -Path .agents\\\\skills\\\\cangjie-hmos-doc-search -Force | Select-Object Name,Mode,Length\"",
+          "status": "declined",
+          "exit_code": -1
+        },
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"这个报错的本质是：某个参数需要 `BarState` 枚举，但代码传了整数面量，例如 `0`、`1`、`2`。仓颉不会把整数隐式转换成枚举。\\n\\n把整数改成对应的枚举成员即可，例如：\\n\\n```cangjie\\n// 错误\\n.scrollBar(1)\\n\\n// 正确：按实际语义选择\\n.scrollBar(BarState.Auto)\\n.scrollBar(BarState.On)\\n.scrollBar(BarState.Off)\\n```\\n\\n如果值来自配置或变量，不要直接传 `Int`，先显式映射成 `BarState`：\\n\\n```cangjie\\nlet state = if (v == 0) {\\n BarState.Off\\n} else if (v == 1) {\\n BarState.Auto\\n} else {\\n BarState.On\\n}\\n.scrollBar(state)\\n```\\n\\n排查时直接定位报错行附近所有传给 `BarState` 形参的位置。按该类错误的检索策略，关键词应聚焦 `BarState`，不..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 45376,
+            "output_tokens": 2996,
+            "cached_input_tokens": 24320,
+            "reasoning_output_tokens": 2586,
+            "total_tokens": 48372
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 4,
+      "status": "failed",
+      "score": 0.36363636363636365,
+      "reasons": [
+        "answer_score 0.364 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '--engine\\\\s+card', 'enum']"
+      ],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.36363636363636365,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:5",
+      "type": "content",
+      "input": "我需要写一个界面，界面上有图形，点击后图形会变化，变化有动画效果",
+      "runner": "agent-command",
+      "output": "可以按“状态驱动 UI”的方式实现：用 `@State` 保存图形当前状态，界面绘制图形，点击事件里切换状态，再给状态变化绑定动画。\n\n示例思路：\n```cj\n@Entry\n@Component\nstruct Index {\n  @State private var changed: Bool = false\n\n  build() {\n    Column() {\n      Circle()\n        .width(this.changed ? 160 : 100)\n        .height(this.changed ? 160 : 100)\n        .fill(this.changed ? Color.Orange : Color.Blue)\n        .scale(this.changed ? 1.2 : 1.0)\n        .animation(.easeInOut(duration: 300))\n        .onClick(() => {\n          this.changed = !this.changed\n        })\n    }\n    .width('100%')\n    .height('100%')\n    .justifyContent(FlexAlign.Center)\n  }\n}\n```\n\n如果图形只是圆形、矩形、图片等基础元素，优先用内置图形组件加属性动画；如果需要复杂图形路径、自由绘制或多图形联动，可以用 Canvas，并在点击后更新绘制参数，通过定时刷新或动画状态驱动绘制变化。",
+      "final_status": "failed",
+      "matched_skills": [
+        {
+          "name": "cangjie-hmos-doc-search",
+          "rank": 1
+        },
+        {
+          "name": "doc-card",
+          "rank": 2
+        },
+        {
+          "name": "cangjie-hmos-requirements",
+          "rank": 3
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-hmos-doc-search"
+      ],
+      "tool_calls": [],
+      "latency_ms": 40973.81779999705,
+      "usage": {
+        "input_tokens": 21962,
+        "output_tokens": 897,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 22859,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 1469,
+        "codex_stdout_chars": 2024,
+        "codex_stderr_chars": 1435
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781078996.0987291,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"可以按“状态驱动 UI”的方式实现：用 `@State` 保存图形当前状态，界面绘制图形，点击事件里切换状态，再给状态变化绑定动画。\\n\\n示例思路：\\n```cj\\n@Entry\\n@Component\\nstruct Index {\\n @State private var changed: Bool = false\\n\\n build() {\\n Column() {\\n Circle()\\n .width(this.changed ? 160 : 100)\\n .height(this.changed ? 160 : 100)\\n .fill(this.changed ? Color.Orange : Color.Blue)\\n .scale(this.changed ? 1.2 : 1.0)\\n .animation(.easeInOut(duration: 300))\\n .onClick(() => {\\n this.changed = !this.changed\\n })\\n }\\n .width('100%')\\n .height('100..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 21962,
+            "output_tokens": 897,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 22859
+          }
         }
       ],
       "agent_returncode": 0,
       "file": "evals\\content-basic.jsonl",
       "line": 5,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
+      "status": "failed",
+      "score": 0.2727272727272727,
+      "reasons": [
+        "answer_score 0.273 below min_score 0.450; missing patterns: ['unified_search\\\\.py', '子意图|拆分|分别搜索', 'TapGesture|手势|gesture']"
+      ],
       "trace_complete": true,
       "trace_missing_fields": [],
-      "pattern_score": 1.0,
+      "pattern_score": 0.2727272727272727,
       "validator_score": null
     },
     {
-      "case_id": "discovery.jsonl:1",
-      "type": "discovery",
-      "input": "我想查找鸿蒙仓颉的 List 组件文档",
+      "case_id": "content-basic.jsonl:6",
+      "type": "content",
+      "input": "我要调用摄像头，应该怎么写",
       "runner": "agent-command",
-      "output": "",
+      "output": "可以按两种场景写：\n\n1. 只是让用户拍照/录像：优先用系统 cameraPicker，代码更少。\n2. 要在应用内显示预览、拍照、扫码或录像：用 Camera Kit。基本流程是：声明 CAMERA 权限 -> 运行时申请权限 -> 获取 CameraManager -> 创建 CameraInput 和 PreviewOutput/PhotoOutput -> 配置并启动 Session。\n\n最小骨架如下：\n\n```json\n// module.json5\n\"requestPermissions\": [\n  { \"name\": \"ohos.permission.CAMERA\" }\n]\n```\n\n```ts\nimport { camera } from '@kit.CameraKit';\nimport { common } from '@kit.AbilityKit';\n\nlet input: camera.CameraInput | undefined;\nlet session: camera.CaptureSession | undefined;\nlet preview: camera.PreviewOutput | undefined;\n\nexport async function startCamera(ctx: common.UIAbilityContext, surfaceId: string) {\n  const manager = camera.getCameraManager(ctx);\n  const device = manager.getSupportedCameras()[0];\n\n  input = manager.createCameraInput(device);\n  await input.open();\n\n  const capability = manager.getSupportedOutputCapability(device, camera.SceneMode.NORMAL_PHOTO);\n  preview = manager.createPreviewOutput(capability.previewProfiles[0], surfaceId);\n\n  session = manager.createCaptureSession();\n  session.beginConfig();\n  session.addInput(input);\n  session.addOutput(preview);\n  await session.commitConfig();\n  await session.start();\n}\n\nexport async function stopCamera() {\n  await session?.stop();\n  session?.release();\n  input?.close();\n  preview?.release();\n}\n```\n\n如果这是仓颉鸿蒙工程，通常把 Camera Kit 能力封装在 ArkTS 模块里，再由仓颉侧调用；如果你只是想“拍照并拿到图片路径”，应改用 cameraPicker 的更短写法。",
       "final_status": "passed",
       "matched_skills": [
         {
@@ -630,435 +978,151 @@
           "rank": 1
         },
         {
-          "name": "doc-card",
+          "name": "cangjie-arkts-interop",
           "rank": 2
-        },
-        {
-          "name": "doc-graph",
-          "rank": 3
         }
       ],
       "loaded_skills": [
         "cangjie-hmos-doc-search"
       ],
-      "tool_calls": [],
-      "latency_ms": 21396.0,
+      "tool_calls": [
+        {
+          "name": "shell_command",
+          "status": "failed"
+        },
+        {
+          "name": "list_mcp_resources",
+          "status": "success"
+        },
+        {
+          "name": "python",
+          "status": "failed"
+        }
+      ],
+      "latency_ms": 132454.48070000566,
       "usage": {
-        "input_tokens": 2554,
-        "output_tokens": 325,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 2879,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "claude_stdout_chars": 6076,
-        "claude_stderr_chars": 0
+        "input_tokens": 91197,
+        "output_tokens": 5146,
+        "cached_input_tokens": 9728,
+        "reasoning_output_tokens": 4458,
+        "total_tokens": 96343,
+        "tool_call_count": 3,
+        "tool_call_error_count": 1,
+        "skill_context_slots": 1469,
+        "codex_tool_commands": [
+          "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"python .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\unified_search.py \\\"摄像头 camera\\\" --engine fusion --json --limit 5\""
+        ],
+        "codex_tool_count": 1,
+        "codex_stdout_chars": 5244,
+        "codex_stderr_chars": 1723
       },
-      "cost": 0.048272999999999996,
+      "cost": null,
       "error": null,
-      "timestamp": 1780043793.0287423,
+      "timestamp": 1781079128.7366712,
       "session_interactions": [
         {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
+          "type": "tool_call",
+          "tool": "python",
+          "command": "\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"python .agents\\\\skills\\\\cangjie-hmos-doc-search\\\\unified_search.py \\\"摄像头 camera\\\" --engine fusion --json --limit 5\"",
+          "status": "declined",
+          "exit_code": -1
+        },
+        {
+          "type": "tool_call",
+          "tool": "list_mcp_resources",
+          "status": "completed"
+        },
+        {
+          "type": "tool_call",
+          "tool": "list_mcp_resources",
+          "status": "completed"
         },
         {
           "type": "model_message",
-          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 1}, {\"name\": \"doc-card\", \"rank\": 2}, {\"name\": \"doc-graph\", \"rank\": 3} ], \"loaded_skills\": [\"cangjie-hmos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+          "summary": "{\"output\":\"可以按两种场景写：\\n\\n1. 只是让用户拍照/录像：优先用系统 cameraPicker，代码更少。\\n2. 要在应用内显示预览、拍照、扫码或录像：用 Camera Kit。基本流程是：声明 CAMERA 权限 -> 运行时申请权限 -> 获取 CameraManager -> 创建 CameraInput 和 PreviewOutput/PhotoOutput -> 配置并启动 Session。\\n\\n最小骨架如下：\\n\\n```json\\n// module.json5\\n\\\"requestPermissions\\\": [\\n { \\\"name\\\": \\\"ohos.permission.CAMERA\\\" }\\n]\\n```\\n\\n```ts\\nimport { camera } from '@kit.CameraKit';\\nimport { common } from '@kit.AbilityKit';\\n\\nlet input: camera.CameraInput | undefined;\\nlet session: camera.Captur..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 91197,
+            "output_tokens": 5146,
+            "cached_input_tokens": 9728,
+            "reasoning_output_tokens": 4458,
+            "total_tokens": 96343
+          }
         }
       ],
       "agent_returncode": 0,
-      "file": "evals\\discovery.jsonl",
-      "line": 1,
+      "file": "evals\\content-basic.jsonl",
+      "line": 6,
       "status": "passed",
-      "score": 1.0,
+      "score": 0.45454545454545453,
       "reasons": [],
       "trace_complete": true,
-      "trace_missing_fields": []
+      "trace_missing_fields": [],
+      "pattern_score": 0.45454545454545453,
+      "validator_score": null
     },
     {
-      "case_id": "discovery.jsonl:2",
-      "type": "discovery",
-      "input": "帮我搜索鸿蒙 WebView loadUrl headers 的用法",
+      "case_id": "content-basic.jsonl:7",
+      "type": "content",
+      "input": "搜索结果里 score 是 350 的文档值得读吗？应该怎么读取原文？",
       "runner": "agent-command",
-      "output": "",
+      "output": "值得读。按该 Skill 的规则，score=350 落在 200-400 区间，属于“较相关”，不是最高置信，但如果它在 Top 1-2 直接命中里，应该优先读。\n\n读取原文的方法：用搜索结果里的 `source_file` 拼出完整路径：`[cangjie-hmos-doc-search Skill目录]/docs/[source_file]`。只读 Top 1-2 的直接命中文档；如果命中的是 `overview.md` 且没有所需细节，再根据其中的 Quick Navigation 选 1 个最相关子文件，总读取量仍控制在 2 个文件内。读取时只截取相关段落，不全文通读；回答时提取 API 签名、关键用法和注意事项，用自己的话组织，不大段粘贴原文。",
       "final_status": "passed",
       "matched_skills": [
         {
           "name": "cangjie-hmos-doc-search",
           "rank": 1
-        },
-        {
-          "name": "doc-graph",
-          "rank": 2
-        },
-        {
-          "name": "doc-card",
-          "rank": 3
         }
       ],
       "loaded_skills": [
         "cangjie-hmos-doc-search"
       ],
       "tool_calls": [],
-      "latency_ms": 20415.0,
+      "latency_ms": 43491.34479998611,
       "usage": {
-        "input_tokens": 2555,
-        "output_tokens": 539,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 3094,
+        "input_tokens": 22359,
+        "output_tokens": 773,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 23132,
         "tool_call_count": 0,
         "tool_call_error_count": 0,
-        "claude_stdout_chars": 6307,
-        "claude_stderr_chars": 0
+        "skill_context_slots": 1469,
+        "codex_stdout_chars": 1527,
+        "codex_stderr_chars": 1435
       },
-      "cost": 0.043808,
+      "cost": null,
       "error": null,
-      "timestamp": 1780043816.9613163,
+      "timestamp": 1781079172.3976507,
       "session_interactions": [
         {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
+          "type": "model_message",
+          "summary": "{\"output\":\"值得读。按该 Skill 的规则，score=350 落在 200-400 区间，属于“较相关”，不是最高置信，但如果它在 Top 1-2 直接命中里，应该优先读。\\n\\n读取原文的方法：用搜索结果里的 `source_file` 拼出完整路径：`[cangjie-hmos-doc-search Skill目录]/docs/[source_file]`。只读 Top 1-2 的直接命中文档；如果命中的是 `overview.md` 且没有所需细节，再根据其中的 Quick Navigation 选 1 个最相关子文件，总读取量仍控制在 2 个文件内。读取时只截取相关段落，不全文通读；回答时提取 API 签名、关键用法和注意事项，用自己的话组织，不大段粘贴原文。\",\"matched_skills\":[{\"name\":\"cangjie-hmos-doc-search\",\"rank\":1}],\"loaded_skills\":[\"cangjie-hmos-doc-search\"],\"tool_calls\":[],\"final_status\":\"passed\",\"us..."
         },
         {
-          "type": "model_message",
-          "summary": "{ \"output\": \"\", \"matched_skills\": [ { \"name\": \"cangjie-hmos-doc-search\", \"rank\": 1 }, { \"name\": \"doc-graph\", \"rank\": 2 }, { \"name\": \"doc-card\", \"rank\": 3 } ], \"loaded_skills\": [ \"cangjie-hmos-doc-search\" ], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 22359,
+            "output_tokens": 773,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 23132
+          }
         }
       ],
       "agent_returncode": 0,
-      "file": "evals\\discovery.jsonl",
-      "line": 2,
+      "file": "evals\\content-basic.jsonl",
+      "line": 7,
       "status": "passed",
-      "score": 1.0,
+      "score": 0.75,
       "reasons": [],
       "trace_complete": true,
-      "trace_missing_fields": []
-    },
-    {
-      "case_id": "discovery.jsonl:3",
-      "type": "discovery",
-      "input": "鸿蒙 ArkUI 的 Grid 布局怎么写",
-      "runner": "agent-command",
-      "output": "",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "doc-card",
-          "rank": 1
-        },
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 2
-        },
-        {
-          "name": "doc-graph",
-          "rank": 3
-        }
-      ],
-      "loaded_skills": [
-        "doc-card",
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 24632.0,
-      "usage": {
-        "input_tokens": 2555,
-        "output_tokens": 405,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 2960,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "claude_stdout_chars": 6366,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.04298299999999999,
-      "error": null,
-      "timestamp": 1780043844.8273304,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "{ \"output\": \"\", \"matched_skills\": [ {\"name\": \"doc-card\", \"rank\": 1}, {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 2}, {\"name\": \"doc-graph\", \"rank\": 3} ], \"loaded_skills\": [\"doc-card\", \"cangjie-hmos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\discovery.jsonl",
-      "line": 3,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": []
-    },
-    {
-      "case_id": "discovery.jsonl:4",
-      "type": "discovery",
-      "input": "帮我查鸿蒙仓颉 Router.pushUrl 参数文档",
-      "runner": "agent-command",
-      "output": "用户查询 Router.pushUrl 参数文档，属于鸿蒙仓颉开发 API 用法检索场景，最匹配的技能是 cangjie-hmos-doc-search 及其子技能 doc-card / doc-graph。",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 1
-        },
-        {
-          "name": "doc-card",
-          "rank": 2
-        },
-        {
-          "name": "doc-graph",
-          "rank": 3
-        }
-      ],
-      "loaded_skills": [
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 22377.0,
-      "usage": {
-        "input_tokens": 2555,
-        "output_tokens": 516,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 3071,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "claude_stdout_chars": 6048,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.055963,
-      "error": null,
-      "timestamp": 1780043870.4831743,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "{ \"output\": \"用户查询 Router.pushUrl 参数文档，属于鸿蒙仓颉开发 API 用法检索场景，最匹配的技能是 cangjie-hmos-doc-search 及其子技能 doc-card / doc-graph。\", \"matched_skills\": [ {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 1}, {\"name\": \"doc-card\", \"rank\": 2}, {\"name\": \"doc-graph\", \"rank\": 3} ], \"loaded_skills\": [\"cangjie-hmos-doc-search\"], \"tool_calls\": [], \"final_status\": \"passed\", \"usage\": {}, \"cost\": null }"
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\discovery.jsonl",
-      "line": 4,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": []
-    },
-    {
-      "case_id": "discovery.jsonl:5",
-      "type": "discovery",
-      "input": "HarmonyOS 构建报错了，怎么查错误码对应的文档",
-      "runner": "agent-command",
-      "output": "要查询 HarmonyOS 构建报错对应的文档，可以使用以下 Skill：\n1. **doc-card** — 提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，专门支持构建报错日志知识检索，可直接根据错误码或错误信息定位相关文档。\n2. **cangjie-hmos-doc-search** — 鸿蒙仓颉开发文档检索，支持语义模糊问题定位，适合用错误信息作为 query 搜索相关开发指南。\n3. **doc-graph** — 仓颉鸿蒙开发文档知识图谱检索，适用于通过错误码关键词进行语义模糊检索，快速定位问题原因和解决方案。\n\n推荐优先使用 doc-card 的构建报错日志检索功能，若未找到再使用 cangjie-hmos-doc-search 进行更广泛的文档搜索。",
-      "final_status": "passed",
-      "matched_skills": [
-        {
-          "name": "doc-card",
-          "rank": 1
-        },
-        {
-          "name": "cangjie-hmos-doc-search",
-          "rank": 2
-        },
-        {
-          "name": "doc-graph",
-          "rank": 3
-        }
-      ],
-      "loaded_skills": [
-        "doc-card",
-        "cangjie-hmos-doc-search"
-      ],
-      "tool_calls": [],
-      "latency_ms": 29425.0,
-      "usage": {
-        "input_tokens": 2555,
-        "output_tokens": 698,
-        "cached_input_tokens": 20480,
-        "cache_creation_input_tokens": 0,
-        "total_tokens": 3253,
-        "tool_call_count": 0,
-        "tool_call_error_count": 0,
-        "claude_stdout_chars": 7049,
-        "claude_stderr_chars": 0
-      },
-      "cost": 0.051358,
-      "error": null,
-      "timestamp": 1780043903.474084,
-      "session_interactions": [
-        {
-          "type": "system_init",
-          "model": "mimo-v2.5-pro[1m]",
-          "tools": [
-            "Task",
-            "AskUserQuestion",
-            "Bash",
-            "CronCreate",
-            "CronDelete",
-            "CronList",
-            "EnterPlanMode",
-            "EnterWorktree",
-            "ExitPlanMode",
-            "ExitWorktree",
-            "Glob",
-            "Grep",
-            "NotebookEdit",
-            "Read",
-            "ScheduleWakeup",
-            "Skill",
-            "TaskCreate",
-            "TaskGet",
-            "TaskList",
-            "TaskOutput",
-            "TaskStop",
-            "TaskUpdate",
-            "WaitForMcpServers",
-            "WebFetch",
-            "WebSearch",
-            "Workflow"
-          ],
-          "permissionMode": "default"
-        },
-        {
-          "type": "model_message",
-          "summary": "{ \"output\": \"要查询 HarmonyOS 构建报错对应的文档，可以使用以下 Skill：\\n1. **doc-card** — 提供任务卡、API 卡、示例卡、文档卡四层结构化搜索，专门支持构建报错日志知识检索，可直接根据错误码或错误信息定位相关文档。\\n2. **cangjie-hmos-doc-search** — 鸿蒙仓颉开发文档检索，支持语义模糊问题定位，适合用错误信息作为 query 搜索相关开发指南。\\n3. **doc-graph** — 仓颉鸿蒙开发文档知识图谱检索，适用于通过错误码关键词进行语义模糊检索，快速定位问题原因和解决方案。\\n\\n推荐优先使用 doc-card 的构建报错日志检索功能，若未找到再使用 cangjie-hmos-doc-search 进行更广泛的文档搜索。\", \"matched_skills\": [ {\"name\": \"doc-card\", \"rank\": 1}, {\"name\": \"cangjie-hmos-doc-search\", \"rank\": 2}, {\"name\": \"doc-graph..."
-        }
-      ],
-      "agent_returncode": 0,
-      "file": "evals\\discovery.jsonl",
-      "line": 5,
-      "status": "passed",
-      "score": 1.0,
-      "reasons": [],
-      "trace_complete": true,
-      "trace_missing_fields": []
+      "trace_missing_fields": [],
+      "pattern_score": 0.75,
+      "validator_score": null
     }
   ],
-  "reportPath": "reports\\eval\\cangjie-hmos-doc-search.json"
+  "reportPath": "d:\\cangjie_skills\\CangjieSkills\\reports\\eval\\cangjie-hmos-doc-search.json"
 }

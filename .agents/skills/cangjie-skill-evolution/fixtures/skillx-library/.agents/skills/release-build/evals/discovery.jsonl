@@ -1,1 +1,0 @@
-{"id":"release-build-discovery","input":"帮我构建发布产物","expected_skills":["release-build"],"forbidden_skills":[],"min_rank":1}

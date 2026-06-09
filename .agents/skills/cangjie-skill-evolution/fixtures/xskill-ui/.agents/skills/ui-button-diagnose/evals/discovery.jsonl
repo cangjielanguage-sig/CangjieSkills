@@ -1,1 +1,0 @@
-{"id":"ui-button-discovery","input":"诊断界面按钮点击无响应","expected_skills":["ui-button-diagnose"],"forbidden_skills":[],"min_rank":1}

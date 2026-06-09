@@ -1,1 +1,0 @@
-{"id":"report-pipeline-discovery","input":"把这份 CSV 转换成 JSON 报告","expected_skills":["report-pipeline"],"forbidden_skills":[],"min_rank":1}

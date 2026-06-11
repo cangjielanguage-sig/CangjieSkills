@@ -11,11 +11,19 @@ description: "当需要治理 Skill 时使用此 Skill：读取 cangjie-rollout-
 
 本 Skill 的职责是补丁提案与合并：
 
-- 读取一条或多条 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找；兼容旧版 `Rollout Summary`），生成 memory items、局部 JSON patch、consolidated patch 和审阅摘要；只有用户明确要求写入时才修改目标 Skill。
+- 读取一条或多条 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找），生成 memory items、局部 JSON patch、consolidated patch 和审阅摘要；只有用户明确要求写入时才修改目标 Skill。
 
 ## 补丁提案与合并
 
-读取一条或多条 `Rollout Record`。输入可以是粘贴文本或用户指定文件；未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown；读取旧版 `Rollout Summary` 时先按字段语义映射为 `Rollout Record`。用户显式指定旧目录文件路径时，可作为普通输入读取；不得自动扫描旧治理 Skill 的 `records/rollouts/`。按“分组分流 -> 阶段 1 角色分析 -> 阶段 2 程序化预检 -> Merge Operator 合并 -> 程序化复检”的顺序执行。先按 `target_skill` 分组；不同目标 Skill 不得混合合并。每组内按 outcome 分流：
+读取一条或多条 `Rollout Record`。输入可以是粘贴文本或用户指定文件；未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown。按“分组分流 -> 阶段 1 角色分析 -> 阶段 2 程序化预检 -> Merge Operator 合并 -> 程序化复检”的顺序执行。先按 `target_skill` 分组；不同目标 Skill 不得混合合并。
+
+读取 `Rollout Record` 时必须先执行 ground truth/yi* gate：
+
+- 若存在 `ground_truth_status: provided`、`outcome_source: ground_truth`、`adjudicated_outcome` 与 `### Ground Truth (yi*)`，按 `adjudicated_outcome` 分流；`trace_outcome` 只作为审计和冲突说明。
+- 若缺少 `ground_truth_status: provided`、缺少 `outcome_source: ground_truth`、缺少 `adjudicated_outcome` 或没有 `### Ground Truth (yi*)`，标记为 `invalid_rollout_schema`；该 rollout 必须跳过并写入 Decision Summary，不得产生 memory/patch，也不得进入 consolidated accepted patch。
+- 若 `trace_outcome` 与 `adjudicated_outcome` 冲突，Decision Summary 必须列出冲突；当 ground truth `confidence: low` 或 trace 中有明确失败证据时，相关 memory/patch 保持 `pending`。
+
+每组内按有效 outcome（优先 `adjudicated_outcome`）分流：
 
 - `success` 进入 Success Analyst，提取可泛化成功模式。
 - `failure` 进入 Error Analyst，诊断失败表面、行为根因和最小验证。
@@ -149,6 +157,7 @@ LLM 合并后再次执行程序化检查，确认无重叠编辑、无 stale anc
 - pending: <数量和阻塞原因>
 - rejected: <数量和拒绝原因>
 - stale/conflict: <程序化预检结果>
+- ground truth: provided <n>, invalid_rollout_schema <n>, outcome_conflict <n>
 
 ### Consolidated JSON Patch
 
@@ -184,6 +193,8 @@ LLM 合并后再次执行程序化检查，确认无重叠编辑、无 stale anc
 
 只有用户明确要求写入时，才把 consolidated patch 应用到目标 Skill。写入时只应用 `accepted` 且通过合并后程序化检查的编辑。
 
+缺少 ground truth/yi* 的 rollout 必须作为 `invalid_rollout_schema` 跳过，不得产生 memory/patch。存在未消解 outcome 冲突时，低置信度 ground truth 或 trace 中有明确失败证据的冲突项只能保留在 pending 决策摘要中。
+
 写入后尽可能验证：
 
 ```powershell
@@ -192,27 +203,13 @@ skill-lint --path .agents\skills\<target-skill>
 
 若新增或修改 eval，应再运行真实 agent eval；不可用时必须说明阻塞，不得用关键词检查冒充行为验证。
 
-## 旧版 Rollout Summary
-
-`Rollout Record` 是三类治理 Skill 的统一格式。读取历史文件时，可把旧版 `Rollout Summary` 按以下轻量映射转换为 `Rollout Record`。
-
-| Rollout Record | 旧版 Rollout Summary |
-| --- | --- |
-| `target_skill` | `target_skill` |
-| `task_id` | `task_id` |
-| `outcome` | `outcome` |
-| `original_task` | `原始任务` |
-| `key_constraints` | `关键约束` |
-| `Observable Steps` | `步骤表` |
-| `Artifacts` / `Verification` / `summary` | `最终结果` |
-| `Failure Or Detour` | `失败、绕路与回退` |
-| `Transferable Observations` | `可迁移模式` |
-
 ## 最小检查清单
 
 - 采集 rollout 已交给 `cangjie-rollout-collector`；本 Skill 只处理已有 `Rollout Record`。
 - 未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 自动查找 rollout。
 - `outcome` 按判定表选择，未验证结果不得写成 `success`。
+- 已执行 ground truth/yi* gate；不满足 gate 的 rollout 已标记为 `invalid_rollout_schema` 并跳过，未产生 memory/patch。
+- `trace_outcome` 与 `adjudicated_outcome` 冲突已写入 Decision Summary，低置信度或有明确失败证据的冲突 patch 未进入 consolidated accepted patch。
 - 每个 memory item 字段完整，并被 patch 通过 `memory_ids` 正确引用。
 - 阶段 1 局部 patch 使用统一 JSON schema。
 - 阶段 2 已执行程序化预检和合并后检查。

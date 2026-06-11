@@ -11,19 +11,25 @@ description: "当需要从 Rollout Record 对已有 Agent Skill 做 SkillX 分�
 ## 职责边界
 
 - 采集 rollout 使用 `cangjie-rollout-collector` 生成并集中保存 `Rollout Record`；本 Skill 不执行采集或持久化。
-- 本 Skill 负责分层抽取与精炼：读取一个或多个 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找；兼容旧版 `Rollout Summary`），按 Tool Summary -> Plan Extract -> Functional/Atomic Extract -> Merge/Decompose -> General Filter -> Tool Schema Filter -> Update 执行治理；只有用户明确要求写入时才修改目标 Skill。
+- 本 Skill 负责分层抽取与精炼：读取一个或多个 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找），按 Tool Summary -> Plan Extract -> Functional/Atomic Extract -> Merge/Decompose -> General Filter -> Tool Schema Filter -> Update 执行治理；只有用户明确要求写入时才修改目标 Skill。
 
 ## 输入与分组
 
-输入可以是粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown；读取旧版 `Rollout Summary` 时先按字段语义映射为 `Rollout Record`。用户显式指定旧目录文件路径时，可作为普通输入读取；不得自动扫描旧治理 Skill 的 `records/rollouts/`。先按 `target_skill` 分组，再按 `task_id` 分组；禁止把不同目标 Skill 的候选技能混合精炼。
+输入可以是粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown。先按 `target_skill` 分组，再按 `task_id` 分组；禁止把不同目标 Skill 的候选技能混合精炼。
+
+读取 `Rollout Record` 时必须先执行 ground truth/yi* gate：
+
+- 若存在 `ground_truth_status: provided`、`outcome_source: ground_truth`、`adjudicated_outcome` 与 `### Ground Truth (yi*)`，治理使用 `adjudicated_outcome` 作为有效 outcome；`trace_outcome` 只作为审计参考。
+- 若缺少 `ground_truth_status: provided`、缺少 `outcome_source: ground_truth`、缺少 `adjudicated_outcome` 或没有 `### Ground Truth (yi*)`，标记为 `invalid_rollout_schema`；该 rollout 必须跳过并写入摘要，不得产生候选、不得进入治理或写入目标 Skill。
+- 若 `trace_outcome` 与 `adjudicated_outcome` 冲突，治理摘要必须列出冲突；当 ground truth `confidence: low` 或 trace 中有明确失败证据时，相关候选保持 `pending`。
 
 读取 rollout 时执行容错：
 
-- 缺少必含字段时，先从上下文推断补全。
-- 无法补全 `task_id`、`rollout_id`、`target_skill` 或 `outcome` 时，跳过该条并在摘要中说明。
+- 缺少必含字段时，不从上下文补全；标记为 `invalid_rollout_schema` 并跳过。
+- 缺少 `task_id`、`rollout_id`、`target_skill` 或 `outcome` 时，跳过该条并在摘要中说明。
 - 单条 rollout 格式错误不得中断其他 rollout。
 
-按 outcome 使用证据：
+按有效 outcome（优先 `adjudicated_outcome`）使用证据：
 
 - `success`：作为 planning / functional / atomic 抽取的主要来源。
 - `partial`：只抽取已验证有效片段，默认标为 `pending`。
@@ -175,6 +181,7 @@ planning 候选的 `content` 使用有序步骤；每步写自然语言子目标
 - 用户只要求评估、建议或方案时，只输出治理建议，不改文件。
 - 用户明确要求更新、改进或治理目标 Skill，且当前会话允许写入时，才修改目标 Skill。
 - 不改写原始 rollout、证据文件或未授权 Skill。
+- 没有通过 ground truth/yi* gate 的 rollout 不得支撑候选生成或写入。
 - 只写入 `accepted` 内容；`pending` 和 `rejected` 放入摘要。
 - 目标 `SKILL.md` 只保留高频、稳定、可执行、可验证的流程和规则。
 
@@ -189,6 +196,7 @@ planning 候选的 `content` 使用有序步骤；每步写自然语言子目标
 - 使用 rollout: <数量与 ID>
 - 跳过 rollout: <缺字段或无法解析的 ID 与原因>
 - extraction_epoch: <本轮迭代 ID>
+- ground truth: provided <n>, invalid_rollout_schema <n>, conflict <n>
 - planning candidates: accepted <n>, pending <n>, rejected <n>
 - functional candidates: accepted <n>, pending <n>, rejected <n>
 - atomic candidates: accepted <n>, pending <n>, rejected <n>
@@ -205,7 +213,9 @@ planning 候选的 `content` 使用有序步骤；每步写自然语言子目标
 - 采集 rollout 已交给 `cangjie-rollout-collector`；本 Skill 只处理已有 `Rollout Record`。
 - 未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 自动查找 rollout。
 - 治理阶段顺序是 summary -> plan -> functional/atomic -> merge/decompose -> general filter -> tool schema filter -> update。
-- 每条有效 rollout 都有 `task_id`、`rollout_id`、`target_skill` 和 `outcome`。
+- 每条有效 rollout 都有 `task_id`、`rollout_id`、`target_skill`、`outcome`、`outcome_source: ground_truth`、`ground_truth_status: provided`、`adjudicated_outcome` 和 `### Ground Truth (yi*)`。
+- 已执行 ground truth/yi* gate；不满足 gate 的 rollout 已标记为 `invalid_rollout_schema` 并跳过，未产生候选。
+- `trace_outcome` 与 `adjudicated_outcome` 冲突已写入治理摘要，低置信度或有明确失败证据的冲突候选未标为 `accepted`。
 - 每个候选 JSON 都包含 `metadata.cluster_id` 和 `metadata.extraction_epoch`。
 - 成功 rollout 才能支撑稳定主流程；失败、blocked、partial 只参与防错、过滤或 pending/rejected 判断。
 - 每个候选都可追溯到具体 rollout 与步骤。

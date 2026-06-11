@@ -7,6 +7,8 @@ import re
 from typing import Any
 
 
+VALID_OUTCOMES = ("success", "partial", "failure", "blocked", "not_verified")
+
 SUCCESS_EVIDENCE_RE = re.compile(
     r"(?i)\b(pass(?:ed|es)?|0 errors?|0 failures?|success(?:ful)?|succeeded|ok|green)\b"
 )

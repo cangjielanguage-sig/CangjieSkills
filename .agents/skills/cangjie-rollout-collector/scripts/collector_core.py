@@ -17,6 +17,21 @@ MOJIBAKE_REPAIR_ENCODINGS = ("gb18030", "gbk", "cp936")
 COMMON_CJK_CHARS = set("的一是在不了有和人这中大为上个国用我以要他时来用们生到作地于出就分对成会可主发年动同工也能下过子说产种面而方后多定行学法所民得经十三之进着等部度家电力里如水化高自二理起小物现实加量都两体制机当使点从业本去把性好应开它合还因由其些然前外天政四日那社义事平形相全表间样与关各重新线内数正心反你明看原又么利比或但质气第向道命此变条只没结解问意建月公无系军很情者最立代想已通并提直题党程展五果料象员革位入常文总次品式活设及管特件长求老头基资边流路级少图山统接知较将组见计别她手角期根论运农指几九区强放决西被干做必战先回则任取据处队南给色光门即保治北造百规热领七海口东导器压志世金增争济阶油思术极交受联")
 
 
+TRACE_WINDOW_REQUIRED_FIELDS = (
+    "target_skill",
+    "task_id",
+    "original_task",
+    "runtime",
+    "session_id",
+    "source_path",
+    "start_evidence_ref",
+    "end_evidence_ref",
+)
+COLLECTOR_SCRIPT_RE = re.compile(
+    r"(?i)(?:cangjie-rollout-collector[\\/]+scripts[\\/]+)?collect_(?:rollout|trace)\.py"
+)
+
+
 def normalize_path(path: Path) -> str:
     try:
         return str(path.expanduser().resolve(strict=False)).casefold()
@@ -129,6 +144,129 @@ def latest_task_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if events[index].get("event_type") == "user_message":
             return events[index:]
     return events
+
+
+def latest_task_window_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return filter_collector_events(latest_task_events(events))
+
+
+def filter_collector_events(events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [event for event in events if not is_collector_self_event(event)]
+
+
+def is_collector_self_event(event: dict[str, Any]) -> bool:
+    if event.get("event_type") not in {"tool_call", "tool_output", "verification", "patch"}:
+        return False
+    searchable = " ".join(
+        str(event.get(field) or "")
+        for field in ("tool_name", "input_summary", "output_summary", "evidence_ref")
+    )
+    return bool(COLLECTOR_SCRIPT_RE.search(searchable))
+
+
+def build_trace_window(
+    *,
+    events: list[dict[str, Any]],
+    target_skill: str,
+    task_id: str,
+    original_task: str,
+    runtime: str,
+    session_id: str | None,
+    source_path: str | None,
+) -> dict[str, Any]:
+    first_event = events[0] if events else {}
+    last_event = events[-1] if events else {}
+    return {
+        "target_skill": target_skill,
+        "task_id": task_id,
+        "original_task": original_task,
+        "runtime": runtime,
+        "session_id": session_id or "unknown",
+        "source_path": source_path or "not_observed",
+        "start_evidence_ref": first_event.get("evidence_ref") or "not_observed",
+        "end_evidence_ref": last_event.get("evidence_ref") or "not_observed",
+        "start_trace_ref": first_event.get("trace_ref") or "not_observed",
+        "end_trace_ref": last_event.get("trace_ref") or "not_observed",
+        "event_count": len(events),
+    }
+
+
+def windowed_task_events(
+    events: list[dict[str, Any]],
+    trace_window: dict[str, Any],
+    *,
+    target_skill: str,
+    session_id: str | None,
+    source_path: str | None,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    errors = validate_trace_window(
+        trace_window,
+        target_skill=target_skill,
+        session_id=session_id,
+        source_path=source_path,
+    )
+    if errors:
+        return [], errors
+
+    start_ref = str(trace_window.get("start_evidence_ref") or "")
+    end_ref = str(trace_window.get("end_evidence_ref") or "")
+    start_index = evidence_index(events, start_ref)
+    end_index = evidence_index(events, end_ref)
+    if start_index is None:
+        errors.append(f"trace_window start_evidence_ref was not found: {start_ref}.")
+    if end_index is None:
+        errors.append(f"trace_window end_evidence_ref was not found: {end_ref}.")
+    if errors:
+        return [], errors
+    if start_index > end_index:
+        return [], ["trace_window start_evidence_ref appears after end_evidence_ref."]
+
+    return filter_collector_events(events[start_index : end_index + 1]), []
+
+
+def validate_trace_window(
+    trace_window: dict[str, Any],
+    *,
+    target_skill: str,
+    session_id: str | None,
+    source_path: str | None,
+) -> list[str]:
+    errors: list[str] = []
+    for field in TRACE_WINDOW_REQUIRED_FIELDS:
+        if not str(trace_window.get(field) or "").strip():
+            errors.append(f"Missing required trace_window field: {field}.")
+
+    if trace_window.get("target_skill") and trace_window.get("target_skill") != target_skill:
+        errors.append(
+            f"trace_window target_skill {trace_window.get('target_skill')} does not match {target_skill}."
+        )
+    if session_id and trace_window.get("session_id") not in {session_id, "unknown"}:
+        errors.append(
+            f"trace_window session_id {trace_window.get('session_id')} does not match {session_id}."
+        )
+    if not same_source_path(trace_window.get("source_path"), source_path):
+        errors.append("trace_window source_path does not match the selected trace source.")
+    return errors
+
+
+def evidence_index(events: list[dict[str, Any]], evidence_ref: str) -> int | None:
+    for index, event in enumerate(events):
+        if event.get("evidence_ref") == evidence_ref:
+            return index
+    return None
+
+
+def same_source_path(left: Any, right: Any) -> bool:
+    left_text = str(left or "").strip()
+    right_text = str(right or "").strip()
+    if left_text in {"", "not_observed"} and right_text in {"", "not_observed"}:
+        return True
+    if not left_text or not right_text:
+        return False
+    try:
+        return normalize_path(Path(left_text)) == normalize_path(Path(right_text))
+    except Exception:
+        return left_text == right_text
 
 
 def compact_source(runtime: str, session_id: str | None, source_path: str | None) -> str:

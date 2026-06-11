@@ -25,6 +25,10 @@ def render_rollout(record: dict[str, Any], events: list[dict[str, Any]]) -> str:
         f"- target_skill: {record['target_skill']}",
         f"- task_id: {record['task_id']}",
         f"- outcome: {record['outcome']}",
+        f"- trace_outcome: {record.get('trace_outcome', 'unknown')}",
+        f"- adjudicated_outcome: {record.get('adjudicated_outcome', 'unknown')}",
+        f"- outcome_source: {record.get('outcome_source', 'trace')}",
+        f"- ground_truth_status: {record.get('ground_truth_status', 'missing')}",
         f"- trace_runtime: {record['trace_runtime']}",
         f"- trace_source: {metadata_value(record['trace_source'])}",
         f"- collection_confidence: {record['collection_confidence']}",
@@ -76,6 +80,9 @@ def render_rollout(record: dict[str, Any], events: list[dict[str, Any]]) -> str:
     else:
         lines.append("- not_verified")
 
+    lines.extend(["", "### Ground Truth (yi*)", ""])
+    lines.extend(render_ground_truth(record.get("ground_truth")))
+
     lines.extend(["", "### Failure Or Detour", ""])
     detours = failure_or_detour(events, warnings)
     if detours:
@@ -96,6 +103,22 @@ def render_rollout(record: dict[str, Any], events: list[dict[str, Any]]) -> str:
         ]
     )
     return "\n".join(lines)
+
+
+def render_ground_truth(ground_truth: dict[str, Any] | None) -> list[str]:
+    if not ground_truth:
+        return ["- ground_truth_status: missing"]
+    return [
+        f"- reviewer: {metadata_value(ground_truth.get('reviewer') or 'user')}",
+        f"- reviewed_at: {metadata_value(ground_truth.get('reviewed_at') or 'unknown')}",
+        f"- task_completed: {metadata_value(ground_truth.get('task_completed') or 'unknown')}",
+        f"- adjudicated_outcome: {metadata_value(ground_truth.get('adjudicated_outcome') or 'not_verified')}",
+        f"- result_gaps: {metadata_value(ground_truth.get('result_gaps') or 'none')}",
+        f"- process_gaps: {metadata_value(ground_truth.get('process_gaps') or 'none')}",
+        f"- missed_steps: {metadata_value(ground_truth.get('missed_steps') or 'none')}",
+        f"- notes: {metadata_value(ground_truth.get('notes') or 'none')}",
+        f"- confidence: {metadata_value(ground_truth.get('confidence') or 'low')}",
+    ]
 
 
 def render_step(index: int, event: dict[str, Any]) -> str:

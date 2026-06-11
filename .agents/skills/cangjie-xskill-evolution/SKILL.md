@@ -11,19 +11,27 @@ description: "当需要基于双流框架治理已有仓颉 Skill 时使用此 S
 
 本 Skill 的职责是双流治理：
 
-- 读取一条或多条 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找；兼容旧版 `Rollout Summary`），生成 `delta K` 与 `delta e`，输出治理建议；只有用户明确要求写入时才修改目标 Skill。
+- 读取一条或多条 `Rollout Record`（默认从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找），生成 `delta K` 与 `delta e`，输出治理建议；只有用户明确要求写入时才修改目标 Skill。
 
 ## 治理 Skill
 
-输入可以是粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown；读取旧版 `Rollout Summary` 时先按字段语义映射为 `Rollout Record`。用户显式指定旧目录文件路径时，可作为普通输入读取；不得自动扫描旧治理 Skill 的 `records/rollouts/`。先按 `target_skill` 分组，分别执行治理流程并分别输出审计摘要；每个 `target_skill` 组内再按 `task_id` 分组做跨 rollout 分析，禁止把不同 Skill 的 `delta K` 或 `delta e` 混在一起。
+输入可以是粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。未指定输入时，优先读取 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下与用户指定 `target_skill` / `task_id` 匹配的 Markdown。先按 `target_skill` 分组，分别执行治理流程并分别输出审计摘要；每个 `target_skill` 组内再按 `task_id` 分组做跨 rollout 分析，禁止把不同 Skill 的 `delta K` 或 `delta e` 混在一起。
+
+读取 `Rollout Record` 时必须先执行 ground truth/yi* gate：
+
+- 若存在 `ground_truth_status: provided`、`outcome_source: ground_truth`、`adjudicated_outcome` 与 `### Ground Truth (yi*)`，后续分组和双流治理使用 `adjudicated_outcome` 作为有效 outcome；`trace_outcome` 只作为冲突审计证据。
+- 若缺少 `ground_truth_status: provided`、缺少 `outcome_source: ground_truth`、缺少 `adjudicated_outcome` 或没有 `### Ground Truth (yi*)`，标记为 `invalid_rollout_schema`；该 rollout 必须跳过并写入摘要，不得产生 `delta K` / `delta e`，也不得写入目标 Skill 或经验库。
+- 若 `trace_outcome` 与 `adjudicated_outcome` 冲突，治理摘要必须列出冲突；当 ground truth `confidence: low` 或 trace 中有明确失败证据时，相关 `delta K` / `delta e` 保持 `pending`。
 
 读取 rollout 时先做容错检查：
 
-- 缺少必含字段时，先从上下文推断补全。
-- 无法补全时，在治理输出中列出缺失字段并跳过该条 rollout。
+- 缺少必含字段时，不从上下文补全；标记为 `invalid_rollout_schema` 并跳过。
+- 缺少字段时，在治理输出中列出缺失字段并跳过该条 rollout。
 - 单条 rollout 格式错误不得中断其他 rollout 的治理。
 
 ### 多 Rollout 分组规则
+
+以下规则按有效 outcome（优先 `adjudicated_outcome`）执行。
 
 - 同一 `task_id` 有 2 条及以上 rollout，且包含不同 `outcome` 时，执行完整 cross-rollout critique。
 - 只有 `success`：提取候选有效流程，默认标为 `pending`，除非另有独立验证。
@@ -179,6 +187,7 @@ description: "当需要基于双流框架治理已有仓颉 Skill 时使用此 S
 - 用户要求“评审”“建议”或“给出治理方案”时，只输出治理建议，不修改文件。
 - 用户明确要求“治理”“更新”“改进目标 Skill”且当前会话允许写入时，才修改目标 Skill。
 - 原始 rollout、证据文件和用户未授权修改的 Skill 不得改写。
+- 没有通过 ground truth/yi* gate 的 rollout 不得支撑 `delta K` 或 `delta e` 生成，也不得写入。
 - 没有 `accepted` 的 `delta K` 时，不更新目标 `SKILL.md`。
 - 没有 `accepted` 的 `delta e` 时，不创建或更新 `references/experiences.md`。
 - 有 `accepted` 的 `delta e` 时，若目标 `SKILL.md` 缺少经验使用入口，必须把入口作为配套 `delta K` 建议或写入；否则不得只创建孤立的 `references/experiences.md`。
@@ -195,6 +204,7 @@ description: "当需要基于双流框架治理已有仓颉 Skill 时使用此 S
 - 跳过 rollout: <缺字段或无法解析的 ID 与原因>
 - delta K: added <n>, modified <n>, merged <n>, deleted <n>, pending <n>, rejected <n>
 - delta e: added <n>, modified <n>, merged <n>, deleted <n>, pending <n>, rejected <n>
+- ground truth: provided <n>, invalid_rollout_schema <n>, conflict <n>
 - 建议写入位置: <SKILL.md / references/experiences.md / 无>
 - 需新建文件: <路径或无>
 - 经验入口: <已存在 / 建议新增 / 已写入 / 不需要，附理由>
@@ -207,7 +217,9 @@ description: "当需要基于双流框架治理已有仓颉 Skill 时使用此 S
 - 已按 `target_skill` 分组，未混合不同 Skill 的知识。
 - 采集 rollout 已交给 `cangjie-rollout-collector`；本 Skill 只处理已有 `Rollout Record`。
 - 未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 自动查找 rollout。
-- 每条有效 rollout 都有 `task_id`、`rollout_id`、`target_skill` 和 `outcome`，或已记录缺失并跳过。
+- 每条有效 rollout 都有 `task_id`、`rollout_id`、`target_skill`、`outcome`、`outcome_source: ground_truth`、`ground_truth_status: provided`、`adjudicated_outcome` 和 `### Ground Truth (yi*)`；不满足者已记录缺失并跳过。
+- 已执行 ground truth/yi* gate；不满足 gate 的 rollout 已标记为 `invalid_rollout_schema` 并跳过，未产生 `delta K` 或 `delta e`。
+- `trace_outcome` 与 `adjudicated_outcome` 冲突已写入治理摘要，低置信度或有明确失败证据的冲突未进入 `accepted`。
 - 每个 `delta K` 和 `delta e` 都可追溯到具体 rollout。
 - `delta K` 与 `delta e` 都先以 JSON 操作中间态表达，再转成 Markdown 落位。
 - `partial` 与 `blocked` 已按降级规则处理。

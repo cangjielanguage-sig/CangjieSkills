@@ -41,7 +41,7 @@ description: "当目标 Skill 执行完成后需要从结构化 trace、显式�
 ## Adapter 边界
 
 - 内置 adapter：Codex。读取 UTF-8 JSONL，自动发现路径为 `~/.codex/sessions/**/rollout-*.jsonl`，按 `session_meta.cwd` 匹配当前工作区，解析公开的消息、工具调用、工具输出、patch 结果和任务完成事件。
-- 预留 adapter：Trae。当前不内置私有日志路径，不猜测目录；未实现时返回 `unsupported_runtime`。
+- 内置 adapter：Trae。读取 Trae CLI 结构化 session（Windows 默认路径 `%LOCALAPPDATA%/trae-cli/sessions/<session_id>/events.jsonl` 与 `traces.jsonl`）以及 Trae CN renderer 可审计日志（Windows 默认路径 `%APPDATA%/Trae CN/logs/**/renderer.log`）；自动发现时只按 `session.json.metadata.cwd` 或 renderer 日志中的 `targetFolderPath`/`workspaceFolders` 精确匹配当前 `--workspace`，显式 `--trace-file` 可传入 session 目录、`events.jsonl`、`traces.jsonl` 或 `renderer.log`。Trae adapter 只解析原始用户输入、公开助手消息、工具展示、文件工具、命令调用、命令结果和终端 trace，不采集 `system-reminder`、`prompt.last_context`、`system_reminders` 等隐藏/上下文状态。
 - 通用 adapter：generic。只在用户显式提供可读日志、JSONL 或 Markdown 文件时做弱解析；不要自动扫描任意工具目录。
 - 只采集公开可审计事件：用户请求、公开响应、工具调用、工具输出、patch 结果、产物路径、日志和验证命令。
 - 禁止采集或复述 `reasoning`、system/developer 指令、`base_instructions`、隐藏上下文和不可公开推理链。

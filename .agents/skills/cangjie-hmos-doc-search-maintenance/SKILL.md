@@ -82,6 +82,7 @@ PYTHONDONTWRITEBYTECODE=1 python card/scripts/diff_doc_manifest.py \
 
 PYTHONDONTWRITEBYTECODE=1 python card/builder/build_index_v3.py \
   --mode rule \
+  --docs-dir <docs_corpus_dir> \
   --index-dir /tmp/cangjie-index-rule
 
 PYTHONDONTWRITEBYTECODE=1 python card/scripts/run_release_eval.py \
@@ -100,6 +101,7 @@ OPENAI_MODEL="..." \
 OPENAI_TEMPERATURE="0" \
 PYTHONDONTWRITEBYTECODE=1 python card/builder/build_index_v3.py \
   --mode rule+llm \
+  --docs-dir <docs_corpus_dir> \
   --index-dir /tmp/cangjie-index-llm \
   --llm-card-types task,api,example,doc \
   --llm-concurrency 24 \
@@ -133,6 +135,8 @@ PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py build-code \
 PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py merge --graph-dir <graph_dir>
 
 # LLM 增强（可选）
+DASHSCOPE_API_KEY="..." \
+DASHSCOPE_API_BASE="..." \
 PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py enhance-graph \
   --graph-dir <graph_dir> \
   --docs-dir <docs_corpus_dir>

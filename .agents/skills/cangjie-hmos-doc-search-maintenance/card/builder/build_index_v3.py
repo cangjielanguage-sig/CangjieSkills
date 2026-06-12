@@ -23,7 +23,7 @@ from typing import Any
 
 BUILDER_DIR = Path(__file__).resolve().parent
 MAINTENANCE_DIR = BUILDER_DIR.parent
-SKILLS_DIR = MAINTENANCE_DIR.parent
+SKILLS_DIR = MAINTENANCE_DIR.parent.parent
 DOC_SEARCH_DIR = SKILLS_DIR / "cangjie-hmos-doc-search"
 DOC_CARD_DIR = DOC_SEARCH_DIR / "doc-card"
 DOCS_DIR = DOC_SEARCH_DIR / "docs"
@@ -3367,8 +3367,10 @@ def build(
     llm_concurrency: int = DEFAULT_LLM_CONCURRENCY,
     llm_cache_dir: Path | None = None,
     max_llm_publish_failures: int = 0,
+    docs_dir: Path | None = None,
 ) -> dict[str, Any]:
-    docs = discover_docs(DOCS_DIR)
+    docs_root = docs_dir or DOCS_DIR
+    docs = discover_docs(docs_root)
     records_by_path = {record.path: record for record in docs}
     examples = find_examples(docs)
     apis = build_api_cards(docs, examples)
@@ -3452,6 +3454,7 @@ def build(
 def main() -> None:
     parser = argparse.ArgumentParser(description="构建 V3 本地结构化索引")
     parser.add_argument("--index-dir", default=str(DEFAULT_INDEX_DIR), help="索引输出目录")
+    parser.add_argument("--docs-dir", default="", help="文档语料根目录（默认使用 DOCS_DIR）")
     parser.add_argument("--mode", choices=("rule", "rule+llm"), default="rule", help="构建模式")
     parser.add_argument("--batch-size", type=int, default=DEFAULT_LLM_BATCH_SIZE, help="rule+llm 模式下的批次大小")
     parser.add_argument(
@@ -3478,6 +3481,7 @@ def main() -> None:
     )
     args = parser.parse_args()
     llm_card_types = parse_card_types(args.llm_card_types)
+    docs_dir_arg = Path(args.docs_dir) if args.docs_dir else None
     manifest = build(
         Path(args.index_dir),
         mode=args.mode,
@@ -3486,6 +3490,7 @@ def main() -> None:
         llm_concurrency=max(1, args.llm_concurrency),
         llm_cache_dir=Path(args.llm_cache_dir) if args.llm_cache_dir else None,
         max_llm_publish_failures=max(0, args.max_llm_publish_failures),
+        docs_dir=docs_dir_arg,
     )
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 

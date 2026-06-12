@@ -85,7 +85,7 @@ def enhance_graph_from_files(
     else:
         nodes_dict = nodes
 
-    # 断点续传：跳过已有 llm_enhanced 标记的 source_file
+# 断点续传：跳过已有 llm_enhanced 标记的 source_file
     files_to_enhance = []
     if resume:
         for sf in source_files:

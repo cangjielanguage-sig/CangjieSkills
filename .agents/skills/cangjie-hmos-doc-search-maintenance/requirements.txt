@@ -1,0 +1,2 @@
+networkx>=3.0
+tree-sitter>=0.21  # optional: only needed for code graph building

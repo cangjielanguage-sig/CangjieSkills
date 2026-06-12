@@ -9,27 +9,32 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
+from typing import Optional
 
 import networkx as nx
 
-from core.models import DocNode, Edge
-from doc.extractor import extract_doc_node, extract_overview_nodes
+from core.models import DocNode, Edge, EdgeRelation
+from doc.extractor import extract_doc_node, extract_overview_nodes, safe_read_text, clean_id_stem, infer_category, build_namespace, detect_doc_type_from_path
+
+
+def _find_node_by_source_file(source_file: str, nodes: dict[str, DocNode]) -> Optional[str]:
+    """根据 source_file 在 nodes 中查找对应的 node_id。"""
+    for nid, node in nodes.items():
+        if node.source_file == source_file:
+            return nid
+    return None
 
 
 def detect_files(root_dir: Path) -> tuple[list[Path], list[Path]]:
     """扫描文档目录，返回 (overview 文件列表, 普通 md 文件列表)。
-    排除顶层目录的 .overview.md（如 harmonyos-6.0.2-15k/.overview.md），
-    这些顶层概览与具体模块无关。"""
+    排除 root_dir 本身的 .overview.md（与具体模块无关），保留所有子目录的 .overview.md。"""
     overviews = []
     docs = []
-    # 获取顶层子目录名（如 harmonyos-6.0.2-15k, std, stdx 等）
-    top_level_dirs = {d.name for d in root_dir.iterdir() if d.is_dir()}
     for f in root_dir.rglob("*.md"):
         if f.name.startswith(".overview"):
-            # 排除顶层目录的 .overview.md（如 harmonyos-6.0.2-15k/.overview.md）
-            parent_name = f.parent.name
-            if parent_name in top_level_dirs:
+            if f.parent == root_dir:
                 continue
             overviews.append(f)
         elif not f.name.startswith(".abstract"):
@@ -127,6 +132,79 @@ def build_doc_graph(root_dir: Path, use_cache: bool = True) -> tuple[dict[str, D
             node, doc_edges = result
             nodes[node.id] = node
             edges.extend(doc_edges)
+
+    # see_also 边解析：基于全局文件名匹配
+    # Markdown 链接的目标文件名可能存在于语料中的其他目录，
+    # 通过文件名全局查找可以恢复这层语义关联。
+    fname_to_node_ids: dict[str, list[str]] = {}
+    for nid, node in nodes.items():
+        fname = Path(node.source_file).name
+        fname_to_node_ids.setdefault(fname, []).append(nid)
+
+    source_dir_to_node_ids: dict[str, list[str]] = {}
+    for nid, node in nodes.items():
+        parent = str(Path(node.source_file).parent)
+        source_dir_to_node_ids.setdefault(parent, []).append(nid)
+
+    see_also_count = 0
+    for nid, node in nodes.items():
+        doc_path = root_dir / node.source_file
+        try:
+            content = safe_read_text(doc_path)
+        except Exception:
+            continue
+
+        md_links = __import__("re").findall(r"\[([^\]]+)\]\(([^)]+)\)", content)
+        for link_text, link_target in md_links:
+            if not link_target.endswith(".md"):
+                continue
+            if not (link_target.startswith("./") or "/" in link_target):
+                continue
+            target_file_raw = link_target.split("#")[0]
+            if not target_file_raw:
+                continue
+            fname = Path(target_file_raw).name
+            if fname.startswith("."):
+                continue
+
+            # 三级解析策略
+            target_id = None
+
+            # 1. 精确路径解析（同目录下直接存在）
+            target_path = (doc_path.parent / target_file_raw).resolve()
+            root_resolved = root_dir.resolve()
+            try:
+                target_rel = str(target_path.relative_to(root_resolved))
+                target_id = _find_node_by_source_file(target_rel, nodes)
+            except ValueError:
+                pass
+
+            # 2. 同目录优先的全局文件名匹配
+            if not target_id:
+                candidates = fname_to_node_ids.get(fname)
+                if candidates:
+                    src_parent = str(Path(node.source_file).parent)
+                    same_dir_hits = [c for c in candidates if str(Path(nodes[c].source_file).parent) == src_parent]
+                    if same_dir_hits:
+                        target_id = same_dir_hits[0]
+                    elif len(candidates) == 1:
+                        target_id = candidates[0]
+
+            # 3. 目录名匹配（./xxx.md -> 目录 xxx/ 下的同名 .md 文件）
+            if not target_id:
+                dirname = fname[:-3]
+                inner_path = f"{dirname}/{fname}"
+                target_id = _find_node_by_source_file(inner_path, nodes)
+
+            if target_id and target_id != nid:
+                edges.append(Edge(
+                    source=nid, target=target_id,
+                    relation=EdgeRelation.SEE_ALSO.value,
+                    source_file=node.source_file,
+                ))
+                see_also_count += 1
+
+    print(f"  see_also 边解析: {see_also_count} 条")
 
     # 邻接索引：双向记录，每条边同时出现在 source 和 target 的邻居列表中
     neighbors: dict[str, list[tuple[str, str]]] = {nid: [] for nid in nodes}

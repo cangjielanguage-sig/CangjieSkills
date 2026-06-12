@@ -16,6 +16,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import threading
 import urllib.request
@@ -23,8 +24,8 @@ import urllib.error
 from pathlib import Path
 from typing import Optional
 
-API_KEY = "xxxx"
-API_BASE = "xxxxx"
+API_KEY = os.environ.get("DASHSCOPE_API_KEY", "xxx")
+API_BASE = os.environ.get("DASHSCOPE_API_BASE", "xxx")
 MODEL = "qwen3.6-plus"
 MAX_BATCH_CHARS = 40000  # 单批次最大字符数，超出则分批
 LLM_TIMEOUT = 600  # 单次 LLM 调用超时（秒）

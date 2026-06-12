@@ -61,13 +61,24 @@ def is_pure_example(content: str) -> bool:
 
 
 def clean_filename(stem: str) -> str:
-    """清理文件名：去除哈希后缀、类型前缀、多余后缀。"""
+    """清理文件名为展示 label：去除哈希后缀、类型前缀、Nmore 后缀。"""
     clean = re.sub(r"_[a-f0-9]{8}$", "", stem)
     for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]:
         if clean.startswith(prefix):
             clean = clean[len(prefix):]
             break
     clean = re.sub(r"_\d+more$", "", clean)
+    clean = re.sub(r"__+$", "", clean)
+    return clean if clean else stem
+
+
+def clean_id_stem(stem: str) -> str:
+    """清理文件名为 ID 组件：仅去除类型前缀，保留哈希/Nmore 后缀以确保唯一性。"""
+    clean = stem
+    for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]:
+        if clean.startswith(prefix):
+            clean = clean[len(prefix):]
+            break
     return clean if clean else stem
 
 
@@ -241,6 +252,68 @@ def detect_doc_type(rel_path: str, content: str) -> str:
     return "guide"
 
 
+def detect_doc_type_from_path(rel_path: str) -> str:
+    """仅从路径推断文档类型（无需读取内容），用于边目标 ID 计算。"""
+    path = rel_path.replace("\\", "/").lower()
+    if path.endswith(".overview.md"):
+        return "overview"
+    if path.endswith(".abstract.md"):
+        return "guide"
+    if "errorcode" in path or "错误码" in rel_path:
+        return "errorcode"
+    if any(prefix in path for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]):
+        return "api"
+    return "guide"
+
+
+def compute_node_id(rel_path: str, root_dir: Path, stem: str) -> str:
+    """从文件相对路径和 stem 计算节点 ID，与 extract_doc_node 的 ID 公式一致。"""
+    category = infer_category(rel_path, root_dir.name)
+    namespace = build_namespace(rel_path)
+    doc_type = detect_doc_type_from_path(rel_path)
+    id_stem = clean_id_stem(stem)
+    return f"{category}_{namespace}_{doc_type}_{id_stem}".replace(" ", "_").lower()
+
+
+def _resolve_link_target(link_target: str, doc_path: Path, root_dir: Path) -> Optional[str]:
+    """解析 Markdown 链接目标为 root_dir 下的相对路径。
+    
+    策略：
+    1. 精确解析：doc_path.parent / link → resolve → relative_to(root_dir)
+    2. 模糊匹配：精确解析失败时，在同目录找 clean_filename 匹配的 .md 文件
+    """
+    target_file_raw = link_target.split("#")[0]
+    if not target_file_raw:
+        return None
+    stem = Path(target_file_raw).stem
+    if stem.startswith("."):
+        return None
+
+    root_resolved = root_dir.resolve()
+
+    # 策略 1：精确解析
+    target_path = (doc_path.parent / target_file_raw).resolve()
+    try:
+        target_rel = str(target_path.relative_to(root_resolved))
+        if target_path.is_file():
+            return target_rel
+    except ValueError:
+        pass
+
+    # 策略 2：模糊匹配 — 在同目录下找 clean_filename 匹配的 .md 文件
+    link_stem_clean = clean_filename(stem)
+    parent_dir = doc_path.parent
+    for candidate in parent_dir.iterdir():
+        if candidate.suffix == '.md' and not candidate.name.startswith("."):
+            if clean_filename(candidate.stem) == link_stem_clean:
+                try:
+                    return str(candidate.resolve().relative_to(root_resolved))
+                except ValueError:
+                    continue
+
+    return None
+
+
 def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, list[Edge]]]:
     """从 .md 文件提取节点和边。返回 None 表示不建节点（纯示例/overview/abstract）。
 
@@ -248,7 +321,7 @@ def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, 
     → 检测文档类型 → 提取标签/描述/关键词 → 构建 DocNode。
     边构建：从 Markdown 链接提取 SEE_ALSO 边（同分类同命名空间下的文档引用）。
     """
-    rel_path = str(doc_path.relative_to(root_dir))
+    rel_path = str(doc_path.relative_to(root_dir)).replace("\\", "/")
 
     # 跳过 overview/abstract
     if doc_path.name.startswith(".overview") or doc_path.name.startswith(".abstract"):
@@ -264,6 +337,7 @@ def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, 
         return None
 
     label = clean_filename(doc_path.stem)
+    id_stem = clean_id_stem(doc_path.stem)
     label_zh = extract_label_zh(content)
     layer = infer_layer(rel_path)
     category = infer_category(rel_path, root_dir.name)
@@ -274,7 +348,7 @@ def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, 
     keywords_zh, keywords_en = extract_keywords(content, doc_type, rel_path, label)
 
     node = DocNode(
-        id=f"{category}_{namespace}_{doc_type}_{label}".replace(" ", "_").lower(),
+        id=f"{category}_{namespace}_{doc_type}_{id_stem}".replace(" ", "_").lower(),
         label=label,
         label_zh=label_zh,
         layer=layer,
@@ -287,20 +361,25 @@ def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, 
         source_file=rel_path,
     )
 
-    # 提取 SEE_ALSO 边
+    # 提取 SEE_ALSO 边：基于目标文件的实际路径计算 ID
     edges = []
     md_links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", content)
     for link_text, link_target in md_links:
         if link_target.startswith("./") or "/" in link_target:
-            target_file = link_target.split("#")[0]
-            target_name = Path(target_file).stem
-            if target_name and not target_name.startswith("."):
-                target_id = f"{category}_{namespace}_{doc_type}_{clean_filename(target_name)}".replace(" ", "_").lower()
-                edges.append(Edge(
-                    source=node.id, target=target_id,
-                    relation=EdgeRelation.SEE_ALSO.value,
-                    source_file=rel_path,
-                ))
+            target_file_raw = link_target.split("#")[0]
+            if not target_file_raw or Path(target_file_raw).stem.startswith("."):
+                continue
+            target_path = (doc_path.parent / target_file_raw).resolve()
+            try:
+                target_rel = str(target_path.relative_to(root_dir.resolve()))
+            except ValueError:
+                continue
+            target_id = compute_node_id(target_rel, root_dir, Path(target_file_raw).stem)
+            edges.append(Edge(
+                source=node.id, target=target_id,
+                relation=EdgeRelation.SEE_ALSO.value,
+                source_file=rel_path,
+            ))
 
     return node, edges
 
@@ -489,7 +568,7 @@ def extract_overview_nodes(overview_path: Path, root_dir: Path) -> tuple[list[Do
     except Exception:
         return [], []
 
-    rel_path = str(overview_path.relative_to(root_dir))
+    rel_path = str(overview_path.relative_to(root_dir)).replace("\\", "/")
     category = infer_category(rel_path, root_dir.name)
     namespace = build_namespace(rel_path)
     dir_name = overview_path.parent.name
@@ -523,9 +602,13 @@ def extract_overview_nodes(overview_path: Path, root_dir: Path) -> tuple[list[Do
         for link in links:
             link_clean = link.strip().rstrip("/")
             if link_clean and link_clean != dir_name:
-                child_label = clean_filename(Path(link_clean).stem)
-                child_id = f"{category}_{namespace}_api_{child_label}".replace(" ", "_").lower()
-                if child_id not in seen:
+                target_path = (dir_path / link_clean).resolve()
+                try:
+                    target_rel = str(target_path.relative_to(root_dir.resolve()))
+                    child_id = compute_node_id(target_rel, root_dir, Path(link_clean).stem)
+                except ValueError:
+                    child_id = None
+                if child_id and child_id not in seen:
                     edges.append(Edge(
                         source=overview_node.id, target=child_id,
                         relation=EdgeRelation.CONTAINS.value,
@@ -542,16 +625,15 @@ def extract_overview_nodes(overview_path: Path, root_dir: Path) -> tuple[list[Do
         if item.is_dir():
             sub_overview = item / ".overview.md"
             if sub_overview.exists():
-                sub_rel_path = str(sub_overview.relative_to(root_dir))
+                sub_rel_path = str(sub_overview.relative_to(root_dir)).replace("\\", "/")
                 sub_category = infer_category(sub_rel_path, root_dir.name)
                 sub_namespace = build_namespace(sub_rel_path)
                 target_id = f"{sub_category}_{sub_namespace}_overview_{item.name}".replace(" ", "_").lower()
         elif item.is_file() and item.suffix == ".md":
-            item_rel_path = str(item.relative_to(root_dir))
-            item_category = infer_category(item_rel_path, root_dir.name)
-            item_namespace = build_namespace(item_rel_path)
-            label = clean_filename(item.stem)
-            target_id = f"{item_category}_{item_namespace}_api_{label}".replace(" ", "_").lower()
+            if item.name.startswith(".abstract") or item.name.startswith(".overview"):
+                continue
+            item_rel_path = str(item.relative_to(root_dir)).replace("\\", "/")
+            target_id = compute_node_id(item_rel_path, root_dir, item.stem)
 
         if target_id and target_id not in seen:
             edges.append(Edge(

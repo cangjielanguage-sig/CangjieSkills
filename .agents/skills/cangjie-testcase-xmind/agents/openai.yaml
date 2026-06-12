@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cangjie Testcase XMind"
+  short_description: "Generate Cangjie test case XMind files with Pair-wise."
+  default_prompt: "Use $cangjie-testcase-xmind to design Pair-wise test cases and generate an XMind file."

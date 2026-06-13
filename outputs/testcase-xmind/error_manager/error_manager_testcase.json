@@ -1,0 +1,393 @@
+{
+  "ohos.app.ability.error_manager（错误管理模块）": {
+    "接口列表": {
+      "ErrorManager.on(ErrorManagerEvent, ErrorObserver)": {
+        "接口类型": "静态函数",
+        "是否涉及权限检查": "涉及：模块权限列表包含 ohos.permission.DISTRIBUTED_DATASYNC、ohos.permission.PREPARE_APP_TERMINATE、ohos.permission.PRIVACY_WINDOW；接口异常表未单列权限错误码",
+        "参数": {
+          "eventType": {
+            "参数说明": "错误事件类型",
+            "是否必填": "是",
+            "参数形式": "位置参数",
+            "类型": "ErrorManagerEvent",
+            "默认值": "无",
+            "是否支持Option": "否",
+            "取值范围": {
+              "有效等价类": {
+                "ErrorManagerEvent.Error": "文档定义的错误事件类型"
+              },
+              "无效等价类": {
+                "非 ErrorManagerEvent 类型": "编译期类型不匹配，不允许传入",
+                "未定义枚举值": "闭合枚举无法构造，作为编译期负向用例"
+              },
+              "边界值": {
+                "ErrorManagerEvent.Error": "当前文档唯一枚举值"
+              },
+              "特殊值": {
+                "ErrorManagerEvent.Error": "重复注册多个观察者时复用同一事件类型"
+              }
+            }
+          },
+          "observer": {
+            "参数说明": "错误观察者，监听当前应用发生的异常",
+            "是否必填": "是",
+            "参数形式": "位置参数",
+            "类型": "ErrorObserver",
+            "默认值": "无",
+            "是否支持Option": "否",
+            "取值范围": {
+              "有效等价类": {
+                "observerBasic": "仅设置 onUnhandledException 回调，onException 使用默认 None",
+                "observerFull": "同时设置 onUnhandledException 和 onException: Some 回调"
+              },
+              "无效等价类": {
+                "非 ErrorObserver 类型": "编译期类型不匹配，不允许传入",
+                "未初始化 observer 变量": "编译期未赋值或作用域错误"
+              },
+              "边界值": {
+                "observerBasic": "最小有效观察者，仅包含必填回调",
+                "observerFull": "完整观察者，包含可选回调"
+              },
+              "特殊值": {
+                "observerFull": "回调内读取 ErrorObject.name、message、stack"
+              }
+            }
+          }
+        },
+        "返回值": {
+          "Int32": {
+            "返回值说明": {
+              "观察者ID": "注册成功后返回，可作为 ErrorManager.off 的 observerId 入参"
+            }
+          }
+        },
+        "抛出异常": {
+          "16000003": {
+            "The specified ID does not exist.": "按文档错误码覆盖指定 ID 不存在场景，可通过异常注入或无效内部事件 ID 场景验证"
+          },
+          "16000050": {
+            "Internal error.": "运行时内部错误或异常注入场景"
+          }
+        }
+      },
+      "ErrorManager.off(ErrorManagerEvent, Int32)": {
+        "接口类型": "静态函数",
+        "是否涉及权限检查": "涉及：模块权限列表包含 ohos.permission.DISTRIBUTED_DATASYNC、ohos.permission.PREPARE_APP_TERMINATE、ohos.permission.PRIVACY_WINDOW；接口异常表未单列权限错误码",
+        "参数": {
+          "eventType": {
+            "参数说明": "错误事件类型",
+            "是否必填": "是",
+            "参数形式": "位置参数",
+            "类型": "ErrorManagerEvent",
+            "默认值": "无",
+            "是否支持Option": "否",
+            "取值范围": {
+              "有效等价类": {
+                "ErrorManagerEvent.Error": "文档定义的错误事件类型"
+              },
+              "无效等价类": {
+                "非 ErrorManagerEvent 类型": "编译期类型不匹配，不允许传入",
+                "未定义枚举值": "闭合枚举无法构造，作为编译期负向用例"
+              },
+              "边界值": {
+                "ErrorManagerEvent.Error": "当前文档唯一枚举值"
+              },
+              "特殊值": {
+                "ErrorManagerEvent.Error": "注销多个观察者时复用同一事件类型"
+              }
+            }
+          },
+          "observerId": {
+            "参数说明": "观察者ID，由 ErrorManager.on 注册成功后返回",
+            "是否必填": "是",
+            "参数形式": "位置参数",
+            "类型": "Int32",
+            "默认值": "无",
+            "是否支持Option": "否",
+            "取值范围": {
+              "有效等价类": {
+                "idFromOn": "ErrorManager.on 返回的有效观察者ID"
+              },
+              "无效等价类": {
+                "-1": "非注册返回的负数ID",
+                "0": "未确认有效性的默认整型值，按未知ID负向验证",
+                "2147483647": "非注册返回的 Int32 最大值"
+              },
+              "边界值": {
+                "-2147483648": "Int32 最小值",
+                "2147483647": "Int32 最大值"
+              },
+              "特殊值": {
+                "alreadyOffId": "已经注销过的观察者ID",
+                "staleObserverId": "应用重启或观察者释放后的历史ID"
+              }
+            }
+          }
+        },
+        "返回值": {
+          "Unit": {
+            "返回值说明": {
+              "无业务返回值": "取消监听成功后正常返回"
+            }
+          }
+        },
+        "抛出异常": {
+          "16000003": {
+            "The specified ID does not exist.": "observerId 不存在、已注销或非注册返回值"
+          },
+          "16000050": {
+            "Internal error.": "运行时内部错误或异常注入场景"
+          }
+        }
+      },
+      "ErrorManagerEvent.Error": {
+        "接口类型": "枚举值",
+        "是否涉及权限检查": "不涉及",
+        "参数": "不涉及",
+        "返回值": {
+          "ErrorManagerEvent": {
+            "返回值说明": {
+              "Error": "表示错误事件类型，可作为 ErrorManager.on 和 ErrorManager.off 的 eventType 入参"
+            }
+          }
+        },
+        "抛出异常": {
+          "不涉及": ""
+        }
+      }
+    },
+    "测试覆盖": {
+      "ErrorManager.on(ErrorManagerEvent, ErrorObserver)": {
+        "单参数测试": {
+          "eventType": {
+            "test_ErrorManager_on_eventType_valid_Error": {
+              "测试流程": "构造 observerBasic；调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)",
+              "预期结果": "调用成功并返回 Int32 observerId；使用该 observerId 调用 ErrorManager.off(ErrorManagerEvent.Error, observerId) 可清理成功"
+            },
+            "test_ErrorManager_on_eventType_type_mismatch": {
+              "测试流程": "将 eventType 替换为非 ErrorManagerEvent 类型并编译",
+              "预期结果": "编译失败，提示参数类型不匹配；运行时不会产生注册行为"
+            }
+          },
+          "observer": {
+            "test_ErrorManager_on_observer_basic": {
+              "测试流程": "构造仅包含 onUnhandledException 回调的 observerBasic；调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)",
+              "预期结果": "返回有效 Int32 observerId；触发未捕获异常后 onUnhandledException 回调可收到错误信息"
+            },
+            "test_ErrorManager_on_observer_full": {
+              "测试流程": "构造包含 onUnhandledException 和 onException: Some 回调的 observerFull；调用 ErrorManager.on(ErrorManagerEvent.Error, observerFull)",
+              "预期结果": "返回有效 Int32 observerId；触发异常上报时 onException 可读取 ErrorObject.name、message、stack"
+            },
+            "test_ErrorManager_on_observer_type_mismatch": {
+              "测试流程": "将 observer 替换为非 ErrorObserver 类型并编译",
+              "预期结果": "编译失败，提示参数类型不匹配；运行时不会产生注册行为"
+            }
+          }
+        },
+        "多参数组合": {
+          "test_ErrorManager_on_pairwise_case1": {
+            "测试流程": "eventType=ErrorManagerEvent.Error, observer=observerBasic；调用 ErrorManager.on 并保存返回 observerId",
+            "预期结果": "注册成功并返回 Int32 observerId；触发未捕获异常后 onUnhandledException 被调用一次；调用 off 清理成功"
+          },
+          "test_ErrorManager_on_pairwise_case2": {
+            "测试流程": "eventType=ErrorManagerEvent.Error, observer=observerFull；调用 ErrorManager.on 并保存返回 observerId",
+            "预期结果": "注册成功并返回 Int32 observerId；触发异常上报后 onUnhandledException 与 onException 按事件类型触发；调用 off 清理成功"
+          }
+        },
+        "返回值验证": {
+          "test_ErrorManager_on_return_observerId_type": {
+            "测试流程": "调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)，记录返回值 id",
+            "预期结果": "id 类型为 Int32；id 可作为 ErrorManager.off(ErrorManagerEvent.Error, id) 入参且取消监听成功"
+          },
+          "test_ErrorManager_on_return_observerId_unique_for_multiple_registration": {
+            "测试流程": "连续两次使用 ErrorManagerEvent.Error 注册 observerBasic 和 observerFull，分别记录 id1、id2",
+            "预期结果": "两次均返回 Int32 观察者ID；id1 和 id2 可分别用于取消各自监听"
+          }
+        },
+        "异常处理": {
+          "test_ErrorManager_on_exception_16000003_by_fault_injection": {
+            "测试流程": "在可控异常注入环境中让注册流程命中指定 ID 不存在分支；调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)",
+            "预期结果": "抛出 BusinessException；错误码为 16000003；错误信息包含 The specified ID does not exist."
+          },
+          "test_ErrorManager_on_exception_16000050_by_fault_injection": {
+            "测试流程": "在可控异常注入环境中模拟 AbilityRuntime 内部错误；调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)",
+            "预期结果": "抛出 BusinessException；错误码为 16000050；错误信息包含 Internal error."
+          }
+        },
+        "权限检查": {
+          "test_ErrorManager_on_permission_all_declared": {
+            "测试流程": "应用声明 ohos.permission.DISTRIBUTED_DATASYNC、ohos.permission.PREPARE_APP_TERMINATE、ohos.permission.PRIVACY_WINDOW；调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)",
+            "预期结果": "在满足模块权限清单的环境中注册成功并返回 Int32 observerId"
+          },
+          "test_ErrorManager_on_permission_missing_module_permissions": {
+            "测试流程": "应用不声明模块权限清单中的权限；调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic)",
+            "预期结果": "不应静默完成权限绕过；若系统执行权限校验则调用失败并不返回可用 observerId，实际错误码需与文档权限说明核对"
+          }
+        },
+        "特殊场景": {
+          "test_ErrorManager_on_duplicate_observer_instance": {
+            "测试流程": "使用同一个 observerFull 连续调用两次 ErrorManager.on(ErrorManagerEvent.Error, observerFull)",
+            "预期结果": "两次注册均有明确结果；若均成功则返回两个可分别注销的 observerId，触发异常时回调次数与注册次数一致"
+          },
+          "test_ErrorManager_on_callback_stack_none": {
+            "测试流程": "注册 observerFull；触发 ErrorObject.stack 为 None 的异常上报",
+            "预期结果": "onException 回调可正常处理 stack=None，不发生二次异常"
+          },
+          "test_ErrorManager_on_callback_stack_some": {
+            "测试流程": "注册 observerFull；触发 ErrorObject.stack 为 Some(String) 的异常上报",
+            "预期结果": "onException 回调可读取并记录 stack 字符串"
+          }
+        },
+        "组合场景": {
+          "test_ErrorManager_on_off_lifecycle_no_callback_after_off": {
+            "测试流程": "调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic) 获取 id；调用 ErrorManager.off(ErrorManagerEvent.Error, id)；再次触发同类异常",
+            "预期结果": "注销前回调可触发；注销后同一 observer 不再收到回调"
+          },
+          "test_ErrorManager_on_multiple_observers_partial_off": {
+            "测试流程": "注册 observerBasic 得到 id1，注册 observerFull 得到 id2；调用 ErrorManager.off(ErrorManagerEvent.Error, id1)；触发异常",
+            "预期结果": "id1 对应观察者不再收到回调；id2 对应观察者仍可收到回调；最后 off id2 清理成功"
+          }
+        }
+      },
+      "ErrorManager.off(ErrorManagerEvent, Int32)": {
+        "单参数测试": {
+          "eventType": {
+            "test_ErrorManager_off_eventType_valid_Error": {
+              "测试流程": "先调用 ErrorManager.on(ErrorManagerEvent.Error, observerBasic) 获取 id；调用 ErrorManager.off(ErrorManagerEvent.Error, id)",
+              "预期结果": "取消监听成功，函数以 Unit 正常返回"
+            },
+            "test_ErrorManager_off_eventType_type_mismatch": {
+              "测试流程": "将 eventType 替换为非 ErrorManagerEvent 类型并编译",
+              "预期结果": "编译失败，提示参数类型不匹配；运行时不会产生注销行为"
+            }
+          },
+          "observerId": {
+            "test_ErrorManager_off_observerId_from_on": {
+              "测试流程": "先注册 observerBasic 获取 idFromOn；调用 ErrorManager.off(ErrorManagerEvent.Error, idFromOn)",
+              "预期结果": "取消监听成功；后续触发异常时该 observer 不再收到回调"
+            },
+            "test_ErrorManager_off_observerId_negative": {
+              "测试流程": "调用 ErrorManager.off(ErrorManagerEvent.Error, -1)",
+              "预期结果": "抛出 BusinessException；错误码为 16000003"
+            },
+            "test_ErrorManager_off_observerId_zero": {
+              "测试流程": "在未由 on 返回 0 作为有效ID的前提下调用 ErrorManager.off(ErrorManagerEvent.Error, 0)",
+              "预期结果": "抛出 BusinessException；错误码为 16000003"
+            },
+            "test_ErrorManager_off_observerId_int32_max": {
+              "测试流程": "调用 ErrorManager.off(ErrorManagerEvent.Error, 2147483647)",
+              "预期结果": "抛出 BusinessException；错误码为 16000003"
+            },
+            "test_ErrorManager_off_observerId_type_mismatch": {
+              "测试流程": "将 observerId 替换为非 Int32 类型并编译",
+              "预期结果": "编译失败，提示参数类型不匹配；运行时不会产生注销行为"
+            }
+          }
+        },
+        "多参数组合": {
+          "test_ErrorManager_off_pairwise_case1": {
+            "测试流程": "eventType=ErrorManagerEvent.Error, observerId=idFromOn；调用 ErrorManager.off",
+            "预期结果": "取消监听成功，函数以 Unit 正常返回"
+          },
+          "test_ErrorManager_off_pairwise_case2": {
+            "测试流程": "eventType=ErrorManagerEvent.Error, observerId=alreadyOffId；调用 ErrorManager.off",
+            "预期结果": "抛出 BusinessException；错误码为 16000003"
+          },
+          "test_ErrorManager_off_pairwise_case3": {
+            "测试流程": "eventType=ErrorManagerEvent.Error, observerId=staleObserverId；调用 ErrorManager.off",
+            "预期结果": "抛出 BusinessException；错误码为 16000003"
+          }
+        },
+        "返回值验证": {
+          "test_ErrorManager_off_return_unit": {
+            "测试流程": "注册 observerBasic 获取 id；调用 ErrorManager.off(ErrorManagerEvent.Error, id)，记录调用结果",
+            "预期结果": "函数无业务返回值；未抛出异常即表示取消监听成功"
+          }
+        },
+        "异常处理": {
+          "test_ErrorManager_off_exception_16000003_unknown_id": {
+            "测试流程": "未注册 observerId=2147483647；调用 ErrorManager.off(ErrorManagerEvent.Error, 2147483647)",
+            "预期结果": "抛出 BusinessException；错误码为 16000003；错误信息包含 The specified ID does not exist."
+          },
+          "test_ErrorManager_off_exception_16000003_double_off": {
+            "测试流程": "注册 observerBasic 获取 id；第一次调用 ErrorManager.off(ErrorManagerEvent.Error, id)；第二次再次调用 ErrorManager.off(ErrorManagerEvent.Error, id)",
+            "预期结果": "第一次成功；第二次抛出 BusinessException，错误码为 16000003"
+          },
+          "test_ErrorManager_off_exception_16000050_by_fault_injection": {
+            "测试流程": "在可控异常注入环境中模拟 AbilityRuntime 内部错误；调用 ErrorManager.off(ErrorManagerEvent.Error, idFromOn)",
+            "预期结果": "抛出 BusinessException；错误码为 16000050；错误信息包含 Internal error."
+          }
+        },
+        "权限检查": {
+          "test_ErrorManager_off_permission_all_declared": {
+            "测试流程": "应用声明模块权限清单中的三个权限；注册 observerBasic 获取 id；调用 ErrorManager.off(ErrorManagerEvent.Error, id)",
+            "预期结果": "在满足模块权限清单的环境中取消监听成功"
+          },
+          "test_ErrorManager_off_permission_missing_module_permissions": {
+            "测试流程": "应用不声明模块权限清单中的权限；注册阶段若已获得 id，则调用 ErrorManager.off(ErrorManagerEvent.Error, id)",
+            "预期结果": "不应静默完成权限绕过；若系统执行权限校验则调用失败或注册阶段无法获得可用 id，实际错误码需与文档权限说明核对"
+          }
+        },
+        "特殊场景": {
+          "test_ErrorManager_off_repeated_same_id": {
+            "测试流程": "注册 observerBasic 获取 id；连续两次调用 ErrorManager.off(ErrorManagerEvent.Error, id)",
+            "预期结果": "第一次成功；第二次按不存在ID处理并抛出 16000003"
+          },
+          "test_ErrorManager_off_unregister_one_of_multiple": {
+            "测试流程": "注册 observerBasic 获取 id1，注册 observerFull 获取 id2；调用 ErrorManager.off(ErrorManagerEvent.Error, id1)",
+            "预期结果": "id1 对应监听取消；id2 对应监听仍然有效"
+          }
+        },
+        "组合场景": {
+          "test_ErrorManager_off_after_on_then_trigger": {
+            "测试流程": "调用 on 注册 observerBasic 获取 id；调用 off 注销 id；触发 ErrorManagerEvent.Error 对应异常",
+            "预期结果": "off 后 observerBasic 不再收到回调"
+          },
+          "test_ErrorManager_off_cleanup_all_registered_observers": {
+            "测试流程": "注册两个观察者并保存 id1、id2；依次调用 off 注销 id1、id2；触发异常",
+            "预期结果": "两个观察者均不再收到回调；不会遗留重复监听"
+          }
+        }
+      },
+      "ErrorManagerEvent.Error": {
+        "单参数测试": {
+          "不涉及": ""
+        },
+        "多参数组合": {
+          "不涉及": ""
+        },
+        "返回值验证": {
+          "test_ErrorManagerEvent_Error_reference": {
+            "测试流程": "导入 kit.AbilityKit.* 后在代码中引用 ErrorManagerEvent.Error，并作为 ErrorManager.on 的 eventType 入参",
+            "预期结果": "编译通过；枚举值可被 ErrorManager.on 正确接受"
+          },
+          "test_ErrorManagerEvent_Error_pass_to_off": {
+            "测试流程": "注册 observerBasic 获取 id；将 ErrorManagerEvent.Error 作为 ErrorManager.off 的 eventType 入参",
+            "预期结果": "编译通过；off 可接受该枚举值并取消监听成功"
+          }
+        },
+        "异常处理": {
+          "test_ErrorManagerEvent_Error_invalid_symbol": {
+            "测试流程": "尝试引用文档未定义的 ErrorManagerEvent 其他枚举值并编译",
+            "预期结果": "编译失败，提示枚举值不存在"
+          }
+        },
+        "权限检查": {
+          "不涉及": ""
+        },
+        "特殊场景": {
+          "test_ErrorManagerEvent_Error_only_documented_value": {
+            "测试流程": "遍历文档公开的 ErrorManagerEvent 枚举值集合，确认包含 Error",
+            "预期结果": "Error 是文档公开的错误事件枚举值，可用于错误监听和取消监听"
+          }
+        },
+        "组合场景": {
+          "test_ErrorManagerEvent_Error_on_off_consistency": {
+            "测试流程": "使用 ErrorManagerEvent.Error 注册 observerBasic 获取 id，再使用同一个 ErrorManagerEvent.Error 注销 id",
+            "预期结果": "注册与注销使用同一事件类型时生命周期完整闭环，注销后不再收到回调"
+          }
+        }
+      }
+    }
+  }
+}

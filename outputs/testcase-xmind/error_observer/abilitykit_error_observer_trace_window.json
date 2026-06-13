@@ -1,0 +1,13 @@
+{
+  "target_skill": "cangjie-testcase-xmind",
+  "task_id": "abilitykit-error-observer-xmind",
+  "original_task": "[$cangjie-testcase-xmind](D:\\\\cangjie_skills\\\\CangjieSkills\\\\.agents\\\\skills\\\\cangjie-testcase-xmind\\\\SKILL.md) [$cangjie-rollout-collector](D:\\\\cangjie_skills\\\\CangjieSkills\\\\.agents\\\\skills\\\\cangjie-rollout-collector\\\\SKILL.md) 请帮我设计 D:\\cangjie_dev\\docs_cangjie\\zh-cn\\application-dev\\reference\\AbilityKit\\cj-apis-application-error_observer.md 脑图",
+  "runtime": "codex",
+  "session_id": "019ebed1-1b5e-73d0-9d4c-4f8fc240a721",
+  "source_path": "C:\\Users\\张睿鸣\\.codex\\sessions\\2026\\06\\13\\rollout-2026-06-13T10-30-42-019ebed1-1b5e-73d0-9d4c-4f8fc240a721.jsonl",
+  "start_evidence_ref": "session:019ebed1-1b5e-73d0-9d4c-4f8fc240a721#line:7",
+  "end_evidence_ref": "session:019ebed1-1b5e-73d0-9d4c-4f8fc240a721#line:78",
+  "start_trace_ref": "T001",
+  "end_trace_ref": "T027",
+  "event_count": 27
+}

@@ -1,0 +1,9 @@
+{
+  "task_completed": "partial",
+  "adjudicated_outcome": "partial",
+  "result_gaps": "测试覆盖中的单参数测试缺少按具体参数展开的层级，未在 ErrorObserver.init 等接口下展开 onUnhandledException、onException 及其有效等价类、无效等价类、边界值、特殊值讨论。",
+  "process_gaps": "none",
+  "missed_steps": "单参数测试应覆盖参数节点及等价类分类；上一版未覆盖该层级。",
+  "notes": "T026 only confirmed root/basic nodes and a Pair-wise case; not_observed for parameter/equivalence-class nodes under 单参数测试.",
+  "confidence": "high"
+}

@@ -1,0 +1,265 @@
+{
+  "skill": "cangjie-testcase-xmind",
+  "status": "passed",
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "must_failed": 0,
+    "should_failed": 0,
+    "may_failed": 0,
+    "content_total": 3,
+    "content_passed": 3,
+    "discovery_total": 0,
+    "discovery_passed": 0
+  },
+  "metrics": {
+    "content_pass_rate": 1.0,
+    "answer_score_avg": 0.8808080808080808,
+    "pattern_score_avg": 0.8808080808080808,
+    "validator_score_avg": null,
+    "pattern_coverage_avg": 0.8808080808080808,
+    "discovery_hit_rate": null,
+    "loaded_skill_hit_rate": null,
+    "forbidden_misfire_rate": null,
+    "forbidden_misfire_count": 0,
+    "avg_expected_rank": null,
+    "tool_call_accuracy": null,
+    "tool_call_f1": null,
+    "trace_complete_rate": 1.0,
+    "runtime_evidence_rate": 1.0,
+    "latency_ms_avg": 166407.7597333344,
+    "latency_ms_p95": 195011.14111999996,
+    "token_total": 74662,
+    "cost_total": 0.0,
+    "tool_call_count": 0,
+    "tool_call_error_count": 0,
+    "content_skill_context_slots_total": 7068,
+    "content_skill_context_slots_avg": 2356.0
+  },
+  "failed_cases": [],
+  "cases": [
+    {
+      "id": "content-basic.jsonl:1",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "input": "请为一个包含 func testSingleParam(paramA: Int32, paramB: Int32) 的仓颉 API 设计用例脑图，paramA的有效范围为闭区间0-2，只给出测试覆盖节点",
+      "status": "passed",
+      "score": 0.8333333333333334,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:2",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "input": "请为一个包含 func bindEndpoint(port: Int32, protocol: String) 的仓颉 API 设计用例脑图。port 的有效范围为闭区间1-65535，特殊值0表示自动分配端口；protocol 只允许 \"tcp\" 或 \"udp\"，没有默认值。只给出测试覆盖节点，不需要额外解释。",
+      "status": "passed",
+      "score": 0.9,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    },
+    {
+      "id": "content-basic.jsonl:3",
+      "type": "content",
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "input": "请为一个包含 func configureCache(capacity: Int64, strategy: String, persist: Bool) 的仓颉 API 设计用例脑图。capacity 的有效范围为闭区间0-1048576，其中0表示清空缓存；strategy 可取 \"fast\" 或 \"safe\"，默认值为 \"safe\"；persist 为布尔开关。只给出测试覆盖节点。",
+      "status": "passed",
+      "score": 0.9090909090909091,
+      "severity": "MUST",
+      "reason": "",
+      "reasons": [],
+      "errorCode": null
+    }
+  ],
+  "traces": [
+    {
+      "case_id": "content-basic.jsonl:1",
+      "type": "content",
+      "input": "请为一个包含 func testSingleParam(paramA: Int32, paramB: Int32) 的仓颉 API 设计用例脑图，paramA的有效范围为闭区间0-2，只给出测试覆盖节点",
+      "runner": "agent-command",
+      "output": "测试覆盖\n└── testSingleParam\n    ├── 单参数测试\n    │   ├── paramA\n    │   │   ├── 有效等价类\n    │   │   │   ├── test_testSingleParam_paramA_valid_min\n    │   │   │   ├── test_testSingleParam_paramA_valid_mid\n    │   │   │   └── test_testSingleParam_paramA_valid_max\n    │   │   ├── 无效等价类\n    │   │   │   └── 不涉及\n    │   │   ├── 边界值\n    │   │   │   ├── test_testSingleParam_paramA_boundary_0\n    │   │   │   └── test_testSingleParam_paramA_boundary_2\n    │   │   └── 特殊值\n    │   │       └── 不涉及\n    │   └── paramB\n    │       ├── 有效等价类\n    │       │   └── 不涉及\n    │       ├── 无效等价类\n    │       │   └── 不涉及\n    │       ├── 边界值\n    │       │   └── 不涉及\n    │       └── 特殊值\n    │           └── 不涉及\n    ├── 多参数组合\n    │   └── 不涉及\n    ├── 返回值验证\n    │   └── 不涉及\n    ├── 异常处理\n    │   └── 不涉及\n    ├── 权限检查\n    │   └── 不涉及\n    ├── 特殊场景\n    │   └── 不涉及\n    └── 组合场景\n        └── 不涉及",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-testcase-xmind",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-testcase-xmind"
+      ],
+      "tool_calls": [],
+      "latency_ms": 140223.03920000195,
+      "usage": {
+        "input_tokens": 22433,
+        "output_tokens": 985,
+        "cached_input_tokens": 16256,
+        "reasoning_output_tokens": 516,
+        "total_tokens": 23418,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2356,
+        "codex_stdout_chars": 1888,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781336606.5412054,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"测试覆盖\\n└── testSingleParam\\n ├── 单参数测试\\n │ ├── paramA\\n │ │ ├── 有效等价类\\n │ │ │ ├── test_testSingleParam_paramA_valid_min\\n │ │ │ ├── test_testSingleParam_paramA_valid_mid\\n │ │ │ └── test_testSingleParam_paramA_valid_max\\n │ │ ├── 无效等价类\\n │ │ │ └── 不涉及\\n │ │ ├── 边界值\\n │ │ │ ├── test_testSingleParam_paramA_boundary_0\\n │ │ │ └── test_testSingleParam_paramA_boundary_2\\n │ │ └── 特殊值\\n │ │ └── 不涉及\\n │ └── paramB\\n │ ├── 有效等价类\\n │ │ └── 不涉及\\n │ ├── 无效等价类\\n │ │ └── 不涉及\\n │ ├── 边界值\\n │ │ └─..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 22433,
+            "output_tokens": 985,
+            "cached_input_tokens": 16256,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 23418
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 1,
+      "status": "passed",
+      "score": 0.8333333333333334,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.8333333333333334,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:2",
+      "type": "content",
+      "input": "请为一个包含 func bindEndpoint(port: Int32, protocol: String) 的仓颉 API 设计用例脑图。port 的有效范围为闭区间1-65535，特殊值0表示自动分配端口；protocol 只允许 \"tcp\" 或 \"udp\"，没有默认值。只给出测试覆盖节点，不需要额外解释。",
+      "runner": "agent-command",
+      "output": "测试覆盖\n└── bindEndpoint\n    ├── 单参数测试\n    │   ├── port\n    │   │   ├── 有效等价类\n    │   │   │   └── test_bindEndpoint_port_valid_range\n    │   │   ├── 无效等价类\n    │   │   │   ├── test_bindEndpoint_port_invalid_negative\n    │   │   │   └── test_bindEndpoint_port_invalid_above_max\n    │   │   ├── 边界值\n    │   │   │   ├── test_bindEndpoint_port_boundary_min_1\n    │   │   │   ├── test_bindEndpoint_port_boundary_max_65535\n    │   │   │   └── test_bindEndpoint_port_boundary_above_max_65536\n    │   │   └── 特殊值\n    │   │       └── test_bindEndpoint_port_special_auto_0\n    │   └── protocol\n    │       ├── 有效等价类\n    │       │   ├── test_bindEndpoint_protocol_valid_tcp\n    │       │   └── test_bindEndpoint_protocol_valid_udp\n    │       ├── 无效等价类\n    │       │   ├── test_bindEndpoint_protocol_invalid_unsupported\n    │       │   ├── test_bindEndpoint_protocol_invalid_empty\n    │       │   ├── test_bindEndpoint_protocol_invalid_case\n    │       │   └── test_bindEndpoint_protocol_invalid_missing\n    │       ├── 边界值\n    │       │   └── 不涉及\n    │       └── 特殊值\n    │           └── 不涉及\n    ├── 多参数组合\n    │   ├── test_bindEndpoint_pairwise_case1_port_8080_protocol_tcp\n    │   ├── test_bindEndpoint_pairwise_case2_port_8080_protocol_udp\n    │   ├── test_bindEndpoint_pairwise_case3_port_0_protocol_tcp\n    │   └── test_bindEndpoint_pairwise_case4_port_0_protocol_udp\n    ├── 返回值验证\n    │   └── 不涉及\n    ├── 异常处理\n    │   ├── test_bindEndpoint_exception_invalid_port\n    │   └── test_bindEndpoint_exception_invalid_protocol\n    ├── 权限检查\n    │   └── 不涉及\n    ├── 特殊场景\n    │   └── test_bindEndpoint_special_auto_port_allocation\n    └── 组合场景\n        └── 不涉及",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-testcase-xmind",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-testcase-xmind"
+      ],
+      "tool_calls": [],
+      "latency_ms": 160111.34360000142,
+      "usage": {
+        "input_tokens": 22461,
+        "output_tokens": 2189,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 1552,
+        "total_tokens": 24650,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2356,
+        "codex_stdout_chars": 2687,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781336766.825207,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"测试覆盖\\n└── bindEndpoint\\n ├── 单参数测试\\n │ ├── port\\n │ │ ├── 有效等价类\\n │ │ │ └── test_bindEndpoint_port_valid_range\\n │ │ ├── 无效等价类\\n │ │ │ ├── test_bindEndpoint_port_invalid_negative\\n │ │ │ └── test_bindEndpoint_port_invalid_above_max\\n │ │ ├── 边界值\\n │ │ │ ├── test_bindEndpoint_port_boundary_min_1\\n │ │ │ ├── test_bindEndpoint_port_boundary_max_65535\\n │ │ │ └── test_bindEndpoint_port_boundary_above_max_65536\\n │ │ └── 特殊值\\n │ │ └── test_bindEndpoint_port_special_auto_0\\n │ └── protoc..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 22461,
+            "output_tokens": 2189,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 1552,
+            "total_tokens": 24650
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 2,
+      "status": "passed",
+      "score": 0.9,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.9,
+      "validator_score": null
+    },
+    {
+      "case_id": "content-basic.jsonl:3",
+      "type": "content",
+      "input": "请为一个包含 func configureCache(capacity: Int64, strategy: String, persist: Bool) 的仓颉 API 设计用例脑图。capacity 的有效范围为闭区间0-1048576，其中0表示清空缓存；strategy 可取 \"fast\" 或 \"safe\"，默认值为 \"safe\"；persist 为布尔开关。只给出测试覆盖节点。",
+      "runner": "agent-command",
+      "output": "测试覆盖\n└── configureCache\n    ├── 单参数测试\n    │   ├── capacity\n    │   │   ├── 有效等价类\n    │   │   │   ├── test_configureCache_capacity_valid_1\n    │   │   │   ├── test_configureCache_capacity_valid_524288\n    │   │   │   └── test_configureCache_capacity_valid_1048575\n    │   │   ├── 无效等价类\n    │   │   │   ├── test_configureCache_capacity_invalid_negative_1\n    │   │   │   ├── test_configureCache_capacity_invalid_1048577\n    │   │   │   └── test_configureCache_capacity_invalid_Int64Min\n    │   │   ├── 边界值\n    │   │   │   ├── test_configureCache_capacity_boundary_0\n    │   │   │   ├── test_configureCache_capacity_boundary_1\n    │   │   │   ├── test_configureCache_capacity_boundary_1048575\n    │   │   │   └── test_configureCache_capacity_boundary_1048576\n    │   │   └── 特殊值\n    │   │       └── test_configureCache_capacity_special_clear_cache_0\n    │   ├── strategy\n    │   │   ├── 有效等价类\n    │   │   │   ├── test_configureCache_strategy_valid_fast\n    │   │   │   └── test_configureCache_strategy_valid_safe\n    │   │   ├── 无效等价类\n    │   │   │   ├── test_configureCache_strategy_invalid_empty\n    │   │   │   ├── test_configureCache_strategy_invalid_case_FAST\n    │   │   │   └── test_configureCache_strategy_invalid_unknown\n    │   │   ├── 边界值\n    │   │   │   └── 不涉及\n    │   │   └── 特殊值\n    │   │       └── test_configureCache_strategy_special_default_safe\n    │   └── persist\n    │       ├── 有效等价类\n    │       │   ├── test_configureCache_persist_valid_true\n    │       │   └── test_configureCache_persist_valid_false\n    │       ├── 无效等价类\n    │       │   └── 不涉及\n    │       ├── 边界值\n    │       │   └── 不涉及\n    │       └── 特殊值\n    │           └── 不涉及\n    ├── 多参数组合\n    │   ├── test_configureCache_pairwise_case1_capacity0_safe_true\n    │   ├── test_configureCache_pairwise_case2_capacity0_fast_false\n    │   ├── test_configureCache_pairwise_case3_capacity1_safe_false\n    │   ├── test_configureCache_pairwise_case4_capacity1_fast_true\n    │   ├── test_configureCache_pairwise_case5_capacity524288_safe_true\n    │   ├── test_configureCache_pairwise_case6_capacity524288_fast_false\n    │   ├── test_configureCache_pairwise_case7_capacity1048576_safe_false\n    │   └── test_configureCache_pairwise_case8_capacity1048576_fast_true\n    ├── 返回值验证\n    │   └── 不涉及\n    ├── 异常处理\n    │   ├── test_configureCache_exception_capacity_out_of_range\n    │   └── test_configureCache_exception_strategy_invalid\n    ├── 权限检查\n    │   └── 不涉及\n    ├── 特殊场景\n    │   ├── test_configureCache_special_clear_existing_cache\n    │   ├── test_configureCache_special_default_strategy_safe\n    │   └── test_configureCache_special_persist_switch_toggle\n    └── 组合场景\n        ├── test_configureCache_combination_clear_cache_safe_persist_true\n        ├── test_configureCache_combination_clear_cache_fast_persist_false\n        └── test_configureCache_combination_max_capacity_safe_persist_true",
+      "final_status": "passed",
+      "matched_skills": [
+        {
+          "name": "cangjie-testcase-xmind",
+          "rank": 1
+        }
+      ],
+      "loaded_skills": [
+        "cangjie-testcase-xmind"
+      ],
+      "tool_calls": [],
+      "latency_ms": 198888.8963999998,
+      "usage": {
+        "input_tokens": 22467,
+        "output_tokens": 4127,
+        "cached_input_tokens": 2432,
+        "reasoning_output_tokens": 3106,
+        "total_tokens": 26594,
+        "tool_call_count": 0,
+        "tool_call_error_count": 0,
+        "skill_context_slots": 2356,
+        "codex_stdout_chars": 3951,
+        "codex_stderr_chars": 0
+      },
+      "cost": null,
+      "error": null,
+      "timestamp": 1781336965.8933306,
+      "session_interactions": [
+        {
+          "type": "model_message",
+          "summary": "{\"output\":\"测试覆盖\\n└── configureCache\\n ├── 单参数测试\\n │ ├── capacity\\n │ │ ├── 有效等价类\\n │ │ │ ├── test_configureCache_capacity_valid_1\\n │ │ │ ├── test_configureCache_capacity_valid_524288\\n │ │ │ └── test_configureCache_capacity_valid_1048575\\n │ │ ├── 无效等价类\\n │ │ │ ├── test_configureCache_capacity_invalid_negative_1\\n │ │ │ ├── test_configureCache_capacity_invalid_1048577\\n │ │ │ └── test_configureCache_capacity_invalid_Int64Min\\n │ │ ├── 边界值\\n │ │ │ ├── test_configureCache_capacity_boundary_0\\n..."
+        },
+        {
+          "type": "model_turn",
+          "usage": {
+            "input_tokens": 22467,
+            "output_tokens": 4127,
+            "cached_input_tokens": 2432,
+            "reasoning_output_tokens": 3106,
+            "total_tokens": 26594
+          }
+        }
+      ],
+      "agent_returncode": 0,
+      "file": "evals\\content-basic.jsonl",
+      "line": 3,
+      "status": "passed",
+      "score": 0.9090909090909091,
+      "reasons": [],
+      "trace_complete": true,
+      "trace_missing_fields": [],
+      "pattern_score": 0.9090909090909091,
+      "validator_score": null
+    }
+  ],
+  "reportPath": "reports\\eval\\cangjie-testcase-xmind-after-skillx.json"
+}

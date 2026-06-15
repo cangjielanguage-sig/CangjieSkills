@@ -1,9 +1,0 @@
-{
-  "task_completed": "partial",
-  "adjudicated_outcome": "partial",
-  "result_gaps": "测试覆盖节点中的单参数测试缺失具体参数节点，以及有效等价类、无效等价类等讨论。",
-  "process_gaps": "用户的验收反馈被后续误读为修改脑图的新需求，导致产物被继续改动；该反馈本应作为 rollout ground truth 处理。",
-  "missed_steps": "cangjie-testcase-xmind 产出的单参数测试覆盖未展开具体参数节点和等价类讨论。",
-  "notes": "T001-T029 覆盖原始脑图设计执行窗口：读取目标文档与格式说明，生成 JSON/XMind，并执行校验与 content.xml 抽查；用户随后裁定结果为 partial，原因是单参数测试覆盖缺少参数节点和等价类讨论。后续误读反馈属于该窗口之外的处理问题，按当前用户澄清记录。",
-  "confidence": "high"
-}

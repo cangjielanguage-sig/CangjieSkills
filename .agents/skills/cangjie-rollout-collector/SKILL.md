@@ -5,7 +5,7 @@ description: "当目标 Skill 执行完成后需要从结构化 trace、显式�
 
 # 仓颉 Rollout Collector
 
-本 Skill 只负责采集、总结并保存 `Rollout Record`。治理、抽取、补丁合并、经验沉淀和目标 Skill 修改交给 `cangjie-skillx-layered-refinement`、`cangjie-trace2skill-evolution` 或 `cangjie-xskill-evolution`。
+本 Skill 只负责采集、总结并保存 `Rollout Record`。治理、抽取、补丁合并、经验沉淀和目标 Skill 修改交给 `cangjie-skill-evolution`。
 
 ## 分层入口
 

@@ -13,7 +13,7 @@ description: "当需要基于 cangjie-rollout-collector 生成的 Rollout Record
 
 输入可以是用户粘贴的 `Rollout Record` Markdown，也可以是用户指定的 rollout 文件。
 
-未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 下查找与用户指定 `target_skill` / `task_id` 匹配的记录。
+未指定输入时，不假设固定 rollouts 路径。按顺序定位 Rollout Record：用户提供的 rollout 文件或目录；已有治理摘要、报告或 trace 中记录的 rollout 路径；当前工作区或已知 skills 根目录中发现的 `cangjie-rollout-collector` 的 `records/rollouts`。仍无法定位时，要求用户提供 rollout 路径，不得跨盘全局搜索或凭空生成记录。
 
 可只读扫描目标 Skill 的既有治理摘要或 `reports/`，用于识别已处理 rollout、已应用 patch 和已拒绝候选。已有报告只用于增量过滤，不作为 accepted 候选的独立证据。
 
@@ -347,7 +347,7 @@ skill-eval --path '<target-skill-path>' --mode all --runner agent-command --agen
 ## 最小检查清单
 
 - 已确认 rollout 采集由 `cangjie-rollout-collector` 完成，本 Skill 只处理已有记录。
-- 未指定输入时，只从 `.agents/skills/cangjie-rollout-collector/records/rollouts/` 查找 rollout。
+- 未指定输入时，已按用户输入、既有报告路径、当前工作区或已知 skills 根目录中的 collector 记录目录定位 rollout；无法定位时已要求用户提供路径。
 - 已只读检查既有治理摘要或报告，已处理 rollout 未被重复生成 patch。
 - 已消费 `Transferable Observations`、`Failure Or Detour`、`used_experience` 与 `collection_confidence`。
 - 已按 `target_skill / task_id / outcome` 分组，未混合不同 Skill 的知识。

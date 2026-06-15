@@ -19,6 +19,18 @@ FIXED_COVERAGE_NODES = [
 
 CASE_KEYS = {"测试流程", "预期结果"}
 VALUE_CATEGORIES = ["有效等价类", "特殊值"]
+SINGLE_PARAMETER_CATEGORIES = ["有效等价类", "无效等价类", "边界值", "特殊值"]
+INTERFACE_TYPE_VALUES = {
+    "类",
+    "方法",
+    "属性",
+    "实例属性",
+    "构造函数",
+    "订阅型API",
+    "枚举值",
+    "硬件相关API",
+    "类型",
+}
 NO_DEFAULT_VALUES = {"", "无", "无默认值", "不涉及", "None", "none", "null", "NULL"}
 
 

@@ -1,4 +1,4 @@
-## func search(Filter)
+﻿## func search(Filter)
 
 ```cangjie
 public func search(filter: Filter): Array<String>
@@ -24,7 +24,7 @@ public func search(filter: Filter): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)与[通用错误码说明文档](../../errorcodes/cj-errorcode-universal.md)
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)与[通用错误码说明文档](../../cj-errorcode-universal/cj-errorcode-universal.md)
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -75,7 +75,7 @@ public func show(id: String): TaskInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)与[通用错误码说明文档](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)与[通用错误码说明文档](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -128,7 +128,7 @@ public func touch(id: String, token: String): TaskInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)与[通用错误码说明文档](../../errorcodes/cj-errorcode-universal.md)
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)与[通用错误码说明文档](../../cj-errorcode-universal/cj-errorcode-universal.md)
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

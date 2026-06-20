@@ -1,6 +1,6 @@
-## 预获取post请求
+﻿## 预获取post请求
 
-可以通过[prefetchResource()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-prefetchresourcerequestinfo-arraywebheader-string-int32)预获取将要加载页面中的post请求。在页面加载结束时，可以通过[clearPrefetchedResource()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-clearprefetchedresourcearraystring)清除后续不再使用的预获取资源缓存。
+可以通过[prefetchResource()](../../cj-apis-webview/.overview.md)预获取将要加载页面中的post请求。在页面加载结束时，可以通过[clearPrefetchedResource()](../../cj-apis-webview/.overview.md)清除后续不再使用的预获取资源缓存。
 
 以下示例，在Web组件onAppear中，对要加载页面中的post请求进行预获取。在onPageEnd中，可以清除预获取的post请求缓存。
 
@@ -34,7 +34,7 @@ class EntryView {
 }
 ```
 
-如果能够预测到Web组件将要加载页面或者即将要跳转页面中的post请求。可以通过[prefetchResource()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-prefetchresourcerequestinfo-arraywebheader-string-int32)预获取即将要加载页面的post请求。
+如果能够预测到Web组件将要加载页面或者即将要跳转页面中的post请求。可以通过[prefetchResource()](../../cj-apis-webview/.overview.md)预获取即将要加载页面的post请求。
 
 以下示例，在onPageEnd中，触发预获取一个要访问页面的post请求。
 

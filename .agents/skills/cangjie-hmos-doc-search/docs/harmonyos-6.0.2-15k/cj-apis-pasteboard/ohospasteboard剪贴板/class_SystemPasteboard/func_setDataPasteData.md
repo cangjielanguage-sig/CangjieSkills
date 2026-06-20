@@ -1,4 +1,4 @@
-### func setData(PasteData)
+﻿### func setData(PasteData)
 
 ```cangjie
 public func setData(data: PasteData): Unit
@@ -18,7 +18,7 @@ public func setData(data: PasteData): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[剪贴板错误码](../../errorcodes/cj-errorcode-pasteboard.md)。
+- BusinessException：对应错误码的详细介绍请参见[剪贴板错误码](../../../cj-errorcode-pasteboard/cj-errorcode-pasteboard.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

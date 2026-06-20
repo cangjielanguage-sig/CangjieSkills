@@ -1,4 +1,4 @@
-## func createPixelMap(InitializationOptions)
+﻿## func createPixelMap(InitializationOptions)
 
 ```cangjie
 public func createPixelMap(opts: InitializationOptions): PixelMap
@@ -24,7 +24,7 @@ public func createPixelMap(opts: InitializationOptions): PixelMap
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|
@@ -59,7 +59,7 @@ public func createPixelMapFromParcel(sequence: MessageSequence): PixelMap
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|sequence|[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence)|是|-|保存有PixelMap信息的MessageSequence。|
+|sequence|[MessageSequence](../../cj-apis-rpc/.overview.md)|是|-|保存有PixelMap信息的MessageSequence。|
 
 **返回值：**
 
@@ -69,7 +69,7 @@ public func createPixelMapFromParcel(sequence: MessageSequence): PixelMap
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

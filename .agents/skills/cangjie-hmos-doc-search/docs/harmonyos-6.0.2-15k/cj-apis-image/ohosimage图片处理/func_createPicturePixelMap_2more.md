@@ -1,4 +1,4 @@
-## func createPicture(PixelMap)
+﻿## func createPicture(PixelMap)
 
 ```cangjie
 public func createPicture(mainPixelmap: PixelMap): Picture
@@ -24,7 +24,7 @@ public func createPicture(mainPixelmap: PixelMap): Picture
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|
@@ -73,7 +73,7 @@ public func createPixelMap(colors: Array<UInt8>, opts: InitializationOptions): P
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|

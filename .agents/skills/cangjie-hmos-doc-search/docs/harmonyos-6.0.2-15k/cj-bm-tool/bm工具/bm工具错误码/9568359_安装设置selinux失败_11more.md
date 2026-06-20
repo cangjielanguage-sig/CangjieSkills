@@ -1,4 +1,4 @@
-### 9568359 安装设置selinux失败
+﻿### 9568359 安装设置selinux失败
 
 **错误信息：**
 
@@ -145,7 +145,7 @@ error: Install failed due to hap moduleName is empty.
 
 **处理步骤：**
 
-检查[module.json5](../cj-start/basic-knowledge/module-configuration-file.md)的name字段是否为空。
+检查[module.json5](../../../module-configuration-file/module-configuration-file.md)的name字段是否为空。
 
 ### 9568331 签名信息不一致
 
@@ -195,7 +195,7 @@ HAP包没有配置文件，导致安装失败。
 
 **可能原因：**
 
-[module.json、pack.info](../cj-start/basic-knowledge/application-package-structure-stage.md)等配置文件缺失。
+[module.json、pack.info](../../../application-package-structure-stage/.overview.md)等配置文件缺失。
 
 **处理步骤：**
 

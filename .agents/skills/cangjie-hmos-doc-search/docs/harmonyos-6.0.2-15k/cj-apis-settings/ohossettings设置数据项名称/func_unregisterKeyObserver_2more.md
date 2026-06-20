@@ -1,4 +1,4 @@
-## func unregisterKeyObserver\<T, P>(StageContext, T, P) where T <: ToStringP <: ToString
+﻿## func unregisterKeyObserver\<T, P>(StageContext, T, P) where T <: ToStringP <: ToString
 
 ```cangjie
 public func unregisterKeyObserver<T, P>(context: StageContext, name: T, domainName: P): Bool where T <: ToString, P <: ToString
@@ -14,7 +14,7 @@ public func unregisterKeyObserver<T, P>(context: StageContext, name: T, domainNa
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|应用上下文。context的获取方式请参见[getStageContext](../AbilityKit/cj-apis-ability.md#func-getstagecontextabilitycontext)。|
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|应用上下文。context的获取方式请参见[getStageContext](../../cj-apis-ability/.overview.md)。|
 |name|T|是|-|类型T需实现ToString接口。数据项的名称。数据项名称分为以下两种：<br> - 上述任意一个数据库中已存在的数据项。<br>- 开发者自行添加的数据项。 |
 |domainName|P|是|-|类型P需实现ToString接口。指定要设置的域名<br> - domainName为DomainName.DEVICE_SHARED，<br>&nbsp;&nbsp;&nbsp;表示设备属性共享域。<br>- domainName为DomainName.USER_PROPRERTY，<br>&nbsp;&nbsp;&nbsp;表示为用户属性域。|
 

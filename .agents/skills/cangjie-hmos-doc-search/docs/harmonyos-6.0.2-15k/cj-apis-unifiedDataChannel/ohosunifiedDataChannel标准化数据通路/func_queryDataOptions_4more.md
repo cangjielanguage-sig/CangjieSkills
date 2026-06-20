@@ -1,4 +1,4 @@
-## func queryData(Options)
+﻿## func queryData(Options)
 
 ```cangjie
 public func queryData(options: Options): Array<UnifiedData>
@@ -125,7 +125,7 @@ public mut prop details: HashMap<String, String>
 public mut prop uri: String
 ```
 
-**功能：** 本地文件数据uri或网络文件uri。本地文件数据uri可通过[getUriFromPath](../../apis/CoreFileKit/cj-apis-file_fileuri.md#static-func-geturifrompathstring)函数获取。
+**功能：** 本地文件数据uri或网络文件uri。本地文件数据uri可通过[getUriFromPath](../../cj-apis-file_fileuri/.overview.md)函数获取。
 
 **类型：** String
 

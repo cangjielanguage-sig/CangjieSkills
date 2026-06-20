@@ -1,4 +1,4 @@
-## 存取账号的授权令牌
+﻿## 存取账号的授权令牌
 
 具体开发实例如下：
 
@@ -11,13 +11,13 @@
    let token: String = 'xxxxxx'
    ```
 
-2. 调用[setAuthToken](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-setauthtokenstring-string-string)接口，设置指定授权类型的授权令牌。
+2. 调用[setAuthToken](../../cj-apis-account-appAccount/.overview.md)接口，设置指定授权类型的授权令牌。
 
    ```cangjie
    appAccountManager.setAuthToken(name, authType, token)
    ```
 
-3. 调用[getAuthToken](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-getauthtokenstring-string-string)接口，获取指定授权类型的授权令牌。
+3. 调用[getAuthToken](../../cj-apis-account-appAccount/.overview.md)接口，获取指定授权类型的授权令牌。
 
    ```cangjie
    appAccountManager.getAuthToken(name, owner, authType)
@@ -29,7 +29,7 @@
 
 具体开发实例如下：
 
-指定要删除的账号名称，调用[removeAccount](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-removeaccountstring)接口删除账号。
+指定要删除的账号名称，调用[removeAccount](../../cj-apis-account-appAccount/.overview.md)接口删除账号。
 
 ```cangjie
       try {

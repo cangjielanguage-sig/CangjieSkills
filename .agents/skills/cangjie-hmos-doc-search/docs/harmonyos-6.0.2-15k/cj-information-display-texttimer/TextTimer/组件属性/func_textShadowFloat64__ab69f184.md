@@ -1,4 +1,4 @@
-### func textShadow(Float64, ShadowType, Float64, Float64, AppResource, Bool)
+﻿### func textShadow(Float64, ShadowType, Float64, Float64, AppResource, Bool)
 
 ```cangjie
 public func textShadow(
@@ -25,5 +25,5 @@ public func textShadow(
 |shadowType|[ShadowType](./cj-common-types.md#enum-shadowtype)|否|ShadowType.COLOR| **命名参数。** 阴影类型。|
 |offsetX|Float64|否|0.0| **命名参数。** 阴影的X轴偏移量。<br/>单位：px。<br/>如需使用vp单位的数值可用[vp2px](./cj-common-pixelunits.md#func-vp2pxlength)进行转换。|
 |offsetY|Float64|否|0.0| **命名参数。** 阴影的Y轴偏移量。<br/>单位：px。<br/>如需使用vp单位的数值可用[vp2px](./cj-common-pixelunits.md#func-vp2pxlength)进行转换。|
-|color|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 阴影的颜色。|
+|color|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 阴影的颜色。|
 |fill|Bool|否|false| **命名参数。** 阴影是否内部填充。|

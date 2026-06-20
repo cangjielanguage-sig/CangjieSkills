@@ -1,4 +1,4 @@
-# 使用SoundPool播放短音频
+﻿# 使用SoundPool播放短音频
 
 使用[SoundPool](./cj-media-kit-intro.md#soundpool)（音频池）提供的接口，可以实现低时延短音播放。
 
@@ -6,7 +6,7 @@
 
 SoundPool当前支持播放1MB以下的音频资源，大小超过1MB的长音频将截取1MB大小数据进行播放。
 
-本开发指导将以SoundPool进行一次低时延播放音频的过程为例，向开发者讲解如何使用SoundPool。详细的API声明请参见[SoundPool API参考](../../../API_Reference/source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md#class-soundpool)。
+本开发指导将以SoundPool进行一次低时延播放音频的过程为例，向开发者讲解如何使用SoundPool。详细的API声明请参见[SoundPool API参考](../../cj-apis-multimedia_media/.overview.md)。
 
 过程包括：创建SoundPool实例，加载音频资源（包括资源的解封装与解码，解码格式请参见[音频解码支持](./cj-avcodec-support-formats.md#音频解码)），设置播放参数（循环模式/播放优先级等），播放控制（播放/停止），释放资源。
 
@@ -14,4 +14,4 @@ SoundPool当前支持播放1MB以下的音频资源，大小超过1MB的长音�
 
 > **说明：**
 >
-> 使用SoundPool播放短音频时，涉及音频焦点管控策略的问题，请参见[音频焦点指南](../audio/cj-audio-playback-concurrency.md)。
+> 使用SoundPool播放短音频时，涉及音频焦点管控策略的问题，请参见[音频焦点指南](../../cj-audio-playback-concurrency/.overview.md)。

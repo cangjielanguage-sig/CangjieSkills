@@ -1,4 +1,4 @@
-### var deliveryTime
+﻿### var deliveryTime
 
 ```cangjie
 public var deliveryTime: Int64 = 0
@@ -185,7 +185,7 @@ public var largeIcon: Option<PixelMap> = None
 
 **系统能力：** SystemCapability.Notification.Notification
 
-**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 

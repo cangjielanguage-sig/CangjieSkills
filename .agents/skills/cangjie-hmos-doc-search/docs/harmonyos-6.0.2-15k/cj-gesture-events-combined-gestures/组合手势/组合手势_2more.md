@@ -1,6 +1,6 @@
-# 组合手势
+﻿# 组合手势
 
-组合手势由多种单一手势组合而成，通过在GestureGroup中使用不同的[GestureMode](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-gesture-groupgesture.md#enum-gesturemode)来声明该组合手势的类型，支持[顺序识别](#顺序识别)、[并行识别](#并行识别)和[互斥识别](#互斥识别)三种类型。
+组合手势由多种单一手势组合而成，通过在GestureGroup中使用不同的[GestureMode](../../cj-universal-gesture-groupgesture/.overview.md)来声明该组合手势的类型，支持[顺序识别](#顺序识别)、[并行识别](#并行识别)和[互斥识别](#互斥识别)三种类型。
 
 ```cangjie
 GestureGroup(mode: GestureMode, gesture: Array<GestureType>)

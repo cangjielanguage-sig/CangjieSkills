@@ -1,4 +1,4 @@
-## 收藏
+﻿## 收藏
 
 > **注意：**
 >
@@ -36,6 +36,6 @@
 
 对于需要频繁调节播放进度的媒体内容（如播客、听书等长音频媒体，或长视频媒体），应用可以适配快进快退功能。
 
-可选择快进快退的时间长度：[10s、15s、30s](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#enum-skipintervals)。如下图显示。用户通过播控中心快进/快退，或在应用内快进快退，应用都需要通知播控当前调节完毕的状态与进度。
+可选择快进快退的时间长度：[10s、15s、30s](../../cj-apis-multimedia_avsession/.overview.md)。如下图显示。用户通过播控中心快进/快退，或在应用内快进快退，应用都需要通知播控当前调节完毕的状态与进度。
 
 ![playback fastForward rewind](./figures/playback-fastForward-rewind.png)

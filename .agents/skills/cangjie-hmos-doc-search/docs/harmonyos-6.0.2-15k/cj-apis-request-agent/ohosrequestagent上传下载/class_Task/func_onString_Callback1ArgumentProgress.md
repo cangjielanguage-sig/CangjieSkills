@@ -1,4 +1,4 @@
-### func on(String, Callback1Argument\<Progress>)
+﻿### func on(String, Callback1Argument\<Progress>)
 
 ```cangjie
 public func on(event: String, callback: Callback1Argument<Progress>): Unit
@@ -15,11 +15,11 @@ public func on(event: String, callback: Callback1Argument<Progress>): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |event|String|是|-|订阅的事件类型。<br>- 取值为'progress'，表示任务进度。<br>- 取值为'completed'，表示任务完成。<br>- 取值为'failed'，表示任务失败。<br>- 取值为'pause'，表示任务暂停。<br>- 取值为'resume'，表示任务恢复。<br>- 取值为'remove'，表示任务删除。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[Progress](#class-progress)>|是|-|发生相关的事件时触发该回调方法，返回任务信息的数据结构。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[Progress](#class-progress)>|是|-|发生相关的事件时触发该回调方法，返回任务信息的数据结构。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../../cj-errorcode-request/cj-errorcode-request.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

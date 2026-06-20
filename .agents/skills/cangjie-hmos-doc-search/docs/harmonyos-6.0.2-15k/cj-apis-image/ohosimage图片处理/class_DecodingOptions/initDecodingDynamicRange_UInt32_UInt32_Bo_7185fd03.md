@@ -1,4 +1,4 @@
-### init(DecodingDynamicRange, UInt32, UInt32, Bool, Size, Region, PixelMapFormat, UInt32, Int32, ?ColorSpaceManager)
+﻿### init(DecodingDynamicRange, UInt32, UInt32, Bool, Size, Region, PixelMapFormat, UInt32, Int32, ?ColorSpaceManager)
 
 ```cangjie
 public init(desiredDynamicRange: DecodingDynamicRange, sampleSize!: UInt32 = 1, rotate!: UInt32 = 0,
@@ -26,4 +26,4 @@ public init(desiredDynamicRange: DecodingDynamicRange, sampleSize!: UInt32 = 1, 
 |desiredPixelFormat|[PixelMapFormat](#enum-pixelmapformat)|否|UNKNOWN| **命名参数。** 解码的像素格式。|
 |index|UInt32|否|0| **命名参数。** 解码图片序号。|
 |fitDensity|Int32|否|0| **命名参数。** 图像像素密度，单位为ppi。|
-|desiredColorSpace|[ColorSpaceManager](../ArkGraphics2D/cj-apis-color_manager.md#class-colorspacemanager)|否|None| **命名参数。** 目标色彩空间。|
+|desiredColorSpace|[ColorSpaceManager](../../../cj-apis-color_manager/.overview.md)|否|None| **命名参数。** 目标色彩空间。|

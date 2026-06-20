@@ -1,4 +1,4 @@
-### AVMediaDescription(String, ?String, ?String, ?String, ?ValueType, ?HashMap\<String, ValueType>, ?String, ?String, ?Int32, ?String, ?String, ?String, ?String, ?String, ?AVFileDescriptor, ?AVDataSrcDescriptor, ?String, ?Int64, ?Int64, ?Int64, ?String, ?DisplayTag)
+﻿### AVMediaDescription(String, ?String, ?String, ?String, ?ValueType, ?HashMap\<String, ValueType>, ?String, ?String, ?Int32, ?String, ?String, ?String, ?String, ?String, ?AVFileDescriptor, ?AVDataSrcDescriptor, ?String, ?Int64, ?Int64, ?Int64, ?String, ?DisplayTag)
 
 ```cangjie
 public AVMediaDescription(
@@ -51,8 +51,8 @@ public AVMediaDescription(
 |lyricContent|?String|是|-|播放列表媒体歌词内容。|
 |lyricUri|?String|是|-|播放列表媒体歌词URI。|
 |artist|?String|是|-|播放列表媒体专辑作者。|
-|fdSrc|?[AVFileDescriptor](../MediaKit/cj-apis-multimedia_media.md#class-avfiledescriptor)|是|-|播放列表媒体本地文件的句柄。|
-|dataSrc|?[AVDataSrcDescriptor](../MediaKit/cj-apis-multimedia_media.md#class-avdatasrcdescriptor)|是|-|播放列表数据源描述。|
+|fdSrc|?[AVFileDescriptor](../../../cj-apis-multimedia_media/.overview.md)|是|-|播放列表媒体本地文件的句柄。|
+|dataSrc|?[AVDataSrcDescriptor](../../../cj-apis-multimedia_media/.overview.md)|是|-|播放列表数据源描述。|
 |drmScheme|?String|是|-|播放列表媒体支持的DRM方案，由uuid表示。|
 |duration|?Int64|是|-|播放列表媒体播放时长。|
 |startPosition|?Int64|是|-|播放列表媒体起始播放位置。|

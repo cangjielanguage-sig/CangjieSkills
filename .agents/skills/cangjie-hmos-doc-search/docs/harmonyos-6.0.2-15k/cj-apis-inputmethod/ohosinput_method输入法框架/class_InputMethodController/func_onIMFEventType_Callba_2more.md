@@ -1,4 +1,4 @@
-### func on(IMFEventType, Callback1Argument\<Range>)
+﻿### func on(IMFEventType, Callback1Argument\<Range>)
 
 ```cangjie
 public func on(eventType: IMFEventType, callback: Callback1Argument<Range>): Unit
@@ -15,11 +15,11 @@ public func on(eventType: IMFEventType, callback: Callback1Argument<Range>): Uni
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[IMFEventType](#enum-imfeventtype)|是|-|回调函数事件类型，当前仅支持SelectByRange。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[Range](#class-range)>|是|-|回调函数，返回需要选中的文本范围。<br/>根据传入的文本范围，开发者在回调函数中编辑框中相应文本。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[Range](#class-range)>|是|-|回调函数，返回需要选中的文本范围。<br/>根据传入的文本范围，开发者在回调函数中编辑框中相应文本。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -70,11 +70,11 @@ public func on(eventType: IMFEventType, callback: Callback1Argument<Movement>): 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[IMFEventType](#enum-imfeventtype)|是|-|回调函数事件类型，当前仅支持SelectByMovement。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[Movement](#class-movement)>|是|-|回调函数，返回光标移动的方向。<br/>根据传入的光标移动方向，选中编辑框中相应文本。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[Movement](#class-movement)>|是|-|回调函数，返回光标移动的方向。<br/>根据传入的光标移动方向，选中编辑框中相应文本。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

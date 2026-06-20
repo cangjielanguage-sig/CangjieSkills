@@ -1,4 +1,4 @@
-## class JsMessageExt
+﻿## class JsMessageExt
 
 ```cangjie
 public class JsMessageExt {}
@@ -30,7 +30,7 @@ public func getArray(): MessageArrayValue
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -56,7 +56,7 @@ public func getArrayBuffer(): Array<UInt8>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -82,7 +82,7 @@ public func getBoolean(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -108,7 +108,7 @@ public func getNumber(): Float64
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -134,7 +134,7 @@ public func getString(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

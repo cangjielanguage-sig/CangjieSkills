@@ -1,4 +1,4 @@
-### func setMediaMuted(MediaType, Bool)
+﻿### func setMediaMuted(MediaType, Bool)
 
 ```cangjie
 public func setMediaMuted(mediaType: MediaType, muted: Bool): Unit
@@ -19,7 +19,7 @@ public func setMediaMuted(mediaType: MediaType, muted: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -66,7 +66,7 @@ public func setMediaSource(src: MediaSource, strategy!: ?PlaybackStrategy = None
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

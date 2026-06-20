@@ -1,4 +1,4 @@
-### class RichEditorController
+﻿### class RichEditorController
 
 ```cangjie
 public class RichEditorController {}
@@ -38,7 +38,7 @@ public func addImageSpan(value!: AppResource, options!: RichEditorImageSpanOptio
 
 | 参数名 | 类型 | 必填 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- | :--- |
-| value | [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource ) | 是 | - | **命名参数。**  图片内容。 |
+| value | [AppResource](../../../../cj-apis-resource_manager/.overview.md) | 是 | - | **命名参数。**  图片内容。 |
 | options | [RichEditorImageSpanOptions](#class-richeditorimagespanoptions) | 否 | RichEditorImageSpanOptions() | **命名参数。**  图片选项。 |
 
 **返回值：**

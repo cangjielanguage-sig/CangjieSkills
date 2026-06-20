@@ -1,4 +1,4 @@
-## class RequestInfo
+﻿## class RequestInfo
 
 ```cangjie
 public class RequestInfo {
@@ -107,7 +107,7 @@ public var width: Length = 0.vp
 
 **功能：** 元素宽度。
 
-**类型：** [Length](../../arkui-cj/cj-common-types.md#interface-length)
+**类型：** [Length](../../cj-common-types/.overview.md)
 
 **读写能力：** 可读写。
 
@@ -121,7 +121,7 @@ public var height: Length = 0.vp
 
 **功能：** 元素高度。
 
-**类型：** [Length](../../arkui-cj/cj-common-types.md#interface-length)
+**类型：** [Length](../../cj-common-types/.overview.md)
 
 **读写能力：** 可读写。
 
@@ -143,8 +143,8 @@ public SizeOptions(public var width!: Length = 0.vp, public var height!: Length 
 
 |名称|类型|必填|默认值|说明|
 |:----|:----|:----|:----|:----|
-|width|[Length](../../arkui-cj/cj-common-types.md#interface-length)|否|0.vp| **命名参数。** 元素宽度。|
-|height|[Length](../../arkui-cj/cj-common-types.md#interface-length)|否|0.vp| **命名参数。** 元素高度。|
+|width|[Length](../../cj-common-types/.overview.md)|否|0.vp| **命名参数。** 元素宽度。|
+|height|[Length](../../cj-common-types/.overview.md)|否|0.vp| **命名参数。** 元素高度。|
 
 **起始版本：** 19
 

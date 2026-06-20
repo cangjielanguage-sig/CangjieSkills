@@ -1,10 +1,10 @@
-### func onControllerAttached(() -> Unit)
+﻿### func onControllerAttached(() -> Unit)
 
 ```cangjie
 public func onControllerAttached(callback: () -> Unit): This
 ```
 
-**功能：** 当Controller成功绑定到Web组件时触发该回调，并且该Controller必须为WebviewController，且禁止在该事件回调前调用Web组件相关的接口，否则会抛出异常。因该回调调用时网页还未加载，无法在回调中使用有关操作网页的接口，例如[zoomIn](../apis/ArkWeb/cj-apis-webview.md)、[zoomOut](../apis/ArkWeb/cj-apis-webview.md)等，可以使用[loadUrl](../apis/ArkWeb/cj-apis-webview.md)、[getWebId](../apis/ArkWeb/cj-apis-webview.md)等操作网页不相关的接口。
+**功能：** 当Controller成功绑定到Web组件时触发该回调，并且该Controller必须为WebviewController，且禁止在该事件回调前调用Web组件相关的接口，否则会抛出异常。因该回调调用时网页还未加载，无法在回调中使用有关操作网页的接口，例如[zoomIn](../../../cj-apis-webview/.overview.md)、[zoomOut](../../../cj-apis-webview/.overview.md)等，可以使用[loadUrl](../../../cj-apis-webview/.overview.md)、[getWebId](../../../cj-apis-webview/.overview.md)等操作网页不相关的接口。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 

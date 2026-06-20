@@ -1,4 +1,4 @@
-## class ViewBase
+﻿## class ViewBase
 
 ```cangjie
 public open class ViewBase <: InteractableView & ComponentRender {}
@@ -38,7 +38,7 @@ public func startTrace(name: String, taskId: Int32): This
 > **说明：**
 >
 > - 如果有多个相同name的任务需要跟踪或者对同一个任务要跟踪多次，并且任务同时被执行，则每次调用该方法的taskId不相同。
-> - 如果具有相同name的任务是串行执行的，则taskId可以相同。具体示例可参考[finishTrace](../apis/PerformanceAnalysisKit/cj-apis-hi_tracemeter.md#static-func-finishtracestring-int32)中的示例。
+> - 如果具有相同name的任务是串行执行的，则taskId可以相同。具体示例可参考[finishTrace](../../cj-apis-hi_tracemeter/.overview.md)中的示例。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

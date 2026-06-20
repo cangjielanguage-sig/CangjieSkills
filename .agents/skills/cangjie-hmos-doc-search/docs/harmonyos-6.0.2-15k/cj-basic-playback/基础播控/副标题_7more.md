@@ -1,10 +1,10 @@
-## 副标题
+﻿## 副标题
 
 > **注意：**
 >
 > 自验证关注点：播放过程中查看播控中心是否显示副标题，显示是否正确。
 
-副标题用于显示媒体内容的辅助信息，如歌曲的歌手名、影片的发布者信息、剧集/综艺节目的选集信息等。可通过[AVMetadata.subtitle](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#class-avmetadata)或者[AVMetadata.artist](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#class-avmetadata)，选其一设置。
+副标题用于显示媒体内容的辅助信息，如歌曲的歌手名、影片的发布者信息、剧集/综艺节目的选集信息等。可通过[AVMetadata.subtitle](../../cj-apis-multimedia_avsession/.overview.md)或者[AVMetadata.artist](../../cj-apis-multimedia_avsession/.overview.md)，选其一设置。
 
 ![playback subtitle](./figures/playback-subtitle.png)
 
@@ -14,7 +14,7 @@
 >
 > 自验证关注点：播放过程中查看播控中心是否显示歌词，显示是否正确，是否随进度正确刷新显示。
 
-歌曲类媒体内容如有歌词信息，可以选择在副标题区域显示歌词。将当前播放歌曲的全曲歌词内容，按照标准lyric格式拼接为字符串，如[00:25.44]xxx\r\n[00:26.44]xxx\r\n，通过[AVMetadata.lyric](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#class-avmetadata)设置给播控中心。播控中心会自动按照进度，在副标题位置刷新显示，应用不需要实现其余功能。
+歌曲类媒体内容如有歌词信息，可以选择在副标题区域显示歌词。将当前播放歌曲的全曲歌词内容，按照标准lyric格式拼接为字符串，如[00:25.44]xxx\r\n[00:26.44]xxx\r\n，通过[AVMetadata.lyric](../../cj-apis-multimedia_avsession/.overview.md)设置给播控中心。播控中心会自动按照进度，在副标题位置刷新显示，应用不需要实现其余功能。
 
 ![playback lyric](./figures/playback-lyric.png)
 
@@ -24,7 +24,7 @@
 >
 > 自验证关注点：播放过程中查看播控中心是否显示“AudioVivid”等标识。
 
-应用可以提供当前播放的媒体内容的资源标签信息（[AVMetadata.displayTags](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#class-avmetadata)）。根据媒体资源的属性，应用可用提供标签信息以体现该媒体内容的特殊性，如：AudioVivid
+应用可以提供当前播放的媒体内容的资源标签信息（[AVMetadata.displayTags](../../cj-apis-multimedia_avsession/.overview.md)）。根据媒体资源的属性，应用可用提供标签信息以体现该媒体内容的特殊性，如：AudioVivid
 
 ![playback displayTags](./figures/playback-displayTags.png)
 

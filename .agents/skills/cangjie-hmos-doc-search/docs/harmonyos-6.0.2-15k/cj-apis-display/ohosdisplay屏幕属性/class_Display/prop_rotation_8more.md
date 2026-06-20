@@ -1,4 +1,4 @@
-### prop rotation
+﻿### prop rotation
 
 ```cangjie
 public prop rotation: UInt32
@@ -122,7 +122,7 @@ public func getAvailableArea(): Rect
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -164,7 +164,7 @@ public func getCutoutInfo(): CutoutInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

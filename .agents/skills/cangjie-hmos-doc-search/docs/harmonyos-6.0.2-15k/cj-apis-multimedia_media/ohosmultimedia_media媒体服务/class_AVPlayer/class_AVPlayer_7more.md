@@ -1,4 +1,4 @@
-## class AVPlayer
+﻿## class AVPlayer
 
 ```cangjie
 public class AVPlayer {}
@@ -20,7 +20,7 @@ public mut prop audioEffectMode: AudioEffectMode
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
-**类型：** [AudioEffectMode](../AudioKit/cj-apis-multimedia-audio.md#enum-audioeffectmode)
+**类型：** [AudioEffectMode](../../../cj-apis-multimedia-audio/.overview.md)
 
 **读写能力：** 可读写
 
@@ -36,7 +36,7 @@ public mut prop audioInterruptMode: InterruptMode
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
-**类型：** [InterruptMode](../AudioKit/cj-apis-multimedia-audio.md#enum-interruptmode)
+**类型：** [InterruptMode](../../../cj-apis-multimedia-audio/.overview.md)
 
 **读写能力：** 可读写
 
@@ -48,11 +48,11 @@ public mut prop audioInterruptMode: InterruptMode
 public mut prop audioRendererInfo: AudioRendererInfo
 ```
 
-**功能：** 设置音频渲染信息。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。若默认usage不满足需求，则须主动配置[audio.AudioRendererInfo](../AudioKit/cj-apis-multimedia-audio.md#class-audiorendererinfo)。<br/>只允许在**initialized**状态下设置。<br/>在第一次调用[prepare()](#func-prepare)之前设置，以便音频渲染器信息在之后生效。
+**功能：** 设置音频渲染信息。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。若默认usage不满足需求，则须主动配置[audio.AudioRendererInfo](../../../cj-apis-multimedia-audio/.overview.md)。<br/>只允许在**initialized**状态下设置。<br/>在第一次调用[prepare()](#func-prepare)之前设置，以便音频渲染器信息在之后生效。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
-**类型：** [AudioRendererInfo](../AudioKit/cj-apis-multimedia-audio.md#class-audiorendererinfo)
+**类型：** [AudioRendererInfo](../../../cj-apis-multimedia-audio/.overview.md)
 
 **读写能力：** 可读写
 

@@ -1,4 +1,4 @@
-## class UserAuthResultCode
+﻿## class UserAuthResultCode
 
 ```cangjie
 public class UserAuthResultCode {
@@ -23,7 +23,7 @@ public class UserAuthResultCode {
 
 **功能：** 表示返回码。
 
-关于错误码的具体信息，可在[用户认证错误码](../../errorcodes/cj-errorcode-user-auth.md)中查看。
+关于错误码的具体信息，可在[用户认证错误码](../../../cj-errorcode-user-auth/cj-errorcode-user-auth.md)中查看。
 
 **系统能力：** SystemCapability.UserIAM.UserAuth.Core
 

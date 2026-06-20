@@ -1,4 +1,4 @@
-# 拉起指定类型的应用概述
+﻿# 拉起指定类型的应用概述
 
 本章主要介绍拉起方应用如何通过指定应用类型、而非某个具体的应用，来实现应用跳转。通常有以下几种方式：
 
@@ -18,9 +18,9 @@
 
 ### 匹配规则
 
-[UIAbilityContext.startAbilityByType](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybytypestring-string-abilitystartcallback)和[UIExtensionContentSession.startAbilityByType](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybytypestring-string-abilitystartcallback-1)接口支持基于业务类型拉起垂域面板。调用方通过指定业务类型即可拉起对应的垂域面板，在垂域面板上将展示目标方接入的垂域应用。
+[UIAbilityContext.startAbilityByType](../cj-apis-ability/.overview.md)和[UIExtensionContentSession.startAbilityByType](../cj-apis-ability/.overview.md)接口支持基于业务类型拉起垂域面板。调用方通过指定业务类型即可拉起对应的垂域面板，在垂域面板上将展示目标方接入的垂域应用。
 
-系统会根据调用方在startAbilityByType接口传入的type与wantParams.sceneType取值，按照如下映射关系，匹配到在module.json5配置文件中声明了对应[linkFeature](../cj-start/basic-knowledge/module-configuration-file.md#skills标签)的目标应用。
+系统会根据调用方在startAbilityByType接口传入的type与wantParams.sceneType取值，按照如下映射关系，匹配到在module.json5配置文件中声明了对应[linkFeature](../module-configuration-file/module-configuration-file.md#skills标签)的目标应用。
 
 | 支持的功能 | 调用方（startAbilityByType接口入参）  |  目标方（配置文件linkFeature取值） |
 | ------------ | ------------ |   ------------ |

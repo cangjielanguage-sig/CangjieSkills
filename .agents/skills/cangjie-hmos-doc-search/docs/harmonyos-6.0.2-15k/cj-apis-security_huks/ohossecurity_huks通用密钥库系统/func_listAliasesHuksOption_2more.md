@@ -1,4 +1,4 @@
-## func listAliases(HuksOptions)
+﻿## func listAliases(HuksOptions)
 
 ```cangjie
 public func listAliases(options: HuksOptions): Array<String>
@@ -24,7 +24,7 @@ public func listAliases(options: HuksOptions): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[HUKS错误码](../../errorcodes/cj-errorcode-huks.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[HUKS错误码](../../cj-errorcode-huks/cj-errorcode-huks.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -91,7 +91,7 @@ public func updateSession(handle: HuksHandle, options: HuksOptions): Option<Arra
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[HUKS错误码](../../errorcodes/cj-errorcode-huks.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[HUKS错误码](../../cj-errorcode-huks/cj-errorcode-huks.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息      |
   | :-------- | :------------- |

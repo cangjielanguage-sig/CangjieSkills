@@ -1,4 +1,4 @@
-### func getPluralStringValue(AppResource, Int64)
+﻿### func getPluralStringValue(AppResource, Int64)
 
 ```cangjie
 public func getPluralStringValue(resource: AppResource, num: Int64): String
@@ -29,7 +29,7 @@ public func getPluralStringValue(resource: AppResource, num: Int64): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -80,7 +80,7 @@ public func getRawFd(path: String): RawFileDescriptor
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -129,7 +129,7 @@ public func getRawFileContent(path: String): Array<UInt8>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

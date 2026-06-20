@@ -1,4 +1,4 @@
-### func on(AudioRendererCallbackType, Callback1Argument\<AudioState>)
+﻿### func on(AudioRendererCallbackType, Callback1Argument\<AudioState>)
 
 ```cangjie
 public func on(`type`: AudioRendererCallbackType, callback: Callback1Argument<AudioState>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AudioRendererCallbackType, callback: Callback1Argument<Au
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioRendererCallbackType](#enum-audiorenderercallbacktype)|是|-|监听事件，固定为：'AR_STATE_CHANGE'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[AudioState](#enum-audiostate)>|是|-|回调函数，返回当前音频流的输出设备描述信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[AudioState](#enum-audiostate)>|是|-|回调函数，返回当前音频流的输出设备描述信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

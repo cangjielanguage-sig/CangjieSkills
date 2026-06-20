@@ -1,4 +1,4 @@
-### 注入UI模拟操作
+﻿### 注入UI模拟操作
 
 | 命令   | 必填 | 描述    |
 |------|------|-----------------|
@@ -107,7 +107,7 @@ hdc shell uitest uiInput inputText 100 100 hello
 
 > **说明：**
 >
-> 最多支持传入是三个键值，键值的具体取值请参考[KeyCode](../../API_Reference/source_zh_cn/apis/InputKit/cj-apis-multimodalInput-keyCode.md#enum-keycode)。
+> 最多支持传入是三个键值，键值的具体取值请参考[KeyCode](../../../cj-apis-multimodalInput-keyCode/.overview.md)。
 
 ```shell
 # 返回主页。

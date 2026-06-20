@@ -1,6 +1,6 @@
-### 添加图文变化前和图文变化后可触发的回调
+﻿### 添加图文变化前和图文变化后可触发的回调
 
-通过[onDidChange](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-ondidchangetextrange-textrange---unit)添加图文变化后可触发的回调。此回调适用于内容保存与同步，例如在用户完成内容编辑后，可使用该回调自动将最新内容保存至本地或同步至服务器。此外，它还适用于内容状态更新与渲染，例如在待办事项列表应用中，用户编辑富文本格式的待办事项描述后，可使用该回调更新待办事项在列表中的显示样式。
+通过[onDidChange](../../../cj-text-input-richeditor/.overview.md)添加图文变化后可触发的回调。此回调适用于内容保存与同步，例如在用户完成内容编辑后，可使用该回调自动将最新内容保存至本地或同步至服务器。此外，它还适用于内容状态更新与渲染，例如在待办事项列表应用中，用户编辑富文本格式的待办事项描述后，可使用该回调更新待办事项在列表中的显示样式。
 
 <!-- run -->
 
@@ -42,7 +42,7 @@ class EntryView {
 
 ### 添加输入法输入内容前和完成输入后可触发的回调
 
-在添加输入法输入内容前，可以通过[aboutToIMEInput](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-abouttoimeinputricheditorinsertvalue---bool)触发回调。在输入法完成输入后，可以通过[onIMEInputComplete](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-onimeinputcompletericheditortextspanresult---unit)触发回调。
+在添加输入法输入内容前，可以通过[aboutToIMEInput](../../../cj-text-input-richeditor/.overview.md)触发回调。在输入法完成输入后，可以通过[onIMEInputComplete](../../../cj-text-input-richeditor/.overview.md)触发回调。
 
 这两种回调机制适用于智能输入辅助。例如：在用户开始输入文本前，利用回调提供词汇联想，在用户完成输入后，利用回调执行自动化纠错或格式转换。
 

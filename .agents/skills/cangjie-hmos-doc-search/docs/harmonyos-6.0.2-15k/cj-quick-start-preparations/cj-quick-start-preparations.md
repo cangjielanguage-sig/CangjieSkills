@@ -1,4 +1,4 @@
-# 开发准备
+﻿# 开发准备
 
 本文档适用于仓颉应用开发的初学者。通过构建一个简单的具有页面跳转/返回功能的应用（如下图所示），快速了解工程目录的主要文件，熟悉仓颉应用开发流程。
 
@@ -16,7 +16,7 @@
 
 应用模型是HarmonyOS为开发者提供的应用程序所需能力的抽象提炼，它提供了应用程序必备的组件和运行机制。有了应用模型，开发者可以基于一套统一的模型进行应用开发，使应用开发更简单、高效。
 
-仓颉应用使用Stage模型。在该模型中，由于提供了AbilityStage、WindowStage等类作为应用组件和Window窗口的“舞台”，因此称这种应用模型为Stage模型。Stage模型开发可见[Stage模型开发概述](../../../application-models/cj-stage-model-development-overview.md)。
+仓颉应用使用Stage模型。在该模型中，由于提供了AbilityStage、WindowStage等类作为应用组件和Window窗口的“舞台”，因此称这种应用模型为Stage模型。Stage模型开发可见[Stage模型开发概述](../cj-stage-model-development-overview/cj-stage-model-development-overview.md)。
 
 快速入门提供了一个含有两个页面的开发实例，并基于stage模型构建第一个HarmonyOS应用（仓颉），以便开发者理解以上基本概念及应用开发流程。
 

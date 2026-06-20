@@ -1,4 +1,4 @@
-### func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
+﻿### func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
 
 ```cangjie
 public func on(`type`: ProfileCallbackType, callback: Callback1Argument<StateChangeParam>): Unit
@@ -17,11 +17,11 @@ public func on(`type`: ProfileCallbackType, callback: Callback1Argument<StateCha
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[ProfileCallbackType](cj-apis-bluetooth-baseProfile.md#enum-profilecallbacktype)|是|填写CONNECTIONSTATECHANGE，表示连接状态变化事件类型。 |
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[StateChangeParam](cj-apis-bluetooth-baseProfile.md#struct-statechangeparam)>|是|表示回调函数的入参。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[StateChangeParam](cj-apis-bluetooth-baseProfile.md#struct-statechangeparam)>|是|表示回调函数的入参。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

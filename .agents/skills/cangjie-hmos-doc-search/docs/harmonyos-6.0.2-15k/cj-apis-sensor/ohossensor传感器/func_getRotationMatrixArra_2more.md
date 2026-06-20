@@ -1,4 +1,4 @@
-## func getRotationMatrix(Array\<Float32>, Array\<Float32>)
+﻿## func getRotationMatrix(Array\<Float32>, Array\<Float32>)
 
 ```cangjie
 public func getRotationMatrix(gravity: Array<Float32>, geomagnetic: Array<Float32>): RotationMatrixResponse
@@ -25,7 +25,7 @@ public func getRotationMatrix(gravity: Array<Float32>, geomagnetic: Array<Float3
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../errorcodes/cj-errorcode-sensor.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../cj-errorcode-sensor/cj-errorcode-sensor.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息                                                     |
   | -------- | ------------------------------------------------------------|
@@ -74,7 +74,7 @@ public func getSensorList(): Array<Sensor>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../errorcodes/cj-errorcode-sensor.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../cj-errorcode-sensor/cj-errorcode-sensor.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

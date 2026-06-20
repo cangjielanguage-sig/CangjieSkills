@@ -1,6 +1,6 @@
-### 应用代码开启Web调试开关
+﻿### 应用代码开启Web调试开关
 
-调试网页前，需要应用侧代码调用[setWebDebuggingAccess()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-setwebdebuggingaccessbool)接口开启Web调试开关。
+调试网页前，需要应用侧代码调用[setWebDebuggingAccess()](../../../cj-apis-webview/.overview.md)接口开启Web调试开关。
 
 如果没有开启Web调试开关，则DevTools无法发现被调试的网页。
 
@@ -34,7 +34,7 @@
     }
     ```
 
-2. 开启调试功能需要在DevEco Studio应用工程hap模块的module.json5文件中增加如下权限，添加方法请参见[在配置文件中声明权限](../security/AccessToken/cj-declare-permissions.md)。
+2. 开启调试功能需要在DevEco Studio应用工程hap模块的module.json5文件中增加如下权限，添加方法请参见[在配置文件中声明权限](../../../cj-declare-permissions/.overview.md)。
 
     ```json
     "requestPermissions":[

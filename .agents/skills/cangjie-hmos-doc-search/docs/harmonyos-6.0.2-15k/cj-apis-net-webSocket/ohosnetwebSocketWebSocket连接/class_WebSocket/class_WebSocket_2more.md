@@ -1,4 +1,4 @@
-## class WebSocket
+﻿## class WebSocket
 
 ```cangjie
 public class WebSocket {}
@@ -29,12 +29,12 @@ options!: ?WebSocketCloseOptions = None): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Bool>|是|-|回调函数。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Bool>|是|-|回调函数。|
 |options|?[WebSocketCloseOptions](#class-websocketcloseoptions)|否|None|参考[WebSocketCloseOptions](#class-websocketcloseoptions)。默认为None。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

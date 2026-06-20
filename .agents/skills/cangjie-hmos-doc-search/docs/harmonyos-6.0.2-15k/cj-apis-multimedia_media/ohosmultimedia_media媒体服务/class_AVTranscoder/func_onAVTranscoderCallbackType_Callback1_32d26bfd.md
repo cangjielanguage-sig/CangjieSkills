@@ -1,4 +1,4 @@
-### func on(AVTranscoderCallbackType, Callback1Argument\<BusinessException>)
+﻿### func on(AVTranscoderCallbackType, Callback1Argument\<BusinessException>)
 
 ```cangjie
 public func on(`type`: AVTranscoderCallbackType, callback: Callback1Argument<BusinessException>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AVTranscoderCallbackType, callback: Callback1Argument<Bus
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVTranscoderCallbackType](#enum-avtranscodercallbacktype)|是|-|转码错误事件回调类型ERROR。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|转码错误事件回调方法。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|转码错误事件回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

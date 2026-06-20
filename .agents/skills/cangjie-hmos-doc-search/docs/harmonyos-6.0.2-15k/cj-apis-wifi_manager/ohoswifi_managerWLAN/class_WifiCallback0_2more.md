@@ -1,4 +1,4 @@
-## class WifiCallback0
+﻿## class WifiCallback0
 
 ```cangjie
 public class WifiCallback0 <: Callback0Argument {
@@ -14,7 +14,7 @@ public class WifiCallback0 <: Callback0Argument {
 
 **父类型：**
 
-- [Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)
+- [Callback0Argument](../../cj-apis-base/.overview.md)
 
 ### init(() -> Unit)
 
@@ -56,7 +56,7 @@ public class WifiCallback1<T> <: Callback1Argument<T> {
 
 **父类型：**
 
-- [Callback1Argument\<T>](../BasicServicesKit/cj-apis-base.md#class-callback1argument)
+- [Callback1Argument\<T>](../../cj-apis-base/.overview.md)
 
 ### init((T) -> Unit)
 

@@ -1,6 +1,6 @@
-# 实现属性动画
+﻿# 实现属性动画
 
-通过可动画属性改变引起UI上产生的连续视觉效果，即为属性动画。属性动画是最基础易懂的动画，ArkUI提供两种属性动画接口[animateTo](../../API_Reference/source_zh_cn/arkui-cj/cj-animation-animateto.md)、[animation](../../API_Reference/source_zh_cn/arkui-cj/cj-animation-animation.md)驱动组件属性按照动画曲线等动画参数进行连续的变化，产生属性动画。
+通过可动画属性改变引起UI上产生的连续视觉效果，即为属性动画。属性动画是最基础易懂的动画，ArkUI提供两种属性动画接口[animateTo](../../cj-animation-animateto/.overview.md)、[animation](../../cj-animation-animation/cj-animation-animation.md)驱动组件属性按照动画曲线等动画参数进行连续的变化，产生属性动画。
 
 |属性动画接口|作用域|原理|使用场景|
 |:---|:---|:---|:---|
@@ -13,7 +13,7 @@
 public func animateTo(animation: AnimateParam, callback: () -> Unit): Unit
 ```
 
-[animateTo](../../API_Reference/source_zh_cn/arkui-cj/cj-animation-animateto.md)接口参数中，animation指定[AnimateParam对象](../../API_Reference/source_zh_cn/arkui-cj/cj-animation-animateto.md#struct-animateparam)（包括时长、[Curve](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-curve)等）callback为动画的闭包函数，闭包内变量改变产生的属性动画将遵循相同的动画参数。
+[animateTo](../../cj-animation-animateto/.overview.md)接口参数中，animation指定[AnimateParam对象](../../cj-animation-animateto/.overview.md)（包括时长、[Curve](../../cj-common-types/.overview.md)等）callback为动画的闭包函数，闭包内变量改变产生的属性动画将遵循相同的动画参数。
 
 <!-- run -->
 

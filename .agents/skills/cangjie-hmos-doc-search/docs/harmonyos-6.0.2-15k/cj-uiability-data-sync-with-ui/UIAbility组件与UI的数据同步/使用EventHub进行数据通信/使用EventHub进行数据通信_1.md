@@ -1,10 +1,10 @@
-## 使用EventHub进行数据通信
+﻿## 使用EventHub进行数据通信
 
-[EventHub](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-eventhub.md)为[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)组件提供了事件机制，使它们能够进行订阅、取消订阅和触发事件等数据通信能力。
+[EventHub](../../../cj-apis-eventhub/.overview.md)为[UIAbility](../../../cj-apis-ability/.overview.md)组件提供了事件机制，使它们能够进行订阅、取消订阅和触发事件等数据通信能力。
 
 在[基类Context](cj-application-context-stage.md)中，提供了EventHub对象，可用于在UIAbility组件实例内通信。使用EventHub实现Ability与UI之间的数据通信需要先获取EventHub对象，本章节将以此为例进行说明。
 
-1. 在Ability中调用[eventHub.on()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-eventhub.md#func-oneventcallback0)方法注册一个自定义事件“event1”，eventHub.on()有如下两种调用方式，使用其中一种即可。
+1. 在Ability中调用[eventHub.on()](../../../cj-apis-eventhub/.overview.md)方法注册一个自定义事件“event1”，eventHub.on()有如下两种调用方式，使用其中一种即可。
 
     ```cangjie
     import ohos.base.AppLog
@@ -54,7 +54,7 @@
     }
     ```
 
-2. 在UI中通过[emit()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-eventhub.md#func-emit)方法触发该事件，在触发事件的同时，根据需要传入参数信息。
+2. 在UI中通过[emit()](../../../cj-apis-eventhub/.overview.md)方法触发该事件，在触发事件的同时，根据需要传入参数信息。
 
     ```cangjie
     import kit.AbilityKit.{UIAbilityContext, Want}
@@ -106,4 +106,4 @@
     [Example].[Entry].[EntryAbility] 1. 2, test
     ```
 
-4. 在自定义事件“event1”使用完成后，可以根据需要调用[off()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-eventhub.md#func-off)方法取消该事件的订阅。
+4. 在自定义事件“event1”使用完成后，可以根据需要调用[off()](../../../cj-apis-eventhub/.overview.md)方法取消该事件的订阅。

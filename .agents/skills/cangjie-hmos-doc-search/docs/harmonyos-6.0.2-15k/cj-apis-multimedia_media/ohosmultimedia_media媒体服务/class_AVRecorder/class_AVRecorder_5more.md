@@ -1,4 +1,4 @@
-## class AVRecorder
+﻿## class AVRecorder
 
 ```cangjie
 public class AVRecorder {}
@@ -48,7 +48,7 @@ public func getAVRecorderConfig(): AVRecorderConfig
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -80,7 +80,7 @@ public func getAudioCapturerMaxAmplitude(): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -107,7 +107,7 @@ public func getAvailableEncoder(): Array<EncoderInfo>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

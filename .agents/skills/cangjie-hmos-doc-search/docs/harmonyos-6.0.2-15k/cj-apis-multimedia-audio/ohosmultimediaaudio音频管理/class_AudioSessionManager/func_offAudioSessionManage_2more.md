@@ -1,4 +1,4 @@
-### func off(AudioSessionManagerCallbackType, ?CallbackObject)
+﻿### func off(AudioSessionManagerCallbackType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: AudioSessionManagerCallbackType, callback!: ?CallbackObject = None): Unit
@@ -15,7 +15,7 @@ public func off(`type`: AudioSessionManagerCallbackType, callback!: ?CallbackObj
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioSessionManagerCallbackType](#enum-audiosessionmanagercallbacktype)|是|-|监听事件类型。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 回调函数。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 回调函数。|
 
 **示例：**
 
@@ -63,7 +63,7 @@ public func on(`type`: AudioSessionManagerCallbackType, callback: Callback1Argum
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioSessionManagerCallbackType](#enum-audiosessionmanagercallbacktype)|是|-|监听事件。|
-|callback|?[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[AudioSessionDeactivatedEvent](#class-audiosessiondeactivatedevent)>|否|None| 回调函数, 返回音频会话停用原因。|
+|callback|?[Callback1Argument](../../../cj-apis-base/.overview.md)\<[AudioSessionDeactivatedEvent](#class-audiosessiondeactivatedevent)>|否|None| 回调函数, 返回音频会话停用原因。|
 
 **异常：**
 

@@ -1,4 +1,4 @@
-### class ListItemGroupParams
+﻿### class ListItemGroupParams
 
 ```cangjie
 public class ListItemGroupParams {
@@ -103,8 +103,8 @@ public init(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|header|()->Unit|否|{ => }| **命名参数。** 设置ListItemGroup头部组件。<br/>**说明：**<br/>可以放单个子组件或不放子组件。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
-|footer|()->Unit|否|{ => }| **命名参数。** 设置ListItemGroup尾部组件。<br/>**说明：**<br/>可以放单个子组件或不放子组件。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|header|()->Unit|否|{ => }| **命名参数。** 设置ListItemGroup头部组件。<br/>**说明：**<br/>可以放单个子组件或不放子组件。使用时结合[@Builder](../../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|footer|()->Unit|否|{ => }| **命名参数。** 设置ListItemGroup尾部组件。<br/>**说明：**<br/>可以放单个子组件或不放子组件。使用时结合[@Builder](../../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 |space|[Length](cj-common-types.md#interface-Length)|是|-| **命名参数。** 列表项间距。只作用于ListItem与ListItem之间，不作用于header与ListItem、footer与ListItem之间。<br/>初始值：0。<br/>单位：vp。<br/>**说明：**<br/>设置为负数或者大于等于List内容区长度时，按初始值显示。|
 
 #### init(() -> Unit, () -> Unit)

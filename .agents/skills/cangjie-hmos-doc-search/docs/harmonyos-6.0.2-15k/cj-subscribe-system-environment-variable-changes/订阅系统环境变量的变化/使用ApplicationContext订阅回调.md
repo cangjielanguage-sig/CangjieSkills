@@ -1,8 +1,8 @@
-## 使用ApplicationContext订阅回调
+﻿## 使用ApplicationContext订阅回调
 
-[ApplicationContext](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-applicationcontext)提供了注册回调函数以订阅系统环境变量的变化，并且可以通过调用相应的方法来撤销该回调。这有助于在资源不再需要时释放相关资源，从而提高系统的可靠性和性能。
+[ApplicationContext](../../cj-apis-ability/.overview.md)提供了注册回调函数以订阅系统环境变量的变化，并且可以通过调用相应的方法来撤销该回调。这有助于在资源不再需要时释放相关资源，从而提高系统的可靠性和性能。
 
-1. 使用[on](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onapplicationcontexttype-environmentcallback)方法，应用程序可以通过在非应用组件模块中订阅系统环境变量的变化来动态响应这些变化。例如，使用该方法在页面中监测系统语言的变化。示例中的context的获取方式请参见[获取UIAbility的上下文信息](cj-uiability-usage.md#获取uiability的上下文信息)。
+1. 使用[on](../../cj-apis-ability/.overview.md)方法，应用程序可以通过在非应用组件模块中订阅系统环境变量的变化来动态响应这些变化。例如，使用该方法在页面中监测系统语言的变化。示例中的context的获取方式请参见[获取UIAbility的上下文信息](cj-uiability-usage.md#获取uiability的上下文信息)。
 
     ```cangjie
     import kit.UIKit.{AppLog, BusinessException}
@@ -61,7 +61,7 @@
     }
     ```
 
-2. 在资源使用完成之后，可以通过调用[off](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-offapplicationcontexttype-applicationstatechangecallback)方法释放相关资源。
+2. 在资源使用完成之后，可以通过调用[off](../../cj-apis-ability/.overview.md)方法释放相关资源。
 
     ```cangjie
     import kit.UIKit.{AppLog, BusinessException}

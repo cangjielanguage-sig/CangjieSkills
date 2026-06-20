@@ -1,4 +1,4 @@
-### static func deleteAssets(UIAbilityContext, Array\<PhotoAsset>)
+﻿### static func deleteAssets(UIAbilityContext, Array\<PhotoAsset>)
 
 ```cangjie
 public static func deleteAssets(context: UIAbilityContext, assets: Array<PhotoAsset>): Unit
@@ -16,12 +16,12 @@ public static func deleteAssets(context: UIAbilityContext, assets: Array<PhotoAs
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|传入Ability实例的Context。|
 |assets|Array\<[PhotoAsset](#class-photoasset)>|是|-|待删除的媒体文件数组。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -67,12 +67,12 @@ public static func deleteAssets(context: UIAbilityContext, assets: Array<String>
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|传入Ability实例的Context。|
 |assets|Array\<String>|是|-|待删除的媒体文件uri数组。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## func stopWork(WorkInfo, Bool)
+﻿## func stopWork(WorkInfo, Bool)
 
 ```cangjie
 public func stopWork(work: WorkInfo, needCancel!: Bool = false): Unit
@@ -19,7 +19,7 @@ public func stopWork(work: WorkInfo, needCancel!: Bool = false): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../errorcodes/cj-errorcode-work_scheduler.md)。
+- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../cj-errorcode-work_scheduler/cj-errorcode-work_scheduler.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

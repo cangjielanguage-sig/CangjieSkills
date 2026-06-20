@@ -1,4 +1,4 @@
-## class File
+﻿## class File
 
 ```cangjie
 extend File <: JSSystemObjectInteropType<File> {}
@@ -34,13 +34,13 @@ public func toJSValue(context: JSContext): JSValue
 
 | 参数名 | 类型   | 必填 | 默认值 |说明               |
 | :------ | :------ | :---- | :---- | :------------------ |
-| context   | [JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext) | 是 | - | ArkTS互操作上下文。 |
+| context   | [JSContext](../../cj-apis-ark_interop/.overview.md) | 是 | - | ArkTS互操作上下文。 |
 
 **返回值：**
 
 | 类型        | 说明                                                         |
 | :---------- | :----------------------------------------------------------- |
-| [JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue) | 返回ArkTS统一类型。|
+| [JSValue](../../cj-apis-ark_interop/.overview.md) | 返回ArkTS统一类型。|
 
 ### static func fromJSValue(JSContext, JSValue)
 
@@ -48,7 +48,7 @@ public func toJSValue(context: JSContext): JSValue
 public static func fromJSValue(context: JSContext, input: JSValue): File
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为[File](./cj-apis-file_fs.md#class-file)类型。
+**功能：** 从[JSValue](../../cj-apis-ark_interop/.overview.md)转换为[File](./cj-apis-file_fs.md#class-file)类型。
 
 > **说明：**
 >
@@ -62,8 +62,8 @@ public static func fromJSValue(context: JSContext, input: JSValue): File
 
 | 参数名 | 类型   | 必填 | 默认值 |说明               |
 | :------ | :------ | :---- | :---- | :------------------ |
-| context   | [JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext) | 是   |- |ArkTS互操作上下文。 |
-| input    | [JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue) | 是 |-|ArkTS统一类型。 |
+| context   | [JSContext](../../cj-apis-ark_interop/.overview.md) | 是   |- |ArkTS互操作上下文。 |
+| input    | [JSValue](../../cj-apis-ark_interop/.overview.md) | 是 |-|ArkTS统一类型。 |
 
 **返回值：**
 

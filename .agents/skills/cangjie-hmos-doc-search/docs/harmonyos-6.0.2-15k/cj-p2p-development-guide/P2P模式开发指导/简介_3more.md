@@ -1,4 +1,4 @@
-## 简介
+﻿## 简介
 
 P2P模式，主要提供了WLAN设备的一种点对点连接技术，它可以在两台STA之间直接建立TCP/IP链接，并不需要AP的参与。
 
@@ -11,7 +11,7 @@ P2P模式的主要场景有：
 
 ## 接口说明
 
-完整的 Cangjie API 说明以及实例代码请参见：[P2P 接口](../../../API_Reference/source_zh_cn/apis/ConnectivityKit/cj-apis-wifi_manager.md#class-wifip2pdevice)。
+完整的 Cangjie API 说明以及实例代码请参见：[P2P 接口](../../cj-apis-wifi_manager/.overview.md)。
 
 具体接口说明如下表。
 

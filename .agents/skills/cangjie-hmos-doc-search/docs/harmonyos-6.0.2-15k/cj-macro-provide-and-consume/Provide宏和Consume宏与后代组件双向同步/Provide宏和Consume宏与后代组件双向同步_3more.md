@@ -1,10 +1,10 @@
-# @Provide宏和@Consume宏：与后代组件双向同步
+﻿# @Provide宏和@Consume宏：与后代组件双向同步
 
 `@Provide` 和 `@Consume`，应用于与后代组件的双向数据同步，应用于状态数据在多个层级之间传递的场景。不同于上文提到的父子组件之间通过命名参数机制传递，`@Provide` 和 `@Consume` 摆脱参数传递机制的束缚，实现跨层级传递。
 
 其中`@Provide`装饰的变量是在祖先组件中，可以理解为被“提供”给后代的状态变量。`@Consume`装饰的变量是在后代组件中，去“消费（绑定）”祖先组件提供的变量。
 
-`@Provide` / `@Consume` 是跨组件层级的双向同步。在阅读 `@Provide` 和 `@Consume` 文档前，建议开发者对UI范式基本语法和自定义组件有基本的了解。建议提前阅读：[基本语法概述](../paradigm/cj-basic-syntax-overview.md)，[声明式UI描述](../paradigm/cj-declarative-ui-description.md)，[自定义组件-创建自定义组件](../paradigm/cj-create-custom-components.md)。
+`@Provide` / `@Consume` 是跨组件层级的双向同步。在阅读 `@Provide` 和 `@Consume` 文档前，建议开发者对UI范式基本语法和自定义组件有基本的了解。建议提前阅读：[基本语法概述](../../cj-basic-syntax-overview/cj-basic-syntax-overview.md)，[声明式UI描述](../../cj-declarative-ui-description/cj-declarative-ui-description.md)，[自定义组件-创建自定义组件](../../cj-create-custom-components/.overview.md)。
 
 ## 概述
 

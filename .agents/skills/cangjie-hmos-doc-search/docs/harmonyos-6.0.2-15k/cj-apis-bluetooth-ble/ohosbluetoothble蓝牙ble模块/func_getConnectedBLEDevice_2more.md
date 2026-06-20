@@ -1,4 +1,4 @@
-## func getConnectedBLEDevices()
+﻿## func getConnectedBLEDevices()
 
 ```cangjie
 public func getConnectedBLEDevices(): Array<String>
@@ -18,7 +18,7 @@ public func getConnectedBLEDevices(): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -63,11 +63,11 @@ public func off(`type`: BluetoothBleCallbackType, callback!: ?CallbackObject = N
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[BluetoothBleCallbackType](#enum-bluetoothblecallbacktype)|是|-|回调事件。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 表示取消订阅BLE事件。不填该参数则取消订阅该type对应的所有回调。|
+|callback|?[CallbackObject](../../cj-apis-base/.overview.md)|否|None| **命名参数。** 表示取消订阅BLE事件。不填该参数则取消订阅该type对应的所有回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

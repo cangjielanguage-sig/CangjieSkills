@@ -1,4 +1,4 @@
-### func on(BluetoothBleGattServerCallbackType, Callback1Argument\<DescriptorReadRequest>)
+﻿### func on(BluetoothBleGattServerCallbackType, Callback1Argument\<DescriptorReadRequest>)
 
 ```cangjie
 public func on(`type`: BluetoothBleGattServerCallbackType, callback: Callback1Argument<DescriptorReadRequest>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: BluetoothBleGattServerCallbackType, callback: Callback1Ar
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[BluetoothBleGattServerCallbackType](#enum-bluetoothblegattservercallbacktype)|是|填写DESCRIPTOR_READ，表示描述符读请求事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[DescriptorReadRequest](#class-descriptorreadrequest)>|是|返回MTU字节数的值，通过注册回调函数获取。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[DescriptorReadRequest](#class-descriptorreadrequest)>|是|返回MTU字节数的值，通过注册回调函数获取。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

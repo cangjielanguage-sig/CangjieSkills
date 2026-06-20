@@ -1,4 +1,4 @@
-### func on(IMFEventType, Callback2Argument\<InputMethodProperty,InputMethodSubtype>)
+﻿### func on(IMFEventType, Callback2Argument\<InputMethodProperty,InputMethodSubtype>)
 
 ```cangjie
 public func on(eventType: IMFEventType, callback: Callback2Argument<InputMethodProperty, InputMethodSubtype>): Unit
@@ -15,7 +15,7 @@ public func on(eventType: IMFEventType, callback: Callback2Argument<InputMethodP
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[IMFEventType](#enum-imfeventtype)|是|-|回调函数事件类型，当前仅支持ImeChange。|
-|callback|[Callback2Argument](../BasicServicesKit/cj-apis-base.md#class-callback2argument)\<[InputMethodProperty](#class-inputmethodproperty),[InputMethodSubtype](#class-inputmethodsubtype)>|是|-|回调函数，返回输入法属性对象及子类型对象。|
+|callback|[Callback2Argument](../../../cj-apis-base/.overview.md)\<[InputMethodProperty](#class-inputmethodproperty),[InputMethodSubtype](#class-inputmethodsubtype)>|是|-|回调函数，返回输入法属性对象及子类型对象。|
 
 **示例：**
 
@@ -65,7 +65,7 @@ public func showOptionalInputMethods(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

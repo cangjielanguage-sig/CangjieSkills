@@ -1,4 +1,4 @@
-## func postQuery(Array\<AssetParam>)
+﻿## func postQuery(Array\<AssetParam>)
 
 ```cangjie
 public func postQuery(handle: Array<AssetParam>): Unit
@@ -18,7 +18,7 @@ public func postQuery(handle: Array<AssetParam>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[关键资产存储服务(ASSET)错误码](../../errorcodes/cj-errorcode-asset.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[关键资产存储服务(ASSET)错误码](../../cj-errorcode-asset/cj-errorcode-asset.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public func preQuery(query: Array<AssetParam>): Array<UInt8>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[关键资产存储服务(ASSET)错误码](../../errorcodes/cj-errorcode-asset.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[关键资产存储服务(ASSET)错误码](../../cj-errorcode-asset/cj-errorcode-asset.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,10 +1,10 @@
-# 使用ImagePacker完成图片编码
+﻿# 使用ImagePacker完成图片编码
 
 图片编码指将PixelMap编码成不同格式的存档图片，当前支持打包为JPEG、WebP、PNG 和 HEIF(不同硬件设备的支持情况有所不同) 格式，用于后续处理，如保存、传输等。
 
 ## 开发步骤
 
-图片编码相关API的详细介绍请参见：[图片编码接口说明](../../../API_Reference/source_zh_cn/apis/ImageKit/cj-apis-image.md#class-imagepacker)。
+图片编码相关API的详细介绍请参见：[图片编码接口说明](../cj-apis-image/.overview.md)。
 
 ### 图片编码进文件流
 
@@ -85,4 +85,4 @@ FileFs.close(file.fd)
 
 ### 图片编码保存进图库
 
-可以将图片编码保存到应用沙箱，然后使用媒体文件管理相关接口[保存媒体库资源](../medialibrary/cj-photoAccessHelper-savebutton.md)。
+可以将图片编码保存到应用沙箱，然后使用媒体文件管理相关接口[保存媒体库资源](../cj-photoAccessHelper-savebutton/cj-photoAccessHelper-savebutton.md)。

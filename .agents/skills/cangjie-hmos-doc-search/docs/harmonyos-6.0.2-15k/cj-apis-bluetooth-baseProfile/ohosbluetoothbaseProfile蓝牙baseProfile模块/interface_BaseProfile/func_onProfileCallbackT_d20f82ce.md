@@ -1,4 +1,4 @@
-### func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
+﻿### func on(ProfileCallbackType, Callback1Argument\<StateChangeParam>)
 
 ```cangjie
 func on(`type`: ProfileCallbackType, callback: Callback1Argument<StateChangeParam>): Unit
@@ -17,11 +17,11 @@ func on(`type`: ProfileCallbackType, callback: Callback1Argument<StateChangePara
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[ProfileCallbackType](#enum-profilecallbacktype)|是|传入`CONNECTIONSTATECHANGE`，表示连接状态变化事件类型。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[StateChangeParam](#class-statechangeparam)>|是|表示回调函数的入参。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[StateChangeParam](#class-statechangeparam)>|是|表示回调函数的入参。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

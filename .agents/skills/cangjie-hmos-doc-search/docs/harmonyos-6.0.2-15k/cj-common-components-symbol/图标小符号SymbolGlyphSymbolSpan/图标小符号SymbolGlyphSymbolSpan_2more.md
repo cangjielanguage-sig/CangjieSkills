@@ -1,6 +1,6 @@
-# 图标小符号（SymbolGlyph/SymbolSpan）
+﻿# 图标小符号（SymbolGlyph/SymbolSpan）
 
-SymbolGlyph是图标小符号组件，便于使用精美的图标，如渲染多色图标和使用动效图标。SymbolSpan作为Text组件的子组件，可在文本中穿插显示图标小符号。具体用法请参见[SymbolGlyph](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-symbolglyph.md)和[SymbolSpan](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-symbolspan.md)。
+SymbolGlyph是图标小符号组件，便于使用精美的图标，如渲染多色图标和使用动效图标。SymbolSpan作为Text组件的子组件，可在文本中穿插显示图标小符号。具体用法请参见[SymbolGlyph](../../cj-text-input-symbolglyph/.overview.md)和[SymbolSpan](../../cj-text-input-symbolspan/.overview.md)。
 
 ## 创建图标
 

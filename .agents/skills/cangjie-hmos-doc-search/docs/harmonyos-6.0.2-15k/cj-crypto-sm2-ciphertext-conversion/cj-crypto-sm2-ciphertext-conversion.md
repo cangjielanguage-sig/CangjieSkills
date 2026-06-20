@@ -1,4 +1,4 @@
-# 使用SM2密文格式转换
+﻿# 使用SM2密文格式转换
 
 当前支持的SM2密文格式为国密标准的ASN.1格式，其中各参数组合顺序为C1C3C2，具体参数含义请参见[转换SM2密文格式](./cj-crypto-asym-encrypt-decrypt-spec.md#转换sm2密文格式)。
 
@@ -6,9 +6,9 @@
 
 **指定密文参数，生成标准ASN.1密文**
 
-1. 构造[SM2CipherTextSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-sm2ciphertextspec)对象，用于指定SM2密文参数。如果开发者使用的不是国密标准的ASN.1格式密文，需自行提取所需要的参数。
+1. 构造[SM2CipherTextSpec](../cj-apis-crypto/.overview.md)对象，用于指定SM2密文参数。如果开发者使用的不是国密标准的ASN.1格式密文，需自行提取所需要的参数。
 
-2. 调用[genCipherTextBySpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#static-func-genciphertextbyspecsm2ciphertextspec-string)，将SM2CipherTextSpec对象传入，生成符合国密标准的ASN.1格式的SM2密文。
+2. 调用[genCipherTextBySpec](../cj-apis-crypto/.overview.md)，将SM2CipherTextSpec对象传入，生成符合国密标准的ASN.1格式的SM2密文。
 
 3. 生成的密文可直接使用cryptoFramework进行SM2解密。
 
@@ -36,7 +36,7 @@ func testGenCipherTextBySpec() {
 
 1. 准备符合国密标准的ASN.1格式的SM2密文。
 
-2. 调用[getCipherTextSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getcipherspeccipherspecitem)，从标准密文中，获取具体的SM2密文参数。
+2. 调用[getCipherTextSpec](../cj-apis-crypto/.overview.md)，从标准密文中，获取具体的SM2密文参数。
 
 3. 根据业务需要，自行拼接SM2密文参数，形成其他格式的SM2密文。
 

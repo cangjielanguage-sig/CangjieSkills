@@ -1,4 +1,4 @@
-## class AudioViewPicker
+﻿## class AudioViewPicker
 
 ```cangjie
 public class AudioViewPicker {
@@ -28,7 +28,7 @@ public AudioViewPicker(let abilityContext: UIAbilityContext)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|abilityContext|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|提供允许访问特定Ability的资源的能力。|
+|abilityContext|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|提供允许访问特定Ability的资源的能力。|
 
 ### func save(AsyncCallback\<Array\<String>>, AudioSaveOptions)
 
@@ -46,7 +46,7 @@ public func save(callback: AsyncCallback<Array<String>>, option!: AudioSaveOptio
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<String>>|是|-|callback返回audioPicker保存音频文件后的结果集。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|callback返回audioPicker保存音频文件后的结果集。|
 |option|[AudioSaveOptions](#struct-audiosaveoptions)|否|AudioSaveOptions()| **命名参数。** audioPicker保存音频文件选项。|
 
 **示例：**

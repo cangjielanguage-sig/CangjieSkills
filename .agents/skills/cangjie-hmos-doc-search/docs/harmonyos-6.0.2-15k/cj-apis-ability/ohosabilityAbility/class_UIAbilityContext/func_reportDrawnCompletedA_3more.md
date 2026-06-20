@@ -1,4 +1,4 @@
-### func reportDrawnCompleted(AsyncCallback\<Unit>)
+﻿### func reportDrawnCompleted(AsyncCallback\<Unit>)
 
 ```cangjie
 public func reportDrawnCompleted(callback: AsyncCallback<Unit>): Unit
@@ -14,11 +14,11 @@ public func reportDrawnCompleted(callback: AsyncCallback<Unit>): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Unit>|是|-|页面加载完成打点的回调函数。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Unit>|是|-|页面加载完成打点的回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -66,7 +66,7 @@ public func requestDialogService(want: Want, callback: AsyncCallback<DialogReque
 | 参数名 | 参数类型 | 必填 | 默认值 | 描述 |
 |:------|:------|:------|:------|:------|
 | want | [Want](#class-want) |  是 | - |  需要启动的目标ServiceExtensionAbility的want信息。 |
-| callback | [AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[DialogRequestResult](#class-dialogrequestresult)> | 是 | - | 用于返回结果的回调。 |
+| callback | [AsyncCallback](../../../cj-apis-base/.overview.md)\<[DialogRequestResult](#class-dialogrequestresult)> | 是 | - | 用于返回结果的回调。 |
 
 ### func requestDialogService(Want)
 

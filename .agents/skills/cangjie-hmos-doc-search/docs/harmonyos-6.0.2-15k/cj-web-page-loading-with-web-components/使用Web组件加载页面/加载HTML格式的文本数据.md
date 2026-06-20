@@ -1,6 +1,6 @@
-## 加载HTML格式的文本数据
+﻿## 加载HTML格式的文本数据
 
-Web组件可以通过[loadData()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-loaddatastring-string-string-string-string)s接口实现加载HTML格式的文本数据。当开发者不需要加载整个页面，只需要显示一些页面片段时，可通过此功能来快速加载页面，当加载大量html文件时，需设置第四个参数baseUrl为"data"。
+Web组件可以通过[loadData()](../../cj-apis-webview/.overview.md)s接口实现加载HTML格式的文本数据。当开发者不需要加载整个页面，只需要显示一些页面片段时，可通过此功能来快速加载页面，当加载大量html文件时，需设置第四个参数baseUrl为"data"。
 
 ```cangjie
 // index.cj

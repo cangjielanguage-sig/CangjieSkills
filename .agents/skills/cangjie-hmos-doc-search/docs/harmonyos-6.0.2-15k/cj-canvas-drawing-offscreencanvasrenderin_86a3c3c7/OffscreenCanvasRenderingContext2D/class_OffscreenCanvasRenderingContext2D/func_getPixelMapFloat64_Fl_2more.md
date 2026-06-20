@@ -1,10 +1,10 @@
-### func getPixelMap(Float64, Float64, Float64, Float64)
+﻿### func getPixelMap(Float64, Float64, Float64, Float64)
 
 ```cangjie
 public func getPixelMap(left: Float64, top: Float64, width: Float64, height: Float64): PixelMap
 ```
 
-**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
+**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../../../cj-apis-image/.overview.md)对象，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -23,7 +23,7 @@ public func getPixelMap(left: Float64, top: Float64, width: Float64, height: Flo
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap) |新的PixelMap对象。|
+|[PixelMap](../../../cj-apis-image/.overview.md) |新的PixelMap对象。|
 
 ### func getPixelMap(Int64, Int64, Int64, Int64)
 
@@ -31,7 +31,7 @@ public func getPixelMap(left: Float64, top: Float64, width: Float64, height: Flo
 public func getPixelMap(left: Int64, top: Int64, width: Int64, height: Int64): PixelMap
 ```
 
-**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
+**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../../../cj-apis-image/.overview.md)对象，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -50,4 +50,4 @@ public func getPixelMap(left: Int64, top: Int64, width: Int64, height: Int64): P
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap) |新的PixelMap对象。|
+|[PixelMap](../../../cj-apis-image/.overview.md) |新的PixelMap对象。|

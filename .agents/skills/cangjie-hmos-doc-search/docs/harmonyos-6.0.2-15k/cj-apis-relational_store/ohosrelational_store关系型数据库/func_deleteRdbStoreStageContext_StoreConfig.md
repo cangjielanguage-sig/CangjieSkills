@@ -1,4 +1,4 @@
-## func deleteRdbStore(StageContext, StoreConfig)
+﻿## func deleteRdbStore(StageContext, StoreConfig)
 
 ```cangjie
 public func deleteRdbStore(context: StageContext, config: StoreConfig): Unit
@@ -14,12 +14,12 @@ public func deleteRdbStore(context: StageContext, config: StoreConfig): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|应用的上下文。context的获取方式请参见[getStageContext](../AbilityKit/cj-apis-ability.md#func-getstagecontextabilitycontext)。|
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|应用的上下文。context的获取方式请参见[getStageContext](../../cj-apis-ability/.overview.md)。|
 |config|[StoreConfig](#class-storeconfig)|是|-|与此RDB存储相关的数据库配置。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   | 错误码ID | 错误信息          |
   |:-----------|:----------|

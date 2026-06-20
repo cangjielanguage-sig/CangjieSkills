@@ -1,4 +1,4 @@
-# 音频播放开发概述
+﻿# 音频播放开发概述
 
 ## 如何选择音频播放开发方式
 
@@ -10,9 +10,9 @@
 
 除上述方式外，也可以通过Media Kit中的AVPlayer和SoundPool实现音频播放。
 
-- [AVPlayer](../media/cj-media-kit-using-avplayer-for-playback.md)：用于音频播放的仓颉 API，集成了流媒体和本地资源解析、媒体资源解封装、音频解码和音频输出功能。可用于直接播放mp3、m4a等格式的音频文件，不支持直接播放PCM格式文件。
+- [AVPlayer](../cj-media-kit-using-avplayer-for-playback/.overview.md)：用于音频播放的仓颉 API，集成了流媒体和本地资源解析、媒体资源解封装、音频解码和音频输出功能。可用于直接播放mp3、m4a等格式的音频文件，不支持直接播放PCM格式文件。
 
-- [SoundPool](../media/cj-media-kit-using-soundpool-for-playback.md)：低时延的短音播放仓颉 API，适用于播放急促简短的音效，如相机快门音效、按键音效、游戏射击音效等。
+- [SoundPool](../cj-media-kit-using-soundpool-for-playback/.overview.md)：低时延的短音播放仓颉 API，适用于播放急促简短的音效，如相机快门音效、按键音效、游戏射击音效等。
 
 ## 后台播放或熄屏播放开发须知
 

@@ -1,4 +1,4 @@
-# 组件可见区域变化事件
+﻿# 组件可见区域变化事件
 
 组件可见区域变化事件是组件在屏幕中的显示区域面积变化时触发的事件，提供了判断组件是否完全或部分显示在屏幕中的能力，适用于广告曝光埋点之类的场景。
 
@@ -24,5 +24,5 @@ public func onVisibleAreaChange(raitos: Array<Float64>, callback: (Bool, Float64
 > **说明：**
 >
 > - 仅提供自身节点相对于所有祖先节点（直到window边界）的相对裁切面积与自身面积的比值及其变化趋势。
-> - 不支持兄弟组件对自身节点的遮挡计算，不支持所有祖先的兄弟节点对自身节点的遮挡计算，如[Stack](../../../Dev_Guide/arkui-cj/cj-layout-development-stack-layout.md#层叠布局-stack)、[Z序控制](../../../Dev_Guide/arkui-cj/cj-layout-development-stack-layout.md#z序控制)等。
+> - 不支持兄弟组件对自身节点的遮挡计算，不支持所有祖先的兄弟节点对自身节点的遮挡计算，如[Stack](../../cj-layout-development-stack-layout/.overview.md)、[Z序控制](../../cj-layout-development-stack-layout/.overview.md)等。
 > - 不支持非挂树节点的可见面积变化计算。例如，预加载的节点、通过[overlay](./cj-universal-attribute-overlay.md#func-overlaystring-alignment-contentoffset)能力挂载的自定义节点。

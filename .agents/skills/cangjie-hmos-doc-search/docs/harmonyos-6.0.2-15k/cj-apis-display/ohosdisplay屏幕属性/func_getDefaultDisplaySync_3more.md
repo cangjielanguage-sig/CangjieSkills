@@ -1,4 +1,4 @@
-## func getDefaultDisplaySync()
+﻿## func getDefaultDisplaySync()
 
 ```cangjie
 public func getDefaultDisplaySync(): Display
@@ -18,7 +18,7 @@ public func getDefaultDisplaySync(): Display
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -60,7 +60,7 @@ public func getFoldDisplayMode(): FoldDisplayMode
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -108,7 +108,7 @@ public func getFoldStatus(): FoldStatus
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

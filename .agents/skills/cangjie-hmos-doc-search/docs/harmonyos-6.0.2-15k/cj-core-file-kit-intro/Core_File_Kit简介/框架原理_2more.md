@@ -1,8 +1,8 @@
-## 框架原理
+﻿## 框架原理
 
 ### 应用文件访问框架
 
-应用文件访问框架是通过基础文件操作接口（[ohos.file_fs](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md)）实现。开发者无需了解内部实现，基础文件操作接口功能详情请参见[接口说明](./cj-app-file-access.md#接口说明)。
+应用文件访问框架是通过基础文件操作接口（[ohos.file_fs](../../cj-apis-file_fs/.overview.md)）实现。开发者无需了解内部实现，基础文件操作接口功能详情请参见[接口说明](./cj-app-file-access.md#接口说明)。
 
 ### 用户文件访问框架
 

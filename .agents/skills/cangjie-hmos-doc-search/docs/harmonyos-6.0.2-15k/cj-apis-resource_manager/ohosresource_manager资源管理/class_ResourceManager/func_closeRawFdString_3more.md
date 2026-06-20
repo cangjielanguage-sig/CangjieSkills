@@ -1,4 +1,4 @@
-### func closeRawFd(String)
+﻿### func closeRawFd(String)
 
 ```cangjie
 public func closeRawFd(path: String): Unit
@@ -18,7 +18,7 @@ public func closeRawFd(path: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -65,7 +65,7 @@ public func getBoolean(resId: Int32): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -115,7 +115,7 @@ public func getBoolean(resource: AppResource): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-# AVSession Kit简介
+﻿# AVSession Kit简介
 
 AVSession Kit（Audio &amp; Video Session Kit，音视频播控服务）是系统提供的音视频管控服务，用于统一管理系统中所有音视频行为，帮助开发者快速构建音视频统一展示和控制能力。
 
@@ -61,4 +61,4 @@ AVSession Kit（Audio &amp; Video Session Kit，音视频播控服务）是系�
 
 ## 与相关Kit的关系
 
-应用实现后台播放时，需要使用[BackgroundTasks Kit](../../task-management/cj-background-task-overview.md)（后台任务管理）的能力，申请对应的长时任务，避免进入挂起（Suspend）状态。
+应用实现后台播放时，需要使用[BackgroundTasks Kit](../cj-background-task-overview/cj-background-task-overview.md)（后台任务管理）的能力，申请对应的长时任务，避免进入挂起（Suspend）状态。

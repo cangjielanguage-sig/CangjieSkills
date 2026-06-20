@@ -1,6 +1,6 @@
-# 单选框（Radio）
+﻿# 单选框（Radio）
 
-Radio是单选框组件，通常用于提供相应的用户交互选择项，同一组的Radio中只有一个可以被选中。具体用法请参见[Radio](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-radio.md)。
+Radio是单选框组件，通常用于提供相应的用户交互选择项，同一组的Radio中只有一个可以被选中。具体用法请参见[Radio](../cj-button-picker-radio/.overview.md)。
 
 ## 创建单选框
 
@@ -27,7 +27,7 @@ Radio(value: 'Radio2', group: 'radioGroup')
 
 ## 添加事件
 
-除支持[通用事件](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-click.md)外，Radio还用于选中后触发某些操作，可以绑定onChange事件来响应选中操作后的自定义行为。
+除支持[通用事件](../cj-universal-event-click/.overview.md)外，Radio还用于选中后触发某些操作，可以绑定onChange事件来响应选中操作后的自定义行为。
 
 ```cangjie
 Radio(value: 'Radio1', group: 'radioGroup')

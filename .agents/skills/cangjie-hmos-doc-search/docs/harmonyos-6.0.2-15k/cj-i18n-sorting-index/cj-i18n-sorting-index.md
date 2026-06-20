@@ -1,4 +1,4 @@
-# 创建索引
+﻿# 创建索引
 
 ## 使用场景
 
@@ -6,7 +6,7 @@
 
 ## 开发步骤
 
-接口的具体使用方法和说明请参见[IndexUtil](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#class-indexutil)的API接口文档。
+接口的具体使用方法和说明请参见[IndexUtil](../cj-apis-i18n/.overview.md)的API接口文档。
 
 1. 导入模块。
 

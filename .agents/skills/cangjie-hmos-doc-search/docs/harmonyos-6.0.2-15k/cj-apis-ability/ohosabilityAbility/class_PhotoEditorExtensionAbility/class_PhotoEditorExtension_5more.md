@@ -1,4 +1,4 @@
-## class PhotoEditorExtensionAbility
+﻿## class PhotoEditorExtensionAbility
 
 ```cangjie
 public open class PhotoEditorExtensionAbility <: ExtensionAbility {}
@@ -44,7 +44,7 @@ public open func onBackground(): Unit
 
 **示例：**
 
-详细使用说明请参见[拉起图片编辑类应用](../../../../Dev_Guide/application-models/cj-photoEditorExtensionAbility.md#拉起图片编辑类应用startabilitybytype)。
+详细使用说明请参见[拉起图片编辑类应用](../../../cj-photoEditorExtensionAbility/.overview.md)。
 
 ```cangjie
 import ohos.base.*
@@ -74,7 +74,7 @@ public open func onCreate(): Unit
 
 **示例：**
 
-详细使用说明请参见[拉起图片编辑类应用](../../../../Dev_Guide/application-models/cj-photoEditorExtensionAbility.md#拉起图片编辑类应用startabilitybytype)。
+详细使用说明请参见[拉起图片编辑类应用](../../../cj-photoEditorExtensionAbility/.overview.md)。
 
 ```cangjie
 import ohos.base.*
@@ -104,7 +104,7 @@ public open func onDestroy(): Unit
 
 **示例：**
 
-详细使用说明请参见[拉起图片编辑类应用](../../../../Dev_Guide/application-models/cj-photoEditorExtensionAbility.md#拉起图片编辑类应用startabilitybytype)。
+详细使用说明请参见[拉起图片编辑类应用](../../../cj-photoEditorExtensionAbility/.overview.md)。
 
 ```cangjie
 import ohos.base.*

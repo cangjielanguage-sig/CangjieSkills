@@ -1,4 +1,4 @@
-### class NavigationMenuItem
+﻿### class NavigationMenuItem
 
 ```cangjie
 public class NavigationMenuItem {
@@ -130,7 +130,7 @@ public init(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|菜单栏单个选项的文本。|
-|icon|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None|菜单栏单个选项的图标资源路径。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|菜单栏单个选项的文本。|
+|icon|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None|菜单栏单个选项的图标资源路径。|
 |isEnable|?Bool|否|None|使能状态，默认使能（false未使能，true使能）。|
 |action|?<()->Unit>|否|None|当前选项被选中的事件回调。|

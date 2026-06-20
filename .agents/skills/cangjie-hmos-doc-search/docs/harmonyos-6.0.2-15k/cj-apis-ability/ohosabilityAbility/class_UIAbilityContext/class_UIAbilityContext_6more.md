@@ -1,4 +1,4 @@
-## class UIAbilityContext
+﻿## class UIAbilityContext
 
 ```cangjie
 public open class UIAbilityContext <: Context {}
@@ -72,7 +72,7 @@ public prop windowStage: ?WindowStage
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** [?WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage)
+**类型：** [?WindowStage](../../../cj-apis-window/.overview.md)
 
 **读写能力：** 只读
 

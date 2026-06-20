@@ -1,8 +1,8 @@
-# 使用Web组件的PDF文档预览能力
+﻿# 使用Web组件的PDF文档预览能力
 
-Web组件提供了在网页中预览PDF的能力。应用可以通过Web组件的[src](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#web)参数和[loadUrl()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-loadurlstring)接口中传入PDF文件，来加载PDF文档。根据PDF文档来源不同，可以分为三种常用场景：加载网络PDF文档、加载本地PDF文档、加载应用内resource资源PDF文档。
+Web组件提供了在网页中预览PDF的能力。应用可以通过Web组件的[src](../../cj-web-web/.overview.md)参数和[loadUrl()](../../cj-apis-webview/.overview.md)接口中传入PDF文件，来加载PDF文档。根据PDF文档来源不同，可以分为三种常用场景：加载网络PDF文档、加载本地PDF文档、加载应用内resource资源PDF文档。
 
-PDF文档预览加载过程中，若涉及网络文档获取，请在module.json5中配置网络访问权限，添加方法请参见[在配置文件中声明权限](../security/AccessToken/cj-declare-permissions.md)。
+PDF文档预览加载过程中，若涉及网络文档获取，请在module.json5中配置网络访问权限，添加方法请参见[在配置文件中声明权限](../../cj-declare-permissions/.overview.md)。
 
 ```json
 "requestPermissions":[
@@ -40,13 +40,13 @@ class EntryView {
 }
 ```
 
-上述示例中，由于PDF预览页面对于侧边导航栏是否展开会根据用户操作使用`window.localStorage`进行持久化记录，所以需开启文档对象模型存储[domStorageAccess](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#func-domstorageaccessbool)权限:
+上述示例中，由于PDF预览页面对于侧边导航栏是否展开会根据用户操作使用`window.localStorage`进行持久化记录，所以需开启文档对象模型存储[domStorageAccess](../../cj-web-web/.overview.md)权限:
 
 ```cangjie
 Web().domStorageAccess(true)
 ```
 
-在Web组件创建时，指定默认加载的PDF文档。在默认PDF文档加载完成后，如果需要变更此Web组件显示的PDF文档，可以通过调用[loadUrl()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-loadurlappresource)接口加载指定的PDF文档。[Web组件](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#web)的第一个参数变量src不能通过状态变量（例如：@State）动态更改地址，如需更改，请通过[loadUrl()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-loadurlappresource)重新加载。
+在Web组件创建时，指定默认加载的PDF文档。在默认PDF文档加载完成后，如果需要变更此Web组件显示的PDF文档，可以通过调用[loadUrl()](../../cj-apis-webview/.overview.md)接口加载指定的PDF文档。[Web组件](../../cj-web-web/.overview.md)的第一个参数变量src不能通过状态变量（例如：@State）动态更改地址，如需更改，请通过[loadUrl()](../../cj-apis-webview/.overview.md)重新加载。
 
 同时包含三种PDF文档加载预览场景:
 
@@ -57,7 +57,7 @@ Web().domStorageAccess(true)
         .domStorageAccess(true)
     ```
 
-- 预览加载应用沙箱内PDF文件，需要开启应用中文件系统的访问[fileAccess](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#func-fileaccessbool)权限。
+- 预览加载应用沙箱内PDF文件，需要开启应用中文件系统的访问[fileAccess](../../cj-web-web/.overview.md)权限。
 
     1. 获取context
 

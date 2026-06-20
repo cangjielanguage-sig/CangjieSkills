@@ -1,4 +1,4 @@
-### func selectedTextStyle(ResourceColor, Length, FontWeight, AppResource, FontStyle)
+﻿### func selectedTextStyle(ResourceColor, Length, FontWeight, AppResource, FontStyle)
 
 ```cangjie
 public func selectedTextStyle(
@@ -23,7 +23,7 @@ public func selectedTextStyle(
 |color|[ResourceColor](./cj-common-types.md#interface-resourcecolor)|否|0xff007dff| **命名参数。** 文本颜色。|
 |size|[Length](./cj-common-types.md#interface-length)|是|-| **命名参数。** 文本尺寸。不支持百分比设置。|
 |weight|[FontWeight](./cj-common-types.md#enum-fontweight)|否|FontWeight.Medium| **命名参数。** 字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 字体列表。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 字体列表。|
 |style|[FontStyle](./cj-common-types.md#enum-fontstyle)|否|FontStyle.Normal| **命名参数。** 字体样式。|
 
 ### func textStyle(ResourceColor, Length, FontWeight, String, FontStyle)
@@ -79,5 +79,5 @@ public func textStyle(
 |color|[ResourceColor](./cj-common-types.md#interface-resourcecolor)|否|0xff182431| **命名参数。** 文本颜色。|
 |size|[Length](./cj-common-types.md#interface-length)|是|-| **命名参数。** 文本尺寸。不支持百分比设置。|
 |weight|[FontWeight](./cj-common-types.md#enum-fontweight)|否|FontWeight.Regular| **命名参数。** 字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 字体列表。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 字体列表。|
 |style|[FontStyle](./cj-common-types.md#enum-fontstyle)|否|FontStyle.Normal| **命名参数。** 字体样式。|

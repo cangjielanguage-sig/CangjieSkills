@@ -1,4 +1,4 @@
-### func compress2(Array\<Byte>, Array\<Byte>, CompressLevel, Int64)
+﻿### func compress2(Array\<Byte>, Array\<Byte>, CompressLevel, Int64)
 
 ```cangjie
 public func compress2(dest: Array<Byte>, source: Array<Byte>, level: CompressLevel,
@@ -28,7 +28,7 @@ public func compress2(dest: Array<Byte>, source: Array<Byte>, level: CompressLev
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

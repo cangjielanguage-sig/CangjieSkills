@@ -1,6 +1,6 @@
-### 在DevEco Studio中配置关联的网址域名
+﻿### 在DevEco Studio中配置关联的网址域名
 
-在应用的[module.json5文件](../cj-start/basic-knowledge/module-configuration-file.md)中进行如下配置，以声明应用关联的域名地址，并开启域名校验开关。
+在应用的[module.json5文件](../../../module-configuration-file/module-configuration-file.md)中进行如下配置，以声明应用关联的域名地址，并开启域名校验开关。
 
 * "entities"列表中必须包含"entity.system.browsable"。
 * "actions"列表中必须包含"ohos.want.action.viewData"。

@@ -1,4 +1,4 @@
-# 本地化语言与地区名称
+﻿# 本地化语言与地区名称
 
 ## 使用场景
 
@@ -6,7 +6,7 @@
 
 ## 开发步骤
 
-接口具体说明请参见[getDisplayCountry](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#static-func-getdisplaycountrystring-string-bool)和[getDisplayLanguage](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#static-func-getdisplaylanguagestring-string-bool)的API文档。
+接口具体说明请参见[getDisplayCountry](../cj-apis-i18n/.overview.md)和[getDisplayLanguage](../cj-apis-i18n/.overview.md)的API文档。
 
 1. 导入模块。
 

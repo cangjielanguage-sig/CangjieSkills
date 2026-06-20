@@ -1,4 +1,4 @@
-## class ProgressListener
+﻿## class ProgressListener
 
 ```cangjie
 public class ProgressListener <: Callback1Argument<Progress> {
@@ -14,7 +14,7 @@ public class ProgressListener <: Callback1Argument<Progress> {
 
 **父类型：**
 
-- [Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[Progress](#struct-progress)>
+- [Callback1Argument](../../cj-apis-base/.overview.md)\<[Progress](#struct-progress)>
 
 ### init((Progress) -> Unit)
 
@@ -36,7 +36,7 @@ public init(callback: (Progress) -> Unit)
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -76,4 +76,4 @@ public func invoke(val: Progress): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。

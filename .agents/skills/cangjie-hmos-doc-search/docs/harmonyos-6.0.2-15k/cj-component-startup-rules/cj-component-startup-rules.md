@@ -1,8 +1,8 @@
-# 组件启动规则（Stage模型）
+﻿# 组件启动规则（Stage模型）
 
 启动组件是指一切启动或连接应用组件的行为：
 
-启动[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)，如使用[startAbility()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitywant)、[startAbilityByCall()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybycallwant)、[openLink()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-openlinkstring-openlinkoptions-asynccallbackabilityresult)等相关接口。
+启动[UIAbility](../cj-apis-ability/.overview.md)，如使用[startAbility()](../cj-apis-ability/.overview.md)、[startAbilityByCall()](../cj-apis-ability/.overview.md)、[openLink()](../cj-apis-ability/.overview.md)等相关接口。
 
 ## 组件启动总体规则
 
@@ -16,7 +16,7 @@
 
 - **跨应用启动组件，需校验目标组件是否可以被其他应用调用。**
 
-  若目标组件exported字段配置为true，表示可以被其他应用调用；若目标组件exported字段配置为false，表示不可以被其他应用调用，还需进一步校验`ohos.permission.START_INVISIBLE_ABILITY`权限（该权限仅系统应用可申请）。组件exported字段说明请参见[abilities标签](../cj-start/basic-knowledge/module-configuration-file.md#abilities标签)。
+  若目标组件exported字段配置为true，表示可以被其他应用调用；若目标组件exported字段配置为false，表示不可以被其他应用调用，还需进一步校验`ohos.permission.START_INVISIBLE_ABILITY`权限（该权限仅系统应用可申请）。组件exported字段说明请参见[abilities标签](../module-configuration-file/module-configuration-file.md#abilities标签)。
 
 - **位于后台的UIAbility应用，启动组件需校验BACKGROUND权限`ohos.permission.START_ABILITIES_FROM_BACKGROUND`（该权限仅系统应用可申请）。对于2in1设备，如果应用已创建在前台显示的悬浮窗，当该应用退至后台时，无需校验BACKGROUND权限也可以拉起其他UIAbility。**
 
@@ -33,7 +33,7 @@
 设备内启动组件，不同场景下的规则不同，可分为如下两种场景：
 
 - 启动UIAbility。
-- 通过[startAbilityByCall](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybycallwant)接口启动UIAbility。
+- 通过[startAbilityByCall](../cj-apis-ability/.overview.md)接口启动UIAbility。
 
 ![startup-rule](figures/component-startup-inner-stage.png)
 
@@ -42,6 +42,6 @@
 跨设备启动组件，不同场景下的规则不同，可分为如下两种场景：
 
 - 启动UIAbility。
-- 通过[startAbilityByCall](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybycallwant)接口启动UIAbility。
+- 通过[startAbilityByCall](../cj-apis-ability/.overview.md)接口启动UIAbility。
 
 ![component-startup-rules](figures/component-startup-inter-stage.png)

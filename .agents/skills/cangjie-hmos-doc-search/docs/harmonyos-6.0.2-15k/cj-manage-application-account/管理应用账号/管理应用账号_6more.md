@@ -1,6 +1,6 @@
-# 管理应用账号
+﻿# 管理应用账号
 
-应用开发者可以使用[应用账号SDK](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md)管理本应用的账号数据。
+应用开发者可以使用[应用账号SDK](../../cj-apis-account-appAccount/.overview.md)管理本应用的账号数据。
 
 能力限制：应用卸载场景下，被卸载应用的账号数据会被删除；本地账号删除场景下，被删除本地账号下的所有应用的账号数据会被删除。
 
@@ -31,7 +31,7 @@
    let options = CreateAccountOptions(customData: data)
    ```
 
-2. 调用[createAccount](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#createaccountimplicitlyoptionsarraystring-string-hashmapstringappaccountvaluetype)接口，根据名称和选项创建应用账号。
+2. 调用[createAccount](../../cj-apis-account-appAccount/.overview.md)接口，根据名称和选项创建应用账号。
 
    ```cangjie
    try {
@@ -44,7 +44,7 @@
 ## 查询应用账号列表
 
 具体开发实例如下：
-调用[getAllAccounts](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-getallaccounts)接口查询账号列表。
+调用[getAllAccounts](../../cj-apis-account-appAccount/.overview.md)接口查询账号列表。
 
 ```cangjie
 let data = appAccountManager.getAllAccounts()
@@ -62,13 +62,13 @@ let data = appAccountManager.getAllAccounts()
    let credential: String = 'xxxxxx'
    ```
 
-2. 调用[getCredential](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-getcredentialstring-string)接口，获取账号的凭据。
+2. 调用[getCredential](../../cj-apis-account-appAccount/.overview.md)接口，获取账号的凭据。
 
    ```cangjie
    appAccountManager.getCredential(name, credentialType)
    ```
 
-3. 调用[setCredential](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-setcredentialstring-string-string)接口，设置账号的凭据。
+3. 调用[setCredential](../../cj-apis-account-appAccount/.overview.md)接口，设置账号的凭据。
 
    ```cangjie
    appAccountManager.setCredential(name, credentialType, credential)
@@ -86,13 +86,13 @@ let data = appAccountManager.getAllAccounts()
    let value: String = '12'
    ```
 
-2. 调用[setCustomData](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-setcustomdatastring-string-string)接口，设置账号的自定义数据。
+2. 调用[setCustomData](../../cj-apis-account-appAccount/.overview.md)接口，设置账号的自定义数据。
 
    ```cangjie
    appAccountManager.setCustomData(name, key, value)
    ```
 
-3. 调用[getCustomData](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md#func-getcustomdatastring-string)接口，获取账号的自定义数据。
+3. 调用[getCustomData](../../cj-apis-account-appAccount/.overview.md)接口，获取账号的自定义数据。
 
    ```cangjie
    appAccountManager.getCustomData(name, key)

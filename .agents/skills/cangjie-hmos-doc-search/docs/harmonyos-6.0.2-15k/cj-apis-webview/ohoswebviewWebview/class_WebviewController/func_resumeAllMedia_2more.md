@@ -1,4 +1,4 @@
-### func resumeAllMedia()
+﻿### func resumeAllMedia()
 
 ```cangjie
 public func resumeAllMedia(): Unit
@@ -12,7 +12,7 @@ public func resumeAllMedia(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -67,11 +67,11 @@ public func runJavaScript(script: String, callback: AsyncCallback<String>): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |script|String|是|-|JavaScript脚本。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<String>|是|-|回调执行JavaScript脚本结果。JavaScript脚本若执行失败或无返回值时，返回null。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<String>|是|-|回调执行JavaScript脚本结果。JavaScript脚本若执行失败或无返回值时，返回null。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

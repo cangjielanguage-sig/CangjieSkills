@@ -1,4 +1,4 @@
-### func finishTest(String, Int64)
+﻿### func finishTest(String, Int64)
 
 ```cangjie
 public func finishTest(msg: String, code: Int64): Unit
@@ -49,7 +49,7 @@ public func getAbilityState(ability: UIAbility): AbilityLifecycleState
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|ability|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)|是|-|指定[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)对象。|
+|ability|[UIAbility](../../../cj-apis-ability/.overview.md)|是|-|指定[UIAbility](../../../cj-apis-ability/.overview.md)对象。|
 
 **返回值：**
 
@@ -59,7 +59,7 @@ public func getAbilityState(ability: UIAbility): AbilityLifecycleState
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息|
   | :--- | :--- |
@@ -97,7 +97,7 @@ public func getAppContext(): ApplicationContext
 
 |类型|说明|
 |:----|:----|
-|[ApplicationContext](../AbilityKit/cj-apis-ability.md#class-applicationcontext)|应用Context。|
+|[ApplicationContext](../../../cj-apis-ability/.overview.md)|应用Context。|
 
 **示例：**
 
@@ -120,7 +120,7 @@ let context = delegator.getAppContext()
 public func getCurrentTopAbility(): UIAbility
 ```
 
-**功能：** 获取当前应用顶部[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)。
+**功能：** 获取当前应用顶部[UIAbility](../../../cj-apis-ability/.overview.md)。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -130,11 +130,11 @@ public func getCurrentTopAbility(): UIAbility
 
 |类型|说明|
 |:----|:----|
-|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)|返回[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)实例。|
+|[UIAbility](../../../cj-apis-ability/.overview.md)|返回[UIAbility](../../../cj-apis-ability/.overview.md)实例。|
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |

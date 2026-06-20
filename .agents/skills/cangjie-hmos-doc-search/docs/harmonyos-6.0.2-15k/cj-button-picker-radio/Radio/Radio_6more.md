@@ -1,4 +1,4 @@
-# Radio
+﻿# Radio
 
 单选框，提供相应的用户交互选择项。
 
@@ -28,7 +28,7 @@ public init(value!: String, group!: String, indicatorType!: RadioIndicatorType =
 |value|String|是|-| **命名参数。** 当前单选框的值。|
 |group|String|是|-| **命名参数。** 当前单选框的所属群组名称，相同group的Radio只能有一个被选中。|
 |indicatorType|[RadioIndicatorType](#enum-radioindicatortype)|是|-| **命名参数。** 配置单选框的选中样式。|
-|indicatorBuilder|Option\<()->Unit>|是|-| **命名参数。** 配置单选框的选中样式为自定义UI描述。自定义UI描述与Radio组件为中心点对齐显示。indicatorBuilder设置为Option.None时，按照RadioIndicatorType.TICK进行显示。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|indicatorBuilder|Option\<()->Unit>|是|-| **命名参数。** 配置单选框的选中样式为自定义UI描述。自定义UI描述与Radio组件为中心点对齐显示。indicatorBuilder设置为Option.None时，按照RadioIndicatorType.TICK进行显示。使用时结合[@Builder](../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 
 ## 通用属性/通用事件
 

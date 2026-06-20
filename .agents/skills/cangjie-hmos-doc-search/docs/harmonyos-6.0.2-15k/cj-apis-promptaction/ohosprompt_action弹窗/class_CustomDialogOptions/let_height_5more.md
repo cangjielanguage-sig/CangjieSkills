@@ -1,4 +1,4 @@
-### let height
+﻿### let height
 
 ```cangjie
 public let height: Length = 100.vp
@@ -108,4 +108,4 @@ public init(
 |alignment|[DialogAlignment](./cj-common-types.md#enum-dialogalignment)|否|DialogAlignment.Default| **命名参数。** 弹窗在竖直方向上的对齐方式。|
 |offset|[Offset](./cj-common-types.md#class-offset)|否|Offset(0.vp, 0.vp)| **命名参数。** 弹窗相对alignment所在位置的偏移量。|
 |isModal|Bool|否|true| **命名参数。** 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。默认弹窗有蒙层。|
-|builder|()->Unit|否|-| **命名参数。** 设置自定义弹窗的内容。<br>**说明：**<br> 使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。如果是全局builder需要在组件内部创建一个builder，在内部builder中调用全局builder。builder根节点宽高百分比相对弹框容器大小。builder非根节点宽高百分比相对父节点大小。|
+|builder|()->Unit|否|-| **命名参数。** 设置自定义弹窗的内容。<br>**说明：**<br> 使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。如果是全局builder需要在组件内部创建一个builder，在内部builder中调用全局builder。builder根节点宽高百分比相对弹框容器大小。builder非根节点宽高百分比相对父节点大小。|

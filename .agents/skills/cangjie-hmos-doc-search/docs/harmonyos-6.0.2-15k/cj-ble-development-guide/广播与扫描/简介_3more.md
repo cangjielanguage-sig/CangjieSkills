@@ -1,4 +1,4 @@
-## 简介
+﻿## 简介
 
 广播与扫描，主要提供了蓝牙设备的开启广播、关闭广播、开启扫描、关闭扫描方法，通过广播和扫描发现对端蓝牙设备，实现低功耗的通信。
 
@@ -11,7 +11,7 @@
 
 ## 接口说明
 
-完整的仓颉 API 说明以及实例代码请参见：[BLE 接口](../../../API_Reference/source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-ble.md)。
+完整的仓颉 API 说明以及实例代码请参见：[BLE 接口](../../cj-apis-bluetooth-ble/.overview.md)。
 
 具体接口说明如下表。
 

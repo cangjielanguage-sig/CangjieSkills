@@ -1,4 +1,4 @@
-## func createImageSource(Array\<UInt8>)
+﻿## func createImageSource(Array\<UInt8>)
 
 ```cangjie
 public func createImageSource(buf: Array<UInt8>): ImageSource
@@ -24,7 +24,7 @@ public func createImageSource(buf: Array<UInt8>): ImageSource
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|
@@ -71,7 +71,7 @@ public func createImageSource(buf: Array<UInt8>, options: SourceOptions): ImageS
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|
@@ -108,7 +108,7 @@ public func createImageSource(rawfile: RawFileDescriptor, options!: SourceOption
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|rawfile|[RawFileDescriptor](../LocalizationKit/cj-apis-resource_manager.md#class-rawfiledescriptor)|是|-|图像资源文件的RawFileDescriptor。|
+|rawfile|[RawFileDescriptor](../../cj-apis-resource_manager/.overview.md)|是|-|图像资源文件的RawFileDescriptor。|
 |options|[SourceOptions](#struct-sourceoptions)|否|SourceOptions()| **命名参数。** 图片属性，包括图片像素密度、像素格式和图片尺寸。|
 
 **返回值：**

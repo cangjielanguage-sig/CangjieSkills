@@ -1,6 +1,6 @@
-## 获取最高优先级输出设备信息
+﻿## 获取最高优先级输出设备信息
 
-使用[getPreferredOutputDeviceForRendererInfo(AudioRendererInfo)](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#func-getpreferredoutputdeviceforrendererinfoaudiorendererinfo)方法, 可以获取当前最高优先级的输出设备。
+使用[getPreferredOutputDeviceForRendererInfo(AudioRendererInfo)](../../cj-apis-multimedia-audio/.overview.md)方法, 可以获取当前最高优先级的输出设备。
 
 > **说明：**
 >

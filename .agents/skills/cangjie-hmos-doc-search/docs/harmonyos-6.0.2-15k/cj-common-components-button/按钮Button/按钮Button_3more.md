@@ -1,12 +1,12 @@
-# 按钮（Button）
+﻿# 按钮（Button）
 
-Button是按钮组件，通常用于响应用户的点击操作，其类型包括胶囊按钮、圆形按钮、普通按钮。Button做为容器使用时可以通过添加子组件实现包含文字、图片等元素的按钮。具体用法请参见[Button](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-button.md)。
+Button是按钮组件，通常用于响应用户的点击操作，其类型包括胶囊按钮、圆形按钮、普通按钮。Button做为容器使用时可以通过添加子组件实现包含文字、图片等元素的按钮。具体用法请参见[Button](../../cj-button-picker-button/.overview.md)。
 
 ## 创建按钮
 
 Button通过调用接口来创建，接口调用有以下两种形式：
 
-- 通过label和[ButtonOptions](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-button.md#class-buttonoptions)创建不包含子组件的按钮。以ButtonOptions中的shape和stateEffect为例。
+- 通过label和[ButtonOptions](../../cj-button-picker-button/.overview.md)创建不包含子组件的按钮。以ButtonOptions中的shape和stateEffect为例。
 
     ```cangjie
     init(label: String, options: ButtonOptions)
@@ -24,7 +24,7 @@ Button通过调用接口来创建，接口调用有以下两种形式：
 
     ![Button](figures/Button.png)
 
-- 通过[ButtonOptions](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-button.md#class-buttonoptions)创建包含子组件的按钮。以ButtonOptions中的shape和stateEffect为例。
+- 通过[ButtonOptions](../../cj-button-picker-button/.overview.md)创建包含子组件的按钮。以ButtonOptions中的shape和stateEffect为例。
 
     ```cangjie
     init(options: ButtonOptions, content: () -> Unit)
@@ -93,7 +93,7 @@ Button有四种可选类型，分别为胶囊类型（Capsule）、圆形按钮�
 
 - 圆角矩形按钮。
 
-    当[controlSize](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-button.md#func-controlsizecontrolsize)为NORMAL时，默认圆角大小为20.vp，[controlSize](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-button.md#func-controlsizecontrolsize)为SMALL时，圆角大小为14.vp，支持通过borderRadius属性重新设置圆角。
+    当[controlSize](../../cj-button-picker-button/.overview.md)为NORMAL时，默认圆角大小为20.vp，[controlSize](../../cj-button-picker-button/.overview.md)为SMALL时，圆角大小为14.vp，支持通过borderRadius属性重新设置圆角。
 
     ```cangjie
     Button('Disable', ButtonOptions(shape: ButtonType.ROUNDED_RECTANGLE, stateEffect: true))

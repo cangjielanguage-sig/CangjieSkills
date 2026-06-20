@@ -1,4 +1,4 @@
-# ohos.observer（无感监听）
+﻿# ohos.observer（无感监听）
 
 提供UI组件行为变化的无感监听能力。
 
@@ -29,11 +29,11 @@ public func off(`type`: ObserverType, callback: Callback1Argument<ScrollEventInf
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[ObserverType](#enum-observertype)|是|-|监听事件，固定为OBSERVER_SCROLL_EVENT，即滚动事件的开始和结束。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ScrollEventInfo](#class-scrolleventinfo)>|是|-|回调函数。返回滚动事件的信息。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[ScrollEventInfo](#class-scrolleventinfo)>|是|-|回调函数。返回滚动事件的信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -57,7 +57,7 @@ public func off(`type`: ObserverType): Unit
 |:---|:---|:---|:---|:---|
 |\`type\`|[ObserverType](#enum-observertype)|是|-|监听事件。|
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -81,11 +81,11 @@ public func off(`type`: ObserverType, options: ObserverOptions, callback: Callba
 |:---|:---|:---|:---|:---|
 |\`type\`|[ObserverType](#enum-observertype)|是|-|监听事件，固定为OBSERVER_SCROLL_EVENT，即滚动事件的开始和结束。|
 |options|[ObserverOptions](#class-observeroptions)|是|-|指定监听的滚动组件的id。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ScrollEventInfo](#class-scrolleventinfo)>|是|-|回调函数。返回滚动事件的信息。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[ScrollEventInfo](#class-scrolleventinfo)>|是|-|回调函数。返回滚动事件的信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -112,7 +112,7 @@ public func off(`type`: ObserverType, options: ObserverOptions): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

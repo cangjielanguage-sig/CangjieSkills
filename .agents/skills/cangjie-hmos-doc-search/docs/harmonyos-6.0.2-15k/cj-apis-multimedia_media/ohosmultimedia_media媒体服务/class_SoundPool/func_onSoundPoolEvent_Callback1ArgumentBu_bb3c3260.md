@@ -1,4 +1,4 @@
-### func on(SoundPoolEvent, Callback1Argument\<BusinessException>)
+﻿### func on(SoundPoolEvent, Callback1Argument\<BusinessException>)
 
 ```cangjie
 public func on(eventType: SoundPoolEvent, callback: Callback1Argument<BusinessException>): Unit
@@ -15,11 +15,11 @@ public func on(eventType: SoundPoolEvent, callback: Callback1Argument<BusinessEx
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[SoundPoolEvent](#enum-soundpoolevent)|是|-| 填SoundPoolEvent.EventError，soundPool事件状态。用户操作和系统都会触发此事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|错误事件回调方法：使用播放器的过程中发生错误，会提供错误码ID和错误信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|错误事件回调方法：使用播放器的过程中发生错误，会提供错误码ID和错误信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

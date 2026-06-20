@@ -1,4 +1,4 @@
-### var notificationSlotType
+﻿### var notificationSlotType
 
 ```cangjie
 public var notificationSlotType: SlotType = OTHER_TYPES
@@ -40,7 +40,7 @@ public var smallIcon: Option<PixelMap> = None
 
 **系统能力：** SystemCapability.Notification.Notification
 
-**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 

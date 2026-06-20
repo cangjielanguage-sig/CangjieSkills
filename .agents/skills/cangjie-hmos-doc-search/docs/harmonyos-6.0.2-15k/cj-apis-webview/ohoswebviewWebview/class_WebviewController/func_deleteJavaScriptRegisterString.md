@@ -1,4 +1,4 @@
-### func deleteJavaScriptRegister(String)
+﻿### func deleteJavaScriptRegister(String)
 
 ```cangjie
 public func deleteJavaScriptRegister(name: String): Unit
@@ -18,7 +18,7 @@ public func deleteJavaScriptRegister(name: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

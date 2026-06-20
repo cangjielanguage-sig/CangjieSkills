@@ -1,4 +1,4 @@
-# 创建自定义组件
+﻿# 创建自定义组件
 
 在ArkUI中，UI显示的内容均为组件，由框架直接提供的称为系统组件，由开发者定义的称为自定义组件。在进行 UI 界面开发时，通常不是简单的将系统组件进行组合使用，而是需要考虑代码可复用性、业务逻辑与UI分离，后续版本演进等因素。因此，将UI和部分业务逻辑封装成自定义组件是不可或缺的能力。
 
@@ -84,7 +84,7 @@ class MyComponent {
 
 ### @Entry
 
-@Entry装饰的自定义组件将作为UI页面的入口。在单个UI页面中，最多可以使用@Entry装饰一个自定义组件。@Entry可以接受一个可选的[LocalStorage](../state_management/cj-localstorage.md)的参数。
+@Entry装饰的自定义组件将作为UI页面的入口。在单个UI页面中，最多可以使用@Entry装饰一个自定义组件。@Entry可以接受一个可选的[LocalStorage](../../cj-localstorage/.overview.md)的参数。
 
 ```cangjie
 @Entry
@@ -96,7 +96,7 @@ class MyComponent {}
 
 |名称|类型|必填|说明|
 |:---|:---|:---|:---|
-|storage|[LocalStorage](../state_management/cj-localstorage.md)|否|页面级的UI状态存储。|
+|storage|[LocalStorage](../../cj-localstorage/.overview.md)|否|页面级的UI状态存储。|
 
 ### @Reusable
 
@@ -117,4 +117,4 @@ class MyComponent {}
 自定义组件可以包含成员变量，成员变量具有以下约束：
 
 - 自定义组件的成员变量为私有的，且不建议声明成静态变量。
-- 自定义组件的成员变量本地初始化有些是可选的，有些是必选的。具体是否需要本地初始化，是否需要从父组件通过参数传递初始化子组件的成员变量，请参见[状态管理](../state_management/cj-state-management-overview.md)。
+- 自定义组件的成员变量本地初始化有些是可选的，有些是必选的。具体是否需要本地初始化，是否需要从父组件通过参数传递初始化子组件的成员变量，请参见[状态管理](../../cj-state-management-overview/.overview.md)。

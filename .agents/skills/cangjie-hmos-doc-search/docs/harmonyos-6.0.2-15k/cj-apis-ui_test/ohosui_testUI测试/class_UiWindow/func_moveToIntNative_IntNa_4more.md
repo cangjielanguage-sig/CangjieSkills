@@ -1,4 +1,4 @@
-### func moveTo(IntNative, IntNative)
+﻿### func moveTo(IntNative, IntNative)
 
 ```cangjie
 public func moveTo(x: IntNative, y: IntNative): Unit
@@ -19,7 +19,7 @@ public func moveTo(x: IntNative, y: IntNative): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -63,7 +63,7 @@ public func resize(wide: IntNative, height: IntNative, direction: ResizeDirectio
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public func resume(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -135,7 +135,7 @@ public func split(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

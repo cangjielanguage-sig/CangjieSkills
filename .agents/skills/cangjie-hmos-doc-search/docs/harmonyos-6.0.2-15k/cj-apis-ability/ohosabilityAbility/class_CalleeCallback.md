@@ -1,4 +1,4 @@
-## class CalleeCallback
+﻿## class CalleeCallback
 
 ```cangjie
 public class CalleeCallback <: Callback1ArgumentWithReturn<MessageSequence, Parcelable> {
@@ -14,7 +14,7 @@ public class CalleeCallback <: Callback1ArgumentWithReturn<MessageSequence, Parc
 
 **父类型：**
 
-- [Callback1ArgumentWithReturn](../BasicServicesKit/cj-apis-base.md#class-callback1argumentwithreturn)\<[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence), [Parcelable](../IPCKit/cj-apis-rpc.md#interface-parcelable)>
+- [Callback1ArgumentWithReturn](../../cj-apis-base/.overview.md)\<[MessageSequence](../../cj-apis-rpc/.overview.md), [Parcelable](../../cj-apis-rpc/.overview.md)>
 
 ### CalleeCallback((MessageSequence) -> Parcelable)
 
@@ -32,7 +32,7 @@ public CalleeCallback(let callback: (MessageSequence) -> Parcelable)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|([MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence))->[Parcelable](../IPCKit/cj-apis-rpc.md#interface-parcelable)|是|-|发送需传递的数据的回调函数。|
+|callback|([MessageSequence](../../cj-apis-rpc/.overview.md))->[Parcelable](../../cj-apis-rpc/.overview.md)|是|-|发送需传递的数据的回调函数。|
 
 ### func invoke(MessageSequence)
 
@@ -50,10 +50,10 @@ public func invoke(arg1: MessageSequence): Parcelable
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|arg1|[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence)|是|-|发送需传递的数据。|
+|arg1|[MessageSequence](../../cj-apis-rpc/.overview.md)|是|-|发送需传递的数据。|
 
 **返回值：**
 
 |类型|说明|
 |:----|:----|
-|[Parcelable](../IPCKit/cj-apis-rpc.md#interface-parcelable)|返回的数据对象。|
+|[Parcelable](../../cj-apis-rpc/.overview.md)|返回的数据对象。|

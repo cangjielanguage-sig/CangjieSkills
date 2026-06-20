@@ -1,4 +1,4 @@
-### func getPreviewRotation(Int32)
+﻿### func getPreviewRotation(Int32)
 
 ```cangjie
 public func getPreviewRotation(displayRotation: Int32): ImageRotation
@@ -18,7 +18,7 @@ public func getPreviewRotation(displayRotation: Int32): ImageRotation
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|displayRotation|Int32|是|-|显示设备的屏幕旋转角度，通过[getDefaultDisplaySync](../../arkui-cj/cj-apis-display.md#func-getdefaultdisplaysync)获得。|
+|displayRotation|Int32|是|-|显示设备的屏幕旋转角度，通过[getDefaultDisplaySync](../../../cj-apis-display/.overview.md)获得。|
 
 **返回值：**
 
@@ -28,7 +28,7 @@ public func getPreviewRotation(displayRotation: Int32): ImageRotation
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID   | 错误信息                         |
   |:--------|:-----------------------------|

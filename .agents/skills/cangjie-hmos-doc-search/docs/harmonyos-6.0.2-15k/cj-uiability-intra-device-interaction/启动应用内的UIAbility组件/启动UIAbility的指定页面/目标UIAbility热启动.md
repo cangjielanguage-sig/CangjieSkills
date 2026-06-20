@@ -1,6 +1,6 @@
-### 目标UIAbility热启动
+﻿### 目标UIAbility热启动
 
-在应用开发中，会遇到目标[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)实例之前已经启动过的场景，这时再次启动目标Ability时，不会重新走初始化逻辑，只会直接触发[onNewWant()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onnewwantwant-launchparam)生命周期方法。为了实现跳转到指定页面，需要在onNewWant()中解析参数进行处理。
+在应用开发中，会遇到目标[UIAbility](../../../cj-apis-ability/.overview.md)实例之前已经启动过的场景，这时再次启动目标Ability时，不会重新走初始化逻辑，只会直接触发[onNewWant()](../../../cj-apis-ability/.overview.md)生命周期方法。为了实现跳转到指定页面，需要在onNewWant()中解析参数进行处理。
 
 例如短信应用和联系人应用配合使用的场景。
 
@@ -8,7 +8,7 @@
 2. 用户将设备回到桌面界面，短信应用进入后台运行状态。
 3. 用户打开联系人应用，找到联系人张三。
 4. 用户点击联系人张三的短信按钮，会重新启动短信应用的UIAbility实例。
-5. 由于短信应用的UIAbility实例已经启动过了，此时会触发该UIAbility的onNewWant()回调，而不会再执行[onCreate()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-oncreatewant-launchparam)和[onWindowStageCreate()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onwindowstagecreatewindowstage)等初始化逻辑。
+5. 由于短信应用的UIAbility实例已经启动过了，此时会触发该UIAbility的onNewWant()回调，而不会再执行[onCreate()](../../../cj-apis-ability/.overview.md)和[onWindowStageCreate()](../../../cj-apis-ability/.overview.md)等初始化逻辑。
 
 **图1** 目标UIAbility热启动
 
@@ -43,7 +43,7 @@
     }
     ```
 
-2. 在短信应用UIAbility的[onNewWant()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onnewwantwant-launchparam)回调中解析调用方传递过来的[Want](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-want)参数，通过[Router](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-router.md#class-router)对象，并进行指定页面的跳转。此时再次启动该短信应用的UIAbility实例时，即可跳转到该短信应用的UIAbility实例的指定页面。
+2. 在短信应用UIAbility的[onNewWant()](../../../cj-apis-ability/.overview.md)回调中解析调用方传递过来的[Want](../../../cj-apis-ability/.overview.md)参数，通过[Router](../../../cj-apis-router/.overview.md)对象，并进行指定页面的跳转。此时再次启动该短信应用的UIAbility实例时，即可跳转到该短信应用的UIAbility实例的指定页面。
 
     ```cangjie
     import std.collection.HashMap

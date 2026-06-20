@@ -1,4 +1,4 @@
-## class UIExtensionContentSession
+﻿## class UIExtensionContentSession
 
 ```cangjie
 public class UIExtensionContentSession {}
@@ -30,7 +30,7 @@ public func loadContent(path: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -39,7 +39,7 @@ public func loadContent(path: String): Unit
 
 **示例：**
 
-详细使用说明请参见[拉起图片编辑类应用](../../../../Dev_Guide/application-models/cj-photoEditorExtensionAbility.md#拉起图片编辑类应用startabilitybytype)。
+详细使用说明请参见[拉起图片编辑类应用](../../../cj-photoEditorExtensionAbility/.overview.md)。
 
 ```cangjie
 // example_photo_extension_ability.cj
@@ -79,7 +79,7 @@ public func setWindowPrivacyMode(isPrivacyMode: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func createPixelMapList(DecodingOptions)
+﻿### func createPixelMapList(DecodingOptions)
 
 ```cangjie
 public func createPixelMapList(options!: DecodingOptions = DecodingOptions()): Array<PixelMap>
@@ -24,7 +24,7 @@ public func createPixelMapList(options!: DecodingOptions = DecodingOptions()): A
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -66,7 +66,7 @@ public func getDelayTimeList(): Array<Int32>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -102,7 +102,7 @@ public func getDisposalTypeList(): Array<Int32>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

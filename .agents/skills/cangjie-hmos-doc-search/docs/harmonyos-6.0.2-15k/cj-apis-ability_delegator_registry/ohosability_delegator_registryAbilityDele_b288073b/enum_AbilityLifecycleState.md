@@ -1,4 +1,4 @@
-## enum AbilityLifecycleState
+﻿## enum AbilityLifecycleState
 
 ```cangjie
 public enum AbilityLifecycleState <: Equatable<AbilityLifecycleState> & ToString {
@@ -11,7 +11,7 @@ public enum AbilityLifecycleState <: Equatable<AbilityLifecycleState> & ToString
 }
 ```
 
-**功能：** [UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)生命周期状态，该类型为枚举，可配合[AbilityDelegator](#class-abilitydelegator)的[getAbilityState](#func-getabilitystateuiability)方法返回不同ability生命周期。
+**功能：** [UIAbility](../../cj-apis-ability/.overview.md)生命周期状态，该类型为枚举，可配合[AbilityDelegator](#class-abilitydelegator)的[getAbilityState](#func-getabilitystateuiability)方法返回不同ability生命周期。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -28,7 +28,7 @@ public enum AbilityLifecycleState <: Equatable<AbilityLifecycleState> & ToString
 BACKGROUND
 ```
 
-**功能：** 表示[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)处于后台状态。
+**功能：** 表示[UIAbility](../../cj-apis-ability/.overview.md)处于后台状态。
 
 **起始版本：** 19
 
@@ -38,7 +38,7 @@ BACKGROUND
 CREATE
 ```
 
-**功能：** 表示[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)处于已创建状态。
+**功能：** 表示[UIAbility](../../cj-apis-ability/.overview.md)处于已创建状态。
 
 **起始版本：** 19
 
@@ -48,7 +48,7 @@ CREATE
 DESTROY
 ```
 
-**功能：** 表示[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)处于已销毁状态。
+**功能：** 表示[UIAbility](../../cj-apis-ability/.overview.md)处于已销毁状态。
 
 **起始版本：** 19
 
@@ -58,7 +58,7 @@ DESTROY
 FOREGROUND
 ```
 
-**功能：** 表示[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)处于前台状态。
+**功能：** 表示[UIAbility](../../cj-apis-ability/.overview.md)处于前台状态。
 
 **起始版本：** 19
 
@@ -68,7 +68,7 @@ FOREGROUND
 UNINITIALIZED
 ```
 
-**功能：** 表示[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)处于无效状态。
+**功能：** 表示[UIAbility](../../cj-apis-ability/.overview.md)处于无效状态。
 
 **起始版本：** 19
 

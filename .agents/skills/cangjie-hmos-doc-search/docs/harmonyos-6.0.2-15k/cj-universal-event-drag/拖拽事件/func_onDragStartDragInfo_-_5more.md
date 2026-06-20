@@ -1,4 +1,4 @@
-## func onDragStart((DragInfo) -> (() -> Unit))
+﻿## func onDragStart((DragInfo) -> (() -> Unit))
 
 ```cangjie
 public func onDragStart(callback: (DragInfo)-> (() -> Unit)): This
@@ -14,7 +14,7 @@ public func onDragStart(callback: (DragInfo)-> (() -> Unit)): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|([DragInfo](#class-draginfo))|是|-|回调函数，拖拽开始时触发。<br/>传入参数为拖拽事件信息，包括拖拽点坐标。<br/>返回参数为拖拽过程中显示的组件信息，使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|callback|([DragInfo](#class-draginfo))|是|-|回调函数，拖拽开始时触发。<br/>传入参数为拖拽事件信息，包括拖拽点坐标。<br/>返回参数为拖拽过程中显示的组件信息，使用时结合[@Builder](../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 
 ## func onDragStart((DragInfo) -> Unit)
 

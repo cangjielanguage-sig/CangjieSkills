@@ -1,4 +1,4 @@
-# 证书管理开发指导
+﻿# 证书管理开发指导
 
 > **说明:**
 >
@@ -15,11 +15,11 @@
 
 2. 支持安装的私有凭据算法类型&签名验签支持的参数组合。
 
-   证书管理安装凭据及使用凭据中的密钥进行签名、验签，依赖[通用密钥库](../UniversalKeystoreKit/cj-huks-overview.md)（HUKS）能力，证书管理支持的算法为其子集，当前仅支持RSA及ECC算法类型的私有凭据安装及使用。签名、验签支持的参数组合，详情请参见HUKS声明的[签名/验签介绍及算法规格](../UniversalKeystoreKit/cj-huks-signing-signature-verification-overview.md)中RSA及ECC的描述。
+   证书管理安装凭据及使用凭据中的密钥进行签名、验签，依赖[通用密钥库](../../cj-huks-overview/cj-huks-overview.md)（HUKS）能力，证书管理支持的算法为其子集，当前仅支持RSA及ECC算法类型的私有凭据安装及使用。签名、验签支持的参数组合，详情请参见HUKS声明的[签名/验签介绍及算法规格](../../cj-huks-signing-signature-verification-overview/cj-huks-signing-signature-verification-overview.md)中RSA及ECC的描述。
 
 ## 接口说明
 
-详细接口说明可参见[API参考](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert_manager.md)。
+详细接口说明可参见[API参考](../../cj-apis-cert_manager/.overview.md)。
 
 以上场景涉及的常用接口如下表所示：
 

@@ -1,4 +1,4 @@
-### func writeParcelableArray(Array\<Parcelable>)
+﻿### func writeParcelableArray(Array\<Parcelable>)
 
 ```cangjie
 public func writeParcelableArray(parcelableArray: Array<Parcelable>): Unit
@@ -18,7 +18,7 @@ public func writeParcelableArray(parcelableArray: Array<Parcelable>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -46,7 +46,7 @@ public func writeRawDataBuffer(rawData: Array<Byte>, size: Int64): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,7 +73,7 @@ public func writeShort(val: Int16): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

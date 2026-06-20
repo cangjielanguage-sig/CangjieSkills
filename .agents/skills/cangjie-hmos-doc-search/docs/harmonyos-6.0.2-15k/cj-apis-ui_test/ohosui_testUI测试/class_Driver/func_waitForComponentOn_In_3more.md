@@ -1,4 +1,4 @@
-### func waitForComponent(On, Int32)
+﻿### func waitForComponent(On, Int32)
 
 ```cangjie
 public func waitForComponent(on: On, time: Int32): UIComponent
@@ -25,7 +25,7 @@ public func waitForComponent(on: On, time: Int32): UIComponent
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public func waitForIdle(idleTime: Int32, timeout: Int32): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -106,7 +106,7 @@ public func wakeUpDisplay(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

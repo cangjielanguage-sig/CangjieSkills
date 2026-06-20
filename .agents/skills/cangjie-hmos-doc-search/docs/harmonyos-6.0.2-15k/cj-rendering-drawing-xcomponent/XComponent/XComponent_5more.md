@@ -1,6 +1,6 @@
-# XComponent
+﻿# XComponent
 
-提供用于图形绘制和媒体数据写入的Surface，XComponent负责将其嵌入到视图中，支持应用自定义Surface位置和大小。具体指南请参考[自定义渲染 (XComponent)](../../../Dev_Guide/arkui-cj/cj-common-components-xcomponent.md)文档。
+提供用于图形绘制和媒体数据写入的Surface，XComponent负责将其嵌入到视图中，支持应用自定义Surface位置和大小。具体指南请参考[自定义渲染 (XComponent)](../../cj-common-components-xcomponent/.overview.md)文档。
 
 ## 子组件
 

@@ -1,16 +1,16 @@
-# 应用文件上传下载
+﻿# 应用文件上传下载
 
 应用可以将应用文件上传到网络服务器，也可以从网络服务器下载网络资源文件到本地应用文件目录。
 
 ## 上传应用文件
 
-开发者可以使用上传下载模块（[ohos.request](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-request-agent.md)）的上传接口将本地文件上传。文件上传过程使用系统服务代理完成，支持用户设置自定义代理地址。
+开发者可以使用上传下载模块（[ohos.request](../../cj-apis-request-agent/.overview.md)）的上传接口将本地文件上传。文件上传过程使用系统服务代理完成，支持用户设置自定义代理地址。
 
 > **说明：**
 >
 > 当前上传应用文件功能，仅支持上传应用缓存文件路径（cacheDir）下的文件。
 >
-> 使用上传下载模块，请参见[声明权限](../../security/AccessToken/cj-declare-permissions.md)：ohos.permission.INTERNET。
+> 使用上传下载模块，请参见[声明权限](../../cj-declare-permissions/.overview.md)：ohos.permission.INTERNET。
 
 以下示例代码演示将应用缓存文件路径下的文件上传至网络服务器的方式：
 

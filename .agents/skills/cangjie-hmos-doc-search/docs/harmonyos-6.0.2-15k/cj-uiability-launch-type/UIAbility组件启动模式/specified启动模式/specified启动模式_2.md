@@ -1,4 +1,4 @@
-@Entry
+﻿@Entry
     @Component
     class EntryView {
         @State
@@ -49,7 +49,7 @@
     }
     ```
 
-3. 开发者根据业务在SpecifiedAbility的[onAcceptWant()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onacceptwantwant)生命周期回调设置该UIAbility的标识。示例中标识设置为`SpecifiedAbilityInstance_KEY`。
+3. 开发者根据业务在SpecifiedAbility的[onAcceptWant()](../../../cj-apis-ability/.overview.md)生命周期回调设置该UIAbility的标识。示例中标识设置为`SpecifiedAbilityInstance_KEY`。
 
     ```cangjie
     import kit.AbilityKit.{AbilityStage, Want}
@@ -78,5 +78,5 @@
 
     > **说明：**
     >
-    > - 当应用的UIAbility实例已经被创建，并且配置为指定实例模式时，如果再次调用[startAbility()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitywant)方法启动该UIAbility实例，且[AbilityStage](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-abilitystage)的[onAcceptWant()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onacceptwantwant)回调匹配到一个已创建的UIAbility实例，则系统会启动原来的UIAbility实例，并且不会重新创建一个新的UIAbility实例。此时，该UIAbility实例的onNewWant()回调会被触发，而不会触发onCreate()和onWindowStageCreate()生命周期回调。
+    > - 当应用的UIAbility实例已经被创建，并且配置为指定实例模式时，如果再次调用[startAbility()](../../../cj-apis-ability/.overview.md)方法启动该UIAbility实例，且[AbilityStage](../../../cj-apis-ability/.overview.md)的[onAcceptWant()](../../../cj-apis-ability/.overview.md)回调匹配到一个已创建的UIAbility实例，则系统会启动原来的UIAbility实例，并且不会重新创建一个新的UIAbility实例。此时，该UIAbility实例的onNewWant()回调会被触发，而不会触发onCreate()和onWindowStageCreate()生命周期回调。
     > - AbilityStage文件的创建请参见[AbilityStage组件容器](cj-abilitystage.md)。

@@ -1,4 +1,4 @@
-## enum CountryCodeType
+﻿## enum CountryCodeType
 
 ```cangjie
 public enum CountryCodeType {
@@ -122,7 +122,7 @@ public enum LocationError {
 LOCATING_FAILED_BACKGROUND_PERMISSION_DENIED
 ```
 
-**功能：** 表示应用在后台时位置权限校验失败导致持续定位失败。APP在后台定位时的位置权限申请方式参见[申请位置权限开发指导](../../../../Dev_Guide/location/cj-location-permission-guidelines.md)。
+**功能：** 表示应用在后台时位置权限校验失败导致持续定位失败。APP在后台定位时的位置权限申请方式参见[申请位置权限开发指导](../../cj-location-permission-guidelines/cj-location-permission-guidelines.md)。
 
 **起始版本：** 19
 

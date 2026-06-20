@@ -1,4 +1,4 @@
-## func offWifiRssiChange(?WifiCallback1\<Int32>)
+﻿## func offWifiRssiChange(?WifiCallback1\<Int32>)
 
 ```cangjie
 public func offWifiRssiChange(callback!: ?WifiCallback1<Int32> = None): Unit
@@ -20,7 +20,7 @@ public func offWifiRssiChange(callback!: ?WifiCallback1<Int32> = None): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[WIFI错误码](../../errorcodes/cj-errorcode-wifi-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[WIFI错误码](../../cj-errorcode-wifi-manager/cj-errorcode-wifi-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -70,7 +70,7 @@ public func offWifiScanStateChange(callback!: ?WifiCallback1<Int32> = None): Uni
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[WIFI错误码](../../errorcodes/cj-errorcode-wifi-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[WIFI错误码](../../cj-errorcode-wifi-manager/cj-errorcode-wifi-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

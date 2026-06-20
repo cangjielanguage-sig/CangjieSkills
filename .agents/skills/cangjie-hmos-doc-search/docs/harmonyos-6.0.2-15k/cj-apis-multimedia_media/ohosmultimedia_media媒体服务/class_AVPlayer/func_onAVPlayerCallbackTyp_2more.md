@@ -1,4 +1,4 @@
-### func on(AVPlayerCallbackType, OnTrackChangeHandler)
+﻿### func on(AVPlayerCallbackType, OnTrackChangeHandler)
 
 ```cangjie
 public func on(`type`: AVPlayerCallbackType, callback: OnTrackChangeHandler): Unit
@@ -19,7 +19,7 @@ public func on(`type`: AVPlayerCallbackType, callback: OnTrackChangeHandler): Un
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -65,11 +65,11 @@ public func on(`type`: AVPlayerCallbackType, callback: Callback1Argument<Array<M
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVPlayerCallbackType](#enum-avplayercallbacktype)|是|-|事件回调类型，支持的事件为：[TrackInfoUpdate](#trackinfoupdate)。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[MediaDescription](#type-mediadescription)>>|是|-|轨道信息更新事件回调方法。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[MediaDescription](#type-mediadescription)>>|是|-|轨道信息更新事件回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

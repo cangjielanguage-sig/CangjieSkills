@@ -1,4 +1,4 @@
-# ohos.running_lock（Runninglock锁）
+﻿# ohos.running_lock（Runninglock锁）
 
 该模块主要提供RunningLock锁相关操作的接口，包括创建、查询、持锁、释放锁等操作。
 
@@ -17,9 +17,9 @@ ohos.permission.RUNNING_LOCK
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func create(String, RunningLockType)
 
@@ -48,7 +48,7 @@ public func create(name: String, `type`: RunningLockType): RunningLock
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public func isSupported(`type`: RunningLockType): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../errorcodes/cj-errorcode-running-lock.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../cj-errorcode-running-lock/cj-errorcode-running-lock.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

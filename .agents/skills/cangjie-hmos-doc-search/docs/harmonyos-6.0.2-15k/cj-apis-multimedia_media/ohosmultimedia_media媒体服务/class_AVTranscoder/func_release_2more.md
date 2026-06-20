@@ -1,4 +1,4 @@
-### func release()
+﻿### func release()
 
 ```cangjie
 public func release(): Unit
@@ -12,7 +12,7 @@ public func release(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -55,11 +55,11 @@ public func on(`type`: AVTranscoderCallbackType, callback: Callback1Argument<Int
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVTranscoderCallbackType](#enum-avtranscodercallbacktype)|是|-|进度更新事件回调类型ProgressUpdate。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Int32>|是|-|进度更新事件回调方法，val: Int32，表示当前转码进度。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Int32>|是|-|进度更新事件回调方法，val: Int32，表示当前转码进度。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

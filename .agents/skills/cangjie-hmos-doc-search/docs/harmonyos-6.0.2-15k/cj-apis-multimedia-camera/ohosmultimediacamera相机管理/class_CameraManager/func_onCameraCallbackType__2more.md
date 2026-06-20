@@ -1,4 +1,4 @@
-### func on(CameraCallbackType, Callback1Argument\<TorchStatusInfo>)
+﻿### func on(CameraCallbackType, Callback1Argument\<TorchStatusInfo>)
 
 ```cangjie
 public func on(`type`: CameraCallbackType, callback: Callback1Argument<TorchStatusInfo>): Unit
@@ -19,7 +19,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<TorchStat
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为torchStatusChange。cameraManager对象获取成功后可监听。目前只支持手电筒打开，手电筒关闭，手电筒不可用，手电筒恢复可用会触发该事件并返回对应信息。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[TorchStatusInfo](#struct-torchstatusinfo)>|是|-|回调函数，用于获取手电筒状态变化信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[TorchStatusInfo](#struct-torchstatusinfo)>|是|-|回调函数，用于获取手电筒状态变化信息。|
 
 **示例：**
 
@@ -66,7 +66,7 @@ public func setTorchMode(torchMode: TorchMode): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID         | 错误信息        |
   | :-------------- | :-------------- |

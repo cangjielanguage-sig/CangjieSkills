@@ -1,4 +1,4 @@
-# ohos.form.form_extension_ability（FormExtensionAbility）
+﻿# ohos.form.form_extension_ability（FormExtensionAbility）
 
 FormExtensionAbility为卡片扩展模块，提供卡片创建、销毁、刷新等生命周期回调。
 
@@ -20,4 +20,4 @@ API示例代码使用说明：
 
 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。

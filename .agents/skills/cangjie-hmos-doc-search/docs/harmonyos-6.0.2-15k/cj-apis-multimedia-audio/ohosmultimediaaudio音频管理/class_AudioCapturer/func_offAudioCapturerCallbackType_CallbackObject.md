@@ -1,4 +1,4 @@
-### func off(AudioCapturerCallbackType, ?CallbackObject)
+﻿### func off(AudioCapturerCallbackType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: AudioCapturerCallbackType, callback!: ?CallbackObject = None): Unit
@@ -15,11 +15,11 @@ public func off(`type`: AudioCapturerCallbackType, callback!: ?CallbackObject = 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioCapturerCallbackType](#enum-audiocapturercallbacktype)|是|-|监听事件类型。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 需要注销的回调函数，默认为空，表示取消该类型事件所有的回调。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 需要注销的回调函数，默认为空，表示取消该类型事件所有的回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

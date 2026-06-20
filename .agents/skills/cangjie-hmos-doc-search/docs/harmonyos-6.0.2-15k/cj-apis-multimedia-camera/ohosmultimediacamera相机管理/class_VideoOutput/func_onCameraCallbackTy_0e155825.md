@@ -1,4 +1,4 @@
-### func on(CameraCallbackType, Callback0Argument)
+﻿### func on(CameraCallbackType, Callback0Argument)
 
 ```cangjie
 public func on(`type`: CameraCallbackType, callback: Callback0Argument): Unit
@@ -15,7 +15,7 @@ public func on(`type`: CameraCallbackType, callback: Callback0Argument): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为frameStart或frameEnd，videoOutput创建成功后可监听。底层第一次曝光时触发该事件并返回。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|回调函数，用于获取结果。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|回调函数，用于获取结果。|
 
 **示例：**
 

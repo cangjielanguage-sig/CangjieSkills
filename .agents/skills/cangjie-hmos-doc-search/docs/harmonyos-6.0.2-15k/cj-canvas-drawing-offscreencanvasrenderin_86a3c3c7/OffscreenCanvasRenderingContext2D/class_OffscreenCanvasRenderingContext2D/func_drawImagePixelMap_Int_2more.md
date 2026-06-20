@@ -1,4 +1,4 @@
-### func drawImage(PixelMap, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
+﻿### func drawImage(PixelMap, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64)
 
 ```cangjie
 public func drawImage(
@@ -24,7 +24,7 @@ public func drawImage(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|pixelMap|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap) |是|-|图片资源。|
+|pixelMap|[PixelMap](../../../cj-apis-image/.overview.md) |是|-|图片资源。|
 |sx|Int64|是|-| 裁切源图像时距离源图像左上角的x坐标值。<br>image类型为ImageBitmap时，默认单位：vp。|
 |sy|Int64|是|-| 裁切源图像时距离源图像左上角的y坐标值。<br>image类型为ImageBitmap时，默认单位：vp。|
 |sWidth|Int64 |是|-|裁切源图像时需要裁切的宽度。<br>image类型为ImageBitmap时，默认单位：vp。|

@@ -1,4 +1,4 @@
-### func setAVQueueItems(Array\<AVQueueItem>)
+﻿### func setAVQueueItems(Array\<AVQueueItem>)
 
 ```cangjie
 public func setAVQueueItems(items: Array<AVQueueItem>): Unit
@@ -18,7 +18,7 @@ public func setAVQueueItems(items: Array<AVQueueItem>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -45,7 +45,7 @@ public func setAVQueueTitle(title: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public func setCallMetadata(data: CallMetadata): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public func setExtras(extras: HashMap<String, ValueType>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

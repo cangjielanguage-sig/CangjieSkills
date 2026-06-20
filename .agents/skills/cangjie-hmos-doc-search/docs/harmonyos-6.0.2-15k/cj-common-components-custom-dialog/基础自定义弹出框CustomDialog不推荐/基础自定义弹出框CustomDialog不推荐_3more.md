@@ -1,12 +1,12 @@
-# 基础自定义弹出框（CustomDialog）（不推荐）
+﻿# 基础自定义弹出框（CustomDialog）（不推荐）
 
-CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件更新等与用户交互响应操作。开发者可以通过CustomDialogController类显示自定义弹出框。具体用法请参见[自定义弹出框](../../API_Reference/source_zh_cn/arkui-cj/cj-dialog-customdialog.md)。
+CustomDialog是自定义弹出框，可用于广告、中奖、警告、软件更新等与用户交互响应操作。开发者可以通过CustomDialogController类显示自定义弹出框。具体用法请参见[自定义弹出框](../../cj-dialog-customdialog/.overview.md)。
 
 > **说明：**
 >
 > ArkUI弹出框默认为非页面级弹出框，在页面路由跳转时，如果开发者未调用close方法将其关闭，弹出框将不会自动关闭。若需实现在跳转页面时覆盖弹出框的场景，建议使用Navigation。具体使用方法，请参见[组件导航子页面显示类型的弹窗类型](./cj-navigation-navigation.md)。
 
-弹出框（CustomDialog）可以通过配置[isModal](../../API_Reference/source_zh_cn/arkui-cj/cj-dialog-customdialog.md#var-ismodal)来实现模态和非模态弹窗。isModal为true时，弹出框为模态弹窗。isModal为false时，弹出框为非模态弹窗。
+弹出框（CustomDialog）可以通过配置[isModal](../../cj-dialog-customdialog/.overview.md)来实现模态和非模态弹窗。isModal为true时，弹出框为模态弹窗。isModal为false时，弹出框为非模态弹窗。
 
 ## 创建自定义弹出框
 

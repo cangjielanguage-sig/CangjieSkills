@@ -1,4 +1,4 @@
-# 固定样式弹出框
+﻿# 固定样式弹出框
 
 固定样式弹出框采用固定的布局格式，这使得开发者无需关心具体的显示布局细节，只需输入所需显示的文本内容，从而简化了使用流程，提升了便捷性。
 
@@ -10,7 +10,7 @@
 
 ## 操作菜单（showActionMenu）
 
-操作菜单通过PromptAction方法获取到PromptAction对象，再通过该对象调用[showActionMenu](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-promptaction.md#static-func-showactionmenuactionmenuoptions-showactionmenucallback)接口实现，支持在回调或开发者自定义类中使用。
+操作菜单通过PromptAction方法获取到PromptAction对象，再通过该对象调用[showActionMenu](../../cj-apis-promptaction/.overview.md)接口实现，支持在回调或开发者自定义类中使用。
 
 创建并显示操作菜单后，菜单的响应结果会异步返回选中按钮在buttons数组中的索引。
 
@@ -61,7 +61,7 @@ class EntryView {
 
 ## 对话框（showDialog）
 
-对话框通过PromptAction方法获取到PromptAction对象，再通过该对象调用[showDialog](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-promptaction.md#static-func-showdialogshowdialogoptions-showdialogcallback)接口实现，支持在回调或开发者自定义类中使用。
+对话框通过PromptAction方法获取到PromptAction对象，再通过该对象调用[showDialog](../../cj-apis-promptaction/.overview.md)接口实现，支持在回调或开发者自定义类中使用。
 
 创建并显示对话框，对话框响应后异步返回选中按钮在buttons数组中的索引。
 

@@ -1,4 +1,4 @@
-## enum ValueType
+﻿## enum ValueType
 
 ```cangjie
 public enum ValueType {
@@ -172,7 +172,7 @@ NULL(Option<Int32>)
 PIXEL_MAP(PixelMap)
 ```
 
-**功能：** 表示[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)类型数据。
+**功能：** 表示[PixelMap](../../cj-apis-image/.overview.md)类型数据。
 
 **起始版本：** 19
 

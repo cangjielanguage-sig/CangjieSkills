@@ -1,4 +1,4 @@
-## class X509CRLEntry
+﻿## class X509CRLEntry
 
 ```cangjie
 public class X509CRLEntry <: ToString {}
@@ -34,7 +34,7 @@ public func getCertIssuer(): DataBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -78,7 +78,7 @@ public func getCertIssuerX500DistinguishedName(): X500DistinguishedName
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -121,7 +121,7 @@ public func getEncoded(): EncodingBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

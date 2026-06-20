@@ -1,4 +1,4 @@
-# 支持单复数
+﻿# 支持单复数
 
 翻译过程中，不同语言对名词或单位表达式的单复数格式要求有所不用，有些语言不区分单复数，而有些语言则有多种形式。例如，在英语中，名词支持单复数两种形式；而在中文中，名词不分单复数，通过量词来表达数量的不同。
 
@@ -22,4 +22,4 @@
 
 ## 开发步骤
 
-接口的具体使用方法请参见[getPluralStringValue](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-resource_manager.md#func-getpluralstringvalueappresource-int64)的API接口文档。
+接口的具体使用方法请参见[getPluralStringValue](../cj-apis-resource_manager/.overview.md)的API接口文档。

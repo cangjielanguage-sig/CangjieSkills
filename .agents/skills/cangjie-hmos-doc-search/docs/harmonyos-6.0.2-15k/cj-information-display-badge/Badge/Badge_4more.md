@@ -1,4 +1,4 @@
-# Badge
+﻿# Badge
 
 信息标记组件，可以附加在单个组件上用于信息提醒的容器组件。
 
@@ -8,7 +8,7 @@
 
 > **说明：**
 >
-> 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-ifelse.md)、[ForEach](cj-state-rendering-foreach.md)、[LazyForEach](cj-state-rendering-lazyforeach.md)）。
+> 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](../../cj-rendering-control-ifelse/.overview.md)、[ForEach](cj-state-rendering-foreach.md)、[LazyForEach](cj-state-rendering-lazyforeach.md)）。
 
 ## 创建组件
 

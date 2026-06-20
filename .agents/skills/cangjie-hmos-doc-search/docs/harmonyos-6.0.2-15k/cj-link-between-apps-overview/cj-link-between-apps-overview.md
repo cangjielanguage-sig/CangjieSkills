@@ -1,4 +1,4 @@
-# 应用间跳转概述
+﻿# 应用间跳转概述
 
 应用跳转是指从一个应用跳转至另外一个应用，传递相应的数据、执行特定的功能。通过应用跳转可以满足用户更为真实丰富的场景诉求、提升交互体验的便捷性和流畅性。
 
@@ -17,9 +17,9 @@
   >
   > 从API 18开始，已不再推荐三方应用使用指定Ability方式（即显式Want）拉起其他应用。关于如何从指定Ability方式切换到指定[应用链接](cj-app-startup-overview.md#应用链接)方式，详情请参见[显式Want跳转切换应用链接跳转适配指导](cj-uiability-startup-adjust.md)。
 
-    - 指定应用链接（推荐）：通过[openLink](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-openlinkstring-openlinkoptions-asynccallbackabilityresult)或[startAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitywant)接口来指定[应用链接](cj-app-startup-overview.md#应用链接)，拉起目标应用页面。
+    - 指定应用链接（推荐）：通过[openLink](../cj-apis-ability/.overview.md)或[startAbility](../cj-apis-ability/.overview.md)接口来指定[应用链接](cj-app-startup-overview.md#应用链接)，拉起目标应用页面。
 
-    - 指定Ability（不推荐）：通过[startAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitywant)接口指定具体的Ability（即显式Want方式），拉起目标应用页面。
+    - 指定Ability（不推荐）：通过[startAbility](../cj-apis-ability/.overview.md)接口指定具体的Ability（即显式Want方式），拉起目标应用页面。
 
 - [拉起指定类型的应用](cj-start-intent-panel.md)：拉起方应用通过指定应用类型，拉起垂类应用面板。该面板将展示目标方接入的垂域应用，由用户选择打开指定应用。
 

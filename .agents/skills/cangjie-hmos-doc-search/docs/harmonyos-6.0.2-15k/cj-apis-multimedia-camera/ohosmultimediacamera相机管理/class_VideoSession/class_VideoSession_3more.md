@@ -1,4 +1,4 @@
-## class VideoSession
+﻿## class VideoSession
 
 ```cangjie
 public class VideoSession <: Session & Flash & AutoExposure & Focus & Zoom & Stabilization & ColorManagement {}
@@ -51,7 +51,7 @@ public func canPreconfig(preconfigType: PreconfigType, preconfigRatio!: Preconfi
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|
@@ -90,7 +90,7 @@ public func off(`type`: CameraCallbackType, callback: Callback1Argument<Business
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为CameraCallbackType.error，session创建成功之后可监听该接口。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

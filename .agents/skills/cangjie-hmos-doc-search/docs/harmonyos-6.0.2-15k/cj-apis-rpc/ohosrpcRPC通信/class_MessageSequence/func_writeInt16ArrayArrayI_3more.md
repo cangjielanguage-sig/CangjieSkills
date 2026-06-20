@@ -1,4 +1,4 @@
-### func writeInt16Array(Array\<Int16>)
+﻿### func writeInt16Array(Array\<Int16>)
 
 ```cangjie
 public func writeInt16Array(buf: Array<Int16>): Unit
@@ -18,7 +18,7 @@ public func writeInt16Array(buf: Array<Int16>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -58,7 +58,7 @@ public func writeInt32Array(buf: Array<Int32>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -98,7 +98,7 @@ public func writeInt64Array(buf: Array<Int64>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

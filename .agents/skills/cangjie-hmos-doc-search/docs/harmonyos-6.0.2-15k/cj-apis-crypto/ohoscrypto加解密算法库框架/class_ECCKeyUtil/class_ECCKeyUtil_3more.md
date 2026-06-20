@@ -1,4 +1,4 @@
-## class ECCKeyUtil
+﻿## class ECCKeyUtil
 
 ```cangjie
 public class ECCKeyUtil {}
@@ -42,7 +42,7 @@ public static func convertPoint(curveName: String, encodedPoint: Array<UInt8>): 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -91,7 +91,7 @@ public static func genECCCommonParamsSpec(curveName: String): ECCCommonParamsSpe
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

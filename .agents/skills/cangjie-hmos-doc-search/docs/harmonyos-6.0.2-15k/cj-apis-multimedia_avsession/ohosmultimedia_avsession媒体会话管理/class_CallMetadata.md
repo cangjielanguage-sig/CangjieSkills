@@ -1,4 +1,4 @@
-## class CallMetadata
+﻿## class CallMetadata
 
 ```cangjie
 public class CallMetadata {
@@ -25,7 +25,7 @@ public var avatar: ?PixelMap
 
 **功能：** 来电人头像。
 
-**类型：** ?[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)
+**类型：** ?[PixelMap](../../cj-apis-image/.overview.md)
 
 **读写能力：** 可读写
 
@@ -81,7 +81,7 @@ public CallMetadata (
 |:---|:---|:---|:---|:---|
 |name|?String|是|-|来电人姓名（别名）。|
 |phoneNumber|?String|是|-|来电电话号码。|
-|avatar|?[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|是|-|来电人头像。|
+|avatar|?[PixelMap](../../cj-apis-image/.overview.md)|是|-|来电人头像。|
 
 ### init()
 

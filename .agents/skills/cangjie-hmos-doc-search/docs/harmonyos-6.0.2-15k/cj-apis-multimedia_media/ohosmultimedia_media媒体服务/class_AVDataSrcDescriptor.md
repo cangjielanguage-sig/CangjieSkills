@@ -1,4 +1,4 @@
-## class AVDataSrcDescriptor
+﻿## class AVDataSrcDescriptor
 
 ```cangjie
 public class AVDataSrcDescriptor {
@@ -23,7 +23,7 @@ public var callback: Callback3ArgumentWithReturn<Array<UInt8>, UInt32, Int64, In
 
 **功能：** 用户设置的回调函数，用于填写数据。
 
-**类型：** [Callback3ArgumentWithReturn](../BasicServicesKit/cj-apis-base.md#class-callback3argumentwithreturn)\<Array\<UInt8>, UInt32, Int64, Int32>
+**类型：** [Callback3ArgumentWithReturn](../../cj-apis-base/.overview.md)\<Array\<UInt8>, UInt32, Int64, Int32>
 
 **读写能力：** 可读写
 
@@ -63,4 +63,4 @@ public AVDataSrcDescriptor(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |fileSize|Int64|是|-|待播放文件大小（字节），-1代表大小未知。如果fileSize设置为-1, 播放模式类似于直播，不能进行seek及setSpeed操作，不能设置loop属性，因此不能重新播放。|
-|callback|[Callback3ArgumentWithReturn](../BasicServicesKit/cj-apis-base.md#class-callback3argumentwithreturn)\<Array\<UInt8>, UInt32, Int64, Int32>|是|-|用户设置的回调函数，用于填写数据。|
+|callback|[Callback3ArgumentWithReturn](../../cj-apis-base/.overview.md)\<Array\<UInt8>, UInt32, Int64, Int32>|是|-|用户设置的回调函数，用于填写数据。|

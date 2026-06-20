@@ -1,4 +1,4 @@
-## class MediaAssetManager
+﻿## class MediaAssetManager
 
 ```cangjie
 public class MediaAssetManager {}
@@ -28,12 +28,12 @@ public static func cancelRequest(context: UIAbilityContext, requestId: String): 
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext) |是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md) |是|-|传入Ability实例的Context。|
 |requestId|String|是|-|需要取消的请求id。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -57,7 +57,7 @@ public static func loadMovingPhoto(context: UIAbilityContext, imageFileUri: Stri
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入AbilityContext或者UIExtensionContext的实例。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|传入AbilityContext或者UIExtensionContext的实例。|
 |imageFileUri|String|是|-|应用沙箱动态照片的图片uri。|
 |videoFileUri|String|是|-|应用沙箱动态照片的视频uri。|
 
@@ -69,7 +69,7 @@ public static func loadMovingPhoto(context: UIAbilityContext, imageFileUri: Stri
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

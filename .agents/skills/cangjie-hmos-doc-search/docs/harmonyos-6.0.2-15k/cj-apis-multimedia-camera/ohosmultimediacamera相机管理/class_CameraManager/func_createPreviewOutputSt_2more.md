@@ -1,4 +1,4 @@
-### func createPreviewOutput(String)
+﻿### func createPreviewOutput(String)
 
 ```cangjie
 public func createPreviewOutput(surfaceId: String): PreviewOutput
@@ -14,7 +14,7 @@ public func createPreviewOutput(surfaceId: String): PreviewOutput
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|surfaceId|String|是|-|从XComponent或者[ImageReceiver](../ImageKit/cj-apis-image.md#class-imagereceiver)组件获取的surfaceId。|
+|surfaceId|String|是|-|从XComponent或者[ImageReceiver](../../../cj-apis-image/.overview.md)组件获取的surfaceId。|
 
 **返回值：**
 
@@ -24,7 +24,7 @@ public func createPreviewOutput(surfaceId: String): PreviewOutput
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID   | 错误信息                                           |
   |:--------|:-----------------------------------------------|
@@ -75,7 +75,7 @@ public func createSession(mode: SceneMode): Session
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID         | 错误信息                                                                                 |
   | :-------------- |:----------------------------------------------------------------------------------------|

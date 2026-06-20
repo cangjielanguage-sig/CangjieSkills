@@ -1,4 +1,4 @@
-### func on(AudioCapturerCallbackType, Callback1Argument\<InterruptEvent>)
+﻿### func on(AudioCapturerCallbackType, Callback1Argument\<InterruptEvent>)
 
 ```cangjie
 public func on(`type`: AudioCapturerCallbackType, callback: Callback1Argument<InterruptEvent>): Unit
@@ -19,11 +19,11 @@ public func on(`type`: AudioCapturerCallbackType, callback: Callback1Argument<In
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioCapturerCallbackType](#enum-audiocapturercallbacktype)|是|-|监听事件，固定为：'AUDIO_INTERRUPT'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[InterruptEvent](#class-interruptevent)>|是|-|回调函数，返回录制中断时，应用接收的中断事件信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[InterruptEvent](#class-interruptevent)>|是|-|回调函数，返回录制中断时，应用接收的中断事件信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

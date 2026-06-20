@@ -1,4 +1,4 @@
-### func on(AVCastControllerEventType, Callback2Argument\<String, Array\<UInt8>>)
+﻿### func on(AVCastControllerEventType, Callback2Argument\<String, Array\<UInt8>>)
 
 ```cangjie
 public func on(`type`: AVCastControllerEventType, callback: Callback2Argument<String, Array<UInt8>>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AVCastControllerEventType, callback: Callback2Argument<St
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVCastControllerEventType](#enum-avcastcontrollereventtype)|是|-|监听事件，支持CAST_CONTROLLER_KEY_REQUEST。|
-|callback|[Callback2Argument](../BasicServicesKit/cj-apis-base.md#class-callback2argument)\<String, Array\<UInt8>>|是|-|入参为String,Array\<UInt8>>的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
+|callback|[Callback2Argument](../../../cj-apis-base/.overview.md)\<String, Array\<UInt8>>|是|-|入参为String,Array\<UInt8>>的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -45,7 +45,7 @@ public func prepare(item: AVQueueItem): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,7 +73,7 @@ public func processMediaKeyResponse(assetId: String, response: Array<UInt8>): Un
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -93,7 +93,7 @@ public func release(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

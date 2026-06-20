@@ -1,4 +1,4 @@
-# Stage模型应用程序包结构
+﻿# Stage模型应用程序包结构
 
 为了让开发者能对应用程序包在不同阶段的形态有更加清晰的认知，分别对开发态、编译态、发布态的应用程序结构展开介绍。
 
@@ -21,5 +21,5 @@
 |--------|---------------|
 | 配置文件   | 包括应用级配置信息、以及Module级配置信息：<br/> - **AppScope &gt; app.json5**：[app.json5配置文件](app-configuration-file.md)，用于声明应用的全局配置信息，比如应用Bundle名称、应用名称、应用图标、应用版本号等。<br/> - **Module_name &gt; src &gt; main &gt; module.json5**：[module.json5配置文件](module-configuration-file.md)，用于声明Module基本信息、支持的设备类型、所含的组件信息、运行所需申请的权限等。 |
 | 仓颉源码文件 | **Module_name &gt; src &gt; main &gt; cangjie**：用于存放Module的仓颉源码文件（.cj文件）。 |
-| 资源文件   | 包括应用级资源文件、以及Module级资源文件，支持图形、多媒体、字符串、布局文件等，详见[资源分类与访问](../start/cj-ide-resource-categories-and-access.md)。<br/> - **AppScope &gt; resources** ：用于存放应用需要用到的资源文件。<br/> - **Module_name &gt; src &gt; main &gt; resources** ：用于存放该Module需要用到的资源文件。                                                                      |
+| 资源文件   | 包括应用级资源文件、以及Module级资源文件，支持图形、多媒体、字符串、布局文件等，详见[资源分类与访问](../../cj-ide-resource-categories-and-access/.overview.md)。<br/> - **AppScope &gt; resources** ：用于存放应用需要用到的资源文件。<br/> - **Module_name &gt; src &gt; main &gt; resources** ：用于存放该Module需要用到的资源文件。                                                                      |
 | 其他配置文件 | 用于编译构建，包括构建配置文件、编译构建任务脚本、依赖的共享包信息等。<br/> - **build-profile.json5**：工程级<!--add link-->或Module级<!--add link-->的构建配置文件，包括[应用签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)、产品配置等。 <br/> - **hvigorfile.ts**：工程级或Module级的编译构建任务脚本，开发者可以自定义编译构建工具版本、控制构建行为的配置参数。<br/> - **[oh-package.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5)**：用于存放依赖库的信息，包括所依赖的三方库和共享包。 |

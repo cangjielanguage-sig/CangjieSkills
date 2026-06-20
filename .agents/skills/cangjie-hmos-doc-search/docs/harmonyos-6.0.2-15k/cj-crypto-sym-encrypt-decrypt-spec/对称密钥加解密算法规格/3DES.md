@@ -1,8 +1,8 @@
-## 3DES
+﻿## 3DES
 
 [3DES](./cj-crypto-sym-key-generation-conversion-spec.md#3des)算法的加解密过程分别是对明文/密文数据进行三次DES加密或解密，得到相应的密文或明文。
 
-算法库当前提供了3DES加解密常用的4种加密模式：ECB、CBC、OFB和CFB。不同的加密模式适用的加解密参数不同，具体请参见[ParamsSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#interface-paramsspec)。
+算法库当前提供了3DES加解密常用的4种加密模式：ECB、CBC、OFB和CFB。不同的加密模式适用的加解密参数不同，具体请参见[ParamsSpec](../../cj-apis-crypto/.overview.md)。
 
 由于DES为分组加密算法，分组长度为64位。在实际应用中，最后一组明文可能不足64位（8字节），此时可以通过不同的[填充模式](#填充模式)进行数据填充。
 

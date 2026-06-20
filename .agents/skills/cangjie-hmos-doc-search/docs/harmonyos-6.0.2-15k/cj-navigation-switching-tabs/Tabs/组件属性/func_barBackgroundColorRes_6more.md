@@ -1,4 +1,4 @@
-### func barBackgroundColor(ResourceColor)
+﻿### func barBackgroundColor(ResourceColor)
 
 ```cangjie
 public func barBackgroundColor(color: ResourceColor): This
@@ -14,7 +14,7 @@ public func barBackgroundColor(color: ResourceColor): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|color|[ResourceColor](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|TabBar的背景颜色。<br> 初始值：初始值为Color.TRANSPARENT，透明|
+|color|[ResourceColor](../../../cj-apis-resource_manager/.overview.md)|是|-|TabBar的背景颜色。<br> 初始值：初始值为Color.TRANSPARENT，透明|
 
 ### func barBackgroundEffect(BackgroundEffectOptions)
 
@@ -40,7 +40,7 @@ public func barBackgroundEffect(options: BackgroundEffectOptions): This
 public func barGridAlign(options: BarGridColumnOptions): This
 ```
 
-**功能：** 以栅格化方式设置TabBar的可见区域。具体参见BarGridColumnOptions对象。仅水平模式下有效，不适用于[XS、XL和XXL设备](../../../Dev_Guide/arkui-cj/cj-layout-development-grid-layout.md)。
+**功能：** 以栅格化方式设置TabBar的可见区域。具体参见BarGridColumnOptions对象。仅水平模式下有效，不适用于[XS、XL和XXL设备](../../../cj-layout-development-grid-layout/.overview.md)。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

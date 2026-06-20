@@ -1,4 +1,4 @@
-### func readByteArray(ArrayList\<Int8>)
+﻿### func readByteArray(ArrayList\<Int8>)
 
 ```cangjie
 public func readByteArray(dataIn: ArrayList<Int8>): Unit
@@ -18,7 +18,7 @@ public func readByteArray(dataIn: ArrayList<Int8>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -60,7 +60,7 @@ public func readByteArray(): Array<Int8>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public func readChar(): UInt8
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -138,7 +138,7 @@ public func readCharArray(dataIn: ArrayList<UInt8>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -179,7 +179,7 @@ public func readCharArray(): Array<UInt8>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

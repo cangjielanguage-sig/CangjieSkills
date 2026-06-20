@@ -1,4 +1,4 @@
-### func on(OnOffType, Callback0Argument)
+﻿### func on(OnOffType, Callback0Argument)
 
 ```cangjie
 public func on(`type`: OnOffType, callback: Callback0Argument): Unit
@@ -15,7 +15,7 @@ public func on(`type`: OnOffType, callback: Callback0Argument): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[OnOffType](#enum-onofftype)|是|-|WebSocket的订阅事件类型，此时应传入OnOffType.DATAEND。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|回调函数。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|回调函数。|
 
 **示例：**
 
@@ -66,7 +66,7 @@ public func on(`type`: OnOffType, callback: Callback1Argument<ResponseHeaders>):
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[OnOffType](#enum-onofftype)|是|-|WebSocket的订阅事件类型，此时应传入OnOffType.DATAEND。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ResponseHeaders](#enum-responseheaders)>|是|-|回调函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ResponseHeaders](#enum-responseheaders)>|是|-|回调函数。|
 
 **示例：**
 

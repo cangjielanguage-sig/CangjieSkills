@@ -1,4 +1,4 @@
-### func alt(String)
+﻿### func alt(String)
 
 ```cangjie
 public func alt(src: String): This
@@ -32,7 +32,7 @@ public func alt(src: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|src|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|加载时显示的占位图，支持本地图片（png、jpg、bmp、svg、gif和heif类型），不支持网络图片。|
+|src|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|加载时显示的占位图，支持本地图片（png、jpg、bmp、svg、gif和heif类型），不支持网络图片。|
 
 ### func alt(PixelMap)
 
@@ -50,7 +50,7 @@ public func alt(src: PixelMap): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|src|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|加载时显示的占位图，支持PixelMap类型。<br>初始值：None。|
+|src|[PixelMap](../../../cj-apis-image/.overview.md)|是|-|加载时显示的占位图，支持PixelMap类型。<br>初始值：None。|
 
 ### func autoResize(Bool)
 

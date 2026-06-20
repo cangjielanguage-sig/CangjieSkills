@@ -1,4 +1,4 @@
-## 设备绑定开发指导
+﻿## 设备绑定开发指导
 
 ### 场景概述
 
@@ -8,7 +8,7 @@
 
 bindTarget(deviceId: String, bindParam: HashMap\<String, ValueType>): String
 
-设备绑定。详细信息请参见：[bindTarget](../../API_Reference/source_zh_cn/apis/DistributedServiceKit/cj-apis-distributed_device_manager.md#func-bindtargetstring-hashmapstring-valuetype)。
+设备绑定。详细信息请参见：[bindTarget](../../cj-apis-distributed_device_manager/.overview.md)。
 
 ### 开发步骤
 
@@ -48,7 +48,7 @@ bindTarget(deviceId: String, bindParam: HashMap\<String, ValueType>): String
 
 getAvailableDeviceList(): Array\<DeviceBasicInfo>
 
-设备信息查询。详细信息请参见：[getAvailableDeviceList](../../API_Reference/source_zh_cn/apis/DistributedServiceKit/cj-apis-distributed_device_manager.md#func-getavailabledevicelist)。
+设备信息查询。详细信息请参见：[getAvailableDeviceList](../../cj-apis-distributed_device_manager/.overview.md)。
 
 ### 开发步骤
 
@@ -80,7 +80,7 @@ getAvailableDeviceList(): Array\<DeviceBasicInfo>
 
 on(\`type\`: DeviceStatusType, callback: CallbackObject): Unit
 
-设备上下线监听。详细信息请参见：[on(DeviceStatusType.DEVICE_STATE_CHANGE)](../../API_Reference/source_zh_cn/apis/DistributedServiceKit/cj-apis-distributed_device_manager.md#func-ondevicestatustype-callbackobject)。
+设备上下线监听。详细信息请参见：[on(DeviceStatusType.DEVICE_STATE_CHANGE)](../../cj-apis-distributed_device_manager/.overview.md)。
 
 ### 开发步骤
 

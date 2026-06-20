@@ -1,4 +1,4 @@
-## enum PhotoKeys
+﻿## enum PhotoKeys
 
 ```cangjie
 public enum PhotoKeys <: ToString & Equatable<PhotoKeys> {
@@ -240,7 +240,7 @@ URI
 
 **功能：** 文件uri。
 
-注意：查询照片时，该字段仅支持使用[DataSharePredicates.equalTo](../ArkData/cj-apis-data_share_predicates.md#func-equaltostring-valuetype)谓词。
+注意：查询照片时，该字段仅支持使用[DataSharePredicates.equalTo](../../../cj-apis-data_share_predicates/.overview.md)谓词。
 
 **起始版本：** 19
 

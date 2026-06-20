@@ -1,4 +1,4 @@
-### static func getISOCountryCodeForSim(Int32)
+﻿### static func getISOCountryCodeForSim(Int32)
 
 ```cangjie
 public static func getISOCountryCodeForSim(slotId: Int32): String
@@ -24,7 +24,7 @@ public static func getISOCountryCodeForSim(slotId: Int32): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -104,7 +104,7 @@ public static func getOpKey(slotId: Int32): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -153,7 +153,7 @@ public static func getOpName(slotId: Int32): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

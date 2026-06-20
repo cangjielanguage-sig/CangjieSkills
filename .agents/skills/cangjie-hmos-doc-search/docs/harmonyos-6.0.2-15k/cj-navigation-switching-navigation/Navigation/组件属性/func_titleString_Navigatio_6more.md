@@ -1,4 +1,4 @@
-### func title(String, NavigationTitleOptions)
+﻿### func title(String, NavigationTitleOptions)
 
 ```cangjie
 public func title(title: String, options!: ?NavigationTitleOptions = None): This
@@ -33,7 +33,7 @@ public func title(title: AppResource, options!: ?NavigationTitleOptions = None):
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|title|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页面标题。|
+|title|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|页面标题。|
 | options | ?[NavigationTitleOptions](#class-navigationtitleoptions) | 否  | None| 标题栏选项。|
 
 ### func title(() -> Unit, NavigationTitleOptions)

@@ -1,4 +1,4 @@
-### static func setxattr(String, String, String)
+﻿### static func setxattr(String, String, String)
 
 ```cangjie
 public static func setxattr(path: String, key: String, value: String): Unit
@@ -20,7 +20,7 @@ public static func setxattr(path: String, key: String, value: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码如下表，详见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
   |错误码ID|错误信息|
   |:----|:----|
@@ -78,7 +78,7 @@ public static func stat(file: Int32): Stat
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 ### static func stat(String)
 
@@ -106,7 +106,7 @@ public static func stat(file: String): Stat
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 ### static func truncate(String, Int64)
 
@@ -129,7 +129,7 @@ public static func truncate(file: String, len!: Int64 = 0): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 

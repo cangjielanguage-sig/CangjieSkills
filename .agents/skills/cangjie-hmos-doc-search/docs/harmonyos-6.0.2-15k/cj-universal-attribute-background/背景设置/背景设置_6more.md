@@ -1,4 +1,4 @@
-# 背景设置
+﻿# 背景设置
 
 设置组件的背景样式。
 
@@ -22,7 +22,7 @@ public func backdropBlur(value: Float64): This
 
 > **说明：**
 >
-> blur和backdropBlur是实时模糊接口，会每帧进行实时渲染，性能负载较高。当模糊内容和模糊半径都不需要变化时，建议使用[静态模糊接口](../apis/ArkGraphics2D/cj-apis-effect_kit.md#func-blurfloat32)。
+> blur和backdropBlur是实时模糊接口，会每帧进行实时渲染，性能负载较高。当模糊内容和模糊半径都不需要变化时，建议使用[静态模糊接口](../../cj-apis-effect_kit/.overview.md)。
 
 ## func backgroundColor(ResourceColor)
 
@@ -62,7 +62,7 @@ public func backgroundImage(src!: AppResource, repeat!: ImageRepeat = ImageRepea
 
 | 名称    | 类型          | 必填     | 默认值     | 说明                                      |
 |:--------|:--------------| :------- | :-------- |:----------------------------------------|
-| src  | [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)  | 是 | - | **命名参数。**  图片地址，支持网络图片资源和本地图片资源地址和Base64，不支持svg类型的图片。 |
+| src  | [AppResource](../../cj-apis-resource_manager/.overview.md)  | 是 | - | **命名参数。**  图片地址，支持网络图片资源和本地图片资源地址和Base64，不支持svg类型的图片。 |
 | repeat  | [ImageRepeat](./cj-common-types.md#enum-imagerepeat) | 否 | ImageRepeat.NoRepeat | **命名参数。**  设置背景图片的重复样式，默认不重复。当设置的背景图片为透明底色图片，且同时设置了backgroundColor时，二者叠加显示，背景颜色在最底部。|
 
 ## func backgroundImage(String, ImageRepeat)

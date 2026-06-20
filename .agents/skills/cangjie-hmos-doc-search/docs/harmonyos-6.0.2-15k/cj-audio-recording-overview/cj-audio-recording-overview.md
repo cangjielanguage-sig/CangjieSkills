@@ -1,4 +1,4 @@
-# 音频录制开发概述
+﻿# 音频录制开发概述
 
 ## 如何选择音频录制开发方式
 
@@ -10,11 +10,11 @@
 
 除上述方式外，也可以通过Media Kit中的AVRecorder实现音频录制。
 
-- [AVRecorder](../media/cj-media-kit-using-avrecorder-for-recording.md)：用于音频录制的仓颉API，集成了音频输入录制、音频编码和媒体封装的功能。开发者可以直接调用设备硬件如麦克风录音，并生成m4a音频文件。
+- [AVRecorder](../cj-media-kit-using-avrecorder-for-recording/.overview.md)：用于音频录制的仓颉API，集成了音频输入录制、音频编码和媒体封装的功能。开发者可以直接调用设备硬件如麦克风录音，并生成m4a音频文件。
 
 ## 开发音频录制应用须知
 
-- 应用可以调用麦克风录制音频，但该行为属于隐私敏感行为，在调用麦克风前，需要先[向用户申请权限](../../security/AccessToken/cj-request-user-authorization.md)：ohos.permission.MICROPHONE。
+- 应用可以调用麦克风录制音频，但该行为属于隐私敏感行为，在调用麦克风前，需要先[向用户申请权限](../cj-request-user-authorization/.overview.md)：ohos.permission.MICROPHONE。
 
     如何使用和管理麦克风请参见[管理麦克风](./cj-mic-management.md)。
 

@@ -1,4 +1,4 @@
-# 管理通知角标
+﻿# 管理通知角标
 
 针对未读的通知，系统提供了角标设置接口，将未读通知个数显示在桌面图标的右上角角标上。
 
@@ -12,11 +12,11 @@
 
 - 增加角标数，支持如下两种方法：
 
-    - 发布通知时，在[NotificationRequest](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#class-notificationrequest)的badgeNumber字段里携带，桌面收到通知后，在原角标数上累加、呈现。
+    - 发布通知时，在[NotificationRequest](../cj-apis-notification_manager/.overview.md)的badgeNumber字段里携带，桌面收到通知后，在原角标数上累加、呈现。
 
-    - 调用接口[setBadgeNumber()](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#func-setbadgenumberint32)设置，桌面按设置的角标数呈现。
+    - 调用接口[setBadgeNumber()](../cj-apis-notification_manager/.overview.md)设置，桌面按设置的角标数呈现。
 
-- 减少角标数，目前仅支持通过[setBadgeNumber()](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#func-setbadgenumberint32)设置。
+- 减少角标数，目前仅支持通过[setBadgeNumber()](../cj-apis-notification_manager/.overview.md)设置。
 
   | **接口名** | **描述** |
   | -------- | -------- |
@@ -37,7 +37,7 @@
 
 2. 增加角标个数。
 
-    发布通知在[NotificationRequest](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#class-notificationrequest)的badgeNumber字段里携带，可参考[通知发布](./cj-text-notification.md)章节。
+    发布通知在[NotificationRequest](../cj-apis-notification_manager/.overview.md)的badgeNumber字段里携带，可参考[通知发布](./cj-text-notification.md)章节。
 
     示例为调用setBadgeNumber接口增加角标，在发布完新的通知后，调用该接口。
 

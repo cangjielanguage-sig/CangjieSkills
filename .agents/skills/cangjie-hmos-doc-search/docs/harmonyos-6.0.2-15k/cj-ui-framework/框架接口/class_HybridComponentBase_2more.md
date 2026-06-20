@@ -1,4 +1,4 @@
-## class HybridComponentBase
+﻿## class HybridComponentBase
 
 ```cangjie
 public open class HybridComponentBase <: SharedObject {}
@@ -12,7 +12,7 @@ public open class HybridComponentBase <: SharedObject {}
 
 **父类型：**
 
-- [SharedObject](../../source_zh_cn/arkinterop/cj-apis-ark_interop.md#class-sharedobject)
+- [SharedObject](../../cj-apis-ark_interop/.overview.md)
 
 ### static func registerHybridComponent(String, () -> CPointer\<Unit>, () -> Unit)
 

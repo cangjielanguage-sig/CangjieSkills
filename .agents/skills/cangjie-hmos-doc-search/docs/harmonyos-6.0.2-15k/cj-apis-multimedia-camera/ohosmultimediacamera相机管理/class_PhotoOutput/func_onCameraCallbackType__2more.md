@@ -1,4 +1,4 @@
-### func on(CameraCallbackType, Callback1Argument\<Int32>)
+﻿### func on(CameraCallbackType, Callback1Argument\<Int32>)
 
 ```cangjie
 public func on(`type`: CameraCallbackType, callback: Callback1Argument<Int32>): Unit
@@ -19,7 +19,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<Int32>): 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为estimatedCaptureDuration，photoOutput创建成功后可监听。拍照完全结束可触发该事件发生并返回相应信息。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Int32>|是|-|回调函数，用于获取预估的单次拍照底层出sensor采集帧时间，如果上报-1，代表没有预估时间。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Int32>|是|-|回调函数，用于获取预估的单次拍照底层出sensor采集帧时间，如果上报-1，代表没有预估时间。|
 
 **示例：**
 
@@ -71,7 +71,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<BusinessE
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为error，photoOutput创建成功后可监听。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|回调函数，用于获取错误信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|回调函数，用于获取错误信息。|
 
 **示例：**
 

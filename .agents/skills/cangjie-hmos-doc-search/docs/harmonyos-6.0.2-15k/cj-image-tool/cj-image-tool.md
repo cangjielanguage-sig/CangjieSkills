@@ -1,4 +1,4 @@
-# 编辑图片EXIF信息
+﻿# 编辑图片EXIF信息
 
 图片工具当前主要提供图片EXIF信息的读取与编辑能力。
 
@@ -6,11 +6,11 @@ EXIF（Exchangeable image file format）是专门为数码相机的照片设定�
 
 在图库等应用中，需要查看或修改数码照片的EXIF信息。由于摄像机的手动镜头的参数无法自动写入到EXIF信息中或者因为相机断电等原因经常会导致拍摄时间出错，这时候就需要手动修改错误的EXIF数据，即可使用本功能。
 
-HarmonyOS目前仅支持对部分EXIF信息的查看和修改，具体支持的范围请参见：[Exif信息](../../../API_Reference/source_zh_cn/apis/ImageKit/cj-apis-image.md#enum-propertykey)。
+HarmonyOS目前仅支持对部分EXIF信息的查看和修改，具体支持的范围请参见：[Exif信息](../cj-apis-image/.overview.md)。
 
 ## 开发步骤
 
-EXIF信息的读取与编辑相关API的详细介绍请参见[API参考](../../../API_Reference/source_zh_cn/apis/ImageKit/cj-apis-image.md#func-getimagepropertypropertykey-imagepropertyoptions)。
+EXIF信息的读取与编辑相关API的详细介绍请参见[API参考](../cj-apis-image/.overview.md)。
 
 1. 获取图片，创建图片源ImageSource。
 

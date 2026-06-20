@@ -1,4 +1,4 @@
-## class MediaAssetDataHandler
+﻿## class MediaAssetDataHandler
 
 ```cangjie
 public abstract class MediaAssetDataHandler<T> {}
@@ -18,7 +18,7 @@ public open func onDataPrepared(data: T, map: HashMap<String, String>): Unit
 
 **功能：** 媒体资源就绪通知，当所请求的图片资源准备就绪时系统会回调此方法。如果资源准备出错，则回调的data为undefined。
 
-T支持Array\<Byte>, [ImageSource](../ImageKit/cj-apis-image.md#class-imagesource), [MovingPhoto](#class-movingphoto)和Bool四种数据类型。
+T支持Array\<Byte>, [ImageSource](../../cj-apis-image/.overview.md), [MovingPhoto](#class-movingphoto)和Bool四种数据类型。
 
 map支持返回的信息：
 | map键名  | 值说明 |
@@ -33,7 +33,7 @@ map支持返回的信息：
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|data|T|是|-|已就绪的图片资源数据。泛型，支持Array\<Byte>, [ImageSource](../ImageKit/cj-apis-image.md#class-imagesource), [MovingPhoto](#class-movingphoto)和Bool四种数据类型。|
+|data|T|是|-|已就绪的图片资源数据。泛型，支持Array\<Byte>, [ImageSource](../../cj-apis-image/.overview.md), [MovingPhoto](#class-movingphoto)和Bool四种数据类型。|
 |map|HashMap\<String, String>|是|-|用于获取图片资源的额外信息，如图片质量。|
 
 **示例：**

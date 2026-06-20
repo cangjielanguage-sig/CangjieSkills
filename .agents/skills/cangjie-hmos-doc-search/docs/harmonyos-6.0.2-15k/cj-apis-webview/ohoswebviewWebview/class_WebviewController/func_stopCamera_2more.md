@@ -1,4 +1,4 @@
-### func stopCamera()
+﻿### func stopCamera()
 
 ```cangjie
 public func stopCamera(): Unit
@@ -12,7 +12,7 @@ public func stopCamera(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -64,11 +64,11 @@ public func storeWebArchive(baseName: String, autoName: Bool, callback: AsyncCal
 |:---|:---|:---|:---|:---|
 |baseName|String|是|-|生成的离线网页存储位置，该值不能为空。|
 |autoName|Bool|是|-|决定是否自动生成文件名。如果为false，则按baseName的文件名存储；如果为true，则根据当前Url自动生成文件名，并按baseName的文件目录存储。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<String>|是|-|返回文件存储路径。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<String>|是|-|返回文件存储路径。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func popupItemFont(Length, FontWeight, AppResource, FontStyle)
+﻿### func popupItemFont(Length, FontWeight, AppResource, FontStyle)
 
 ```cangjie
 public func popupItemFont(
@@ -21,7 +21,7 @@ public func popupItemFont(
 |:---|:---|:---|:---|:---|
 |size|[Length](./cj-common-types.md#interface-length)|否|24.vp| **命名参数。** 设置提示弹窗二级索引项字体大小。|
 |weight|[FontWeight](./cj-common-types.md#enum-fontweight)|否|FontWeight.Medium| **命名参数。** 设置提示弹窗二级索引项字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 设置提示弹窗二级索引项字体家族。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 设置提示弹窗二级索引项字体家族。|
 |style|[FontStyle](./cj-common-types.md#enum-fontstyle)|否|FontStyle.Normal| **命名参数。** 设置提示弹窗二级索引项字体样式。|
 
 ### func popupPosition(Length, Length)

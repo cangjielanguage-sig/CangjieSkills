@@ -1,4 +1,4 @@
-### func getMimeTypes()
+﻿### func getMimeTypes()
 
 ```cangjie
 public func getMimeTypes(): Array<String>
@@ -112,7 +112,7 @@ public func getPrimaryPixelMap(): PixelMap
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../../apis/ImageKit/cj-apis-image.md#class-pixelmap)|PixelMap内容。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|PixelMap内容。|
 
 **示例：**
 

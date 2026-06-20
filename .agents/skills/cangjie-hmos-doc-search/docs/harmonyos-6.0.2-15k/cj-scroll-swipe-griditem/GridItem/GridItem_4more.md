@@ -1,11 +1,11 @@
-# GridItem
+﻿# GridItem
 
 网格容器中单项内容容器。
 
 > **说明：**
 >
 > - 仅支持作为[Grid](./cj-scroll-swipe-grid.md)组件的子组件使用。
-> - 当GridItem配合[LazyForEach](./cj-state-rendering-lazyforeach.md)使用时，GridItem子组件在GridItem创建时创建。配合[if/else](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-ifelse.md)、[ForEach](./cj-state-rendering-foreach.md)使用时，或父组件为Grid时，GridItem子组件在GridItem布局时创建。
+> - 当GridItem配合[LazyForEach](./cj-state-rendering-lazyforeach.md)使用时，GridItem子组件在GridItem创建时创建。配合[if/else](../../cj-rendering-control-ifelse/.overview.md)、[ForEach](./cj-state-rendering-foreach.md)使用时，或父组件为Grid时，GridItem子组件在GridItem布局时创建。
 
 ## 子组件
 

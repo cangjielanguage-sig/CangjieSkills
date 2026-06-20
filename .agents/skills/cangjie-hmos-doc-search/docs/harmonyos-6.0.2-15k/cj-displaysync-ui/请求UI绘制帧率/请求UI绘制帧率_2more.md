@@ -1,6 +1,6 @@
-# 请求UI绘制帧率
+﻿# 请求UI绘制帧率
 
-如果开发者需要以独立的帧率绘制更新操作UI界面时，可以通过DisplaySync来实现。应用中绘制内容的帧率可以使用DisplaySync实例来控制，具体请参见[@ohos.displaySync(可变帧率)](../../API_Reference/source_zh_cn/apis/ArkGraphics2D/cj-apis-displaySync.md)。
+如果开发者需要以独立的帧率绘制更新操作UI界面时，可以通过DisplaySync来实现。应用中绘制内容的帧率可以使用DisplaySync实例来控制，具体请参见[@ohos.displaySync(可变帧率)](../../cj-apis-displaySync/.overview.md)。
 
 ## 开发步骤
 

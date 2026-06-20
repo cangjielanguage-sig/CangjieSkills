@@ -1,4 +1,4 @@
-## class CacheOptions
+﻿## class CacheOptions
 
 ```cangjie
 public class CacheOptions {
@@ -170,7 +170,7 @@ public let icon: ?PixelMap
 
 **功能：** 历史页面图标的PixelMap对象。
 
-**类型：** ?[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)
+**类型：** ?[PixelMap](../../cj-apis-image/.overview.md)
 
 **读写能力：** 只读
 
@@ -211,7 +211,7 @@ public HistoryItem(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|icon|?[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|是|-|历史页面图标的PixelMap对象。|
+|icon|?[PixelMap](../../cj-apis-image/.overview.md)|是|-|历史页面图标的PixelMap对象。|
 |historyUrl|String|是|-|历史记录项的URL地址。|
 |historyRawUrl|String|是|-|历史记录项的原始URL地址。|
 |title|String|是|-|历史记录项的标题。|

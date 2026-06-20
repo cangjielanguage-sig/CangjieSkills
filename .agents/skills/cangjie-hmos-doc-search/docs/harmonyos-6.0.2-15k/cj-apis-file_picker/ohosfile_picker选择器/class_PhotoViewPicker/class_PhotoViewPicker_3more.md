@@ -1,4 +1,4 @@
-## class PhotoViewPicker
+﻿## class PhotoViewPicker
 
 ```cangjie
 public class PhotoViewPicker {
@@ -26,7 +26,7 @@ public PhotoViewPicker(let abilityContext: UIAbilityContext)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|abilityContext|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|提供允许访问特定Ability的资源的能力。|
+|abilityContext|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|提供允许访问特定Ability的资源的能力。|
 
 ### func save(AsyncCallback\<Array\<String>>, PhotoSaveOptions)
 
@@ -48,7 +48,7 @@ public func save(callback: AsyncCallback<Array<String>>, option!: PhotoSaveOptio
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<String>>|是|-|callback返回photoPicker保存图片或视频文件后的结果集。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|callback返回photoPicker保存图片或视频文件后的结果集。|
 |option|[PhotoSaveOptions](#struct-photosaveoptions)|否|PhotoSaveOptions()| **命名参数。** photoPicker保存图片或视频文件选项。|
 
 **示例：**

@@ -1,6 +1,6 @@
-# ohos.cert（证书模块）
+﻿# ohos.cert（证书模块）
 
-证书算法库提供证书相关API。其中，依赖加解密算法库框架基础算法能力的部分，详见[cryptoFramework](../CryptoArchitectureKit/cj-apis-crypto.md)。
+证书算法库提供证书相关API。其中，依赖加解密算法库框架基础算法能力的部分，详见[cryptoFramework](../../cj-apis-crypto/.overview.md)。
 
 ## 导入模块
 
@@ -13,9 +13,9 @@ import kit.DeviceCertificateKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func buildX509CertChain(CertChainBuildParameters)
 
@@ -43,7 +43,7 @@ public func buildX509CertChain(buildParams: CertChainBuildParameters): CertChain
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func startAbilityForResult(Want, AsyncCallback\<AbilityResult>)
+﻿### func startAbilityForResult(Want, AsyncCallback\<AbilityResult>)
 
 ```cangjie
 public func startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): Unit
@@ -15,7 +15,7 @@ public func startAbilityForResult(want: Want, callback: AsyncCallback<AbilityRes
 | 参数名  | 类型   | 必填 | 说明 |
 | :------- | :------ | :---- | :---- |
 | want | [Want](#class-want) |  是 |   启动Ability的want信息。|
-| callback | [AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[AbilityResult](#struct-abilityresult)> |  是 |   执行结果回调函数。|
+| callback | [AsyncCallback](../../../cj-apis-base/.overview.md)\<[AbilityResult](#struct-abilityresult)> |  是 |   执行结果回调函数。|
 
 ### func startAbilityForResult(Want, StartOptions, AsyncCallback\<AbilityResult>)
 
@@ -35,7 +35,7 @@ public func startAbilityForResult(want: Want, options: StartOptions, callback: A
 | :------- | :------ | :---- | :---- |
 | want | [Want](#class-want) |  是 |  启动Ability的want信息。|
 | options | [StartOptions](#class-startoptions) |  是 |   启动Ability所携带的参数。|
-| callback | [AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[AbilityResult](#struct-abilityresult)> |  是 |   执行结果回调函数。|
+| callback | [AsyncCallback](../../../cj-apis-base/.overview.md)\<[AbilityResult](#struct-abilityresult)> |  是 |   执行结果回调函数。|
 
 ### func terminateSelf()
 

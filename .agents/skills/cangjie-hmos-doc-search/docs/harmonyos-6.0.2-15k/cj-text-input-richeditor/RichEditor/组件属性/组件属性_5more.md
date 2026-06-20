@@ -1,4 +1,4 @@
-## 组件属性
+﻿## 组件属性
 
 除支持通用属性外，还支持以下属性：
 
@@ -28,7 +28,7 @@ public func bindSelectionMenu(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |spantype|[RichEditorSpanType](#enum-richeditorspantype)|否|RichEditorSpanType.TEXT| **命名参数。** 指定选择菜单的类型。|
-|content|()->Unit|是|-| **命名参数。** 指定选择菜单的内容。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|content|()->Unit|是|-| **命名参数。** 指定选择菜单的内容。使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 |responseType|[ResponseType](./cj-common-types.md#enum-responsetype)|否|ResponseType.LongPress| **命名参数。** 指定选择菜单的响应类型。|
 |options|[SelectionMenuOptions](./cj-text-input-richeditor.md#class--selectionmenuoptions)|是|-| **命名参数。** 指定选择菜单的选项。|
 
@@ -80,7 +80,7 @@ public func customKeyboard(builder!: () -> Unit): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|builder|()->Unit|是|-| **命名参数。** 富文本编辑器的自定义键盘。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|builder|()->Unit|是|-| **命名参数。** 富文本编辑器的自定义键盘。使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 
 ### func placeholder(AppResource, PlaceholderStyle)
 
@@ -98,5 +98,5 @@ public func placeholder(value: AppResource, style!: PlaceholderStyle = Placehold
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|无输入时的提示文本。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|无输入时的提示文本。|
 |style|[PlaceholderStyle](#class-placeholderstyle)|否|-| **命名参数。** 提示文本的字体样式。|

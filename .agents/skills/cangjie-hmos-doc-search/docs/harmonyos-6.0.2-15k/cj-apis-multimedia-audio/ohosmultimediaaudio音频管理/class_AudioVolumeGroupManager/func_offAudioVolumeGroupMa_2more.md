@@ -1,4 +1,4 @@
-### func off(AudioVolumeGroupManagerCallbackType, ?CallbackObject)
+﻿### func off(AudioVolumeGroupManagerCallbackType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: AudioVolumeGroupManagerCallbackType, callback!: ?CallbackObject = None): Unit
@@ -15,11 +15,11 @@ public func off(`type`: AudioVolumeGroupManagerCallbackType, callback!: ?Callbac
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioVolumeGroupManagerCallbackType](#enum-audiovolumegroupmanagercallbacktype)|是|-|监听事件。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 回调函数。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,11 +71,11 @@ public func on(`type`: AudioVolumeGroupManagerCallbackType, callback: Callback1A
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioVolumeGroupManagerCallbackType](#enum-audiovolumegroupmanagercallbacktype)|是|-|监听事件，固定为：'MICSTATE_CHANGE'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[MicStateChangeEvent](#class-micstatechangeevent)>|是|-|回调函数，返回当前音频渲染器信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[MicStateChangeEvent](#class-micstatechangeevent)>|是|-|回调函数，返回当前音频渲染器信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

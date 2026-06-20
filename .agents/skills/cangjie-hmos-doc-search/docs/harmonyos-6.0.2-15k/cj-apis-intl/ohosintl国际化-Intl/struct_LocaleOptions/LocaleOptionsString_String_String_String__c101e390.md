@@ -1,4 +1,4 @@
-### LocaleOptions(String, String, String, String, Bool, String)
+﻿### LocaleOptions(String, String, String, String, Bool, String)
 
 ```cangjie
 public LocaleOptions(
@@ -30,6 +30,6 @@ public LocaleOptions(
 
 > **说明：**
 >
->calendar：不同取值表示的含义请参见[设置日历和历法表1](../../../../Dev_Guide/internationalization/cj-i18n-calendar.md)。
->hourCycle：不同取值的显示效果请参见[时间日期国际化表5](../../../../Dev_Guide/internationalization/cj-i18n-time-date.md)。
->collation、caseFirst：不同取值表示的含义请参见[本地习惯排序表1](../../../../Dev_Guide/internationalization/cj-i18n-sorting-local.md)。
+>calendar：不同取值表示的含义请参见[设置日历和历法表1](../../../cj-i18n-calendar/cj-i18n-calendar.md)。
+>hourCycle：不同取值的显示效果请参见[时间日期国际化表5](../../../cj-i18n-time-date/.overview.md)。
+>collation、caseFirst：不同取值表示的含义请参见[本地习惯排序表1](../../../cj-i18n-sorting-local/.overview.md)。

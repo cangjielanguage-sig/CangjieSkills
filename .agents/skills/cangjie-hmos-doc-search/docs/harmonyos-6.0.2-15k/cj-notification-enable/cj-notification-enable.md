@@ -1,10 +1,10 @@
-# 请求通知授权
+﻿# 请求通知授权
 
-应用需要获取用户授权才能发送通知。在通知发布前调用[requestEnableNotification()](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#func-requestenablenotificationabilitycontext)方法，弹窗让用户选择是否允许发送通知，后续再次调用[requestEnableNotification()](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#func-requestenablenotificationabilitycontext)方法时，则不再弹窗。
+应用需要获取用户授权才能发送通知。在通知发布前调用[requestEnableNotification()](../cj-apis-notification_manager/.overview.md)方法，弹窗让用户选择是否允许发送通知，后续再次调用[requestEnableNotification()](../cj-apis-notification_manager/.overview.md)方法时，则不再弹窗。
 
 ## 接口说明
 
-接口详情参见[API参考](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#func-requestenablenotificationabilitycontext)。
+接口详情参见[API参考](../cj-apis-notification_manager/.overview.md)。
 
 **表1** 通知授权接口功能介绍
 

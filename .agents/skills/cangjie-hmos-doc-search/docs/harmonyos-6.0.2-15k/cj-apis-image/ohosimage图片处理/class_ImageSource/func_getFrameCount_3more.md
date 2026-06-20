@@ -1,4 +1,4 @@
-### func getFrameCount()
+﻿### func getFrameCount()
 
 ```cangjie
 public func getFrameCount(): UInt32
@@ -18,7 +18,7 @@ public func getFrameCount(): UInt32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -98,7 +98,7 @@ public func getImageProperties(key: Array<PropertyKey>): Array<(PropertyKey, Str
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

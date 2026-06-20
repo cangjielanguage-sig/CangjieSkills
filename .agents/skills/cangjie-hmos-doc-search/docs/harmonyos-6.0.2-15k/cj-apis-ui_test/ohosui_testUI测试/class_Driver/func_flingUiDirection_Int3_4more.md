@@ -1,4 +1,4 @@
-### func fling(UiDirection, Int32)
+﻿### func fling(UiDirection, Int32)
 
 ```cangjie
 public func fling(direction: UiDirection, speed: Int32): Unit
@@ -19,7 +19,7 @@ public func fling(direction: UiDirection, speed: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -59,7 +59,7 @@ public func getDisplayDensity(): Point
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public func getDisplayRotation(): DisplayRotation
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -139,7 +139,7 @@ public func getDisplaySize(): Point
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

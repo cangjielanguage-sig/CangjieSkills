@@ -1,6 +1,6 @@
-## 使用Web组件恢复进程退出时未下载完成的任务
+﻿## 使用Web组件恢复进程退出时未下载完成的任务
 
-在Web组件启动时，可通过[resumeDownload()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-resumedownloadwebdownloaditem)接口恢复未完成的下载任务。
+在Web组件启动时，可通过[resumeDownload()](../../cj-apis-webview/.overview.md)接口恢复未完成的下载任务。
 
 在以下示例中，可借助“recovery”按钮恢复持久化的下载任务。
 

@@ -1,6 +1,6 @@
-### 字符标准化
+﻿### 字符标准化
 
-字符标准化是指按指定的范式标准化字符。通过 `Normalizer` 类的 [normalize](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#func-normalizestring) 接口实现，具体开发步骤如下：
+字符标准化是指按指定的范式标准化字符。通过 `Normalizer` 类的 [normalize](../../../cj-apis-i18n/.overview.md) 接口实现，具体开发步骤如下：
 
 1. 导入模块。
 
@@ -35,7 +35,7 @@ let normalizedText: String = normalizer.normalize("\u{1E9B}\u{0323}") // normali
 
 ### 断词换行
 
-断词换行是指根据设定的区域参数获取文本中的分割点，通过 [BreakIterator](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#class-breakiterator) 类的接口实现，具体开发步骤如下：
+断词换行是指根据设定的区域参数获取文本中的分割点，通过 [BreakIterator](../../../cj-apis-i18n/.overview.md) 类的接口实现，具体开发步骤如下：
 
 1. 导入模块。
 

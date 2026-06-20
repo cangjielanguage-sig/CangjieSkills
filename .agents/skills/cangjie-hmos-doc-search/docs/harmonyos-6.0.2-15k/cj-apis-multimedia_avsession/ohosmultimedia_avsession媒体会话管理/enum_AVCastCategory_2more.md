@@ -1,4 +1,4 @@
-## enum AVCastCategory
+﻿## enum AVCastCategory
 
 ```cangjie
 public enum AVCastCategory <: Equatable<AVCastCategory> & ToString {
@@ -148,6 +148,6 @@ LOOP_MODE(LoopMode)
 SPEED(PlaybackSpeed)
 ```
 
-**功能：** [PlaybackSpeed](../MediaKit/cj-apis-multimedia_media.md#enum-playbackspeed)值类型。
+**功能：** [PlaybackSpeed](../../cj-apis-multimedia_media/.overview.md)值类型。
 
 **起始版本：** 19

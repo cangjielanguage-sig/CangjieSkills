@@ -1,4 +1,4 @@
-## class NotificationPictureContent
+﻿## class NotificationPictureContent
 
 ```cangjie
 public class NotificationPictureContent <: NotificationBasicContent {
@@ -62,7 +62,7 @@ public var picture: PixelMap
 
 **系统能力：** SystemCapability.Notification.Notification
 
-**类型：** [PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)
+**类型：** [PixelMap](../../cj-apis-image/.overview.md)
 
 **读写能力：** 可读写
 
@@ -87,8 +87,8 @@ public init(title: String, text: String, lockscreenPicture: Option<PixelMap>, br
 |:---|:---|:---|:---|:---|
 |title|String|是|-|通知标题（不可为空字符串，大小不超过200字节，超出部分会被截断）。|
 |text|String|是|-|通知内容（不可为空字符串，大小不超过200字节，超出部分会被截断）。|
-|lockscreenPicture|[Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>|是|-|通知在锁屏界面显示的图片。|
+|lockscreenPicture|[Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../../cj-apis-image/.overview.md)>|是|-|通知在锁屏界面显示的图片。|
 |briefText|String|是|-|通知概要内容，是对通知内容的总结（不可为空字符串，大小不超过200字节，超出部分会被截断）。|
 |expandedTitle|String|是|-|通知展开时的标题（不可为空字符串，大小不超过200字节，超出部分会被截断）。|
-|picture|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|是|-|通知的图片内容(图像像素的总字节数不能超过2MB)。|
+|picture|[PixelMap](../../cj-apis-image/.overview.md)|是|-|通知的图片内容(图像像素的总字节数不能超过2MB)。|
 |additionalText|String|否|""| **命名参数。** 通知附加内容，是对通知内容的补充（大小不超过200字节，超出部分会被截断）。|

@@ -1,4 +1,4 @@
-# ohos.pasteboard（剪贴板）
+﻿# ohos.pasteboard（剪贴板）
 
 本模块主要提供管理系统剪贴板的能力，为系统复制、粘贴功能提供支持。系统剪贴板支持对文本、HTML、URI、PixelMap等内容的操作。
 
@@ -17,9 +17,9 @@ ohos.permission.READ_PASTEBOARD
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## const MIMETYPE_PIXELMAP
 
@@ -136,7 +136,7 @@ public func createData(mimeType: String, value: PixelMap): PasteData
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |mimeType|String|是|-|剪贴板数据对应的MIME类型，可以是常量中已定义的类型，也可以自定义。取值为[MIMETYPE_PIXELMAP](#const-mimetype_pixelmap)。|
-|value|[PixelMap](../../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|PixelMap类型的数据内容。|
+|value|[PixelMap](../../cj-apis-image/.overview.md)|是|-|PixelMap类型的数据内容。|
 
 **返回值：**
 

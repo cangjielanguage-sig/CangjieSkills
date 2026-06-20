@@ -1,4 +1,4 @@
-### func colors(Array\<(Color, Float32)>)
+﻿### func colors(Array\<(Color, Float32)>)
 
 ```cangjie
 public func colors(colorStop: Array<(Color, Float32)>): This
@@ -122,4 +122,4 @@ public func colors(colorStop: Array<(AppResource, Float32)>): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|colorStop|Array\<([AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource),Float32)>|是|-|量规图的颜色，支持分段颜色设置。|
+|colorStop|Array\<([AppResource](../../../cj-apis-resource_manager/.overview.md),Float32)>|是|-|量规图的颜色，支持分段颜色设置。|

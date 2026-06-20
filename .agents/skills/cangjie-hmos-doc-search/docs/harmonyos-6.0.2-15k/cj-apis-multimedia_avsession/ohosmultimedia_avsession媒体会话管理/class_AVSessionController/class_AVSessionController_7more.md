@@ -1,4 +1,4 @@
-## class AVSessionController
+﻿## class AVSessionController
 
 ```cangjie
 public class AVSessionController {}
@@ -38,7 +38,7 @@ public func destroy(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -65,7 +65,7 @@ public func getAVCallState(): AVCallState
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -93,7 +93,7 @@ public func getAVMetadata(): AVMetadata
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -121,7 +121,7 @@ public func getAVPlaybackState(): AVPlaybackState
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -149,7 +149,7 @@ public func getAVQueueItems(): Array<AVQueueItem>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

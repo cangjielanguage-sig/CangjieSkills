@@ -1,13 +1,13 @@
-# 二次向用户申请授权
+﻿# 二次向用户申请授权
 
-当应用通过[requestPermissionsFromUser()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#func-requestpermissionsfromuserstagecontext-arraypermissions-asynccallbackaccessctrlpermissionrequestresult)拉起弹框[请求用户授权](./cj-request-user-authorization.md)时，用户拒绝授权，应用将无法再次通过requestPermissionsFromUser()拉起弹框，需要用户在系统应用“设置”的界面中，手动授予权限。
+当应用通过[requestPermissionsFromUser()](../cj-apis-ability_access_ctrl/.overview.md)拉起弹框[请求用户授权](./cj-request-user-authorization.md)时，用户拒绝授权，应用将无法再次通过requestPermissionsFromUser()拉起弹框，需要用户在系统应用“设置”的界面中，手动授予权限。
 
 在“设置”应用中的路径：
 
 - 路径一：设置 > 隐私与安全 > 权限类型（如位置信息） > 具体应用
 - 路径二：设置 > 应用和元服务 > 某个应用
 
-应用也可以通过调用[requestPermissionOnSetting()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#func-requestpermissiononsettingcontext-arraypermissions-asynccallbackarraygrantstatus)，直接拉起权限设置弹框，引导用户授予权限。
+应用也可以通过调用[requestPermissionOnSetting()](../cj-apis-ability_access_ctrl/.overview.md)，直接拉起权限设置弹框，引导用户授予权限。
 
 效果展示：
 

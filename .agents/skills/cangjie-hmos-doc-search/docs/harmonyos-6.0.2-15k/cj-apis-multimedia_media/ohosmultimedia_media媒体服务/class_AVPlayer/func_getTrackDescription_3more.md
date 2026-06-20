@@ -1,4 +1,4 @@
-### func getTrackDescription()
+﻿### func getTrackDescription()
 
 ```cangjie
 public func getTrackDescription(): Array<MediaDescription>
@@ -18,7 +18,7 @@ public func getTrackDescription(): Array<MediaDescription>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -75,7 +75,7 @@ public func off(`type`: AVPlayerCallbackType, callback: CallbackObject): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVPlayerCallbackType](#enum-avplayercallbacktype)|是|-|AVPlayer相关监听事件。|
-|callback|[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|是|-|取消的回调函数。|
+|callback|[CallbackObject](../../../cj-apis-base/.overview.md)|是|-|取消的回调函数。|
 
 **示例：**
 

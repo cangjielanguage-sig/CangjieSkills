@@ -1,4 +1,4 @@
-### func setAudioLatencyMode(Int32, AudioLatencyMode)
+﻿### func setAudioLatencyMode(Int32, AudioLatencyMode)
 
 ```cangjie
 public func setAudioLatencyMode(id: Int32, latencyMode: AudioLatencyMode): Unit
@@ -19,7 +19,7 @@ public func setAudioLatencyMode(id: Int32, latencyMode: AudioLatencyMode): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -62,7 +62,7 @@ public func setStreamUsage(id: Int32, usage: StreamUsage): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -104,7 +104,7 @@ public func unregisterSource(id: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

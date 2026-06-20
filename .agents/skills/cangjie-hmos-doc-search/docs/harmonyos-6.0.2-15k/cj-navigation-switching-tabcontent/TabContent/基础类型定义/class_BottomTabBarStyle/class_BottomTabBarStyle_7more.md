@@ -1,4 +1,4 @@
-### class BottomTabBarStyle
+﻿### class BottomTabBarStyle
 
 ```cangjie
 public class BottomTabBarStyle {
@@ -50,8 +50,8 @@ public init(icon: AppResource, text: AppResource)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的图片内容。|
-|text|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的文字内容。|
+|icon|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的图片内容。|
+|text|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的文字内容。|
 
 #### init(AppResource, String)
 
@@ -69,7 +69,7 @@ public init(icon: AppResource, text: String)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的图片内容。|
+|icon|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的图片内容。|
 |text|String|是|-|页签内的文字内容。|
 
 #### init(String, AppResource)
@@ -89,7 +89,7 @@ public init(icon: String, text: AppResource)
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |icon|String|是|-|页签内的图片内容。|
-|text|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的文字内容。|
+|text|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的文字内容。|
 
 #### static func of(String, String)
 
@@ -132,8 +132,8 @@ public static func of(icon: AppResource, text: AppResource): BottomTabBarStyle
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的图片内容。|
-|text|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的文字内容。|
+|icon|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的图片内容。|
+|text|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的文字内容。|
 
 **返回值：**
 

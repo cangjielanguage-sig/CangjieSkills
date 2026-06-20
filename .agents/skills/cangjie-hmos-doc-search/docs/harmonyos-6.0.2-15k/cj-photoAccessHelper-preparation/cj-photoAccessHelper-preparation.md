@@ -1,10 +1,10 @@
-# 开发准备
+﻿# 开发准备
 
 应用需要先获取相册管理模块实例，才能访问和修改相册中的媒体数据信息。相册管理模块涉及用户个人数据信息，因此应用需要向用户申请相册管理模块读写操作权限，以确保功能的正常运行。在使用相册管理模块的相关接口时，如无特别说明，默认是在工程代码的 `pages/index.cj` 或其他自定义的cj文件中使用。
 
 ## 获取相册管理模块实例
 
-应用需要使用应用上下文Context通过接口[getPhotoAccessHelper](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getphotoaccesshelperabilitycontext)，获取相册管理模块实例，用于访问和修改相册中媒体数据信息（如图片、视频）。
+应用需要使用应用上下文Context通过接口[getPhotoAccessHelper](../cj-apis-multimedia-photo_accesshelper/.overview.md)，获取相册管理模块实例，用于访问和修改相册中媒体数据信息（如图片、视频）。
 
 **开发步骤**
 
@@ -51,24 +51,24 @@ class MainAbility <: UIAbility {
 
 ## 申请相册管理模块功能相关权限
 
-相册管理模块的读写操作需要相应权限，在申请权限前，请保证符合[权限使用的基本原则](../../security/AccessToken/cj-app-permission-mgmt-overview.md)。涉及的权限如下表。
+相册管理模块的读写操作需要相应权限，在申请权限前，请保证符合[权限使用的基本原则](../cj-app-permission-mgmt-overview/.overview.md)。涉及的权限如下表。
 
 | 权限名                         | 说明                                       | 授权方式   |
 | ------------------------------ | ------------------------------------------ | ---------- |
 | ohos.permission.READ_IMAGEVIDEO     | 允许应用读取媒体库的图片和视频媒体文件信息。 | user_grant |
 | ohos.permission.WRITE_IMAGEVIDEO    | 允许应用读写媒体库的图片和视频媒体文件信息。 | user_grant |
 
-以上权限的授权方式均为user_grant（用户授权），即开发者在module.json5文件中配置对应的权限后，需要使用接口[requestPermissionsFromUser](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#func-requestpermissionsfromuserstagecontext-arraypermissions-asynccallbackpermissionrequestresult)去校验当前用户是否已授权。如果是，应用可以直接访问/操作目标对象；否则需要弹框向用户申请授权。
+以上权限的授权方式均为user_grant（用户授权），即开发者在module.json5文件中配置对应的权限后，需要使用接口[requestPermissionsFromUser](../cj-apis-ability_access_ctrl/.overview.md)去校验当前用户是否已授权。如果是，应用可以直接访问/操作目标对象；否则需要弹框向用户申请授权。
 
 **开发步骤**
 <!--RP1-->
 
-1. 上述权限均为受控权限，申请前需要额外申请ACL白名单，请参见[声明ACL权限](../../security/AccessToken/cj-declare-permissions-in-acl.md)
+1. 上述权限均为受控权限，申请前需要额外申请ACL白名单，请参见[声明ACL权限](../cj-declare-permissions-in-acl/cj-declare-permissions-in-acl.md)
 
 <!--RP1End-->
 
-1. [在配置文件module.json5中声明权限](../../security/AccessToken/cj-declare-permissions.md)。
-2. [向用户申请授权](../../security/AccessToken/cj-request-user-authorization.md)。
+1. [在配置文件module.json5中声明权限](../cj-declare-permissions/.overview.md)。
+2. [向用户申请授权](../cj-request-user-authorization/.overview.md)。
 
 > **说明：**
 >

@@ -1,4 +1,4 @@
-### func getSystemVolumeInDb(AudioVolumeType, Int32, DeviceType)
+﻿### func getSystemVolumeInDb(AudioVolumeType, Int32, DeviceType)
 
 ```cangjie
 public func getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: Int32, device: DeviceType): Float32
@@ -26,7 +26,7 @@ public func getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: Int32,
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -83,7 +83,7 @@ public func getVolume(volumeType: AudioVolumeType): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

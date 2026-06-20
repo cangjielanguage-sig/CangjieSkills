@@ -1,4 +1,4 @@
-### func navBarPosition(NavBarPosition)
+﻿### func navBarPosition(NavBarPosition)
 
 ```cangjie
 public func navBarPosition(position: NavBarPosition): This
@@ -80,7 +80,7 @@ public func backButtonIcon(icon: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-| icon |[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|标题栏中返回键图标。|
+| icon |[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|标题栏中返回键图标。|
 
 ### func hideNavBar(Bool)
 

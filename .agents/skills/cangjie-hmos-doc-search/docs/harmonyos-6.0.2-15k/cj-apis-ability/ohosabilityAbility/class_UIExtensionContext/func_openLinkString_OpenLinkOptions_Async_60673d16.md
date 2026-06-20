@@ -1,4 +1,4 @@
-### func openLink(String, ?OpenLinkOptions, ?AsyncCallback\<AbilityResult>)
+﻿### func openLink(String, ?OpenLinkOptions, ?AsyncCallback\<AbilityResult>)
 
 ```cangjie
 public func openLink(link: String, options!: ?OpenLinkOptions = None,
@@ -21,11 +21,11 @@ public func openLink(link: String, options!: ?OpenLinkOptions = None,
 |:---|:---|:---|:---|:---|
 |link|String|是|-|指示要打开的标准格式URL。|
 |options|?[OpenLinkOptions](#class-openlinkoptions)|否|None| **命名参数。** 打开URL的选项参数。|
-|callback|?[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[AbilityResult](#struct-abilityresult)>|否|None| **命名参数。** 执行结果回调函数。|
+|callback|?[AsyncCallback](../../../cj-apis-base/.overview.md)\<[AbilityResult](#struct-abilityresult)>|否|None| **命名参数。** 执行结果回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

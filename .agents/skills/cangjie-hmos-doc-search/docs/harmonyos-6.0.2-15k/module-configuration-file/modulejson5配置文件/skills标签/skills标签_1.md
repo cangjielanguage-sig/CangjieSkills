@@ -1,6 +1,6 @@
-## skills标签
+﻿## skills标签
 
-该标签标识UIAbility组件或者ExtensionAbility组件能够接收的[Want](../../application-models/cj-want-overview.md)的特征。
+该标签标识UIAbility组件或者ExtensionAbility组件能够接收的[Want](../../../cj-want-overview/cj-want-overview.md)的特征。
 
 **表7** skills标签说明
 
@@ -24,9 +24,9 @@
 | host | 标识URI的主机地址部分，该字段只有当scheme配置时才生效。常见的方式：<br/>-&nbsp;域名方式，如example.com。<br/>-&nbsp;IP地址方式，如10.10.10.1。<br/>**说明：**<br/>从API 18开始，该字段在参与隐式Want匹配时不区分大小写。   | 字符串 | 该标签可缺省，缺省值为空。 |
 | port | 标识URI的端口部分。如http默认端口为80，https默认端口是443，ftp默认端口是21。该字段只有当scheme和host都配置时才生效。  | 字符串 | 该标签可缺省，缺省值为空。 |
 | path&nbsp;\| &nbsp;pathStartWith&nbsp;\|&nbsp;pathRegex | 标识URI的路径部分，path、pathStartWith和pathRegex配置时三选一。path标识URI与want中的路径部分全匹配，pathStartWith标识URI与want中的路径部分允许前缀匹配，pathRegex标识URI与want中的路径部分允许正则匹配。该字段只有当scheme和host都配置时才生效。 | 字符串 | 该标签可缺省，缺省值为空。 |
-| type | 标识与Want相匹配的数据类型，使用MIME（Multipurpose&nbsp;Internet&nbsp;Mail&nbsp;Extensions）类型规范和[UniformDataType](../../../API_Reference/source_zh_cn/apis/ArkData/cj-apis-uniformTypeDescriptor.md)类型规范。可以与scheme同时配置，也可以单独配置。 | 字符串 | 该标签可缺省，缺省值为空。 |
-| utd | 标识与Want相匹配的[标准化数据类型](../../database/cj-uniform-data-type-descriptors.md)，适用于分享等场景。   | 字符串 | 该标签可缺省，缺省值为空。 |
+| type | 标识与Want相匹配的数据类型，使用MIME（Multipurpose&nbsp;Internet&nbsp;Mail&nbsp;Extensions）类型规范和[UniformDataType](../../../cj-apis-uniformTypeDescriptor/.overview.md)类型规范。可以与scheme同时配置，也可以单独配置。 | 字符串 | 该标签可缺省，缺省值为空。 |
+| utd | 标识与Want相匹配的[标准化数据类型](../../../cj-uniform-data-type-descriptors/.overview.md)，适用于分享等场景。   | 字符串 | 该标签可缺省，缺省值为空。 |
 | maxFileSupported | 对于指定类型的文件，标识一次能接收或打开的最大数量，适用于分享等场景，需要与utd配合使用。    | 整数 | 该标签可缺省，缺省值为0。|
-| linkFeature | 标识URI提供的功能类型（如文件打开、分享、导航等），用于实现应用间跳转。取值为长度不超过127字节的字符串，不支持中文。同一Bundle中声明的linkFeature数量不能超过150个。详情见[linkFeature标签说明](../../application-models/cj-app-uri-config.md#linkfeature标签说明)。 | 字符串 | 该标签可缺省，缺省值为空。|
+| linkFeature | 标识URI提供的功能类型（如文件打开、分享、导航等），用于实现应用间跳转。取值为长度不超过127字节的字符串，不支持中文。同一Bundle中声明的linkFeature数量不能超过150个。详情见[linkFeature标签说明](../../../cj-app-uri-config/.overview.md)。 | 字符串 | 该标签可缺省，缺省值为空。|
 
 skills示例：

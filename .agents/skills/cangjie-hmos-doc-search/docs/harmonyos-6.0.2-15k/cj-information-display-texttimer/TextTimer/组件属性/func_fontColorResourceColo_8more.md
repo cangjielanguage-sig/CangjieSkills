@@ -1,4 +1,4 @@
-### func fontColor(ResourceColor)
+﻿### func fontColor(ResourceColor)
 
 ```cangjie
 public func fontColor(value: ResourceColor): This
@@ -50,7 +50,7 @@ public func fontFamily(content: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|字体列表。<br/>初始字体：'HarmonyOS Sans'。<br/>应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](cj-apis-font.md)。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|字体列表。<br/>初始字体：'HarmonyOS Sans'。<br/>应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](cj-apis-font.md)。|
 
 ### func fontSize(Length)
 

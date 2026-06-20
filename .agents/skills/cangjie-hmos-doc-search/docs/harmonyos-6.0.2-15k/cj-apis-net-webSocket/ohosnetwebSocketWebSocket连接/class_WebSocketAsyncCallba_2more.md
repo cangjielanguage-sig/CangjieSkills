@@ -1,4 +1,4 @@
-## class WebSocketAsyncCallback
+﻿## class WebSocketAsyncCallback
 
 ```cangjie
 open public class WebSocketAsyncCallback<T> <: Callback2Argument<Option<AsyncError>,Option<T>> {
@@ -14,7 +14,7 @@ open public class WebSocketAsyncCallback<T> <: Callback2Argument<Option<AsyncErr
 
 **父类型：**
 
-- [Callback2Argument\<Option\<AsyncError>, Option\<T>>](../BasicServicesKit/cj-apis-base.md#class-callback2argument)
+- [Callback2Argument\<Option\<AsyncError>, Option\<T>>](../../cj-apis-base/.overview.md)
 
 ### WebSocketAsyncCallback((Option\<AsyncError>, Option\<T>) -> Unit)
 
@@ -32,7 +32,7 @@ public WebSocketAsyncCallback(let f:(Option <AsyncError>, Option <T> ) -> Unit)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|f|(Option\<[AsyncError](../BasicServicesKit/cj-apis-base.md#class-asyncerror)>, Option\<T>) -> Unit|是|-|回调方法。|
+|f|(Option\<[AsyncError](../../cj-apis-base/.overview.md)>, Option\<T>) -> Unit|是|-|回调方法。|
 
 ### func invoke(Option\<AsyncError>, Option\<T>)
 
@@ -50,7 +50,7 @@ public open func invoke(arg1: Option <AsyncError>, arg2: Option <T>)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|arg1|Option\<[AsyncError](../BasicServicesKit/cj-apis-base.md#class-asyncerror)>|是|-|回调失败，AsyncError返回值。|
+|arg1|Option\<[AsyncError](../../cj-apis-base/.overview.md)>|是|-|回调失败，AsyncError返回值。|
 |arg2|Option\<T>|是|-|回调成功，返回T类型。|
 
 ## class WebSocketClientCert

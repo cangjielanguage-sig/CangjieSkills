@@ -1,10 +1,10 @@
-# Grid
+﻿# Grid
 
 网格容器，由“行”和“列”分割的单元格所组成，通过指定“项目”所在的单元格做出各种各样的布局。
 
 ## 子组件
 
-仅支持[GridItem](cj-scroll-swipe-griditem.md)子组件，支持渲染控制类型（[if/else](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-ifelse.md)、[ForEach](cj-state-rendering-foreach.md)、[LazyForEach](cj-state-rendering-lazyforeach.md)）。
+仅支持[GridItem](cj-scroll-swipe-griditem.md)子组件，支持渲染控制类型（[if/else](../../cj-rendering-control-ifelse/.overview.md)、[ForEach](cj-state-rendering-foreach.md)、[LazyForEach](cj-state-rendering-lazyforeach.md)）。
 
 > **说明：**
 >
@@ -12,7 +12,7 @@
 > - 按子组件的顺序依次递增。
 > - if/else语句中，只有条件成立分支内的子组件会参与索引值计算，条件不成立分支内的子组件不计算索引值。
 > - ForEach/LazyForEach语句中，会计算展开所有子节点索引值。
-> - [if/else](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-ifelse.md)、[ForEach](cj-state-rendering-foreach.md)、[LazyForEach](cj-state-rendering-lazyforeach.md)发生变化以后，会更新子节点索引值。
+> - [if/else](../../cj-rendering-control-ifelse/.overview.md)、[ForEach](cj-state-rendering-foreach.md)、[LazyForEach](cj-state-rendering-lazyforeach.md)发生变化以后，会更新子节点索引值。
 > - Grid子组件的visibility属性设置为Hidden或None时依然会计算索引值。
 > - Grid子组件的visibility属性设置为None时不显示，但依然会占用子组件对应的网格。
 > - Grid子组件设置position属性，会占用子组件对应的网格，子组件将显示在相对Grid左上角偏移position的位置。该子组件不会随其对应网格滚动，在对应网格滑出Grid显示范围外后不显示。

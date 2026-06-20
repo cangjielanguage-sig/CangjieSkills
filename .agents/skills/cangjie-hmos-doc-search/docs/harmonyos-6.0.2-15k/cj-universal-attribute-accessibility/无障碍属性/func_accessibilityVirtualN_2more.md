@@ -1,4 +1,4 @@
-## func accessibilityVirtualNode(() -> Unit)
+﻿## func accessibilityVirtualNode(() -> Unit)
 
 ```cangjie
 public func accessibilityVirtualNode(builder: () -> Unit): This
@@ -14,7 +14,7 @@ public func accessibilityVirtualNode(builder: () -> Unit): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|builder|()->Unit|是|-|无障碍虚拟子节点，使开发者可以对自绘制组件传入一个自定义UI描述，该UI描述中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回UI描述中的节点信息。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|builder|()->Unit|是|-|无障碍虚拟子节点，使开发者可以对自绘制组件传入一个自定义UI描述，该UI描述中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回UI描述中的节点信息。使用时结合[@Builder](../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 
 ## 示例代码
 

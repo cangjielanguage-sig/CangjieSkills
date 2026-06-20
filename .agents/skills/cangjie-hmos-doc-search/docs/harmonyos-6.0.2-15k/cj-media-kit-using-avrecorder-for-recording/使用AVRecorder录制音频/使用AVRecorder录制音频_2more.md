@@ -1,4 +1,4 @@
-# 使用AVRecorder录制音频
+﻿# 使用AVRecorder录制音频
 
 使用[AVRecorder](./cj-media-kit-intro.md#avrecorder)可以实现音频录制功能，本开发指导将以“开始录制-暂停录制-恢复录制-停止录制”的一次流程为示例，向开发者讲解AVRecorder音频录制相关功能。
 
@@ -6,15 +6,15 @@
 
 ![Recording status change](./figures/recording-status-change.png)
 
-状态的详细说明请参见[AVRecorderState](../../../API_Reference/source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md#enum-avrecorderstate)。
+状态的详细说明请参见[AVRecorderState](../../cj-apis-multimedia_media/.overview.md)。
 
 ## 申请权限
 
 在开发此功能前，开发者应根据实际需求申请相关权限：
 
-- 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](../../security/AccessToken/cj-request-user-authorization.md)。
-- 当需要读取和保存音频文件时，请优先使用[AudioViewPicker音频选择器对象](../../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#class-audioviewpicker)。
+- 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](../../cj-request-user-authorization/.overview.md)。
+- 当需要读取和保存音频文件时，请优先使用[AudioViewPicker音频选择器对象](../../cj-apis-file_picker/.overview.md)。
 
 > **说明：**
 >
-> 仅应用需要克隆、备份或同步用户公共目录的音频类文件时，可申请ohos.permission.READ_AUDIO、ohos.permission.WRITE_AUDIO权限来读写音频文件，申请方式请参见[申请受控权限](../../security/AccessToken/cj-declare-permissions-in-acl.md)。
+> 仅应用需要克隆、备份或同步用户公共目录的音频类文件时，可申请ohos.permission.READ_AUDIO、ohos.permission.WRITE_AUDIO权限来读写音频文件，申请方式请参见[申请受控权限](../../cj-declare-permissions-in-acl/cj-declare-permissions-in-acl.md)。

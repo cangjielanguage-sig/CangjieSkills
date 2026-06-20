@@ -1,4 +1,4 @@
-### func strokeOpacity(Float64)
+﻿### func strokeOpacity(Float64)
 
 ```cangjie
 public func strokeOpacity(value: Float64): This
@@ -50,7 +50,7 @@ public func strokeOpacity(value: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|边框透明度。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|边框透明度。|
 
 ### func strokeWidth(Length)
 

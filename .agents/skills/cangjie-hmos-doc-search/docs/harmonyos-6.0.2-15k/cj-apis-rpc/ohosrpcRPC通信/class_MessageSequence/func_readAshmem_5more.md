@@ -1,4 +1,4 @@
-### func readAshmem()
+﻿### func readAshmem()
 
 ```cangjie
 public func readAshmem(): Ashmem
@@ -18,7 +18,7 @@ public func readAshmem(): Ashmem
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -45,7 +45,7 @@ public func readBoolean(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -84,7 +84,7 @@ public func readBooleanArray(dataIn: ArrayList<Bool>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -126,7 +126,7 @@ public func readBooleanArray(): Array<Bool>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -165,7 +165,7 @@ public func readByte(): Int8
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

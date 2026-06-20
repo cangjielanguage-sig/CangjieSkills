@@ -1,8 +1,8 @@
-### 媒体文件uri的使用方式
+﻿### 媒体文件uri的使用方式
 
-normal等级的应用使用此类uri可以通过[photoAccessHelper模块](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md)进行进一步处理。示例代码参见媒体资源使用指导中的[指定URI获取图片或视频资源](../media/medialibrary/cj-photoAccessHelper-photoviewpicker.md#指定uri获取图片或视频资源)。此接口需要申请相册管理模块读权限'ohos.permission.READ_IMAGEVIDEO'，在使用中需要注意应用是否有此权限。
+normal等级的应用使用此类uri可以通过[photoAccessHelper模块](../../../../cj-apis-multimedia-photo_accesshelper/.overview.md)进行进一步处理。示例代码参见媒体资源使用指导中的[指定URI获取图片或视频资源](../../../../cj-photoAccessHelper-photoviewpicker/.overview.md)。此接口需要申请相册管理模块读权限'ohos.permission.READ_IMAGEVIDEO'，在使用中需要注意应用是否有此权限。
 
-若normal等级的应用不想申请权限也可以通过临时授权的方式使用[PhotoAccessHelper的PhotoViewPicker](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#class-photoviewpicker)得到的uri使用[photoAccessHelper.getAssets接口](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getassetsfetchoptions)获取对应uri的PhotoAsset对象。这种方式获取的对象可以调用[getThumbnail](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getthumbnailsize)获取缩略图和使用[get接口](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-geturi)读取[PhotoKeys](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#enum-photokeys)中的部分信息。
+若normal等级的应用不想申请权限也可以通过临时授权的方式使用[PhotoAccessHelper的PhotoViewPicker](../../../../cj-apis-multimedia-photo_accesshelper/.overview.md)得到的uri使用[photoAccessHelper.getAssets接口](../../../../cj-apis-multimedia-photo_accesshelper/.overview.md)获取对应uri的PhotoAsset对象。这种方式获取的对象可以调用[getThumbnail](../../../../cj-apis-multimedia-photo_accesshelper/.overview.md)获取缩略图和使用[get接口](../../../../cj-apis-multimedia-photo_accesshelper/.overview.md)读取[PhotoKeys](../../../../cj-apis-multimedia-photo_accesshelper/.overview.md)中的部分信息。
 
 以下为PhotoKeys中支持临时授权方式可以读取的信息：
 

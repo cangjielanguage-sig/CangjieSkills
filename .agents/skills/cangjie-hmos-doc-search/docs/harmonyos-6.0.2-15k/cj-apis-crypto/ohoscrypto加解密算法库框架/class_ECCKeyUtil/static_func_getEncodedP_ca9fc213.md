@@ -1,4 +1,4 @@
-### static func getEncodedPoint(String, Point, String)
+﻿### static func getEncodedPoint(String, Point, String)
 
 ```cangjie
 public static func getEncodedPoint(curveName: String, point: Point, format: String): Array<UInt8>
@@ -26,7 +26,7 @@ public static func getEncodedPoint(curveName: String, point: Point, format: Stri
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

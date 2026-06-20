@@ -1,4 +1,4 @@
-## func getTask(StageContext, String, ?String)
+﻿## func getTask(StageContext, String, ?String)
 
 ```cangjie
 public func getTask(context: StageContext, id: String, token!: ?String = None): Task
@@ -14,7 +14,7 @@ public func getTask(context: StageContext, id: String, token!: ?String = None): 
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|基于应用程序的上下文。|
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|基于应用程序的上下文。|
 |id|String|是|-|任务id。|
 |token|?String|否|None| **命名参数。** 任务查询token。|
 
@@ -26,7 +26,7 @@ public func getTask(context: StageContext, id: String, token!: ?String = None): 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)与[通用错误码说明文档](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)与[通用错误码说明文档](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -72,7 +72,7 @@ public func remove(id: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -117,7 +117,7 @@ public func search(): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)与[通用错误码说明文档](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)与[通用错误码说明文档](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

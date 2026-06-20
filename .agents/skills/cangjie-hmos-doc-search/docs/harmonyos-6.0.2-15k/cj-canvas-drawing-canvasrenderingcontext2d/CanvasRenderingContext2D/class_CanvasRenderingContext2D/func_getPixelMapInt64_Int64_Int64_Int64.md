@@ -1,10 +1,10 @@
-### func getPixelMap(Int64, Int64, Int64, Int64)
+﻿### func getPixelMap(Int64, Int64, Int64, Int64)
 
 ```cangjie
 public func getPixelMap(left: Int64, top: Int64, width: Int64, height: Int64): PixelMap
 ```
 
-**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象。
+**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../../../cj-apis-image/.overview.md)对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -23,7 +23,7 @@ public func getPixelMap(left: Int64, top: Int64, width: Int64, height: Int64): P
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)| 新的[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象。|
+|[PixelMap](../../../cj-apis-image/.overview.md)| 新的[PixelMap](../../../cj-apis-image/.overview.md)对象。|
 
 **示例：**
 

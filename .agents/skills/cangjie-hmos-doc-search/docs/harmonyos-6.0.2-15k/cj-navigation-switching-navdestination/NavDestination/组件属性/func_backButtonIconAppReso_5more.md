@@ -1,4 +1,4 @@
-### func backButtonIcon(AppResource)
+﻿### func backButtonIcon(AppResource)
 
 ```cangjie
 public func backButtonIcon(value: AppResource): This
@@ -14,7 +14,7 @@ public func backButtonIcon(value: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|返回键图片资源。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|返回键图片资源。|
 
 ### func backButtonIcon(PixelMap)
 
@@ -32,7 +32,7 @@ public func backButtonIcon(value: PixelMap): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|返回键图片资源。|
+|value|[PixelMap](../../../cj-apis-image/.overview.md)|是|-|返回键图片资源。|
 
 ### func menus(Array\<NavigationMenuItem\>)
 

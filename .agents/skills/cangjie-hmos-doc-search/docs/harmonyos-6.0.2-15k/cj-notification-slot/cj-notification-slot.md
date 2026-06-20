@@ -1,4 +1,4 @@
-# 管理通知渠道
+﻿# 管理通知渠道
 
 系统支持多种通知渠道，不同通知渠道对应的通知提醒方式不同，可以根据应用的实际场景选择适合的通知渠道，并对通知渠道进行管理（支持创建、查询、删除等操作）。
 
@@ -17,7 +17,7 @@
 
 ## 接口说明
 
-通知渠道的主要接口如下。其他接口的详细介绍请参见[API参考](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md)。
+通知渠道的主要接口如下。其他接口的详细介绍请参见[API参考](../cj-apis-notification_manager/.overview.md)。
 
 | **接口名** | **描述** |
 | ---------- | -------- |
@@ -25,7 +25,7 @@
 | getSlot(slotType: SlotType): NotificationSlot | 获取一个指定类型的通知渠道。       |
 | removeSlot(slotType: SlotType): Unit          | 删除此应用程序指定类型的通知渠道。  |
 
-除了可以使用`addslot()`创建通知渠道外，还可以在发布通知的[NotificationRequest](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#class-notificationrequest)中携带notificationSlotType字段，如果对应渠道不存在，会自动创建。
+除了可以使用`addslot()`创建通知渠道外，还可以在发布通知的[NotificationRequest](../cj-apis-notification_manager/.overview.md)中携带notificationSlotType字段，如果对应渠道不存在，会自动创建。
 
 ## 开发步骤
 

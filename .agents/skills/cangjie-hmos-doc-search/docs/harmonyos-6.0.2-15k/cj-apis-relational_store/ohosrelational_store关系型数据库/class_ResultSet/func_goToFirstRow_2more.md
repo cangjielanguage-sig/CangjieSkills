@@ -1,4 +1,4 @@
-### func goToFirstRow()
+﻿### func goToFirstRow()
 
 ```cangjie
 public func goToFirstRow(): Bool
@@ -18,7 +18,7 @@ public func goToFirstRow(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -77,7 +77,7 @@ public func goToLastRow(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

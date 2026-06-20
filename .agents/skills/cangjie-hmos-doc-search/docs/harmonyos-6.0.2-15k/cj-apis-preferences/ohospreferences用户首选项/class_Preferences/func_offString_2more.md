@@ -1,4 +1,4 @@
-### func off(String)
+﻿### func off(String)
 
 ```cangjie
 public func off(tp: String): Unit
@@ -18,7 +18,7 @@ public func off(tp: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[用户首选项错误码](../../errorcodes/cj-errorcode-preferences.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[用户首选项错误码](../../../cj-errorcode-preferences/cj-errorcode-preferences.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息                               |
   | :-------- | :-------------------------------------- |
@@ -70,7 +70,7 @@ public func on(tp: String, callback: Callback1Argument<String>): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |tp|String|是|-|事件类型，固定值“change”或“multiProcessChange”。<br>change时，表示订阅数据变更，订阅的Key的值发生变更后，在执行flush方法后，触发callback回调。<br>multiProcessChange时，表示订阅进程间数据变更，多个进程持有同一个首选项文件时，订阅的Key的值在任意一个进程发生变更后，执行flush方法后，触发callback回调。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<String>|是|-|回调函数。String: 发生变化的Key的类型。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<String>|是|-|回调函数。String: 发生变化的Key的类型。|
 
 **示例：**
 

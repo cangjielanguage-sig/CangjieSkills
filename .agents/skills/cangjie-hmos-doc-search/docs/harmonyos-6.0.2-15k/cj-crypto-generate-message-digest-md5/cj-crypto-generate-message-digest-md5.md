@@ -1,4 +1,4 @@
-# 消息摘要计算MD5（仓颉）
+﻿# 消息摘要计算MD5（仓颉）
 
 对应的算法规格请参见[消息摘要计算算法规格](./cj-crypto-generate-message-digest-overview.md#支持的算法与规格)。
 
@@ -10,13 +10,13 @@
 
 ### 摘要算法（一次性传入）
 
-1. 调用[createMd](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createmdstring)，指定摘要算法MD5，生成摘要实例（Md）。
+1. 调用[createMd](../cj-apis-crypto/.overview.md)，指定摘要算法MD5，生成摘要实例（Md）。
 
-2. 调用[update](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-updatedatablob-2)，传入自定义消息，进行摘要更新计算。单次update长度没有限制。
+2. 调用[update](../cj-apis-crypto/.overview.md)，传入自定义消息，进行摘要更新计算。单次update长度没有限制。
 
-3. 调用[digest](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-digest)，获取摘要计算结果。
+3. 调用[digest](../cj-apis-crypto/.overview.md)，获取摘要计算结果。
 
-4. 调用[getMdLength](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getmdlength)，获取摘要计算长度，单位为字节。
+4. 调用[getMdLength](../cj-apis-crypto/.overview.md)，获取摘要计算长度，单位为字节。
 
 ### 以单次传入数据，获取摘要计算结果为例
 
@@ -38,13 +38,13 @@ func doMd() {
 
 ### 分段摘要算法
 
-1. 调用[createMd](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createmdstring)，指定摘要算法MD5，生成摘要实例（Md）。
+1. 调用[createMd](../cj-apis-crypto/.overview.md)，指定摘要算法MD5，生成摘要实例（Md）。
 
-2. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[update](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-updatedatablob-2)，进行摘要更新计算。
+2. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[update](../cj-apis-crypto/.overview.md)，进行摘要更新计算。
 
-3. 调用[digest](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-digest)，获取摘要计算结果。
+3. 调用[digest](../cj-apis-crypto/.overview.md)，获取摘要计算结果。
 
-4. 调用[getMdLength](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getmdlength)，获取摘要计算长度，单位为字节。
+4. 调用[getMdLength](../cj-apis-crypto/.overview.md)，获取摘要计算长度，单位为字节。
 
 ### 以分段传入数据，获取摘要计算结果为例
 

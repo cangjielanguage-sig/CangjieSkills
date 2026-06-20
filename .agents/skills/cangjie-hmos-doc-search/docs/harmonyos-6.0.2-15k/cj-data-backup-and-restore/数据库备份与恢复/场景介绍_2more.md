@@ -1,4 +1,4 @@
-## 场景介绍
+﻿## 场景介绍
 
 当应用在处理一项重要的操作时不能被打断，例如：写入多个表关联的事务。此时，每个表的写入都是单独的，但是表与表之间的事务关联性不能被分割。
 
@@ -10,7 +10,7 @@
 
 ## 键值型数据库备份、恢复与删除
 
-键值型数据库，通过backup接口实现数据库备份，通过restore接口实现数据库恢复，通过deletebackup接口删除数据库备份。具体接口及功能，请参见[分布式键值数据库](../../API_Reference/source_zh_cn/apis/ArkData/cj-apis-distributed_kv_store.md)。
+键值型数据库，通过backup接口实现数据库备份，通过restore接口实现数据库恢复，通过deletebackup接口删除数据库备份。具体接口及功能，请参见[分布式键值数据库](../../cj-apis-distributed_kv_store/.overview.md)。
 
 1. 创建数据库。
 

@@ -1,4 +1,4 @@
-## class Context
+﻿## class Context
 
 ```cangjie
 public open class Context {
@@ -50,7 +50,7 @@ public prop area: AreaMode
 public prop bundleCodeDir: String
 ```
 
-**功能：** 安装包目录。不能拼接路径访问资源文件，请使用[资源管理接口](../LocalizationKit/cj-apis-resource_manager.md#ohosresource_manager资源管理)访问资源。
+**功能：** 安装包目录。不能拼接路径访问资源文件，请使用[资源管理接口](../../../cj-apis-resource_manager/.overview.md)访问资源。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -182,7 +182,7 @@ public prop resourceManager: ResourceManager
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** [ResourceManager](../LocalizationKit/cj-apis-resource_manager.md#class-resourcemanager)
+**类型：** [ResourceManager](../../../cj-apis-resource_manager/.overview.md)
 
 **读写能力：** 只读
 

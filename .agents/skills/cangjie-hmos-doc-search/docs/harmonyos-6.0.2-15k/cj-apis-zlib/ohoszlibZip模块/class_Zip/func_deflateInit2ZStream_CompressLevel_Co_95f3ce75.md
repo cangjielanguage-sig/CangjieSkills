@@ -1,4 +1,4 @@
-### func deflateInit2(ZStream, CompressLevel, CompressMethod, Int32, MemLevel, CompressStrategy)
+﻿### func deflateInit2(ZStream, CompressLevel, CompressMethod, Int32, MemLevel, CompressStrategy)
 
 ```cangjie
 public func deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMethod, windowBits: Int32,
@@ -30,7 +30,7 @@ public func deflateInit2(strm: ZStream, level: CompressLevel, method: CompressMe
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

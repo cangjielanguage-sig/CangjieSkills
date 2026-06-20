@@ -1,4 +1,4 @@
-# ohos.input_method（输入法框架）
+﻿# ohos.input_method（输入法框架）
 
 本模块主要面向普通前台应用（备忘录、信息、设置等系统应用与三方应用），提供对输入法（输入法应用）的控制、管理能力，包括显示/隐藏输入法软键盘、切换输入法、获取所有输入法列表等等。
 
@@ -13,9 +13,9 @@ import kit.IMEKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## 权限列表
 
@@ -53,7 +53,7 @@ public func getController(): InputMethodController
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -151,7 +151,7 @@ public func getDefaultInputMethod(): InputMethodProperty
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,10 +1,10 @@
-# 加速Web页面的访问
+﻿# 加速Web页面的访问
 
 当Web页面加载缓慢时，可以使用预连接、预加载和预获取post请求的能力加速Web页面的访问。
 
 ## 预解析和预连接
 
-可以通过[prepareForPageLoad()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-prepareforpageloadstring-bool-int32)来预解析或者预连接将要加载的页面。
+可以通过[prepareForPageLoad()](../../cj-apis-webview/.overview.md)来预解析或者预连接将要加载的页面。
 
 在下面的示例中，在Web组件的onAppear中对要加载的页面进行预连接。
 
@@ -43,7 +43,7 @@ class EntryView {
 
 ## 预加载
 
-如果能够预测到Web组件将要加载的页面或者即将要跳转的页面。可以通过[prefetchPage()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-prefetchpagestring)来预加载即将要加载页面。
+如果能够预测到Web组件将要加载的页面或者即将要跳转的页面。可以通过[prefetchPage()](../../cj-apis-webview/.overview.md)来预加载即将要加载页面。
 
 预加载会提前下载页面所需的资源，包括主资源子资源，但不会执行网页JavaScript代码。预加载是WebviewController的实例方法，需要一个已经关联好Web组件的WebviewController实例。
 

@@ -1,4 +1,4 @@
-## 生命周期
+﻿## 生命周期
 
 Router页面生命周期为@Entry页面中的通用方法，主要有如下四个生命周期：
 
@@ -77,7 +77,7 @@ Navigation作为路由容器组件，其内部的页面切换动画本质上属�
 
 页面和页面之间跳转的时候需要进行共享元素过渡动画，Router可以通过通用属性sharedTransition来实现共享元素转场，具体请参见如下链接：
 
-[Router共享元素转场动画](../../API_Reference/source_zh_cn/arkui-cj/cj-animation-sharedtransition.md#共享元素转场-sharedtransition)
+[Router共享元素转场动画](../../cj-animation-sharedtransition/.overview.md)
 
 Navigation也提供了共享元素一镜到底的转场能力，需要配合geometryTransition属性，在子页面（NavDestination）之间切换时，可以实现共享元素转场，具体请参见[Navigation共享元素转场动画](cj-navigation-navigation.md#共享元素转场)。
 

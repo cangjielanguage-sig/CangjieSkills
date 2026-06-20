@@ -1,6 +1,6 @@
-> **说明：**
+﻿> **说明：**
 >
-> 本例中仅介绍了部分字段的使用。关于Ability匹配的详细规则参考[显式Want与隐式Want匹配规则](../application-models/cj-explicit-implicit-want-mappings.md)。
+> 本例中仅介绍了部分字段的使用。关于Ability匹配的详细规则参考[显式Want与隐式Want匹配规则](../../../cj-explicit-implicit-want-mappings/.overview.md)。
 
 - **目标应用：**
 

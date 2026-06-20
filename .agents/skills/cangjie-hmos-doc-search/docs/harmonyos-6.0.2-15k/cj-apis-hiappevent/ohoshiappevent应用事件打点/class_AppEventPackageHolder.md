@@ -1,4 +1,4 @@
-## class AppEventPackageHolder
+﻿## class AppEventPackageHolder
 
 ```cangjie
 public class AppEventPackageHolder {}
@@ -67,7 +67,7 @@ public func setSize(size!: Int32 = 512*1024): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[应用事件打点错误码](../../errorcodes/cj-errorcode-hiappevent.md)。
+- BusinessException：对应错误码的详细介绍请参见[应用事件打点错误码](../../cj-errorcode-hiappevent/cj-errorcode-hiappevent.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

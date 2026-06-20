@@ -1,4 +1,4 @@
-## class SheetInfo
+﻿## class SheetInfo
 
 ```cangjie
 public class SheetInfo {
@@ -38,7 +38,7 @@ public var icon: Option<AppResource> = Option.None
 
 **功能：** 选项的图标，默认无图标显示。
 
-**类型：** Option\<[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)>
+**类型：** Option\<[AppResource](../../cj-apis-resource_manager/.overview.md)>
 
 **读写能力：** 可读写
 
@@ -80,7 +80,7 @@ public SheetInfo(
 |:---|:---|:---|:---|:---|
 | title | String | 是 | \- | 选项的文本内容。<br/>文本超长时会触发滚动条。 |
 | action | () -> Unit | 是 | \- | 选项选中的回调。 |
-| icon | Option\<[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)> | 否 | Option.None | **命名参数。**  选项的图标，默认无图标显示。<br/>string格式可用于加载网络图片和本地图片，常用于加载网络图片。当使用相对路径引用本地图片时，例如Image("common/test.jpg")。|
+| icon | Option\<[AppResource](../../cj-apis-resource_manager/.overview.md)> | 否 | Option.None | **命名参数。**  选项的图标，默认无图标显示。<br/>string格式可用于加载网络图片和本地图片，常用于加载网络图片。当使用相对路径引用本地图片时，例如Image("common/test.jpg")。|
 
 ## enum DismissReason
 

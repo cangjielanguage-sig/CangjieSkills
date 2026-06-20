@@ -1,8 +1,8 @@
-# 导航转场
+﻿# 导航转场
 
 导航转场是页面的路由转场方式，也就是一个界面消失，另外一个界面出现的动画效果。
 
-导航转场推荐使用[Navigation](../../API_Reference/source_zh_cn/arkui-cj/cj-navigation-switching-navigation.md)组件实现，可搭配[NavDestination](../../API_Reference/source_zh_cn/arkui-cj/cj-navigation-switching-navdestination.md)组件实现导航功能。
+导航转场推荐使用[Navigation](../../cj-navigation-switching-navigation/.overview.md)组件实现，可搭配[NavDestination](../../cj-navigation-switching-navdestination/.overview.md)组件实现导航功能。
 
 ## 创建导航页
 

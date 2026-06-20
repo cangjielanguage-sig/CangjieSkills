@@ -1,4 +1,4 @@
-## class MediaAssetChangeRequest
+﻿## class MediaAssetChangeRequest
 
 ```cangjie
 public class MediaAssetChangeRequest <: MediaChangeRequest {
@@ -36,7 +36,7 @@ public init(asset: PhotoAsset)
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -79,7 +79,7 @@ public static func createAssetRequest(context: UIAbilityContext, photoType: Phot
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|传入Ability实例的Context。|
 |photoType|[PhotoType](#enum-phototype)|是|-|待创建的文件类型，IMAGE或者VIDEO类型。|
 |extension|String|是|-|文件扩展名，例如：'jpg'。|
 |options|[CreateOptions](#struct-createoptions)|否|CreateOptions()| **命名参数。** 创建选项，例如：{title: 'testPhoto'}。|
@@ -92,7 +92,7 @@ public static func createAssetRequest(context: UIAbilityContext, photoType: Phot
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

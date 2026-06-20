@@ -1,8 +1,8 @@
-## 概述
+﻿## 概述
 
 网格布局是由“行”和“列”分割的单元格所组成，通过指定“项目”所在的单元格做出各种各样的布局。网格布局具有较强的页面均分能力，子组件占比控制能力，是一种重要自适应布局，其使用场景有九宫格图片展示、日历、计算器等。
 
-ArkUI提供了[Grid](../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-grid.md)容器组件和子组件[GridItem](../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-griditem.md)，用于构建网格布局。Grid用于设置网格布局相关参数，GridItem定义子组件相关特征。Grid组件支持使用[条件渲染](./rendering_control/cj-rendering-control-ifelse.md)、[循环渲染](./rendering_control/cj-rendering-control-foreach.md)、[懒加载](./rendering_control/cj-rendering-control-lazyforeach.md)等方式生成子组件。
+ArkUI提供了[Grid](../../cj-scroll-swipe-grid/.overview.md)容器组件和子组件[GridItem](../../cj-scroll-swipe-griditem/.overview.md)，用于构建网格布局。Grid用于设置网格布局相关参数，GridItem定义子组件相关特征。Grid组件支持使用[条件渲染](./rendering_control/cj-rendering-control-ifelse.md)、[循环渲染](./rendering_control/cj-rendering-control-foreach.md)、[懒加载](./rendering_control/cj-rendering-control-lazyforeach.md)等方式生成子组件。
 
 ## 布局与约束
 

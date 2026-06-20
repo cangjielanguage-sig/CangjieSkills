@@ -1,4 +1,4 @@
-### func getLineDash()
+﻿### func getLineDash()
 
 ```cangjie
 public func getLineDash(): Array<Float64>
@@ -66,7 +66,7 @@ class EntryView {
 public func getPixelMap(left: Float64, top: Float64, width: Float64, height: Float64): PixelMap
 ```
 
-**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象。
+**功能：** 以当前canvas指定区域内的像素创建[PixelMap](../../../cj-apis-image/.overview.md)对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -85,4 +85,4 @@ public func getPixelMap(left: Float64, top: Float64, width: Float64, height: Flo
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|新的[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|新的[PixelMap](../../../cj-apis-image/.overview.md)对象。|

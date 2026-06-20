@@ -1,23 +1,23 @@
-# 证书对象的创建、解析和校验
+﻿# 证书对象的创建、解析和校验
 
 以校验证书有效性为例，完成证书对象的创建、解析和校验。
 
 ## 开发步骤
 
-1. 导入[证书算法库框架模块](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md)。
+1. 导入[证书算法库框架模块](../cj-apis-cert/.overview.md)。
 
     ```cangjie
     import kit.DeviceCertificateKit.*
     ```
 
-2. 基于已有的X509证书数据，调用[createX509Cert](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-createx509certencodingblob)创建证书对象。
+2. 基于已有的X509证书数据，调用[createX509Cert](../cj-apis-cert/.overview.md)创建证书对象。
 
 3. 解析证书的字段信息。
-   此处以获取证书版本、证书序列号为例，更多字段信息获取接口请查看[API参考文档](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#class-x509cert)。
+   此处以获取证书版本、证书序列号为例，更多字段信息获取接口请查看[API参考文档](../cj-apis-cert/.overview.md)。
 
-4. 调用[X509Cert.getPublicKey](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-getpublickey)获取证书中的公钥，并调用[X509Cert.verify](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-verifypubkey)校验签名。示例为自验签场景，因此获取的是本证书中的公钥。应用须结合自身场景获取用于验签的公钥。
+4. 调用[X509Cert.getPublicKey](../cj-apis-cert/.overview.md)获取证书中的公钥，并调用[X509Cert.verify](../cj-apis-cert/.overview.md)校验签名。示例为自验签场景，因此获取的是本证书中的公钥。应用须结合自身场景获取用于验签的公钥。
 
-5. 调用[X509Cert.checkValidityWithDate](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-checkvaliditywithdatestring)校验证书有效期。入参date用于确认此日期是否在X509证书有效期内。
+5. 调用[X509Cert.checkValidityWithDate](../cj-apis-cert/.overview.md)校验证书有效期。入参date用于确认此日期是否在X509证书有效期内。
 
     ```cangjie
     import kit.DeviceCertificateKit.*

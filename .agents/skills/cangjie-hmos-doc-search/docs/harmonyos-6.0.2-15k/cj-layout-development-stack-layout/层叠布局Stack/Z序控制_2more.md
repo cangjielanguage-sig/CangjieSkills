@@ -1,6 +1,6 @@
-## Z序控制
+﻿## Z序控制
 
-Stack容器中兄弟组件显示层级关系可以通过[Z序控制](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-zorder.md)的zIndex属性改变。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。
+Stack容器中兄弟组件显示层级关系可以通过[Z序控制](../../cj-universal-attribute-zorder/cj-universal-attribute-zorder.md)的zIndex属性改变。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。
 
   在层叠布局中，如果后面子元素尺寸大于前面子元素尺寸，则前面子元素完全隐藏。
 

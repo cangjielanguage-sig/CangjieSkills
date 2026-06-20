@@ -1,6 +1,6 @@
-## 使用Web组件发起一个下载任务
+﻿## 使用Web组件发起一个下载任务
 
-使用[startDownload()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-startdownloadstring)接口发起一个下载。
+使用[startDownload()](../../../cj-apis-webview/.overview.md)接口发起一个下载。
 
 Web组件发起的下载会根据当前显示的url以及Web组件默认的Referrer Policy来计算referrer。
 
@@ -67,7 +67,7 @@ class EntryView {
 }
 ```
 
-使用[DocumentViewPicker()](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#class-documentviewpicker)获取当前示例的默认下载目录，将该目录设置为下载目录。
+使用[DocumentViewPicker()](../../../cj-apis-file_picker/.overview.md)获取当前示例的默认下载目录，将该目录设置为下载目录。
 
 1. 获取context。
 

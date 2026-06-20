@@ -1,10 +1,10 @@
-## 启动应用内的UIAbility
+﻿## 启动应用内的UIAbility
 
-当一个应用内包含多个[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)时，存在应用内启动Ability的场景。例如在支付应用中从入口Ability启动收付款Ability。
+当一个应用内包含多个[UIAbility](../../../cj-apis-ability/.overview.md)时，存在应用内启动Ability的场景。例如在支付应用中从入口Ability启动收付款Ability。
 
 假设应用中有两个Ability：EntryAbility和FuncAbility（可以在同一个Module中，也可以在不同的Module中），需要从EntryAbility的页面中启动FuncAbility。
 
-1. 在EntryAbility中，通过调用[startAbility()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitywant)方法启动Ability，[Want](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-want)为Ability实例启动的入口参数，其中bundleName为待启动应用的Bundle名称，abilityName为待启动的Ability名称，moduleName在待启动的Ability属于不同的Module时添加，parameters为自定义信息参数。示例中的context的获取方式请参见[获取UIAbility的上下文信息](cj-uiability-usage.md#获取uiability的上下文信息)。
+1. 在EntryAbility中，通过调用[startAbility()](../../../cj-apis-ability/.overview.md)方法启动Ability，[Want](../../../cj-apis-ability/.overview.md)为Ability实例启动的入口参数，其中bundleName为待启动应用的Bundle名称，abilityName为待启动的Ability名称，moduleName在待启动的Ability属于不同的Module时添加，parameters为自定义信息参数。示例中的context的获取方式请参见[获取UIAbility的上下文信息](cj-uiability-usage.md#获取uiability的上下文信息)。
 
     ```cangjie
     import kit.UIKit.Button
@@ -50,7 +50,7 @@
     }
     ```
 
-2. 在FuncAbility的[onCreate()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-oncreatewant-launchparam)或者[onNewWant()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onnewwantwant-launchparam)生命周期回调文件中接收EntryAbility传递过来的参数。
+2. 在FuncAbility的[onCreate()](../../../cj-apis-ability/.overview.md)或者[onNewWant()](../../../cj-apis-ability/.overview.md)生命周期回调文件中接收EntryAbility传递过来的参数。
 
     ```cangjie
     import ohos.base.AppLog
@@ -71,4 +71,4 @@
 
     > **说明：**
     >
-    > 在被拉起的FuncAbility中，可以通过获取传递过来的[Want](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-want)参数的`parameters`来获取拉起方[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)的PID、Bundle Name等信息。
+    > 在被拉起的FuncAbility中，可以通过获取传递过来的[Want](../../../cj-apis-ability/.overview.md)参数的`parameters`来获取拉起方[UIAbility](../../../cj-apis-ability/.overview.md)的PID、Bundle Name等信息。

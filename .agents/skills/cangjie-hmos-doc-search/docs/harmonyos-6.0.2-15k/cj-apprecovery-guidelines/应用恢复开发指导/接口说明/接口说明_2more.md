@@ -1,4 +1,4 @@
-## 接口说明
+﻿## 接口说明
 
 应用故障恢复接口由appRecovery模块提供，开发者可以通过import引入，详情请参见[开发示例](#开发示例)。
 
@@ -13,7 +13,7 @@
 
 由于上述接口可能在故障处理时使用，所以不会返回异常，需要开发者熟悉使用的场景。
 
-**enableAppRecovery：** 需要在应用初始化阶段调用，比如AbilityStage的OnCreate调用。具体其各参数定义详情请参见[参数说明](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-enableapprecoveryrestartflag-saveoccasionflag-savemodeflag)
+**enableAppRecovery：** 需要在应用初始化阶段调用，比如AbilityStage的OnCreate调用。具体其各参数定义详情请参见[参数说明](../../../cj-apis-ability/.overview.md)
 
 **saveAppState：** 调用后框架会回调当前进程中所有支持恢复的Ability的onSaveState方法。如果在onSaveState方法中同意保存数据，则会将相关数据及Ability的页面栈持久化到应用的本地缓存。如果需要保存指定Ability，则需要指定Ability对应的Context。
 

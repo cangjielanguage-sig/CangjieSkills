@@ -1,4 +1,4 @@
-## func createMediaSourceWithUrl(String, HashMap\<String, String>)
+﻿## func createMediaSourceWithUrl(String, HashMap\<String, String>)
 
 ```cangjie
 public func createMediaSourceWithUrl(url: String, headers!: HashMap<String, String> = HashMap<String, String>()): MediaSource
@@ -25,7 +25,7 @@ public func createMediaSourceWithUrl(url: String, headers!: HashMap<String, Stri
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -64,7 +64,7 @@ public func createSoundPool(maxStreams: Int32, audioRenderInfo: AudioRendererInf
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |maxStreams|Int32|是|-|soundPool实例的最大播放的流数。|
-|audioRenderInfo|[AudioRendererInfo](../AudioKit/cj-apis-multimedia-audio.md#class-audiorendererinfo)|是|-|音频播放参数信息。其中audioRenderInfo中的参数usage取值为STREAM_USAGE_UNKNOWN，STREAM_USAGE_MUSIC，STREAM_USAGE_MOVIE，STREAM_USAGE_AUDIOBOOK时，SoundPool播放短音时为混音模式，不会打断其他音频播放。|
+|audioRenderInfo|[AudioRendererInfo](../../cj-apis-multimedia-audio/.overview.md)|是|-|音频播放参数信息。其中audioRenderInfo中的参数usage取值为STREAM_USAGE_UNKNOWN，STREAM_USAGE_MUSIC，STREAM_USAGE_MOVIE，STREAM_USAGE_AUDIOBOOK时，SoundPool播放短音时为混音模式，不会打断其他音频播放。|
 
 **返回值：**
 
@@ -74,7 +74,7 @@ public func createSoundPool(maxStreams: Int32, audioRenderInfo: AudioRendererInf
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

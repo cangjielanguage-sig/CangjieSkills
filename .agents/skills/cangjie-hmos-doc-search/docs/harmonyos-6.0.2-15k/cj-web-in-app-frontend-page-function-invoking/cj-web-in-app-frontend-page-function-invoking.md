@@ -1,8 +1,8 @@
-# 应用侧调用前端页面函数
+﻿# 应用侧调用前端页面函数
 
-应用侧可以通过[runJavaScript()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-runjavascriptstring-asynccallbackstring)和[runJavaScriptExt()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-runjavascriptextstring-asynccallbackjsmessageext)方法调用前端页面的JavaScript相关函数。
+应用侧可以通过[runJavaScript()](../cj-apis-webview/.overview.md)和[runJavaScriptExt()](../cj-apis-webview/.overview.md)方法调用前端页面的JavaScript相关函数。
 
-[runJavaScript()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-runjavascriptstring-asynccallbackstring)和[runJavaScriptExt()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-runjavascriptextstring-asynccallbackjsmessageext)在参数类型上有些差异。[runJavaScriptExt()](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-runjavascriptextstring-asynccallbackjsmessageext)入参类型不仅支持string还支持ArrayBuffer（从文件中获取JavaScript脚本数据），另外可以通过AsyncCallback的方式获取执行结果。
+[runJavaScript()](../cj-apis-webview/.overview.md)和[runJavaScriptExt()](../cj-apis-webview/.overview.md)在参数类型上有些差异。[runJavaScriptExt()](../cj-apis-webview/.overview.md)入参类型不仅支持string还支持ArrayBuffer（从文件中获取JavaScript脚本数据），另外可以通过AsyncCallback的方式获取执行结果。
 
 在下面的示例中，单击应用侧的“runJavaScript”按钮时，来触发前端页面的htmlTest()方法。
 

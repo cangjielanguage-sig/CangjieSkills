@@ -1,4 +1,4 @@
-## interface Stabilization
+﻿## interface Stabilization
 
 ```cangjie
 sealed interface Stabilization <: StabilizationQuery {
@@ -37,7 +37,7 @@ func getActiveVideoStabilizationMode(): VideoStabilizationMode
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|
@@ -81,7 +81,7 @@ func setVideoStabilizationMode(mode: VideoStabilizationMode): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|

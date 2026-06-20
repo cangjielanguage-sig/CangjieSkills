@@ -1,4 +1,4 @@
-## class RunningLock
+﻿## class RunningLock
 
 ```cangjie
 public class RunningLock {}
@@ -44,7 +44,7 @@ public func hold(timeout: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../errorcodes/cj-errorcode-running-lock.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../cj-errorcode-running-lock/cj-errorcode-running-lock.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -91,7 +91,7 @@ public func isHolding(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../errorcodes/cj-errorcode-running-lock.md)。
+- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../cj-errorcode-running-lock/cj-errorcode-running-lock.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -130,7 +130,7 @@ public func unhold(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../errorcodes/cj-errorcode-running-lock.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RunningLock锁错误码](../../cj-errorcode-running-lock/cj-errorcode-running-lock.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func registerDeathRecipient(DeathRecipient, Int32)
+﻿### func registerDeathRecipient(DeathRecipient, Int32)
 
 ```cangjie
 public func registerDeathRecipient(recipient: DeathRecipient, flags: Int32): Unit
@@ -19,7 +19,7 @@ public func registerDeathRecipient(recipient: DeathRecipient, flags: Int32): Uni
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -47,11 +47,11 @@ public func sendMessageRequest(code: UInt32, data: MessageSequence, reply: Messa
 |data|[MessageSequence](#class-messagesequence)|是|-|保存待发送数据的MessageSequence对象。|
 |reply|[MessageSequence](#class-messagesequence)|是|-|接收应答数据的MessageSequence对象。|
 |options|[MessageOption](#class-messageoption)|是|-|本次请求的同异步模式，默认同步调用。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[RequestResult](#struct-requestresult)>|是|-|接收发送结果的回调。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[RequestResult](#struct-requestresult)>|是|-|接收发送结果的回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

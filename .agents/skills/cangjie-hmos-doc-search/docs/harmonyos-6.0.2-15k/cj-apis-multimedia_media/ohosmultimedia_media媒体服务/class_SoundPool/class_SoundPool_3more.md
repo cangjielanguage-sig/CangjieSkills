@@ -1,4 +1,4 @@
-## class SoundPool
+﻿## class SoundPool
 
 ```cangjie
 public class SoundPool {}
@@ -36,7 +36,7 @@ public func load(uri: String): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -84,7 +84,7 @@ public func load(fd: Int32, offset: Int64, length: Int64): Int32
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|fd|Int32|是|-|资源句柄，通过过[resourceManager.getRawFd](../LocalizationKit/cj-apis-resource_manager.md#func-getrawfdstring)获取。|
+|fd|Int32|是|-|资源句柄，通过过[resourceManager.getRawFd](../../../cj-apis-resource_manager/.overview.md)获取。|
 |offset|Int64|是|-|资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。|
 |length|Int64|是|-|资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。|
 
@@ -96,7 +96,7 @@ public func load(fd: Int32, offset: Int64, length: Int64): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

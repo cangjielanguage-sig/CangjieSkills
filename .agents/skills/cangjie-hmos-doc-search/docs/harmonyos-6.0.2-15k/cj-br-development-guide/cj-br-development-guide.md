@@ -1,4 +1,4 @@
-# 蓝牙设置
+﻿# 蓝牙设置
 
 ## 简介
 
@@ -12,7 +12,7 @@
 
 ## 接口说明
 
-完整的仓颉 API 说明以及实例代码请参见：[access 接口](../../../API_Reference/source_zh_cn/apis/ConnectivityKit/cj-apis-bluetooth-access.md)。
+完整的仓颉 API 说明以及实例代码请参见：[access 接口](../cj-apis-bluetooth-access/.overview.md)。
 
 具体接口说明如下表。
 
@@ -69,6 +69,6 @@
     }
     ```
 
-6. 错误码请参见[蓝牙服务子系统错误码](../../../API_Reference/source_zh_cn/errorcodes/cj-errorcode-bluetooth_manager.md)。
+6. 错误码请参见[蓝牙服务子系统错误码](../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
 7. 验证：执行开启蓝牙代码，记录日志“bluetooth statues: STATE_ON”，则表示开启蓝牙成功。执行关闭蓝牙代码，记录日志“bluetooth statues: STATE_OFF”，则表示蓝牙关闭成功。

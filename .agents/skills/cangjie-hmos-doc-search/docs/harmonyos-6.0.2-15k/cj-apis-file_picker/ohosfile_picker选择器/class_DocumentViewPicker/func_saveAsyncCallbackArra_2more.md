@@ -1,4 +1,4 @@
-### func save(AsyncCallback\<Array\<String>>, DocumentSaveOptions)
+﻿### func save(AsyncCallback\<Array\<String>>, DocumentSaveOptions)
 
 ```cangjie
 public func save(
@@ -17,7 +17,7 @@ public func save(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<String>>|是|-|callback返回documentPicker保存后的结果集。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|callback返回documentPicker保存后的结果集。|
 |option|[DocumentSaveOptions](#struct-documentsaveoptions)|否|DocumentSaveOptions()| **命名参数。** documentPicker保存选项。|
 
 **示例：**
@@ -68,7 +68,7 @@ public func select(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<String>>|是|-|callback返回documentPicker选择后的结果集。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|callback返回documentPicker选择后的结果集。|
 |option|[DocumentSelectOptions](#class-documentselectoptions)|否|DocumentSelectOptions()| **命名参数。** documentPicker选择选项。|
 
 **示例：**

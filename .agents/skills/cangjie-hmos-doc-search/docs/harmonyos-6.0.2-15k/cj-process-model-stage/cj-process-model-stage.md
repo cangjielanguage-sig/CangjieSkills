@@ -1,4 +1,4 @@
-# 进程模型
+﻿# 进程模型
 
 进程是系统进行资源分配的基本单位，是操作系统结构的基础。系统的进程模型如下图所示。
 
@@ -20,7 +20,7 @@
 >
 > 执行`hdc shell`命令，进入设备的shell命令行。在shell命令行中，执行`ps -ef`命令，可以查看所有正在运行的进程信息。
 
-在上述模型基础上，对于系统应用可以通过申请多进程权限（如下图所示），为指定HAP配置一个自定义进程名，该HAP中的Ability就会运行在自定义进程中。不同的HAP可以通过配置[module.json5](../cj-start/basic-knowledge/module-configuration-file.md)中的process属性，使HAP运行在不同进程中。
+在上述模型基础上，对于系统应用可以通过申请多进程权限（如下图所示），为指定HAP配置一个自定义进程名，该HAP中的Ability就会运行在自定义进程中。不同的HAP可以通过配置[module.json5](../module-configuration-file/module-configuration-file.md)中的process属性，使HAP运行在不同进程中。
 
 **图2** 多进程示意图
 
@@ -28,4 +28,4 @@
 
 基于当前的进程模型，针对应用间和应用内存在多个进程的情况，系统提供了如下进程间通信机制：
 
-- [公共事件机制](../basic-services/common-event/cj-common-event-overview.md)：多用于一对多的通信场景，公共事件发布者可能存在多个订阅者同时接收事件。
+- [公共事件机制](../cj-common-event-overview/cj-common-event-overview.md)：多用于一对多的通信场景，公共事件发布者可能存在多个订阅者同时接收事件。

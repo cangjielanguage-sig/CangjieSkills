@@ -1,4 +1,4 @@
-# ohos.bluetooth.socket（蓝牙socket模块）
+﻿# ohos.bluetooth.socket（蓝牙socket模块）
 
 socket模块提供了操作和管理蓝牙socket的方法。
 
@@ -17,9 +17,9 @@ ohos.permission.ACCESS_BLUETOOTH
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func getDeviceId(Int32)
 
@@ -92,11 +92,11 @@ public func off(`type`: BluetoothSocketCallbackType, clientSocket: Int32, callba
 |:---|:---|:---|:---|:---|
 |\`type`|[BluetoothSocketCallbackType](#enum-bluetoothsocketcallbacktype)|是|-|回调事件类型。|
 |clientSocket|Int32|是|-|客户端Socket的id。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None|表示取消订阅回调事件。不填该参数则取消订阅该\`type`对应的所有回调。|
+|callback|?[CallbackObject](../../cj-apis-base/.overview.md)|否|None|表示取消订阅回调事件。不填该参数则取消订阅该\`type`对应的所有回调。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

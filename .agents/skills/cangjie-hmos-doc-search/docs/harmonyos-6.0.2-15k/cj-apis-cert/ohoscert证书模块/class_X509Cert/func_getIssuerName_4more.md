@@ -1,4 +1,4 @@
-### func getIssuerName()
+﻿### func getIssuerName()
 
 ```cangjie
 public func getIssuerName(): DataBlob
@@ -18,7 +18,7 @@ public func getIssuerName(): DataBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -60,7 +60,7 @@ public func getIssuerX500DistinguishedName(): X500DistinguishedName
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -109,7 +109,7 @@ public func getItem(itemType: CertItemType): DataBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -152,7 +152,7 @@ public func getKeyUsage(): DataBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func write(String, WriteOptions)
+﻿### func write(String, WriteOptions)
 
 ```cangjie
 public func write(buffer: String, writeOptions!: WriteOptions = WriteOptions()): Int64
@@ -25,7 +25,7 @@ public func write(buffer: String, writeOptions!: WriteOptions = WriteOptions()):
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -72,7 +72,7 @@ public func write(buffer: Array<Byte>, writeOptions!: WriteOptions = WriteOption
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 

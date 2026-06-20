@@ -1,4 +1,4 @@
-## class AbilityStageMonitor
+﻿## class AbilityStageMonitor
 
 ```cangjie
 public class AbilityStageMonitor {
@@ -9,7 +9,7 @@ public class AbilityStageMonitor {
 }
 ```
 
-**功能：** [AbilityStageMonitor](#class-abilitystagemonitor)模块提供用于匹配满足指定条件的受监视的[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)对象的方法。最近匹配的[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)对象将保存在[AbilityStageMonitor](#class-abilitystagemonitor)中。
+**功能：** [AbilityStageMonitor](#class-abilitystagemonitor)模块提供用于匹配满足指定条件的受监视的[AbilityStage](../../cj-apis-ability/.overview.md)对象的方法。最近匹配的[AbilityStage](../../cj-apis-ability/.overview.md)对象将保存在[AbilityStageMonitor](#class-abilitystagemonitor)中。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 

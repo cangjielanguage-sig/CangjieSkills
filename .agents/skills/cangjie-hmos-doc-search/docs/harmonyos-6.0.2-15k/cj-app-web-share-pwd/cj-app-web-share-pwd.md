@@ -1,4 +1,4 @@
-# 应用与网页共用账号密码
+﻿# 应用与网页共用账号密码
 
 ## 简介
 
@@ -28,4 +28,4 @@
 
 2. 应用和网页通过App Linking完成关联关系的绑定。
 
-    接入需完成三步：[在AGC控制台开通App Linking服务](../../application-models/cj-app-linking-startup.md) > [在开发者网站上关联应用](../../application-models/cj-app-linking-startup.md#在开发者网站上关联应用) > [配置网址域名](../../application-models/cj-app-linking-startup.md#在agc控制台关联网址域名)
+    接入需完成三步：[在AGC控制台开通App Linking服务](../cj-app-linking-startup/.overview.md) > [在开发者网站上关联应用](../cj-app-linking-startup/.overview.md) > [配置网址域名](../cj-app-linking-startup/.overview.md)

@@ -1,10 +1,10 @@
-# 快速适配
+﻿# 快速适配
 
-密码自动填充服务依托ArkUI [TextInput组件](../../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-textinput.md)为开发者提供的一系列登录场景相关控件，密码保险箱帮助开发者快速集成自动填充等功能，仅需在界面上使用ArkUI标准控件，开发者即可通过密码保险箱的便捷登录，让用户快速上手应用功能。
+密码自动填充服务依托ArkUI [TextInput组件](../cj-text-input-textinput/.overview.md)为开发者提供的一系列登录场景相关控件，密码保险箱帮助开发者快速集成自动填充等功能，仅需在界面上使用ArkUI标准控件，开发者即可通过密码保险箱的便捷登录，让用户快速上手应用功能。
 
 ## 约束与限制
 
-应用需要使用ArkUI组件[TextInput](../../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-textinput.md)作为输入框，并指定输入框类型（InputType），才能使用系统密码自动填充服务。不同输入框类型与使用场景的对应关系如下表所示。
+应用需要使用ArkUI组件[TextInput](../cj-text-input-textinput/.overview.md)作为输入框，并指定输入框类型（InputType），才能使用系统密码自动填充服务。不同输入框类型与使用场景的对应关系如下表所示。
 
 **表1** 输入框类型说明
 

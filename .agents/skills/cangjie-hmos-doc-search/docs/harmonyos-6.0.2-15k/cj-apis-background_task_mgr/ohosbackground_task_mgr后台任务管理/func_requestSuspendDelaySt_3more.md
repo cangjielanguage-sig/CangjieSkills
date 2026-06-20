@@ -1,4 +1,4 @@
-## func requestSuspendDelay(String, () -> Unit)
+﻿## func requestSuspendDelay(String, () -> Unit)
 
 ```cangjie
 public func requestSuspendDelay(reason: String, callback: () -> Unit): DelaySuspendInfo
@@ -29,7 +29,7 @@ public func requestSuspendDelay(reason: String, callback: () -> Unit): DelaySusp
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[backgroundTaskManager错误码](../../errorcodes/cj-errorcode-background_task_mgr.md)。
+- BusinessException：对应错误码的详细介绍请参见[backgroundTaskManager错误码](../../cj-errorcode-background_task_mgr/cj-errorcode-background_task_mgr.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -80,7 +80,7 @@ public func stopBackgroundRunning(context: StageContext): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|应用运行的上下文。|
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|应用运行的上下文。|
 
 **示例：**
 

@@ -1,4 +1,4 @@
-### func on(AVCastControllerEventType, Callback1Argument\<Int32>)
+﻿### func on(AVCastControllerEventType, Callback1Argument\<Int32>)
 
 ```cangjie
 public func on(`type`: AVCastControllerEventType, callback: Callback1Argument<Int32>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AVCastControllerEventType, callback: Callback1Argument<In
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVCastControllerEventType](#enum-avcastcontrollereventtype)|是|-|监听事件，支持CAST_CONTROLLER_SEEK_DONE。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Int32>|是|-|入参为Int32的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Int32>|是|-|入参为Int32的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -42,11 +42,11 @@ public func on(`type`: AVCastControllerEventType, callback: Callback1Argument<Ar
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVCastControllerEventType](#enum-avcastcontrollereventtype)|是|-|监听事件，支持CAST_CONTROLLER_VALID_COMMAND_CHANGE。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[AVCastControlCommandType](#enum-avcastcontrolcommandtype)>>|是|-|入参为[AVCastControlCommandType](#enum-avcastcontrolcommandtype)的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[AVCastControlCommandType](#enum-avcastcontrolcommandtype)>>|是|-|入参为[AVCastControlCommandType](#enum-avcastcontrolcommandtype)的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -69,11 +69,11 @@ public func on(`type`: AVCastControllerEventType, callback: Callback1Argument<Bu
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVCastControllerEventType](#enum-avcastcontrollereventtype)|是|-|监听事件，支持CAST_CONTROLLER_ERROR。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|入参为[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|入参为[BusinessException](../../../cj-apis-base/.overview.md)的回调函数，事件与回调的关联详见[AVCastControllerEventType](#enum-avcastcontrollereventtype)。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

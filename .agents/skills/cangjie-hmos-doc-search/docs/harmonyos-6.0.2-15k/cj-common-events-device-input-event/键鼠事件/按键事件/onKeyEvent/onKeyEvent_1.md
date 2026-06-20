@@ -1,10 +1,10 @@
-### onKeyEvent
+﻿### onKeyEvent
 
 ```cangjie
 public func onKeyEvent(callback: (KeyEvent)->Unit): This
 ```
 
-当绑定方法的组件处于获焦状态下，外设键盘的按键事件会触发该方法，回调参数为[KeyEvent](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-key.md#keyevent)，可由该参数获得当前按键事件的按键行为（[KeyType](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-keytype)）、键码（[keyCode](../../API_Reference/source_zh_cn/apis/InputKit/cj-apis-multimodalInput-keyCode.md#enum-keycode)）、按键英文名称（keyText）、事件来源设备类型（[KeySource](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-keysource)）、事件来源设备id（deviceId）、元键按压状态（metaKey）、时间戳（timestamp）。
+当绑定方法的组件处于获焦状态下，外设键盘的按键事件会触发该方法，回调参数为[KeyEvent](../../../../cj-universal-event-key/.overview.md)，可由该参数获得当前按键事件的按键行为（[KeyType](../../../../cj-common-types/.overview.md)）、键码（[keyCode](../../../../cj-apis-multimodalInput-keyCode/.overview.md)）、按键英文名称（keyText）、事件来源设备类型（[KeySource](../../../../cj-common-types/.overview.md)）、事件来源设备id（deviceId）、元键按压状态（metaKey）、时间戳（timestamp）。
 
 <!-- run -->
 

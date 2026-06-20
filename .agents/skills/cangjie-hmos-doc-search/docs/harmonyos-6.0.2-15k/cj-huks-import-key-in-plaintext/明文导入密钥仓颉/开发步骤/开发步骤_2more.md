@@ -1,4 +1,4 @@
-## 开发步骤
+﻿## 开发步骤
 
 1. 指定密钥别名keyAlias。
 
@@ -6,12 +6,12 @@
 
 2. 封装密钥属性集和密钥材料。
 
-    - 密钥属性集同样与密钥生成中指定的密钥属性一致，须包含[HuksKeyAlg](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-hukskeyalg)、[HuksKeySize](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-hukskeysize)、[HuksKeyPurpose](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-hukskeypurpose)属性。
-    - 密钥材料须符合[HUKS密钥材料格式](./cj-huks-concepts.md#密钥材料格式)，并以Array\<UInt8>形式赋值给[HuksOptions](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-huksoptions)的inData字段。
+    - 密钥属性集同样与密钥生成中指定的密钥属性一致，须包含[HuksKeyAlg](../../../cj-apis-security_huks/.overview.md)、[HuksKeySize](../../../cj-apis-security_huks/.overview.md)、[HuksKeyPurpose](../../../cj-apis-security_huks/.overview.md)属性。
+    - 密钥材料须符合[HUKS密钥材料格式](./cj-huks-concepts.md#密钥材料格式)，并以Array\<UInt8>形式赋值给[HuksOptions](../../../cj-apis-security_huks/.overview.md)的inData字段。
 
-3. 调用[importKeyItem](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#func-importkeyitemstring-huksoptions)，传入密钥别名和密钥属性集，即可导入密钥。
+3. 调用[importKeyItem](../../../cj-apis-security_huks/.overview.md)，传入密钥别名和密钥属性集，即可导入密钥。
 
-    HuksParam和HuksOptions的含义参考：[HuksParam](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-huksparam) 和 [HuksOptions](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-huksoptions)
+    HuksParam和HuksOptions的含义参考：[HuksParam](../../../cj-apis-security_huks/.overview.md) 和 [HuksOptions](../../../cj-apis-security_huks/.overview.md)
 
 ### 导入AES256密钥
 

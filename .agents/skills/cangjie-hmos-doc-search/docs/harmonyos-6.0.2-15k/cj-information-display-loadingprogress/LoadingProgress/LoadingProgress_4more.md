@@ -1,8 +1,8 @@
-# LoadingProgress
+﻿# LoadingProgress
 
 用于显示加载动效的组件。
 
-加载动效在组件不可见时停止，组件的可见状态基于[onVisibleAreaChange](../../source_zh_cn/arkui-cj/cj-universal-event-visibleareachange.md#func-onvisibleareachangearrayfloat64-bool-float64-unit---unit)处理，可见阈值ratios大于0即视为可见状态。
+加载动效在组件不可见时停止，组件的可见状态基于[onVisibleAreaChange](../../cj-universal-event-visibleareachange/.overview.md)处理，可见阈值ratios大于0即视为可见状态。
 
 ## 子组件
 

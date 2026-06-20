@@ -1,4 +1,4 @@
-# ohos.input_method.extension_context（InputMethodExtensionContext）
+﻿# ohos.input_method.extension_context（InputMethodExtensionContext）
 
 InputMethodExtensionContext模块是InputMethodExtensionAbility的上下文环境，继承于ExtensionContext，提供InputMethodExtensionAbility具有的能力和接口，包括启动、停止、绑定、解绑Ability。
 
@@ -18,7 +18,7 @@ import kit.IMEKit.*
 public class InputMethodExtensionContext <: ExtensionContext
 ```
 
-**功能：** InputMethodExtensionContext是[InputMethodExtensionAbility](./cj-apis-inputmethod-extension-ability.md#class-inputmethodextensionability)的上下文环境，继承自[ExtensionContext](../AbilityKit/cj-apis-ability.md#class-extensioncontext)。InputMethodExtensionContext提供[InputMethodExtensionAbility](./cj-apis-inputmethod-extension-ability.md#class-inputmethodextensionability)具有的接口和能力。
+**功能：** InputMethodExtensionContext是[InputMethodExtensionAbility](./cj-apis-inputmethod-extension-ability.md#class-inputmethodextensionability)的上下文环境，继承自[ExtensionContext](../../cj-apis-ability/.overview.md)。InputMethodExtensionContext提供[InputMethodExtensionAbility](./cj-apis-inputmethod-extension-ability.md#class-inputmethodextensionability)具有的接口和能力。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
@@ -26,7 +26,7 @@ public class InputMethodExtensionContext <: ExtensionContext
 
 **父类型：**
 
-- [ExtensionContext](../AbilityKit/cj-apis-ability.md#class-extensioncontext)
+- [ExtensionContext](../../cj-apis-ability/.overview.md)
 
 ### func destroy()
 

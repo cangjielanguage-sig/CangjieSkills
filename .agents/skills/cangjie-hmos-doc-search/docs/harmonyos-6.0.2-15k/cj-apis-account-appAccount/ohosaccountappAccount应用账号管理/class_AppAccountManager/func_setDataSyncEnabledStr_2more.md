@@ -1,4 +1,4 @@
-### func setDataSyncEnabled(String, Bool)
+﻿### func setDataSyncEnabled(String, Bool)
 
 ```cangjie
 public func setDataSyncEnabled(name: String, isEnabled: Bool): Unit
@@ -21,7 +21,7 @@ public func setDataSyncEnabled(name: String, isEnabled: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -74,7 +74,7 @@ public func verifyCredential(name: String, owner: String, callback: AuthCallback
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

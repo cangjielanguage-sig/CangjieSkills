@@ -1,4 +1,4 @@
-### static func on(String, ErrorObserver)
+﻿### static func on(String, ErrorObserver)
 
 ```cangjie
 public static func on(onType: String, observer: ErrorObserver): Int32
@@ -25,7 +25,7 @@ public static func on(onType: String, observer: ErrorObserver): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -81,7 +81,7 @@ public static func on(`type`: String, timeout: Int64, observer: LoopObserver): U
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

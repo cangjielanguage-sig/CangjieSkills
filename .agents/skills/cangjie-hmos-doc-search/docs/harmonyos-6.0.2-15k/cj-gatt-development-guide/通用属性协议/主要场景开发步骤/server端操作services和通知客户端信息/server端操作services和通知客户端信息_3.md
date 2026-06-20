@@ -1,4 +1,4 @@
-class DescriptorWriteRequestCb <: Callback1Argument<DescriptorWriteRequest> {
+﻿class DescriptorWriteRequestCb <: Callback1Argument<DescriptorWriteRequest> {
         public func invoke(desReq: DescriptorWriteRequest): Unit {
             let deviceId: String = desReq.deviceId
             let transId: Int32 = desReq.transId
@@ -25,4 +25,4 @@ class DescriptorWriteRequestCb <: Callback1Argument<DescriptorWriteRequest> {
     }
     ```
 
-8. 错误码请参见[蓝牙服务子系统错误码](../../../API_Reference/source_zh_cn/errorcodes/cj-errorcode-bluetooth_manager.md)。
+8. 错误码请参见[蓝牙服务子系统错误码](../../../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。

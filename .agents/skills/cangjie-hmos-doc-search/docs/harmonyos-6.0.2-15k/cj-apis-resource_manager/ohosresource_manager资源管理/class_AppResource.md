@@ -1,4 +1,4 @@
-## class AppResource
+﻿## class AppResource
 
 ```cangjie
 public class AppResource <: Length & ResourceColor {
@@ -20,8 +20,8 @@ public class AppResource <: Length & ResourceColor {
 
 **父类型：**
 
-- [Length](../../arkui-cj/cj-common-types.md#interface-length)
-- [ResourceColor](../../arkui-cj/cj-common-types.md#interface-resourcecolor)
+- [Length](../../cj-common-types/.overview.md)
+- [ResourceColor](../../cj-common-types/.overview.md)
 
 ### let bundleName
 

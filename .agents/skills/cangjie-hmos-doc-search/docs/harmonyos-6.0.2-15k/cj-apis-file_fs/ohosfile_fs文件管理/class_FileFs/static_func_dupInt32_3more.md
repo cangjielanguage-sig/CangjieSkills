@@ -1,4 +1,4 @@
-### static func dup(Int32)
+﻿### static func dup(Int32)
 
 ```cangjie
 public static func dup(fd: Int32): File
@@ -24,7 +24,7 @@ public static func dup(fd: Int32): File
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -66,7 +66,7 @@ public static func fdatasync(fd: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -111,7 +111,7 @@ public static func fdopenStream(fd: Int32, mode: String): Stream
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 

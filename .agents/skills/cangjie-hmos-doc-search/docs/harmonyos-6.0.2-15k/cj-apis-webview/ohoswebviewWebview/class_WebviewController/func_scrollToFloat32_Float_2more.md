@@ -1,4 +1,4 @@
-### func scrollTo(Float32, Float32, Int32)
+﻿### func scrollTo(Float32, Float32, Int32)
 
 ```cangjie
 public func scrollTo(x: Float32, y: Float32, duration!: Int32 = 0): Unit
@@ -20,7 +20,7 @@ public func scrollTo(x: Float32, y: Float32, duration!: Int32 = 0): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -104,7 +104,7 @@ public func searchAllAsync(searchString: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## class WindowProperties
+﻿## class WindowProperties
 
 ```cangjie
 public class WindowProperties {
@@ -32,7 +32,7 @@ public class WindowProperties {
 public let windowRect: Rect
 ```
 
-**功能：** 表示窗口尺寸，可在页面生命周期[onPageShow](./cj-custom-component-lifecycle.md#func-onpageshow)或应用生命周期[onForeground](../apis/AbilityKit/cj-apis-ability.md#func-onforeground)阶段获取。
+**功能：** 表示窗口尺寸，可在页面生命周期[onPageShow](./cj-custom-component-lifecycle.md#func-onpageshow)或应用生命周期[onForeground](../../../cj-apis-ability/.overview.md)阶段获取。
 
 **类型：** [Rect](#class-rect)
 

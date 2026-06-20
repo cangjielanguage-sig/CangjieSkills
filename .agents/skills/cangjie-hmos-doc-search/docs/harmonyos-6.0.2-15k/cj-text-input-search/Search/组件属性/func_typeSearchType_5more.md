@@ -1,4 +1,4 @@
-### func \`type\`(SearchType)
+﻿### func \`type\`(SearchType)
 
 ```cangjie
 public func `type`(searchType: SearchType): This
@@ -56,7 +56,7 @@ public func cancelButton(style!: CancelButtonStyle, size!: Length, color!: Resou
 |style|[CancelButtonStyle](#enum-cancelbuttonstyle)|是|-| **命名参数。** 右侧清除按钮样式。<br>初始值：CancelButtonStyle.INPUT。|
 |size|[Length](./cj-common-types.md#interface-length)|是|-| **命名参数。** 图标尺寸，不支持百分比。<br>初始值：16.vp。|
 |color|[ResourceColor](./cj-common-types.md#interface-resourcecolor)|是|-| **命名参数。** 图标颜色。<br>初始值：0x99ffffff。|
-|src|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 图标/图片源。|
+|src|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 图标/图片源。|
 
 ### func caretStyle(Length, ResourceColor)
 

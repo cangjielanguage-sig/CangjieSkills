@@ -1,18 +1,18 @@
-## 根据椭圆曲线名生成SM2密钥对
+﻿## 根据椭圆曲线名生成SM2密钥对
 
 对应的算法规格请参见[非对称密钥生成和转换规格：SM2](./cj-crypto-asym-key-generation-conversion-spec.md#sm2)。
 
-1. 构造[ECCCommonParamsSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-ecccommonparamsspec)接口传入相应的NID字符串名称生成相应的非对称公共密钥参数。
+1. 构造[ECCCommonParamsSpec](../../cj-apis-crypto/.overview.md)接口传入相应的NID字符串名称生成相应的非对称公共密钥参数。
 
     使用密钥参数生成密钥时，用到的bigint类型需要以大端模式输入，且必须为正数。
 
-2. 创建[ECCKeyPairSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-ecckeypairspec)对象，并且algName设置为SM2，用于指定SM2算法中密钥对包含的参数。
+2. 创建[ECCKeyPairSpec](../../cj-apis-crypto/.overview.md)对象，并且algName设置为SM2，用于指定SM2算法中密钥对包含的参数。
 
-3. 调用[createAsyKeyGeneratorBySpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorbyspecasykeyspec)，将ECCKeyPairSpec对象传入，创建非对称密钥生成器。
+3. 调用[createAsyKeyGeneratorBySpec](../../cj-apis-crypto/.overview.md)，将ECCKeyPairSpec对象传入，创建非对称密钥生成器。
 
-4. 调用[generateKeyPair](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-generatekeypair-1)，得到各项数据与密钥参数一致的密钥对（KeyPair）。
+4. 调用[generateKeyPair](../../cj-apis-crypto/.overview.md)，得到各项数据与密钥参数一致的密钥对（KeyPair）。
 
-5. 调用[getAsyKeySpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getasykeyspecasykeyspecitem)，获取SM2算法中的椭圆曲线参数。
+5. 调用[getAsyKeySpec](../../cj-apis-crypto/.overview.md)，获取SM2算法中的椭圆曲线参数。
 
 根据椭圆曲线名生成SM2密钥对的示例如下：
 

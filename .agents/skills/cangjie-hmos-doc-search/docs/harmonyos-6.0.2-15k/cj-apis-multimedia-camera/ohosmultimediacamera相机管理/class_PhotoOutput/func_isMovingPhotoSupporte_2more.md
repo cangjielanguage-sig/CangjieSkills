@@ -1,4 +1,4 @@
-### func isMovingPhotoSupported()
+﻿### func isMovingPhotoSupported()
 
 ```cangjie
 public func isMovingPhotoSupported(): Bool
@@ -18,7 +18,7 @@ public func isMovingPhotoSupported(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID       | 错误信息       |
   | :------------- | :-------------- |
@@ -60,7 +60,7 @@ public func off(`type`: CameraCallbackType, callback: Callback1Argument<CaptureS
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为captureStartWithInfo，photoOutput创建成功后可监听。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[CaptureStartInfo](#struct-capturestartinfo)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[CaptureStartInfo](#struct-capturestartinfo)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

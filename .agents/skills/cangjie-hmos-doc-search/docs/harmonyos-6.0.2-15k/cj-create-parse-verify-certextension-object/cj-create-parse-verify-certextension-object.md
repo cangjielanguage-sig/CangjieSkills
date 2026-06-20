@@ -1,20 +1,20 @@
-# 证书扩展信息对象的创建、解析和校验
+﻿# 证书扩展信息对象的创建、解析和校验
 
 以获取证书指定OID域段，并判断是否为CA证书为例，完成证书扩展信息对象的创建、解析和校验。
 
 ## 开发步骤
 
-1. 导入[证书算法库框架模块](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md)。
+1. 导入[证书算法库框架模块](../cj-apis-cert/.overview.md)。
 
     ```cangjie
     import kit.DeviceCertificateKit.*
     ```
 
-2. 解析证书扩展域段数据，调用[createCertExtension](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-createcertextensionencodingblob)创建证书扩展域段对象。
+2. 解析证书扩展域段数据，调用[createCertExtension](../cj-apis-cert/.overview.md)创建证书扩展域段对象。
 
-3. 调用[CertExtension.getEntry](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-getentryextensionentrytype-datablob)获取指定OID证书扩展域段信息。比如，证书扩展域段对象标识符列表，根据对象标识符获取具体数据等。
+3. 调用[CertExtension.getEntry](../cj-apis-cert/.overview.md)获取指定OID证书扩展域段信息。比如，证书扩展域段对象标识符列表，根据对象标识符获取具体数据等。
 
-4. 调用[CertExtension.checkCA](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-checkca)判断证书是否为CA证书。
+4. 调用[CertExtension.checkCA](../cj-apis-cert/.overview.md)判断证书是否为CA证书。
 
     ```cangjie
     import kit.DeviceCertificateKit.*

@@ -1,4 +1,4 @@
-### func select(AsyncCallback\<PhotoSelectResult>, PhotoSelectOptions)
+﻿### func select(AsyncCallback\<PhotoSelectResult>, PhotoSelectOptions)
 
 ```cangjie
 public func select(
@@ -17,7 +17,7 @@ public func select(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[PhotoSelectResult](#struct-photoselectresult)>|是|-|callback返回photoPicker选择后的结果集。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<[PhotoSelectResult](#struct-photoselectresult)>|是|-|callback返回photoPicker选择后的结果集。|
 |option|[PhotoSelectOptions](#struct-photoselectoptions)|否|PhotoSelectOptions()| **命名参数。** photoPicker选择选项。|
 
 **示例：**

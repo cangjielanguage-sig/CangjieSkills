@@ -1,4 +1,4 @@
-### func off(SoundPoolEvent)
+﻿### func off(SoundPoolEvent)
 
 ```cangjie
 public func off(eventType: SoundPoolEvent): Unit
@@ -50,11 +50,11 @@ public func on(eventType: SoundPoolEvent, callback: Callback1Argument<Int32>): U
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[SoundPoolEvent](#enum-soundpoolevent)|是|-|填SoundPoolEvent.LoadCompleted，soundPool事件状态。对应的ID加载完成会触发此回调。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Int32>|是|-|对应资源加载完成的资源ID。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Int32>|是|-|对应资源加载完成的资源ID。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

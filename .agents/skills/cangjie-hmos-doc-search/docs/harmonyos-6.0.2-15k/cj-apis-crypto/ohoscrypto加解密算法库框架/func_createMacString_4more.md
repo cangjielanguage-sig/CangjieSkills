@@ -1,4 +1,4 @@
-## func createMac(String)
+﻿## func createMac(String)
 
 ```cangjie
 public func createMac(algName: String): Mac
@@ -24,7 +24,7 @@ public func createMac(algName: String): Mac
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -68,7 +68,7 @@ public func createMd(algName: String): Md
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -106,7 +106,7 @@ public func createRandom(): Random
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -131,7 +131,7 @@ public func createSign(algName: String): Sign
 
 **功能：** Sign实例生成。
 
-支持的规格详见[签名验签规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-sign-sig-verify-overview.md)。
+支持的规格详见[签名验签规格](../../cj-crypto-sign-sig-verify-overview/.overview.md)。
 
 **系统能力：** SystemCapability.Security.CryptoFramework.Sign
 
@@ -151,7 +151,7 @@ public func createSign(algName: String): Sign
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

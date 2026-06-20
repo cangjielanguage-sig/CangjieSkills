@@ -1,4 +1,4 @@
-## class PhotoViewPicker
+﻿## class PhotoViewPicker
 
 ```cangjie
 public class PhotoViewPicker {
@@ -28,7 +28,7 @@ public init(gcontext: UIAbilityContext)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|gcontext|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入Ability实例的Context。|
+|gcontext|[UIAbilityContext](../../cj-apis-ability/.overview.md)|是|-|传入Ability实例的Context。|
 
 **示例：**
 
@@ -62,12 +62,12 @@ public func select(callback: AsyncCallback<PhotoSelectResult>,
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[PhotoSelectResult](#struct-photoselectresult)>|是|-|回调函数。|
+|callback|[AsyncCallback](../../cj-apis-base/.overview.md)\<[PhotoSelectResult](#struct-photoselectresult)>|是|-|回调函数。|
 |option|[PhotoSelectOptions](#class-photoselectoptions)|否|PhotoSelectOptions()| **命名参数。** photoPicker选择选项，若无此参数，则默认选择媒体文件类型为图片和视频类型，默认选择媒体文件数量的最大值为50。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

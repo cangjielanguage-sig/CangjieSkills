@@ -1,6 +1,6 @@
-## 使用bindSheet构建半模态转场效果
+﻿## 使用bindSheet构建半模态转场效果
 
-[bindSheet](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-sheettransition.md#func-bindsheetbool----unit-sheetoptions)属性可为组件绑定半模态页面，在组件出现时可通过设置自定义或默认的内置高度确定半模态大小。构建半模态转场动效的步骤基本与使用[bindContentCover](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-bindcontentcover.md)构建全屏模态转场动效相同。
+[bindSheet](../../cj-universal-attribute-sheettransition/.overview.md)属性可为组件绑定半模态页面，在组件出现时可通过设置自定义或默认的内置高度确定半模态大小。构建半模态转场动效的步骤基本与使用[bindContentCover](../../cj-universal-attribute-bindcontentcover/.overview.md)构建全屏模态转场动效相同。
 
 完整示例和效果如下。
 

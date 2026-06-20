@@ -1,10 +1,10 @@
-### interface BorderImageOptionSourceType
+﻿### interface BorderImageOptionSourceType
 
 ```cangjie
 sealed interface BorderImageOptionSourceType {}
 ```
 
-**功能：** 联合类型接口，可接受 String、[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)、[LinearGradientOption](#class-lineargradientoption)类型。
+**功能：** 联合类型接口，可接受 String、[AppResource](../../../cj-apis-resource_manager/.overview.md)、[LinearGradientOption](#class-lineargradientoption)类型。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

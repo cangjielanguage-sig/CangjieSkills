@@ -1,4 +1,4 @@
-## class TelephonySim
+﻿## class TelephonySim
 
 ```cangjie
 public class TelephonySim {}
@@ -36,7 +36,7 @@ public static func getActiveSimAccountInfoList(): Array<IccAccountInfo>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -84,7 +84,7 @@ public static func getCardType(slotId: Int32): CardType
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -127,7 +127,7 @@ public static func getDefaultVoiceSimId(): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func getZStream()
+﻿### func getZStream()
 
 ```cangjie
 public func getZStream(): ZStream
@@ -18,7 +18,7 @@ public func getZStream(): ZStream
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -80,7 +80,7 @@ public func inflate(strm: ZStream, flush: CompressFlushMode): ReturnStatus
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

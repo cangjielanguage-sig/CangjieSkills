@@ -1,10 +1,10 @@
-# 使用PixelMap完成图像变换
+﻿# 使用PixelMap完成图像变换
 
 图片处理是指对PixelMap进行相关的操作，如获取图片信息、裁剪、缩放、偏移、旋转、翻转、设置透明度、读写像素数据等。图片处理主要包括图像变换和[位图操作](./cj-image-pixelmap-operation.md)，本文介绍图像变换。
 
 ## 开发步骤
 
-图像变换相关API的详细介绍请参见[API参考](../../../API_Reference/source_zh_cn/apis/ImageKit/cj-apis-image.md#class-pixelmap)。
+图像变换相关API的详细介绍请参见[API参考](../cj-apis-image/.overview.md)。
 
 1. 完成[图片解码](./cj-image-decoding.md)，获取PixelMap对象。
 

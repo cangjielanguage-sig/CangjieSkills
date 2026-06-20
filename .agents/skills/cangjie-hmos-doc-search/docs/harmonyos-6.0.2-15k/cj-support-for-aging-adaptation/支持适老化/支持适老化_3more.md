@@ -1,4 +1,4 @@
-# 支持适老化
+﻿# 支持适老化
 
 系统字体被放大后，应用应确保整体布局不出现错乱，组件不出现重叠。可以根据业务需要限制跟随的字体最大档位、改变布局来更好的适配更大字体等。本文旨在指导应用如何跟随系统字体大小和跟随到的最大倍数。
 
@@ -87,11 +87,11 @@
 
 - 获取字体大小和粗细
 
-    - 生命周期回调方法[onConfigurationUpdate](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#let-onconfigurationupdated)的config参数可接收字体大小（[fontSizeScale](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#var-fontsizescale)）字体粗（[fontWeightScale](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#var-fontweightscale)）。
+    - 生命周期回调方法[onConfigurationUpdate](../../cj-apis-ability/.overview.md)的config参数可接收字体大小（[fontSizeScale](../../cj-apis-ability/.overview.md)）字体粗（[fontWeightScale](../../cj-apis-ability/.overview.md)）。
 
         注册系统环境变化的监听后，在系统环境变化时可触发回调。
 
-    - 应用冷启动查询系统字体大小档位。context获取方法详见[仓颉示例代码说明](../../API_Reference/source_zh_cn/cj-development-intro.md#仓颉示例代码说明)。
+    - 应用冷启动查询系统字体大小档位。context获取方法详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
         ```cangjie
         let context = Global.getAbilityContext();

@@ -1,4 +1,4 @@
-### func getCurrentAudioCapturerInfo()
+﻿### func getCurrentAudioCapturerInfo()
 
 ```cangjie
 public func getCurrentAudioCapturerInfo(): audio.AudioCapturerChangeInfo
@@ -16,11 +16,11 @@ public func getCurrentAudioCapturerInfo(): audio.AudioCapturerChangeInfo
 
 |类型|说明|
 |:----|:----|
-|[audio](../AudioKit/cj-apis-multimedia-audio.md).[AudioCapturerChangeInfo](../AudioKit/cj-apis-multimedia-audio.md#class-audiocapturerchangeinfo)|音频采集参数。|
+|[audio](../../../cj-apis-multimedia-audio/.overview.md).[AudioCapturerChangeInfo](../../../cj-apis-multimedia-audio/.overview.md)|音频采集参数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -65,7 +65,7 @@ public func getInputSurface(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -110,7 +110,7 @@ public func off(`type`: AVRecorderCallbackType, callback!: ?CallbackObject = Non
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVRecorderCallbackType](#enum-avrecordercallbacktype)|是|-|录音配置变化的回调类型。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 事件的回调方法。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 事件的回调方法。|
 
 **示例：**
 

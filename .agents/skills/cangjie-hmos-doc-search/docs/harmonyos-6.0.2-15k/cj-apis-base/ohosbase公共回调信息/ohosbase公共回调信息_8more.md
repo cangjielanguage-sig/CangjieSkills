@@ -1,4 +1,4 @@
-# ohos.base（公共回调信息）
+﻿# ohos.base（公共回调信息）
 
 本模块定义了接口调用时出现的公共异常信息。
 
@@ -16,7 +16,7 @@ public let AppLog: HilogChannel
 
 **功能：** 提供应用日志实例，供开发者导入使用。
 
-**类型：** [HilogChannel](../PerformanceAnalysisKit/cj-apis-hilog.md#class-hilogchannel)
+**类型：** [HilogChannel](../../cj-apis-hilog/.overview.md)
 
 **读写能力：** 只读
 
@@ -30,7 +30,7 @@ public let BaseLog: HilogChannel
 
 **功能：** 提供基础日志实例，供开发者导入使用。
 
-**类型：** [HilogChannel](../PerformanceAnalysisKit/cj-apis-hilog.md#class-hilogchannel)
+**类型：** [HilogChannel](../../cj-apis-hilog/.overview.md)
 
 **读写能力：** 只读
 

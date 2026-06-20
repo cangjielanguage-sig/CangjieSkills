@@ -1,4 +1,4 @@
-### func setWindowDecorVisible(Bool)
+﻿### func setWindowDecorVisible(Bool)
 
 ```cangjie
 public func setWindowDecorVisible(isVisible: Bool): Unit
@@ -23,7 +23,7 @@ public func setWindowDecorVisible(isVisible: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -50,7 +50,7 @@ public func setWindowFocusable(isFocusable: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -80,7 +80,7 @@ public func setWindowGrayScale(grayScale: Float32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -111,7 +111,7 @@ public func setWindowKeepScreenOn(isKeepScreenOn: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

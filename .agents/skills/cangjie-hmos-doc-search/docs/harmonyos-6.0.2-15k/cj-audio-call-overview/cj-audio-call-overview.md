@@ -1,4 +1,4 @@
-# 音频通话开发概述
+﻿# 音频通话开发概述
 
 常用的音频通话模式包括VoIP通话和蜂窝通话。
 
@@ -14,18 +14,18 @@
 
 ## 音频场景模式
 
-应用使用音频通话相关功能时，系统会切换至与通话相关的音频场景模式（[AudioScene](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#enum-audioscene)）。当前预置了多种音频场景，包括响铃、通话、语音聊天等，在不同的场景下，系统会采用不同的策略来处理音频。
+应用使用音频通话相关功能时，系统会切换至与通话相关的音频场景模式（[AudioScene](../cj-apis-multimedia-audio/.overview.md)）。当前预置了多种音频场景，包括响铃、通话、语音聊天等，在不同的场景下，系统会采用不同的策略来处理音频。
 
 当前预置的音频场景：
 
 - AUDIO_SCENE_DEFAULT：默认音频场景，音频通话之外的场景均可使用。
 - AUDIO_SCENE_VOICE_CHAT：语音聊天音频场景，VoIP通话时使用。
 
-应用可通过[AudioManager](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#class-audiomanager)的getAudioScene来获取当前的音频场景模式。当应用开始或结束使用音频通话相关功能时，可通过此方法检查系统是否已切换为合适的音频场景模式。
+应用可通过[AudioManager](../cj-apis-multimedia-audio/.overview.md)的getAudioScene来获取当前的音频场景模式。当应用开始或结束使用音频通话相关功能时，可通过此方法检查系统是否已切换为合适的音频场景模式。
 
 ## 铃声模式
 
-在用户进入到音频通话时，应用可以使用铃声或振动来提示用户。系统通过调整铃声模式（[AudioRingMode](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#enum-audioringmode)），实现便捷地管理铃声音量，并调整设备的振动模式。
+在用户进入到音频通话时，应用可以使用铃声或振动来提示用户。系统通过调整铃声模式（[AudioRingMode](../cj-apis-multimedia-audio/.overview.md)），实现便捷地管理铃声音量，并调整设备的振动模式。
 
 当前预置的三种铃声模式：
 
@@ -33,9 +33,9 @@
 - RINGER_MODE_VIBRATE：振动模式，此模式下铃声音量为零，设备振动开启（即响铃时静音，触发振动）。
 - RINGER_MODE_NORMAL：响铃模式，此模式下铃声音量正常。
 
-应用可以调用[AudioVolumeGroupManager](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#class-audiovolumegroupmanager)中的getRingerMode获取当前的铃声模式，以便采取合适的提示策略。
+应用可以调用[AudioVolumeGroupManager](../cj-apis-multimedia-audio/.overview.md)中的getRingerMode获取当前的铃声模式，以便采取合适的提示策略。
 
-如果应用希望及时获取铃声模式的变化情况，可以通过AudioVolumeGroupManager中的[on(AudioVolumeGroupManagerCallbackType.RING_MODE_CHANGE)](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#func-onaudiovolumegroupmanagercallbacktype-callback1argumentaudioringmode)监听铃声模式变化事件，使应用在铃声模式发生变化时及时收到通知，方便应用做出相应的调整。
+如果应用希望及时获取铃声模式的变化情况，可以通过AudioVolumeGroupManager中的[on(AudioVolumeGroupManagerCallbackType.RING_MODE_CHANGE)](../cj-apis-multimedia-audio/.overview.md)监听铃声模式变化事件，使应用在铃声模式发生变化时及时收到通知，方便应用做出相应的调整。
 
 ## 通话场景音频设备切换
 

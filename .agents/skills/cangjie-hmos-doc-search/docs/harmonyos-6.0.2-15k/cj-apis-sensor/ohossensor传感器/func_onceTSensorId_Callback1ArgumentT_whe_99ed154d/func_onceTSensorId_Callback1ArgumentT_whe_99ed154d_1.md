@@ -1,4 +1,4 @@
-## func once\<T>(SensorId, Callback1Argument\<T>) where T <: Response
+﻿## func once\<T>(SensorId, Callback1Argument\<T>) where T <: Response
 
 ```cangjie
 public func once<T>(`type`: SensorId, callback: Callback1Argument<T>): Unit where T <: Response
@@ -15,7 +15,7 @@ public func once<T>(`type`: SensorId, callback: Callback1Argument<T>): Unit wher
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[SensorId](#enum-sensorid)|是|-|传感器类型。|
-|callback|[Callback1Argument\<T>](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<T>|是|-|回调函数，异步上报的传感器数据，每种传感器类型对应的数据类型不同。|
+|callback|[Callback1Argument\<T>](../../../cj-apis-base/.overview.md)\<T>|是|-|回调函数，异步上报的传感器数据，每种传感器类型对应的数据类型不同。|
 
 目前支持的传感器类型如下表：
 
@@ -45,7 +45,7 @@ public func once<T>(`type`: SensorId, callback: Callback1Argument<T>): Unit wher
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../errorcodes/cj-errorcode-sensor.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../../cj-errorcode-sensor/cj-errorcode-sensor.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息                                                     |
   | -------- | ------------------------------------------------------------ |

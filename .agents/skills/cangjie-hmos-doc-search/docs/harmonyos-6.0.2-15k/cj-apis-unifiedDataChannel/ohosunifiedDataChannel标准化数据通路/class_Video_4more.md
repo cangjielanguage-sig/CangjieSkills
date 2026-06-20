@@ -1,4 +1,4 @@
-## class Video
+﻿## class Video
 
 ```cangjie
 public class Video <: File {}
@@ -16,7 +16,7 @@ public class Video <: File {}
 public mut prop videoUri: String
 ```
 
-**功能：** 本地视频数据uri或网络视频uri。本地视频数据uri可通过[getUriFromPath](../../apis/CoreFileKit/cj-apis-file_fileuri.md#static-func-geturifrompathstring)函数获取。
+**功能：** 本地视频数据uri或网络视频uri。本地视频数据uri可通过[getUriFromPath](../../cj-apis-file_fileuri/.overview.md)函数获取。
 
 **类型：** String
 

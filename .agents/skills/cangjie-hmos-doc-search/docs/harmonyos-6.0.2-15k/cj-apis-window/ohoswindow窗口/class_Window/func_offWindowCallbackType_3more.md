@@ -1,4 +1,4 @@
-### func off(WindowCallbackType)
+﻿### func off(WindowCallbackType)
 
 ```cangjie
 public func off(callbackType: WindowCallbackType): Unit
@@ -18,7 +18,7 @@ public func off(callbackType: WindowCallbackType): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -44,11 +44,11 @@ public func on(callbackType: String, callback: Callback1Argument<UInt32>): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |callbackType|String|是|-|监听事件，固定为WindowCallbackType.KeyboardHeightChange，即键盘高度变化事件。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<UInt32>|是|-|回调函数。返回当前的键盘高度，单位为px。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<UInt32>|是|-|回调函数。返回当前的键盘高度，单位为px。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,11 +71,11 @@ public func on(callbackType: WindowCallbackType, callback: Callback1Argument<Siz
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |callbackType|[WindowCallbackType](#enum-windowcallbacktype)|是|-|监听事件类型，固定为WindowCallbackType.WindowSizeChange，即窗口尺寸变化事件。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[Size](cj-apis-measure.md#struct-size)>|是|-|回调函数。返回当前的窗口尺寸。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[Size](cj-apis-measure.md#struct-size)>|是|-|回调函数。返回当前的窗口尺寸。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

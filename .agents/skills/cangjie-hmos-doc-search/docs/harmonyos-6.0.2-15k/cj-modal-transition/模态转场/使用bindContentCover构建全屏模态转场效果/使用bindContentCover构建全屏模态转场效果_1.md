@@ -1,8 +1,8 @@
-## 使用bindContentCover构建全屏模态转场效果
+﻿## 使用bindContentCover构建全屏模态转场效果
 
-[bindContentCover](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-bindcontentcover.md)接口用于为组件绑定全屏模态页面，在组件出现和消失时可通过设置转场参数ModalTransition添加过渡动效。使用bindContentCover构建全屏模态转场效果步骤示例如下：
+[bindContentCover](../../../cj-universal-attribute-bindcontentcover/.overview.md)接口用于为组件绑定全屏模态页面，在组件出现和消失时可通过设置转场参数ModalTransition添加过渡动效。使用bindContentCover构建全屏模态转场效果步骤示例如下：
 
-- 定义全屏模态转场效果[bindContentCover](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-bindcontentcover.md)。
+- 定义全屏模态转场效果[bindContentCover](../../../cj-universal-attribute-bindcontentcover/.overview.md)。
 
 - 定义模态展示界面。
 

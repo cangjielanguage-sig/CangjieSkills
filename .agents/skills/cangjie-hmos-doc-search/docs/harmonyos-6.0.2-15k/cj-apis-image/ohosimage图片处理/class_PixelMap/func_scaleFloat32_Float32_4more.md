@@ -1,4 +1,4 @@
-### func scale(Float32, Float32)
+﻿### func scale(Float32, Float32)
 
 ```cangjie
 public func scale(x: Float32, y: Float32): Unit
@@ -19,7 +19,7 @@ public func scale(x: Float32, y: Float32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -48,7 +48,7 @@ public func scale(x: Float32, y: Float32, level: AntiAliasingLevel): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,11 +71,11 @@ public func setColorSpace(colorSpace: ColorSpaceManager): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|colorSpace|[ColorSpaceManager](../ArkGraphics2D/cj-apis-color_manager.md#class-colorspacemanager)|是|-|图像广色域信息。|
+|colorSpace|[ColorSpaceManager](../../../cj-apis-color_manager/.overview.md)|是|-|图像广色域信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -96,7 +96,7 @@ public func toSdr(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

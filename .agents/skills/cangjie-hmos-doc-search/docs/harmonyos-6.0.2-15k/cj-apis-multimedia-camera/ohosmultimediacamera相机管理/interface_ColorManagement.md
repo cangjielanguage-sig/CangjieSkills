@@ -1,4 +1,4 @@
-## interface ColorManagement
+﻿## interface ColorManagement
 
 ```cangjie
 sealed interface ColorManagement <: ColorManagementQuery {
@@ -33,11 +33,11 @@ func getActiveColorSpace(): ColorSpace
 
 |类型|说明|
 |:----|:----|
-|[ColorSpace](../ArkGraphics2D/cj-apis-color_manager.md#enum-colorspace)|当前设置的色彩空间。|
+|[ColorSpace](../../cj-apis-color_manager/.overview.md)|当前设置的色彩空间。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|
@@ -68,7 +68,7 @@ func setColorSpace(colorSpace: ColorSpace): Unit
 
 **功能：** 设置色彩空间。可以先通过[getSupportedColorSpaces](#func-getsupportedcolorspaces)获取当前设备所支持的ColorSpaces。
 
-应用可以下发不同的色彩空间（[ColorSpace](../ArkGraphics2D/cj-apis-color_manager.md#enum-colorspace)）参数来支持P3广色域以及HDR高动态范围成像的功能。
+应用可以下发不同的色彩空间（[ColorSpace](../../cj-apis-color_manager/.overview.md)）参数来支持P3广色域以及HDR高动态范围成像的功能。
 
 当应用不主动设置色彩空间时，拍照以及录像模式默认为HDR拍摄效果。
 
@@ -98,11 +98,11 @@ func setColorSpace(colorSpace: ColorSpace): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|colorSpace|[ColorSpace](../ArkGraphics2D/cj-apis-color_manager.md#enum-colorspace)|是|-|色彩空间，通过[getSupportedColorSpaces](#func-getsupportedcolorspaces)接口获取。|
+|colorSpace|[ColorSpace](../../cj-apis-color_manager/.overview.md)|是|-|色彩空间，通过[getSupportedColorSpaces](#func-getsupportedcolorspaces)接口获取。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|

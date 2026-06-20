@@ -1,4 +1,4 @@
-### func on(OnOffType, Array\<String>, Callback1Argument\<Array\<AppAccountInfo>>)
+﻿### func on(OnOffType, Array\<String>, Callback1Argument\<Array\<AppAccountInfo>>)
 
 ```cangjie
 public func on(`type`: OnOffType, owners: Array<String>, callback: Callback1Argument<Array<AppAccountInfo>>): Unit
@@ -16,11 +16,11 @@ public func on(`type`: OnOffType, owners: Array<String>, callback: Callback1Argu
 |:---|:---|:---|:---|:---|
 |\`type`|[OnOffType](#enum-onofftype)|是|-|事件回调类型，支持的事件为'accountChange'，当目标应用更新账号信息时，触发该事件。|
 |owners|Array\<String>|是|-|事件回调类型，支持的事件为'accountChange'，当目标应用更新账号信息时，触发该事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[AppAccountInfo](#class-appaccountinfo)>>|是|-|需要注册的回调函数，返回信息为发生变更的应用账号列表。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[AppAccountInfo](#class-appaccountinfo)>>|是|-|需要注册的回调函数，返回信息为发生变更的应用账号列表。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

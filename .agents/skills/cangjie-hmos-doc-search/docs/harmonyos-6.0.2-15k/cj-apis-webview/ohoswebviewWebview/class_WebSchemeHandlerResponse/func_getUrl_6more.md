@@ -1,4 +1,4 @@
-### func getUrl()
+﻿### func getUrl()
 
 ```cangjie
 public func getUrl(): String
@@ -36,7 +36,7 @@ public func setEncoding(encoding: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -64,7 +64,7 @@ public func setHeaderByName(name: String, value: String, overwrite: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -90,7 +90,29 @@ public func setMimeType(mimeType: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../.../../../)。
+
+  |错误码ID|错误信息|
+  |:---|:---|
+  |401|Parameter error. Possible causes: 1. Incorrect parameter types.|
+
+### func setNetErrorCode(WebNetErrorList)
+
+```cangjie
+public func setNetErrorCode(code: WebNetErrorList): Unit
+```
+
+**功能：** 给当前的WebSchemeHandlerResponse设置网络错误码。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**起始版本：** 19
+
+**参数：**
+
+|参数名|类型|必填|默认值|说明|
+|:---|:---|:---|:---|:---|
+|code|[WebNetErrorList](../../../)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -116,7 +138,7 @@ public func setNetErrorCode(code: WebNetErrorList): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -142,7 +164,7 @@ public func setStatus(status: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

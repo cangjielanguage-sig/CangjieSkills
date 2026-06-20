@@ -1,6 +1,6 @@
-# 线程模型
+﻿# 线程模型
 
-线程是操作系统进行运算调度的基本单位，是[进程](../application-models/cj-process-model-stage.md)中的执行流，共享进程的资源。一个进程可以包含多个线程。
+线程是操作系统进行运算调度的基本单位，是[进程](../cj-process-model-stage/cj-process-model-stage.md)中的执行流，共享进程的资源。一个进程可以包含多个线程。
 
 ## 线程类型
 
@@ -23,4 +23,4 @@ Stage模型下的线程主要有如下两类：
 
 ## 使用EventHub进行线程内通信
 
-[EventHub](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-eventhub.md)提供了线程内发送和处理事件的能力，包括对事件订阅、取消订阅、触发事件等。以UIAbility组件与UI之间的数据同步为例，具体使用方法可以参考[UIAbility组件与UI的数据同步](cj-uiability-data-sync-with-ui.md#使用eventhub进行数据通信)。
+[EventHub](../cj-apis-eventhub/.overview.md)提供了线程内发送和处理事件的能力，包括对事件订阅、取消订阅、触发事件等。以UIAbility组件与UI之间的数据同步为例，具体使用方法可以参考[UIAbility组件与UI的数据同步](cj-uiability-data-sync-with-ui.md#使用eventhub进行数据通信)。

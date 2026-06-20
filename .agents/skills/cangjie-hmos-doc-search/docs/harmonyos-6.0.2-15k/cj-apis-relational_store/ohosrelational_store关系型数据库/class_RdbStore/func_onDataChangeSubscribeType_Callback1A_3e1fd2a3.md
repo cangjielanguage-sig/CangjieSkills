@@ -1,4 +1,4 @@
-### func onDataChange(SubscribeType, Callback1Argument\<Array\<ChangeInfo>>)
+﻿### func onDataChange(SubscribeType, Callback1Argument\<Array\<ChangeInfo>>)
 
 ```cangjie
 public func onDataChange(`type`: SubscribeType, callback: Callback1Argument<Array<ChangeInfo>>): Unit
@@ -15,11 +15,11 @@ public func onDataChange(`type`: SubscribeType, callback: Callback1Argument<Arra
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[SubscribeType](#enum-subscribetype)|是|-|订阅类型。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[ChangeInfo](#struct-changeinfo)>>|是|-|回调函数。当type为SUBSCRIBE_TYPE_CLOUD_DETAILS，callback中的Array&lt;ChangeInfo&gt;为数据库端云同步过程的详情。当type为SUBSCRIBE_TYPE_LOCAL_DETAILS，callback中的Array&lt;ChangeInfo&gt;为本地数据库中的数据更改的详情。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[ChangeInfo](#struct-changeinfo)>>|是|-|回调函数。当type为SUBSCRIBE_TYPE_CLOUD_DETAILS，callback中的Array&lt;ChangeInfo&gt;为数据库端云同步过程的详情。当type为SUBSCRIBE_TYPE_LOCAL_DETAILS，callback中的Array&lt;ChangeInfo&gt;为本地数据库中的数据更改的详情。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   | 错误码ID | 错误信息        |
   |:-----------|:-------------|

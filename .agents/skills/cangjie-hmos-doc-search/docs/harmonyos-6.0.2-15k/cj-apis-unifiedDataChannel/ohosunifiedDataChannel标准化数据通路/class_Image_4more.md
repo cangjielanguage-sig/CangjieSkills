@@ -1,4 +1,4 @@
-## class Image
+﻿## class Image
 
 ```cangjie
 public class Image <: File {}
@@ -20,7 +20,7 @@ public class Image <: File {}
 public mut prop imageUri: String
 ```
 
-**功能：** 本地图片数据uri或网络图片uri。本地图片数据uri可通过[getUriFromPath](../../apis/CoreFileKit/cj-apis-file_fileuri.md#static-func-geturifrompathstring)函数获取。
+**功能：** 本地图片数据uri或网络图片uri。本地图片数据uri可通过[getUriFromPath](../../cj-apis-file_fileuri/.overview.md)函数获取。
 
 **类型：** String
 

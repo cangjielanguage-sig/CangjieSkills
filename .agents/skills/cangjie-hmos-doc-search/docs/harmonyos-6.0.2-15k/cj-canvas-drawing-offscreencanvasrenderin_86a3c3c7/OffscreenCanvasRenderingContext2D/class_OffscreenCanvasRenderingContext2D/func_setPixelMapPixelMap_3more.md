@@ -1,10 +1,10 @@
-### func setPixelMap(PixelMap)
+﻿### func setPixelMap(PixelMap)
 
 ```cangjie
 public func setPixelMap(pixelMap: PixelMap): Unit
 ```
 
-**功能：** 将当前传入[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)对象绘制在画布上。
+**功能：** 将当前传入[PixelMap](../../../cj-apis-image/.overview.md)对象绘制在画布上。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -14,7 +14,7 @@ public func setPixelMap(pixelMap: PixelMap): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|pixelMap|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap) |是|-|包含像素值的PixelMap对象。|
+|pixelMap|[PixelMap](../../../cj-apis-image/.overview.md) |是|-|包含像素值的PixelMap对象。|
 
 ### func setTransform(Float64, Float64, Float64, Float64, Float64, Float64)
 

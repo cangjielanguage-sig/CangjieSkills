@@ -1,4 +1,4 @@
-## func queryContact(Context, String, Holder, ContactAttributes)
+﻿## func queryContact(Context, String, Holder, ContactAttributes)
 
 ```cangjie
 public func queryContact(context: Context, key: String,
@@ -19,7 +19,7 @@ public func queryContact(context: Context, key: String,
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |key|String|是|-|联系人的key值，一个联系人对应一个key。|
 |holder|[Holder](#struct-holder)|否|Holder.EMPTY| **命名参数。** 创建联系人的应用信息。|
 |attrs|[ContactAttributes](#struct-contactattributes)|否|ContactAttributes.ALL| **命名参数。** 联系人的属性列表。|
@@ -32,7 +32,7 @@ public func queryContact(context: Context, key: String,
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -79,7 +79,7 @@ public func queryContacts(context: Context,
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |holder|[Holder](#struct-holder)|否|Holder.EMPTY| **命名参数。** 创建联系人的应用信息。|
 |attrs|[ContactAttributes](#struct-contactattributes)|否|ContactAttributes.ALL| **命名参数。** 创建联系人的应用信息。|
 
@@ -91,7 +91,7 @@ public func queryContacts(context: Context,
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

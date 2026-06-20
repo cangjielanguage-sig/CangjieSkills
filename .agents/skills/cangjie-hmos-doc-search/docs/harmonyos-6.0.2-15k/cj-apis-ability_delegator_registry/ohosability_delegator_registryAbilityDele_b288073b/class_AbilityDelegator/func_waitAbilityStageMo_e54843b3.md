@@ -1,10 +1,10 @@
-### func waitAbilityStageMonitor(AbilityStageMonitor, Int64)
+﻿### func waitAbilityStageMonitor(AbilityStageMonitor, Int64)
 
 ```cangjie
 public func waitAbilityStageMonitor(stageMonitor: AbilityStageMonitor, timeout: Int64): AbilityStage
 ```
 
-**功能：** 等待并返回与给定[AbilityStageMonitor](#class-abilitystagemonitor)中设置的条件匹配的[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)对象。
+**功能：** 等待并返回与给定[AbilityStageMonitor](#class-abilitystagemonitor)中设置的条件匹配的[AbilityStage](../../../cj-apis-ability/.overview.md)对象。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -21,11 +21,11 @@ public func waitAbilityStageMonitor(stageMonitor: AbilityStageMonitor, timeout: 
 
 |类型|说明|
 |:----|:----|
-|[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)|返回[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)对象。|
+|[AbilityStage](../../../cj-apis-ability/.overview.md)|返回[AbilityStage](../../../cj-apis-ability/.overview.md)对象。|
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |

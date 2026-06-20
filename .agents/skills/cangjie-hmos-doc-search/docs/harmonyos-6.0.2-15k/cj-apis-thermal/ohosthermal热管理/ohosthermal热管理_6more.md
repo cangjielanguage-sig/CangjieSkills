@@ -1,4 +1,4 @@
-# ohos.thermal（热管理）
+﻿# ohos.thermal（热管理）
 
 本模块提供热管理相关的接口，包括热档位查询及注册回调等功能。
 
@@ -13,9 +13,9 @@ import kit.BasicServicesKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func getLevel()
 
@@ -63,7 +63,7 @@ public func registerThermalLevelCallback(callback: Callback1Argument<ThermalLeve
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ThermalLevel](#enum-thermallevel)>|是|-|回调函数，返回变化后的热档位。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[ThermalLevel](#enum-thermallevel)>|是|-|回调函数，返回变化后的热档位。|
 
 ## func unregisterThermalLevelCallback(?Callback0Argument)
 
@@ -81,4 +81,4 @@ public func unregisterThermalLevelCallback(callback!: ?Callback0Argument = None)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|?[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|否|None| **命名参数。** 回调函数，取消已注册的回调函数成功后将执行的回调函数。|
+|callback|?[Callback0Argument](../../cj-apis-base/.overview.md)|否|None| **命名参数。** 回调函数，取消已注册的回调函数成功后将执行的回调函数。|

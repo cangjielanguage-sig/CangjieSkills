@@ -1,4 +1,4 @@
-### class MyFont
+﻿### class MyFont
 
 ```cangjie
 public class MyFont {
@@ -87,7 +87,7 @@ public var weight: FontWeight
 public init(size!: Length = 16.fp, weight!: FontWeight = FontWeight.Normal, family!: String = "HarmonyOS Sans", style!: FontStyle = FontStyle.Normal)
 ```
 
-**功能：** myfont的构造函数，此时字体系列为[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)。
+**功能：** myfont的构造函数，此时字体系列为[AppResource](../../../cj-apis-resource_manager/.overview.md)。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -108,7 +108,7 @@ public init(size!: Length = 16.fp, weight!: FontWeight = FontWeight.Normal, fami
 public init(size!: Length = 16.fp, weight!: FontWeight = FontWeight.Normal, family!: AppResource, style!: FontStyle = FontStyle.Normal)
 ```
 
-**功能：** myfont的构造函数，此时字体系列为[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)。
+**功能：** myfont的构造函数，此时字体系列为[AppResource](../../../cj-apis-resource_manager/.overview.md)。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -120,5 +120,5 @@ public init(size!: Length = 16.fp, weight!: FontWeight = FontWeight.Normal, fami
 |:---|:---|:---|:---|:---|
 |size|[Length](./cj-common-types.md#interface-length)|否|16.fp| **命名参数。** 字体尺寸。不支持百分比设置。|
 |weight|[FontWeight](./cj-common-types.md#enum-fontweight)|否|FontWeight.Normal| **命名参数。** 字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 字体列表。<br/>初始值：HarmonyOS Sans。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 字体列表。<br/>初始值：HarmonyOS Sans。|
 |style|[FontStyle](./cj-common-types.md#enum-fontweight)|否|FontStyle.Normal| **命名参数。** 字体样式。|

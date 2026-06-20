@@ -1,4 +1,4 @@
-### static func getSimAccountInfo(Int32)
+﻿### static func getSimAccountInfo(Int32)
 
 ```cangjie
 public static func getSimAccountInfo(slotId: Int32): IccAccountInfo
@@ -29,7 +29,7 @@ public static func getSimAccountInfo(slotId: Int32): IccAccountInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -79,7 +79,7 @@ public static func getSimOperatorNumeric(slotId: Int32): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -128,7 +128,7 @@ public static func getSimSpn(slotId: Int32): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

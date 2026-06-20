@@ -1,12 +1,12 @@
-### onMouse
+﻿### onMouse
 
 ```cangjie
 public func onMouse(callback: (MouseEvent)->Unit): This
 ```
 
-鼠标事件回调。绑定该API的组件每当鼠标指针在该组件内产生行为（MouseAction）时，触发事件回调，参数为[MouseEvent](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-mouse.md#struct-mouseevent)对象，表示触发此次的鼠标事件。该事件支持自定义冒泡设置，默认父子冒泡。常用于开发者自定义的鼠标行为逻辑处理。
+鼠标事件回调。绑定该API的组件每当鼠标指针在该组件内产生行为（MouseAction）时，触发事件回调，参数为[MouseEvent](../../../cj-universal-event-mouse/.overview.md)对象，表示触发此次的鼠标事件。该事件支持自定义冒泡设置，默认父子冒泡。常用于开发者自定义的鼠标行为逻辑处理。
 
-开发者可以通过回调中的MouseEvent对象获取触发事件的坐标（screenX/screenY/x/y）、按键（[MouseButton](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-mousebutton)）、行为（[MouseAction](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-mouseaction)）、时间戳（timestamp）、交互组件的区域（[EventTarget](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-click.md#struct-eventtarget)）、事件来源（[SourceType](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-sourcetype)）等。
+开发者可以通过回调中的MouseEvent对象获取触发事件的坐标（screenX/screenY/x/y）、按键（[MouseButton](../../../cj-common-types/.overview.md)）、行为（[MouseAction](../../../cj-common-types/.overview.md)）、时间戳（timestamp）、交互组件的区域（[EventTarget](../../../cj-universal-event-click/.overview.md)）、事件来源（[SourceType](../../../cj-common-types/.overview.md)）等。
 
 > **说明：**
 >

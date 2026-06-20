@@ -1,8 +1,8 @@
-# 使用Web组件打印前端页面
+﻿# 使用Web组件打印前端页面
 
 Web组件打印html页面时可通过W3C标准协议接口和应用接口两种方式实现。
 
-使用打印功能前，请在module.json5中配置相关权限，添加方法请参见[在配置文件中声明权限](../security/AccessToken/cj-declare-permissions.md)。
+使用打印功能前，请在module.json5中配置相关权限，添加方法请参见[在配置文件中声明权限](../cj-declare-permissions/.overview.md)。
 
 ```json
 "requestPermissions":[

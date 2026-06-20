@@ -1,6 +1,6 @@
-# 切换按钮（Toggle）
+﻿# 切换按钮（Toggle）
 
-Toggle组件提供状态按钮样式、勾选框样式和开关样式，一般用于两种状态之间的切换。具体用法请参见[Toggle](../../API_Reference/source_zh_cn/arkui-cj/cj-button-picker-toggle.md)。
+Toggle组件提供状态按钮样式、勾选框样式和开关样式，一般用于两种状态之间的切换。具体用法请参见[Toggle](../cj-button-picker-toggle/.overview.md)。
 
 ## 创建切换按钮
 
@@ -79,7 +79,7 @@ Toggle(toggleType: ToggleType, isOn!: Bool = false)
 
 ## 添加事件
 
-除支持[通用事件](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-click.md)外，Toggle还用于选中和取消选中后触发某些操作，可以绑定onChange事件来响应操作后的自定义行为。
+除支持[通用事件](../cj-universal-event-click/.overview.md)外，Toggle还用于选中和取消选中后触发某些操作，可以绑定onChange事件来响应操作后的自定义行为。
 
 ```cangjie
 Toggle(ToggleType.SwitchType, isOn: false)

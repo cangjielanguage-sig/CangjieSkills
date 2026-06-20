@@ -1,4 +1,4 @@
-# ohos.nfc.controller（标准NFC）
+﻿# ohos.nfc.controller（标准NFC）
 
 本模块主要用于管理NFC状态，包括打开和关闭NFC，读取NFC的状态等。
 
@@ -13,9 +13,9 @@ import kit.ConnectivityKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func isNfcOpen()
 
@@ -98,7 +98,7 @@ public func on(`type`: NfcControllerCallbackType, callback: Callback1Argument<Nf
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[NfcControllerCallbackType](#enum-nfccontrollercallbacktype)|是|要订阅的回调类型，固定填NfcStateChange。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<NfcState>|是|NFC状态改变通知的回调函数。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<NfcState>|是|NFC状态改变通知的回调函数。|
 
 **示例：**
 
@@ -135,7 +135,7 @@ public func off(`type`: NfcControllerCallbackType, callback: CallbackObject): Un
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[NfcControllerCallbackType](#enum-nfccontrollercallbacktype)|是|要订阅的回调类型，固定填NfcStateChange。|
-|callback|[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|是|NFC状态改变通知的回调函数。|
+|callback|[CallbackObject](../../cj-apis-base/.overview.md)|是|NFC状态改变通知的回调函数。|
 
 **示例：**
 

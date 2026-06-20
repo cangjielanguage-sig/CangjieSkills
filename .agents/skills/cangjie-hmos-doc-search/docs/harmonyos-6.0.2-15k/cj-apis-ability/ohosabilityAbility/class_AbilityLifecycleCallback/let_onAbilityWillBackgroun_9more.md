@@ -1,4 +1,4 @@
-### let onAbilityWillBackground
+﻿### let onAbilityWillBackground
 
 ```cangjie
 public let onAbilityWillBackground: ?(UIAbility) -> Unit = None
@@ -136,7 +136,7 @@ public let onWindowStageActive: (UIAbility, WindowStage) -> Unit
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 

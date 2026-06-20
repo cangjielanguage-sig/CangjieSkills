@@ -1,4 +1,4 @@
-## class VibrateAttribute
+﻿## class VibrateAttribute
 
 ```cangjie
 public class VibrateAttribute {
@@ -83,7 +83,7 @@ public class VibrateFromFile <: VibrateEffect {
 }
 ```
 
-**功能：** 自定义振动类型，仅部分设备支持，当设备不支持此振动类型时，返回错误码，详见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+**功能：** 自定义振动类型，仅部分设备支持，当设备不支持此振动类型时，返回错误码，详见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
 **系统能力：** SystemCapability.Sensors.MiscDevice
 

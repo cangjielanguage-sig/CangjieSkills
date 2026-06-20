@@ -1,4 +1,4 @@
-### func on(AVTranscoderCallbackType, Callback0Argument)
+﻿### func on(AVTranscoderCallbackType, Callback0Argument)
 
 ```cangjie
 public func on(`type`: AVTranscoderCallbackType, callback: Callback0Argument): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AVTranscoderCallbackType, callback: Callback0Argument): U
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVTranscoderCallbackType](#enum-avtranscodercallbacktype)|是|-|转码完成事件回调类型Complete。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|转码完成事件回调方法。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|转码完成事件回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,11 +76,11 @@ public func off(`type`: AVTranscoderCallbackType, callback!: ?CallbackObject = N
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVTranscoderCallbackType](#enum-avtranscodercallbacktype)|是|-|转码事件回调类型。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None|转码回调方法。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None|转码回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

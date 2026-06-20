@@ -1,4 +1,4 @@
-## func setAppResourceLimit(String, Int32, Bool)
+﻿## func setAppResourceLimit(String, Int32, Bool)
 
 ```cangjie
 public func setAppResourceLimit(resType: String, value: Int32, enableDebugLog: Bool): Unit
@@ -24,7 +24,7 @@ public func setAppResourceLimit(resType: String, value: Int32, enableDebugLog: B
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Hidebug错误码](../../errorcodes/cj-errorcode-hidebug.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Hidebug错误码](../../cj-errorcode-hidebug/cj-errorcode-hidebug.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,7 +74,7 @@ public func startAppTraceCapture(tags: Array<UInt64>, flag: TraceFlag, limitSize
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Hidebug错误码](../../errorcodes/cj-errorcode-hidebug.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Hidebug错误码](../../cj-errorcode-hidebug/cj-errorcode-hidebug.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

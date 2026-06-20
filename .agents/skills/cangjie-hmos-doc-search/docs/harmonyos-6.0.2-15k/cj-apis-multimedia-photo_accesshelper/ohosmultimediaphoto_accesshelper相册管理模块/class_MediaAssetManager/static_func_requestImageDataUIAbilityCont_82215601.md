@@ -1,4 +1,4 @@
-### static func requestImageData(UIAbilityContext, PhotoAsset, RequestOptions, MediaAssetDataHandler\<Array\<Byte>>)
+﻿### static func requestImageData(UIAbilityContext, PhotoAsset, RequestOptions, MediaAssetDataHandler\<Array\<Byte>>)
 
 ```cangjie
 public static func requestImageData(context: UIAbilityContext, asset: PhotoAsset, requestOptions: RequestOptions,
@@ -19,7 +19,7 @@ public static func requestImageData(context: UIAbilityContext, asset: PhotoAsset
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)  |是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md)  |是|-|传入Ability实例的Context。|
 |asset|[PhotoAsset](#class-photoasset)|是|-|待请求的的媒体文件对象。|
 |requestOptions|[RequestOptions](#class-requestoptions)|是|-|图片请求策略模式配置项。|
 |dataHandler|[MediaAssetDataHandler](#class-mediaassetdatahandler)\<Array\<Byte>>|是|-|媒体资源处理器，当所请求的图片资源准备完成时会触发回调。|
@@ -32,7 +32,7 @@ public static func requestImageData(context: UIAbilityContext, asset: PhotoAsset
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-# 拉起指定应用概述
+﻿# 拉起指定应用概述
 
 本章节主要介绍如何通过应用链接跳转的方式拉起指定应用。
 
@@ -37,7 +37,7 @@ scheme://host[:port]/path
 | 是否可用于分享或直接在网页中访问 | 可以。 | 不可以，需在代码中调用。 |
 | 是否可以直接拉起目标应用 | 可以。 | 可以，但不推荐使用，存在被仿冒风险。 |
 
-Deep Linking与App Linking均可以使用[openLink](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-openlinkstring-openlinkoptions-asynccallbackabilityresult)接口实现，不同条件下的跳转效果如下。
+Deep Linking与App Linking均可以使用[openLink](../cj-apis-ability/.overview.md)接口实现，不同条件下的跳转效果如下。
 
 > **说明：**
 >

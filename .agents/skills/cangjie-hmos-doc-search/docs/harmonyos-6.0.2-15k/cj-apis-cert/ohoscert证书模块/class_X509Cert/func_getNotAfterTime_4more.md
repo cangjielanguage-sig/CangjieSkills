@@ -1,4 +1,4 @@
-### func getNotAfterTime()
+﻿### func getNotAfterTime()
 
 ```cangjie
 public func getNotAfterTime(): String
@@ -18,7 +18,7 @@ public func getNotAfterTime(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -60,7 +60,7 @@ public func getNotBeforeTime(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -98,11 +98,11 @@ public func getPublicKey(): PubKey
 
 |类型|说明|
 |:----|:----|
-|[PubKey](../CryptoArchitectureKit/cj-apis-crypto.md#class-pubkey)|X509证书公钥对象：仅用于X509Cert的verify接口。|
+|[PubKey](../../../cj-apis-crypto/.overview.md)|X509证书公钥对象：仅用于X509Cert的verify接口。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -143,7 +143,7 @@ public func getSignature(): DataBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

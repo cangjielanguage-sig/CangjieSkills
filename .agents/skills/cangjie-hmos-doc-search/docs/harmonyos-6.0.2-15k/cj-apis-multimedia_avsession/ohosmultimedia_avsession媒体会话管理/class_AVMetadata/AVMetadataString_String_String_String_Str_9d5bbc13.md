@@ -1,4 +1,4 @@
-### AVMetadata(String, ?String, ?String, ?String, ?String, ?String, ?ValueType, ?String, ?String, ?String, ?Int64, ?ValueType, ?DateTime, ?String, ?String, ?String, ?String, ?String, ?Array\<ProtocolType>, ?Array\<String>, ?SkipIntervals, ?DisplayTag)
+﻿### AVMetadata(String, ?String, ?String, ?String, ?String, ?String, ?ValueType, ?String, ?String, ?String, ?Int64, ?ValueType, ?DateTime, ?String, ?String, ?String, ?String, ?String, ?Array\<ProtocolType>, ?Array\<String>, ?SkipIntervals, ?DisplayTag)
 
 ```cangjie
 public AVMetadata(
@@ -43,12 +43,12 @@ public AVMetadata(
 |author|?String|是|-|专辑作者。|
 |avQueueName|?String|是|-|歌单（歌曲列表）名称。|
 |avQueueId|?String|是|-|歌单（歌曲列表）唯一标识Id。|
-|avQueueImage|?[ValueType](#enum-valuetype)|是|-|歌单（歌曲列表）封面图，图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过[setAVMetadata](#func-setavmetadataavmetadata)设置图片数据，当设置的数据类型为[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)时，通过[getAVMetadata](#func-getavmetadata)获取的将为[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)。设置为url图片路径，获取的亦为url图片路径。|
+|avQueueImage|?[ValueType](#enum-valuetype)|是|-|歌单（歌曲列表）封面图，图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过[setAVMetadata](#func-setavmetadataavmetadata)设置图片数据，当设置的数据类型为[PixelMap](../../../cj-apis-image/.overview.md)时，通过[getAVMetadata](#func-getavmetadata)获取的将为[PixelMap](../../../cj-apis-image/.overview.md)。设置为url图片路径，获取的亦为url图片路径。|
 |album|?String|是|-|专辑名称。|
 |writer|?String|是|-|词作者。|
 |composer|?String|是|-|作曲者。|
 |duration|?Int64|是|-|媒体时长，单位毫秒（ms）。|
-|mediaImage|?[ValueType](#enum-valuetype)|是|-|图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过[setAVMetadata](#func-setavmetadataavmetadata)设置图片数据，当设置的数据类型为[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)时，通过[getAVMetadata](#func-getavmetadata)获取的将为[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)。设置为url图片路径，获取的亦为url图片路径。|
+|mediaImage|?[ValueType](#enum-valuetype)|是|-|图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过[setAVMetadata](#func-setavmetadataavmetadata)设置图片数据，当设置的数据类型为[PixelMap](../../../cj-apis-image/.overview.md)时，通过[getAVMetadata](#func-getavmetadata)获取的将为[PixelMap](../../../cj-apis-image/.overview.md)。设置为url图片路径，获取的亦为url图片路径。|
 |publishDate|?DateTime|是|-|发行日期。|
 |subtitle|?String|是|-|子标题。|
 |description|?String|是|-|媒体描述。|

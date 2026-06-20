@@ -1,4 +1,4 @@
-### func off(CameraCallbackType, Callback1Argument\<BusinessException>)
+﻿### func off(CameraCallbackType, Callback1Argument\<BusinessException>)
 
 ```cangjie
 public func off(`type`: CameraCallbackType, callback: Callback1Argument<BusinessException>): Unit
@@ -15,7 +15,7 @@ public func off(`type`: CameraCallbackType, callback: Callback1Argument<Business
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为error，videoOutput创建成功后可监听。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

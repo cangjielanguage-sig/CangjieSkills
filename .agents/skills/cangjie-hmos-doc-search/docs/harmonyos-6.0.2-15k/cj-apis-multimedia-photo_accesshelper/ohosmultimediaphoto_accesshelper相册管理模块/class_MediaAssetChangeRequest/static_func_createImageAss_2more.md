@@ -1,4 +1,4 @@
-### static func createImageAssetRequest(UIAbilityContext, String)
+﻿### static func createImageAssetRequest(UIAbilityContext, String)
 
 ```cangjie
 public static func createImageAssetRequest(context: UIAbilityContext, fileUri: String): MediaAssetChangeRequest
@@ -6,7 +6,7 @@ public static func createImageAssetRequest(context: UIAbilityContext, fileUri: S
 
 **功能：** 创建图片资产变更请求。
 
-通过fileUri指定待创建资产的数据来源，可参考[FileUri](../CoreFileKit/cj-apis-file_fileuri.md)。
+通过fileUri指定待创建资产的数据来源，可参考[FileUri](../../../cj-apis-file_fileuri/.overview.md)。
 
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -16,7 +16,7 @@ public static func createImageAssetRequest(context: UIAbilityContext, fileUri: S
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|传入Ability实例的Context。|
 |fileUri|String|是|-|图片资产的数据来源，在应用沙箱下的uri。|
 
 **返回值：**
@@ -27,7 +27,7 @@ public static func createImageAssetRequest(context: UIAbilityContext, fileUri: S
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -60,7 +60,7 @@ public static func createVideoAssetRequest(context: UIAbilityContext, fileUri: S
 
 **功能：** 创建视频资产变更请求。
 
-通过fileUri指定待创建资产的数据来源，可参考[FileUri](../CoreFileKit/cj-apis-file_fileuri.md)。
+通过fileUri指定待创建资产的数据来源，可参考[FileUri](../../../cj-apis-file_fileuri/.overview.md)。
 
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -70,7 +70,7 @@ public static func createVideoAssetRequest(context: UIAbilityContext, fileUri: S
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext) |是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../../cj-apis-ability/.overview.md) |是|-|传入Ability实例的Context。|
 |fileUri|String|是|-|视频资产的数据来源，在应用沙箱下的uri。|
 
 **返回值：**
@@ -81,7 +81,7 @@ public static func createVideoAssetRequest(context: UIAbilityContext, fileUri: S
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

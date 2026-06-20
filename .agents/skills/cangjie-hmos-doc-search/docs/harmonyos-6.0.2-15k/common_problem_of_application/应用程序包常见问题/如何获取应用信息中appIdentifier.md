@@ -1,6 +1,6 @@
-## 如何获取应用信息中appIdentifier
+﻿## 如何获取应用信息中appIdentifier
 
-1. 可以调用[bundleManager.getBundleInfoForSelf](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md#static-func-getbundleinfoforselfint32)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含appIdentifier信息。
+1. 可以调用[bundleManager.getBundleInfoForSelf](../../cj-apis-bundle_manager/.overview.md)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含appIdentifier信息。
 
     ```cangjie
     import ohos.base.*
@@ -16,7 +16,7 @@
     }
     ```
 
-2. 通过[bm工具](../../tools/cj-bm-tool.md#bm工具)获取。
+2. 通过[bm工具](../../cj-bm-tool/.overview.md)获取。
 
     ```shell
     hdc shell

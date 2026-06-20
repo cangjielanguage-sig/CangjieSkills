@@ -1,4 +1,4 @@
-## class PixelMap
+﻿## class PixelMap
 
 ```cangjie
 public class PixelMap {}
@@ -122,11 +122,11 @@ public func applyColorSpace(colorSpace: ColorSpaceManager): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|colorSpace|[ColorSpaceManager](../ArkGraphics2D/cj-apis-color_manager.md#class-colorspacemanager)|是|-|目标色彩空间，支持SRGB、DCI_P3、DISPLAY_P3、ADOBE_RGB_1998。|
+|colorSpace|[ColorSpaceManager](../../../cj-apis-color_manager/.overview.md)|是|-|目标色彩空间，支持SRGB、DCI_P3、DISPLAY_P3、ADOBE_RGB_1998。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

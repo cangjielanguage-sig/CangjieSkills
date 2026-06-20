@@ -1,6 +1,6 @@
-### 在AGC控制台开通App Linking服务
+﻿### 在AGC控制台开通App Linking服务
 
-请先参考“[应用开发准备](../application-dev-prepare/application-dev-prepare.md)”完成基本准备工作，再继续进行以下开发活动。
+请先参考“[应用开发准备](../../../application-dev-prepare/application-dev-prepare.md)”完成基本准备工作，再继续进行以下开发活动。
 
 1. 登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，点击“我的项目”。
 

@@ -1,10 +1,10 @@
-## 收藏夹
+﻿## 收藏夹
 
 收藏夹属于系统相册，对图片或视频设置收藏时会自动将其加入到收藏夹中，取消收藏则会将其从收藏夹中移除。
 
 ### 获取收藏夹对象
 
-通过[getAlbums](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getalbumsalbumtype-albumsubtype-fetchoptions)接口获取收藏夹对象。
+通过[getAlbums](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口获取收藏夹对象。
 
 **前提条件**
 

@@ -1,4 +1,4 @@
-## 控制滚动位置
+﻿## 控制滚动位置
 
 控制滚动位置在实际应用中十分常见，例如当新闻页列表项数量庞大，用户滚动列表到一定位置时，希望快速滚动到列表底部或返回列表顶部。此时，可以通过控制滚动位置来实现列表的快速定位，如下图13所示。
 
@@ -6,7 +6,7 @@
 
 ![List12](figures/List12.gif)
 
-List组件初始化时，可以通过scroller参数绑定一个[Scroller](../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-scroll.md)对象，进行列表的滚动控制。例如，用户在新闻应用中，点击新闻页面底部的返回顶部按钮时，就可以通过Scroller对象的scrollToIndex方法使列表滚动到指定的列表项索引位置。
+List组件初始化时，可以通过scroller参数绑定一个[Scroller](../../cj-scroll-swipe-scroll/.overview.md)对象，进行列表的滚动控制。例如，用户在新闻应用中，点击新闻页面底部的返回顶部按钮时，就可以通过Scroller对象的scrollToIndex方法使列表滚动到指定的列表项索引位置。
 
 首先，需要创建一个Scroller的对象listScroller。
 
@@ -41,7 +41,7 @@ Button() {
 
 ![List13](figures/List13.gif)
 
-如上图14所示，当联系人列表从A滚动到B时，右侧索引栏也需要同步从选中A状态变成选中B状态。此场景可以通过监听List组件的onScrollIndex事件来实现，右侧索引栏需要使用字母表索引组件[AlphabetIndexer](../../API_Reference/source_zh_cn/arkui-cj/cj-information-display-alphabetindexer.md)。
+如上图14所示，当联系人列表从A滚动到B时，右侧索引栏也需要同步从选中A状态变成选中B状态。此场景可以通过监听List组件的onScrollIndex事件来实现，右侧索引栏需要使用字母表索引组件[AlphabetIndexer](../../cj-information-display-alphabetindexer/.overview.md)。
 
 在列表滚动时，根据列表此时所在的索引值位置firstIndex，重新计算字母索引栏对应字母的位置selectedIndex。由于AlphabetIndexer组件通过selected属性设置了选中项索引值，当selectedIndex变化时会触发AlphabetIndexer组件重新渲染，从而显示为选中对应字母的状态。
 

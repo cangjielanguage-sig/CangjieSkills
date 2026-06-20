@@ -1,4 +1,4 @@
-### func release()
+﻿### func release()
 
 ```cangjie
 public func release(): Unit
@@ -12,7 +12,7 @@ public func release(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -55,13 +55,13 @@ public func showAssetsCreationDialog(srcFileUris: Array<String>, photoCreationCo
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|srcFileUris|Array\<String>|是|-|需保存到媒体库中的图片/视频文件对应的[媒体库uri](../../../../Dev_Guide/file-management/cj-user-file-uri-intro.md#媒体文件uri)。<br>**注意：**  仅支持处理图片、视频uri。|
+|srcFileUris|Array\<String>|是|-|需保存到媒体库中的图片/视频文件对应的[媒体库uri](../../../cj-user-file-uri-intro/.overview.md)。<br>**注意：**  仅支持处理图片、视频uri。|
 |photoCreationConfigs|Array\<[PhotoCreationConfig](#struct-photocreationconfig)>|是|-|保存图片/视频到媒体库的配置，包括保存的文件名等，与srcFileUris保持一一对应。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<String>>|是|-|回调函数，获取返回给应用的媒体库文件uri列表。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|回调函数，获取返回给应用的媒体库文件uri列表。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

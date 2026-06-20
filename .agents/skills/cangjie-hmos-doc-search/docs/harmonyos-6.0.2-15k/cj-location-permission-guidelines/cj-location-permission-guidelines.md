@@ -1,8 +1,8 @@
-# 申请位置权限开发指导
+﻿# 申请位置权限开发指导
 
 ## 场景概述
 
-应用在使用[Location Kit](../../API_Reference/source_zh_cn/apis/LocationKit/cj-apis-geo_location_manager.md)系统能力前，需要检查是否已经获取用户授权访问设备位置信息。如未获得授权，可以向用户申请需要的位置权限。
+应用在使用[Location Kit](../cj-apis-geo_location_manager/.overview.md)系统能力前，需要检查是否已经获取用户授权访问设备位置信息。如未获得授权，可以向用户申请需要的位置权限。
 
 系统提供的定位权限有：
 
@@ -12,11 +12,11 @@
 
 - ohos.permission.LOCATION_IN_BACKGROUND：用于应用切换到后台仍然需要获取定位信息的场景。
 
-Location Kit接口对权限的要求请参见：[Location Kit](../../API_Reference/source_zh_cn/apis/LocationKit/cj-apis-geo_location_manager.md)。
+Location Kit接口对权限的要求请参见：[Location Kit](../cj-apis-geo_location_manager/.overview.md)。
 
 ## 开发步骤
 
-1. 开发者可以在应用配置文件中声明所需要的权限并向用户申请授权，具体可参考[向用户申请授权](../../Dev_Guide/security/AccessToken/cj-request-user-authorization.md#向用户申请授权)。
+1. 开发者可以在应用配置文件中声明所需要的权限并向用户申请授权，具体可参考[向用户申请授权](../cj-request-user-authorization/.overview.md)。
 
 2. 当APP运行在前台，且访问设备位置信息时，申请位置权限的方式如下：
 

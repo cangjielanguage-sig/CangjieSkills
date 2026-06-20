@@ -1,4 +1,4 @@
-### class SubTabBarStyle
+﻿### class SubTabBarStyle
 
 ```cangjie
 public class SubTabBarStyle {
@@ -47,7 +47,7 @@ public init(content: AppResource)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的文字内容。|
+|content|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的文字内容。|
 
 #### static func of(String)
 
@@ -89,7 +89,7 @@ public static func of(content: AppResource): SubTabBarStyle
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|页签内的文字内容。|
+|content|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-|页签内的文字内容。|
 
 **返回值：**
 

@@ -1,4 +1,4 @@
-# Swiper
+﻿# Swiper
 
 滑块视图容器，提供子组件滑动轮播显示的能力。
 
@@ -12,7 +12,7 @@
 
 > **说明：**
 >
-> - 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-ifelse.md)、[ForEach](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-foreach.md)和[LazyForEach](../../../Dev_Guide/arkui-cj/rendering_control/cj-rendering-control-lazyforeach.md)）。不建议子组件中混用懒加载组件（包括LazyForEach）和非懒加载组件，或者子组件中使用多个懒加载组件，否则可能导致懒加载组件预加载能力失效等问题。不建议在组件动画过程中对数据源进行操作，否则会导致布局出现异常。
+> - 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](../../cj-rendering-control-ifelse/.overview.md)、[ForEach](../../cj-rendering-control-foreach/.overview.md)和[LazyForEach](../../cj-rendering-control-lazyforeach/.overview.md)）。不建议子组件中混用懒加载组件（包括LazyForEach）和非懒加载组件，或者子组件中使用多个懒加载组件，否则可能导致懒加载组件预加载能力失效等问题。不建议在组件动画过程中对数据源进行操作，否则会导致布局出现异常。
 > - Swiper子组件的[visibility](./cj-universal-attribute-visibility.md#func-visibilityvisibility)属性设置为Visibility.None，且Swiper的displayCount属性设置为'auto'时，对应子组件在视窗内不占位，但不影响导航点个数；visibility属性设置为Visibility.None或者Visibility.Hidden时，对应子组件不显示，但依然会在视窗内占位。
 > - 当Swiper子组件设置了[offset](./cj-universal-attribute-location.md#func-offsetlength-length)属性时，会按照子组件的层级进行绘制，层级高的子组件会覆盖层级低的子组件。例如，Swiper包含3个子组件，其中第3个子组件设置了offset({ x : 100 })，那么在横向循环滑动中，第3个子组件会覆盖第1个子组件，此时可设置第1个子组件的[zIndex](./cj-universal-attribute-zorder.md#func-zindexint32)属性值大于第3个子组件，使第1个子组件层级高于第3个子组件。
 

@@ -1,4 +1,4 @@
-# ohos.background_task_mgr（后台任务管理）
+﻿# ohos.background_task_mgr（后台任务管理）
 
 本模块提供申请后台任务的接口。当应用退至后台时，开发者可以通过本模块接口为应用申请短时、长时任务，避免应用进程被终止或挂起。
 
@@ -13,9 +13,9 @@ import kit.BackgroundTasksKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func cancelSuspendDelay(Int32)
 
@@ -37,7 +37,7 @@ public func cancelSuspendDelay(requestId: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[backgroundTaskManager错误码](../../errorcodes/cj-errorcode-background_task_mgr.md)。
+- BusinessException：对应错误码的详细介绍请参见[backgroundTaskManager错误码](../../cj-errorcode-background_task_mgr/cj-errorcode-background_task_mgr.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -92,7 +92,7 @@ public func getRemainingDelayTime(requestId: Int32): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[backgroundTaskManager错误码](../../errorcodes/cj-errorcode-background_task_mgr.md)。
+- BusinessException：对应错误码的详细介绍请参见[backgroundTaskManager错误码](../../cj-errorcode-background_task_mgr/cj-errorcode-background_task_mgr.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

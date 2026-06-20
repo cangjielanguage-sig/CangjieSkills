@@ -1,4 +1,4 @@
-### func connect(String, AsyncCallback\<Bool>, ?WebSocketRequestOptions)
+﻿### func connect(String, AsyncCallback\<Bool>, ?WebSocketRequestOptions)
 
 ```cangjie
 public func connect(url: String, callback: AsyncCallback<Bool>,
@@ -23,12 +23,12 @@ options!: ?WebSocketRequestOptions = None): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |url|String|是|-|建立WebSocket连接的URL地址。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Bool>|是|-|以AsyncCallback形式返回建立连接的结果。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Bool>|是|-|以AsyncCallback形式返回建立连接的结果。|
 |options|?[WebSocketRequestOptions](#class-websocketrequestoptions)|否|None|参考[WebSocketRequestOptions](#class-websocketrequestoptions)。默认为None。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[webSocket错误码](../../errorcodes/cj-errorcode-net-websocket.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[webSocket错误码](../../../cj-errorcode-net-websocket/cj-errorcode-net-websocket.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

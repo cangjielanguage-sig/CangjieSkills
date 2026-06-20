@@ -1,4 +1,4 @@
-### func prepare(AVTranscoderConfig)
+﻿### func prepare(AVTranscoderConfig)
 
 ```cangjie
 public func prepare(config: AVTranscoderConfig): Unit
@@ -18,7 +18,7 @@ public func prepare(config: AVTranscoderConfig): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -35,7 +35,7 @@ public func prepare(config: AVTranscoderConfig): Unit
 
 **示例：**
 
-- 本示例代码需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 本示例代码需获取[Context](../../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 - 本示例代码需在仓颉模板工程中rawfile目录下添加input.mp4作为转码源文件。
 
 <!-- compile -->

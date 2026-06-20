@@ -1,8 +1,8 @@
-# 使用剪贴板进行复制粘贴
+﻿# 使用剪贴板进行复制粘贴
 
 ## 场景介绍
 
-[剪贴板](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-pasteboard.md)为开发者提供数据的复制粘贴能力。
+[剪贴板](../cj-apis-pasteboard/.overview.md)为开发者提供数据的复制粘贴能力。
 
 当需要使用复制粘贴等功能时，例如：复制文字内容到备忘录中粘贴，复制图库照片到文件管理粘贴，就可以通过剪贴板来完成。
 
@@ -20,9 +20,9 @@
 
 ### 接口说明
 
-详细接口见[接口文档](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-pasteboard.md#func-getdata)。
+详细接口见[接口文档](../cj-apis-pasteboard/.overview.md)。
 
-使用剪贴板getData接口获取到uri类型数据之后，请使用文件管理的[fs.copy](../../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#static-func-copystring-string-copyoptions)接口获取文件。
+使用剪贴板getData接口获取到uri类型数据之后，请使用文件管理的[fs.copy](../cj-apis-file_fs/.overview.md)接口获取文件。
 
 | 名称 | 说明                                         |
 | -------- |-----------------------------------------|

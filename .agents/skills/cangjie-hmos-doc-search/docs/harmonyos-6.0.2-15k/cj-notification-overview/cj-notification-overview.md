@@ -1,4 +1,4 @@
-# Notification Kit简介
+﻿# Notification Kit简介
 
 Notification Kit（用户通知服务）为开发者提供本地通知发布通道，开发者可借助Notification Kit将应用产生的通知直接在客户端本地推送给用户，本地通知根据通知类型及发布场景会产生对应的铃声、震动、横幅、锁屏、息屏、通知栏提醒和显示。
 
@@ -56,5 +56,5 @@ Notification Kit中常用的通知样式如下：
 
 ## 与相关Kit的关系
 
-- Notification Kit创建的通知会即时显示在通知中心等系统入口，如果开发者希望在应用退到后台或进程终止后仍然有一些提醒用户的定时类通知，例如购物类应用抢购提醒等，可通过[`BackGroundTask Kit`](../../API_Reference/source_zh_cn/apis/BackgroundTasksKit/cj-apis-background_task_mgr.md)创建，目前支持基于倒计时、日历、闹钟等类型的通知提醒功能。
-- 开发者可通过[`Ability Kit`](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-wantagent)设置用户点击通知后的行为意图。
+- Notification Kit创建的通知会即时显示在通知中心等系统入口，如果开发者希望在应用退到后台或进程终止后仍然有一些提醒用户的定时类通知，例如购物类应用抢购提醒等，可通过[`BackGroundTask Kit`](../cj-apis-background_task_mgr/.overview.md)创建，目前支持基于倒计时、日历、闹钟等类型的通知提醒功能。
+- 开发者可通过[`Ability Kit`](../cj-apis-ability/.overview.md)设置用户点击通知后的行为意图。

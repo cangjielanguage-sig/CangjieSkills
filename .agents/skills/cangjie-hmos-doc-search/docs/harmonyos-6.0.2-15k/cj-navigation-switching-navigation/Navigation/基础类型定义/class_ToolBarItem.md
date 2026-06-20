@@ -1,4 +1,4 @@
-### class ToolBarItem
+﻿### class ToolBarItem
 
 ```cangjie
 public class ToolBarItem {
@@ -150,8 +150,8 @@ public init(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|工具栏单个选项的显示文本。|
-|icon|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None|工具栏单个选项的图标资源路径。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|工具栏单个选项的显示文本。|
+|icon|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None|工具栏单个选项的图标资源路径。|
 |action|?()->Unit|否|None|当前选项被选中的事件回调。|
 |status|?[ToolbarItemStatus](#enum-toolbaritemstatus)|否|None|工具栏单个选项的状态。|
-|activeIcon|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None|工具栏单个选项处于ACTIVE态时的图标资源路径。|
+|activeIcon|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None|工具栏单个选项处于ACTIVE态时的图标资源路径。|

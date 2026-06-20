@@ -1,4 +1,4 @@
-### func nestedScroll(NestedScrollMode, NestedScrollMode)
+﻿### func nestedScroll(NestedScrollMode, NestedScrollMode)
 
 ```cangjie
 public func nestedScroll(
@@ -12,7 +12,7 @@ public func nestedScroll(
 > **说明：**
 >
 > - 可以设置上下左右四个方向，或者设置向前、向后两个方向的嵌套滚动模式，实现与父组件的滚动联动。
-> - value为NestedScrollOptionsExt（上下左右四个方向）类型时，scrollUp、scrollDown、scrollLeft、scrollRight默认滚动选项为[NestedScrollMode.SELF_FIRST](../arkui-cj/cj-common-types.md)。
+> - value为NestedScrollOptionsExt（上下左右四个方向）类型时，scrollUp、scrollDown、scrollLeft、scrollRight默认滚动选项为[NestedScrollMode.SELF_FIRST](../../../cj-common-types/.overview.md)。
 > - value为NestedScrollOptions（向前、向后两个方向）类型时，scrollForward、scrollBackward默认滚动选项为NestedScrollMode.SELF_FIRST。
 > - 支持嵌套滚动的容器：[Grid](./cj-grid-layout-gridcol.md)、[List](./cj-scroll-swipe-list.md)、[Scroll](./cj-scroll-swipe-scroll.md)、[Swiper](./cj-scroll-swipe-swiper.md)、[Tabs](./cj-navigation-switching-tabs.md)、[WaterFlow](./cj-scroll-swipe-waterflow.md)、[Refresh](./cj-scroll-swipe-refresh.md)、[bindSheet](./cj-animation-transition.md)。
 > - 支持嵌套滚动的输入事件：使用手势、鼠标、触控板。

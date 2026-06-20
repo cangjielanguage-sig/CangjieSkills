@@ -1,4 +1,4 @@
-## class SnapshotResult
+﻿## class SnapshotResult
 
 ```cangjie
 public class SnapshotResult {
@@ -37,7 +37,7 @@ public var id: ?String
 public var image: ?PixelMap
 ```
 
-**功能：** [PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)格式的全量绘制结果。
+**功能：** [PixelMap](../../cj-apis-image/.overview.md)格式的全量绘制结果。
 
 **类型：** PixelMap
 
@@ -95,7 +95,7 @@ public SnapshotResult(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |id|?String|是|-|snapshot的id。|
-|image|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|是|-|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)格式的全量绘制结果。|
+|image|[PixelMap](../../cj-apis-image/.overview.md)|是|-|[PixelMap](../../cj-apis-image/.overview.md)格式的全量绘制结果。|
 |status|?Bool|是|-|snapshot的状态，正常为true，失败为false，获取全量绘制结果失败，返回size的长宽都为0，map为空。|
 |size|[SizeOptions](#struct-sizeoptions)|是|-|web绘制的真实尺寸，默认单位vp。|
 

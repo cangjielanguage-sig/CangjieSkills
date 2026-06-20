@@ -1,6 +1,6 @@
-### WindowStageWillDestroy状态
+﻿### WindowStageWillDestroy状态
 
-对应[onWindowStageWillDestroy()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#let-onwindowstagewilldestroy)回调，在WindowStage销毁前执行，此时WindowStage可以使用。
+对应[onWindowStageWillDestroy()](../../../cj-apis-ability/.overview.md)回调，在WindowStage销毁前执行，此时WindowStage可以使用。
 
 ```cangjie
 import kit.AbilityKit.UIAbility
@@ -32,4 +32,4 @@ class MainAbility <: UIAbility {
 
 > **说明：**
 >
-> WindowStage的相关使用请参见[窗口开发指导](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-window.md)。
+> WindowStage的相关使用请参见[窗口开发指导](../../../cj-apis-window/.overview.md)。

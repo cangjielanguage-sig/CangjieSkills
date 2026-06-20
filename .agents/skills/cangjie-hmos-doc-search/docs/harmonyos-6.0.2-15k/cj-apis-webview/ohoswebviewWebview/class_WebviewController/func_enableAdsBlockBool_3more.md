@@ -1,4 +1,4 @@
-### func enableAdsBlock(Bool)
+﻿### func enableAdsBlock(Bool)
 
 ```cangjie
 public func enableAdsBlock(enable : Bool) : Unit
@@ -18,7 +18,7 @@ public func enableAdsBlock(enable : Bool) : Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,7 +73,7 @@ public func enableIntelligentTrackingPrevention(enable: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -128,7 +128,7 @@ public func enableSafeBrowsing(enable: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

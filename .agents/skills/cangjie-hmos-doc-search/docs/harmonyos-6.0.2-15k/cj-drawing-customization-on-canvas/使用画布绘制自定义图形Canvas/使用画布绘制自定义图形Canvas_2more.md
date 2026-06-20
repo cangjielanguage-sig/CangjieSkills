@@ -1,4 +1,4 @@
-# 使用画布绘制自定义图形（Canvas）
+﻿# 使用画布绘制自定义图形（Canvas）
 
 Canvas提供画布组件，用于自定义绘制图形，开发者使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
 
@@ -6,7 +6,7 @@ Canvas提供画布组件，用于自定义绘制图形，开发者使用CanvasRe
 
 可以由以下三种形式在画布绘制自定义图形：
 
-- 使用[CanvasRenderingContext2D](../../API_Reference/source_zh_cn/arkui-cj/cj-canvas-drawing-canvasrenderingcontext2d.md)对象在Canvas画布上绘制。
+- 使用[CanvasRenderingContext2D](../../cj-canvas-drawing-canvasrenderingcontext2d/.overview.md)对象在Canvas画布上绘制。
 
   <!-- run -->
 
@@ -47,7 +47,7 @@ Canvas提供画布组件，用于自定义绘制图形，开发者使用CanvasRe
   1. 通过transferToImageBitmap方法将离屏画布最近渲染的图像创建为一个ImageBitmap对象。
   2. 通过CanvasRenderingContext2D对象的transferFromImageBitmap方法显示给定的ImageBitmap对象。
 
-  具体使用参考[OffscreenCanvasRenderingContext2D](../../API_Reference/source_zh_cn/arkui-cj/cj-canvas-drawing-canvasrenderingcontext2d.md#class-canvasrenderingcontext2d)对象。
+  具体使用参考[OffscreenCanvasRenderingContext2D](../../cj-canvas-drawing-canvasrenderingcontext2d/.overview.md)对象。
 
   <!-- run -->
 

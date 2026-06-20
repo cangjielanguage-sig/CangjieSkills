@@ -1,4 +1,4 @@
-## func getSharedDirty()
+﻿## func getSharedDirty()
 
 ```cangjie
 public func getSharedDirty(): UInt64
@@ -51,7 +51,7 @@ public func getSystemCpuUsage(): Float64
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Hidebug CpuUsage错误码](../../errorcodes/cj-errorcode-hidebug-cpuusage.md)。
+- BusinessException：对应错误码的详细介绍请参见[Hidebug CpuUsage错误码](../../cj-errorcode-hidebug-cpuusage/cj-errorcode-hidebug-cpuusage.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### static func getSimState(Int32)
+﻿### static func getSimState(Int32)
 
 ```cangjie
 public static func getSimState(slotId: Int32): SimState
@@ -24,7 +24,7 @@ public static func getSimState(slotId: Int32): SimState
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public static func hasOperatorPrivileges(slotId: Int32): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -120,7 +120,7 @@ public static func hasSimCard(slotId: Int32): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -168,7 +168,7 @@ public static func isSimActive(slotId: Int32): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

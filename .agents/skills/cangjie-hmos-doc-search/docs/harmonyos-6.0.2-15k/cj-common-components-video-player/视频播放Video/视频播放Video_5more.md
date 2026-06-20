@@ -1,10 +1,10 @@
-# 视频播放（Video）
+﻿# 视频播放（Video）
 
-Video组件用于播放视频文件并控制其播放状态，常用于为短视频和应用内部视频的列表页面。当视频完整出现时会自动播放，用户点击视频区域则会暂停播放，同时显示播放进度条，通过拖动播放进度条指定视频播放到具体位置。具体用法请参见[Video](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-video.md)。
+Video组件用于播放视频文件并控制其播放状态，常用于为短视频和应用内部视频的列表页面。当视频完整出现时会自动播放，用户点击视频区域则会暂停播放，同时显示播放进度条，通过拖动播放进度条指定视频播放到具体位置。具体用法请参见[Video](../../cj-image-video-video/.overview.md)。
 
 ## 创建视频组件
 
-Video通过调用接口来创建，接口调用形式请参见[创建Video组件](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-video.md#创建组件)。
+Video通过调用接口来创建，接口调用形式请参见[创建Video组件](../../cj-image-video-video/.overview.md)。
 
 ## 加载视频资源
 
@@ -74,7 +74,7 @@ class VideoPlayer {
 
 ## 添加属性
 
-Video组件[属性](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-video.md#组件属性)主要用于设置视频的播放形式。例如设置视频播放是否静音、播放是否显示控制条等。
+Video组件[属性](../../cj-image-video-video/.overview.md)主要用于设置视频的播放形式。例如设置视频播放是否静音、播放是否显示控制条等。
 
 ```cangjie
 @Component
@@ -96,7 +96,7 @@ class VideoPlayer {
 
 ## 事件调用
 
-Video组件回调事件主要为播放开始、暂停结束、播放失败、播放停止、视频准备和操作进度条等事件，除此之外，Video组件也支持通用事件的调用，如点击、触摸等事件的调用。详情请参见[事件说明](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-video.md#组件事件)。
+Video组件回调事件主要为播放开始、暂停结束、播放失败、播放停止、视频准备和操作进度条等事件，除此之外，Video组件也支持通用事件的调用，如点击、触摸等事件的调用。详情请参见[事件说明](../../cj-image-video-video/.overview.md)。
 
 ```cangjie
 @Component

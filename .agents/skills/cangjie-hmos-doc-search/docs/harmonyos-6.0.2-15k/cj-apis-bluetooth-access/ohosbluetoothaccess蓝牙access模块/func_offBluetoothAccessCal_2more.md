@@ -1,4 +1,4 @@
-## func off(BluetoothAccessCallbackType, ?CallbackObject)
+﻿## func off(BluetoothAccessCallbackType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: BluetoothAccessCallbackType, callback!: ?CallbackObject = None): Unit
@@ -17,11 +17,11 @@ public func off(`type`: BluetoothAccessCallbackType, callback!: ?CallbackObject 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[BluetoothAccessCallbackType](#enum-bluetoothaccesscallbacktype)|是|-|表示蓝牙状态改变事件。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 表示取消订阅蓝牙状态改变事件上报。缺省该参数则取消订阅该type对应的所有回调。|
+|callback|?[CallbackObject](../../cj-apis-base/.overview.md)|否|None| **命名参数。** 表示取消订阅蓝牙状态改变事件上报。缺省该参数则取消订阅该type对应的所有回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,11 +76,11 @@ public func on(`type`: BluetoothAccessCallbackType, callback: Callback1Argument<
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[BluetoothAccessCallbackType](#enum-bluetoothaccesscallbacktype)|是|表示蓝牙状态改变事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BluetoothState](#enum-bluetoothstate)>|是|表示回调函数的入参，蓝牙状态。回调函数由用户创建通过该接口注册。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[BluetoothState](#enum-bluetoothstate)>|是|表示回调函数的入参，蓝牙状态。回调函数由用户创建通过该接口注册。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

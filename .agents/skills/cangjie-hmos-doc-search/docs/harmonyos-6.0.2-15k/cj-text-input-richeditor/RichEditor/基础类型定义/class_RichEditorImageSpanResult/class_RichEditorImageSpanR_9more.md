@@ -1,4 +1,4 @@
-### class RichEditorImageSpanResult
+﻿### class RichEditorImageSpanResult
 
 ```cangjie
 public class RichEditorImageSpanResult {
@@ -120,7 +120,7 @@ public var valuePixelMap: Option<PixelMap>
 
 **功能：** 表示图片内容。
 
-**类型：** Option\<[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** Option\<[PixelMap](../../../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 

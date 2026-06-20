@@ -1,4 +1,4 @@
-# Network Kit简介
+﻿# Network Kit简介
 
 Network Kit（网络服务）主要提供以下功能：
 
@@ -9,7 +9,7 @@ Network Kit（网络服务）主要提供以下功能：
 ## 约束与限制
 
 使用网络管理模块的相关功能时，需要请求相应的权限。
-在申请权限前，请确保符合[权限使用的基本原则](../security/AccessToken/cj-app-permission-mgmt-overview.md#权限使用的基本原则)。然后参考[访问控制-声明权限](../security/AccessToken/cj-declare-permissions.md)声明对应权限。
+在申请权限前，请确保符合[权限使用的基本原则](../cj-app-permission-mgmt-overview/.overview.md)。然后参考[访问控制-声明权限](../cj-declare-permissions/.overview.md)声明对应权限。
 
 | 权限名                           | 说明                                   |
 | -------------------------------- | -------------------------------------- |

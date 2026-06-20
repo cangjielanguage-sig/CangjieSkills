@@ -1,4 +1,4 @@
-# 拉起邮件类应用（startAbilityByType）
+﻿# 拉起邮件类应用（startAbilityByType）
 
 本章介绍如何拉起邮件类应用扩展面板。
 
@@ -14,7 +14,7 @@ startAbilityByType接口中type字段为mail，对应的wantParam参数：
 | subject | String | 否 | 邮件主题。 |
 | body | String | 否 | 邮件内容。 |
 | ability.params.stream | Array\<String> | 否 | 邮件附件（附件的uri地址列表）。 |
-| ability.want.params.uriPermissionFlag | Int64 | 否 | 给邮件附件赋予至少读权限。[Flags](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#enum-flags)。邮件附件参数存在时，该参数也必须要传 |
+| ability.want.params.uriPermissionFlag | Int64 | 否 | 给邮件附件赋予至少读权限。[Flags](../../cj-apis-ability/.overview.md)。邮件附件参数存在时，该参数也必须要传 |
 | sceneType | Int64 | 否 | 意图场景，表明本次请求对应的操作意图。1：发邮件。默认为1。 |
 
 > **说明：**

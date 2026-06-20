@@ -1,4 +1,4 @@
-## AVPlayer
+﻿## AVPlayer
 
 AVPlayer主要工作是将Audio/Video媒体资源（比如mp4/mp3/mkv/mpeg-ts等）转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放。
 
@@ -30,7 +30,7 @@ AVPlayer具有功能完善一体化的播放能力，应用只需提供流媒体
 
 图中的数字标注表示需要数据与外部模块的传递。
 
-1. 应用从XComponent组件获取窗口SurfaceID，获取方式请参见[XComponent](../../../API_Reference/source_zh_cn/arkui-cj/cj-rendering-drawing-xcomponent.md)。
+1. 应用从XComponent组件获取窗口SurfaceID，获取方式请参见[XComponent](../../../cj-rendering-drawing-xcomponent/.overview.md)。
 
 2. 应用把媒体资源、SurfaceID传递给AVPlayer接口。
 

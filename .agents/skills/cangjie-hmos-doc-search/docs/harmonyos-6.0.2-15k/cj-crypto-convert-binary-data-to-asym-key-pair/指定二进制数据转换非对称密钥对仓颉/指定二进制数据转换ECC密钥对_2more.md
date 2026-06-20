@@ -1,4 +1,4 @@
-## 指定二进制数据转换ECC密钥对
+﻿## 指定二进制数据转换ECC密钥对
 
 对应的算法规格请参见[非对称密钥生成和转换规格：ECC](./cj-crypto-asym-key-generation-conversion-spec.md#ecc)。
 
@@ -6,9 +6,9 @@
 
    公钥和私钥可只传入其中一个，此处示例以传入公钥、私钥为例。
 
-2. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'ECC256'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
+2. 调用[createAsyKeyGenerator](../../cj-apis-crypto/.overview.md)，指定字符串参数'ECC256'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
 
-3. 调用[convertKey](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-convertkeydatablob-datablob)，传入公钥二进制和私钥二进制，生成非对称密钥对象（KeyPair）。
+3. 调用[convertKey](../../cj-apis-crypto/.overview.md)，传入公钥二进制和私钥二进制，生成非对称密钥对象（KeyPair）。
 
 以生成ECC密钥对为例：
 
@@ -42,11 +42,11 @@ func convertECCAsyKey() {
 
 获取ECC公钥或私钥二进制数据，封装成DataBlob对象再转为ECC密钥格式。示例如下：
 
-1. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'ECC256'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
+1. 调用[createAsyKeyGenerator](../../cj-apis-crypto/.overview.md)，指定字符串参数'ECC256'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
 
-2. 调用[getEncoded](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getencoded) 并设置参数为'PKCS8'，获取私钥数据的字节流。由此分别获取密钥对象的二进制数据。
+2. 调用[getEncoded](../../cj-apis-crypto/.overview.md) 并设置参数为'PKCS8'，获取私钥数据的字节流。由此分别获取密钥对象的二进制数据。
 
-3. 调用[convertKey](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-convertkeydatablob-datablob)，将上述生成的二进制密钥数据转为非对称密钥对象（KeyPair）。
+3. 调用[convertKey](../../cj-apis-crypto/.overview.md)，将上述生成的二进制密钥数据转为非对称密钥对象（KeyPair）。
 
 ```cangjie
 import kit.CryptoArchitectureKit.*

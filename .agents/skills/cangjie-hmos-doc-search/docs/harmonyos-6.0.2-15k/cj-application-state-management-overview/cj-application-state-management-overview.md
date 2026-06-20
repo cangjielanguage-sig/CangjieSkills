@@ -1,8 +1,8 @@
-# 管理应用拥有的状态概述
+﻿# 管理应用拥有的状态概述
 
 上一个章节中介绍的装饰器仅能在页面内，即一个组件树上共享状态变量。如果开发者要实现应用级的，或者多个页面的状态数据共享，就需要用到应用级别的状态管理的概念。根据不同特性，框架内提供了多种应用状态管理的能力：
 
-- [LocalStorage](./cj-localstorage.md)：页面级UI状态存储，通常用于[UIAbility](../../../Dev_Guide/application-models/cj-uiability-overview.md)内、页面间的状态共享。
+- [LocalStorage](./cj-localstorage.md)：页面级UI状态存储，通常用于[UIAbility](../cj-uiability-overview/cj-uiability-overview.md)内、页面间的状态共享。
 
 - [AppStorage](./cj-appstorage.md)：特殊的单例LocalStorage对象，由UI框架在应用程序启动时创建，为应用程序UI状态属性提供中央存储。
 

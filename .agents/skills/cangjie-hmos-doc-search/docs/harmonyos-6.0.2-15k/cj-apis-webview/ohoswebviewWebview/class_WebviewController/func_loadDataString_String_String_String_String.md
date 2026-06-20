@@ -1,4 +1,4 @@
-### func loadData(String, String, String, String, String)
+﻿### func loadData(String, String, String, String, String)
 
 ```cangjie
 public func loadData(data: String, mimeType: String, encoding: String, baseUrl!: String = "", historyUrl!: String = ""): Unit
@@ -22,7 +22,7 @@ public func loadData(data: String, mimeType: String, encoding: String, baseUrl!:
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

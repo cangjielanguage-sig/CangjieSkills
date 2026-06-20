@@ -1,4 +1,4 @@
-### func onAddForm(Want)
+﻿### func onAddForm(Want)
 
 ```cangjie
 public open func onAddForm(want: Want): FormBindingData
@@ -14,13 +14,13 @@ public open func onAddForm(want: Want): FormBindingData
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|want|[Want](../AbilityKit/cj-apis-ability.md#class-want)|是|-|当前卡片相关的Want类型信息，包括卡片ID、卡片名称、卡片样式等。这些卡片信息必须作为持久数据进行管理，以便后续更新和删除卡片。|
+|want|[Want](../../../cj-apis-ability/.overview.md)|是|-|当前卡片相关的Want类型信息，包括卡片ID、卡片名称、卡片样式等。这些卡片信息必须作为持久数据进行管理，以便后续更新和删除卡片。|
 
 **返回值：**
 
 |类型|说明|
 |:----|:----|
-|[FormBindingData](../FormKit/cj-apis-app-form-formBindingData.md#class-formbindingdata)|formBindingData.FormBindingData对象，卡片要显示的数据。|
+|[FormBindingData](../../../cj-apis-app-form-formBindingData/.overview.md)|formBindingData.FormBindingData对象，卡片要显示的数据。|
 
 **示例：**
 

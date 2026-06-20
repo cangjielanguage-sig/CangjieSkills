@@ -1,4 +1,4 @@
-### func off(CameraCallbackType)
+﻿### func off(CameraCallbackType)
 
 ```cangjie
 public func off(`type`: CameraCallbackType): Unit
@@ -55,7 +55,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<CaptureSt
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为captureStartWithInfo，photoOutput创建成功后可监听。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[CaptureStartInfo](#struct-capturestartinfo)>|是|-|回调函数，用于获取相关信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[CaptureStartInfo](#struct-capturestartinfo)>|是|-|回调函数，用于获取相关信息。|
 
 **示例：**
 

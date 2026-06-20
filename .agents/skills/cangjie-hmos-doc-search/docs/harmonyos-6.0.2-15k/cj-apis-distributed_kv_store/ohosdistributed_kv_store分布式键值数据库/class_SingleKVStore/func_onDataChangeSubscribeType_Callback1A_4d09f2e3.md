@@ -1,4 +1,4 @@
-### func onDataChange(SubscribeType, Callback1Argument\<ChangeNotification>)
+﻿### func onDataChange(SubscribeType, Callback1Argument\<ChangeNotification>)
 
 ```cangjie
 public open func onDataChange(`type`: SubscribeType, callback: Callback1Argument<ChangeNotification>): Unit
@@ -15,11 +15,11 @@ public open func onDataChange(`type`: SubscribeType, callback: Callback1Argument
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[SubscribeType](cj-apis-relational_store.md#enum-subscribetype)|是|-|表示订阅的类型。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ChangeNotification](#class-changenotification)>|是|-|回调函数。成功返回数据变更时通知的对象。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ChangeNotification](#class-changenotification)>|是|-|回调函数。成功返回数据变更时通知的对象。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

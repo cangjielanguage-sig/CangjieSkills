@@ -1,4 +1,4 @@
-### func baselineOffset(Length)
+﻿### func baselineOffset(Length)
 
 ```cangjie
 public func baselineOffset(value: Length): This
@@ -109,4 +109,4 @@ public func fontFamily(content: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|字体列表。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|字体列表。|

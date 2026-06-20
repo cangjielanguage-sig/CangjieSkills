@@ -1,4 +1,4 @@
-### static func truncate(Int32, Int64)
+﻿### static func truncate(Int32, Int64)
 
 ```cangjie
 public static func truncate(file: Int32, len!: Int64 = 0): Unit
@@ -19,7 +19,7 @@ public static func truncate(file: Int32, len!: Int64 = 0): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -57,7 +57,7 @@ public static func unlink(path: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -94,7 +94,7 @@ public static func utimes(path: String, mtime: Float64): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -142,4 +142,4 @@ public static func write(fd: Int32, buffer: Array<Byte>, options!: WriteOptions 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。

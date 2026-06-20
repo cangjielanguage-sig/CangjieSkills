@@ -1,4 +1,4 @@
-## class Callee
+﻿## class Callee
 
 ```cangjie
 public class Callee {}
@@ -30,7 +30,7 @@ public func off(method: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -55,11 +55,11 @@ public func on(method: String, callback: CalleeCallback): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |method|String|是|-|与客户端约定的通知消息字符串。|
-|callback|[CalleeCallback](#class-calleecallback)|是|-|一个[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence)类型入参的通知同步回调函数, 回调函数至少要返回一个空的[Parcelable](../IPCKit/cj-apis-rpc.md#interface-parcelable)数据对象, 其他视为函数执行错误。|
+|callback|[CalleeCallback](#class-calleecallback)|是|-|一个[MessageSequence](../../cj-apis-rpc/.overview.md)类型入参的通知同步回调函数, 回调函数至少要返回一个空的[Parcelable](../../cj-apis-rpc/.overview.md)数据对象, 其他视为函数执行错误。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

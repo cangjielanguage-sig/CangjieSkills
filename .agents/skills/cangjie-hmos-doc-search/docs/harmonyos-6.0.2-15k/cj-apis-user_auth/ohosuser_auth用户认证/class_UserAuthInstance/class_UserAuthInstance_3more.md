@@ -1,4 +1,4 @@
-## class UserAuthInstance
+﻿## class UserAuthInstance
 
 ```cangjie
 public class UserAuthInstance {}
@@ -33,7 +33,7 @@ public func cancel(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[用户认证错误码](../../errorcodes/cj-errorcode-user-auth.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[用户认证错误码](../../../cj-errorcode-user-auth/cj-errorcode-user-auth.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -84,7 +84,7 @@ public func off(`type`: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[用户认证错误码](../../errorcodes/cj-errorcode-user-auth.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[用户认证错误码](../../../cj-errorcode-user-auth/cj-errorcode-user-auth.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

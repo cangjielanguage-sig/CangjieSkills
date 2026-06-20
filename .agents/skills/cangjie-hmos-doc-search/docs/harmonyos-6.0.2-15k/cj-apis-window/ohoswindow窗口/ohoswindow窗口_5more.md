@@ -1,4 +1,4 @@
-# ohos.window（窗口）
+﻿# ohos.window（窗口）
 
 ohos.window提供管理窗口的一些基础能力，包括对当前窗口的创建、销毁、各属性设置，以及对各窗口间的管理调度。
 
@@ -46,7 +46,7 @@ public func createWindow(config: Configuration): Window
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -81,7 +81,7 @@ public func findWindow(name: String): Window
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -104,7 +104,7 @@ public func getLastWindow(ctx: StageContext): Window
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|ctx|[StageContext](../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|当前应用上下文信息。|
+|ctx|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|当前应用上下文信息。|
 
 **返回值：**
 
@@ -114,7 +114,7 @@ public func getLastWindow(ctx: StageContext): Window
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

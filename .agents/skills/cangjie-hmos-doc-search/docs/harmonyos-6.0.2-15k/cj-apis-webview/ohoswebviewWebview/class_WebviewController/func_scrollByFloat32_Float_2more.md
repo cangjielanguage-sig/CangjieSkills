@@ -1,4 +1,4 @@
-### func scrollBy(Float32, Float32, Int32)
+﻿### func scrollBy(Float32, Float32, Int32)
 
 ```cangjie
 public func scrollBy(deltaX: Float32, deltaY: Float32, duration!: Int32 = 0): Unit
@@ -20,7 +20,7 @@ public func scrollBy(deltaX: Float32, deltaY: Float32, duration!: Int32 = 0): Un
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -105,7 +105,7 @@ public func scrollByWithResult(deltaX: Float32, deltaY: Float32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码如下表，详见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

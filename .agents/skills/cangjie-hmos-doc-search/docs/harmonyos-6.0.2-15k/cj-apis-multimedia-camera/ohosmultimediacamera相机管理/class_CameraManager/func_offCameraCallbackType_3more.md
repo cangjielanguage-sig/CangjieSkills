@@ -1,4 +1,4 @@
-### func off(CameraCallbackType, Callback1Argument\<FoldStatusInfo>)
+﻿### func off(CameraCallbackType, Callback1Argument\<FoldStatusInfo>)
 
 ```cangjie
 public func off(`type`: CameraCallbackType, callback: Callback1Argument<FoldStatusInfo>): Unit
@@ -15,7 +15,7 @@ public func off(`type`: CameraCallbackType, callback: Callback1Argument<FoldStat
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为foldStatusChange。表示折叠设备折叠状态发生变化。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[FoldStatusInfo](#struct-foldstatusinfo)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[FoldStatusInfo](#struct-foldstatusinfo)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 
@@ -59,7 +59,7 @@ public func off(`type`: CameraCallbackType, callback: Callback1Argument<TorchSta
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为torchStatusChange。cameraManager对象获取成功后可监听。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[TorchStatusInfo](#struct-torchstatusinfo)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[TorchStatusInfo](#struct-torchstatusinfo)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

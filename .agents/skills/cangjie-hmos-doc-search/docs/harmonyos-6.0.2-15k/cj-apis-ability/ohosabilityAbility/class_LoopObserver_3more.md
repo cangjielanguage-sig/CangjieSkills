@@ -1,4 +1,4 @@
-## class LoopObserver
+﻿## class LoopObserver
 
 ```cangjie
 public class LoopObserver {
@@ -67,7 +67,7 @@ public class OnReleaseCallback <: Callback1Argument<String> {
 
 **父类型：**
 
-- [Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<String>
+- [Callback1Argument](../../cj-apis-base/.overview.md)\<String>
 
 ### OnReleaseCallback((String) -> Unit)
 
@@ -121,7 +121,7 @@ public class OnRemoteStateChangeCallback <: Callback1Argument<String> {
 
 **父类型：**
 
-- [Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<String>
+- [Callback1Argument](../../cj-apis-base/.overview.md)\<String>
 
 ### OnRemoteStateChangeCallback((String) -> Unit)
 

@@ -1,4 +1,4 @@
-### 获取版本信息
+﻿### 获取版本信息
 
 ```bash
 hdc shell uitest --version
@@ -16,4 +16,4 @@ hdc shell uitest start-daemon
 >
 > 仅由aa test命令拉起的进程才具备调用UITest接口的能力；例如由aa start所拉起的Ability在调用UITest接口时将报错。
 >
-> 测试hap的[APL等级级别](../security/AccessToken/cj-app-permission-mgmt-overview.md#权限机制中的基本概念)需为system_basic、normal。
+> 测试hap的[APL等级级别](../../../cj-app-permission-mgmt-overview/.overview.md)需为system_basic、normal。

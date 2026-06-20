@@ -1,4 +1,4 @@
-### func on(AudioCapturerCallbackType, Callback1Argument\<Array\<Byte>>)
+﻿### func on(AudioCapturerCallbackType, Callback1Argument\<Array\<Byte>>)
 
 ```cangjie
 public func on(`type`: AudioCapturerCallbackType, callback: Callback1Argument<Array<Byte>>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AudioCapturerCallbackType, callback: Callback1Argument<Ar
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioCapturerCallbackType](#enum-audiocapturercallbacktype)|是|-|监听事件，固定为：'READ_DATA'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<Byte>>|是|-|回调函数，返回读到的数据缓冲区。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<Byte>>|是|-|回调函数，返回读到的数据缓冲区。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

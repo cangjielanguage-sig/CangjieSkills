@@ -1,4 +1,4 @@
-## class HceService
+﻿## class HceService
 
 ```cangjie
 public class HceService {}
@@ -29,7 +29,7 @@ public func on(`type`: NfcEventType, callback: Callback1Argument<Array<UInt8>>):
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[NfcEventType](#enum-nfceventtype)|是|要订阅的回调类型，固定填hceCmd。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<UInt8>>|是|订阅的事件回调，入参是符合APDU协议的数据，每个UInt8十六进制表示，范围是0x00~0xFF。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<UInt8>>|是|订阅的事件回调，入参是符合APDU协议的数据，每个UInt8十六进制表示，范围是0x00~0xFF。|
 
 ### func start(ElementName, Array\<String>)
 
@@ -49,12 +49,12 @@ public func start(elementName: ElementName, aidList: Array<String>): Unit
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|elementName|[ElementName](../AbilityKit/cj-apis-ability.md#class-elementname)|是|所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。|
+|elementName|[ElementName](../../../cj-apis-ability/.overview.md)|是|所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。|
 |aidList|Array\<String>|是|动态注册卡模拟的AID列表，允许为空。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[NFC错误码](../../errorcodes/cj-errorcode-nfc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[NFC错误码](../../../cj-errorcode-nfc/cj-errorcode-nfc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## 监控默认网络变化并主动重建网络连接
+﻿## 监控默认网络变化并主动重建网络连接
 
 根据当前网络状态及网络质量情况，默认网络可能会发生变化，如下所示。
 
@@ -27,11 +27,11 @@ func test() {
 
 ## 获取所有注册的网络
 
-1. 声明接口调用所需要的权限：ohos.permission.GET_NETWORK_INFO。此权限级别为normal，在申请权限前，请确保符合[权限使用的基本原则](../security/AccessToken/cj-app-permission-mgmt-overview.md#权限使用的基本原则)。然后参考[访问控制-声明权限](../security/AccessToken/cj-declare-permissions.md)声明对应权限。
+1. 声明接口调用所需要的权限：ohos.permission.GET_NETWORK_INFO。此权限级别为normal，在申请权限前，请确保符合[权限使用的基本原则](../../cj-app-permission-mgmt-overview/.overview.md)。然后参考[访问控制-声明权限](../../cj-declare-permissions/.overview.md)声明对应权限。
 
 2. 从kit.NetworkKit中导入connection。
 
-3. 调用[getAllNets](../../API_Reference/source_zh_cn/apis/NetworkKit/cj-apis-net-connection.md#func-getallnets)方法，获取所有处于连接状态的网络列表。
+3. 调用[getAllNets](../../cj-apis-net-connection/.overview.md)方法，获取所有处于连接状态的网络列表。
 
 ```cangjie
 // 引入包名。

@@ -1,4 +1,4 @@
-### func showTextInput(RequestKeyboardReason)
+﻿### func showTextInput(RequestKeyboardReason)
 
 ```cangjie
 public func showTextInput(requestKeyboardReason: RequestKeyboardReason): Unit
@@ -22,7 +22,7 @@ public func showTextInput(requestKeyboardReason: RequestKeyboardReason): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码如下表，详见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -75,7 +75,7 @@ public func stopInputSession(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -121,7 +121,7 @@ public func updateAttribute(attribute: InputAttribute): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

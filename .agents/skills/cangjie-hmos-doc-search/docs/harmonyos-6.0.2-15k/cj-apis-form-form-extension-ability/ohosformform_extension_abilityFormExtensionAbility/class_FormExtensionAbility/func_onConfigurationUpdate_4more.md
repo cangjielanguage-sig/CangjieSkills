@@ -1,4 +1,4 @@
-### func onConfigurationUpdate(AbilityConfiguration)
+﻿### func onConfigurationUpdate(AbilityConfiguration)
 
 ```cangjie
 public open func onConfigurationUpdate(newConfig: AbilityConfiguration): Unit
@@ -14,7 +14,7 @@ public open func onConfigurationUpdate(newConfig: AbilityConfiguration): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|newConfig|[AbilityConfiguration](../AbilityKit/cj-apis-ability.md#class-abilityconfiguration)|是|-|表示需要更新的配置信息。|
+|newConfig|[AbilityConfiguration](../../../cj-apis-ability/.overview.md)|是|-|表示需要更新的配置信息。|
 
 **示例：**
 

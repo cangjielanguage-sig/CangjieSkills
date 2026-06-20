@@ -1,10 +1,10 @@
-### func doAbilityBackground(UIAbility)
+﻿### func doAbilityBackground(UIAbility)
 
 ```cangjie
 public func doAbilityBackground(ability: UIAbility): Unit
 ```
 
-**功能：** 调度指定[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)生命周期状态到Background状态。
+**功能：** 调度指定[UIAbility](../../../cj-apis-ability/.overview.md)生命周期状态到Background状态。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -14,11 +14,11 @@ public func doAbilityBackground(ability: UIAbility): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|ability|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)|是|-|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)对象。|
+|ability|[UIAbility](../../../cj-apis-ability/.overview.md)|是|-|[UIAbility](../../../cj-apis-ability/.overview.md)对象。|
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |
@@ -47,7 +47,7 @@ delegator.doAbilityBackground(ability)
 public func doAbilityForeground(ability: UIAbility): Unit
 ```
 
-**功能：** 调度指定[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)生命周期状态到Foreground状态。
+**功能：** 调度指定[UIAbility](../../../cj-apis-ability/.overview.md)生命周期状态到Foreground状态。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -57,11 +57,11 @@ public func doAbilityForeground(ability: UIAbility): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|ability|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)|是|-|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)对象。|
+|ability|[UIAbility](../../../cj-apis-ability/.overview.md)|是|-|[UIAbility](../../../cj-apis-ability/.overview.md)对象。|
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |

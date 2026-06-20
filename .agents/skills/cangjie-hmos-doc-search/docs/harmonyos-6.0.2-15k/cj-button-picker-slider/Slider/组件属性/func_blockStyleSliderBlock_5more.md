@@ -1,4 +1,4 @@
-### func blockStyle(SliderBlockType, String, ?ShapeAbstract)
+﻿### func blockStyle(SliderBlockType, String, ?ShapeAbstract)
 
 ```cangjie
 public func blockStyle(`type`: SliderBlockType, image!: String = "", shape!: ?ShapeAbstract = None): This
@@ -35,7 +35,7 @@ public func blockStyle(`type`: SliderBlockType, image!: AppResource, shape!: ?Sh
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |type|[SliderBlockType](#enum-sliderblocktype)|是|-|滑块形状参数。<br/>初始值：<br/>SliderBlockType.DEFAULT，使用圆形滑块。|
-|image|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 设置滑块图片资源。图片显示区域大小由blockSize属性控制，请勿输入尺寸过大的图片。|
+|image|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 设置滑块图片资源。图片显示区域大小由blockSize属性控制，请勿输入尺寸过大的图片。|
 |shape|?[ShapeAbstract](./cj-graphic-drawing-shape.md#class-shapeabtract)|否|None| **命名参数。** 设置滑块使用的自定义形状。包含[Circle](./cj-graphic-drawing-circle.md)、[Ellipse](./cj-graphic-drawing-ellipse.md)、[Path](./cj-graphic-drawing-path.md)、[Rect](./cj-graphic-drawing-rect.md)。|
 
 ### func maxLabel(Float64) <sup>(deprecated)</sup>

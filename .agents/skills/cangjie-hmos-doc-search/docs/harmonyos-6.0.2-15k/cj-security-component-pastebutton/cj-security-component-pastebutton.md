@@ -1,4 +1,4 @@
-# 使用粘贴控件
+﻿# 使用粘贴控件
 
 粘贴控件是一种特殊的系统安全控件，它允许应用在用户的授权下无提示地读取剪贴板数据。
 
@@ -32,7 +32,7 @@
 
     应用申明安全控件的接口时，分为传参和不传参两种，不传参默认创建图标+文字+背景的按钮，传参根据传入的参数创建，不包含没有配置的元素。
 
-    当前示例使用默认参数。具体请参见[PasteButton控件](../../../API_Reference/source_zh_cn/arkui-cj/cj-sec-paste-button.md)。此外，所有安全控件都继承[安全控件通用属性](../../../API_Reference/source_zh_cn/arkui-cj/cj-sec-button.md)，可用于定制样式。
+    当前示例使用默认参数。具体请参见[PasteButton控件](../cj-sec-paste-button/.overview.md)。此外，所有安全控件都继承[安全控件通用属性](../cj-sec-button/.overview.md)，可用于定制样式。
 
     <!-- run -->
 

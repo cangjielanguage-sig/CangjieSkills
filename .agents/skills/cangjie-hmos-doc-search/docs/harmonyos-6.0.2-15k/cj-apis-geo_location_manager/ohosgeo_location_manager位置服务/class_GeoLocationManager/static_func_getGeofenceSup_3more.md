@@ -1,4 +1,4 @@
-### static func getGeofenceSupportedCoordTypes()
+﻿### static func getGeofenceSupportedCoordTypes()
 
 ```cangjie
 public static func getGeofenceSupportedCoordTypes(): Array<CoordinateSystemType>
@@ -18,7 +18,7 @@ public static func getGeofenceSupportedCoordTypes(): Array<CoordinateSystemType>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[位置服务子系统错误码](../../errorcodes/cj-errorcode-geo_location_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[位置服务子系统错误码](../../../cj-errorcode-geo_location_manager/cj-errorcode-geo_location_manager.md)。
 
   | 错误码ID | 错误信息 |
   |:-------- |:---------------------------------------- |
@@ -59,7 +59,7 @@ public static func getLastLocation(): Location
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[位置服务子系统错误码](../../errorcodes/cj-errorcode-geo_location_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[位置服务子系统错误码](../../../cj-errorcode-geo_location_manager/cj-errorcode-geo_location_manager.md)。
 
   | 错误码ID | 错误信息 |
   |:-------- |:---------------------------------------- |
@@ -101,7 +101,7 @@ public static func isGeocoderAvailable(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[位置服务子系统错误码](../../errorcodes/cj-errorcode-geo_location_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[位置服务子系统错误码](../../../cj-errorcode-geo_location_manager/cj-errorcode-geo_location_manager.md)。
 
   | 错误码ID | 错误信息 |
   |:-------- |:---------------------------------------- |

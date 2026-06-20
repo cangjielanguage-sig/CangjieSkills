@@ -1,4 +1,4 @@
-# 查看HiTraceMeter日志
+﻿# 查看HiTraceMeter日志
 
 ## 通过DevEco Studio可视化界面查看
 
@@ -6,9 +6,9 @@
 
 ## 通过命令行工具查看
 
-1. 根据 hdc 命令行工具指导，完成[环境准备](../tools/cj-hdc.md#环境准备)，可以使用 `hdc shell` 命令正常连接设备。
+1. 根据 hdc 命令行工具指导，完成[环境准备](../cj-hdc/.overview.md)，可以使用 `hdc shell` 命令正常连接设备。
 
-2. 在 DevEco Studio 的 Terminal 窗口或主机命令行窗口执行 `hdc shell` 命令连接设备，在设备上执行 [hitrace](../tools/cj-hitrace.md) 命令开启 HiTraceMeter 日志抓取服务。
+2. 在 DevEco Studio 的 Terminal 窗口或主机命令行窗口执行 `hdc shell` 命令连接设备，在设备上执行 [hitrace](../cj-hitrace/.overview.md) 命令开启 HiTraceMeter 日志抓取服务。
 
    ```shell
    PS D:\xxx\xxx> hdc shell

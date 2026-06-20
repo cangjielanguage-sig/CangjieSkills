@@ -1,4 +1,4 @@
-# IPC Kit简介
+﻿# IPC Kit简介
 
 ## 基本概念
 
@@ -35,7 +35,7 @@ IPC和RPC通常采用客户端-服务端（Client-Server）模型，在使用时
 
 ## 约束与限制
 
-- 单个设备上跨进程通信时，传输的数据量最大约为1MB，过大的数据量请使用[匿名共享内存](../../API_Reference/source_zh_cn/apis/IPCKit/cj-apis-rpc.md#class-ashmem)。
+- 单个设备上跨进程通信时，传输的数据量最大约为1MB，过大的数据量请使用[匿名共享内存](../cj-apis-rpc/.overview.md)。
 
 - 不支持在RPC中订阅匿名Stub对象（没有向SAMgr注册Stub对象）的死亡通知。
 

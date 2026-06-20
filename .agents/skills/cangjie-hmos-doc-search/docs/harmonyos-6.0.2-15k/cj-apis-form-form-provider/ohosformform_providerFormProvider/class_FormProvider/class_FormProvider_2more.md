@@ -1,4 +1,4 @@
-## class FormProvider
+﻿## class FormProvider
 
 ```cangjie
 public class FormProvider {}
@@ -40,7 +40,7 @@ public static func getFormsInfo(filter!: FormInfoFilter = FormInfoFilter("")): A
   |:---|:---|:---|
   |Parameter is error, please check|传入错误的参数。|检查传入的参数是否满足要求。|
 
-- BusinessException：对应错误码的详细介绍请参见[卡片错误码](../../errorcodes/cj-errorcode-form.md)。
+- BusinessException：对应错误码的详细介绍请参见[卡片错误码](../../../cj-errorcode-form/cj-errorcode-form.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

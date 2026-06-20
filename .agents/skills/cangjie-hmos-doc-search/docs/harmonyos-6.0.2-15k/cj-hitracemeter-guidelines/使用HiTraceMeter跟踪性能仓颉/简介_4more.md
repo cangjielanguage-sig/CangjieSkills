@@ -1,4 +1,4 @@
-## 简介
+﻿## 简介
 
 HiTraceMeter提供系统性能打点接口。开发者通过在关键代码位置调用HiTraceMeter接口提供的API接口，能够有效跟踪进程轨迹、查看系统性能。
 
@@ -14,7 +14,7 @@ HiTraceMeter提供系统性能打点接口。开发者通过在关键代码位�
 
 ## 接口说明
 
-性能打点跟踪接口由HiTraceMeter模块提供，详细API请参见[性能打点跟踪API参考](../../API_Reference/source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hi_tracemeter.md)。
+性能打点跟踪接口由HiTraceMeter模块提供，详细API请参见[性能打点跟踪API参考](../../cj-apis-hi_tracemeter/.overview.md)。
 
 | 接口名 | 描述 |
 | -------- | -------- |

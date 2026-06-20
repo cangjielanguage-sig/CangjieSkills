@@ -1,10 +1,10 @@
-# 应用文件分享
+﻿# 应用文件分享
 
 应用文件分享是应用之间通过分享URI（Uniform Resource Identifier）进行文件共享的过程。
 
 ## 通过拉起文件处理类应用进行文件分享(startAbility)
 
-基于[文件选择器(startAbility)](../application-models/cj-file-processing-apps-startup.md)的分享方式，应用可分享单个文件。被分享应用可通过[ohos.file_fs的open](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#static-func-openstring-int64)打开URI，并进行读写操作。
+基于[文件选择器(startAbility)](../cj-file-processing-apps-startup/.overview.md)的分享方式，应用可分享单个文件。被分享应用可通过[ohos.file_fs的open](../cj-apis-file_fs/.overview.md)打开URI，并进行读写操作。
 
 ## 应用可分享目录
 

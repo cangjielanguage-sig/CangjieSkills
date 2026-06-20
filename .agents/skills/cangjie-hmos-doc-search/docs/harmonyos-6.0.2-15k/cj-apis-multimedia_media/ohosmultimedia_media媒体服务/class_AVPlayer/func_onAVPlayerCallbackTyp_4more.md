@@ -1,4 +1,4 @@
-### func on(AVPlayerCallbackType, Callback1Argument\<Array\<Float32>>)
+﻿### func on(AVPlayerCallbackType, Callback1Argument\<Array\<Float32>>)
 
 ```cangjie
 public func on(`type`: AVPlayerCallbackType, callback: Callback1Argument<Array<Float32>>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AVPlayerCallbackType, callback: Callback1Argument<Array<F
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVPlayerCallbackType](#enum-avplayercallbacktype)|是|-|事件回调类型，支持的事件为：[AmplitudeUpdate](#amplitudeupdate)。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<Float32>>|是|-|音频最大电平值更新事件回调方法。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<Float32>>|是|-|音频最大电平值更新事件回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -62,7 +62,7 @@ public func pause(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -100,7 +100,7 @@ public func play(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -138,7 +138,7 @@ public func prepare(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

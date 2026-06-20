@@ -1,4 +1,4 @@
-### init(() -> Unit, Placement, Color, Color, Bool, Bool, Option\<(StateChangeEvent) -> Unit>)
+﻿### init(() -> Unit, Placement, Color, Color, Bool, Bool, Option\<(StateChangeEvent) -> Unit>)
 
 ```cangjie
 public init(
@@ -22,7 +22,7 @@ public init(
 
 |名称|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-| builder | ()->Unit | 是 |  - | **命名参数。**  提示气泡内容的构造器。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。 |
+| builder | ()->Unit | 是 |  - | **命名参数。**  提示气泡内容的构造器。使用时结合[@Builder](../../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。 |
 | placement | [Placement](./cj-common-types.md#enum-placement) | 否 | Placement.Bottom | **命名参数。**  气泡组件优先显示的位置。<br>**说明：** 当前位置显示不下时，会自动调整位置。 |
 | maskColor  | [Color](./cj-common-types.md#class-color) | 否 | Color(0x1000000) | **命名参数。**   提示气泡遮障层的颜色。 |
 | popupColor | [Color](./cj-common-types.md#class-color) | 否 | Color(0x1000000) | **命名参数。**  提示气泡的颜色。 |

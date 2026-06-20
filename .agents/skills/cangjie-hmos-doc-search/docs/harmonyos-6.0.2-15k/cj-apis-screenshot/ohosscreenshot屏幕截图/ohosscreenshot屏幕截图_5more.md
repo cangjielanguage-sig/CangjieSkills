@@ -1,4 +1,4 @@
-# ohos.screenshot（屏幕截图）
+﻿# ohos.screenshot（屏幕截图）
 
 本模块提供屏幕截图的能力。
 
@@ -32,7 +32,7 @@ public func capture(options!: CaptureOption = CaptureOption()): PixelMap
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|返回一个PixelMap对象。|
+|[PixelMap](../../cj-apis-image/.overview.md)|返回一个PixelMap对象。|
 
 **异常：**
 

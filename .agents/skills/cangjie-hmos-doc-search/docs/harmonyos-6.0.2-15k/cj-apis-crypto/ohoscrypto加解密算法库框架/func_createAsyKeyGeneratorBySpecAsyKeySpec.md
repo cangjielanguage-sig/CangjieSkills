@@ -1,4 +1,4 @@
-## func createAsyKeyGeneratorBySpec(AsyKeySpec)
+﻿## func createAsyKeyGeneratorBySpec(AsyKeySpec)
 
 ```cangjie
 public func createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGeneratorBySpec
@@ -6,7 +6,7 @@ public func createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGenerator
 
 **功能：** 通过指定密钥参数，获取相应的非对称密钥生成器实例。
 
-支持的规格详见[非对称密钥生成和转换规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-asym-key-generation-conversion-spec.md)。
+支持的规格详见[非对称密钥生成和转换规格](../../cj-crypto-asym-key-generation-conversion-spec/.overview.md)。
 
 **系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
 
@@ -26,7 +26,7 @@ public func createAsyKeyGeneratorBySpec(asyKeySpec: AsyKeySpec): AsyKeyGenerator
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

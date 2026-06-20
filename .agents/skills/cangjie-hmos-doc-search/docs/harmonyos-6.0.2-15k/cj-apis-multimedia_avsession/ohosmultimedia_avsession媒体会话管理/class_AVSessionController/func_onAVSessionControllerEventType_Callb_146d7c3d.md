@@ -1,4 +1,4 @@
-### func on(AVSessionControllerEventType, Callback2Argument\<ConnectionState, OutputDeviceInfo>)
+﻿### func on(AVSessionControllerEventType, Callback2Argument\<ConnectionState, OutputDeviceInfo>)
 
 ```cangjie
 public func on(eventType: AVSessionControllerEventType, callback: Callback2Argument<ConnectionState, OutputDeviceInfo>): Unit
@@ -15,11 +15,11 @@ public func on(eventType: AVSessionControllerEventType, callback: Callback2Argum
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[AVSessionControllerEventType](#enum-avsessioncontrollereventtype)|是|-|事件回调类型，支持事件为EVENT_OUTPUT_DEVICE_CHANGE ：当播放设备变化时，触发该事件。|
-|callback|[Callback2Argument](../BasicServicesKit/cj-apis-base.md#class-callback2argument)\<[ConnectionState](#enum-connectionstate), [OutputDeviceInfo](#class-outputdeviceinfo)>|是|-|回调函数，参数device是设备相关信息。|
+|callback|[Callback2Argument](../../../cj-apis-base/.overview.md)\<[ConnectionState](#enum-connectionstate), [OutputDeviceInfo](#class-outputdeviceinfo)>|是|-|回调函数，参数device是设备相关信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

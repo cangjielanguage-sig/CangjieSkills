@@ -1,18 +1,18 @@
-# 获取应用异常退出原因
+﻿# 获取应用异常退出原因
 
 当应用异常退出后再次启动时，开发者往往需要获取上次异常退出的具体原因和当时的应用状态信息，比如应用内存占用的rss、pss值、上次应用退出的时间等等。通过UIAbility和UIExtensionAbility的OnCreate生命周期函数中的launchParam参数，开发者可以获取到相关信息，并将其应用于应用体验的分析改进，从而调整业务逻辑、提高应用的存活率。
 
 ## 约束限制
 
-仅[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)和[UIExtensionAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiextensionability)支持获取上次的退出原因。
+仅[UIAbility](../cj-apis-ability/.overview.md)和[UIExtensionAbility](../cj-apis-ability/.overview.md)支持获取上次的退出原因。
 
 ## 接口说明
 
-接口详情参见[API参考](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md)。
+接口详情参见[API参考](../cj-apis-ability/.overview.md)。
 
 | **接口名**  | **描述** |
 | -------- | -------- |
-| [LaunchParam](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-launchparam)       | 启动参数。此接口的lastExitReason、lastExitMessage成员记录UIAbility上次异常退出的信息。  |
+| [LaunchParam](../cj-apis-ability/.overview.md)       | 启动参数。此接口的lastExitReason、lastExitMessage成员记录UIAbility上次异常退出的信息。  |
 
 ## 开发步骤
 

@@ -1,4 +1,4 @@
-# 发布文本类型通知
+﻿# 发布文本类型通知
 
 文本类型通知主要应用于发送短信息、提示信息等，支持普通文本类型和多行文本类型。
 
@@ -11,7 +11,7 @@
 
 ## 接口说明
 
-通知发布接口说明详见下表，通知发布的详情可通过入参[NotificationRequest](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md#class-notificationrequest)来进行指定，可以包括通知内容、通知ID、通知的通道类型和通知发布时间等信息。
+通知发布接口说明详见下表，通知发布的详情可通过入参[NotificationRequest](../cj-apis-notification_manager/.overview.md)来进行指定，可以包括通知内容、通知ID、通知的通道类型和通知发布时间等信息。
 
 | **接口名** | **描述** |
 | -------- | -------- |

@@ -1,4 +1,4 @@
-## func backgroundImageResizable(EdgeWidths)
+﻿## func backgroundImageResizable(EdgeWidths)
 
 ```cangjie
 public func backgroundImageResizable(slice: EdgeWidths): This
@@ -73,5 +73,5 @@ public func background(builder: () -> Unit, align!: Alignment=Alignment.Center):
 
 |名称|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|builder|() -> Unit|是|-|自定义背景。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|builder|() -> Unit|是|-|自定义背景。使用时结合[@Builder](../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 |align|[Alignment](./cj-common-types.md#enum-alignment)|否|Alignment.Center| **命名参数。** 自定义背景与组件的对齐方式。<br>同时设置了background，backgroundColor，backgroundImage时，叠加显示，background在最上层。|

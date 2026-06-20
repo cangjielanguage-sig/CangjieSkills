@@ -1,4 +1,4 @@
-### func screenCapture(String, Option\<Rect>)
+﻿### func screenCapture(String, Option\<Rect>)
 
 ```cangjie
 public func screenCapture(savePath: String, rect!: Option<Rect> = None): Bool
@@ -25,7 +25,7 @@ public func screenCapture(savePath: String, rect!: Option<Rect> = None): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -65,7 +65,7 @@ public func setDisplayRotation(rotation: DisplayRotation): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -105,7 +105,7 @@ public func setDisplayRotationEnabled(enabled: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

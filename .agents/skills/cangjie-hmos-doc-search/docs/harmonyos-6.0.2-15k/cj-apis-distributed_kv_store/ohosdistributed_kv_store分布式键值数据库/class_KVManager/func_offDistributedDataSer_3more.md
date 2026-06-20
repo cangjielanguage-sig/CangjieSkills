@@ -1,4 +1,4 @@
-### func offDistributedDataServiceDie(Callback0Argument)
+﻿### func offDistributedDataServiceDie(Callback0Argument)
 
 ```cangjie
 public func offDistributedDataServiceDie(callback: Callback0Argument): Unit
@@ -14,11 +14,11 @@ public func offDistributedDataServiceDie(callback: Callback0Argument): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|指定的回调函数。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|指定的回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -51,7 +51,7 @@ public func offDistributedDataServiceDie(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -86,11 +86,11 @@ public func onDistributedDataServiceDie(callback: Callback0Argument): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|回调函数。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

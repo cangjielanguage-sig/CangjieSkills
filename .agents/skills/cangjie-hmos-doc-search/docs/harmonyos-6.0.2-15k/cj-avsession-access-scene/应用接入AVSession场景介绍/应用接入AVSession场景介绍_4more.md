@@ -1,4 +1,4 @@
-# 应用接入AVSession场景介绍
+﻿# 应用接入AVSession场景介绍
 
 音视频应用在实现音视频功能的同时，需要接入媒体会话即AVSession Kit，下文将提供一些典型的接入AVSession的展示和控制场景，方便开发者根据场景进行适配。
 
@@ -10,7 +10,7 @@ AVSession会对后台的音频播放、VOIP通话做约束，所以通常来说�
 
 对于其他使用到音频播放的应用，比如游戏，直播等场景，接入AVSession不是必选项，只是可选，取决于应用是否有后台播放的使用诉求。若应用需要后台播放，那么接入AVSession仍然是必须的，否则业务的正常功能会受到限制。
 
-当应用需要实现后台播放等功能时，需要使用[BackgroundTasks Kit](../../task-management/cj-background-task-overview.md)（后台任务管理）的能力，申请对应的长时任务，避免进入挂起（Suspend）状态。
+当应用需要实现后台播放等功能时，需要使用[BackgroundTasks Kit](../../cj-background-task-overview/cj-background-task-overview.md)（后台任务管理）的能力，申请对应的长时任务，避免进入挂起（Suspend）状态。
 
 ## 接入流程
 
@@ -25,7 +25,7 @@ AVSession会对后台的音频播放、VOIP通话做约束，所以通常来说�
 
 ## 创建不同类型的会话
 
-AVSession在构造方法中支持不同的类型参数，由 [AVSessionType](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#enum-avsessiontype) 定义，不同的类型代表了不同场景的控制能力，对于播控中心来说，会展示不同的控制模版。
+AVSession在构造方法中支持不同的类型参数，由 [AVSessionType](../../cj-apis-multimedia_avsession/.overview.md) 定义，不同的类型代表了不同场景的控制能力，对于播控中心来说，会展示不同的控制模版。
 
 - SESSION_TYPE_AUDIO类型，播控中心的控制样式为：收藏，上一首，播放/暂停，下一首，循环模式。
 

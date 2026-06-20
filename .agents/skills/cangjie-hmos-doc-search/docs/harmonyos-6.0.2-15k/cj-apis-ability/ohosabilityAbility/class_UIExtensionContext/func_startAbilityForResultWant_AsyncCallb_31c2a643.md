@@ -1,4 +1,4 @@
-### func startAbilityForResult(Want, AsyncCallback\<AbilityResult>)
+﻿### func startAbilityForResult(Want, AsyncCallback\<AbilityResult>)
 
 ```cangjie
 public func startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): Unit
@@ -20,11 +20,11 @@ public func startAbilityForResult(want: Want, callback: AsyncCallback<AbilityRes
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |want|[Want](#class-want)|是|-|启动Ability的want信息。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[AbilityResult](#struct-abilityresult)>|是|-|回调函数，返回启动Ability的结果。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<[AbilityResult](#struct-abilityresult)>|是|-|回调函数，返回启动Ability的结果。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

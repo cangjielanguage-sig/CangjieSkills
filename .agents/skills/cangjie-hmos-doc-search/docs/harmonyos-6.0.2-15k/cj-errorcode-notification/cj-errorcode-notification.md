@@ -1,8 +1,8 @@
-# 通知错误码
+﻿# 通知错误码
 
 > **说明：**
 >
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](cj-errorcode-universal.md)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](../)。
 
 ## 1600001 内部错误
 
@@ -112,7 +112,7 @@ Notification is not allowed to remove.
 
 **处理步骤**
 
-参考[NotificationRequest](../apis/NotificationKit/cj-apis-notification_manager.md#class-notificationrequest)通知禁止删除属性。
+参考[NotificationRequest](../cj-apis-notification_manager/.overview.md)通知禁止删除属性。
 
 ## 1600007 通知不存在
 

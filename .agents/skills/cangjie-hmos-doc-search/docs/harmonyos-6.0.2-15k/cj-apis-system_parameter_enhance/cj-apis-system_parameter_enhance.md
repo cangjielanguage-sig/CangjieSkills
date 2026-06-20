@@ -1,4 +1,4 @@
-# ohos.system_parameter_enhance（系统参数）
+﻿# ohos.system_parameter_enhance（系统参数）
 
 系统参数（SystemParameter）是为各系统服务提供的简单易用的键值对访问接口，各个系统服务可以定义系统参数来描述该服务的状态信息，或者通过系统参数来改变系统服务的行为。其基本操作原语为get和set，通过get可以查询系统参数的值，通过set可以修改系统参数的值。
 
@@ -13,9 +13,9 @@ import kit.BasicServicesKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../cj-development-intro/.overview.md)。
 
 ## class Systemparameter
 
@@ -56,7 +56,7 @@ public static func get(key: String, def!: String = ""): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[系统参数错误码](../../errorcodes/cj-errorcode-system-parameter.md)。
+- BusinessException：对应错误码的详细介绍请参见[系统参数错误码](../cj-errorcode-system-parameter/cj-errorcode-system-parameter.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public static func set(key: String, value: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[系统参数错误码](../../errorcodes/cj-errorcode-system-parameter.md)。
+- BusinessException：对应错误码的详细介绍请参见[系统参数错误码](../cj-errorcode-system-parameter/cj-errorcode-system-parameter.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

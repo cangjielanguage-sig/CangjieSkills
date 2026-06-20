@@ -1,4 +1,4 @@
-### static func getUserProperty(String)
+﻿### static func getUserProperty(String)
 
 ```cangjie
 public static func getUserProperty(name: String): String
@@ -24,7 +24,7 @@ public static func getUserProperty(name: String): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -65,7 +65,7 @@ public static func removeProcessor(id: Int64): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -107,7 +107,7 @@ public static func removeWatcher(watcher: Watcher): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[应用事件打点错误码](../../errorcodes/cj-errorcode-hiappevent.md)。
+- BusinessException：对应错误码的详细介绍请参见[应用事件打点错误码](../../../cj-errorcode-hiappevent/cj-errorcode-hiappevent.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

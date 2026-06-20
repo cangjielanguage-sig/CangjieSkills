@@ -1,4 +1,4 @@
-### func getPixelBytesNumber()
+﻿### func getPixelBytesNumber()
 
 ```cangjie
 public func getPixelBytesNumber(): UInt32
@@ -48,11 +48,11 @@ public func marshalling(sequence: MessageSequence): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|sequence|[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence)|是|-|新创建的MessageSequence。|
+|sequence|[MessageSequence](../../../cj-apis-rpc/.overview.md)|是|-|新创建的MessageSequence。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -93,7 +93,7 @@ public func unmarshalling(sequence: MessageSequence): PixelMap
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|sequence|[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence)|是|-|保存有PixelMap信息的MessageSequence。|
+|sequence|[MessageSequence](../../../cj-apis-rpc/.overview.md)|是|-|保存有PixelMap信息的MessageSequence。|
 
 **返回值：**
 
@@ -103,7 +103,7 @@ public func unmarshalling(sequence: MessageSequence): PixelMap
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

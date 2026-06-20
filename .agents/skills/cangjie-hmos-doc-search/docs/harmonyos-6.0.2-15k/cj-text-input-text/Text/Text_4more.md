@@ -1,4 +1,4 @@
-# Text
+﻿# Text
 
 显示一段文本的组件。
 
@@ -24,7 +24,7 @@ public init(content: AppResource, controller!: TextController = TextController()
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|文本内容，引入系统资源或者应用资源中的文本。|
+|content|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|文本内容，引入系统资源或者应用资源中的文本。|
 |controller|[TextController](#class-textcontroller)|否|TextController()| **命名参数。** Text组件的控制器。|
 
 ### init(String, TextController)

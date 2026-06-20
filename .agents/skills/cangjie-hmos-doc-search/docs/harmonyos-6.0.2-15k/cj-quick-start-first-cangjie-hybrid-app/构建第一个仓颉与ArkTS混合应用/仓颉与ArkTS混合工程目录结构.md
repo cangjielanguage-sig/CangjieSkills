@@ -1,4 +1,4 @@
-## 仓颉与ArkTS混合工程目录结构
+﻿## 仓颉与ArkTS混合工程目录结构
 
 仓颉与ArkTS混合工程目录结构如下所示。
 
@@ -60,7 +60,7 @@ Project_name
     - **src > main > ets > entryability**：应用/服务的入口。
     - **src > main > ets > entrybackupability**：应用提供扩展的备份恢复能力。
     - **src > main > ets > pages**：应用/服务包含的页面。
-    - **src > main > resources**：用于存放应用/服务所用到的资源文件，如图形、多媒体、字符串、布局文件等。关于资源文件，请参见[资源分类与访问](../cj-ide-resource-categories-and-access.md)。
+    - **src > main > resources**：用于存放应用/服务所用到的资源文件，如图形、多媒体、字符串、布局文件等。关于资源文件，请参见[资源分类与访问](../../cj-ide-resource-categories-and-access/.overview.md)。
     - **src > main > module.json5**：模块配置文件。主要包含 HAP 的配置信息、应用/服务在具体设备上的配置信息以及应用/服务的全局配置信息。具体的配置文件说明，请参见[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)。
     - **build-profile.json5**：当前的模块信息 、编译信息配置项，包括buildOption、targets配置等。
     - **cjpm.toml**：仓颉的包管理配置文件，包括编译选项、依赖管理等。

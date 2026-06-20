@@ -1,4 +1,4 @@
-## class AtManager
+﻿## class AtManager
 
 ```cangjie
 public class AtManager {}
@@ -27,7 +27,7 @@ public func checkAccessToken(tokenID: UInt32, permissionName: Permissions): Gran
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |tokenID|UInt32|是|-|要校验的目标应用的身份标识。可通过应用的[ApplicationInfo](cj-apis-bundle_manager.md#struct-applicationinfo)获得。|
-|permissionName|[Permissions](#type-permissions)|是|-|需要校验的权限名称，合法的权限名取值可在[应用权限列表](../../../../Dev_Guide/security/AccessToken/cj-app-permissions.md#应用权限列表)中查询。|
+|permissionName|[Permissions](#type-permissions)|是|-|需要校验的权限名称，合法的权限名取值可在[应用权限列表](../../../cj-app-permissions/cj-app-permissions.md#应用权限列表)中查询。|
 
 **返回值：**
 
@@ -37,7 +37,7 @@ public func checkAccessToken(tokenID: UInt32, permissionName: Permissions): Gran
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[访问控制错误码](../../errorcodes/cj-errorcode-access-token.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[访问控制错误码](../../../cj-errorcode-access-token/cj-errorcode-access-token.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func on(AVSessionControllerEventType, Callback1Argument\<String>)
+﻿### func on(AVSessionControllerEventType, Callback1Argument\<String>)
 
 ```cangjie
 public func on(eventType: AVSessionControllerEventType, callback: Callback1Argument<String>): Unit
@@ -15,11 +15,11 @@ public func on(eventType: AVSessionControllerEventType, callback: Callback1Argum
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[AVSessionControllerEventType](#enum-avsessioncontrollereventtype)|是|-|事件回调类型，支持事件EVENT_QUEUE_TITLE_CHANGE：当session修改播放列表名称时，触发该事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<String>|是|-|回调函数，title为变化的播放列表名称。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<String>|是|-|回调函数，title为变化的播放列表名称。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

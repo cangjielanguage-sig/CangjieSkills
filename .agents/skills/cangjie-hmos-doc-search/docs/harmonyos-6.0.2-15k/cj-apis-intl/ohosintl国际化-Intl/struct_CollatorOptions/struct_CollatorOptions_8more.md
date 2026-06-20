@@ -1,4 +1,4 @@
-## struct CollatorOptions
+﻿## struct CollatorOptions
 
 ```cangjie
 public struct CollatorOptions {
@@ -120,4 +120,4 @@ public var usage: String = "sort"
 
 > **说明：**
 >
-> CollatorOptions中属性的不同取值代表的含义请参见[本地习惯排序](../../../../Dev_Guide/internationalization/cj-i18n-sorting-local.md)。
+> CollatorOptions中属性的不同取值代表的含义请参见[本地习惯排序](../../../cj-i18n-sorting-local/.overview.md)。

@@ -1,4 +1,4 @@
-# 播放音量管理
+﻿# 播放音量管理
 
 本模块提供播放音量管理能力，包括对**系统音量**、**应用音量**和**音频流音量**的管理。
 
@@ -29,7 +29,7 @@ HarmonyOS通过系统音量，应用音量和音频流音量协同的方式实�
 
 ## 系统音量
 
-管理系统音量的接口由AudioVolumeManager提供，在使用之前，需要使用[getVolumeManager()](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#func-getvolumemanager)获取AudioVolumeManager实例。
+管理系统音量的接口由AudioVolumeManager提供，在使用之前，需要使用[getVolumeManager()](../../cj-apis-multimedia-audio/.overview.md)获取AudioVolumeManager实例。
 
 通过AudioVolumeManager只能获取音量信息及监听音量变化，不能主动调节系统音量。
 

@@ -1,4 +1,4 @@
-## class Font
+﻿## class Font
 
 ```cangjie
 public class Font {}
@@ -45,8 +45,8 @@ public static func registerFont(familyName!: AppResource, familySrc!: AppResourc
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|familyName|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 设置注册字体的名称。|
-|familySrc|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 设置注册字体文件的路径。|
+|familyName|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 设置注册字体的名称。|
+|familySrc|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 设置注册字体文件的路径。|
 
 ### static func getSystemFontList()
 

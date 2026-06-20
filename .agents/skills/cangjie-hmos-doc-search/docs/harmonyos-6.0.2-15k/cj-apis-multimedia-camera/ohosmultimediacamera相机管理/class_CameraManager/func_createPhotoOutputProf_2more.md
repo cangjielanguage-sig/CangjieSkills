@@ -1,4 +1,4 @@
-### func createPhotoOutput(Profile)
+﻿### func createPhotoOutput(Profile)
 
 ```cangjie
 public func createPhotoOutput(profile: Profile): PhotoOutput
@@ -24,7 +24,7 @@ public func createPhotoOutput(profile: Profile): PhotoOutput
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID    | 错误信息                                           |
   |:---------|:-----------------------------------------------|
@@ -67,7 +67,7 @@ public func createPreviewOutput(profile: Profile, surfaceId: String): PreviewOut
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |profile|[Profile](#class-profile)|是|-|支持的预览配置信息，通过[getSupportedOutputCapability](#func-getsupportedoutputcapabilitycameradevice-scenemode)接口获取。|
-|surfaceId|String|是|-|从XComponent或者[ImageReceiver](../ImageKit/cj-apis-image.md#class-imagereceiver)组件获取的surfaceId。|
+|surfaceId|String|是|-|从XComponent或者[ImageReceiver](../../../cj-apis-image/.overview.md)组件获取的surfaceId。|
 
 **返回值：**
 
@@ -77,7 +77,7 @@ public func createPreviewOutput(profile: Profile, surfaceId: String): PreviewOut
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID         | 错误信息        |
   | :-------------- | :-------------- |

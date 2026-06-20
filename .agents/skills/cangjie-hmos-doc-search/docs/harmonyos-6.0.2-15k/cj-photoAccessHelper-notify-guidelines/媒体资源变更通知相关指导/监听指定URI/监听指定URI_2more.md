@@ -1,6 +1,6 @@
-## 监听指定URI
+﻿## 监听指定URI
 
-通过调用[registerChange](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-registerchangestring-bool-callback1argumentchangedata)接口监听指定uri。当被监听对象发生变更时返回监听器回调函数的值。
+通过调用[registerChange](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口监听指定uri。当被监听对象发生变更时返回监听器回调函数的值。
 
 ### 对指定PhotoAsset注册监听
 

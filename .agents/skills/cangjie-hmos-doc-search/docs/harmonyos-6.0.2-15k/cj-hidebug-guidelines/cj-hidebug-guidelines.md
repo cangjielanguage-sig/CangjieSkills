@@ -1,4 +1,4 @@
-# 使用HiDebug获取调试信息（仓颉）
+﻿# 使用HiDebug获取调试信息（仓颉）
 
 HiDebug对外提供系统调试相关功能的接口，包括应用进程的静态堆内存（native heap）信息、应用进程内存占用PSS（Proportional Set Size）信息的获取等，也可完成虚拟机内存切片导出，虚拟机CPU Profiling采集等操作。
 
@@ -25,7 +25,7 @@ HiDebug对外提供系统调试相关功能的接口，包括应用进程的静�
 | getSystemMemInfo(): SystemMemInfo           | 获取系统内存信息。                                           |
 | isDebugState(): Bool               | 获取应用进程被调试状态。                                     |
 
-HiDebug的具体用法请参见[API参考文档](../../API_Reference/source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hidebug.md)。
+HiDebug的具体用法请参见[API参考文档](../cj-apis-hidebug/.overview.md)。
 
 ## 开发示例
 
@@ -35,7 +35,7 @@ HiDebug的具体用法请参见[API参考文档](../../API_Reference/source_zh_c
 
 2. 在**Project**窗口单击entry &gt; src &gt; main &gt; cangjie，打开工程中的index.cj文件。
 
-    新增一个方法调用hidebug接口，本文以hidebug.getSystemCpuUsage()为例，其他接口可参见[API参考文档](../../API_Reference/source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hidebug.md)。
+    新增一个方法调用hidebug接口，本文以hidebug.getSystemCpuUsage()为例，其他接口可参见[API参考文档](../cj-apis-hidebug/.overview.md)。
 
     ```cangjie
     import kit.PerformanceAnalysisKit.*

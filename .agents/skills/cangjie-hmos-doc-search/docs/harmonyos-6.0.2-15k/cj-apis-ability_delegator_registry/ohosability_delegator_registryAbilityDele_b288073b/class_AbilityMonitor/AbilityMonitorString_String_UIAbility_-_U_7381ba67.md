@@ -1,4 +1,4 @@
-### AbilityMonitor(String, String, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit)
+﻿### AbilityMonitor(String, String, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit, ?(UIAbility) -> Unit)
 
 ```cangjie
 public AbilityMonitor(
@@ -26,10 +26,10 @@ public AbilityMonitor(
 |:---|:---|:---|:---|:---|
 |abilityName|String|是|-|当前[AbilityMonitor](#class-abilitymonitor)绑定的ability名称。|
 |moduleName|String|否|""| **命名参数。** 当前[AbilityMonitor](#class-abilitymonitor)绑定的模块名称。|
-|onAbilityCreate|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** ability被启动初始化时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
-|onAbilityForeground|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** ability状态变成前台时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
-|onAbilityBackground|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** ability状态变成后台时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
-|onAbilityDestroy|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** ability被销毁前的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
-|onWindowStageCreate|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** windowStage被创建时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
-|onWindowStageRestore|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** windowStage被重载时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
-|onWindowStageDestroy|?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit|否|None| **命名参数。** windowStage销毁前调用的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onAbilityCreate|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** ability被启动初始化时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onAbilityForeground|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** ability状态变成前台时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onAbilityBackground|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** ability状态变成后台时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onAbilityDestroy|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** ability被销毁前的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onWindowStageCreate|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** windowStage被创建时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onWindowStageRestore|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** windowStage被重载时的回调函数。None即不设置该属性，则不能收到该生命周期回调。|
+|onWindowStageDestroy|?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit|否|None| **命名参数。** windowStage销毁前调用的回调函数。None即不设置该属性，则不能收到该生命周期回调。|

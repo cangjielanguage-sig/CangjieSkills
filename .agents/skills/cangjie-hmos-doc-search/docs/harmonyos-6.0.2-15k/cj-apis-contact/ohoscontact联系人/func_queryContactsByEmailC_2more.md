@@ -1,4 +1,4 @@
-## func queryContactsByEmail(Context, String, Holder, ContactAttributes)
+﻿## func queryContactsByEmail(Context, String, Holder, ContactAttributes)
 
 ```cangjie
 public func queryContactsByEmail(context: Context, email: String,
@@ -19,7 +19,7 @@ public func queryContactsByEmail(context: Context, email: String,
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |email|String|是|-|联系人的邮箱地址。|
 |holder|[Holder](#struct-holder)|否|Holder.EMPTY| **命名参数。** 创建联系人的应用信息。|
 |attrs|[ContactAttributes](#struct-contactattributes)|否|ContactAttributes.ALL| **命名参数。** 创建联系人的应用信息。|
@@ -32,7 +32,7 @@ public func queryContactsByEmail(context: Context, email: String,
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,7 +74,7 @@ public func queryContactsByPhoneNumber(context: Context, phoneNumber: String,
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|根据电话号码、holder和attrs查询联系人。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|根据电话号码、holder和attrs查询联系人。|
 |phoneNumber|String|是|-|联系人的电话号码。|
 |holder|[Holder](#struct-holder)|否|Holder.EMPTY| **命名参数。** 创建联系人的应用信息。|
 |attrs|[ContactAttributes](#struct-contactattributes)|否|ContactAttributes.ALL| **命名参数。** 创建联系人的应用信息。|
@@ -87,7 +87,7 @@ public func queryContactsByPhoneNumber(context: Context, phoneNumber: String,
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

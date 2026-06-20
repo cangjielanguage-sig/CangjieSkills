@@ -1,6 +1,6 @@
-### 使用Web组件实现应用跳转
+﻿### 使用Web组件实现应用跳转
 
-Web组件需要跳转DeepLink链接应用时，可通过拦截回调[onLoadIntercept](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#func-onloadinterceptwebresourcerequest---bool)中对定义的事件进行处理，实现应用跳转。
+Web组件需要跳转DeepLink链接应用时，可通过拦截回调[onLoadIntercept](../../../cj-web-web/.overview.md)中对定义的事件进行处理，实现应用跳转。
 
 示例代码如下：
 

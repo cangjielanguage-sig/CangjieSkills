@@ -1,4 +1,4 @@
-### func delayMs(Int32)
+﻿### func delayMs(Int32)
 
 ```cangjie
 public func delayMs(delayMs: Int32): Unit
@@ -18,7 +18,7 @@ public func delayMs(delayMs: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -59,7 +59,7 @@ public func doubleClick(x: Int32, y: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -103,7 +103,7 @@ public func drag(startx: Int32, starty: Int32, endx: Int32, endy: Int32, speed!:
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -149,7 +149,7 @@ public func findComponent(on: On): UIComponent
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

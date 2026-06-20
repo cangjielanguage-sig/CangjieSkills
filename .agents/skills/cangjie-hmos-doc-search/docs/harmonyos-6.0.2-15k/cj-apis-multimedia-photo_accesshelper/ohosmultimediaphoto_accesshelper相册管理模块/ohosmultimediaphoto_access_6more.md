@@ -1,4 +1,4 @@
-# ohos.multimedia.photo_accesshelper（相册管理模块）
+﻿# ohos.multimedia.photo_accesshelper（相册管理模块）
 
 该模块提供相册管理模块能力，包括创建相册以及访问、修改相册中的媒体数据信息等。
 
@@ -19,9 +19,9 @@ ohos.permission.WRITE_IMAGEVIDEO
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func getPhotoAccessHelper(UIAbilityContext)
 
@@ -39,7 +39,7 @@ public func getPhotoAccessHelper(context: UIAbilityContext): PhotoAccessHelper
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|传入Ability实例的Context。|
+|context|[UIAbilityContext](../../cj-apis-ability/.overview.md)|是|-|传入Ability实例的Context。|
 
 **返回值：**
 

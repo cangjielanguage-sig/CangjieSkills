@@ -1,4 +1,4 @@
-### func passwordIcon(?AppResource, ?AppResource)
+﻿### func passwordIcon(?AppResource, ?AppResource)
 
 ```cangjie
 public func passwordIcon(onIconSrc!: ?AppResource = None, offIconSrc!: ?AppResource = None): This
@@ -19,8 +19,8 @@ public func passwordIcon(onIconSrc!: ?AppResource = None, offIconSrc!: ?AppResou
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|onIconSrc|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None| **命名参数。** 密码输入模式时，能够切换密码隐藏的显示状态的图标。默认为系统提供的密码图标。|
-|offIconSrc|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None| **命名参数。** 密码输入模式时，能够切换密码显示的隐藏状态的图标。默认为系统提供的密码图标。|
+|onIconSrc|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None| **命名参数。** 密码输入模式时，能够切换密码隐藏的显示状态的图标。默认为系统提供的密码图标。|
+|offIconSrc|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None| **命名参数。** 密码输入模式时，能够切换密码显示的隐藏状态的图标。默认为系统提供的密码图标。|
 
 ### func passwordRules(String)
 

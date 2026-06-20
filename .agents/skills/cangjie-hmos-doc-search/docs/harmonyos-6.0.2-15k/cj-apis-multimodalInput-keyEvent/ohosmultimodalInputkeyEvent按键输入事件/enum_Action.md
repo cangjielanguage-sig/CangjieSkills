@@ -1,4 +1,4 @@
-## enum Action
+﻿## enum Action
 
 ```cangjie
 public enum Action <: Equatable<Action> & ToString {
@@ -72,7 +72,7 @@ public operator func !=(other: Action): Bool
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|other|[Action](../InputKit/cj-apis-multimodalInput-keyEvent.md#enum-action)|是|-|按键动作。|
+|other|[Action](../../cj-apis-multimodalInput-keyEvent/.overview.md)|是|-|按键动作。|
 
 **返回值：**
 
@@ -96,7 +96,7 @@ public operator func ==(other: Action): Bool
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|other|[Action](../InputKit/cj-apis-multimodalInput-keyEvent.md#enum-action)|是|-|按键动作。|
+|other|[Action](../../cj-apis-multimodalInput-keyEvent/.overview.md)|是|-|按键动作。|
 
 **返回值：**
 

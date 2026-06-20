@@ -1,10 +1,10 @@
-### YCRCB_P010
+﻿### YCRCB_P010
 
 ```cangjie
 YCRCB_P010
 ```
 
-**功能：** 颜色信息由亮度分量Y和色度分量Cr与Cb组成，每个分量有效10位，实际存储时，Y平面每个像素占16位数据（10位有效），UV平面交错排列，每4个像素占32位数据（每色度分量10位有效），平均有效占15位。对应[相机服务CameraFormat中的CAMERA_FORMAT_YCRCB_P010](../CameraKit/cj-apis-multimedia-camera.md#camera_format_ycrcb_p010)。
+**功能：** 颜色信息由亮度分量Y和色度分量Cr与Cb组成，每个分量有效10位，实际存储时，Y平面每个像素占16位数据（10位有效），UV平面交错排列，每4个像素占32位数据（每色度分量10位有效），平均有效占15位。对应[相机服务CameraFormat中的CAMERA_FORMAT_YCRCB_P010](../../../cj-apis-multimedia-camera/.overview.md)。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 

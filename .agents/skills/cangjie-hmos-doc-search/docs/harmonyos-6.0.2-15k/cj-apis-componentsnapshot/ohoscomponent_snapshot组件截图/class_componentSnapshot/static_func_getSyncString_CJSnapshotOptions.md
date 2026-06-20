@@ -1,10 +1,10 @@
-### static func getSync(String, CJSnapshotOptions)
+﻿### static func getSync(String, CJSnapshotOptions)
 
 ```cangjie
 public static func getSync(id: String, options!: CJSnapshotOptions = CJSnapshotOptions(1.0, false)): PixelMap
 ```
 
-**功能：** 获取已加载的组件的截图，传入组件的[组件标识](./cj-universal-attribute-componentid.md)，找到对应组件进行截图。同步等待截图完成返回[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)。
+**功能：** 获取已加载的组件的截图，传入组件的[组件标识](./cj-universal-attribute-componentid.md)，找到对应组件进行截图。同步等待截图完成返回[PixelMap](../../../cj-apis-image/.overview.md)。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -21,11 +21,11 @@ public static func getSync(id: String, options!: CJSnapshotOptions = CJSnapshotO
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|截图返回的结果。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|截图返回的结果。|
 
 **异常：**
 
-- 以下错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- 以下错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
 |错误码ID|错误信息|
 |:---|:---|

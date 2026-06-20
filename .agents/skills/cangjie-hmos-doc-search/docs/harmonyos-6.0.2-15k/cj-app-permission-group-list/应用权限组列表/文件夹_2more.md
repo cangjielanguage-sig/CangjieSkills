@@ -1,4 +1,4 @@
-## 文件夹
+﻿## 文件夹
 
 > **说明：**
 >
@@ -9,9 +9,9 @@
 
 ## 文件
 
-- 读写媒体库图片或视频：[](../../media/medialibrary/cj-photoAccessHelper-photoviewpicker.md)
+- 读写媒体库图片或视频：[](../../cj-photoAccessHelper-photoviewpicker/.overview.md)
 
-    - 推荐方案（无需申请权限）：使用[Picker](../../media/medialibrary/cj-photoAccessHelper-photoviewpicker.md)读取媒体库的图片与视频。
+    - 推荐方案（无需申请权限）：使用[Picker](../../cj-photoAccessHelper-photoviewpicker/.overview.md)读取媒体库的图片与视频。
     - 受限使用方案：申请受限权限[ohos.permission.READ_IMAGEVIDEO](./cj-permissions-for-acl.md#ohospermissionread_imagevideo)或[ohos.permission.WRITE_IMAGEVIDEO](./cj-permissions-for-acl.md#ohospermissionwrite_imagevideo)读取媒体库的图片与视频。
 
 - 读取媒体库音频文件：
@@ -20,4 +20,4 @@
 
 - 读取文件管理器中的文件：
 
-  无需申请权限，通过文件Picker读写文件管理器中的文件。请参见：[选择用户文件](../../file-management/cj-select-user-file.md#选择文档类文件)、[保存用户文件](../../file-management/cj-save-user-file.md#保存文档类文件)。
+  无需申请权限，通过文件Picker读写文件管理器中的文件。请参见：[选择用户文件](../../cj-select-user-file/.overview.md)、[保存用户文件](../../cj-save-user-file/.overview.md)。

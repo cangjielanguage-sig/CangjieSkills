@@ -1,4 +1,4 @@
-## func abort(CMHandle)
+﻿## func abort(CMHandle)
 
 ```cangjie
 public func abort(handle: CMHandle): Unit
@@ -20,7 +20,7 @@ public func abort(handle: CMHandle): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../errorcodes/cj-errorcode-cert-manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../cj-errorcode-cert-manager/cj-errorcode-cert-manager.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -75,7 +75,7 @@ public func finish(handle: CMHandle, signature: Array<UInt8>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../errorcodes/cj-errorcode-cert-manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../cj-errorcode-cert-manager/cj-errorcode-cert-manager.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-# 用户相册资源使用指导
+﻿# 用户相册资源使用指导
 
 photoAccessHelper提供用户相册相关的接口，供开发者创建、删除用户相册，往用户相册中添加和删除图片和视频资源等。
 
@@ -12,7 +12,7 @@ photoAccessHelper提供用户相册相关的接口，供开发者创建、删除
 
 ## 获取用户相册
 
-通过[getAlbums](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getalbumsalbumtype-albumsubtype-fetchoptions)接口获取用户相册。
+通过[getAlbums](../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口获取用户相册。
 
 **前提条件**
 
@@ -25,7 +25,7 @@ photoAccessHelper提供用户相册相关的接口，供开发者创建、删除
 
 1. 建立检索条件，用于获取用户相册。
 2. 调用PhotoAccessHelper.getAlbums接口获取用户相册资源。
-3. 调用[getFirstObject](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getfirstobject)接口获取第一个用户相册。
+3. 调用[getFirstObject](../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口获取第一个用户相册。
 
 ```cangjie
 import kit.MediaLibraryKit.*

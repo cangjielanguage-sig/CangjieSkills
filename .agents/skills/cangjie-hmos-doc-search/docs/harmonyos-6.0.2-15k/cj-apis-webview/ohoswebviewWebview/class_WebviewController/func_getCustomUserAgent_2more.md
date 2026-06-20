@@ -1,4 +1,4 @@
-### func getCustomUserAgent()
+﻿### func getCustomUserAgent()
 
 ```cangjie
 public func getCustomUserAgent(): String
@@ -18,7 +18,7 @@ public func getCustomUserAgent(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,11 +76,11 @@ public func getFavicon(): ?PixelMap
 
 |类型|说明|
 |:----|:----|
-|?[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|页面favicon图标的PixelMap对象。|
+|?[PixelMap](../../../cj-apis-image/.overview.md)|页面favicon图标的PixelMap对象。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-# PasteButton
+﻿# PasteButton
 
 安全控件的粘贴按钮，用户通过点击该粘贴按钮，可以临时获取读取剪贴板权限。
 
@@ -73,7 +73,7 @@ public func onClick(callback: (ClickEvent, PasteButtonOnClickResult) -> Unit): T
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback |([ClickEvent](../../source_zh_cn/arkui-cj/cj-universal-event-click.md#class-clickevent), [PasteButtonOnClickResult](#enum-pastebuttononclickresult)) -> Unit | 是| - | 点击动作触时，触发该回调函数。参数一：点击事件对象；参数二： 剪贴板权限的授权结果，授权后可以读取当前剪贴板内容。|
+|callback |([ClickEvent](../../cj-universal-event-click/.overview.md), [PasteButtonOnClickResult](#enum-pastebuttononclickresult)) -> Unit | 是| - | 点击动作触时，触发该回调函数。参数一：点击事件对象；参数二： 剪贴板权限的授权结果，授权后可以读取当前剪贴板内容。|
 
 ## 基础类型定义
 

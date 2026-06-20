@@ -1,10 +1,10 @@
-## func createPhotoEditorExtensionContextFromJSValue(JSContext, JSValue)
+﻿## func createPhotoEditorExtensionContextFromJSValue(JSContext, JSValue)
 
 ```cangjie
 public func createPhotoEditorExtensionContextFromJSValue(context: JSContext, input: JSValue): PhotoEditorExtensionContext
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为[PhotoEditorExtensionContext](./cj-apis-ability.md#class-photoeditorextensioncontext)类型。
+**功能：** 从[JSValue](../../cj-apis-ark_interop/.overview.md)转换为[PhotoEditorExtensionContext](./cj-apis-ability.md#class-photoeditorextensioncontext)类型。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -14,8 +14,8 @@ public func createPhotoEditorExtensionContextFromJSValue(context: JSContext, inp
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 
@@ -29,7 +29,7 @@ public func createPhotoEditorExtensionContextFromJSValue(context: JSContext, inp
 public func createUIExtensionContextFromJSValue(context: JSContext, input: JSValue): UIExtensionContext
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为[UIExtensionContext](./cj-apis-ability.md#class-uiextensioncontext)类型。
+**功能：** 从[JSValue](../../cj-apis-ark_interop/.overview.md)转换为[UIExtensionContext](./cj-apis-ability.md#class-uiextensioncontext)类型。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -39,8 +39,8 @@ public func createUIExtensionContextFromJSValue(context: JSContext, input: JSVal
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 
@@ -69,7 +69,7 @@ public interface JSSystemObjectInteropType<T> {
 static func fromJSValue(context: JSContext, input: JSValue): T
 ```
 
-**功能：** 将[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为仓颉对象。
+**功能：** 将[JSValue](../../cj-apis-ark_interop/.overview.md)转换为仓颉对象。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -79,8 +79,8 @@ static func fromJSValue(context: JSContext, input: JSValue): T
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 
@@ -94,7 +94,7 @@ static func fromJSValue(context: JSContext, input: JSValue): T
 func toJSValue(context: JSContext): JSValue
 ```
 
-**功能：** 将仓颉对象转换成[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)。
+**功能：** 将仓颉对象转换成[JSValue](../../cj-apis-ark_interop/.overview.md)。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -104,10 +104,10 @@ func toJSValue(context: JSContext): JSValue
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
 
 **返回值：**
 
 |类型|说明|
 |:----|:----|
-|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)| ArkTS统一类型。|
+|[JSValue](../../cj-apis-ark_interop/.overview.md)| ArkTS统一类型。|

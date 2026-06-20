@@ -1,4 +1,4 @@
-# 通过系统相机拍照和录像（仓颉）
+﻿# 通过系统相机拍照和录像（仓颉）
 
 应用可调用CameraPicker拍摄照片或录制视频，无需申请相机权限。
 
@@ -10,7 +10,7 @@ CameraPicker的相机交互界面由系统提供，在用户点击拍摄和确�
 
 ## 开发步骤
 
-详细的API说明请参见[CameraPicker API参考](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera_picker.md)。
+详细的API说明请参见[CameraPicker API参考](../../cj-apis-multimedia-camera_picker/.overview.md)。
 
 1. 导入相关接口，导入方法如下。
 
@@ -22,7 +22,7 @@ CameraPicker的相机交互界面由系统提供，在用户点击拍摄和确�
     import ohos.base.*
     ```
 
-2. 配置[PickerProfile](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera_picker.md#struct-pickerprofile)。
+2. 配置[PickerProfile](../../cj-apis-multimedia-camera_picker/.overview.md)。
 
     > **说明：**
     >

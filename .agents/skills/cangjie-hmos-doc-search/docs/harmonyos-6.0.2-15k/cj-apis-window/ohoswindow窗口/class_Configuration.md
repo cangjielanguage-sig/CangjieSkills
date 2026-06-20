@@ -1,4 +1,4 @@
-## class Configuration
+﻿## class Configuration
 
 ```cangjie
 public class Configuration {
@@ -56,7 +56,7 @@ public let ctx: StageContext
 
 **功能：** 表示当前应用上下文信息。用于创建悬浮窗、模态窗或系统窗口。
 
-**类型：** [StageContext](../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)
+**类型：** [StageContext](../../cj-apis-ark_interop_helper/.overview.md)
 
 **读写能力：** 只读
 
@@ -144,7 +144,7 @@ public Configuration(
 |:---|:---|:---|:---|:---|
 |name|String|是|-|窗口名字。|
 |windowType|[WindowType](#enum-windowtype)|是|-|窗口类型。|
-|ctx|[StageContext](../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|当前应用上下文信息。用于创建悬浮窗、模态窗或系统窗口。|
+|ctx|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|当前应用上下文信息。用于创建悬浮窗、模态窗或系统窗口。|
 |displayId|Int64|否|-1| **命名参数。** 当前物理屏幕id。|
 |parentId|Int64|否|-1| **命名参数。** 父窗口id。|
 |decorEnabled|Bool|否|false| **命名参数。** 是否显示窗口装饰，仅在[windowType](#enum-windowtype)为TYPE_DIALOG时生效。true表示显示，false表示不显示。<br>**系统能力：** SystemCapability.Window.SessionManager|

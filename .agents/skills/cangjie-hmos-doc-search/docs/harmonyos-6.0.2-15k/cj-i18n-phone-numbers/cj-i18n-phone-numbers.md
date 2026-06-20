@@ -1,4 +1,4 @@
-# 电话号码格式化
+﻿# 电话号码格式化
 
 ## 使用场景
 
@@ -8,7 +8,7 @@
 
 ## 开发步骤
 
-电话号码格式化通过[PhoneNumberFormat](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#class-phonenumberformat)的[format](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#func-formatstring)接口实现，具体开发步骤如下。
+电话号码格式化通过[PhoneNumberFormat](../cj-apis-i18n/.overview.md)的[format](../cj-apis-i18n/.overview.md)接口实现，具体开发步骤如下。
 
 1. 导入模块。
 

@@ -1,4 +1,4 @@
-### func on(ProfileCallbackType, Callback1Argument\<AVScreenCaptureStateCode>)
+﻿### func on(ProfileCallbackType, Callback1Argument\<AVScreenCaptureStateCode>)
 
 ```cangjie
 public func on(`type`: ProfileCallbackType, callback: Callback1Argument<AVScreenCaptureStateCode>): Unit
@@ -15,7 +15,7 @@ public func on(`type`: ProfileCallbackType, callback: Callback1Argument<AVScreen
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[ProfileCallbackType](#enum-profilecallbacktype)|是|-|状态切换事件回调类型，支持的事件：'stateChange'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[AVScreenCaptureStateCode](#enum-avscreencapturestatecode)>|是|-|状态切换事件回调方法，AVScreenCaptureStateCode表示切换到的状态。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[AVScreenCaptureStateCode](#enum-avscreencapturestatecode)>|是|-|状态切换事件回调方法，AVScreenCaptureStateCode表示切换到的状态。|
 
 **示例：**
 
@@ -65,11 +65,11 @@ public func on(`type`: ProfileCallbackType, callback: Callback1Argument<Business
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[ProfileCallbackType](#enum-profilecallbacktype)|是|-|错误事件回调类型，支持的事件：'error'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|录屏错误事件回调方法。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|录屏错误事件回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

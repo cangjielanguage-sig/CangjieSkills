@@ -1,4 +1,4 @@
-### func onPrepareToTerminate()
+﻿### func onPrepareToTerminate()
 
 ```cangjie
 public open func onPrepareToTerminate(): Bool
@@ -130,7 +130,7 @@ public open func onWindowStageCreate(windowStage: WindowStage): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|windowStage|[WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage)|是|-|[WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage)相关信息。|
+|windowStage|[WindowStage](../../../cj-apis-window/.overview.md)|是|-|[WindowStage](../../../cj-apis-window/.overview.md)相关信息。|
 
 **示例：**
 

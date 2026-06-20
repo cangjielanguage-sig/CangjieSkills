@@ -1,4 +1,4 @@
-## func startAbility(Want)
+﻿## func startAbility(Want)
 
 ```cangjie
 public func startAbility(want: Want): Unit
@@ -14,11 +14,11 @@ public func startAbility(want: Want): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|want|[Want](../AbilityKit/cj-apis-ability.md#class-want)|是|-|当前Extension相关的Want类型信息，包括ability名称、bundle名称等。|
+|want|[Want](../../cj-apis-ability/.overview.md)|是|-|当前Extension相关的Want类型信息，包括ability名称、bundle名称等。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)，[元能力错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)，[元能力错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## 创建仓颉工程
+﻿## 创建仓颉工程
 
 1. 若首次打开**DevEco Studio**，请单击**Create Project**创建工程。如果已经打开了一个工程，请在菜单栏选择**File** > **New** > **Create Project**来创建一个新工程。
 
@@ -56,7 +56,7 @@ Project_name
 - **AppScope > app.json5**：应用的全局配置信息。
 - **entry**：仓颉工程模块，编译构建生成一个HAP包。
     - **src > main > cangjie**：用于存放仓颉源码。
-    - **src > main > resources**：用于存放应用/服务所用到的资源文件，如图形、多媒体、字符串、布局文件等。关于资源文件，请参见[资源分类与访问](../cj-ide-resource-categories-and-access.md)。
+    - **src > main > resources**：用于存放应用/服务所用到的资源文件，如图形、多媒体、字符串、布局文件等。关于资源文件，请参见[资源分类与访问](../../cj-ide-resource-categories-and-access/.overview.md)。
     - **src > main > module.json5**：stage 模块配置文件，主要包含 HAP 的配置信息、应用在具体设备上的配置信息以及应用的全局配置信息。
     - **build-profile.json5**：当前的模块信息 、编译信息配置项，包括buildOption、targets配置等。
     - **hvigorfile.ts**：模块级编译构建任务脚本。

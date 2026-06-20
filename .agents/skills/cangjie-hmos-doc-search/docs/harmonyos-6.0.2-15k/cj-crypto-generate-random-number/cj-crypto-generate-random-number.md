@@ -1,4 +1,4 @@
-# 安全随机数生成
+﻿# 安全随机数生成
 
 随机数主要用于临时会话密钥生成和非对称加密算法的密钥生成等场景。在加解密场景中，安全随机数生成器需要具备随机性、不可预测性和不可重复性。当前系统生成的随机数满足密码学安全伪随机性的要求。
 
@@ -29,11 +29,11 @@
 
 ## 开发步骤
 
-1. 调用[createRandom](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createrandom)，生成随机数实例。
+1. 调用[createRandom](../cj-apis-crypto/.overview.md)，生成随机数实例。
 
-2. (可选)设置DataBlob数据，调用[setSeed](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-setseeddatablob)，为随机数生成池设置种子。
+2. (可选)设置DataBlob数据，调用[setSeed](../cj-apis-crypto/.overview.md)，为随机数生成池设置种子。
 
-3. 设置指定字节长度，调用[generateRandom](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-generaterandomint32)，生成安全随机数。
+3. 设置指定字节长度，调用[generateRandom](../cj-apis-crypto/.overview.md)，生成安全随机数。
 
    指定字节长度范围为1~INT_MAX。
 

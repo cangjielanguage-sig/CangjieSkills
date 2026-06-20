@@ -1,4 +1,4 @@
-### func packToFile(ImageSource, IntNative, PackingOption)
+﻿### func packToFile(ImageSource, IntNative, PackingOption)
 
 ```cangjie
 public func packToFile(source: ImageSource, fd: IntNative, option: PackingOption): Unit
@@ -67,7 +67,7 @@ public func packToFile(source: Picture, fd: IntNative, option: PackingOption): U
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

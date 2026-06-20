@@ -1,4 +1,4 @@
-### func onAutoSyncProgress(Callback1Argument\<ProgressDetails>)
+﻿### func onAutoSyncProgress(Callback1Argument\<ProgressDetails>)
 
 ```cangjie
 public func onAutoSyncProgress(callback: Callback1Argument<ProgressDetails>): Unit
@@ -14,11 +14,11 @@ public func onAutoSyncProgress(callback: Callback1Argument<ProgressDetails>): Un
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ProgressDetails](#struct-progressdetails)>|是|-|回调函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ProgressDetails](#struct-progressdetails)>|是|-|回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -67,11 +67,11 @@ public func onDataChange(`type`: SubscribeType, callback: Callback1Argument<Arra
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[SubscribeType](#enum-subscribetype)|是|-|订阅类型。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<String>>|是|-|回调函数。当type为SUBSCRIBE_TYPE_REMOTE，callback中的Array&lt;String&gt;为数据库中的数据发生改变的对端设备ID。当type为SUBSCRIBE_TYPE_CLOUD，callback中的Array&lt;String&gt;为数据库中的数据发生改变的云端账号。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|回调函数。当type为SUBSCRIBE_TYPE_REMOTE，callback中的Array&lt;String&gt;为数据库中的数据发生改变的对端设备ID。当type为SUBSCRIBE_TYPE_CLOUD，callback中的Array&lt;String&gt;为数据库中的数据发生改变的云端账号。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   | 错误码ID | 错误信息        |
   |:-----------|:-------------|

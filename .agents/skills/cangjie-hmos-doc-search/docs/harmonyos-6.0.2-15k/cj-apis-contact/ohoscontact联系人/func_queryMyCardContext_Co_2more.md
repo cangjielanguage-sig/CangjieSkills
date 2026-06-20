@@ -1,4 +1,4 @@
-## func queryMyCard(Context, ContactAttributes)
+﻿## func queryMyCard(Context, ContactAttributes)
 
 ```cangjie
 public func queryMyCard(context: Context, attrs!: ContactAttributes = ContactAttributes.ALL): Contact
@@ -16,7 +16,7 @@ public func queryMyCard(context: Context, attrs!: ContactAttributes = ContactAtt
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |attrs|[ContactAttributes](#struct-contactattributes)|否|ContactAttributes.ALL| **命名参数。** 联系人的属性列表。|
 
 **返回值：**
@@ -27,7 +27,7 @@ public func queryMyCard(context: Context, attrs!: ContactAttributes = ContactAtt
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -68,13 +68,13 @@ public func selectContacts(context: Context,
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<[Contact](#struct-contact)>>|是|-|回调函数，返回选择的联系人对象数组。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
+|callback|[AsyncCallback](../../cj-apis-base/.overview.md)\<Array\<[Contact](#struct-contact)>>|是|-|回调函数，返回选择的联系人对象数组。|
 |options|[ContactSelectOptions](#class-contactselectoptions)|否|ContactSelectOptions()| **命名参数。** 选择联系人时的筛选条件。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

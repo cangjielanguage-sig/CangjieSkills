@@ -1,4 +1,4 @@
-# ohos.advertising.advertising（广告服务框架）
+﻿# ohos.advertising.advertising（广告服务框架）
 
 本模块提供广告操作能力，包括请求广告、展示广告。
 
@@ -13,9 +13,9 @@ import kit.AdsKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func getAdRequestBody(Array\<AdRequestParams>, AdOptions)
 
@@ -44,7 +44,7 @@ public func getAdRequestBody(adParams: Array<AdRequestParams>, adOptions: AdOpti
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../errorcodes/cj-errorcode-advertising.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../cj-errorcode-advertising/cj-errorcode-advertising.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -92,11 +92,11 @@ public func showAd(advertisement: Advertisement,
 |:---|:---|:---|:---|:---|
 |advertisement|[Advertisement](#class-advertisement)|是|-|广告对象。|
 |adDisplayoptions|[AdDisplayOptions](#class-addisplayoptions)|是|-|广告展示参数。|
-|context|?[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|UIAbility的上下文环境|
+|context|?[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|UIAbility的上下文环境|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../errorcodes/cj-errorcode-advertising.md)。
+- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../cj-errorcode-advertising/cj-errorcode-advertising.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

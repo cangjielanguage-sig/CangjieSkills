@@ -1,4 +1,4 @@
-## func startVibration(VibrateEffect, VibrateAttribute)
+﻿## func startVibration(VibrateEffect, VibrateAttribute)
 
 ```cangjie
 public func startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Unit
@@ -21,7 +21,7 @@ public func startVibration(effect: VibrateEffect, attribute: VibrateAttribute): 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[振动错误码](../../errorcodes/cj-errorcode-vibrator.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[振动错误码](../../cj-errorcode-vibrator/cj-errorcode-vibrator.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

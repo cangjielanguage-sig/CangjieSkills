@@ -1,4 +1,4 @@
-## enum PixelMapFormat
+﻿## enum PixelMapFormat
 
 ```cangjie
 public enum PixelMapFormat <: Equatable<PixelMapFormat> & ToString {
@@ -59,7 +59,7 @@ BGRA_8888
 NV12
 ```
 
-**功能：** YUV像素排列，U分量在V分量之前。颜色信息由亮度分量Y和交错排列的色度分量U和V组成，其中Y分量占8位，UV分量因4：2：0采样平均占4位，总共平均占12位。对应[相机服务CameraFormat中的CAMERA_FORMAT_YUV_420_SP](../CameraKit/cj-apis-multimedia-camera.md#camera_format_yuv_420_sp)。
+**功能：** YUV像素排列，U分量在V分量之前。颜色信息由亮度分量Y和交错排列的色度分量U和V组成，其中Y分量占8位，UV分量因4：2：0采样平均占4位，总共平均占12位。对应[相机服务CameraFormat中的CAMERA_FORMAT_YUV_420_SP](../../../cj-apis-multimedia-camera/.overview.md)。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
@@ -95,7 +95,7 @@ RGBA_1010102
 RGBA_8888
 ```
 
-**功能：** 颜色信息由R（Red），G（Green），B（Blue）与透明度（Alpha）四部分组成，每个部分占8位，总共占32位。对应[相机服务CameraFormat中的CAMERA_FORMAT_RGBA_8888](../CameraKit/cj-apis-multimedia-camera.md#camera_format_rgba_8888)。
+**功能：** 颜色信息由R（Red），G（Green），B（Blue）与透明度（Alpha）四部分组成，每个部分占8位，总共占32位。对应[相机服务CameraFormat中的CAMERA_FORMAT_RGBA_8888](../../../cj-apis-multimedia-camera/.overview.md)。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
@@ -155,7 +155,7 @@ UNKNOWN
 YCBCR_P010
 ```
 
-**功能：** 颜色信息由亮度分量Y和色度分量Cb与Cr组成，每个分量有效10位，实际存储时，Y平面每个像素占16位数据（10位有效），UV平面交错排列，每4个像素占32位数据（每色度分量10位有效），平均有效占15位。对应[相机服务CameraFormat中的CAMERA_FORMAT_YCBCR_P010](../CameraKit/cj-apis-multimedia-camera.md#camera_format_ycbcr_p010)。
+**功能：** 颜色信息由亮度分量Y和色度分量Cb与Cr组成，每个分量有效10位，实际存储时，Y平面每个像素占16位数据（10位有效），UV平面交错排列，每4个像素占32位数据（每色度分量10位有效），平均有效占15位。对应[相机服务CameraFormat中的CAMERA_FORMAT_YCBCR_P010](../../../cj-apis-multimedia-camera/.overview.md)。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 

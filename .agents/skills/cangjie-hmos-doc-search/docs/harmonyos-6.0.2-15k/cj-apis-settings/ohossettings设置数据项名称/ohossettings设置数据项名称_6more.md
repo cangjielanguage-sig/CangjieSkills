@@ -1,4 +1,4 @@
-# ohos.settings（设置数据项名称）
+﻿# ohos.settings（设置数据项名称）
 
 本模块提供访问设置数据项的能力。
 
@@ -13,9 +13,9 @@ import kit.BasicServicesKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func getUriSync\<T>(T) where T <: ToString
 
@@ -82,7 +82,7 @@ public func getValue<T>(context: StageContext, name: T, defValue: String): Strin
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|应用上下文。context的获取方式请参见[getStageContext](../AbilityKit/cj-apis-ability.md#func-getstagecontextabilitycontext)。|
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|应用上下文。context的获取方式请参见[getStageContext](../../cj-apis-ability/.overview.md)。|
 |name|T|是|-|类型T需实现ToString接口。数据项的名称。数据项名称分为以下两种：<br>- 上述任意一个数据库中已存在的数据项。<br>- 开发者自行添加的数据项。|
 |defValue|String|是|-|默认值。由开发者设置，当未从数据库中查询到该数据时，表示返回该默认值。|
 

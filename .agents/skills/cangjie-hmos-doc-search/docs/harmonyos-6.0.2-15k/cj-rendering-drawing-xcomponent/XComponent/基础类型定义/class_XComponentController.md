@@ -1,4 +1,4 @@
-### class XComponentController
+﻿### class XComponentController
 
 ```cangjie
 public open class XComponentController {
@@ -30,7 +30,7 @@ public init()
 public func getXComponentSurfaceId(): String
 ```
 
-**功能：** 获取XComponent对应Surface的ID，供ohos接口使用，使用方式可参考[相机管理](../apis/CameraKit/cj-apis-multimedia-camera.md)，仅XComponent类型为SURFACE或TEXTURE时有效。
+**功能：** 获取XComponent对应Surface的ID，供ohos接口使用，使用方式可参考[相机管理](../../../cj-apis-multimedia-camera/.overview.md)，仅XComponent类型为SURFACE或TEXTURE时有效。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

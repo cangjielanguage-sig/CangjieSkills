@@ -1,4 +1,4 @@
-### func antiAlias(Bool)
+﻿### func antiAlias(Bool)
 
 ```cangjie
 public func antiAlias(antiAlias: Bool): This
@@ -86,7 +86,7 @@ public func fillOpacity(value: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|填充区域透明度。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|填充区域透明度。|
 
 ### func height(Length)
 

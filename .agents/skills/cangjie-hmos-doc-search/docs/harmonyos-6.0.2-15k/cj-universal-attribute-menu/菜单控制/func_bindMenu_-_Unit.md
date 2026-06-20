@@ -1,4 +1,4 @@
-## func bindMenu(() -> Unit)
+﻿## func bindMenu(() -> Unit)
 
 ```cangjie
 public func bindMenu(builder!: () -> Unit): This
@@ -14,4 +14,4 @@ public func bindMenu(builder!: () -> Unit): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|builder|() -> Unit|是|\-| **命名参数。** 自定义UI描述。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)使用。|
+|builder|() -> Unit|是|\-| **命名参数。** 自定义UI描述。使用时结合[@Builder](../../cj-macro-builder/.overview.md)使用。|

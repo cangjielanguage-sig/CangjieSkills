@@ -1,4 +1,4 @@
-## class AudioHapticPlayer
+﻿## class AudioHapticPlayer
 
 ```cangjie
 public class AudioHapticPlayer {}
@@ -36,7 +36,7 @@ public func isMuted(hapticType: AudioHapticType): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -75,7 +75,7 @@ public func off(cbType: AudioHapticPlayerCallBackType, callback!: ?CallbackObjec
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |cbType|[AudioHapticPlayerCallBackType](#enum-audiohapticplayercallbacktype)|是|-|要取消订阅事件的类型。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 回调对象。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 回调对象。|
 
 **示例：**
 

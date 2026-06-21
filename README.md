@@ -7,12 +7,12 @@
 在你的**鸿蒙项目根目录**（与 `entry`、`AppScope` 同级）执行：
 
 ```bash
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git#cangjie-harmonyos -a opencode -y
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git#cangjie-harmonyos-cbgSR-6.0.2.636-compatible -a opencode -y
 ```
 
 > 根据你使用的 AI 开发工具，`-a` 后可替换为 `claude-code`、`cursor`、`github-copilot`、`trae` 等，详见 [skills CLI 文档](https://www.npmjs.com/package/skills)。
 
-如果没有 Node.js 环境，也可以手动克隆本仓库的 `cangjie-harmonyos` 分支，将 `.agents/skills` 目录复制到项目根目录，并根据你实际使用的工具将`.agents`更名为`.opencode`或`.claude`。
+如果没有 Node.js 环境，也可以手动克隆本仓库的 `cangjie-harmonyos-cbgSR-6.0.2.636-compatible` 分支，将 `.agents/skills` 目录复制到项目根目录，并根据你实际使用的工具将`.agents`更名为`.opencode`或`.claude`。
 
 ## 安装后配置
 

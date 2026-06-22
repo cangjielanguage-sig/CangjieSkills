@@ -1,4 +1,4 @@
-### func off(CameraCallbackType)
+﻿### func off(CameraCallbackType)
 
 ```cangjie
 public func off(`type`: CameraCallbackType): Unit
@@ -53,7 +53,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<BusinessE
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为CameraCallbackType.error，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用beginConfig，commitConfig，addInput等接口发生错误时返回错误信息。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|回调函数，用于获取错误信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|回调函数，用于获取错误信息。|
 
 **示例：**
 

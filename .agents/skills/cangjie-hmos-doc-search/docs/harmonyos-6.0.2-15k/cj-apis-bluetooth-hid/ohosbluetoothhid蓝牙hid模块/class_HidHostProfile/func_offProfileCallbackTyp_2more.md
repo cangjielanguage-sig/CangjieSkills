@@ -1,4 +1,4 @@
-### func off(ProfileCallbackType, CallbackObject)
+﻿### func off(ProfileCallbackType, CallbackObject)
 
 ```cangjie
 public func off(`type`: ProfileCallbackType, callback: CallbackObject): Unit
@@ -17,11 +17,11 @@ public func off(`type`: ProfileCallbackType, callback: CallbackObject): Unit
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[ProfileCallbackType](cj-apis-bluetooth-baseProfile.md#enum-profilecallbacktype)|是|回调事件类型。|
-|callback|[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|是|回调事件。|
+|callback|[CallbackObject](../../../cj-apis-base/.overview.md)|是|回调事件。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -79,7 +79,7 @@ public func off(`type`: ProfileCallbackType): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

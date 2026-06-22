@@ -1,10 +1,10 @@
-## 解密
+﻿## 解密
 
-1. 调用[createCipher](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createcipherstring)，指定字符串参数'AES128|CCM'，创建对称密钥类型为AES128且分组模式为CCM的Cipher实例，用于完成解密操作。
+1. 调用[createCipher](../../cj-apis-crypto/.overview.md)，指定字符串参数'AES128|CCM'，创建对称密钥类型为AES128且分组模式为CCM的Cipher实例，用于完成解密操作。
 
-2. 调用[init](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-initcryptomode-key-paramsspec)，设置模式为解密（CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和CCM模式对应的解密参数（CcmParamsSpec），初始化解密Cipher实例。
+2. 调用[init](../../cj-apis-crypto/.overview.md)，设置模式为解密（CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和CCM模式对应的解密参数（CcmParamsSpec），初始化解密Cipher实例。
 
-3. 调用[doFinal](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-dofinaldatablob)，获取解密后的数据。
+3. 调用[doFinal](../../cj-apis-crypto/.overview.md)，获取解密后的数据。
 
 ## 示例
 

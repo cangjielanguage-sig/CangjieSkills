@@ -1,4 +1,4 @@
-### func isTorchModeSupported(TorchMode)
+﻿### func isTorchModeSupported(TorchMode)
 
 ```cangjie
 public func isTorchModeSupported(torchMode: TorchMode): Bool
@@ -88,7 +88,7 @@ public func off(`type`: CameraCallbackType, callback: Callback1Argument<CameraSt
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为cameraStatus。cameraManager对象获取成功后可监听。目前只支持对设备打开或者关闭会触发该事件并返回对应信息。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[CameraStatusInfo](#struct-camerastatusinfo)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[CameraStatusInfo](#struct-camerastatusinfo)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

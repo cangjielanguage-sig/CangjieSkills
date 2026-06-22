@@ -1,4 +1,4 @@
-## class Curves
+﻿## class Curves
 
 ```cangjie
 public class Curves {}
@@ -95,7 +95,7 @@ public static func initCurve(curve!: Curve = Curve.Linear): ICurve
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|curve|[Curve](../arkui-cj/cj-common-types.md#enum-curve)|否|Curve.Linear| **命名参数。** 曲线类型。|
+|curve|[Curve](../../../cj-common-types/.overview.md)|否|Curve.Linear| **命名参数。** 曲线类型。|
 
 **返回值：**
 

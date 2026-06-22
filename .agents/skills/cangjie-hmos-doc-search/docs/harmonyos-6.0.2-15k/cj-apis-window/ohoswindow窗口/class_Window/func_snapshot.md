@@ -1,4 +1,4 @@
-### func snapshot()
+﻿### func snapshot()
 
 ```cangjie
 public func snapshot(): PixelMap
@@ -14,11 +14,11 @@ public func snapshot(): PixelMap
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|返回当前窗口截图。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|返回当前窗口截图。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

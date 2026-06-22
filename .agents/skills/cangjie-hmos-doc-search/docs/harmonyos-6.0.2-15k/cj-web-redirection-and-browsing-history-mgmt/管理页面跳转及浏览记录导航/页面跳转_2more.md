@@ -1,6 +1,6 @@
-## 页面跳转
+﻿## 页面跳转
 
-当点击网页中的链接需要跳转到应用内其他页面时，可以通过使用Web组件的[onLoadIntercept()](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#func-onloadinterceptwebresourcerequest---bool)接口来实现。
+当点击网页中的链接需要跳转到应用内其他页面时，可以通过使用Web组件的[onLoadIntercept()](../../cj-web-web/.overview.md)接口来实现。
 
 在下面的示例中，应用首页index.cj加载前端页面route.html，在前端route.html页面点击超链接，可跳转到应用的profile_page.cj页面。
 

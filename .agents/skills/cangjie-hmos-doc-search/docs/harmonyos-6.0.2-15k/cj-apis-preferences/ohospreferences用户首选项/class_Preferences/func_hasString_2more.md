@@ -1,4 +1,4 @@
-### func has(String)
+﻿### func has(String)
 
 ```cangjie
 public func has(key: String): Bool
@@ -24,7 +24,7 @@ public func has(key: String): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[用户首选项错误码](../../errorcodes/cj-errorcode-preferences.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[用户首选项错误码](../../../cj-errorcode-preferences/cj-errorcode-preferences.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息|
   | :-------- | :------------------------------|
@@ -67,11 +67,11 @@ public func off(tp: String, callback: Callback1Argument<String>): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |tp|String|是|-|事件类型，固定值“change”或“multiProcessChange”。<br>change时，表示取消订阅数据变更。<br>multiProcessChange时，表示取消订阅进程间数据变更。                     |
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<String>|是|-|需要取消的回调函数，不填写则全部取消。String: 发生变化的Key的类型。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<String>|是|-|需要取消的回调函数，不填写则全部取消。String: 发生变化的Key的类型。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[用户首选项错误码](../../errorcodes/cj-errorcode-preferences.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[用户首选项错误码](../../../cj-errorcode-preferences/cj-errorcode-preferences.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息|
   | :-------- | :-------------------------------------- |

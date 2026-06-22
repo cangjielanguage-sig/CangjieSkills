@@ -1,4 +1,4 @@
-### func clearAbortCommonEvent()
+﻿### func clearAbortCommonEvent()
 
 ```cangjie
 public func clearAbortCommonEvent(): Unit
@@ -12,7 +12,7 @@ public func clearAbortCommonEvent(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../errorcodes/cj-errorcode-common_event_service.md)。
+- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../../cj-errorcode-common_event_service/cj-errorcode-common_event_service.md)。
 
   | 错误码ID | 错误信息                            |
   | :------- | :----------------------------------- |
@@ -70,7 +70,7 @@ public func getAbortCommonEvent(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../errorcodes/cj-errorcode-common_event_service.md)。
+- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../../cj-errorcode-common_event_service/cj-errorcode-common_event_service.md)。
 
   | 错误码ID | 错误信息                            |
   | :------- | :----------------------------------- |

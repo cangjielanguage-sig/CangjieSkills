@@ -1,4 +1,4 @@
-### func getEncoded()
+﻿### func getEncoded()
 
 ```cangjie
 public func getEncoded(): EncodingBlob
@@ -18,7 +18,7 @@ public func getEncoded(): EncodingBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -61,7 +61,7 @@ public func getExtKeyUsage(): Array<DataBlob>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -103,7 +103,7 @@ public func getExtensionsObject(): CertExtension
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -145,7 +145,7 @@ public func getIssuerAltNames(): Array<DataBlob>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,10 +1,10 @@
-## 视频相册
+﻿## 视频相册
 
 视频相册属于系统相册，用户文件中属于视频类型的媒体文件会自动加入到视频相册中。
 
 ### 获取视频相册对象
 
-通过[getAlbums](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getalbumsalbumtype-albumsubtype-fetchoptions)接口获取视频相册对象。
+通过[getAlbums](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口获取视频相册对象。
 
 **前提条件**
 

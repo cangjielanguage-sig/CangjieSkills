@@ -1,4 +1,4 @@
-### func openBasicChannel(Array\<Int32>)
+﻿### func openBasicChannel(Array\<Int32>)
 
 ```cangjie
 public func openBasicChannel(aid: Array<Int32>): Channel
@@ -24,7 +24,7 @@ public func openBasicChannel(aid: Array<Int32>): Channel
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[SE错误码](../../errorcodes/cj-errorcode-secure_element.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[SE错误码](../../../cj-errorcode-secure_element/cj-errorcode-secure_element.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -62,7 +62,7 @@ public func openBasicChannel(aid: Array<Int32>, p2: Int32): Channel
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[SE错误码](../../errorcodes/cj-errorcode-secure_element.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[SE错误码](../../../cj-errorcode-secure_element/cj-errorcode-secure_element.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

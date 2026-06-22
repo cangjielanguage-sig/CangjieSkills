@@ -1,4 +1,4 @@
-## class DisplaySync
+﻿## class DisplaySync
 
 ```cangjie
 public class DisplaySync {}
@@ -58,7 +58,7 @@ public func off(`type`: OnOffType, callback!: ?Callback1Argument<IntervalInfo> =
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[OnOffType](#enum-onofftype)|是|-|设置注册回调的类型（只能是OnOffType.FRAME类型）。|
-|callback|?[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[IntervalInfo](#class-intervalinfo)>|否|None| **命名参数。** 订阅函数，参数不填时，默认取消全部订阅函数。|
+|callback|?[Callback1Argument](../../../cj-apis-base/.overview.md)\<[IntervalInfo](#class-intervalinfo)>|否|None| **命名参数。** 订阅函数，参数不填时，默认取消全部订阅函数。|
 
 **示例：**
 
@@ -103,7 +103,7 @@ public func on(`type`: OnOffType, callback: Callback1Argument<IntervalInfo>): Un
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[OnOffType](#enum-onofftype)|是|-|设置注册回调的类型（只能是OnOffType.FRAME类型）。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[IntervalInfo](#class-intervalinfo)>|是|-|订阅函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[IntervalInfo](#class-intervalinfo)>|是|-|订阅函数。|
 
 **示例：**
 

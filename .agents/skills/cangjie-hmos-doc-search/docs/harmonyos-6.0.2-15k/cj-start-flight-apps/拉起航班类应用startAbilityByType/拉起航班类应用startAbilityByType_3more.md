@@ -1,8 +1,8 @@
-# 拉起航班类应用（startAbilityByType）
+﻿# 拉起航班类应用（startAbilityByType）
 
 本章节介绍如何拉起航班类应用扩展面板。
 
-例如，在行程安排类App中，当用户记录了某次行程的航班号，应用能够识别航班号信息并提供航班动态查询的链接。用户点击链接后，应用将通过调用[UIAbilityContext.startAbilityByType](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybytypestring-string-abilitystartcallback)或[UIExtensionContentSession.startAbilityByType](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilitybytypestring-string-abilitystartcallback-1)接口，拉起航班类应用的扩展面板。面板上将展示设备上所有支持航班查询的应用，供用户选择并跳转至所需应用。
+例如，在行程安排类App中，当用户记录了某次行程的航班号，应用能够识别航班号信息并提供航班动态查询的链接。用户点击链接后，应用将通过调用[UIAbilityContext.startAbilityByType](../../cj-apis-ability/.overview.md)或[UIExtensionContentSession.startAbilityByType](../../cj-apis-ability/.overview.md)接口，拉起航班类应用的扩展面板。面板上将展示设备上所有支持航班查询的应用，供用户选择并跳转至所需应用。
 
 ## 航班类应用扩展面板参数说明
 

@@ -1,4 +1,4 @@
-## func createPixelMapFromSurface(String, Region)
+﻿## func createPixelMapFromSurface(String, Region)
 
 ```cangjie
 public func createPixelMapFromSurface(surfaceId: String, region: Region): PixelMap
@@ -14,7 +14,7 @@ public func createPixelMapFromSurface(surfaceId: String, region: Region): PixelM
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|surfaceId|String|是|-|对应Surface的ID，可通过预览组件获取，如[XComponent](../../../source_zh_cn/arkui-cj/cj-rendering-drawing-xcomponent.md#xcomponent)组件。|
+|surfaceId|String|是|-|对应Surface的ID，可通过预览组件获取，如[XComponent](../../cj-rendering-drawing-xcomponent/.overview.md)组件。|
 |region|[Region](#struct-region)|是|-|区域信息。[Region](#struct-region).size的宽高需和设置的预览流大小保持一致。|
 
 **返回值：**
@@ -25,7 +25,7 @@ public func createPixelMapFromSurface(surfaceId: String, region: Region): PixelM
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -64,7 +64,7 @@ public func createPixelMapFromSurface(surfaceId: String): PixelMap
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|surfaceId|String|是|-|对应Surface的ID，可通过预览组件获取，如[XComponent](../../../source_zh_cn/arkui-cj/cj-rendering-drawing-xcomponent.md#xcomponent)组件。|
+|surfaceId|String|是|-|对应Surface的ID，可通过预览组件获取，如[XComponent](../../cj-rendering-drawing-xcomponent/.overview.md)组件。|
 
 **返回值：**
 
@@ -74,7 +74,7 @@ public func createPixelMapFromSurface(surfaceId: String): PixelMap
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

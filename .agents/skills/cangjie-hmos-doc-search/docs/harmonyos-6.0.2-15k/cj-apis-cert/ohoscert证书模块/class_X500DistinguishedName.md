@@ -1,4 +1,4 @@
-## class X500DistinguishedName
+﻿## class X500DistinguishedName
 
 ```cangjie
 public class X500DistinguishedName {
@@ -34,7 +34,7 @@ public func getEncoded(): EncodingBlob
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -82,7 +82,7 @@ public func getName(typeName: String): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -124,7 +124,7 @@ public func getName(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

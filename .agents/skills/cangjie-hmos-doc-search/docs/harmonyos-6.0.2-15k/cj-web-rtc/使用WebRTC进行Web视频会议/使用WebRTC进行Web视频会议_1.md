@@ -1,8 +1,8 @@
-# 使用WebRTC进行Web视频会议
+﻿# 使用WebRTC进行Web视频会议
 
-Web组件可以通过W3C标准协议接口拉起摄像头和麦克风，通过[onPermissionRequest](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#func-onpermissionrequestonpermissionrequestevent---unit)接口接收权限请求通知，需在配置文件中声明相应的音频权限。
+Web组件可以通过W3C标准协议接口拉起摄像头和麦克风，通过[onPermissionRequest](../../cj-web-web/.overview.md)接口接收权限请求通知，需在配置文件中声明相应的音频权限。
 
-使用摄像头和麦克风功能前请在module.json5中添加音频相关权限，权限的添加方法请参见[在配置文件中声明权限](../security/AccessToken/cj-declare-permissions.md)。
+使用摄像头和麦克风功能前请在module.json5中添加音频相关权限，权限的添加方法请参见[在配置文件中声明权限](../../cj-declare-permissions/.overview.md)。
 
 ```json
 // src/main/resources/base/element/string.json

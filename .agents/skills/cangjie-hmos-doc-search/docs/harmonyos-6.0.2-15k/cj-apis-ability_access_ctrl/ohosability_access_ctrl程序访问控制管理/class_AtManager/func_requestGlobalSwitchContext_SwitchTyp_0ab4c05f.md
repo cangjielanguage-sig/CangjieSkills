@@ -1,4 +1,4 @@
-### func requestGlobalSwitch(Context, SwitchType, AsyncCallback\<Bool>)
+﻿### func requestGlobalSwitch(Context, SwitchType, AsyncCallback\<Bool>)
 
 ```cangjie
 public func requestGlobalSwitch(context: Context, switchType: SwitchType, callback: AsyncCallback<Bool>): Unit
@@ -26,7 +26,7 @@ public func requestGlobalSwitch(context: Context, switchType: SwitchType, callba
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[访问控制错误码](../../errorcodes/cj-errorcode-access-token.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[访问控制错误码](../../../cj-errorcode-access-token/cj-errorcode-access-token.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

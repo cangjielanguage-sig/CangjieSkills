@@ -1,4 +1,4 @@
-### ohos.permission.ACCESS_DDK_HID
+﻿### ohos.permission.ACCESS_DDK_HID
 
 允许扩展外设驱动访问HID DDK接口开发HID类扩展外设驱动。
 
@@ -86,7 +86,7 @@
 1. 应用无法使用安全保存控件，例如H5网页应用等。
 2. 存在连续多次保存图片/视频的场景，无法使用保存确认弹框，一次保存多个图片/视频。
 
-**其他场景下的使用方案：** 使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参见：[保存媒体库资源](../../media/medialibrary/cj-photoAccessHelper-savebutton.md)。
+**其他场景下的使用方案：** 使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参见：[保存媒体库资源](../../../cj-photoAccessHelper-savebutton/cj-photoAccessHelper-savebutton.md)。
 
 **授权方式：** 用户授权（user_grant）
 

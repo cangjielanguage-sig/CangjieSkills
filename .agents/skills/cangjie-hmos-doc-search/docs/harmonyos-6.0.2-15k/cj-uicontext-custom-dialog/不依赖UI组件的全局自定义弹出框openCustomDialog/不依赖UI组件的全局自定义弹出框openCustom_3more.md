@@ -1,6 +1,6 @@
-# 不依赖UI组件的全局自定义弹出框（openCustomDialog）
+﻿# 不依赖UI组件的全局自定义弹出框（openCustomDialog）
 
-由于[CustomDialogController](../../API_Reference/source_zh_cn/arkui-cj/cj-dialog-customdialog.md/#class-customdialogcontroller)在使用上存在诸多限制，不支持动态创建也不支持动态刷新，在相对较复杂的应用场景中推荐使用PromptAction对象提供的[openCustomDialog](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-promptaction.md#static-func-opencustomdialogcustomdialogoptions-int32---unit)接口来实现自定义弹出框。
+由于[CustomDialogController](../../API_Reference/source_zh_cn/arkui-cj/cj-dialog-customdialog.md/#class-customdialogcontroller)在使用上存在诸多限制，不支持动态创建也不支持动态刷新，在相对较复杂的应用场景中推荐使用PromptAction对象提供的[openCustomDialog](../../cj-apis-promptaction/.overview.md)接口来实现自定义弹出框。
 
 > **说明：**
 >

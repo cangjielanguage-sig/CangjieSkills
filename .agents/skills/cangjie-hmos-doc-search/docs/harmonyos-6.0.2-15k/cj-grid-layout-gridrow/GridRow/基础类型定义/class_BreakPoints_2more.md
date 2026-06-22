@@ -1,4 +1,4 @@
-### class BreakPoints
+﻿### class BreakPoints
 
 ```cangjie
 public class BreakPoints {
@@ -118,7 +118,7 @@ public GridRowColumnOption(
 
 **说明：**
 
-在GridRow栅格组件中，允许开发者使用breakpoints自定义修改[断点](../../../Dev_Guide/arkui-cj/cj-layout-development-grid-layout.md#栅格系统断点)的取值范围，最多支持xs、sm、md、lg、xl、xxl六个断点，且名称不可修改。假设传入的数组是[n0, n1, n2, n3, n4]，各个断点取值如下：
+在GridRow栅格组件中，允许开发者使用breakpoints自定义修改[断点](../../../cj-layout-development-grid-layout/.overview.md)的取值范围，最多支持xs、sm、md、lg、xl、xxl六个断点，且名称不可修改。假设传入的数组是[n0, n1, n2, n3, n4]，各个断点取值如下：
 
 |断点|取值范围|
 |:---|:---|

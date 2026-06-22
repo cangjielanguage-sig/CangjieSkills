@@ -1,4 +1,4 @@
-### func isMicrophoneMute()
+﻿### func isMicrophoneMute()
 
 ```cangjie
 public func isMicrophoneMute(): Bool
@@ -18,7 +18,7 @@ public func isMicrophoneMute(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -69,7 +69,7 @@ public func isMute(volumeType: AudioVolumeType): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -114,7 +114,7 @@ public func isVolumeUnadjustable(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

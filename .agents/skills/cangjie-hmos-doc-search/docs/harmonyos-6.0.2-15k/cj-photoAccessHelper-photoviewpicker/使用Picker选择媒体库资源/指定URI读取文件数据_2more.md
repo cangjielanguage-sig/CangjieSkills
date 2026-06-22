@@ -1,6 +1,6 @@
-## 指定URI读取文件数据
+﻿## 指定URI读取文件数据
 
-1. 待界面从图库返回后，再通过一个类似按钮的组件去调用其他函数，使用[open](../../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#static-func-openstring-int64)接口，通过[媒体文件uri](../../file-management/cj-user-file-uri-intro.md#媒体文件uri)打开这个文件得到fd。这里需要注意接口权限参数是fileIo.OpenMode.READ_ONLY。
+1. 待界面从图库返回后，再通过一个类似按钮的组件去调用其他函数，使用[open](../../cj-apis-file_fs/.overview.md)接口，通过[媒体文件uri](../../cj-user-file-uri-intro/.overview.md)打开这个文件得到fd。这里需要注意接口权限参数是fileIo.OpenMode.READ_ONLY。
 
     ```cangjie
     let uri = ''
@@ -8,7 +8,7 @@
     AppLog.info('file fd: ${file.fd}')
     ```
 
-2. 通过fd使用[read](../../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#func-readarraybyte-readoptions)接口读取这个文件内的数据，读取完成后关闭fd。
+2. 通过fd使用[read](../../cj-apis-file_fs/.overview.md)接口读取这个文件内的数据，读取完成后关闭fd。
 
     ```cangjie
     let buffer = Array<UInt8>(4096, repeat: 0)
@@ -19,7 +19,7 @@
 
 ## 指定URI获取图片或视频资源
 
-媒体库支持Picker选择[媒体文件](../../file-management/cj-user-file-uri-intro.md#媒体文件uri)URI后，根据指定URI获取图片或视频资源，下面以查询指定URI为'file://media/Photo/1/IMG_datetime_0001/displayName.jpg'为例。
+媒体库支持Picker选择[媒体文件](../../cj-user-file-uri-intro/.overview.md)URI后，根据指定URI获取图片或视频资源，下面以查询指定URI为'file://media/Photo/1/IMG_datetime_0001/displayName.jpg'为例。
 
 ```cangjie
 import kit.MediaLibraryKit.*

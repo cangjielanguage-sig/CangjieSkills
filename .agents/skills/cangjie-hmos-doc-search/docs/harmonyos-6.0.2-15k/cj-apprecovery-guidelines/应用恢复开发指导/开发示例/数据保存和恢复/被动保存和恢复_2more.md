@@ -1,4 +1,4 @@
-#### 被动保存和恢复
+﻿#### 被动保存和恢复
 
 被动保存和恢复依赖恢复框架底层触发，无需注册监听ErrorObserver callback，只需实现Ability的onSaveState接口数据保存和onCreate接口数据恢复流程即可。
 
@@ -34,7 +34,7 @@ public class EntryAbility <: UIAbility {
 
 #### 故障Ability的重启恢复标记
 
-发生故障的Ability再次重新启动时，在调度onCreate生命周期里，参数want的parameters成员会有[ABILITY_RECOVERY_RESTART](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#ability_recovery_restart)标记数据，并且值为true。
+发生故障的Ability再次重新启动时，在调度onCreate生命周期里，参数want的parameters成员会有[ABILITY_RECOVERY_RESTART](../../../../cj-apis-ability/.overview.md)标记数据，并且值为true。
 
 ```cangjie
 import kit.AbilityKit.*

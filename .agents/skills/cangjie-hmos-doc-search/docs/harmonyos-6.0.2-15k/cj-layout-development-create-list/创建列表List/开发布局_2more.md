@@ -1,4 +1,4 @@
-## 开发布局
+﻿## 开发布局
 
 ### 设置主轴方向
 
@@ -17,7 +17,7 @@ List() {
 
 List组件的交叉轴布局可以通过lanes和alignListItem属性进行设置，lanes属性用于确定交叉轴排列的列表项数量，alignListItem用于设置子组件在交叉轴方向的对齐方式。
 
-List组件的lanes属性通常用于在不同尺寸的设备自适应构建不同行数或列数的列表，即一次开发、多端部署的场景。lanes属性的声明方式见[声明方式](../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-list.md#func-lanesint32)。以垂直列表为例，如果将lanes属性设为2，表示构建的是一个两列的垂直列表，如图2中右图所示。lanes的默认值为1，即默认情况下，垂直列表的列数是1。
+List组件的lanes属性通常用于在不同尺寸的设备自适应构建不同行数或列数的列表，即一次开发、多端部署的场景。lanes属性的声明方式见[声明方式](../../cj-scroll-swipe-list/.overview.md)。以垂直列表为例，如果将lanes属性设为2，表示构建的是一个两列的垂直列表，如图2中右图所示。lanes的默认值为1，即默认情况下，垂直列表的列数是1。
 
 ```cangjie
 List() {

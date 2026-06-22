@@ -1,4 +1,4 @@
-## func getResourcePluralString(PluralResource)
+﻿## func getResourcePluralString(PluralResource)
 
 ```cangjie
 public func getResourcePluralString(content: PluralResource): String
@@ -38,7 +38,7 @@ public func getResourceStringArray(res: AppResource): Array<String>
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res| [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res| [AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -62,7 +62,7 @@ public func getResourceUInt32(res: AppResource): UInt32
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res| [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res| [AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 

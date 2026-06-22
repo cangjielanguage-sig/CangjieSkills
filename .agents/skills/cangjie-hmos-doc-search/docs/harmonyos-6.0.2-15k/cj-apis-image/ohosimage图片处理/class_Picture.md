@@ -1,4 +1,4 @@
-## class Picture
+﻿## class Picture
 
 ```cangjie
 public class Picture {}
@@ -36,7 +36,7 @@ public func getMetadata(metadataType: MetadataType): Metadata
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -81,7 +81,7 @@ public func setMetadata(metadataType: MetadataType, metadata: Metadata): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

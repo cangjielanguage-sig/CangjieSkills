@@ -1,4 +1,4 @@
-### static func on(CallbackType, Callback1Argument\<LocationError>)
+﻿### static func on(CallbackType, Callback1Argument\<LocationError>)
 
 ```cangjie
 public static func on(`type`: CallbackType, callback: Callback1Argument<LocationError>): Unit
@@ -17,11 +17,11 @@ public static func on(`type`: CallbackType, callback: Callback1Argument<Location
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CallbackType](#enum-callbacktype)|是|-|设置事件类型。type为CallbackType.locationError，表示持续定位过程中的错误码变化。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[LocationError](#enum-locationerror)>|是|-|回调函数，返回持续定位过程中的错误码。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[LocationError](#enum-locationerror)>|是|-|回调函数，返回持续定位过程中的错误码。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[位置服务子系统错误码](../../errorcodes/cj-errorcode-geo_location_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[位置服务子系统错误码](../../../cj-errorcode-geo_location_manager/cj-errorcode-geo_location_manager.md)。
 
   | 错误码ID | 错误信息 |
   |:-------- |:---------------------------------------- |

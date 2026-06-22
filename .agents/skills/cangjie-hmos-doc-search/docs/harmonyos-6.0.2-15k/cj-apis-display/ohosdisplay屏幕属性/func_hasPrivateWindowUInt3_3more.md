@@ -1,4 +1,4 @@
-## func hasPrivateWindow(UInt32)
+﻿## func hasPrivateWindow(UInt32)
 
 ```cangjie
 public func hasPrivateWindow(displayId: UInt32): Bool
@@ -24,7 +24,7 @@ public func hasPrivateWindow(displayId: UInt32): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -75,7 +75,7 @@ public func isCaptured(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -125,7 +125,7 @@ public func isFoldable(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

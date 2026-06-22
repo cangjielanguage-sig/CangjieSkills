@@ -1,4 +1,4 @@
-### func mouseLongClick(Point, MouseButton, Option\<Int32>, Option\<Int32>)
+﻿### func mouseLongClick(Point, MouseButton, Option\<Int32>, Option\<Int32>)
 
 ```cangjie
 public func mouseLongClick(p: Point, btnId: MouseButton, key1!: Option<Int32> = None, key2!: Option<Int32> = None): Unit
@@ -21,7 +21,7 @@ public func mouseLongClick(p: Point, btnId: MouseButton, key1!: Option<Int32> = 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -61,7 +61,7 @@ public func mouseMoveTo(p: Point): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -103,7 +103,7 @@ public func mouseMoveWithTrack(fromP: Point, to: Point, speed!: Int32 = 600): Un
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

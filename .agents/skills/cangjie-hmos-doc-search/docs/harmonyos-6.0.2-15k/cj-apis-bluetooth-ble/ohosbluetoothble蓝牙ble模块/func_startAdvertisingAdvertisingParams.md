@@ -1,4 +1,4 @@
-## func startAdvertising(AdvertisingParams)
+﻿## func startAdvertising(AdvertisingParams)
 
 ```cangjie
 public func startAdvertising(advertisingParams: AdvertisingParams): UInt32
@@ -24,7 +24,7 @@ public func startAdvertising(advertisingParams: AdvertisingParams): UInt32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

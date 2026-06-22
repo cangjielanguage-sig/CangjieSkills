@@ -1,4 +1,4 @@
-### func off(DeviceStatusType, CallbackObject)
+﻿### func off(DeviceStatusType, CallbackObject)
 
 ```cangjie
 public func off(`type`: DeviceStatusType, callback: CallbackObject): Unit
@@ -17,11 +17,11 @@ public func off(`type`: DeviceStatusType, callback: CallbackObject): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[DeviceStatusType](#enum-devicestatustype)|是|-|解注册回调函数类型。|
-|callback|[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|是|-|callback的类型需要和type保持一致，并且是已经注册的回调函数。type和对应的callback类型详见[on](#func-ondevicestatustype-callbackobject)函数参数说明。|
+|callback|[CallbackObject](../../../cj-apis-base/.overview.md)|是|-|callback的类型需要和type保持一致，并且是已经注册的回调函数。type和对应的callback类型详见[on](#func-ondevicestatustype-callbackobject)函数参数说明。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

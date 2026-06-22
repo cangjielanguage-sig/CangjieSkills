@@ -1,4 +1,4 @@
-# 证书算法库框架概述
+﻿# 证书算法库框架概述
 
 证书算法库框架是一个屏蔽了第三方算法库实现差异的证书算法框架，向应用提供证书、证书扩展域段、证书吊销列表的创建、解析及校验能力，此外还提供了证书链的校验能力。
 
@@ -20,7 +20,7 @@
 
 ### 证书链校验不包含对时间有效性的校验
 
-由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X509证书的[checkValidityWithDate()](../../../API_Reference/source_zh_cn/apis/DeviceCertificateKit/cj-apis-cert.md#func-checkvaliditywithdatestring)方法进行检查。
+由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X509证书的[checkValidityWithDate()](../../cj-apis-cert/.overview.md)方法进行检查。
 
 ### 证书格式
 
@@ -44,4 +44,4 @@
 
 ## 约束与限制
 
-依赖加解密算法库框架的基础算法能力的部分，算法库框架不支持多线程并发操作，详情请参见[加解密算法框架](../CryptoArchitectureKit/cj-crypto-architecture-kit-intro.md#约束与限制)。
+依赖加解密算法库框架的基础算法能力的部分，算法库框架不支持多线程并发操作，详情请参见[加解密算法框架](../../cj-crypto-architecture-kit-intro/cj-crypto-architecture-kit-intro.md#约束与限制)。

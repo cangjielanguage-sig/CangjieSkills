@@ -1,4 +1,4 @@
-# ohos.ability.interop（Context及WantAgent互操作）
+﻿# ohos.ability.interop（Context及WantAgent互操作）
 
 本模块提供[Context](./cj-apis-ability.md#class-context)及其相关子类和[WantAgent](./cj-apis-ability.md#class-wantagent)进行互操作的能力。
 
@@ -24,8 +24,8 @@ public func createAbilityContextFromJSValue(context: JSContext, input: JSValue):
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 
@@ -39,7 +39,7 @@ public func createAbilityContextFromJSValue(context: JSContext, input: JSValue):
 public func createAbilityStageContextFromJSValue(context: JSContext, input: JSValue): AbilityStageContext
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为[AbilityStageContext](./cj-apis-ability.md#class-abilitystagecontext)类型。
+**功能：** 从[JSValue](../../cj-apis-ark_interop/.overview.md)转换为[AbilityStageContext](./cj-apis-ability.md#class-abilitystagecontext)类型。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -49,8 +49,8 @@ public func createAbilityStageContextFromJSValue(context: JSContext, input: JSVa
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 
@@ -64,7 +64,7 @@ public func createAbilityStageContextFromJSValue(context: JSContext, input: JSVa
 public func createApplicationContextFromJSValue(context: JSContext, input: JSValue): ApplicationContext
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为[ApplicationContext](./cj-apis-ability.md#class-applicationcontext)类型。
+**功能：** 从[JSValue](../../cj-apis-ark_interop/.overview.md)转换为[ApplicationContext](./cj-apis-ability.md#class-applicationcontext)类型。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -74,8 +74,8 @@ public func createApplicationContextFromJSValue(context: JSContext, input: JSVal
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 
@@ -89,7 +89,7 @@ public func createApplicationContextFromJSValue(context: JSContext, input: JSVal
 public func createContextFromJSValue(context: JSContext, input: JSValue): Context
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为[Context](./cj-apis-ability.md#class-context)类型。
+**功能：** 从[JSValue](../../cj-apis-ark_interop/.overview.md)转换为[Context](./cj-apis-ability.md#class-context)类型。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -99,8 +99,8 @@ public func createContextFromJSValue(context: JSContext, input: JSValue): Contex
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是| ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是| ArkTS统一类型。|
+|context|[JSContext](../../cj-apis-ark_interop/.overview.md)|是| ArkTS互操作上下文。|
+|input|[JSValue](../../cj-apis-ark_interop/.overview.md)|是| ArkTS统一类型。|
 
 **返回值：**
 

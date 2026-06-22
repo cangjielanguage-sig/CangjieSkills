@@ -1,4 +1,4 @@
-# 对称密钥加解密算法规格
+﻿# 对称密钥加解密算法规格
 
 当前章节将说明系统目前支持的算法及其对应的规格。
 
@@ -6,7 +6,7 @@
 
 ## AES
 
-算法库当前提供了[AES](./cj-crypto-sym-key-generation-conversion-spec.md#aes)加解密常用的7种加密模式：ECB、CBC、OFB、CFB、CTR、GCM和CCM。不同的加密模式适用的加解密参数不同，具体请参见[ParamsSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#interface-paramsspec)。
+算法库当前提供了[AES](./cj-crypto-sym-key-generation-conversion-spec.md#aes)加解密常用的7种加密模式：ECB、CBC、OFB、CFB、CTR、GCM和CCM。不同的加密模式适用的加解密参数不同，具体请参见[ParamsSpec](../../cj-apis-crypto/.overview.md)。
 
 由于AES为分组加密算法，分组长度为128位。在实际应用中，最后一组明文可能不足128位（16字节），此时可以通过不同的[填充模式](#填充模式)进行数据填充。
 

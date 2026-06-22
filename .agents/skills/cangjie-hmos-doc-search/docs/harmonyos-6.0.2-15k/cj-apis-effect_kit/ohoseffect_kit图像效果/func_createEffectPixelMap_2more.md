@@ -1,4 +1,4 @@
-## func createEffect(PixelMap)
+﻿## func createEffect(PixelMap)
 
 ```cangjie
 public func createEffect(source: PixelMap): ?Filter
@@ -14,7 +14,7 @@ public func createEffect(source: PixelMap): ?Filter
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|source|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|是|-|image模块创建的PixelMap实例。可通过图片解码或直接创建获得。|
+|source|[PixelMap](../../cj-apis-image/.overview.md)|是|-|image模块创建的PixelMap实例。可通过图片解码或直接创建获得。|
 
 **返回值：**
 

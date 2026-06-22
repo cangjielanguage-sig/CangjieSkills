@@ -1,4 +1,4 @@
-# ohos.security_element（安全单元的通道管理）
+﻿# ohos.security_element（安全单元的通道管理）
 
 本模块主要用于操作及管理安全单元（SecureElement，简称SE），电子设备上可能存在的安全单元有eSE(Embedded SE)和SIM卡。文档中出现的SE服务为SEService实例，参见[SEServer](#class-seservice)。
 
@@ -40,7 +40,7 @@ public func createService(): SEService
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

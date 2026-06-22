@@ -1,14 +1,14 @@
-# 取消动态订阅公共事件
+﻿# 取消动态订阅公共事件
 
 ## 场景介绍
 
-动态订阅者完成业务需求后，应主动取消订阅。通过调用[unsubscribe()](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#static-func-unsubscribecommoneventsubscriber)方法，取消订阅事件。
+动态订阅者完成业务需求后，应主动取消订阅。通过调用[unsubscribe()](../cj-apis-common_event_manager/.overview.md)方法，取消订阅事件。
 
 ## 接口说明
 
 | 接口名 | 接口描述 |
 | -------- | -------- |
-| unsubscribe(subscriber:&nbsp;[CommonEventSubscriber](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#class-commoneventsubscriber)): Unit | 取消订阅公共事件。 |
+| unsubscribe(subscriber:&nbsp;[CommonEventSubscriber](../cj-apis-common_event_manager/.overview.md)): Unit | 取消订阅公共事件。 |
 
 ## 开发步骤
 
@@ -20,7 +20,7 @@
 
 2. 根据[动态订阅公共事件](./cj-common-event-subscription.md)章节的步骤来订阅某个事件。
 
-3. 调用CommonEvent中的[unsubscribe()](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#static-func-unsubscribecommoneventsubscriber)方法取消订阅某事件。
+3. 调用CommonEvent中的[unsubscribe()](../cj-apis-common_event_manager/.overview.md)方法取消订阅某事件。
 
    ```cangjie
    // subscriber为订阅事件时创建的订阅者对象

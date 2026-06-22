@@ -1,4 +1,4 @@
-### func loadUrl(String)
+﻿### func loadUrl(String)
 
 ```cangjie
 public func loadUrl(url: String): Unit
@@ -18,7 +18,7 @@ public func loadUrl(url: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,11 +76,11 @@ public func loadUrl(url: AppResource): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|url|[AppResource](../LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|需要加载的URL。|
+|url|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|需要加载的URL。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## class AVMetadata
+﻿## class AVMetadata
 
 ```cangjie
 public class AVMetadata {
@@ -112,7 +112,7 @@ public var avQueueId: ?String
 public var avQueueImage: ?ValueType
 ```
 
-**功能：** 歌单（歌曲列表）封面图，图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过[setAVMetadata](#func-setavmetadataavmetadata)设置图片数据，当设置的数据类型为[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)时，通过[getAVMetadata](#func-getavmetadata)获取的将为[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)。设置为url图片路径，获取的亦为url图片路径。
+**功能：** 歌单（歌曲列表）封面图，图片的像素数据或者图片路径地址(本地路径或网络路径)。应用通过[setAVMetadata](#func-setavmetadataavmetadata)设置图片数据，当设置的数据类型为[PixelMap](../../../cj-apis-image/.overview.md)时，通过[getAVMetadata](#func-getavmetadata)获取的将为[PixelMap](../../../cj-apis-image/.overview.md)。设置为url图片路径，获取的亦为url图片路径。
 
 **类型：** ?[ValueType](#enum-valuetype)
 

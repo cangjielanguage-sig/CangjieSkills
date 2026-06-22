@@ -1,4 +1,4 @@
-## 鼠标事件
+﻿## 鼠标事件
 
 支持的鼠标事件包含通过外设鼠标、触控板触发的事件。
 
@@ -9,7 +9,7 @@
 |  onHover(callback: (isHover: Bool)->Unit) | 鼠标进入或退出组件时，触发该事件。<br>isHover：表示鼠标是否悬浮在组件上，鼠标进入时为true，退出时为false。|
 |  onMouse(callback: (event: MouseEvent)->Unit) | 当前组件被鼠标按键点击时或者鼠标在组件上悬浮移动时，触发该事件。<br>event返回值包含触发事件时的时间戳、鼠标按键、动作、鼠标位置在整个屏幕上的坐标和相对于当前组件的坐标。|
 
-当组件绑定onHover事件时，可以通过[hoverEffect](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-hovereffect.md)属性设置该组件的鼠标悬浮态显示效果。
+当组件绑定onHover事件时，可以通过[hoverEffect](../../../cj-universal-attribute-hovereffect/cj-universal-attribute-hovereffect.md)属性设置该组件的鼠标悬浮态显示效果。
 
 鼠标事件的原理如下图所示：
 

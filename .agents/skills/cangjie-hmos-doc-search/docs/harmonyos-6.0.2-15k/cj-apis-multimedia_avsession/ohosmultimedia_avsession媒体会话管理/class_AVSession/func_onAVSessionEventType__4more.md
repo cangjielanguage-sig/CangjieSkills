@@ -1,4 +1,4 @@
-### func on(AVSessionEventType, Callback1Argument\<KeyEvent>)
+﻿### func on(AVSessionEventType, Callback1Argument\<KeyEvent>)
 
 ```cangjie
 public func on(eventType: AVSessionEventType, callback: Callback1Argument<KeyEvent>): Unit
@@ -15,11 +15,11 @@ public func on(eventType: AVSessionEventType, callback: Callback1Argument<KeyEve
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[AVSessionEventType](#enum-avsessioneventtype)|是|-|监听事件，支持HandleKeyEvent。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[KeyEvent](../InputKit/cj-apis-multimodalInput-keyEvent.md#class-keyevent)>|是|-|入参为[KeyEvent](../InputKit/cj-apis-multimodalInput-keyEvent.md#class-keyevent)的回调函数，事件与回调的关联详见[AVSessionEventType](#enum-avsessioneventtype)。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[KeyEvent](../../../cj-apis-multimodalInput-keyEvent/.overview.md)>|是|-|入参为[KeyEvent](../../../cj-apis-multimodalInput-keyEvent/.overview.md)的回调函数，事件与回调的关联详见[AVSessionEventType](#enum-avsessioneventtype)。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -46,7 +46,7 @@ public func setAVCallState(state: AVCallState): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,7 +73,7 @@ public func setAVMetadata(data: AVMetadata): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -100,7 +100,7 @@ public func setAVPlaybackState(state: AVPlaybackState): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## interface ColorManagementQuery
+﻿## interface ColorManagementQuery
 
 ```cangjie
 sealed interface ColorManagementQuery {
@@ -28,11 +28,11 @@ func getSupportedColorSpaces(): Array<ColorSpace>
 
 |类型|说明|
 |:----|:----|
-|Array\<[ColorSpace](../ArkGraphics2D/cj-apis-color_manager.md#enum-colorspace)>|支持的色彩空间列表。|
+|Array\<[ColorSpace](../../cj-apis-color_manager/.overview.md)>|支持的色彩空间列表。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|

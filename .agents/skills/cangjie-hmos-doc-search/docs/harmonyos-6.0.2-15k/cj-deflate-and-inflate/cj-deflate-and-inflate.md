@@ -1,10 +1,10 @@
-# 压缩与解压
+﻿# 压缩与解压
 
 本文针对常见的几种压缩、解压场景，介绍相关函数的使用方法。
 
 ## 接口说明
 
-以下是示例中使用的主要接口，更多接口及使用方式请见[接口文档](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md)。
+以下是示例中使用的主要接口，更多接口及使用方式请见[接口文档](../cj-apis-bundle_manager/.overview.md)。
 
 | 接口名                                                       | 接口描述                     |
 | ------------------------------------------------------------ | ---------------------------- |
@@ -57,7 +57,7 @@ class EntryView {
 
 ### Zip文件的压缩与解压
 
-采用接口[compressFile()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md#static-func-compressfilestring-string-zipoptions)将文件data.txt压缩并归档到data.zip中，采用接口[zlib.decompressFile()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md#static-func-decompressfilestring-string-zipoptions)将data.zip解压到应用沙箱目录下，示例代码如下。
+采用接口[compressFile()](../cj-apis-bundle_manager/.overview.md)将文件data.txt压缩并归档到data.zip中，采用接口[zlib.decompressFile()](../cj-apis-bundle_manager/.overview.md)将data.zip解压到应用沙箱目录下，示例代码如下。
 
 <!-- run -->
 

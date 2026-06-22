@@ -1,4 +1,4 @@
-### func ==(Utf16String)
+﻿### func ==(Utf16String)
 
 ```cangjie
 public operator func == (target: Utf16String): Bool
@@ -110,7 +110,7 @@ public operator func [](range: Range<Int64>): Utf16String
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|range|[Range](../apis/IMEKit/cj-apis-inputmethod.md#class-range)\<Int64>|是|-|截取范围。|
+|range|[Range](../../../cj-apis-inputmethod/.overview.md)\<Int64>|是|-|截取范围。|
 
 **返回值：**
 

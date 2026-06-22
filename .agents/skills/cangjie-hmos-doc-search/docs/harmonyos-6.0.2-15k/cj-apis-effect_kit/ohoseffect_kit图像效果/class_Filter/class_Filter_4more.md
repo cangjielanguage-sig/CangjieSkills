@@ -1,4 +1,4 @@
-## class Filter
+﻿## class Filter
 
 ```cangjie
 public class Filter <: RemoteDataLite {}
@@ -83,7 +83,7 @@ public func brightness(bright: Float32): Filter
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -128,7 +128,7 @@ public func getEffectPixelMap(): PixelMap
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|返回已添加链表效果的源图像的PixelMap。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|返回已添加链表效果的源图像的PixelMap。|
 
 **示例：**
 

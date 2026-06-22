@@ -1,4 +1,4 @@
-### func getEntries(Query)
+﻿### func getEntries(Query)
 
 ```cangjie
 public func getEntries(query: Query): ArrayList<Entry>
@@ -24,7 +24,7 @@ public func getEntries(query: Query): ArrayList<Entry>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public func getResultSet(keyPrefix: String): KVStoreResultSet
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -121,7 +121,7 @@ public func getResultSet(query: Query): KVStoreResultSet
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

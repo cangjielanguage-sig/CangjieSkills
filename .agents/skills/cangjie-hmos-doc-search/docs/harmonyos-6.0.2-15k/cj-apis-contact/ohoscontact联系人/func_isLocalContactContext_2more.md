@@ -1,4 +1,4 @@
-## func isLocalContact(Context, Int64)
+﻿## func isLocalContact(Context, Int64)
 
 ```cangjie
 public func isLocalContact(context: Context, id: Int64): Bool
@@ -16,7 +16,7 @@ public func isLocalContact(context: Context, id: Int64): Bool
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |id|Int64|是|-|联系人对象的id属性，一个联系人对应一个id。|
 
 **返回值：**
@@ -27,7 +27,7 @@ public func isLocalContact(context: Context, id: Int64): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -67,7 +67,7 @@ public func isMyCard(context: Context, id: Int64): Bool
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |id|Int64|是|-|名片对象的id属性。|
 
 **返回值：**
@@ -78,7 +78,7 @@ public func isMyCard(context: Context, id: Int64): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

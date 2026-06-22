@@ -1,4 +1,4 @@
-# 获取系统语言与区域
+﻿# 获取系统语言与区域
 
 ## 实现原理
 
@@ -8,7 +8,7 @@
 
 ## 开发步骤
 
-接口的具体使用方法和说明请参见[System](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#class-system)的API接口文档。
+接口的具体使用方法和说明请参见[System](../cj-apis-i18n/.overview.md)的API接口文档。
 
 1. 导入模块。
 

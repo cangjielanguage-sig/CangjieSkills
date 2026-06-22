@@ -1,8 +1,8 @@
-## 场景介绍
+﻿## 场景介绍
 
 当设备需要设置不同的振动效果时，可以调用Vibrator模块，例如：设备的按键可以设置不同强度和不同时长的振动，闹钟和来电可以设置不同强度和时长的单次或周期振动。
 
-详细的API介绍请参见[Vibrator API](../../../API_Reference/source_zh_cn/apis/SensorServiceKit/cj-apis-vibrator.md)。
+详细的API介绍请参见[Vibrator API](../../cj-apis-vibrator/.overview.md)。
 
 ## 接口说明
 

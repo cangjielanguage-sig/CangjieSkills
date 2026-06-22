@@ -1,4 +1,4 @@
-### static func listFile(String, ListFileOptions)
+﻿### static func listFile(String, ListFileOptions)
 
 ```cangjie
 public static func listFile(path: String, options!: ListFileOptions = ListFileOptions()): Array<String>
@@ -33,7 +33,7 @@ public static func listFile(path: String, options!: ListFileOptions = ListFileOp
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -82,7 +82,7 @@ public static func lseek(fd: Int32, offset: Int64, whence!: WhenceType = SEEK_SE
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 

@@ -1,4 +1,4 @@
-### func off(CameraCallbackType)
+﻿### func off(CameraCallbackType)
 
 ```cangjie
 public func off(`type`: CameraCallbackType): Unit
@@ -55,7 +55,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<Array<Met
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为metadataObjectsAvailable，metadataOutput创建成功后可监听。检测到有效的metadata数据时触发该事件发生并返回相应的metadata数据。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[MetadataObject](#class-metadataobject)>>|是|-|回调函数，用于获取metadata数据。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[MetadataObject](#class-metadataobject)>>|是|-|回调函数，用于获取metadata数据。|
 
 **示例：**
 

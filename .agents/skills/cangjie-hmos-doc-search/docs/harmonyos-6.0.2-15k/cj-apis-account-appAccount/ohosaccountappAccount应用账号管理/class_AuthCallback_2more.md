@@ -1,4 +1,4 @@
-## class AuthCallback
+﻿## class AuthCallback
 
 ```cangjie
 public class AuthCallback {
@@ -38,7 +38,7 @@ public let onRequestRedirected: (request: Want) -> Unit
 
 **功能：** 通知请求被跳转。
 
-**类型：** [Want](../AbilityKit/cj-apis-ability.md#class-want)->Unit
+**类型：** [Want](../../cj-apis-ability/.overview.md)->Unit
 
 **读写能力：** 只读
 
@@ -79,7 +79,7 @@ public AuthCallback(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |onResult|([code](cj-apis-common_event_manager.md#let-code): Int32, result: ?[AuthResult](#class-authresult))|是|-|通知请求结果。|
-|onRequestRedirected|[Want](../AbilityKit/cj-apis-ability.md#class-want)->Unit|是|-|通知请求被跳转。|
+|onRequestRedirected|[Want](../../cj-apis-ability/.overview.md)->Unit|是|-|通知请求被跳转。|
 |onRequestContinued|Option\<()->Unit>|是|-| **命名参数。** 通知请求被继续处理。|
 
 ## class AuthResult

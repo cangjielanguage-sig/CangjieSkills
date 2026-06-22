@@ -1,4 +1,4 @@
-### func writeCharacteristicValue(BLECharacteristic, GattWriteType, (?BusinessException) -> Unit)
+﻿### func writeCharacteristicValue(BLECharacteristic, GattWriteType, (?BusinessException) -> Unit)
 
 ```cangjie
 public func writeCharacteristicValue(characteristic: BLECharacteristic, writeType: GattWriteType,
@@ -17,11 +17,11 @@ public func writeCharacteristicValue(characteristic: BLECharacteristic, writeTyp
 |:---|:---|:---|:---|
 |characteristic|[BLECharacteristic](#class-blecharacteristic)|是|蓝牙设备特征对应的二进制值及其它参数。|
 |writeType|[GattWriteType](#enum-gattwritetype)|是|蓝牙设备特征的写入类型。|
-|callback|(?[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)) -> Unit|是|回调函数。|
+|callback|(?[BusinessException](../../../cj-apis-base/.overview.md)) -> Unit|是|回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

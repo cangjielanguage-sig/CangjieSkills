@@ -1,4 +1,4 @@
-# ohos.crypto（加解密算法库框架）
+﻿# ohos.crypto（加解密算法库框架）
 
 为屏蔽底层硬件和算法库，向上提供统一的密码算法库加解密相关接口。
 
@@ -13,9 +13,9 @@ import kit.CryptoArchitectureKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func createAsyKeyGenerator(String)
 
@@ -25,7 +25,7 @@ public func createAsyKeyGenerator(algName: String): AsyKeyGenerator
 
 **功能：** 通过指定算法名称的字符串，获取相应的非对称密钥生成器实例。
 
-支持的规格详见[非对称密钥生成和转换规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-asym-key-generation-conversion-spec.md)。
+支持的规格详见[非对称密钥生成和转换规格](../../cj-crypto-asym-key-generation-conversion-spec/.overview.md)。
 
 **系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
 
@@ -35,7 +35,7 @@ public func createAsyKeyGenerator(algName: String): AsyKeyGenerator
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|algName|String|是|-|[非对称密钥生成支持的算法名](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-asym-key-generation-conversion-spec.md)。|
+|algName|String|是|-|[非对称密钥生成支持的算法名](../../cj-crypto-asym-key-generation-conversion-spec/.overview.md)。|
 
 **返回值：**
 
@@ -45,7 +45,7 @@ public func createAsyKeyGenerator(algName: String): AsyKeyGenerator
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

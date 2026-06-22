@@ -1,4 +1,4 @@
-# ohos.input_method.extension_ability（InputMethodExtensionAbility）
+﻿# ohos.input_method.extension_ability（InputMethodExtensionAbility）
 
 本模块支持开发者自行开发输入法应用，以及管理输入法应用的生命周期。
 
@@ -110,7 +110,7 @@ public open func onCreate(want: Want): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|want|[Want](../AbilityKit/cj-apis-ability.md#class-want)|是|-|当前Extension相关的Want类型信息，包括ability名称、bundle名称等。|
+|want|[Want](../cj-apis-ability/.overview.md)|是|-|当前Extension相关的Want类型信息，包括ability名称、bundle名称等。|
 
 **示例：**
 

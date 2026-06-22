@@ -1,4 +1,4 @@
-### 页面的默认焦点
+﻿### 页面的默认焦点
 
 ```cangjie
 public func defaultFocus(isDefaultFocus: Bool): This
@@ -79,7 +79,7 @@ class EntryView {
 
 **defaultFocus与FocusPriority的区别：**
 
-[defaultFocus](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-focus.md#func-defaultfocusbool)是用于指定页面首次展示时的默认获焦节点，[FocusPriority](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-focus.md#func-focusscopeprioritystring-focuspriority)是用于指定某个容器首次获焦时其子节点的获焦优先级。上述两个属性在某些场景同时配置时行为未定义，例如下面的场景，页面首次展示无法同时满足defaultFocus获焦和高优先级组件获焦。示例如下：
+[defaultFocus](../../../cj-universal-attribute-focus/.overview.md)是用于指定页面首次展示时的默认获焦节点，[FocusPriority](../../../cj-universal-attribute-focus/.overview.md)是用于指定某个容器首次获焦时其子节点的获焦优先级。上述两个属性在某些场景同时配置时行为未定义，例如下面的场景，页面首次展示无法同时满足defaultFocus获焦和高优先级组件获焦。示例如下：
 
 <!-- run -->
 

@@ -1,4 +1,4 @@
-# 生成密钥（仓颉）
+﻿# 生成密钥（仓颉）
 
 以生成DH密钥为例，生成随机密钥。具体的场景介绍及支持的算法规格，请参见[密钥生成支持的算法](./cj-huks-key-generation-overview.md#支持的算法)。
 
@@ -13,11 +13,11 @@
     - 密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
     - 对于不同业务间生成的密钥，HUKS将基于业务身份信息进行存储路径隔离，不会因为和其他业务密钥同名导致冲突。
 
-2. 初始化密钥属性集。通过[HuksParam](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-huksparam)封装密钥属性，搭配Array组成密钥属性集，并赋值给[HuksOptions](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-huksoptions)中的properties字段。
+2. 初始化密钥属性集。通过[HuksParam](../cj-apis-security_huks/.overview.md)封装密钥属性，搭配Array组成密钥属性集，并赋值给[HuksOptions](../cj-apis-security_huks/.overview.md)中的properties字段。
 
-    密钥属性集中必须包含[HuksKeyAlg](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-hukskeyalg)、[HuksKeySize](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-hukskeysize)、[HuksKeyPurpose](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-hukskeypurpose)属性，即必传TAG，HUKS_TAG_ALGORITHM、HUKS_TAG_PURPOSE、HUKS_TAG_KEY_SIZE。注：一个密钥只能有一类PURPOSE，并且，生成密钥时指定的用途要与使用时的方式一致，否则会导致异常，请参见[密钥用途](./cj-huks-key-generation-overview.md#密钥用途)。
+    密钥属性集中必须包含[HuksKeyAlg](../cj-apis-security_huks/.overview.md)、[HuksKeySize](../cj-apis-security_huks/.overview.md)、[HuksKeyPurpose](../cj-apis-security_huks/.overview.md)属性，即必传TAG，HUKS_TAG_ALGORITHM、HUKS_TAG_PURPOSE、HUKS_TAG_KEY_SIZE。注：一个密钥只能有一类PURPOSE，并且，生成密钥时指定的用途要与使用时的方式一致，否则会导致异常，请参见[密钥用途](./cj-huks-key-generation-overview.md#密钥用途)。
 
-3. 调用[generateKeyItem](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#func-generatekeyitemstring-huksoptions)，传入密钥别名和密钥属性集，生成密钥。
+3. 调用[generateKeyItem](../cj-apis-security_huks/.overview.md)，传入密钥别名和密钥属性集，生成密钥。
 
 > **说明：**
 >

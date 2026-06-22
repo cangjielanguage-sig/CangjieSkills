@@ -1,4 +1,4 @@
-# SaveButton
+﻿# SaveButton
 
 安全控件的保存控件，用户通过点击该保存按钮，可以临时获取存储权限，而不需要权限弹框授权确认。
 
@@ -73,4 +73,4 @@ public func onClick (callback: (ClickEvent, SaveButtonOnClickResult) -> Unit): T
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback |([ClickEvent](../../source_zh_cn/arkui-cj/cj-universal-event-click.md#class-clickevent), [SaveButtonOnClickResult](#enum-savebuttononclickresult)) -> Unit | 是| - | 点击动作触时，触发该回调函数。<br> 参数一：点击事件对象；<br>参数二：存储权限的授权结果。|
+|callback |([ClickEvent](../../cj-universal-event-click/.overview.md), [SaveButtonOnClickResult](#enum-savebuttononclickresult)) -> Unit | 是| - | 点击动作触时，触发该回调函数。<br> 参数一：点击事件对象；<br>参数二：存储权限的授权结果。|

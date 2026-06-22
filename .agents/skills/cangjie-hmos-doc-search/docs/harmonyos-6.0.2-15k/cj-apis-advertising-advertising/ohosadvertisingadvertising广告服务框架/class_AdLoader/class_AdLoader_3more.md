@@ -1,4 +1,4 @@
-## class AdLoader
+﻿## class AdLoader
 
 ```cangjie
 public class AdLoader {
@@ -28,7 +28,7 @@ public init(context: StageContext)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|ability或application的上下文环境。|
+|context|[StageContext](../../../cj-apis-ark_interop_helper/.overview.md)|是|-|ability或application的上下文环境。|
 
 **示例：**
 
@@ -65,7 +65,7 @@ public func loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdL
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../errorcodes/cj-errorcode-advertising.md)。
+- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../../cj-errorcode-advertising/cj-errorcode-advertising.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

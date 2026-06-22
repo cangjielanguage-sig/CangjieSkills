@@ -1,4 +1,4 @@
-### static func off(ObserverEventType, Callback1Argument\<Array\<SignalInformation>>)
+﻿### static func off(ObserverEventType, Callback1Argument\<Array\<SignalInformation>>)
 
 ```cangjie
 public static func off(eventType: ObserverEventType, callback: Callback1Argument<Array<SignalInformation>>): Unit
@@ -15,11 +15,11 @@ public static func off(eventType: ObserverEventType, callback: Callback1Argument
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[ObserverEventType](#enum-observereventtype)|是|-|事件类型。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[SignalInformation](cj-apis-telephony_radio.md#class-signalinformation)>>|是|-|信号状态变化回调函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[SignalInformation](cj-apis-telephony_radio.md#class-signalinformation)>>|是|-|信号状态变化回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## class PasteData
+﻿## class PasteData
 
 ```cangjie
 public class PasteData {}
@@ -95,7 +95,7 @@ public func addRecord(mimeType: String, value: PixelMap): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |mimeType|String|是|-|剪贴板数据对应的MIME类型，为自定义String。|
-|value|[PixelMap](../../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|数据内容。|
+|value|[PixelMap](../../../cj-apis-image/.overview.md)|是|-|数据内容。|
 
 **示例：**
 

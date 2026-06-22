@@ -1,4 +1,4 @@
-## func queryGroups(Context, Holder)
+﻿## func queryGroups(Context, Holder)
 
 ```cangjie
 public func queryGroups(context: Context, holder!: Holder = Holder.EMPTY): Array<Group>
@@ -16,7 +16,7 @@ public func queryGroups(context: Context, holder!: Holder = Holder.EMPTY): Array
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |holder|[Holder](#struct-holder)|否|Holder.EMPTY| **命名参数。** 创建联系人的应用信息。|
 
 **返回值：**
@@ -27,7 +27,7 @@ public func queryGroups(context: Context, holder!: Holder = Holder.EMPTY): Array
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -66,7 +66,7 @@ public func queryHolders(context: Context): Array<Holder>
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 
 **返回值：**
 
@@ -76,7 +76,7 @@ public func queryHolders(context: Context): Array<Holder>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -113,7 +113,7 @@ public func queryKey(context: Context, id: Int64, holder!: Holder = Holder.EMPTY
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |id|Int64|是|-|根据联系人的id查询联系人的key。|
 |holder|[Holder](#struct-holder)|否|Holder.EMPTY| **命名参数。** 创建联系人的应用信息。|
 
@@ -125,7 +125,7 @@ public func queryKey(context: Context, id: Int64, holder!: Holder = Holder.EMPTY
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

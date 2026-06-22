@@ -1,14 +1,14 @@
-## 获取动态照片对象
+﻿## 获取动态照片对象
 
 - 应用可以通过Picker的方式获取用户媒体库里的动态照片对象，后续可用于在应用内播放动态照片，或是读取动态照片资源进行其他操作（如上传到应用共享给他人浏览等）。
 
-- 应用也可以通过传入应用沙箱的[应用文件](../../file-management/cj-app-file-access.md)图片和视频fileUri的方式构造应用本地的动态照片对象。
+- 应用也可以通过传入应用沙箱的[应用文件](../../../cj-app-file-access/.overview.md)图片和视频fileUri的方式构造应用本地的动态照片对象。
 
 ### 获取媒体库动态照片对象
 
-1. 通过Picker选择动态照片的[媒体文件](../../file-management/cj-user-file-uri-intro.md#媒体文件uri)uri。
-2. 调用[getAssets](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getassetsfetchoptions-1)和[getFirstObject](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getfirstobject)接口获取uri对应的PhotoAsset资产。
-3. 调用[requestMovingPhoto](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#static-func-requestmovingphotoabilitycontext-photoasset-requestoptions-mediaassetdatahandlermovingphoto)获取PhotoAsset对应的动态照片对象（MovingPhoto）。
+1. 通过Picker选择动态照片的[媒体文件](../../../cj-user-file-uri-intro/.overview.md)uri。
+2. 调用[getAssets](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)和[getFirstObject](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口获取uri对应的PhotoAsset资产。
+3. 调用[requestMovingPhoto](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)获取PhotoAsset对应的动态照片对象（MovingPhoto）。
 
 ```cangjie
 import kit.MediaLibraryKit.*

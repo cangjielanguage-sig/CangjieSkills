@@ -1,4 +1,4 @@
-## func getResourceBool(AppResource)
+﻿## func getResourceBool(AppResource)
 
 ```cangjie
 public func getResourceBool(res: AppResource): Bool
@@ -14,7 +14,7 @@ public func getResourceBool(res: AppResource): Bool
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -38,7 +38,7 @@ public func getResourceColor(res: AppResource): Color
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -62,7 +62,7 @@ public func getResourceDouble(res: AppResource): Float64
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -86,7 +86,7 @@ public func getResourceInt32(res: AppResource): Int32
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -110,7 +110,7 @@ public func getResourceLength(res: AppResource): Length
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res| [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res| [AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -134,7 +134,7 @@ public func getResourceMedia(res: AppResource): String
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res| [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res| [AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 
@@ -158,7 +158,7 @@ public func getResourceString(res: AppResource): String
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|res| [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|资源对象。|
+|res| [AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|资源对象。|
 
 **返回值：**
 

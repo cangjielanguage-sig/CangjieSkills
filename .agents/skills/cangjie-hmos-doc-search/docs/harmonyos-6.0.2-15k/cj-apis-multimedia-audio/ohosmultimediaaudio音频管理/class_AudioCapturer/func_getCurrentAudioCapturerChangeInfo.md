@@ -1,4 +1,4 @@
-### func getCurrentAudioCapturerChangeInfo()
+﻿### func getCurrentAudioCapturerChangeInfo()
 
 ```cangjie
 public func getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo
@@ -18,7 +18,7 @@ public func getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

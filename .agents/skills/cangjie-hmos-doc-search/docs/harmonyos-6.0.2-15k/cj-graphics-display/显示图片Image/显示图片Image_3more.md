@@ -1,6 +1,6 @@
-# 显示图片（Image）
+﻿# 显示图片（Image）
 
-开发者经常需要在应用中显示一些图片，例如：按钮中的icon、网络图片、本地图片等。在应用中显示图片需要使用Image组件实现，Image支持多种图片格式，包括png、jpg、bmp、svg、gif和heif，具体用法请参考[Image](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-image.md)组件。
+开发者经常需要在应用中显示一些图片，例如：按钮中的icon、网络图片、本地图片等。在应用中显示图片需要使用Image组件实现，Image支持多种图片格式，包括png、jpg、bmp、svg、gif和heif，具体用法请参考[Image](../../cj-image-video-image/.overview.md)组件。
 
 Image通过调用接口来创建，接口调用形式如下：
 
@@ -23,7 +23,7 @@ Image支持加载存档图、多媒体像素图两种类型。
   创建文件夹，将本地图片放入cangjie文件夹下的任意位置。
 
   Image组件引入本地图片路径，即可显示图片（根目录为cangjie文件夹）。
-  其中文件Uri的获取参考[用户文件uri介绍](../file-management/cj-user-file-uri-intro.md)
+  其中文件Uri的获取参考[用户文件uri介绍](../../cj-user-file-uri-intro/.overview.md)
 
   ```cangjie
   Image('file://media/images/view.jpg')
@@ -38,7 +38,7 @@ Image支持加载存档图、多媒体像素图两种类型。
 
   Image组件首次加载网络图片时，需要请求网络资源，非首次加载时，默认从缓存中直接读取图片。
 
-  网络图片必须支持RFC 9113标准，否则会导致加载失败。如果下载的网络图片大于10MB或一次下载的网络图片数量较多，建议使用[HTTP](../network/cj-http-request.md)工具提前预下载，提高图片加载性能，方便应用侧管理数据。
+  网络图片必须支持RFC 9113标准，否则会导致加载失败。如果下载的网络图片大于10MB或一次下载的网络图片数量较多，建议使用[HTTP](../../cj-http-request/.overview.md)工具提前预下载，提高图片加载性能，方便应用侧管理数据。
 
   ```cangjie
   Image("https://www.example.com/example.jpg") // 实际使用时请替换为真实地址
@@ -58,9 +58,9 @@ Image支持加载存档图、多媒体像素图两种类型。
 
 - 媒体库file://media/storage
 
-  支持file://路径前缀的字符串，用于访问通过[选择器](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md)提供的图片路径。
+  支持file://路径前缀的字符串，用于访问通过[选择器](../../cj-apis-file_picker/.overview.md)提供的图片路径。
 
-  文件Uri的获取参考[用户文件uri介绍](../file-management/cj-user-file-uri-intro.md)，从媒体库获取的url格式通常如下。
+  文件Uri的获取参考[用户文件uri介绍](../../cj-user-file-uri-intro/.overview.md)，从媒体库获取的url格式通常如下。
 
   ```cangjie
   Image('file://media/Photos/5')
@@ -69,7 +69,7 @@ Image支持加载存档图、多媒体像素图两种类型。
 
 ## 显示矢量图
 
-Image组件可显示矢量图（svg格式的图片），svg标签文档请参考[svg说明](../../API_Reference/source_zh_cn/apis/ImageKit/cj-apis-image.md#svg标签说明)。
+Image组件可显示矢量图（svg格式的图片），svg标签文档请参考[svg说明](../../cj-apis-image/.overview.md)。
 
 svg格式的图片可以使用fillColor属性改变图片的绘制颜色。
 

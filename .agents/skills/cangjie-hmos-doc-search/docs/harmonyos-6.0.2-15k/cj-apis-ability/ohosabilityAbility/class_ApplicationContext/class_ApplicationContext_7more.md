@@ -1,4 +1,4 @@
-## class ApplicationContext
+﻿## class ApplicationContext
 
 ```cangjie
 public class ApplicationContext <: Context {}
@@ -28,7 +28,7 @@ public func clearUpApplicationData(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -91,7 +91,7 @@ public func getCurrentAppCloneIndex(): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -118,7 +118,7 @@ public func getRunningProcessInformation(): Array<ProcessInformation>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -144,7 +144,7 @@ public func killAllProcesses(clearPageStack!: Bool = true): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

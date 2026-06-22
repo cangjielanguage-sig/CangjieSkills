@@ -1,4 +1,4 @@
-### func stop(ElementName)
+﻿### func stop(ElementName)
 
 ```cangjie
 public func stop(elementName: ElementName): Unit
@@ -16,11 +16,11 @@ public func stop(elementName: ElementName): Unit
 
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
-|elementName|[ElementName](../AbilityKit/cj-apis-ability.md#class-elementname)|是|所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。|
+|elementName|[ElementName](../../../cj-apis-ability/.overview.md)|是|所属应用声明NFC卡模拟能力的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[NFC错误码](../../errorcodes/cj-errorcode-nfc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[NFC错误码](../../../cj-errorcode-nfc/cj-errorcode-nfc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func callWithResult(String, Parcelable, Callback1Argument\<MessageSequence>)
+﻿### func callWithResult(String, Parcelable, Callback1Argument\<MessageSequence>)
 
 ```cangjie
 public func callWithResult(method: String, data: Parcelable, callback: Callback1Argument<MessageSequence>): Unit
@@ -15,12 +15,12 @@ public func callWithResult(method: String, data: Parcelable, callback: Callback1
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |method|String|是|-|约定的服务端注册事件字符串。|
-|data|[Parcelable](../IPCKit/cj-apis-rpc.md#interface-parcelable)|是|-|约定的服务端注册事件字符串。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[MessageSequence](../IPCKit/cj-apis-rpc.md#class-messagesequence)>|是|-|开发者传入的回调函数类，用于处理返回通用组件服务端应答数据。|
+|data|[Parcelable](../../../cj-apis-rpc/.overview.md)|是|-|约定的服务端注册事件字符串。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[MessageSequence](../../../cj-apis-rpc/.overview.md)>|是|-|开发者传入的回调函数类，用于处理返回通用组件服务端应答数据。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

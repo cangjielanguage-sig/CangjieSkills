@@ -1,4 +1,4 @@
-## 强制停止进程命令（force-stop）
+﻿## 强制停止进程命令（force-stop）
 
 通过bundleName强制停止一个进程。
 
@@ -36,7 +36,7 @@ aa test -b <bundleName> [-m <module-name>] [-p <package-name>] [-s class <test-c
 
 > **说明：**
 >
-> 关于class、level、size、testType等参数的详细说明请参见[aa test命令执行配置参数](../application-test/cj-arkxtest-guidelines.md#在cmd执行)。
+> 关于class、level、size、testType等参数的详细说明请参见[aa test命令执行配置参数](../../cj-arkxtest-guidelines/.overview.md)。
 
 **启动测试框架命令参数列表**
 

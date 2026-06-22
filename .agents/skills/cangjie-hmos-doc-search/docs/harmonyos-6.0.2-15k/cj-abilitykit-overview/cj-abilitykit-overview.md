@@ -1,4 +1,4 @@
-# Ability Kit简介
+﻿# Ability Kit简介
 
 Ability Kit（程序框架服务）提供了应用程序开发和运行的应用模型，是系统为开发者提供的应用程序所需能力的抽象提炼，它提供了应用程序必备的组件和运行机制。有了应用模型，开发者可以基于一套统一的模型进行应用开发，使应用开发更简单、高效。
 
@@ -15,8 +15,8 @@ Ability Kit（程序框架服务）提供了应用程序开发和运行的应用
 - 提供应用组件运行入口、应用组件生命周期调度、组件间交互等能力。
 - 提供应用上下文环境、系统环境变化监听等能力。
 - 提供应用流转能力。
-- 提供多包机制、共享包、应用信息配置等能力，详情请参见[应用程序包概述](../cj-start/basic-knowledge/application-package-overview.md)。
-- 提供程序访问控制能力，详情请参见[访问控制概述](../security/AccessToken/cj-access-token-overview.md)。
+- 提供多包机制、共享包、应用信息配置等能力，详情请参见[应用程序包概述](../application-package-overview/.overview.md)。
+- 提供程序访问控制能力，详情请参见[访问控制概述](../cj-access-token-overview/cj-access-token-overview.md)。
 
 ## 亮点/特征
 

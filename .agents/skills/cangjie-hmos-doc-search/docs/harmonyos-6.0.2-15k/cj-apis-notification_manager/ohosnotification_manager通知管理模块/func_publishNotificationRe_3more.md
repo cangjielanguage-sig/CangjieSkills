@@ -1,4 +1,4 @@
-## func publish(NotificationRequest)
+﻿## func publish(NotificationRequest)
 
 ```cangjie
 public func publish(request: NotificationRequest): Unit
@@ -18,7 +18,7 @@ public func publish(request: NotificationRequest): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../errorcodes/cj-errorcode-notification.md)。
+- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../cj-errorcode-notification/cj-errorcode-notification.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -66,7 +66,7 @@ public func removeAllSlots(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[通知管理错误码](../../errorcodes/cj-errorcode-notification.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[通知管理错误码](../../cj-errorcode-notification/cj-errorcode-notification.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -113,7 +113,7 @@ public func removeSlot(slotType: SlotType): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[通知管理错误码](../../errorcodes/cj-errorcode-notification.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[通知管理错误码](../../cj-errorcode-notification/cj-errorcode-notification.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

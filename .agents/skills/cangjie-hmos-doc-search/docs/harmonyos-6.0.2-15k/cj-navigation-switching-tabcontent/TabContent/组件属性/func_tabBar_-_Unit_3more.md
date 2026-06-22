@@ -1,4 +1,4 @@
-### func tabBar(() -> Unit)
+﻿### func tabBar(() -> Unit)
 
 ```cangjie
 public func tabBar(callback: () -> Unit): This
@@ -14,7 +14,7 @@ public func tabBar(callback: () -> Unit): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|()->Unit|是|-|自定义UI描述。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|callback|()->Unit|是|-|自定义UI描述。使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 
 ### func tabBar(SubTabBarStyle)
 

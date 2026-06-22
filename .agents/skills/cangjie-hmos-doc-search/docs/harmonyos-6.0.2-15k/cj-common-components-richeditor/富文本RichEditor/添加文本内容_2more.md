@@ -1,6 +1,6 @@
-## 添加文本内容
+﻿## 添加文本内容
 
-除了直接在组件内输入内容，也可以通过[addTextSpan](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-addtextspanstring-richeditortextspanoptions)添加文本内容。
+除了直接在组件内输入内容，也可以通过[addTextSpan](../../cj-text-input-richeditor/.overview.md)添加文本内容。
 
 此接口可以实现文本样式多样化，例如需要创建混合样式文本。
 
@@ -36,7 +36,7 @@ class EntryView {
 
 ## 添加图片内容
 
-通过[addImageSpan](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-addimagespanstring-richeditorimagespanoptions)添加图片内容。
+通过[addImageSpan](../../cj-text-input-richeditor/.overview.md)添加图片内容。
 
 此接口可用于内容丰富与可视化展示，例如在新闻中加入图片，在文档中加入数据可视化图形等。
 

@@ -1,4 +1,4 @@
-### func getCustomData(String, String)
+﻿### func getCustomData(String, String)
 
 ```cangjie
 public func getCustomData(name: String, key: String): String
@@ -25,7 +25,7 @@ public func getCustomData(name: String, key: String): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -74,11 +74,11 @@ public func off(`type`: OnOffType, callback: ?Callback1Argument<Array<AppAccount
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[OnOffType](#enum-onofftype)|是|-|事件回调类型，支持的事件为'accountChange'，当账号所有者更新账号信息时，触发该事件。|
-|callback|?[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[AppAccountInfo](#class-appaccountinfo)>>|否|None|需要注销的回调函数，默认为空，表示取消该类型事件所有的回调。|
+|callback|?[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[AppAccountInfo](#class-appaccountinfo)>>|否|None|需要注销的回调函数，默认为空，表示取消该类型事件所有的回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

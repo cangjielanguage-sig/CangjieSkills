@@ -1,4 +1,4 @@
-### func cloudSync(SyncMode, Array\<String>, Callback1Argument\<ProgressDetails>)
+﻿### func cloudSync(SyncMode, Array\<String>, Callback1Argument\<ProgressDetails>)
 
 ```cangjie
 public func cloudSync(mode: SyncMode, tables: Array<String>, callback: Callback1Argument<ProgressDetails>): Unit
@@ -16,11 +16,11 @@ public func cloudSync(mode: SyncMode, tables: Array<String>, callback: Callback1
 |:---|:---|:---|:---|:---|
 |mode|[SyncMode](#enum-syncmode)|是|-|表示数据库的同步模式。|
 |tables|Array\<String>|是|-|指定同步的表名。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ProgressDetails](#struct-progressdetails)>|是|-|用来处理数据库同步详细信息的回调函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ProgressDetails](#struct-progressdetails)>|是|-|用来处理数据库同步详细信息的回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   | 错误码ID | 错误信息    |
   |:-----------|:------------------|

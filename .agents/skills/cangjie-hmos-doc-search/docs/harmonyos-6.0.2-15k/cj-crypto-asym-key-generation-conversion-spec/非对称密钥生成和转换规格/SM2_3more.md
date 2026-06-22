@@ -1,4 +1,4 @@
-## SM2
+﻿## SM2
 
 SM2，是一种基于椭圆曲线的公钥密码算法。采用的Fp域上的椭圆曲线。
 
@@ -42,9 +42,9 @@ Fp域下的SM2密钥参数，包括：
 
 > **说明：**
 >
-> - 当前SM2只支持Fp域，因此fieldType固定为"Fp"。fieldType和p构成了属性field，当前field只支持[ECFieldFp](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-ecfieldfp)。
+> - 当前SM2只支持Fp域，因此fieldType固定为"Fp"。fieldType和p构成了属性field，当前field只支持[ECFieldFp](../../cj-apis-crypto/.overview.md)。
 >
-> - g和pk为SM2曲线上的点，属于[Point](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-point)类型，需要指定具体X，Y坐标。
+> - g和pk为SM2曲线上的点，属于[Point](../../cj-apis-crypto/.overview.md)类型，需要指定具体X，Y坐标。
 
 ### 使用曲线名生成密钥参数
 

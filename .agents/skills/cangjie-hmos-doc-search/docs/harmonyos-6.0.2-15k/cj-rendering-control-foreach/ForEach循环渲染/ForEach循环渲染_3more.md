@@ -1,6 +1,6 @@
-# ForEach：循环渲染
+﻿# ForEach：循环渲染
 
-ForEach接口基于数组类型数据来进行循环渲染，需要与容器组件配合使用，且接口返回的组件应当是允许包含在ForEach父容器组件中的子组件。例如，ListItem组件要求ForEach的父容器组件必须为[List组件](../../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-list.md)。详情请参见：ForEach [API参数说明](../../../API_Reference/source_zh_cn/arkui-cj/cj-state-rendering-foreach.md)。
+ForEach接口基于数组类型数据来进行循环渲染，需要与容器组件配合使用，且接口返回的组件应当是允许包含在ForEach父容器组件中的子组件。例如，ListItem组件要求ForEach的父容器组件必须为[List组件](../../cj-scroll-swipe-list/.overview.md)。详情请参见：ForEach [API参数说明](../../cj-state-rendering-foreach/cj-state-rendering-foreach.md)。
 
 ## 键值生成规则
 

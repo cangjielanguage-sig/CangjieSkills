@@ -1,4 +1,4 @@
-## class ChangeData
+﻿## class ChangeData
 
 ```cangjie
 public class ChangeData {}
@@ -91,7 +91,7 @@ public var predicates: DataSharePredicates = DataSharePredicates()
 
 **功能：** 谓词查询。
 
-**类型：** [DataSharePredicates](../ArkData/cj-apis-data_share_predicates.md#class-datasharepredicates)
+**类型：** [DataSharePredicates](../../cj-apis-data_share_predicates/.overview.md)
 
 **读写能力：** 可读写
 
@@ -117,4 +117,4 @@ public FetchOptions(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |fetchColumns|Array\<String>|否|\[]| **命名参数。** 检索条件，指定列名查询。<br>对于照片，如果该参数为空，默认查询'uri'、'media_type'、'subtype'和'display_name'，使用[get](#func-getstring)接口获取当前对象的其他属性时将会报错。示例：fetchColumns: ['uri', 'title']。<br>对于相册，如果该参数为空，默认查询'uri'和'album_name'。|
-|predicates|[DataSharePredicates](../ArkData/cj-apis-data_share_predicates.md#class-datasharepredicates)|否|DataSharePredicates()| **命名参数。** 谓词查询，显示过滤条件。|
+|predicates|[DataSharePredicates](../../cj-apis-data_share_predicates/.overview.md)|否|DataSharePredicates()| **命名参数。** 谓词查询，显示过滤条件。|

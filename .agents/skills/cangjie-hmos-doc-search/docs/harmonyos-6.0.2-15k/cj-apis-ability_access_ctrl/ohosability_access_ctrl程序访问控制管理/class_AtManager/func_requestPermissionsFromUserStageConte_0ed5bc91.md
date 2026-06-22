@@ -1,4 +1,4 @@
-### func requestPermissionsFromUser(StageContext, Array\<Permissions>, AsyncCallback\<AccessCtrlPermissionRequestResult>)
+﻿### func requestPermissionsFromUser(StageContext, Array\<Permissions>, AsyncCallback\<AccessCtrlPermissionRequestResult>)
 
 ```cangjie
 public func requestPermissionsFromUser(context: StageContext, permissionList: Array<Permissions>,
@@ -17,13 +17,13 @@ public func requestPermissionsFromUser(context: StageContext, permissionList: Ar
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|请求权限的Ability的Context。|
-|permissionList|Array\<[Permissions](#type-permissions)>|是|-|需要校验的权限名称，合法的权限名取值可在[应用权限列表](../../../../Dev_Guide/security/AccessToken/cj-app-permissions.md#应用权限列表)中查询。|
+|context|[StageContext](../../../cj-apis-ark_interop_helper/.overview.md)|是|-|请求权限的Ability的Context。|
+|permissionList|Array\<[Permissions](#type-permissions)>|是|-|需要校验的权限名称，合法的权限名取值可在[应用权限列表](../../../cj-app-permissions/cj-app-permissions.md#应用权限列表)中查询。|
 |callback|AsyncCallback\<[AccessCtrlPermissionRequestResult](#class-accessctrlpermissionrequestresult)>|是|-|回调函数，返回接口调用是否成功的结果。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[访问控制错误码](../../errorcodes/cj-errorcode-access-token.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[访问控制错误码](../../../cj-errorcode-access-token/cj-errorcode-access-token.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

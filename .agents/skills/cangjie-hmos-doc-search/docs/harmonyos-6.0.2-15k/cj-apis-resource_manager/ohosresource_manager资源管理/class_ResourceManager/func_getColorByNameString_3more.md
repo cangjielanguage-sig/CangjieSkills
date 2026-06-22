@@ -1,4 +1,4 @@
-### func getColorByName(String)
+﻿### func getColorByName(String)
 
 ```cangjie
 public func getColorByName(resName: String): UInt32
@@ -24,7 +24,7 @@ public func getColorByName(resName: String): UInt32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

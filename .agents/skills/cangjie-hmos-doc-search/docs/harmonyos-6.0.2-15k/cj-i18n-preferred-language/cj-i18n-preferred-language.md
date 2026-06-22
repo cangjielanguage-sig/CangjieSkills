@@ -1,4 +1,4 @@
-# 设置应用偏好语言
+﻿# 设置应用偏好语言
 
 ## 功能介绍
 
@@ -6,7 +6,7 @@
 
 ## 开发步骤
 
-接口的具体使用方法和说明请参见[getAppPreferredLanguage](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#static-func-getapppreferredlanguage)的API接口文档。
+接口的具体使用方法和说明请参见[getAppPreferredLanguage](../cj-apis-i18n/.overview.md)的API接口文档。
 
 以时间日期格式化为例说明。
 

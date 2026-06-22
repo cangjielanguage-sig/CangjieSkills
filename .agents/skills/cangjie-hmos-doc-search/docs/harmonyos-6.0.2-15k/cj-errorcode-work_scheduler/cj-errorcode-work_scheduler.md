@@ -1,8 +1,8 @@
-# workScheduler错误码
+﻿# workScheduler错误码
 
 > **说明：**
 >
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](../errorcodes/cj-errorcode-universal.md)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](../cj-errorcode-universal/cj-errorcode-universal.md)。
 
 ## 9700001 内存操作失败
 

@@ -1,4 +1,4 @@
-### func loadAdWithMultiSlots(Array\<AdRequestParams>, AdOptions, MultiSlotsAdLoadListener)
+﻿### func loadAdWithMultiSlots(Array\<AdRequestParams>, AdOptions, MultiSlotsAdLoadListener)
 
 ```cangjie
 public func loadAdWithMultiSlots(adParams: Array<AdRequestParams>,
@@ -22,7 +22,7 @@ public func loadAdWithMultiSlots(adParams: Array<AdRequestParams>,
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../errorcodes/cj-errorcode-advertising.md)。
+- BusinessException：对应错误码的详细介绍请参见[advertising错误码](../../../cj-errorcode-advertising/cj-errorcode-advertising.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

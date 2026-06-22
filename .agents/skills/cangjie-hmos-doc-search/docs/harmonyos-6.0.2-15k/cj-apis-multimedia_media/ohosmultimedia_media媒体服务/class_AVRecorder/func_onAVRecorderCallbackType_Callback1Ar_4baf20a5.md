@@ -1,4 +1,4 @@
-### func on(AVRecorderCallbackType, Callback1Argument\<BusinessException>)
+﻿### func on(AVRecorderCallbackType, Callback1Argument\<BusinessException>)
 
 ```cangjie
 public func on(`type`: AVRecorderCallbackType, callback: Callback1Argument<BusinessException>): Unit
@@ -17,11 +17,11 @@ public func on(`type`: AVRecorderCallbackType, callback: Callback1Argument<Busin
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AVRecorderCallbackType](#enum-avrecordercallbacktype)|是|-|录制错误事件回调类型AVRECORDER_ERROR。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<BusinessException>|是|-|录制错误事件回调方法。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<BusinessException>|是|-|录制错误事件回调方法。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

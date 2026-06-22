@@ -1,4 +1,4 @@
-### func isStickyCommonEvent()
+﻿### func isStickyCommonEvent()
 
 ```cangjie
 public func isStickyCommonEvent(): Bool
@@ -18,7 +18,7 @@ public func isStickyCommonEvent(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../errorcodes/cj-errorcode-common_event_service.md)。
+- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../../cj-errorcode-common_event_service/cj-errorcode-common_event_service.md)。
 
   | 错误码ID | 错误信息                            |
   | :------- | :----------------------------------- |
@@ -71,7 +71,7 @@ public func abortCommonEvent(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../errorcodes/cj-errorcode-common_event_service.md)。
+- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../../cj-errorcode-common_event_service/cj-errorcode-common_event_service.md)。
 
   | 错误码ID | 错误信息                            |
   | :------- | :----------------------------------- |

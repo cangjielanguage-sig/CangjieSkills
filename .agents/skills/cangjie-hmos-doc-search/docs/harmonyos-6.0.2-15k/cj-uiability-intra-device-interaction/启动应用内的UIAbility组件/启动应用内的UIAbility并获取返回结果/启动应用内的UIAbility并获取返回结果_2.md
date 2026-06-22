@@ -1,4 +1,4 @@
-@Entry
+﻿@Entry
     @Component
     class PageFuncAbilityA {
         func build() {
@@ -33,7 +33,7 @@
     }
     ```
 
-3. FuncAbility停止自身后，EntryAbility通过[startAbilityForResult()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilityforresultwant-asynccallbackabilityresult)方法回调接收被FuncAbility返回的信息，RESULT_CODE需要与前面的数值保持一致。
+3. FuncAbility停止自身后，EntryAbility通过[startAbilityForResult()](../../../cj-apis-ability/.overview.md)方法回调接收被FuncAbility返回的信息，RESULT_CODE需要与前面的数值保持一致。
 
     ```cangjie
     import kit.UIKit.Button

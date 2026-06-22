@@ -1,4 +1,4 @@
-### static func getProfileByAbility(String, String, String)
+﻿### static func getProfileByAbility(String, String, String)
 
 ```cangjie
 public static func getProfileByAbility(moduleName: String, abilityName: String, metadataName!: String = ""): Array<String>
@@ -36,7 +36,7 @@ public static func getProfileByAbility(moduleName: String, abilityName: String, 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[包管理子系统通用错误码](../../errorcodes/cj-errorcode-bundle.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[包管理子系统通用错误码](../../../cj-errorcode-bundle/cj-errorcode-bundle.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

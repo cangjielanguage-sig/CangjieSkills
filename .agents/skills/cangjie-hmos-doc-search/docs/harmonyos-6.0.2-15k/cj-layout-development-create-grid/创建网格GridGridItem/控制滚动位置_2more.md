@@ -1,4 +1,4 @@
-## 控制滚动位置
+﻿## 控制滚动位置
 
 与新闻列表的返回顶部场景类似，控制滚动位置功能在网格布局中也很常用，例如下图8所示日历的翻页功能。
 
@@ -6,7 +6,7 @@
 
 ![GridItem7](figures/GridItem7.gif)
 
-Grid组件初始化时，可以绑定一个[Scroller](../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-scroll.md#scroll)对象，用于进行滚动控制，例如通过Scroller对象的[scrollPage](../../API_Reference/source_zh_cn/arkui-cj/cj-scroll-swipe-scroll.md#func-scrollpagebool)方法进行翻页。
+Grid组件初始化时，可以绑定一个[Scroller](../../cj-scroll-swipe-scroll/.overview.md)对象，用于进行滚动控制，例如通过Scroller对象的[scrollPage](../../cj-scroll-swipe-scroll/.overview.md)方法进行翻页。
 
 ```cangjie
 var scroller: Scroller = Scroller()

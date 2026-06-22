@@ -1,4 +1,4 @@
-# 向用户申请授权
+﻿# 向用户申请授权
 
 当应用需要访问用户的隐私信息或使用系统能力时，例如获取位置信息、访问日历、使用相机拍摄照片或录制视频等，应该向用户请求授权，这部分权限是user_grant权限。
 
@@ -28,10 +28,10 @@
 
 - 每次执行需要目标权限的操作时，应用都必须检查自己是否已经具有该权限。
 
-  如需检查用户是否已向您的应用授予特定权限，可以使用[checkAccessToken()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#func-checkaccesstokenuint32-permissions)函数，此方法会返回[PERMISSION_GRANTED](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#enum-grantstatus)或[PERMISSION_DENIED](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#enum-grantstatus)。具体示例可参考下文。
+  如需检查用户是否已向您的应用授予特定权限，可以使用[checkAccessToken()](../../cj-apis-ability_access_ctrl/.overview.md)函数，此方法会返回[PERMISSION_GRANTED](../../cj-apis-ability_access_ctrl/.overview.md)或[PERMISSION_DENIED](../../cj-apis-ability_access_ctrl/.overview.md)。具体示例可参考下文。
 
-- 每次访问受目标权限保护的接口之前，都需要使用[requestPermissionsFromUser()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#func-requestpermissionsfromuserstagecontext-arraypermissions-asynccallbackaccessctrlpermissionrequestresult)接口请求相应的权限。
+- 每次访问受目标权限保护的接口之前，都需要使用[requestPermissionsFromUser()](../../cj-apis-ability_access_ctrl/.overview.md)接口请求相应的权限。
 
   用户可能在动态授予权限后通过系统设置来取消应用的权限，因此不能将之前授予的授权状态持久化。
 
-- 应用在onWindowStageCreate()回调中申请授权时，需要等待异步接口loadContent()/setUIContent()执行结束后或在loadContent()/setUIContent()回调中调用[requestPermissionsFromUser()](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#func-requestpermissionsfromuserstagecontext-arraypermissions-asynccallbackaccessctrlpermissionrequestresult)，否则在Content加载完成前，requestPermissionsFromUser会调用失败。
+- 应用在onWindowStageCreate()回调中申请授权时，需要等待异步接口loadContent()/setUIContent()执行结束后或在loadContent()/setUIContent()回调中调用[requestPermissionsFromUser()](../../cj-apis-ability_access_ctrl/.overview.md)，否则在Content加载完成前，requestPermissionsFromUser会调用失败。

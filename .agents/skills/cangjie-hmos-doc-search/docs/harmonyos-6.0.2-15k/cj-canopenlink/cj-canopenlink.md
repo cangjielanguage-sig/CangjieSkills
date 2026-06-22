@@ -1,4 +1,4 @@
-# （可选）使用canOpenLink判断应用是否可访问
+﻿# （可选）使用canOpenLink判断应用是否可访问
 
 ## 使用场景
 
@@ -6,18 +6,18 @@
 
 ## 约束限制
 
-在entry模块的module.json5文件中的[querySchemes](../cj-start/basic-knowledge/module-configuration-file.md)字段中，最多允许配置50个URL scheme。
+在entry模块的module.json5文件中的[querySchemes](../module-configuration-file/module-configuration-file.md)字段中，最多允许配置50个URL scheme。
 
 ## 接口说明
 
-canOpenLink是[bundleManager](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md)提供的支持判断目标应用是否可访问的接口。
+canOpenLink是[bundleManager](../cj-apis-bundle_manager/.overview.md)提供的支持判断目标应用是否可访问的接口。
 匹配规则请参见[显式Want与隐式Want匹配规则](cj-explicit-implicit-want-mappings.md)。
 
 ## 操作步骤
 
 ### 调用方操作步骤
 
-1. 在entry模块的module.json5文件中配置[querySchemes](../cj-start/basic-knowledge/module-configuration-file.md)属性，声明想要查询的URL scheme。
+1. 在entry模块的module.json5文件中配置[querySchemes](../module-configuration-file/module-configuration-file.md)属性，声明想要查询的URL scheme。
 
     ```json
     {
@@ -65,7 +65,7 @@ canOpenLink是[bundleManager](../../API_Reference/source_zh_cn/apis/AbilityKit/c
 
 ### 目标方操作步骤
 
-在module.json5文件中配置[uris](../cj-start/basic-knowledge/module-configuration-file.md)属性。
+在module.json5文件中配置[uris](../module-configuration-file/module-configuration-file.md)属性。
 
 ```json
 {

@@ -1,4 +1,4 @@
-### static func createRandomAccessFile(File, Int64)
+﻿### static func createRandomAccessFile(File, Int64)
 
 ```cangjie
 public static func createRandomAccessFile(file: File, mode!: Int64 = 0): RandomAccessFile
@@ -25,7 +25,7 @@ public static func createRandomAccessFile(file: File, mode!: Int64 = 0): RandomA
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 ### static func createStream(String, String)
 
@@ -54,7 +54,7 @@ public static func createStream(path: String, mode: String): Stream
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 

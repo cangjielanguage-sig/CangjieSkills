@@ -1,8 +1,8 @@
-## 使用AudioCapturer录制本端的通话声音
+﻿## 使用AudioCapturer录制本端的通话声音
 
 该过程与[使用AudioCapturer开发音频录制功能](./cj-using-audiocapturer-for-recording.md)过程相似，关键区别在于audioCapturerInfo参数和音频数据流向。audioCapturerInfo参数中音源类型需设置为语音通话：SOURCE_TYPE_VOICE_COMMUNICATION。
 
-所有录制均需要申请麦克风权限：`ohos.permission.MICROPHONE`，申请方式请参见[向用户申请授权](../../security/AccessToken/cj-request-user-authorization.md)。
+所有录制均需要申请麦克风权限：`ohos.permission.MICROPHONE`，申请方式请参见[向用户申请授权](../../../cj-request-user-authorization/.overview.md)。
 
 1. 获取Context。
 

@@ -1,4 +1,4 @@
-### func listInputMethodSubtype(InputMethodProperty)
+﻿### func listInputMethodSubtype(InputMethodProperty)
 
 ```cangjie
 public func listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Array<InputMethodSubtype>
@@ -24,7 +24,7 @@ public func listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Ar
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public func off(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[IMFEventType](#enum-imfeventtype)|是|-|回调函数事件类型，当前仅支持ImeChange。|
-|callback|?[Callback2Argument](../BasicServicesKit/cj-apis-base.md#class-callback2argument)\<[InputMethodProperty](#class-inputmethodproperty),[InputMethodSubtype](#class-inputmethodsubtype)>|否|None| **命名参数。** 回调函数，返回取消订阅的输入法属性对象及子类型对象。|
+|callback|?[Callback2Argument](../../../cj-apis-base/.overview.md)\<[InputMethodProperty](#class-inputmethodproperty),[InputMethodSubtype](#class-inputmethodsubtype)>|否|None| **命名参数。** 回调函数，返回取消订阅的输入法属性对象及子类型对象。|
 
 **示例：**
 

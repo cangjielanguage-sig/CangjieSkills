@@ -1,4 +1,4 @@
-## 简介
+﻿## 简介
 
 安全单元（SecureElement，简称SE），电子设备上可能存在一个或多个安全单元，比如有eSE(Embedded SE)和SIM卡。能够充当安全单元的SIM卡，要求具备NFC功能。
 
@@ -8,7 +8,7 @@
 
 ## 接口说明
 
-完整的仓颉 API 说明以及实例代码请参见：[安全单元接口](../../../API_Reference/source_zh_cn/apis/ConnectivityKit/cj-apis-security_element.md)。
+完整的仓颉 API 说明以及实例代码请参见：[安全单元接口](../../cj-apis-security_element/.overview.md)。
 实现安全单元的访问，可能使用到下面的接口。
 
 | 接口名 | 功能描述 |

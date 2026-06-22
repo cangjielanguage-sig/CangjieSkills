@@ -1,4 +1,4 @@
-## class EventBase
+﻿## class EventBase
 
 ```cangjie
 public abstract class EventBase {}
@@ -30,7 +30,7 @@ public func as0(): Event0
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码|错误信息|
   |:------|:-------------------------|
@@ -79,7 +79,7 @@ public func as1<A>(): Event1<A>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码|错误信息|
   |:------|:-------------------------|
@@ -127,7 +127,7 @@ public func as2<A1, A2>(): Event2<A1, A2>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码|错误信息|
   |:------|:-------------------------|

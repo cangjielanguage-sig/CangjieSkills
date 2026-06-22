@@ -1,4 +1,4 @@
-### func allowWindowOpenMethod(Bool)
+﻿### func allowWindowOpenMethod(Bool)
 
 ```cangjie
 public func allowWindowOpenMethod(flag: Bool): This
@@ -80,7 +80,7 @@ public func copyOptions(value: CopyOptions): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[CopyOptions](../arkui-cj/cj-common-types.md#enum-copyoptions)|是|-|剪贴板复制范围选项。<br> 初始值：CopyOptions.LocalDevice。|
+|value|[CopyOptions](../../../cj-common-types/.overview.md)|是|-|剪贴板复制范围选项。<br> 初始值：CopyOptions.LocalDevice。|
 
 ### func darkMode(WebDarkMode)
 

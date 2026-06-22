@@ -1,4 +1,4 @@
-### func getSupportedFrameRates()
+﻿### func getSupportedFrameRates()
 
 ```cangjie
 public func getSupportedFrameRates(): Array<FrameRateRange>
@@ -55,7 +55,7 @@ public func off(`type`: CameraCallbackType, callback: Callback0Argument): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为frameStart或frameEnd，previewOutput创建成功可监听。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|回调函数，取消对应callback。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

@@ -1,4 +1,4 @@
-# Device Certificate Kit简介
+﻿# Device Certificate Kit简介
 
 Device Certificate Kit（设备证书服务）面向应用开发者，提供了[证书算法库](#证书算法库)和[证书管理](#证书管理)的能力。
 
@@ -22,7 +22,7 @@ Device Certificate Kit（设备证书服务）面向应用开发者，提供了[
 
 ### 与相关Kit的关系
 
-证书算法库的功能使用时，涉及公钥的生成和获取，这部分依赖[Crypto Architecture Kit](../CryptoArchitectureKit/cj-crypto-architecture-kit-intro.md)加解密算法框架服务的能力。
+证书算法库的功能使用时，涉及公钥的生成和获取，这部分依赖[Crypto Architecture Kit](../cj-crypto-architecture-kit-intro/cj-crypto-architecture-kit-intro.md)加解密算法框架服务的能力。
 
 ## 证书管理
 
@@ -38,7 +38,7 @@ Device Certificate Kit（设备证书服务）面向应用开发者，提供了[
 
 ### 与相关Kit的关系
 
-证书管理的功能使用时，涉及凭据的安装和使用的部分，依赖于[Universal Keystore Kit](../UniversalKeystoreKit/cj-huks-overview.md)密钥管理服务的能力。
+证书管理的功能使用时，涉及凭据的安装和使用的部分，依赖于[Universal Keystore Kit](../cj-huks-overview/cj-huks-overview.md)密钥管理服务的能力。
 
 ## 约束与限制
 

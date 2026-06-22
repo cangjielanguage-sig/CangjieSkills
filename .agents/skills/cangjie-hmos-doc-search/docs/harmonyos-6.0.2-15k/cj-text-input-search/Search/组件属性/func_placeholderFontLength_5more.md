@@ -1,4 +1,4 @@
-### func placeholderFont(Length, FontWeight, FontStyle, String)
+﻿### func placeholderFont(Length, FontWeight, FontStyle, String)
 
 ```cangjie
 public func placeholderFont(
@@ -80,7 +80,7 @@ public func searchIcon(size!: Length, color!: ResourceColor, src!: AppResource):
 |:---|:---|:---|:---|:---|
 |size|[Length](./cj-common-types.md#interface-length)|是|-| **命名参数。** 图标尺寸，不支持百分比。<br>浅色模式初始值: 16.vp，深色模式初始值：16.vp。|
 |color|[ResourceColor](./cj-common-types.md#interface-resourcecolor)|是|-| **命名参数。** 图标颜色。<br>浅色模式初始值：0x99000000，深色模式初始值：0x99ffffff。|
-|src|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 图标/图片源。<br>初始值：''。|
+|src|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 图标/图片源。<br>初始值：''。|
 
 ### func selectedBackgroundColor(ResourceColor)
 

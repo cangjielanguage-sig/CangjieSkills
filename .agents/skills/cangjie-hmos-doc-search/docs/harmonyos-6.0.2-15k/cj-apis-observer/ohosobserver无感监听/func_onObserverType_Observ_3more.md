@@ -1,4 +1,4 @@
-## func on(ObserverType, ObserverOptions, Callback1Argument\<ScrollEventInfo>)
+﻿## func on(ObserverType, ObserverOptions, Callback1Argument\<ScrollEventInfo>)
 
 ```cangjie
 public func on(`type`: ObserverType, options: ObserverOptions, callback: Callback1Argument<ScrollEventInfo>): Unit
@@ -16,11 +16,11 @@ public func on(`type`: ObserverType, options: ObserverOptions, callback: Callbac
 |:---|:---|:---|:---|:---|
 |\`type\`|[ObserverType](#enum-observertype)|是|-|监听事件，固定为OBSERVER_SCROLL_EVENT，即滚动事件的开始和结束。|
 |options|[ObserverOptions](#class-observeroptions)|是|-|指定监听的滚动组件的id。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ScrollEventInfo](#class-scrolleventinfo)>|是|-|回调函数。返回滚动事件的信息。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[ScrollEventInfo](#class-scrolleventinfo)>|是|-|回调函数。返回滚动事件的信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -43,11 +43,11 @@ public func on(`type`: ObserverType, callback: Callback1Argument<TabContentInfo>
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[ObserverType](#enum-observertype)|是|-|监听事件，固定为OBSERVER_TAB_CONTENT_UPDATE，即TabContent页面的切换事件。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[TabContentInfo](#class-tabcontentinfo)>|是|-|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[TabContentInfo](#class-tabcontentinfo)>|是|-|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,11 +71,11 @@ public func on(`type`: ObserverType, options: ObserverOptions, callback: Callbac
 |:---|:---|:---|:---|:---|
 |\`type\`|[ObserverType](#enum-observertype)|是|-|监听事件，固定为OBSERVER_TAB_CONTENT_UPDATE，即TabContent页面的切换事件。|
 |options|[ObserverOptions](#class-observeroptions)|是|-|指定监听的Tabs组件的id。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[TabContentInfo](#class-tabcontentinfo)>|是|-|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[TabContentInfo](#class-tabcontentinfo)>|是|-|回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

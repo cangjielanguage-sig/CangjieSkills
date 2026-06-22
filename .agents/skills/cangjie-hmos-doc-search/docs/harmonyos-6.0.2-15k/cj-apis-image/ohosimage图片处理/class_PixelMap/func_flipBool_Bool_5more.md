@@ -1,4 +1,4 @@
-### func flip(Bool, Bool)
+﻿### func flip(Bool, Bool)
 
 ```cangjie
 public func flip(horizontal: Bool, vertical: Bool): Unit
@@ -85,11 +85,11 @@ public func getColorSpace(): ColorSpaceManager
 
 |类型|说明|
 |:----|:----|
-|[ColorSpaceManager](../ArkGraphics2D/cj-apis-color_manager.md#class-colorspacemanager)|图像广色域信息。|
+|[ColorSpaceManager](../../../cj-apis-color_manager/.overview.md)|图像广色域信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../../cj-errorcode-image/cj-errorcode-image.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

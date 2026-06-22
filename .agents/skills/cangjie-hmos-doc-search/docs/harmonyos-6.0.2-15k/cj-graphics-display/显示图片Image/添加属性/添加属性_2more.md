@@ -1,6 +1,6 @@
-## 添加属性
+﻿## 添加属性
 
-给Image组件设置属性可以使图片显示更灵活，达到一些自定义的效果。以下是几个常用属性的使用示例，完整属性信息详见[Image](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-image.md)。
+给Image组件设置属性可以使图片显示更灵活，达到一些自定义的效果。以下是几个常用属性的使用示例，完整属性信息详见[Image](../../../cj-image-video-image/.overview.md)。
 
 ### 设置图片缩放类型
 

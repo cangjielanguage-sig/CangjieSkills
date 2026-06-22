@@ -1,4 +1,4 @@
-### func getStringByName(String)
+﻿### func getStringByName(String)
 
 ```cangjie
 public func getStringByName(resName: String): String
@@ -24,7 +24,7 @@ public func getStringByName(resName: String): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,7 +74,7 @@ public func getStringByName(resName: String, args: Array<FormatArgs>): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -123,7 +123,7 @@ public func getSymbol(resId: Int32): UInt32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## func on\<T>(SensorId, Callback1Argument\<T>, ?SensorOptions) where T <: Response
+﻿## func on\<T>(SensorId, Callback1Argument\<T>, ?SensorOptions) where T <: Response
 
 ```cangjie
 public func on<T>(`type`: SensorId, callback: Callback1Argument<T>, option!: ?SensorOptions = None): Unit where T <: Response
@@ -17,7 +17,7 @@ public func on<T>(`type`: SensorId, callback: Callback1Argument<T>, option!: ?Se
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[SensorId](#enum-sensorid)|是|-|传感器类型。|
-|callback|[Callback1Argument\<T>](../BasicServicesKit/cj-apis-base.md#class-callback1argument)|是|-|回调函数，异步上报的传感器数据，每种传感器类型对应的数据类型不同。|
+|callback|[Callback1Argument\<T>](../../../cj-apis-base/.overview.md)|是|-|回调函数，异步上报的传感器数据，每种传感器类型对应的数据类型不同。|
 |option|?[SensorOptions](#class-sensoroptions)|否|None| **命名参数。** 可选参数列表，用于设置传感器上报频率，默认值为200000000ns。|
 
 目前支持的传感器类型如下表：
@@ -48,7 +48,7 @@ public func on<T>(`type`: SensorId, callback: Callback1Argument<T>, option!: ?Se
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../errorcodes/cj-errorcode-sensor.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[传感器错误码](../../../cj-errorcode-sensor/cj-errorcode-sensor.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息                                                     |
   | -------- | ------------------------------------------------------------ |

@@ -1,4 +1,4 @@
-## class PermissionRequestResult
+﻿## class PermissionRequestResult
 
 ```cangjie
 public class PermissionRequestResult {
@@ -29,7 +29,7 @@ public var authResults: Array<Int32>
 
 - -1：未授权。①dialogShownResults返回为true，表示用户首次申请；②dialogShownResults返回为false，表示权限已设置，无需弹窗，需要用户在"设置"中修改。
 - 0：已授权。
-- 2：未授权，表示请求无效。可能原因有：①未在设置文件中声明目标权限；②权限名非法；③部分权限存在特殊申请条件，在申请对应权限时未满足其指定的条件，见[ohos.permission.LOCATION](../../../../Dev_Guide/security/AccessToken/cj-permissions-for-all-user.md#ohospermissionlocation)与[ohos.permission.APPROXIMATELY_LOCATION](../../../../Dev_Guide/security/AccessToken/cj-permissions-for-all-user.md#ohospermissionapproximately_location)。
+- 2：未授权，表示请求无效。可能原因有：①未在设置文件中声明目标权限；②权限名非法；③部分权限存在特殊申请条件，在申请对应权限时未满足其指定的条件，见[ohos.permission.LOCATION](../../cj-permissions-for-all-user/.overview.md)与[ohos.permission.APPROXIMATELY_LOCATION](../../cj-permissions-for-all-user/.overview.md)。
 
 **类型：** Array\<Int32>
 
@@ -91,4 +91,4 @@ public init(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |permissions|Array\<String>|是|-|用户传入的权限。|
-|authResults|Array\<Int32>|是|-|相应请求权限的结果：<br>- -1：未授权。①dialogShownResults返回为true，表示用户首次申请；②dialogShownResults返回为false，表示权限已设置，无需弹窗，需要用户在"设置"中修改。<br>- 0：已授权。<br>- 2：未授权，表示请求无效。可能原因有：①未在设置文件中声明目标权限；②权限名非法；③部分权限存在特殊申请条件，在申请对应权限时未满足其指定的条件，见[ohos.permission.LOCATION](../../../../Dev_Guide/security/AccessToken/cj-permissions-for-all-user.md#ohospermissionlocation)与[ohos.permission.APPROXIMATELY_LOCATION](../../../../Dev_Guide/security/AccessToken/cj-permissions-for-all-user.md#ohospermissionapproximately_location)。|
+|authResults|Array\<Int32>|是|-|相应请求权限的结果：<br>- -1：未授权。①dialogShownResults返回为true，表示用户首次申请；②dialogShownResults返回为false，表示权限已设置，无需弹窗，需要用户在"设置"中修改。<br>- 0：已授权。<br>- 2：未授权，表示请求无效。可能原因有：①未在设置文件中声明目标权限；②权限名非法；③部分权限存在特殊申请条件，在申请对应权限时未满足其指定的条件，见[ohos.permission.LOCATION](../../cj-permissions-for-all-user/.overview.md)与[ohos.permission.APPROXIMATELY_LOCATION](../../cj-permissions-for-all-user/.overview.md)。|

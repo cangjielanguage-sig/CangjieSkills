@@ -1,4 +1,4 @@
-## class ResourceManager
+﻿## class ResourceManager
 
 ```cangjie
 public class ResourceManager {}
@@ -32,7 +32,7 @@ public static func getResourceManager(context: StageContext): ResourceManager
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|上下文。|
+|context|[StageContext](../../../cj-apis-ark_interop_helper/.overview.md)|是|-|上下文。|
 
 **返回值：**
 
@@ -74,7 +74,7 @@ public static func getSystemResourceManager(): ResourceManager
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -112,7 +112,7 @@ public func addResource(path: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## class Caller
+﻿## class Caller
 
 ```cangjie
 public class Caller {}
@@ -27,12 +27,12 @@ public func call(method: String, data: Parcelable, callback: Callback0Argument):
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |method|String|是|-|约定的服务端注册事件字符串。|
-|data|[Parcelable](../IPCKit/cj-apis-rpc.md#interface-parcelable)|是|-|由开发者实现的Parcelable可序列化数据。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|开发者传入的回调函数类，用来处理函数调用结果。|
+|data|[Parcelable](../../../cj-apis-rpc/.overview.md)|是|-|由开发者实现的Parcelable可序列化数据。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|开发者传入的回调函数类，用来处理函数调用结果。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

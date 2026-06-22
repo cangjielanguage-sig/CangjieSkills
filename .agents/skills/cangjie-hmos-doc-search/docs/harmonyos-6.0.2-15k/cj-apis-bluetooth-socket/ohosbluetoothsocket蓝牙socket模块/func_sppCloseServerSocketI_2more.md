@@ -1,4 +1,4 @@
-## func sppCloseServerSocket(Int32)
+﻿## func sppCloseServerSocket(Int32)
 
 ```cangjie
 public func sppCloseServerSocket(socket: Int32): Unit
@@ -18,7 +18,7 @@ public func sppCloseServerSocket(socket: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,11 +74,11 @@ public func sppConnect(deviceId: String, options: SppOptions, callback: (?Busine
 |:---|:---|:---|:---|:---|
 |deviceId|String|是|-|对端设备地址，例如："XX:XX:XX:XX:XX:XX"。|
 |options|[SppOptions](#class-sppoptions)|是|-|spp客户端连接配置参数。|
-|callback|(?[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception), ?Int32)->Unit|是|-|表示回调函数的入参，客户端socket的id。|
+|callback|(?[BusinessException](../../cj-apis-base/.overview.md), ?Int32)->Unit|是|-|表示回调函数的入参，客户端socket的id。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

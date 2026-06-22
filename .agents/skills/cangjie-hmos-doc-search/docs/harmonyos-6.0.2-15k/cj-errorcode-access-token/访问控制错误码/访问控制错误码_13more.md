@@ -1,8 +1,8 @@
-# 访问控制错误码
+﻿# 访问控制错误码
 
 > **说明：**
 >
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](cj-errorcode-universal.md)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](../../)。
 
 ## 12100001 入参错误
 
@@ -52,7 +52,7 @@ Permission does not exist.
 
 **处理步骤**
 
-检查入参，修正参数值为有效值。[权限列表](../../../Dev_Guide/security/AccessToken/cj-app-permissions.md#应用权限列表)。
+检查入参，修正参数值为有效值。[权限列表](../../cj-app-permissions/cj-app-permissions.md#应用权限列表)。
 
 ## 12100004 接口未配套使用
 

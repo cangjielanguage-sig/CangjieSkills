@@ -1,7 +1,7 @@
-## 注册控制命令
+﻿## 注册控制命令
 
 应用接入AVSession，可以通过注册不同的控制命令来实现播控中心界面上的控制操作，即通过on接口注册不同的控制命令参数，即可实现对应的功能。
-具体的接口参考[接口注册](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#func-onavsessioneventtype-callback0argument)。
+具体的接口参考[接口注册](../../../cj-apis-multimedia_avsession/.overview.md)。
 
 > **说明：**
 >

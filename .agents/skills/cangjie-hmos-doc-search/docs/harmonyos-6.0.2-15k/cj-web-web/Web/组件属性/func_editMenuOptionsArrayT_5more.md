@@ -1,4 +1,4 @@
-### func editMenuOptions((Array\<TextMenuItem>) -> Array\<TextMenuItem>, (TextMenuItem,Int32,Int32) -> Bool)
+﻿### func editMenuOptions((Array\<TextMenuItem>) -> Array\<TextMenuItem>, (TextMenuItem,Int32,Int32) -> Bool)
 
 ```cangjie
 public func editMenuOptions(onCreateMenu: (Array<TextMenuItem>) -> Array<TextMenuItem>,
@@ -15,8 +15,8 @@ public func editMenuOptions(onCreateMenu: (Array<TextMenuItem>) -> Array<TextMen
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|onCreateMenu|(Array\<[TextMenuItem](../arkui-cj/cj-text-input-text.md)>)->Array\<[TextMenuItem](../arkui-cj/cj-text-input-text.md)>|是|-|可以修改、增加、删除菜单选项，如果希望不显示文本菜单，需要返回空数组。|
-|onMenuItemClick|([TextMenuItem](../arkui-cj/cj-text-input-text.md),Int32,Int32)->Bool|是|-|可以自定义菜单选项的回调函数。该函数在菜单选项被点击后触发，并根据返回值决定是否执行系统默认的回调。返回true不执行系统回调，返回false继续执行系统回调。|
+|onCreateMenu|(Array\<[TextMenuItem](../../../cj-text-input-text/.overview.md)>)->Array\<[TextMenuItem](../../../cj-text-input-text/.overview.md)>|是|-|可以修改、增加、删除菜单选项，如果希望不显示文本菜单，需要返回空数组。|
+|onMenuItemClick|([TextMenuItem](../../../cj-text-input-text/.overview.md),Int32,Int32)->Bool|是|-|可以自定义菜单选项的回调函数。该函数在菜单选项被点击后触发，并根据返回值决定是否执行系统默认的回调。返回true不执行系统回调，返回false继续执行系统回调。|
 
 ### func enableNativeEmbedMode(Bool)
 

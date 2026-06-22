@@ -1,4 +1,4 @@
-## func obtainAllWorks()
+﻿## func obtainAllWorks()
 
 ```cangjie
 public func obtainAllWorks(): Array<WorkInfo>
@@ -18,7 +18,7 @@ public func obtainAllWorks(): Array<WorkInfo>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../errorcodes/cj-errorcode-work_scheduler.md).
+- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../cj-errorcode-work_scheduler/cj-errorcode-work_scheduler.md).
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -64,7 +64,7 @@ public func startWork(work: WorkInfo): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../errorcodes/cj-errorcode-work_scheduler.md)。
+- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../cj-errorcode-work_scheduler/cj-errorcode-work_scheduler.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -110,7 +110,7 @@ public func stopAndClearWorks(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../errorcodes/cj-errorcode-work_scheduler.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[workScheduler错误码](../../cj-errorcode-work_scheduler/cj-errorcode-work_scheduler.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

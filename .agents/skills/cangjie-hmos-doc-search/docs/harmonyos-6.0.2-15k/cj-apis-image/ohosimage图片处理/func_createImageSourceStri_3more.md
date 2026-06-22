@@ -1,4 +1,4 @@
-## func createImageSource(String, SourceOptions)
+﻿## func createImageSource(String, SourceOptions)
 
 ```cangjie
 public func createImageSource(uri: String, options: SourceOptions): ImageSource
@@ -25,7 +25,7 @@ public func createImageSource(uri: String, options: SourceOptions): ImageSource
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|
@@ -71,7 +71,7 @@ public func createImageSource(fd: Int32): ImageSource
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|
@@ -117,7 +117,7 @@ public func createImageSource(fd: Int32, options: SourceOptions): ImageSource
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|

@@ -1,4 +1,4 @@
-# 指定PEM格式字符串数据转换非对称密钥对（仓颉）
+﻿# 指定PEM格式字符串数据转换非对称密钥对（仓颉）
 
 以RSA为例，根据指定的非对称密钥字符串数据，生成非对称密钥对（KeyPair）。
 
@@ -16,12 +16,12 @@
 
 对应的算法规格请参见[非对称密钥生成和转换规格：RSA](./cj-crypto-asym-key-generation-conversion-spec.md#rsa)。
 
-1. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
+1. 调用[createAsyKeyGenerator](../cj-apis-crypto/.overview.md)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
 
    生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。
 
-2. 调用[convertPemKey](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-convertpemkeystring-string)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。
-3. 调用[getEncodedPem](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getencodedpemstring-1)，将非对称密钥对象中的公钥转换成pkcs1或x509格式，私钥转换成pkcs1或pkcs8格式。
+2. 调用[convertPemKey](../cj-apis-crypto/.overview.md)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。
+3. 调用[getEncodedPem](../cj-apis-crypto/.overview.md)，将非对称密钥对象中的公钥转换成pkcs1或x509格式，私钥转换成pkcs1或pkcs8格式。
 
 以生成RSA密钥对为例：
 

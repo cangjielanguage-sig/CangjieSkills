@@ -1,4 +1,4 @@
-## class ScreenLockFileManager
+﻿## class ScreenLockFileManager
 
 ```cangjie
 public class ScreenLockFileManager {}
@@ -30,7 +30,7 @@ public static func acquireAccess(): AccessStatus
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[锁屏敏感数据管理错误码](../../errorcodes/cj-errorcode-screen_lock_file_manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[锁屏敏感数据管理错误码](../../cj-errorcode-screen_lock_file_manager/cj-errorcode-screen_lock_file_manager.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID  | 错误信息  |
   | :------- | :---------------------------------- |
@@ -81,7 +81,7 @@ public static func releaseAccess(): ReleaseStatus
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[锁屏敏感数据管理错误码](../../errorcodes/cj-errorcode-screen_lock_file_manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[锁屏敏感数据管理错误码](../../cj-errorcode-screen_lock_file_manager/cj-errorcode-screen_lock_file_manager.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID  | 错误信息 |
   | :------- | :---------------------------------- |

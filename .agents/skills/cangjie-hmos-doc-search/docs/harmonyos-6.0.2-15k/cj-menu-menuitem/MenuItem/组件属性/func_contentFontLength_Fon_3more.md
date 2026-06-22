@@ -1,4 +1,4 @@
-### func contentFont(Length, FontWeight, String, FontStyle)
+﻿### func contentFont(Length, FontWeight, String, FontStyle)
 
 ```cangjie
 public func contentFont(
@@ -47,7 +47,7 @@ public func contentFont(
 |:---|:---|:---|:---|:---|
 |size|[Length](./cj-common-types.md#interface-length)|否|16.vp| **命名参数。** 设置文本尺寸，Length为Int64、Float64类型时，使用fp单位。不支持百分比设置。|
 |weight|[FontWeight](./cj-common-types.md#enum-fontweight)|否|FontWeight.Normal| **命名参数。** 设置文本的字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 设置文本的字体列表。使用多个字体，使用','进行分割，优先级按顺序生效。例如：'Arial, HarmonyOS Sans'。当前支持'HarmonyOS Sans'字体和[注册自定义字体](cj-apis-font.md)。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 设置文本的字体列表。使用多个字体，使用','进行分割，优先级按顺序生效。例如：'Arial, HarmonyOS Sans'。当前支持'HarmonyOS Sans'字体和[注册自定义字体](cj-apis-font.md)。|
 |style|[FontStyle](./cj-common-types.md#enum-fontstyle)|否|FontStyle.Normal| **命名参数。**  设置文本的字体样式。|
 
 ### func contentFontColor(ResourceColor)

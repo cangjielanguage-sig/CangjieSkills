@@ -1,8 +1,8 @@
-## 如何获取签名信息中的指纹信息
+﻿## 如何获取签名信息中的指纹信息
 
 1. 通过调用接口获取。
 
-    可以调用[bundleManager.getBundleInfoForSelf](../../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md#static-func-getbundleinfoforselfint32)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含fingerprint指纹信息。
+    可以调用[bundleManager.getBundleInfoForSelf](../../cj-apis-bundle_manager/.overview.md)获取自身的BundleInfo应用包信息，应用包信息中包含signatureInfo签名信息，签名信息中包含fingerprint指纹信息。
 
     ```cangjie
     import ohos.base.*
@@ -18,7 +18,7 @@
     }
     ```
 
-2. 通过[bm工具](../../tools/cj-bm-tool.md#bm工具)获取fingerprint指纹信息。
+2. 通过[bm工具](../../cj-bm-tool/.overview.md)获取fingerprint指纹信息。
 
     ```shell
     hdc shell

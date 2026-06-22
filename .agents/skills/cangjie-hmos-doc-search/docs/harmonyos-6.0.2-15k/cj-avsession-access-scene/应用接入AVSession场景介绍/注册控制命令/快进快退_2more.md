@@ -1,4 +1,4 @@
-### 快进快退
+﻿### 快进快退
 
 系统支持三种快进快退的时长，应用可以通过接口进行设置；同时注册快进快退的回调命令，以响应控制。
 
@@ -58,7 +58,7 @@ func setListener() {
 
 ### 收藏
 
-音乐类应用实现收藏功能，那么需要注册收藏的控制响应[on(AVSessionEventType, Callback0Argument)](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md#func-onavsessioneventtype-callback0argument)。
+音乐类应用实现收藏功能，那么需要注册收藏的控制响应[on(AVSessionEventType, Callback0Argument)](../../../cj-apis-multimedia_avsession/.overview.md)。
 
 ```cangjie
 import kit.AVSessionKit.*

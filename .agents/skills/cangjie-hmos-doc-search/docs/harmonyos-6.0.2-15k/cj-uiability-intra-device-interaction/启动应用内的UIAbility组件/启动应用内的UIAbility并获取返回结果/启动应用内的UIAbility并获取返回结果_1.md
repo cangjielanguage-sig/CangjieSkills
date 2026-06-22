@@ -1,8 +1,8 @@
-## 启动应用内的UIAbility并获取返回结果
+﻿## 启动应用内的UIAbility并获取返回结果
 
-在一个EntryAbility启动另外一个FuncAbility时，希望在被启动的FuncAbility完成相关业务后，能将结果返回给调用方。例如在应用中将入口功能和账号登录功能分别设计为两个独立的[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)，在账号登录Ability中完成登录操作后，需要将登录的结果返回给入口Ability。
+在一个EntryAbility启动另外一个FuncAbility时，希望在被启动的FuncAbility完成相关业务后，能将结果返回给调用方。例如在应用中将入口功能和账号登录功能分别设计为两个独立的[UIAbility](../../../cj-apis-ability/.overview.md)，在账号登录Ability中完成登录操作后，需要将登录的结果返回给入口Ability。
 
-1. 在EntryAbility中，调用[startAbilityForResult()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-startabilityforresultwant-asynccallbackabilityresult)接口启动FuncAbility，异步回调中的data用于接收FuncAbility停止自身后返回给EntryAbility的信息。示例中的context的获取方式请参见[获取UIAbility的上下文信息](cj-uiability-usage.md#获取uiability的上下文信息)。
+1. 在EntryAbility中，调用[startAbilityForResult()](../../../cj-apis-ability/.overview.md)接口启动FuncAbility，异步回调中的data用于接收FuncAbility停止自身后返回给EntryAbility的信息。示例中的context的获取方式请参见[获取UIAbility的上下文信息](cj-uiability-usage.md#获取uiability的上下文信息)。
 
     ```cangjie
     import kit.UIKit.Button
@@ -64,7 +64,7 @@
     }
     ```
 
-2. 在FuncAbility停止自身时，需要调用[terminateSelfWithResult()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-terminateselfwithresultabilityresult)方法，入参[abilityResult](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#struct-abilityresult)为FuncAbility需要返回给EntryAbility的信息。
+2. 在FuncAbility停止自身时，需要调用[terminateSelfWithResult()](../../../cj-apis-ability/.overview.md)方法，入参[abilityResult](../../../cj-apis-ability/.overview.md)为FuncAbility需要返回给EntryAbility的信息。
 
     ```cangjie
     import kit.UIKit.Button

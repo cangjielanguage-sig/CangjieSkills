@@ -1,6 +1,6 @@
-## 使用bindMenu实现菜单弹出效果
+﻿## 使用bindMenu实现菜单弹出效果
 
-[bindMenu](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-menu.md#func-bindmenuarraymenuelement-menuoptions)为组件绑定弹出式菜单，通过点击触发。完整示例和效果如下。
+[bindMenu](../../cj-universal-attribute-menu/.overview.md)为组件绑定弹出式菜单，通过点击触发。完整示例和效果如下。
 
 <!-- run -->
 
@@ -29,7 +29,7 @@ class EntryView {
 
 ## 使用bindContextMenu实现菜单弹出效果
 
-[bindContextMenu](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-menu.md#func-bindcontextmenu---unit-responsetype-contextmenuoptions)为组件绑定弹出式菜单，通过长按或右键点击触发。完整示例和效果如下。
+[bindContextMenu](../../cj-universal-attribute-menu/.overview.md)为组件绑定弹出式菜单，通过长按或右键点击触发。完整示例和效果如下。
 
 完整示例和效果如下。
 
@@ -89,7 +89,7 @@ class EntryView {
 
 ## 使用bindPopUp实现气泡弹窗效果
 
-[bindpopup](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-attribute-popup.md)属性可为组件绑定弹窗，并设置弹窗内容，交互逻辑和显示状态。
+[bindpopup](../../cj-universal-attribute-popup/.overview.md)属性可为组件绑定弹窗，并设置弹窗内容，交互逻辑和显示状态。
 
 完整示例和代码如下。
 

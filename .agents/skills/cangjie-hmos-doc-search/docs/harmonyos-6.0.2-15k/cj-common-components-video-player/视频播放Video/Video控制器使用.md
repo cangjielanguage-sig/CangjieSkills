@@ -1,6 +1,6 @@
-## Video控制器使用
+﻿## Video控制器使用
 
-Video控制器主要用于控制视频的状态，包括播放、暂停、停止以及设置进度等，详情请参见[VideoController使用说明](../../API_Reference/source_zh_cn/arkui-cj/cj-image-video-video.md#class-videocontroller)。
+Video控制器主要用于控制视频的状态，包括播放、暂停、停止以及设置进度等，详情请参见[VideoController使用说明](../../cj-image-video-video/.overview.md)。
 
 - 默认控制器
 

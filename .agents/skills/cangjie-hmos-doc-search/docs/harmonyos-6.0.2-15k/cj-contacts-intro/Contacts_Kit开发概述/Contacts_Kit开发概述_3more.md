@@ -1,8 +1,8 @@
-# Contacts Kit开发概述
+﻿# Contacts Kit开发概述
 
 Contacts Kit可以帮助开发者轻松实现联系人的增删改查等功能。该Kit提供了一系列API，可以让开发者在应用中快速集成联系人管理功能。
 
-详情请参见[ohos.contact API](../../API_Reference/source_zh_cn/apis/ContactsKit/cj-apis-contact.md)。
+详情请参见[ohos.contact API](../../cj-apis-contact/.overview.md)。
 
 ## 能力范围
 
@@ -19,7 +19,7 @@ Contacts Kit可以帮助开发者轻松实现联系人的增删改查等功能�
 
 > **注意：**
 >
-> 当前能力受限开放，需要申请受限开放权限ohos.permission.READ_CONTACTS或ohos.permission.WRITE_CONTACTS。该权限通常不允许三方应用申请，仅符合指定场景的应用可申请该权限。申请方式请参见[申请使用受限权限](../security/AccessToken/cj-declare-permissions-in-acl.md)。
+> 当前能力受限开放，需要申请受限开放权限ohos.permission.READ_CONTACTS或ohos.permission.WRITE_CONTACTS。该权限通常不允许三方应用申请，仅符合指定场景的应用可申请该权限。申请方式请参见[申请使用受限权限](../../cj-declare-permissions-in-acl/cj-declare-permissions-in-acl.md)。
 
 - [联系人管理（受限开放）](#联系人管理受限开放)
 

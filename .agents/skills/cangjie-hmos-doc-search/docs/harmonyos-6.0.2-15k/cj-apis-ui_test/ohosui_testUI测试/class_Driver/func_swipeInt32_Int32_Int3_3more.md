@@ -1,4 +1,4 @@
-### func swipe(Int32, Int32, Int32, Int32, Int32)
+﻿### func swipe(Int32, Int32, Int32, Int32, Int32)
 
 ```cangjie
 public func swipe(startx: Int32, starty: Int32, endx: Int32, endy: Int32, speed!: Int32 = 600): Unit
@@ -22,7 +22,7 @@ public func swipe(startx: Int32, starty: Int32, endx: Int32, endy: Int32, speed!
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -64,7 +64,7 @@ public func triggerCombineKeys(key0: Int32, key1: Int32, key2!: Option<Int32> = 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -104,7 +104,7 @@ public func triggerKey(keyCode: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../errorcodes/cj-errorcode-uitest.md)。
+- BusinessException：对应错误码的详细介绍请参见[uitest错误码](../../../cj-errorcode-uitest/cj-errorcode-uitest.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

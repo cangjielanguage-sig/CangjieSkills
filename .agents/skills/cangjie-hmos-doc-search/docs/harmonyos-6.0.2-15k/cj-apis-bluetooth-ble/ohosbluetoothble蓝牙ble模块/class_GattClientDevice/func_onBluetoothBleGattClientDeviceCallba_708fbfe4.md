@@ -1,4 +1,4 @@
-### func on(BluetoothBleGattClientDeviceCallbackType, Callback1Argument\<BLEConnectionChangeState>)
+﻿### func on(BluetoothBleGattClientDeviceCallbackType, Callback1Argument\<BLEConnectionChangeState>)
 
 ```cangjie
 public func on(`type`: BluetoothBleGattClientDeviceCallbackType,
@@ -16,11 +16,11 @@ public func on(`type`: BluetoothBleGattClientDeviceCallbackType,
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[BluetoothBleGattClientDeviceCallbackType](#enum-bluetoothblegattclientdevicecallbacktype)|是|填写BLE_CONNECTION_STATE_CHANGE，表示连接状态变化事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BLEConnectionChangeState](#class-bleconnectionchangestate)>|是|返回MTU字节数的值，通过注册回调函数获取。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BLEConnectionChangeState](#class-bleconnectionchangestate)>|是|返回MTU字节数的值，通过注册回调函数获取。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

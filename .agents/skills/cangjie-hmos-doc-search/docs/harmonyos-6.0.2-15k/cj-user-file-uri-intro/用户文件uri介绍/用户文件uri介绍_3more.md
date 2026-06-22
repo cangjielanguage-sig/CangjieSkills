@@ -1,4 +1,4 @@
-# 用户文件uri介绍
+﻿# 用户文件uri介绍
 
 用户文件uri是文件的唯一标识，在对用户文件进行访问与修改等操作时通常都会使用到uri，不建议开发者解析uri中的片段用于业务代码开发，不同类型的uri使用方式将在下文详细介绍。
 
@@ -29,10 +29,10 @@ uri类型可以归纳为文档类uri和媒体文件uri两类
 
 ### 文档类uri获取方式
 
-1. 通过[DocumentViewPicker接口](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#class-documentviewpicker)选择或保存文件，返回选择或保存的文件uri。
+1. 通过[DocumentViewPicker接口](../../cj-apis-file_picker/.overview.md)选择或保存文件，返回选择或保存的文件uri。
 
-2. 通过[AudioViewPicker接口](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#class-audioviewpicker)选择或保存文件，返回选择或保存的文件uri。
+2. 通过[AudioViewPicker接口](../../cj-apis-file_picker/.overview.md)选择或保存文件，返回选择或保存的文件uri。
 
 ### 文档类uri的使用方式
 
-normal等级的应用使用此类uri的方式只能通过[fs模块](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md)进行进一步处理，其他模块使用此uri是会报没有权限的错误。示例代码参见picker中的[选择文档类文件](./cj-select-user-file.md#选择文档类文件)和[保存文档类文件](./cj-save-user-file.md#保存文档类文件)。
+normal等级的应用使用此类uri的方式只能通过[fs模块](../../cj-apis-file_fs/.overview.md)进行进一步处理，其他模块使用此uri是会报没有权限的错误。示例代码参见picker中的[选择文档类文件](./cj-select-user-file.md#选择文档类文件)和[保存文档类文件](./cj-save-user-file.md#保存文档类文件)。

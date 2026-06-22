@@ -1,4 +1,4 @@
-# ohos.wifi_manager（WLAN）
+﻿# ohos.wifi_manager（WLAN）
 
 该模块主要提供WLAN基础功能、P2P（peer-to-peer）功能和WLAN消息通知的相应服务，让应用可以通过WLAN和其他设备互联互通。
 
@@ -19,9 +19,9 @@ ohos.permission.SET_WIFI_INFO
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func addCandidateConfig(WifiDeviceConfig)
 
@@ -51,7 +51,7 @@ public func addCandidateConfig(config: WifiDeviceConfig): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[WIFI错误码](../../errorcodes/cj-errorcode-wifi-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[WIFI错误码](../../cj-errorcode-wifi-manager/cj-errorcode-wifi-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -96,7 +96,7 @@ public func connectToCandidateConfig(networkId: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[WIFI错误码](../../errorcodes/cj-errorcode-wifi-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[WIFI错误码](../../cj-errorcode-wifi-manager/cj-errorcode-wifi-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

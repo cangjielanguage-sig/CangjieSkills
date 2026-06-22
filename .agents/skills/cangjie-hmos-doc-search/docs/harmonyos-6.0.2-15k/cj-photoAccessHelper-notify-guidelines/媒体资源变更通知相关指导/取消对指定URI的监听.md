@@ -1,6 +1,6 @@
-## 取消对指定URI的监听
+﻿## 取消对指定URI的监听
 
-取消对指定uri的监听，通过调用[unRegisterChange](../../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-unregisterchangestring-callback1argumentchangedata)接口取消对指定uri的监听。一个uri可以注册多个监听，存在多个callback监听时，可以取消指定注册的callback的监听；不指定callback时取消该uri的所有监听。
+取消对指定uri的监听，通过调用[unRegisterChange](../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口取消对指定uri的监听。一个uri可以注册多个监听，存在多个callback监听时，可以取消指定注册的callback的监听；不指定callback时取消该uri的所有监听。
 
 **前提条件**
 

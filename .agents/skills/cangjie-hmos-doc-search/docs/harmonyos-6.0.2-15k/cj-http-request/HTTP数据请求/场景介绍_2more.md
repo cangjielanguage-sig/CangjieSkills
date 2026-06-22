@@ -1,4 +1,4 @@
-## 场景介绍
+﻿## 场景介绍
 
 应用通过HTTP发起一个数据请求，支持常见的GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT方法。
 
@@ -8,9 +8,9 @@ HTTP数据请求功能主要由http模块提供。
 
 使用该功能需要申请ohos.permission.INTERNET权限。
 
-权限申请请参见[声明权限](../security/AccessToken/cj-declare-permissions.md)。
+权限申请请参见[声明权限](../../cj-declare-permissions/.overview.md)。
 
-涉及的接口如下表，具体的接口说明请参见[API文档](../../API_Reference/source_zh_cn/apis/NetworkKit/cj-apis-net-http.md)。
+涉及的接口如下表，具体的接口说明请参见[API文档](../../cj-apis-net-http/.overview.md)。
 
 | 接口名                   | 描述                                            |
 | ------------------------ | ----------------------------------------------- |

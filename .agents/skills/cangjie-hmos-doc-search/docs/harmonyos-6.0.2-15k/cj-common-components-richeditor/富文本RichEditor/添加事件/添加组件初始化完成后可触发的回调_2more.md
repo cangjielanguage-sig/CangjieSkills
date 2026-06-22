@@ -1,6 +1,6 @@
-### 添加组件初始化完成后可触发的回调
+﻿### 添加组件初始化完成后可触发的回调
 
-通过[onReady](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-onready---unit)来添加组件初始化完成后可触发的回调。
+通过[onReady](../../../cj-text-input-richeditor/.overview.md)来添加组件初始化完成后可触发的回调。
 
 该回调可在组件初始化后，有效地展示包括图文和表情在内的丰富内容。例如，利用富文本组件展示新闻时，此回调可触发从服务器获取图文数据的操作。随后，将获取到的数据填充至组件中，确保组件在初始化完成后能够迅速在页面上呈现完整的新闻内容。
 
@@ -36,7 +36,7 @@ class EntryView {
 
 ### 添加组件内容被选中时可触发的回调
 
-通过[onSelect](../../API_Reference/source_zh_cn/arkui-cj/cj-text-input-richeditor.md#func-onselectricheditorselection---unit)来添加组件内容被选中时可触发的回调。
+通过[onSelect](../../../cj-text-input-richeditor/.overview.md)来添加组件内容被选中时可触发的回调。
 
 该回调可在文本选择后增强操作体验。例如，在选中文本后，可在回调中触发弹出菜单，以便用户进行文本样式的修改。或者对选中的文本进行内容分析和处理，为用户提供输入建议，从而提升文本编辑的效率和便捷性。
 

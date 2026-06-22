@@ -1,4 +1,4 @@
-### func off(OnOffType, ?CallbackObject)
+﻿### func off(OnOffType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: OnOffType, callback!: ?CallbackObject = None): Unit
@@ -19,7 +19,7 @@ public func off(`type`: OnOffType, callback!: ?CallbackObject = None): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[OnOffType](#enum-onofftype)|是|-|WebSocket的订阅事件类型。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 订阅WebSocket事件时，传入的Callback类型。默认为None。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 订阅WebSocket事件时，传入的Callback类型。默认为None。|
 
 **示例：**
 

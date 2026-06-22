@@ -1,4 +1,4 @@
-### let onWindowStageCreate
+﻿### let onWindowStageCreate
 
 ```cangjie
 public let onWindowStageCreate: (UIAbility, WindowStage) -> Unit
@@ -8,7 +8,7 @@ public let onWindowStageCreate: (UIAbility, WindowStage) -> Unit
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 
@@ -24,7 +24,7 @@ public let onWindowStageDestroy: (UIAbility, WindowStage) -> Unit
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 
@@ -40,7 +40,7 @@ public let onWindowStageInactive: (UIAbility, WindowStage) -> Unit
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 
@@ -56,7 +56,7 @@ public let onWindowStageRestore: ?(UIAbility, WindowStage) -> Unit = None
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 
@@ -72,7 +72,7 @@ public let onWindowStageWillCreate: ?(UIAbility, WindowStage) -> Unit = None
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 
@@ -88,7 +88,7 @@ public let onWindowStageWillDestroy: ?(UIAbility, WindowStage) -> Unit = None
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 
@@ -104,7 +104,7 @@ public let onWindowStageWillRestore: ?(UIAbility, WindowStage) -> Unit = None
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
-**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage))->Unit
+**类型：** ?([UIAbility](#class-uiability), [WindowStage](../../../cj-apis-window/.overview.md))->Unit
 
 **读写能力：** 只读
 

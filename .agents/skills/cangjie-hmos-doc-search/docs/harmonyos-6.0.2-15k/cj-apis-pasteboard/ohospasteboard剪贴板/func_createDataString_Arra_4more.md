@@ -1,4 +1,4 @@
-## func createData(String, Array\<UInt8>)
+﻿## func createData(String, Array\<UInt8>)
 
 ```cangjie
 public func createData(mimeType: String, value: Array<UInt8>): PasteData
@@ -91,7 +91,7 @@ public func createRecord(mimeType: String, value: PixelMap): PasteDataRecord
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |mimeType|String|是|-|剪贴板数据对应的MIME类型，可以是常量中已定义的类型，也可以自定义。取值为[MIMETYPE_PIXELMAP](#const-mimetype_pixelmap)。|
-|value|[PixelMap](../../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|PixelMap类型的数据内容。|
+|value|[PixelMap](../../cj-apis-image/.overview.md)|是|-|PixelMap类型的数据内容。|
 
 **返回值：**
 

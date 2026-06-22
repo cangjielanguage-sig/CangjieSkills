@@ -1,4 +1,4 @@
-### func on(AudioRoutingManagerCallbackType, DeviceUsage, Callback1Argument\<DeviceChangeAction>)
+﻿### func on(AudioRoutingManagerCallbackType, DeviceUsage, Callback1Argument\<DeviceChangeAction>)
 
 ```cangjie
 public func on(`type`: AudioRoutingManagerCallbackType, deviceUsage: DeviceUsage, callback: Callback1Argument<DeviceChangeAction>): Unit
@@ -16,11 +16,11 @@ public func on(`type`: AudioRoutingManagerCallbackType, deviceUsage: DeviceUsage
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioRoutingManagerCallbackType](#enum-audioroutingmanagercallbacktype)|是|-|监听事件，固定为：'AVAILABLE_DEVICE_CHANGE'。|
 |deviceUsage|[DeviceUsage](#enum-deviceusage)|是|-|设备的usage。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[DeviceChangeAction](#class-devicechangeaction)>|是|-|回调函数，返回设备更新详情。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[DeviceChangeAction](#class-devicechangeaction)>|是|-|回调函数，返回设备更新详情。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

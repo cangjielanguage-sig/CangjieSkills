@@ -1,4 +1,4 @@
-### static func once(InnerEvent, EventCallback)
+﻿### static func once(InnerEvent, EventCallback)
 
 ```cangjie
 public static func once(event: InnerEvent, callback: EventCallback): Unit
@@ -19,7 +19,7 @@ public static func once(event: InnerEvent, callback: EventCallback): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -66,7 +66,7 @@ public static func once(eventId: String, callback: EventCallback): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)
 
   |错误码ID|错误信息|
   |:---|:---|

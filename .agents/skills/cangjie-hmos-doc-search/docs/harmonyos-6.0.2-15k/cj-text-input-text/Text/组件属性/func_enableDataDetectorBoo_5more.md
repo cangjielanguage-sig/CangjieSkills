@@ -1,4 +1,4 @@
-### func enableDataDetector(Bool)
+﻿### func enableDataDetector(Bool)
 
 ```cangjie
 public func enableDataDetector(value: Bool): This
@@ -94,4 +94,4 @@ public func fontFamily(content: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|使用引入资源的方式设置字体列表。默认字体'HarmonyOS Sans'。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|使用引入资源的方式设置字体列表。默认字体'HarmonyOS Sans'。|

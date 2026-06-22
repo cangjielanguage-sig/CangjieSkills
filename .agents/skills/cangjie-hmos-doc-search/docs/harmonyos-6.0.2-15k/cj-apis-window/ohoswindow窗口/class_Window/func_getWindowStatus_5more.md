@@ -1,4 +1,4 @@
-### func getWindowStatus()
+﻿### func getWindowStatus()
 
 ```cangjie
 public func getWindowStatus(): WindowStatusType
@@ -22,7 +22,7 @@ public func getWindowStatus(): WindowStatusType
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -49,7 +49,7 @@ public func getWindowSystemBarProperties(): SystemBarProperties
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -75,7 +75,7 @@ public func isFocused(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -101,7 +101,7 @@ public func isWindowShowing(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -127,7 +127,7 @@ public func isWindowSupportWideGamut(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

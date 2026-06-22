@@ -1,4 +1,4 @@
-### func on(String, Callback1Argument\<HttpResponseMessage>)
+﻿### func on(String, Callback1Argument\<HttpResponseMessage>)
 
 ```cangjie
 public func on(event: String, callback: Callback1Argument<HttpResponseMessage>): Unit
@@ -15,11 +15,11 @@ public func on(event: String, callback: Callback1Argument<HttpResponseMessage>):
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |event|String|是|-|订阅的事件类型。<br>- 取值为'response'，表示任务响应。 |
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[HttpResponseMessage](#class-httpresponsemessage)>|是|-|发生相关的事件时触发该回调方法，返回任务响应头的数据结构。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[HttpResponseMessage](#class-httpresponsemessage)>|是|-|发生相关的事件时触发该回调方法，返回任务响应头的数据结构。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

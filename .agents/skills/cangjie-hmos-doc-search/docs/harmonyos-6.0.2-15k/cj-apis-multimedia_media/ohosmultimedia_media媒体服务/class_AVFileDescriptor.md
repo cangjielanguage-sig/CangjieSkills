@@ -1,4 +1,4 @@
-## class AVFileDescriptor
+﻿## class AVFileDescriptor
 
 ```cangjie
 public class AVFileDescriptor {
@@ -79,7 +79,7 @@ public AVFileDescriptor(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|fd|Int32|是|-|资源句柄，通过[resourceManager.getRawFd](../LocalizationKit/cj-apis-resource_manager.md#func-getrawfdstring)获取。|
+|fd|Int32|是|-|资源句柄，通过[resourceManager.getRawFd](../../cj-apis-resource_manager/.overview.md)获取。|
 |offset|?Int64|是|-|资源偏移量，需要基于预置资源的信息输入，非法值会造成字幕频资源解析错误。|
 |length|?Int64|是|-|资源长度，默认值为文件中从偏移量开始的剩余字节，需要基于预置资源的信息输入，非法值会造成字幕频资源解析错误。|
 
@@ -99,4 +99,4 @@ public init(fd: Int32)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|fd|Int32|是|-|资源句柄，通过[resourceManager.getRawFd](../LocalizationKit/cj-apis-resource_manager.md#func-getrawfdstring)获取。|
+|fd|Int32|是|-|资源句柄，通过[resourceManager.getRawFd](../../cj-apis-resource_manager/.overview.md)获取。|

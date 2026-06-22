@@ -1,4 +1,4 @@
-# ohos.multimedia_avsession（媒体会话管理）
+﻿# ohos.multimedia_avsession（媒体会话管理）
 
 媒体会话管理模块提供媒体播控相关功能的接口，目的是让应用接入播控中心。
 
@@ -13,9 +13,9 @@ import kit.AVSessionKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func createAVSession(CPointer\<Unit>, String, AVSessionType)
 
@@ -33,7 +33,7 @@ public func createAVSession(context: CPointer<Unit>, tag: String, `type`: AVSess
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|CPointer\<Unit>|是|-|需要使用[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)，用于系统获取应用组件的相关信息。|
+|context|CPointer\<Unit>|是|-|需要使用[UIAbilityContext](../../cj-apis-ability/.overview.md)，用于系统获取应用组件的相关信息。|
 |tag|String|是|-|会话的自定义名称。|
 |\`type\`|[AVSessionType](#enum-avsessiontype)|是|-|会话的自定义名称。|
 
@@ -45,7 +45,7 @@ public func createAVSession(context: CPointer<Unit>, tag: String, `type`: AVSess
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

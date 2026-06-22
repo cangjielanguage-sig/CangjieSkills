@@ -1,4 +1,4 @@
-# ohos.net.webSocket（WebSocket连接）
+﻿# ohos.net.webSocket（WebSocket连接）
 
 使用WebSocket建立服务器与客户端的双向连接，需要先通过[createWebSocket](#func-createwebsocket)方法创建[WebSocket](#class-websocket)对象，然后通过[connect](#func-connectstring-asynccallbackbool-websocketrequestoptions)方法连接到服务器。 当连接成功后，客户端会收到[open](#func-ononofftype-websocketasynccallbackhashmapuint32string)事件的回调，之后客户端就可以通过[send](#func-sendmessagedata-asynccallbackbool)方法与服务器进行通信。 当服务器发信息给客户端时，客户端会收到[message](#func-ononofftype-websocketasynccallbackmessagedata)事件的回调。当客户端不要此连接时，可以通过调用[close](#func-closeasynccallbackbool-websocketcloseoptions)方法主动断开连接，之后客户端会收到[close](#func-closeasynccallbackbool-websocketcloseoptions)事件的回调。
 
@@ -19,9 +19,9 @@ ohos.permission.INTERNET
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func createWebSocket()
 

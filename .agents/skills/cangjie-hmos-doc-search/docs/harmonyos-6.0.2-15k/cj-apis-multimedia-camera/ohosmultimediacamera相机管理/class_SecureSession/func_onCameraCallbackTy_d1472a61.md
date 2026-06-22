@@ -1,4 +1,4 @@
-### func on(CameraCallbackType, Callback1Argument\<FocusState>)
+﻿### func on(CameraCallbackType, Callback1Argument\<FocusState>)
 
 ```cangjie
 public func on(`type`: CameraCallbackType, callback: Callback1Argument<FocusState>): Unit
@@ -19,7 +19,7 @@ public func on(`type`: CameraCallbackType, callback: Callback1Argument<FocusStat
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为CameraCallbackType.focusStateChange，session创建成功可监听。仅当自动对焦模式时，且相机对焦状态发生改变时可触发该事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[FocusState](#enum-focusstate)>|是|-|回调函数，用于获取当前对焦状态。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[FocusState](#enum-focusstate)>|是|-|回调函数，用于获取当前对焦状态。|
 
 **示例：**
 

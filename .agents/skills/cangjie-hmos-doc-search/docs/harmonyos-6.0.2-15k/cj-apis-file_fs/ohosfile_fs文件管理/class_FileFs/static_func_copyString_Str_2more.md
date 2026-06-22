@@ -1,4 +1,4 @@
-### static func copy(String, String, CopyOptions)
+﻿### static func copy(String, String, CopyOptions)
 
 ```cangjie
 public static func copy(srcUri: String, destUri: String, option: CopyOptions): Unit
@@ -20,7 +20,7 @@ public static func copy(srcUri: String, destUri: String, option: CopyOptions): U
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -67,7 +67,7 @@ public static func copy(srcUri: String, destUri: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 

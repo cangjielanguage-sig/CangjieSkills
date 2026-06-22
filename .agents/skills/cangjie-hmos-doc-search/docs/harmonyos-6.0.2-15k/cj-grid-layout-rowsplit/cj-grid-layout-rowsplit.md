@@ -1,4 +1,4 @@
-# RowSplit
+﻿# RowSplit
 
 将子组件横向布局，并在每个子组件之间插入一根纵向的分割线。
 
@@ -8,7 +8,7 @@
 
 RowSplit通过分割线限制子组件的宽度。初始化时，分割线位置根据子组件的宽度来计算。初始化后，后续动态修改子组件的宽度则不生效，分割线位置保持不变，子组件宽度可以通过拖动相邻分割线进行改变。
 
-初始化后，动态修改[margin](../arkui-cj/cj-universal-attribute-size.md#func-marginlength)、[border](../arkui-cj/cj-universal-attribute-border.md#func-borderlength-resourcecolor-length-borderstyle)、[padding](../arkui-cj/cj-universal-attribute-size.md#func-paddinglength)通用属性导致子组件宽度大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的宽度。
+初始化后，动态修改[margin](../cj-universal-attribute-size/.overview.md)、[border](../cj-universal-attribute-border/.overview.md)、[padding](../cj-universal-attribute-size/.overview.md)通用属性导致子组件宽度大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的宽度。
 
 ## 创建组件
 
@@ -59,7 +59,7 @@ public func resizeable(value: Bool): This
 > **说明：**
 >
 > - RowSplit的分割线可以改变左右两边子组件的宽度，子组件可改变宽度的范围取决于子组件的最大最小宽度。
-> - 支持[clip](../arkui-cj/cj-universal-attribute-shapclip.md#func-clipbool)、[margin](../arkui-cj/cj-universal-attribute-size.md#func-marginlength)等通用属性，clip不设置的时候默认值为true。
+> - 支持[clip](../cj-universal-attribute-shapclip/.overview.md)、[margin](../cj-universal-attribute-size/.overview.md)等通用属性，clip不设置的时候默认值为true。
 
 ## 示例代码
 

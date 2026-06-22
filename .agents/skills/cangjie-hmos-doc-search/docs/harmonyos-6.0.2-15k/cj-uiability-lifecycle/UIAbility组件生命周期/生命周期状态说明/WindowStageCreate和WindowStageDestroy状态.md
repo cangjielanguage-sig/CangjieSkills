@@ -1,16 +1,16 @@
-### WindowStageCreate和WindowStageDestroy状态
+﻿### WindowStageCreate和WindowStageDestroy状态
 
-[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)实例创建完成之后，在进入Foreground之前，系统会创建一个WindowStage。WindowStage创建完成后会进入[onWindowStageCreate()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onwindowstagecreatewindowstage)回调，可以在该回调中设置UI加载、设置WindowStage的事件订阅。
+[UIAbility](../../../cj-apis-ability/.overview.md)实例创建完成之后，在进入Foreground之前，系统会创建一个WindowStage。WindowStage创建完成后会进入[onWindowStageCreate()](../../../cj-apis-ability/.overview.md)回调，可以在该回调中设置UI加载、设置WindowStage的事件订阅。
 
 **图2** WindowStageCreate和WindowStageDestroy状态
 
 ![Ability-Life-Cycle-WindowStage](figures/Ability-Life-Cycle-WindowStage.png)
 
-在onWindowStageCreate()回调中通过[loadContent()](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-window.md#class-windowstage)方法设置应用要加载的页面，并根据需要调用[on('windowStageEvent')](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-window.md#func-onwindowcallbacktype-callback1argumentwindowstageeventtype)方法订阅[WindowStage的事件](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-window.md#enum-windowstageeventtype)（获焦/失焦、切到前台/切到后台、前台可交互/前台不可交互）。
+在onWindowStageCreate()回调中通过[loadContent()](../../../cj-apis-window/.overview.md)方法设置应用要加载的页面，并根据需要调用[on('windowStageEvent')](../../../cj-apis-window/.overview.md)方法订阅[WindowStage的事件](../../../cj-apis-window/.overview.md)（获焦/失焦、切到前台/切到后台、前台可交互/前台不可交互）。
 
 > **说明：**
 >
-> 不同开发场景下[WindowStage事件](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-window.md#enum-windowstageeventtype)的时序可能存在差异。
+> 不同开发场景下[WindowStage事件](../../../cj-apis-window/.overview.md)的时序可能存在差异。
 
 ```cangjie
 import kit.AbilityKit.UIAbilityContext
@@ -55,9 +55,9 @@ class MainAbility <: UIAbility {
 
 > **说明：**
 >
-> WindowStage的相关使用请参见[窗口开发指导](../../API_Reference/source_zh_cn/arkui-cj/cj-apis-window.md)。
+> WindowStage的相关使用请参见[窗口开发指导](../../../cj-apis-window/.overview.md)。
 
-对应于[onWindowStageCreate()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-onwindowstagecreatewindowstage)回调。在[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)实例销毁之前，则会先进入[onWindowStageDestroy()](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#let-onwindowstagedestroy)回调，可以在该回调中释放UI资源。
+对应于[onWindowStageCreate()](../../../cj-apis-ability/.overview.md)回调。在[UIAbility](../../../cj-apis-ability/.overview.md)实例销毁之前，则会先进入[onWindowStageDestroy()](../../../cj-apis-ability/.overview.md)回调，可以在该回调中释放UI资源。
 
 ```cangjie
 import kit.AbilityKit.UIAbility

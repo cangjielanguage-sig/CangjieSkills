@@ -1,6 +1,6 @@
-## icon标签
+﻿## icon标签
 
-此标签标识[应用的图标](../../application-models/cj-application-component-configuration-stage.md)和对分层图标配置文件的索引。
+此标签标识[应用的图标](../../cj-application-component-configuration-stage/.overview.md)和对分层图标配置文件的索引。
 
 分层图标的配置方式如下：
 

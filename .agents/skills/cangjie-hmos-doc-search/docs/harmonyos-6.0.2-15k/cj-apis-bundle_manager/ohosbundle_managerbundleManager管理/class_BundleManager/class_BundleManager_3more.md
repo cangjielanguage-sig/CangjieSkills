@@ -1,4 +1,4 @@
-## class BundleManager
+﻿## class BundleManager
 
 ```cangjie
 public class BundleManager {}
@@ -36,7 +36,7 @@ public static func canOpenLink(link: String): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[包管理子系统通用错误码](../../errorcodes/cj-errorcode-bundle.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[包管理子系统通用错误码](../../../cj-errorcode-bundle/cj-errorcode-bundle.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,7 +76,7 @@ public static func getBundleInfo(bundleName: String, bundleFlags: Int32, userId!
 |:---|:---|:---|:---|:---|
 |bundleName|String|是|-|表示要查询的应用Bundle名称。|
 |bundleFlags|Int32|是|-|指定返回的BundleInfo所包含的信息，具体可参考[BundleFlag](#enum-bundleflag)。|
-|userId|?Int32|否|None|表示用户ID，可以通过[getOsAccountLocalId](../BasicServicesKit/cj-apis-account-osAccount.md#func-getosaccountlocalid)接口获取。|
+|userId|?Int32|否|None|表示用户ID，可以通过[getOsAccountLocalId](../../../cj-apis-account-osAccount/.overview.md)接口获取。|
 
 **返回值：**
 
@@ -86,7 +86,7 @@ public static func getBundleInfo(bundleName: String, bundleFlags: Int32, userId!
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

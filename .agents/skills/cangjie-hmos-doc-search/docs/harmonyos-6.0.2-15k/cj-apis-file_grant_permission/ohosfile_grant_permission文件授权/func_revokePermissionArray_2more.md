@@ -1,4 +1,4 @@
-## func revokePermission(Array\<PolicyInfo>)
+﻿## func revokePermission(Array\<PolicyInfo>)
 
 ```cangjie
 public func revokePermission(policies: Array<PolicyInfo>): Option<ErrorResult>
@@ -65,7 +65,7 @@ public class ErrorResult {
 ```
 
 **功能：** 返回授予或使能权限失败的URI策略结果。支持persistPermission、revokePermission、activatePermission、deactivatePermission接口错误时使用。
-对应错误码如下表，详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。code，message信息如下：
+对应错误码如下表，详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。code，message信息如下：
 
 | code | message              |
 | :-------- | :--------------------- |

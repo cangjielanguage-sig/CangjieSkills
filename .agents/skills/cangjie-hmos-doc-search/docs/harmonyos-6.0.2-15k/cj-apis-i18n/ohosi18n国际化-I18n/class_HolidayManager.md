@@ -1,4 +1,4 @@
-## class HolidayManager
+﻿## class HolidayManager
 
 ```cangjie
 public class HolidayManager {
@@ -32,7 +32,7 @@ public init(icsPath: String)
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[I18n错误码](../../errorcodes/cj-errorcode-i18n.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[I18n错误码](../../cj-errorcode-i18n/cj-errorcode-i18n.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -77,7 +77,7 @@ public func getHolidayInfoItemArray(year!: ?Int32 = None): Array<HolidayInfoItem
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[I18n错误码](../../errorcodes/cj-errorcode-i18n.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[I18n错误码](../../cj-errorcode-i18n/cj-errorcode-i18n.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -123,7 +123,7 @@ public func isHoliday(date!: ?DateTime = None): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

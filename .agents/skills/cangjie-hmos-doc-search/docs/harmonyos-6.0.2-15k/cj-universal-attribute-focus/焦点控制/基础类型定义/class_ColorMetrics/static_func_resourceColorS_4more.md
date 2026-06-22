@@ -1,4 +1,4 @@
-#### static func resourceColor(String)
+﻿#### static func resourceColor(String)
 
 ```cangjie
 public static func resourceColor(color: String): ColorMetrics
@@ -38,7 +38,7 @@ public static func resourceColor(color: AppResource): ColorMetrics
 
 |名称|类型|必填|默认值|说明|
 | :---- | :---- | :--- | :----- | :----------- |
-| color | [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource) | 是   | \- | 系统资源或者应用资源中的颜色。 |
+| color | [AppResource](../../../../cj-apis-resource_manager/.overview.md) | 是   | \- | 系统资源或者应用资源中的颜色。 |
 
 **返回值：**
 

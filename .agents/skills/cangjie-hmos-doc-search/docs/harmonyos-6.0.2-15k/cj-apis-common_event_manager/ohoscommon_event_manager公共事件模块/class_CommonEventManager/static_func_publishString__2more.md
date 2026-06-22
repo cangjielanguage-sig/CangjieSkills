@@ -1,4 +1,4 @@
-### static func publish(String, CommonEventPublishData)
+﻿### static func publish(String, CommonEventPublishData)
 
 ```cangjie
 public static func publish(event: String, options: CommonEventPublishData): Unit
@@ -19,7 +19,7 @@ public static func publish(event: String, options: CommonEventPublishData): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../errorcodes/cj-errorcode-common_event_service.md)。
+- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../../cj-errorcode-common_event_service/cj-errorcode-common_event_service.md)。
 
   | 错误码ID | 错误信息                            |
   | :------- | :----------------------------------- |
@@ -71,7 +71,7 @@ public static func subscribe(subscriber: CommonEventSubscriber, callback: (Commo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../errorcodes/cj-errorcode-common_event_service.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)
+- BusinessException：对应错误码的详细介绍请参见[事件错误码](../../../cj-errorcode-common_event_service/cj-errorcode-common_event_service.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)
 
   | 错误码ID | 错误信息                            |
   | :-------- | :----------------------------------- |

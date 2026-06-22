@@ -1,4 +1,4 @@
-### prop fdSrc
+﻿### prop fdSrc
 
 ```cangjie
 public mut prop fdSrc: AVFileDescriptor
@@ -134,7 +134,7 @@ public mut prop url: String
 
 > **说明：**
 >
-> - 设置网络播放路径，需声明权限：[ohos.permission.INTERNET](../../../../Dev_Guide/security/AccessToken/cj-permissions-for-all.md#ohospermissioninternet)，相关错误码: [201](../../errorcodes/cj-errorcode-universal.md)。
+> - 设置网络播放路径，需声明权限：[ohos.permission.INTERNET](../../../cj-permissions-for-all/.overview.md)，相关错误码: [201](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 > - 从API version 11开始不支持webm。
 > - 将资源句柄（fd）传递给AVPlayer 实例之后，请不要通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer / AVMetadataExtractor / AVImageGenerator / AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致媒体播放器数据获取异常。
 

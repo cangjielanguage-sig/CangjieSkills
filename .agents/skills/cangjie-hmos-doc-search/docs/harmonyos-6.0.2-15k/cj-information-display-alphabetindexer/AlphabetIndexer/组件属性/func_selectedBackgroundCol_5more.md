@@ -1,4 +1,4 @@
-### func selectedBackgroundColor(ResourceColor)
+﻿### func selectedBackgroundColor(ResourceColor)
 
 ```cangjie
 public func selectedBackgroundColor(value: ResourceColor): This
@@ -83,7 +83,7 @@ public func selectedFont(
 |:---|:---|:---|:---|:---|
 |size|[Length](./cj-common-types.md#interface-length)|否|10.vp| **命名参数。** 选中项文字大小。|
 |weight|[FontWeight](./cj-common-types.md#enum-fontweight)|否|FontWeight.Normal| **命名参数。** 选中项文字字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 选中项文字字体家族。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 选中项文字字体家族。|
 |style|[FontStyle](./cj-common-types.md#enum-fontstyle)|否|FontStyle.Normal| **命名参数。** 选中项文字样式。|
 
 ### func usingPopup(Bool)

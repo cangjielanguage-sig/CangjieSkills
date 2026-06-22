@@ -1,4 +1,4 @@
-## struct Entry
+﻿## struct Entry
 
 ```cangjie
 public struct Entry <: ToString {
@@ -203,5 +203,5 @@ public init (context: StageContext, bundleName: String)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|应用的上下文。|
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|应用的上下文。|
 |bundleName|String|是|-|调用方的包名。|

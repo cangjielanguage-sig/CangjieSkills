@@ -1,4 +1,4 @@
-### func selectedOptionFont(FontStyle, FontWeight, Length, String)
+﻿### func selectedOptionFont(FontStyle, FontWeight, Length, String)
 
 ```cangjie
 public func selectedOptionFont(
@@ -94,4 +94,4 @@ public func value(content: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|下拉按钮本身的文本内容。文本长度大于列宽时，文本被截断。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|下拉按钮本身的文本内容。文本长度大于列宽时，文本被截断。|

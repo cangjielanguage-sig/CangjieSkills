@@ -1,4 +1,4 @@
-### func enablePreviewText(Bool)
+﻿### func enablePreviewText(Bool)
 
 ```cangjie
 public func enablePreviewText(value: Bool): This
@@ -90,7 +90,7 @@ public func fontFamily(value: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|字体列表。默认字体'HarmonyOS Sans'。应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](./cj-apis-font.md)。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|字体列表。默认字体'HarmonyOS Sans'。应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](./cj-apis-font.md)。|
 
 ### func fontFeature(String)
 

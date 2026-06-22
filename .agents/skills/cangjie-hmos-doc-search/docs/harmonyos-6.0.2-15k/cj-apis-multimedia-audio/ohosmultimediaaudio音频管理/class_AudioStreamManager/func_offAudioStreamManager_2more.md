@@ -1,4 +1,4 @@
-### func off(AudioStreamManagerCallbackType, ?CallbackObject)
+﻿### func off(AudioStreamManagerCallbackType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: AudioStreamManagerCallbackType, callback!: ?CallbackObject = None): Unit
@@ -15,11 +15,11 @@ public func off(`type`: AudioStreamManagerCallbackType, callback!: ?CallbackObje
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioStreamManagerCallbackType](#enum-audiostreammanagercallbacktype)|是|-|监听事件。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 回调函数。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,11 +73,11 @@ public func on(`type`: AudioStreamManagerCallbackType, callback: Callback1Argume
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioStreamManagerCallbackType](#enum-audiostreammanagercallbacktype)|是|-|监听事件，固定为：'CAPTURER_CHANGE'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[AudioCapturerChangeInfoArray](#type-audiocapturerchangeinfoarray)>|是|-|回调函数，返回当前音频采集器信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[AudioCapturerChangeInfoArray](#type-audiocapturerchangeinfoarray)>|是|-|回调函数，返回当前音频采集器信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

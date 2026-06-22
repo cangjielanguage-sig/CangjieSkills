@@ -1,4 +1,4 @@
-## class AVScreenCaptureRecorder
+﻿## class AVScreenCaptureRecorder
 
 ```cangjie
 public class AVScreenCaptureRecorder {}
@@ -30,7 +30,7 @@ public func initialize(config: AVScreenCaptureRecordConfig): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,7 +74,7 @@ public func off(`type`: ProfileCallbackType, callback!: ?CallbackObject = None):
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[ProfileCallbackType](#enum-profilecallbacktype)|是|-|连接管理回调事件。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 连接管理回调方法。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 连接管理回调方法。|
 
 **示例：**
 

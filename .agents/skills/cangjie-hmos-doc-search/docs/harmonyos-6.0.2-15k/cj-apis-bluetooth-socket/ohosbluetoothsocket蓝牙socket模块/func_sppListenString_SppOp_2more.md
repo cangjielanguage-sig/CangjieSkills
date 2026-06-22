@@ -1,4 +1,4 @@
-## func sppListen(String, SppOptions)
+﻿## func sppListen(String, SppOptions)
 
 ```cangjie
 public func sppListen(name: String, options: SppOptions): Int32
@@ -27,7 +27,7 @@ public func sppListen(name: String, options: SppOptions): Int32
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -78,7 +78,7 @@ public func sppWrite(clientSocket: Int32, data: Array<UInt8>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

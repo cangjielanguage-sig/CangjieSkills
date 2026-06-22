@@ -1,4 +1,4 @@
-### func getAVQueueTitle()
+﻿### func getAVQueueTitle()
 
 ```cangjie
 public func getAVQueueTitle(): String
@@ -18,7 +18,7 @@ public func getAVQueueTitle(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -46,7 +46,7 @@ public func getCallMetadata(): CallMetadata
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,7 +74,7 @@ public func getExtras(): HashMap<String, ValueType>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -90,7 +90,7 @@ public func getExtras(): HashMap<String, ValueType>
 public func getLaunchAbility(): WantAgent
 ```
 
-**功能：** 获取应用在会话中保存的[WantAgent](../AbilityKit/cj-apis-ability.md#class-wantagent)对象。
+**功能：** 获取应用在会话中保存的[WantAgent](../../../cj-apis-ability/.overview.md)对象。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
 
@@ -100,11 +100,11 @@ public func getLaunchAbility(): WantAgent
 
 |类型|说明|
 |:----|:----|
-|[WantAgent](../AbilityKit/cj-apis-ability.md#class-wantagent)|[setLaunchAbility](#func-setlaunchabilitywantagent)保存的对象，包括应用的相关属性信息，如bundleName，abilityName，deviceId等。|
+|[WantAgent](../../../cj-apis-ability/.overview.md)|[setLaunchAbility](#func-setlaunchabilitywantagent)保存的对象，包括应用的相关属性信息，如bundleName，abilityName，deviceId等。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -132,7 +132,7 @@ public func getOutputDevice(): OutputDeviceInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

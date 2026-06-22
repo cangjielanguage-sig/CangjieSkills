@@ -1,4 +1,4 @@
-## class SecureSession
+﻿## class SecureSession
 
 ```cangjie
 public class SecureSession <: Session & Flash & AutoExposure & Focus & Zoom {}
@@ -46,7 +46,7 @@ public func addSecureOutput(previewOutput: PreviewOutput): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID|错误信息|
   |:----|:----|

@@ -1,4 +1,4 @@
-### class TextPickerRangeContent
+﻿### class TextPickerRangeContent
 
 ```cangjie
 public class TextPickerRangeContent {
@@ -84,7 +84,7 @@ public init(icon: AppResource,text!: ?String = None)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|图片资源。|
+|icon|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|图片资源。|
 |text|?String|否|None|文本信息。如果文本长度大于列宽时，文本被截断。|
 
 #### init(String, ?AppResource)
@@ -104,7 +104,7 @@ public init(icon: String,text!: ?AppResource = None)
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |icon|String|是|-|图片资源，表示图片存放的路径，例如"/common/hello.png"。|
-|text|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None|文本信息。如果文本长度大于列宽时，文本被截断。|
+|text|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None|文本信息。如果文本长度大于列宽时，文本被截断。|
 
 #### init(AppResource, ?AppResource)
 
@@ -122,5 +122,5 @@ public init(icon: AppResource,text!: ?AppResource = None)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|图片资源。|
-|text|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None|文本信息。如果文本长度大于列宽时，文本被截断。|
+|icon|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|图片资源。|
+|text|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None|文本信息。如果文本长度大于列宽时，文本被截断。|

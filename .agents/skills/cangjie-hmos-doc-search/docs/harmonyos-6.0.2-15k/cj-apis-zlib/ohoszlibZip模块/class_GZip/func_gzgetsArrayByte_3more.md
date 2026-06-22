@@ -1,4 +1,4 @@
-### func gzgets(Array\<Byte>)
+﻿### func gzgets(Array\<Byte>)
 
 ```cangjie
 public func gzgets(buf: Array<Byte>): String
@@ -24,7 +24,7 @@ public func gzgets(buf: Array<Byte>): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -69,7 +69,7 @@ public func gzopen(path: String, mode: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -118,7 +118,7 @@ public func gzputs(str: String): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

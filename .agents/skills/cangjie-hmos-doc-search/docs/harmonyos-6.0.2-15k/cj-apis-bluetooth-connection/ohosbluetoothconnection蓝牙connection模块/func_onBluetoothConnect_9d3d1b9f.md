@@ -1,4 +1,4 @@
-## func on(BluetoothConnectionCallbackType, Callback1Argument\<BondStateParam>)
+﻿## func on(BluetoothConnectionCallbackType, Callback1Argument\<BondStateParam>)
 
 ```cangjie
 public func on(`type`: BluetoothConnectionCallbackType, callback: Callback1Argument<BondStateParam>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: BluetoothConnectionCallbackType, callback: Callback1Argum
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[BluetoothConnectionCallbackType](#enum-bluetoothconnectioncallbacktype)|是|填写`BOND_STATE_CHANGE`，表示蓝牙配对状态改变事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BondStateParam](#class-bondstateparam)>|是|表示回调函数的入参，配对的状态。回调函数由用户创建通过该接口注册。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[BondStateParam](#class-bondstateparam)>|是|表示回调函数的入参，配对的状态。回调函数由用户创建通过该接口注册。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :---------------------------- |

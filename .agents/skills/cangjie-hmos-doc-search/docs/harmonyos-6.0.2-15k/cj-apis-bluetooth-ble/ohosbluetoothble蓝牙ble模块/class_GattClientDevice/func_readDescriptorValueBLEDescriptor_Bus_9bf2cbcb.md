@@ -1,4 +1,4 @@
-### func readDescriptorValue(BLEDescriptor, (?BusinessException, ?BLEDescriptor) -> Unit)
+﻿### func readDescriptorValue(BLEDescriptor, (?BusinessException, ?BLEDescriptor) -> Unit)
 
 ```cangjie
 public func readDescriptorValue(descriptor: BLEDescriptor, callback: (?BusinessException, ?BLEDescriptor) -> Unit): Unit
@@ -15,11 +15,11 @@ public func readDescriptorValue(descriptor: BLEDescriptor, callback: (?BusinessE
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |descriptor|[BLEDescriptor](#class-bledescriptor)|是|待读取的描述符。|
-|callback|(?[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception), ?[BLEDescriptor](#class-bledescriptor)) -> Unit|是|client读取描述符，通过注册回调函数获取。|
+|callback|(?[BusinessException](../../../cj-apis-base/.overview.md), ?[BLEDescriptor](#class-bledescriptor)) -> Unit|是|client读取描述符，通过注册回调函数获取。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

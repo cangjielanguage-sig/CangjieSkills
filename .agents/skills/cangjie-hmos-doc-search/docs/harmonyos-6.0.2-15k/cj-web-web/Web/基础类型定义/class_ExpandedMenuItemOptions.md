@@ -1,4 +1,4 @@
-### class ExpandedMenuItemOptions
+﻿### class ExpandedMenuItemOptions
 
 ```cangjie
 public class ExpandedMenuItemOptions {
@@ -100,6 +100,6 @@ public init(content!: AppResource, startIcon!: ?AppResource = None, action!: (St
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 显示内容。|
-|startIcon|?[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|否|None| **命名参数。** 显示图标。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 显示内容。|
+|startIcon|?[AppResource](../../../cj-apis-resource_manager/.overview.md)|否|None| **命名参数。** 显示图标。|
 |action|(String)->Unit|是|-| **命名参数。** 选中的文本信息。|

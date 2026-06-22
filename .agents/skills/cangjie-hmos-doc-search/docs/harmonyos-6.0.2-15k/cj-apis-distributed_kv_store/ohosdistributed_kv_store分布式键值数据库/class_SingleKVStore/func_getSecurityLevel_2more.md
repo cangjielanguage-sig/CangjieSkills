@@ -1,4 +1,4 @@
-### func getSecurityLevel()
+﻿### func getSecurityLevel()
 
 ```cangjie
 public open func getSecurityLevel(): KVSecurityLevel
@@ -18,7 +18,7 @@ public open func getSecurityLevel(): KVSecurityLevel
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)。
 
   | 错误码ID | 错误信息                           |
   | :----------- | :------------------------------------- |
@@ -61,11 +61,11 @@ public open func offDataChange(callback: Callback1Argument<ChangeNotification>):
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ChangeNotification](#class-changenotification)>|是|-|取消订阅的函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ChangeNotification](#class-changenotification)>|是|-|取消订阅的函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

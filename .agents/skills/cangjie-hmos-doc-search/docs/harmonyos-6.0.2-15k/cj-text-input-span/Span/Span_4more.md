@@ -1,4 +1,4 @@
-# Span
+﻿# Span
 
 作为[Text](cj-text-input-text.md)组件的子组件，用于显示行内文本的组件。
 
@@ -42,7 +42,7 @@ public init(content: AppResource)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|文本内容。|
+|content|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|文本内容。|
 
 ## 通用属性/通用事件
 

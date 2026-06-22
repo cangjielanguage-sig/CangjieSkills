@@ -1,4 +1,4 @@
-### func delete(String)
+﻿### func delete(String)
 
 ```cangjie
 public func delete(propName: String): Bool
@@ -11,12 +11,12 @@ public func delete(propName: String): Bool
 > 在LocalStorageInterOp中删除该属性的前提是必须保证该属性没有订阅者。
 > 属性的订阅者为：
 >
-> - [@StorageLink](../../../Dev_Guide/arkui-cj/state_management/cj-appstorage.md#storagelink)、[@StorageProp](../../../Dev_Guide/arkui-cj/state_management/cj-appstorage.md#storageprop)装饰的变量。
+> - [@StorageLink](../../../cj-appstorage/.overview.md)、[@StorageProp](../../../cj-appstorage/.overview.md)装饰的变量。
 > - 通过[link](#func-linktstring-where-t--jsinteroptype-t)、[prop](#func-proptstring-where-t--jsinteroptype-t)、[setAndLink](#func-setandlinktstring-t-where-t--jsinteroptype-t)、[setAndProp](#func-setandproptstring-t-where-t--jsinteroptype-t)接口返回的SubscribedAbstractProperty的实例。
 >
 > 如果想要删除这些订阅者，可以通过以下方式：
 >
-> - 删除@StorageLink、@StorageProp所在的自定义组件。删除自定义组件请参考[自定义组件的删除](../../../Dev_Guide/arkui-cj/paradigm/cj-page-custom-components-lifecycle.md)。
+> - 删除@StorageLink、@StorageProp所在的自定义组件。删除自定义组件请参考[自定义组件的删除](../../../cj-page-custom-components-lifecycle/.overview.md)。
 > - 对link、prop、setAndLink、setAndProp接口返回的[ObservedProperty](./cj-state-rendering-componentstatemanagement.md#class-observedproperty)的实例调用[aboutToBeDeleted](#func-abouttobedeleted)接口。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -99,14 +99,14 @@ public func hasChanged(context: JSContext, callInfo: JSCallInfo): JSValue
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[JSContext](../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是|-|互操作上下文。|
-|callInfo|[JSCallInfo](../arkinterop/cj-apis-ark_interop.md#struct-jscallinfo)|是|-|ArkTS函数调用的相关信息。|
+|context|[JSContext](../../../cj-apis-ark_interop/.overview.md)|是|-|互操作上下文。|
+|callInfo|[JSCallInfo](../../../cj-apis-ark_interop/.overview.md)|是|-|ArkTS函数调用的相关信息。|
 
 **返回值：**
 
 |类型|说明|
 |:----|:----|
-|[JSValue](../arkinterop/cj-apis-ark_interop.md#class-jsvalue)|-|
+|[JSValue](../../../cj-apis-ark_interop/.overview.md)|-|
 
 ### func keys()
 

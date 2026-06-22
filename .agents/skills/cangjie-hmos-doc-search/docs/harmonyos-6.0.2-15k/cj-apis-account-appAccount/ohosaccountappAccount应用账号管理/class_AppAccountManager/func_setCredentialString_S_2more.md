@@ -1,4 +1,4 @@
-### func setCredential(String, String, String)
+﻿### func setCredential(String, String, String)
 
 ```cangjie
 public func setCredential(name: String, credentialType: String, credential: String): Unit
@@ -20,7 +20,7 @@ public func setCredential(name: String, credentialType: String, credential: Stri
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -72,7 +72,7 @@ public func setCustomData(name: String, key: String, value: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

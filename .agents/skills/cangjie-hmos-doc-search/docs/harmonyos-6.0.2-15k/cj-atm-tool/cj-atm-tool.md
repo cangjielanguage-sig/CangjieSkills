@@ -1,4 +1,4 @@
-# atm工具
+﻿# atm工具
 
 Access Token Manager (程序访问控制管理工具，简称atm工具)，是用于查询应用进程的权限、使用类型等信息的工具，为开发者提供了根据tokenid、包名、进程名等信息进行访问控制管理的能力。
 
@@ -32,9 +32,9 @@ atm dump [-h] [-t [-i <token-id>] [-b <bundle-name>] [-n <process-name>]] [-r [-
 | ----- | ----- |
 | -h   | 帮助信息。        |
 | -t  | 必选参数，查询系统中所有应用进程信息。  |
-| -t&nbsp;-i \<token-id\>  | 可选参数，通过应用进程的tokenid，查询该应用的基本信息以及对应的[权限信息](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#enum-grantstatus)。 |
-| -t&nbsp;-b \<bundle-name\>   |  可选参数，通过应用进程的包名bundle-name，查询该应用的基本信息以及对应的[权限信息](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#enum-grantstatus)。    |
-| -t&nbsp;-n \<process-name\>    |  可选参数，通过应用进程的进程名process-name，查询该应用的基本信息以及对应的[权限信息](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability_access_ctrl.md#enum-grantstatus)。  |
+| -t&nbsp;-i \<token-id\>  | 可选参数，通过应用进程的tokenid，查询该应用的基本信息以及对应的[权限信息](../cj-apis-ability_access_ctrl/.overview.md)。 |
+| -t&nbsp;-b \<bundle-name\>   |  可选参数，通过应用进程的包名bundle-name，查询该应用的基本信息以及对应的[权限信息](../cj-apis-ability_access_ctrl/.overview.md)。    |
+| -t&nbsp;-n \<process-name\>    |  可选参数，通过应用进程的进程名process-name，查询该应用的基本信息以及对应的[权限信息](../cj-apis-ability_access_ctrl/.overview.md)。  |
 | -v     | 必选参数，查询系统中所有应用进程的权限使用类型。   |
 | -v&nbsp;-i \<token-id\> | 可选参数，通过应用进程的tokenid，查询该应用的权限使用类型。  |
 | -v&nbsp;-p \<permission-name\>   | 可选参数，通过权限名，查询该权限的使用类型。   |

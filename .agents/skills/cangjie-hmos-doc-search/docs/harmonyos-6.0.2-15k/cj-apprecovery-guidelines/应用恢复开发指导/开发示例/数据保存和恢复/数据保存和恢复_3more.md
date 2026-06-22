@@ -1,4 +1,4 @@
-### 数据保存和恢复
+﻿### 数据保存和恢复
 
 在使能appRecovery功能后，开发者可以在Ability中采用主动保存状态，主动恢复或者选择被动恢复的方式使用appRecovery功能。
 下面为示例的EntryAbility。
@@ -11,7 +11,7 @@ import kit.AbilityKit.*
 
 #### 主动触发保存和恢复
 
-- 定义和注册[ErrorObserver](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#struct-errorobserver) callback，具体可参见[errorManager](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-errormanager)里的使用方法。
+- 定义和注册[ErrorObserver](../../../../cj-apis-ability/.overview.md) callback，具体可参见[errorManager](../../../../cj-apis-ability/.overview.md)里的使用方法。
 
     ```cangjie
     import kit.AbilityKit.*

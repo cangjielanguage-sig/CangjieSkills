@@ -1,4 +1,4 @@
-# ohos.display（屏幕属性）
+﻿# ohos.display（屏幕属性）
 
 屏幕属性提供管理显示设备的一些基础能力，包括获取默认显示设备的信息，获取所有显示设备的信息以及监听显示设备的插拔行为。
 
@@ -69,7 +69,7 @@ public func getAllDisplays(): Array<Display>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -112,7 +112,7 @@ public func getCurrentFoldCreaseRegion(): FoldCreaseRegion
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

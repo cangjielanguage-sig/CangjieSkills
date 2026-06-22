@@ -1,4 +1,4 @@
-### ohos.permission.SYSTEM_FLOAT_WINDOW
+﻿### ohos.permission.SYSTEM_FLOAT_WINDOW
 
 允许应用使用全局悬浮窗的能力。
 
@@ -24,7 +24,7 @@
 
 **可申请此权限的特殊场景与功能：** 应用需要克隆、备份或同步联系人信息。
 
-**其他场景下的使用方案：** 使用“联系人Picker”访问联系人数据，使用方式请参见[选择联系人](../../contacts/cj-contacts-intro.md#使用picker选择联系人)。
+**其他场景下的使用方案：** 使用“联系人Picker”访问联系人数据，使用方式请参见[选择联系人](../../../cj-contacts-intro/.overview.md)。
 
 **授权方式：** 用户授权（user_grant）
 
@@ -48,7 +48,7 @@
 
 **可申请此权限的特殊场景与功能：** 应用需要克隆、备份或同步音频类文件。
 
-**其他场景下的使用方案：** 使用“AudioPicker”访问用户音频文件，使用方式请参见：[（FilePicker）选择音频类文件](../../file-management/cj-select-user-file.md#选择音频类文件)。
+**其他场景下的使用方案：** 使用“AudioPicker”访问用户音频文件，使用方式请参见：[（FilePicker）选择音频类文件](../../../cj-select-user-file/.overview.md)。
 
 **授权方式：** 用户授权（user_grant）
 
@@ -60,7 +60,7 @@
 
 **可申请此权限的特殊场景与功能：** 应用需要克隆、备份或同步音频类文件。
 
-**其他场景下的使用方案：** 使用“AudioPicker”保存用户音频文件，使用方式请参见：[（FilePicker）保存音频类文件](../../file-management/cj-save-user-file.md#保存音频类文件)。
+**其他场景下的使用方案：** 使用“AudioPicker”保存用户音频文件，使用方式请参见：[（FilePicker）保存音频类文件](../../../cj-save-user-file/.overview.md)。
 
 **授权方式：** 用户授权（user_grant）
 
@@ -72,7 +72,7 @@
 
 **可申请此权限的特殊场景与功能：** 应用需要克隆、备份或同步图片/视频类文件。
 
-**其他场景下的使用方案：** 使用“PhotoViewPicker”访问用户图片或视频，使用方式请参见：[使用Picker选择媒体库资源](../../media/medialibrary/cj-photoAccessHelper-photoviewpicker.md#使用picker选择媒体库资源)。
+**其他场景下的使用方案：** 使用“PhotoViewPicker”访问用户图片或视频，使用方式请参见：[使用Picker选择媒体库资源](../../../cj-photoAccessHelper-photoviewpicker/.overview.md)。
 
 **授权方式：** 用户授权（user_grant）
 
@@ -84,7 +84,7 @@
 
 **可申请此权限的特殊场景与功能：** 应用需要克隆、备份或同步图片/视频类文件。
 
-**其他场景下的使用方案：** 使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参见：[保存媒体库资源](../../media/medialibrary/cj-photoAccessHelper-savebutton.md)。
+**其他场景下的使用方案：** 使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参见：[保存媒体库资源](../../../cj-photoAccessHelper-savebutton/cj-photoAccessHelper-savebutton.md)。
 
 **授权方式：** 用户授权（user_grant）
 

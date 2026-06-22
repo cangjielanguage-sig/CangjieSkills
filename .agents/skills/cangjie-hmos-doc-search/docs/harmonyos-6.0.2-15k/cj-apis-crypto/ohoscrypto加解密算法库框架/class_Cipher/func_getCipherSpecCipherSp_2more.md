@@ -1,4 +1,4 @@
-### func getCipherSpec(CipherSpecItem)
+﻿### func getCipherSpec(CipherSpecItem)
 
 ```cangjie
 public func getCipherSpec(itemType: CipherSpecItem): ResultSpec
@@ -24,7 +24,7 @@ public func getCipherSpec(itemType: CipherSpecItem): ResultSpec
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,7 +71,7 @@ public func setCipherSpec(itemType: CipherSpecItem, itemValue: Array<UInt8>): Un
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

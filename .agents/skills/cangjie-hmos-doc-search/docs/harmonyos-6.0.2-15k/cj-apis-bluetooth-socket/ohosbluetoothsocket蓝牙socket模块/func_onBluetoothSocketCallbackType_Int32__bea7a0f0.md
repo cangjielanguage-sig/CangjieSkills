@@ -1,4 +1,4 @@
-## func on(BluetoothSocketCallbackType, Int32, Callback1Argument\<Array\<Byte>>)
+﻿## func on(BluetoothSocketCallbackType, Int32, Callback1Argument\<Array\<Byte>>)
 
 ```cangjie
 public func on(`type`: BluetoothSocketCallbackType, clientSocket: Int32, callback: Callback1Argument<Array<Byte>>): Unit
@@ -16,11 +16,11 @@ public func on(`type`: BluetoothSocketCallbackType, clientSocket: Int32, callbac
 |:---|:---|:---|:---|:---|
 |`type`|[BluetoothSocketCallbackType](#enum-bluetoothsocketcallbacktype)|是|-|回调事件类型。|
 |clientSocket|Int32|是|-|客户端socket的id。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[Byte]>>|是|-|表示回调函数的入参，读取到的数据。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<Array\<[Byte]>>|是|-|表示回调函数的入参，读取到的数据。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

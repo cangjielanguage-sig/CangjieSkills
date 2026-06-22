@@ -1,4 +1,4 @@
-// 7. 在确保拿到了server端的服务结果后，写入server端特定服务的描述符时调用
+﻿// 7. 在确保拿到了server端的服务结果后，写入server端特定服务的描述符时调用
         public func writeDescriptorValue() {
             if (this.gattClient.isNone() || this.connectState != ProfileConnectionState.STATE_CONNECTED) {
                 AppLog.error('no gattClient or not connected')
@@ -64,4 +64,4 @@
     let gattClientManager = GattClientManager()
     ```
 
-8. 错误码请参见[蓝牙服务子系统错误码](../../../API_Reference/source_zh_cn/errorcodes/cj-errorcode-bluetooth_manager.md)。
+8. 错误码请参见[蓝牙服务子系统错误码](../../../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。

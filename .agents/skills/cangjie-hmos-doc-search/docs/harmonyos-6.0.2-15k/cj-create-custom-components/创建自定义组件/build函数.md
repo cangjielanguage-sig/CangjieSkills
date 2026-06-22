@@ -1,4 +1,4 @@
-## build()函数
+﻿## build()函数
 
 所有声明在build()函数的语句统称为UI描述，需要遵循以下规则：
 
@@ -89,7 +89,7 @@
   }
   ```
 
-- 不允许使用match语法，如果需要使用条件判断，请使用[if](../rendering_control/cj-rendering-control-ifelse.md)。示例如下。
+- 不允许使用match语法，如果需要使用条件判断，请使用[if](../../cj-rendering-control-ifelse/.overview.md)。示例如下。
 
   ```cangjie
   func build() {
@@ -112,7 +112,7 @@
   }
   ```
 
-- 不允许直接改变状态变量，反例如下。详细分析见[@State常见问题：不允许在build里改状态变量](../state_management/cj-macro-state.md#不允许在build里改状态变量)。
+- 不允许直接改变状态变量，反例如下。详细分析见[@State常见问题：不允许在build里改状态变量](../../cj-macro-state/.overview.md)。
 
   ```cangjie
   @Component

@@ -1,4 +1,4 @@
-# 数据可靠性与安全性概述
+﻿# 数据可靠性与安全性概述
 
 ## 功能场景
 
@@ -42,7 +42,7 @@
 
 ### 数据库加密机制
 
-HarmonyOS数据库加密时，应用开发者无需传入密钥，只需要设置数据库加密的状态即可。系统会自动帮助开发者将数据库加密，使用[huks通用密钥库系统](../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md)，完成数据库密钥的生成及加密保护。
+HarmonyOS数据库加密时，应用开发者无需传入密钥，只需要设置数据库加密的状态即可。系统会自动帮助开发者将数据库加密，使用[huks通用密钥库系统](../cj-apis-security_huks/.overview.md)，完成数据库密钥的生成及加密保护。
 
 ## 约束限制
 

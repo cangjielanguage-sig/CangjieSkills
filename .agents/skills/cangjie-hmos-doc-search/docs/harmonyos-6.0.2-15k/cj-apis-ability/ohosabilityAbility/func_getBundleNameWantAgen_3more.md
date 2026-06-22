@@ -1,4 +1,4 @@
-## func getBundleName(WantAgent)
+﻿## func getBundleName(WantAgent)
 
 ```cangjie
 public func getBundleName(agent: WantAgent): String
@@ -24,7 +24,7 @@ public func getBundleName(agent: WantAgent): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -67,7 +67,7 @@ public func getNapiValue(env: CPointer<Unit>, context: StageContext): CPointer<U
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |env| CPointer\<Unit> |是|环境指针。|
-|context| [StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext) |是|上下文信息。|
+|context| [StageContext](../../cj-apis-ark_interop_helper/.overview.md) |是|上下文信息。|
 
 **返回值：**
 
@@ -101,7 +101,7 @@ public func getOperationType(agent: WantAgent): OperationType
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

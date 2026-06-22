@@ -1,4 +1,4 @@
-## enum AVSessionEventType
+﻿## enum AVSessionEventType
 
 ```cangjie
 public enum AVSessionEventType <: ToString & Equatable<AVSessionEventType> {
@@ -83,7 +83,7 @@ FastForward
 HandleKeyEvent
 ```
 
-**功能：** 蓝牙/有线等外设接入的按键输入事件的监听，监听多媒体按键事件中播放、暂停、上下一首、快进、快退的指令。当按键事件被发送到会话时触发，提供[KeyEvent](../InputKit/cj-apis-multimodalInput-keyEvent.md#class-keyevent)，表示按键事件。
+**功能：** 蓝牙/有线等外设接入的按键输入事件的监听，监听多媒体按键事件中播放、暂停、上下一首、快进、快退的指令。当按键事件被发送到会话时触发，提供[KeyEvent](../../../cj-apis-multimodalInput-keyEvent/.overview.md)，表示按键事件。
 
 **起始版本：** 19
 

@@ -1,16 +1,16 @@
-# 使用ECDH进行密钥协商
+﻿# 使用ECDH进行密钥协商
 
 对应的算法规格请参见[密钥协商算法规格：ECDH](./cj-crypto-key-agreement-overview.md#ecdh)。
 
 ## 开发步骤
 
-1. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)生成密钥算法为ECC、密钥长度为256位的非对称密钥（KeyPair）。
+1. 调用[createAsyKeyGenerator](../cj-apis-crypto/.overview.md)生成密钥算法为ECC、密钥长度为256位的非对称密钥（KeyPair）。
 
     如何生成ECC非对称密钥，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：ECC](./cj-crypto-asym-key-generation-conversion-spec.md#ecc)和[随机生成非对称密钥对](./cj-crypto-generate-asym-key-pair-randomly.md)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
 
-2. 调用[createKeyAgreement](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createkeyagreementstring)，指定字符串参数'ECC256'，创建密钥算法为ECC、密钥长度为256位的密钥协议生成器（KeyAgreement）。
+2. 调用[createKeyAgreement](../cj-apis-crypto/.overview.md)，指定字符串参数'ECC256'，创建密钥算法为ECC、密钥长度为256位的密钥协议生成器（KeyAgreement）。
 
-3. 调用[generateSecret](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-generatesecretprikey-pubkey)，基于传入的私钥（KeyPair.priKey）与公钥（KeyPair.pubKey）进行密钥协商，返回共享秘钥。
+3. 调用[generateSecret](../cj-apis-crypto/.overview.md)，基于传入的私钥（KeyPair.priKey）与公钥（KeyPair.pubKey）进行密钥协商，返回共享秘钥。
 
 ## 以完成密钥协商为例
 

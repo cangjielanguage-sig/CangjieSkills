@@ -1,4 +1,4 @@
-## struct PlayParameters
+﻿## struct PlayParameters
 
 ```cangjie
 public struct PlayParameters {
@@ -68,9 +68,9 @@ public var priority: Int32 = 0
 public var rate: AudioRendererRate = RENDER_RATE_NORMAL
 ```
 
-**功能：** 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate](../AudioKit/cj-apis-multimedia-audio.md#enum-audiorendererrate)。默认值：0。
+**功能：** 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate](../../cj-apis-multimedia-audio/.overview.md)。默认值：0。
 
-**类型：** [AudioRendererRate](../AudioKit/cj-apis-multimedia-audio.md#enum-audiorendererrate)
+**类型：** [AudioRendererRate](../../cj-apis-multimedia-audio/.overview.md)
 
 **读写能力：** 可读写
 
@@ -113,7 +113,7 @@ public PlayParameters(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |loop|Int32|否|0| **命名参数。** 设置循环参数，0为循环一次，-1表示一直循环。|
-|rate|[AudioRendererRate](../AudioKit/cj-apis-multimedia-audio.md#enum-audiorendererrate)|否|RENDER_RATE_NORMAL| **命名参数。** 设置音频播放的倍速，具体倍速范围参照AudioRendererRate。|
+|rate|[AudioRendererRate](../../cj-apis-multimedia-audio/.overview.md)|否|RENDER_RATE_NORMAL| **命名参数。** 设置音频播放的倍速，具体倍速范围参照AudioRendererRate。|
 |leftVolume|Float32|否|1.0| **命名参数。** 设置左声道音量，设置范围（0.0~1.0）。|
 |rightVolume|Float32|否|1.0| **命名参数。** 设置右声道音量。（当前不支持左右分别设置，将以左声道音量为准）。|
 |priority|Int32|否|0| **命名参数。** 音频流播放的优先级，0为最低优先级，数值越大优先级越高，通过相互比较大小确定播放优先级。|

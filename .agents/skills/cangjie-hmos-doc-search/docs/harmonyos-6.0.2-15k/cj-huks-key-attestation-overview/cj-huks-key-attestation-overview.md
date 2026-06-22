@@ -1,4 +1,4 @@
-# 密钥证明介绍及算法规格
+﻿# 密钥证明介绍及算法规格
 
 ## 密钥证明介绍
 
@@ -9,7 +9,7 @@ HUKS为密钥提供合法性证明能力，主要应用于非对称密钥的公�
 | 密钥属主 | 格式 | 说明 |
 | :-------- | :-------- | :-------- |
 | HAP应用| {appId:"xxx", bundleName:"xxx"} | bundleName为应用包名。 |
-| 系统服务| {processName:"xxx", APL:"system_basic \| system_core"} | APL为[系统服务等级](../AccessToken/cj-app-permission-mgmt-overview.md#权限机制中的基本概念)。 |
+| 系统服务| {processName:"xxx", APL:"system_basic \| system_core"} | APL为[系统服务等级](../cj-app-permission-mgmt-overview/.overview.md)。 |
 
 > **说明：**
 >

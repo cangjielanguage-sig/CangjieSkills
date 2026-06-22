@@ -1,4 +1,4 @@
-### func on(SoundPoolEvent, Callback0Argument)
+﻿### func on(SoundPoolEvent, Callback0Argument)
 
 ```cangjie
 public func on(eventType: SoundPoolEvent, callback: Callback0Argument): Unit
@@ -15,11 +15,11 @@ public func on(eventType: SoundPoolEvent, callback: Callback0Argument): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[SoundPoolEvent](#enum-soundpoolevent)|是|-|填SoundPoolEvent.PlayFinished，soundPool事件状态。音频流播放完成会触发此回调。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-||
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-||
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

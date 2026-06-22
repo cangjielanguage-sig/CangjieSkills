@@ -1,4 +1,4 @@
-## class NativeMediaPlayerSurfaceInfo
+﻿## class NativeMediaPlayerSurfaceInfo
 
 ```cangjie
 public class NativeMediaPlayerSurfaceInfo {
@@ -9,7 +9,7 @@ public class NativeMediaPlayerSurfaceInfo {
 }
 ```
 
-**功能：** [应用接管网页媒体播放功能](../../arkui-cj/cj-web-web.md#func-enablenativemediaplayerbool-bool)中用于同层渲染的 surface 信息。
+**功能：** [应用接管网页媒体播放功能](../../cj-web-web/.overview.md)中用于同层渲染的 surface 信息。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 

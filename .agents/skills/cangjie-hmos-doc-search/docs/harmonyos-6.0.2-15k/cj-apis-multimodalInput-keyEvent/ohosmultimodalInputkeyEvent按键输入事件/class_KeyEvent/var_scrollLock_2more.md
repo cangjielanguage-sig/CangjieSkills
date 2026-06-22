@@ -1,4 +1,4 @@
-### var scrollLock
+﻿### var scrollLock
 
 ```cangjie
 public var scrollLock: Bool
@@ -45,7 +45,7 @@ public init (
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |base|[InputEvent](./cj-apis-multimodalInput-inputEvent.md#class-inputevent)|是|-|父类构造信息。|
-|action|[Action](../BasicServicesKit/cj-apis-request-agent.md#enum-action)|是|-|按键动作。|
+|action|[Action](../../../cj-apis-request-agent/.overview.md)|是|-|按键动作。|
 |key|[Key](#class-key)|是|-|当前上报的按键。|
 |unicodeChar|UInt32|是|-|按键对应的uniCode字符。|
 |keys|Array\<[Key](#class-key)>|是|-|当前处于按下状态的按键列表。|

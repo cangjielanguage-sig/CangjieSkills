@@ -1,4 +1,4 @@
-### func hideTextInput()
+﻿### func hideTextInput()
 
 ```cangjie
 public func hideTextInput(): Unit
@@ -17,7 +17,7 @@ public func hideTextInput(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -61,11 +61,11 @@ public func off(eventType: IMFEventType, callback!: ?CallbackObject = None): Uni
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[IMFEventType](#enum-imfeventtype)|是|-|回调函数事件类型，除ImeChange外均支持。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 取消订阅的回调函数，需要与on接口传入的保持一致。<br/>参数不填写或为None时，取消订阅type对应的所有回调事件。|
+|callback|?[CallbackObject](../../../cj-apis-base/.overview.md)|否|None| **命名参数。** 取消订阅的回调函数，需要与on接口传入的保持一致。<br/>参数不填写或为None时，取消订阅type对应的所有回调事件。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

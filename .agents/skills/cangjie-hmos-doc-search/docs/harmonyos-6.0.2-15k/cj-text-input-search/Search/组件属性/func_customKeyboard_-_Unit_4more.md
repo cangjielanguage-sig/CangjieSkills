@@ -1,4 +1,4 @@
-### func customKeyboard(() -> Unit, Bool)
+﻿### func customKeyboard(() -> Unit, Bool)
 
 ```cangjie
 public func customKeyboard(value: () -> Unit, options!: Bool = false): This
@@ -23,7 +23,7 @@ public func customKeyboard(value: () -> Unit, options!: Bool = false): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|()->Unit|是|-|自定义键盘。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|value|()->Unit|是|-|自定义键盘。使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 |options|Bool|否|false| **命名参数。** 自定义键盘是否支持避让功能。|
 
 ### func decoration(TextDecorationType, ResourceColor, TextDecorationStyle)

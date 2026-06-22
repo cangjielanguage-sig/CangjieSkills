@@ -1,4 +1,4 @@
-### func unRegisterChange(String, ?Callback1Argument\<ChangeData>)
+﻿### func unRegisterChange(String, ?Callback1Argument\<ChangeData>)
 
 ```cangjie
 public func unRegisterChange(uri: String, callback!: ?Callback1Argument<ChangeData> = None): Unit
@@ -15,11 +15,11 @@ public func unRegisterChange(uri: String, callback!: ?Callback1Argument<ChangeDa
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |uri|String|是|-|PhotoAsset的uri, Album的uri或[DefaultChangeUri](#enum-defaultchangeuri)的值。|
-|callback|?[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ChangeData](#class-changedata)>|否|None| **命名参数。** 取消[registerChange](#func-registerchangestring-bool-callback1argumentchangedata)注册时的callback的监听，不填时，取消该uri的所有监听。注：off指定注册的callback后不会进入此回调。|
+|callback|?[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ChangeData](#class-changedata)>|否|None| **命名参数。** 取消[registerChange](#func-registerchangestring-bool-callback1argumentchangedata)注册时的callback的监听，不填时，取消该uri的所有监听。注：off指定注册的callback后不会进入此回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

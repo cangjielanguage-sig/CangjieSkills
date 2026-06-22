@@ -1,4 +1,4 @@
-## func sppAccept(Int32, (?BusinessException, ?Int32) -> Unit)
+﻿## func sppAccept(Int32, (?BusinessException, ?Int32) -> Unit)
 
 ```cangjie
 public func sppAccept(serverSocket: Int32, callback: (?BusinessException, ?Int32) -> Unit): Unit
@@ -15,11 +15,11 @@ public func sppAccept(serverSocket: Int32, callback: (?BusinessException, ?Int32
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |serverSocket|Int32|是|-|服务端socket的id。|
-|callback|(?[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception), ?Int32)->Unit|是|-|表示回调函数的入参，客户端socket的id。|
+|callback|(?[BusinessException](../../cj-apis-base/.overview.md), ?Int32)->Unit|是|-|表示回调函数的入参，客户端socket的id。|
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,7 +76,7 @@ public func sppCloseClientSocket(socket: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

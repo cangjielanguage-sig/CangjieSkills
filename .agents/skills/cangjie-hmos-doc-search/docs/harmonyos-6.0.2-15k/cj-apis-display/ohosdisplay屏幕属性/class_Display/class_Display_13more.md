@@ -1,4 +1,4 @@
-## class Display
+﻿## class Display
 
 ```cangjie
 public class Display {}
@@ -72,7 +72,7 @@ public prop colorSpaces: Array<ColorSpace>
 
 **功能：** 设置显示设备支持的所有色域类型。
 
-**类型：** Array\<[color_manager.ColorSpace](../apis/ArkGraphics2D/cj-apis-color_manager.md#enum-colorspace)>
+**类型：** Array\<[color_manager.ColorSpace](../../../cj-apis-color_manager/.overview.md)>
 
 **读写能力：** 只读
 
@@ -80,7 +80,7 @@ public prop colorSpaces: Array<ColorSpace>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../errorcodes/cj-errorcode-display.md)。
+- BusinessException：对应错误码的详细介绍请参见[屏幕错误码](../../../cj-errorcode-display/cj-errorcode-display.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

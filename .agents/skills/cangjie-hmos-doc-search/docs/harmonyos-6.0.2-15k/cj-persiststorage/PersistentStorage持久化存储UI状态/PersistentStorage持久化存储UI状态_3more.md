@@ -1,10 +1,10 @@
-# PersistentStorage：持久化存储UI状态
+﻿# PersistentStorage：持久化存储UI状态
 
 前两个小节介绍的LocalStorage和AppStorage都是运行时的内存，但是在应用退出再次启动后，依然能保存选定的结果，是应用开发中十分常见的现象，这就需要用到PersistentStorage。
 
 PersistentStorage是应用程序中的可选单例对象。此对象的作用是持久化存储选定的AppStorage属性，以确保这些属性在应用程序重新启动时的值与应用程序关闭时的值相同。
 
-PersistentStorage提供状态变量持久化的能力，但是需要注意，其持久化和读回UI的能力都需要依赖AppStorage。在阅读本文档前，建议提前阅读：[AppStorage](cj-appstorage.md)，[PersistentStorage API文档](../../../API_Reference/source_zh_cn/arkui-cj/cj-state-rendering-appstatemanagement.md#persistentstorage持久化存储ui状态)。
+PersistentStorage提供状态变量持久化的能力，但是需要注意，其持久化和读回UI的能力都需要依赖AppStorage。在阅读本文档前，建议提前阅读：[AppStorage](cj-appstorage.md)，[PersistentStorage API文档](../../cj-state-rendering-appstatemanagement/.overview.md)。
 
 ## 概述
 

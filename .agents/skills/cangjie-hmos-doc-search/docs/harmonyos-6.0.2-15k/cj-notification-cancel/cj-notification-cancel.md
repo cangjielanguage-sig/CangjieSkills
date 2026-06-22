@@ -1,4 +1,4 @@
-# 取消通知
+﻿# 取消通知
 
 用户收到通知提醒后，点击通知并拉起应用到前台时，应用可以选择取消某条通知或所有通知。
 
@@ -6,7 +6,7 @@
 
 ## 接口说明
 
-通知取消接口如下。接口详情参见[API参考](../../API_Reference/source_zh_cn/apis/NotificationKit/cj-apis-notification_manager.md)。
+通知取消接口如下。接口详情参见[API参考](../cj-apis-notification_manager/.overview.md)。
 
 | **接口名** | **描述** |
 | -------- | -------- |

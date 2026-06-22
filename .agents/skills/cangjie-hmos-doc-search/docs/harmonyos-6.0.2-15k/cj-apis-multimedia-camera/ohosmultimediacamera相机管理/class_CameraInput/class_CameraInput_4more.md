@@ -1,4 +1,4 @@
-## class CameraInput
+﻿## class CameraInput
 
 ```cangjie
 public class CameraInput
@@ -24,7 +24,7 @@ public func close(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID         | 错误信息        |
   | :-------------- | :-------------- |
@@ -64,7 +64,7 @@ public func off(`type`: CameraCallbackType, camera: CameraDevice, callback: Call
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为error，CameraInput对象创建成功可监听。相机设备出错情况下可触发该事件并返回结果，比如设备不可用或者冲突等返回对应错误信息。|
 |camera|[CameraDevice](#class-cameradevice)|是|-|CameraDevice对象。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>|是|-|回调函数，取消对应callback。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[BusinessException](../../../cj-apis-base/.overview.md)>|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

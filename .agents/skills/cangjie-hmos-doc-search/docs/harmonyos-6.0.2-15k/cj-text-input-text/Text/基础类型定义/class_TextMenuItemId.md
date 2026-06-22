@@ -1,4 +1,4 @@
-### class TextMenuItemId
+﻿### class TextMenuItemId
 
 ```cangjie
 public class TextMenuItemId {}
@@ -138,7 +138,7 @@ public static func of(id: AppResource): TextMenuItemId
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|id|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|菜单的id。|
+|id|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|菜单的id。|
 
 **返回值：**
 

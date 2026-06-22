@@ -1,4 +1,4 @@
-### func getThumbnail(?Size)
+﻿### func getThumbnail(?Size)
 
 ```cangjie
 public func getThumbnail(size!: ?Size = None): PixelMap
@@ -16,17 +16,17 @@ public func getThumbnail(size!: ?Size = None): PixelMap
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|size|?[Size](../ImageKit/cj-apis-image.md#struct-size)|否|None| **命名参数。** 缩略图尺寸。|
+|size|?[Size](../../../cj-apis-image/.overview.md)|否|None| **命名参数。** 缩略图尺寸。|
 
 **返回值：**
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|返回缩略图的PixelMap。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|返回缩略图的PixelMap。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,7 +76,7 @@ public func set(member: String, data: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

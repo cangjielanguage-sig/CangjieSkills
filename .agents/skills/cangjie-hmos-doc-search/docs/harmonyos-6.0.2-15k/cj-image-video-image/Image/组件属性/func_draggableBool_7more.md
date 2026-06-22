@@ -1,4 +1,4 @@
-### func draggable(Bool)
+﻿### func draggable(Bool)
 
 ```cangjie
 public func draggable(value: Bool): This
@@ -8,7 +8,7 @@ public func draggable(value: Bool): This
 
 > **说明：**
 >
-> 不能和[onDragStart](../../source_zh_cn/arkui-cj/cj-universal-event-drag.md#func-ondragstartdrageventstring------unit)事件同时使用。
+> 不能和[onDragStart](../../../cj-universal-event-drag/.overview.md)事件同时使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

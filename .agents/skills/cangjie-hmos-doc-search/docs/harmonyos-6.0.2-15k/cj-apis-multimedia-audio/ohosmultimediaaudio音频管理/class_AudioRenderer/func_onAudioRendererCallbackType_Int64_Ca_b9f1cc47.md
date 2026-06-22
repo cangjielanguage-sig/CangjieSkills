@@ -1,4 +1,4 @@
-### func on(AudioRendererCallbackType, Int64, Callback1Argument\<Int64>)
+﻿### func on(AudioRendererCallbackType, Int64, Callback1Argument\<Int64>)
 
 ```cangjie
 public func on(`type`: AudioRendererCallbackType, frame: Int64, callback: Callback1Argument<Int64>): Unit
@@ -22,11 +22,11 @@ public func on(`type`: AudioRendererCallbackType, frame: Int64, callback: Callba
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioRendererCallbackType](#enum-audiorenderercallbacktype)|是|-|监听事件，固定为：'AR_MARK_PEACH'或'AR_PERIOD_REACH'。|
 |frame|Int64|是|-|触发事件的帧数。该值必须大于0。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Int64>|是|-|回调函数，返回frame参数的值。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Int64>|是|-|回调函数，返回frame参数的值。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

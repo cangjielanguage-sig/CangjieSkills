@@ -1,4 +1,4 @@
-## func on(BluetoothBleCallbackType, Callback1Argument\<Array\<ScanResult>>)
+﻿## func on(BluetoothBleCallbackType, Callback1Argument\<Array\<ScanResult>>)
 
 ```cangjie
 public func on(`type`: BluetoothBleCallbackType, callback: Callback1Argument<Array<ScanResult>>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: BluetoothBleCallbackType, callback: Callback1Argument<Arr
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[BluetoothBleCallbackType](#enum-bluetoothblecallbacktype)|是|填写BLE_DEVICE_FIND，表示BLE设备发现事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[ScanResult](#class-scanresult)>>|是|表示回调函数的入参，发现的设备集合。回调函数由用户创建通过该接口注册。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<Array\<[ScanResult](#class-scanresult)>>|是|表示回调函数的入参，发现的设备集合。回调函数由用户创建通过该接口注册。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

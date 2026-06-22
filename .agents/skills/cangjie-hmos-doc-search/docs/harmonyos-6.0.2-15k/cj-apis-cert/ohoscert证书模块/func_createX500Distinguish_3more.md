@@ -1,4 +1,4 @@
-## func createX500DistinguishedName(Array\<UInt8>)
+﻿## func createX500DistinguishedName(Array\<UInt8>)
 
 ```cangjie
 public func createX500DistinguishedName(nameDer: Array<UInt8>): X500DistinguishedName
@@ -24,7 +24,7 @@ public func createX500DistinguishedName(nameDer: Array<UInt8>): X500Distinguishe
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -79,7 +79,7 @@ public func createX509CRL(inStream: EncodingBlob): X509CRL
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -126,7 +126,7 @@ public func createX509Cert(inStream: EncodingBlob): X509Cert
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../errorcodes/cj-errorcode-cert-framework.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书错误码](../../cj-errorcode-cert-framework/cj-errorcode-cert-framework.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

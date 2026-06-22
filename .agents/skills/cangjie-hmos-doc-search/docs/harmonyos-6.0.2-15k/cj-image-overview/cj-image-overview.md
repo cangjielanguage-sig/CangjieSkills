@@ -1,4 +1,4 @@
-# Image Kit简介
+﻿# Image Kit简介
 
 应用开发中的图片开发是对图片像素数据进行解析、处理、构造的过程，达到目标图片效果，主要涉及图片解码、图片处理、图片编码等。
 
@@ -32,7 +32,7 @@
 
 3. [图片解码](./cj-image-decoding.md)：通过ImageSource解码生成PixelMap。
 
-4. [图片处理](./cj-image-transformation.md)：对PixelMap进行处理，更改图片属性实现图片的旋转、缩放、裁剪等效果。然后通过[Image组件](../../arkui-cj/cj-graphics-display.md)显示图片。
+4. [图片处理](./cj-image-transformation.md)：对PixelMap进行处理，更改图片属性实现图片的旋转、缩放、裁剪等效果。然后通过[Image组件](../cj-graphics-display/.overview.md)显示图片。
 
 5. [图片编码](./cj-image-encoding.md)：使用图片打包器类ImagePacker，将PixelMap或ImageSource进行压缩编码，生成一张新的图片。
 
@@ -50,4 +50,4 @@ Image Kit编解码支持多种图片格式，并采用了高效的算法和优�
 
 ## 与相关Kit的关系
 
-图片框架提供图片编解码能力，为Image组件及图库等应用提供支撑，其解码结果可以传给[Image组件](../../arkui-cj/cj-graphics-display.md)显示。
+图片框架提供图片编解码能力，为Image组件及图库等应用提供支撑，其解码结果可以传给[Image组件](../cj-graphics-display/.overview.md)显示。

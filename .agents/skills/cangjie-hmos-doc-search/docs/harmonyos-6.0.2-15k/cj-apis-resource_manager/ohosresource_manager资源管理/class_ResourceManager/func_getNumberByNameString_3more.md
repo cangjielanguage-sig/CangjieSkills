@@ -1,4 +1,4 @@
-### func getNumberByName(String)
+﻿### func getNumberByName(String)
 
 ```cangjie
 public func getNumberByName(resName: String): Number
@@ -24,7 +24,7 @@ public func getNumberByName(resName: String): Number
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

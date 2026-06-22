@@ -1,10 +1,10 @@
-# 查询用户注册凭据的状态
+﻿# 查询用户注册凭据的状态
 
 调用者需感知用户注册凭据（人脸、指纹、口令）的变化，可以通过该接口查询当前用户注册凭据的状态。
 
 ## 接口说明
 
-具体参数、返回值、错误码等描述，请参见对应的[API文档](../../../API_Reference/source_zh_cn/apis/UserAuthenticationKit/cj-apis-user_auth.md#func-getenrolledstateuserauthtype)。
+具体参数、返回值、错误码等描述，请参见对应的[API文档](../cj-apis-user_auth/.overview.md)。
 
 | 接口名称 | 功能描述 |
 | -------- | -------- |
@@ -13,7 +13,7 @@
 ## 开发步骤
 
 1. [申请权限](./cj-prerequisites.md#申请权限)：ohos.permission.ACCESS_BIOMETRIC。
-2. 指定认证类型（[UserAuthType](../../../API_Reference/source_zh_cn/apis/UserAuthenticationKit/cj-apis-user_auth.md#enum-userauthtype)），调用[getEnrolledState](../../../API_Reference/source_zh_cn/apis/UserAuthenticationKit/cj-apis-user_auth.md#func-getenrolledstateuserauthtype)接口查询用户注册凭据的状态。
+2. 指定认证类型（[UserAuthType](../cj-apis-user_auth/.overview.md)），调用[getEnrolledState](../cj-apis-user_auth/.overview.md)接口查询用户注册凭据的状态。
 
 以查询用户人脸注册凭据的状态为例：
 

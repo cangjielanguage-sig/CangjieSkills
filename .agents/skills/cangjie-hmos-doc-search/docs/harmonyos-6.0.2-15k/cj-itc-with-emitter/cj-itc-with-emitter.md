@@ -1,4 +1,4 @@
-# 使用Emitter进行线程间通信
+﻿# 使用Emitter进行线程间通信
 
 Emitter是一种作用在进程内的事件处理机制，为应用程序提供订阅事件、发布事件、取消事件订阅的能力。
 
@@ -14,7 +14,7 @@ Emitter通过维护一个内部事件队列，来进行任务分发。应用需�
 
 ## 接口说明
 
-详细请参见[Emitter接口文档](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-emitter.md)。
+详细请参见[Emitter接口文档](../cj-apis-emitter/.overview.md)。
 
 | 接口名  | 用途   | 说明     |
 | ------- | ------ | -------- |

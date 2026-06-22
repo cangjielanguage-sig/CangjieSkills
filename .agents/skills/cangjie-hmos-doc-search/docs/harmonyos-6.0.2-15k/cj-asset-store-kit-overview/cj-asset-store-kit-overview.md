@@ -1,4 +1,4 @@
-# Asset Store Kit简介
+﻿# Asset Store Kit简介
 
 Asset Store Kit（关键资产存储开发套件）包含了关键资产存储服务（ASSET）开放的接口能力集合，提供了用户短敏感数据的安全存储及管理能力。其中，短敏感数据可以是密码类（账号/密码）、Token类（应用凭据）、其他关键明文（如银行卡号）等长度较短的用户敏感数据。
 
@@ -49,10 +49,10 @@ Asset Store Kit（关键资产存储开发套件）包含了关键资产存储�
 - 关键资产删除时机
 
     1. 业务主动调用remove删除关键资产时，删除符合条件的数据。详见删除关键资产[删除关键资产（仓颉）](./cj-asset-remove.md#删除关键资产仓颉)开发指导。
-    2. 应用卸载时，清除该应用存储在ASSET中的数据。[IS_PERSISTENT](../../../API_Reference/source_zh_cn/apis/AssetStoreKit/cj-apis-asset_store.md#static-const-is_persistent)属性设置为true的数据将保留。
+    2. 应用卸载时，清除该应用存储在ASSET中的数据。[IS_PERSISTENT](../cj-apis-asset_store/.overview.md)属性设置为true的数据将保留。
     3. 系统子用户删除时，清除该用户下ASSET中所有数据。
     4. 设备恢复出厂设置时，清除ASSET中所有数据。
 
 ## 与相关Kit的关系
 
-关键资产存储服务仅提供短敏感数据（不超过1KB）的安全存储能力，如业务希望对超长的数据提供保护时，请考虑使用[通用密钥库系统](../UniversalKeystoreKit/cj-huks-overview.md)或[加解密算法库框架](../CryptoArchitectureKit/cj-crypto-architecture-kit-intro.md)保护您的数据。
+关键资产存储服务仅提供短敏感数据（不超过1KB）的安全存储能力，如业务希望对超长的数据提供保护时，请考虑使用[通用密钥库系统](../cj-huks-overview/cj-huks-overview.md)或[加解密算法库框架](../cj-crypto-architecture-kit-intro/cj-crypto-architecture-kit-intro.md)保护您的数据。

@@ -1,4 +1,4 @@
-## 概述
+﻿## 概述
 
 运动和方向传感器，如加速度计、陀螺仪等，能够监测设备的运动状态和方向变化，例如设备的旋转、倾斜等。
 
@@ -17,7 +17,7 @@
 
 ## 需要权限
 
-使用加速度、陀螺仪及设备运动事件接口时，需在配置文件module.json5中声明相应的传感器权限。具体配置方法请参见[在配置文件中声明权限](../security/AccessToken/cj-declare-permissions.md)。
+使用加速度、陀螺仪及设备运动事件接口时，需在配置文件module.json5中声明相应的传感器权限。具体配置方法请参见[在配置文件中声明权限](../../cj-declare-permissions/.overview.md)。
 
 ```json
 "requestPermissions":[
@@ -30,4 +30,4 @@
 ]
 ```
 
-Web组件在对接运动和方向传感器时，需配置[onPermissionRequest](../../API_Reference/source_zh_cn/arkui-cj/cj-web-web.md#func-onpermissionrequestonpermissionrequestevent---unit)接口，通过该接口接收权限请求通知。
+Web组件在对接运动和方向传感器时，需配置[onPermissionRequest](../../cj-web-web/.overview.md)接口，通过该接口接收权限请求通知。

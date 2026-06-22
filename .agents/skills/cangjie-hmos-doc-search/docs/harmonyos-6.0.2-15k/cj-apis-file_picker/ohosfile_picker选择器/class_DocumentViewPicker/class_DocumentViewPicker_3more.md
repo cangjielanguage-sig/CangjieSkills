@@ -1,4 +1,4 @@
-## class DocumentViewPicker
+﻿## class DocumentViewPicker
 
 ```cangjie
 public class DocumentViewPicker {
@@ -28,7 +28,7 @@ public DocumentViewPicker(let abilityContext: UIAbilityContext)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|abilityContext|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|提供允许访问特定Ability的资源的能力。|
+|abilityContext|[UIAbilityContext](../../../cj-apis-ability/.overview.md)|是|-|提供允许访问特定Ability的资源的能力。|
 
 ### func getSelectedIndex()
 

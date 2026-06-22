@@ -1,4 +1,4 @@
-### func onSyncComplete(Callback1Argument\<ArrayList\<(String, Int32)>>)
+﻿### func onSyncComplete(Callback1Argument\<ArrayList\<(String, Int32)>>)
 
 ```cangjie
 public open func onSyncComplete(callback: Callback1Argument<ArrayList<(String, Int32)>>): Unit
@@ -14,11 +14,11 @@ public open func onSyncComplete(callback: Callback1Argument<ArrayList<(String, I
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<ArrayList\<(String, Int32)>>|是|-|回调函数。用于向调用方发送同步结果的回调。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<ArrayList\<(String, Int32)>>|是|-|回调函数。用于向调用方发送同步结果的回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -77,7 +77,7 @@ public open func put(key: String, value: KVValueType): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

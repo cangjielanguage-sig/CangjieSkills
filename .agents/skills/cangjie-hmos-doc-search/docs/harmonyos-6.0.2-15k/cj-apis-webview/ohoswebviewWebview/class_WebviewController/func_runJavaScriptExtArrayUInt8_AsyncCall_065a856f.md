@@ -1,4 +1,4 @@
-### func runJavaScriptExt(Array\<UInt8>, AsyncCallback\<JsMessageExt>)
+﻿### func runJavaScriptExt(Array\<UInt8>, AsyncCallback\<JsMessageExt>)
 
 ```cangjie
 public func runJavaScriptExt(script: Array<UInt8>, callback: AsyncCallback<JsMessageExt>): Unit
@@ -15,11 +15,11 @@ public func runJavaScriptExt(script: Array<UInt8>, callback: AsyncCallback<JsMes
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |script|Array\<UInt8>|是|-|JavaScript脚本。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[JsMessageExt](#class-jsmessageext)>|是|-|回调执行JavaScript脚本结果。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<[JsMessageExt](#class-jsmessageext)>|是|-|回调执行JavaScript脚本结果。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

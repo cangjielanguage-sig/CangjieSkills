@@ -1,4 +1,4 @@
-### func on(AudioRoutingManagerCallbackType, AudioRendererInfo, Callback1Argument\<AudioDeviceDescriptors>)
+﻿### func on(AudioRoutingManagerCallbackType, AudioRendererInfo, Callback1Argument\<AudioDeviceDescriptors>)
 
 ```cangjie
 public func on(`type`: AudioRoutingManagerCallbackType, rendererInfo: AudioRendererInfo,
@@ -17,11 +17,11 @@ public func on(`type`: AudioRoutingManagerCallbackType, rendererInfo: AudioRende
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioRoutingManagerCallbackType](#enum-audioroutingmanagercallbacktype)|是|-|监听事件，固定为：'PREFERR_OUTPUT_DEVICE_CHANGE_FOR_RENDERER_INFO'。|
 |rendererInfo|[AudioRendererInfo](#class-audiorendererinfo)|是|-|表示渲染器信息。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[AudioDeviceDescriptors](#type-audiodevicedescriptors)>|是|-|回调函数，返回优先级最高的输出设备信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[AudioDeviceDescriptors](#type-audiodevicedescriptors)>|是|-|回调函数，返回优先级最高的输出设备信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

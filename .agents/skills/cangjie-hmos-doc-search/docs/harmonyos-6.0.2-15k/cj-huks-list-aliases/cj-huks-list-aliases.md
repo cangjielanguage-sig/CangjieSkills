@@ -1,4 +1,4 @@
-# 查询密钥别名集（仓颉）
+﻿# 查询密钥别名集（仓颉）
 
 HUKS提供了接口供应用查询密钥别名集。
 
@@ -8,9 +8,9 @@ HUKS提供了接口供应用查询密钥别名集。
 
 ## 开发步骤
 
-1. 初始化密钥属性集。用于查询指定密钥别名集TAG，TAG仅支持[HUKS_TAG_AUTH_STORAGE_LEVEL](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#huks_tag_auth_storage_level)。
+1. 初始化密钥属性集。用于查询指定密钥别名集TAG，TAG仅支持[HUKS_TAG_AUTH_STORAGE_LEVEL](../cj-apis-security_huks/.overview.md)。
 
-2. 调用接口[listAliases](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#func-listaliaseshuksoptions)，查询密钥别名集。
+2. 调用接口[listAliases](../cj-apis-security_huks/.overview.md)，查询密钥别名集。
 
 ## 示例
 

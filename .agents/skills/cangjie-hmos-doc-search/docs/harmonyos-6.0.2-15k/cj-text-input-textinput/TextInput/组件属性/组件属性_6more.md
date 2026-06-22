@@ -1,4 +1,4 @@
-## 组件属性
+﻿## 组件属性
 
 > **说明：**
 >
@@ -64,7 +64,7 @@ public func cancelButton(style!: CancelButtonStyle, size!: Length, color!: Resou
 |style|[CancelButtonStyle](./cj-text-input-search.md#enum-cancelbuttonstyle)|是|-| **命名参数。** 右侧清除按钮样式。<br>初始值：CancelButtonStyle.INPUT。|
 |size|[Length](./cj-common-types.md#interface-length)|是|-| **命名参数。** 图标尺寸，不支持百分比。|
 |color|[ResourceColor](./cj-common-types.md#interface-resourcecolor)|是|-| **命名参数。** 图标颜色。<br>初始值：0xFF000000。|
-|src|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 图标/图片源。<br>初始值：''。|
+|src|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 图标/图片源。<br>初始值：''。|
 
 ### func caretColor(ResourceColor)
 

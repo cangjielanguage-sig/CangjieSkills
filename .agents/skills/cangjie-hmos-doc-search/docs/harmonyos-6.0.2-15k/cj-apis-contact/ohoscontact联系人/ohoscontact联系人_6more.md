@@ -1,4 +1,4 @@
-# ohos.contact（联系人）
+﻿# ohos.contact（联系人）
 
 本模块提供联系人管理能力，包括添加联系人、删除联系人、更新联系人等。
 
@@ -19,9 +19,9 @@ ohos.permission.WRITE_CONTACTS
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func addContact(Context, Contact)
 
@@ -41,7 +41,7 @@ public func addContact(context: Context, contact: Contact): Int64
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context，Stage模型的应用Context定义见Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context，Stage模型的应用Context定义见Context。|
 |contact|[Contact](#struct-contact)|是|-|联系人信息，若参数中存在id时，会忽略该项而返回新的id。|
 
 **返回值：**
@@ -52,7 +52,7 @@ public func addContact(context: Context, contact: Contact): Int64
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -96,12 +96,12 @@ public func deleteContact(context: Context, key: String): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context，Stage模型的应用Context定义见Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context，Stage模型的应用Context定义见Context。|
 |key|String|是|-|联系人的唯一查询键key值，一个联系人对应一个key。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

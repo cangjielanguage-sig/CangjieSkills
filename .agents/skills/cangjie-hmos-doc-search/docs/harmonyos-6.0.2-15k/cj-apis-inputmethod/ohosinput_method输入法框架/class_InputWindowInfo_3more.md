@@ -1,4 +1,4 @@
-## class InputWindowInfo
+﻿## class InputWindowInfo
 
 ```cangjie
 public class InputWindowInfo {
@@ -140,7 +140,7 @@ public let direction: Direction
 
 **功能：** 选中文本时，光标的移动方向。
 
-**类型：** [Direction](../LocalizationKit/cj-apis-resource_manager.md#enum-direction)
+**类型：** [Direction](../../cj-apis-resource_manager/.overview.md)
 
 **读写能力：** 只读
 
@@ -164,7 +164,7 @@ public Movement(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|direction|[Direction](../LocalizationKit/cj-apis-resource_manager.md#enum-direction)|是|-|选中文本时，光标的移动方向。|
+|direction|[Direction](../../cj-apis-resource_manager/.overview.md)|是|-|选中文本时，光标的移动方向。|
 
 ## class Range
 

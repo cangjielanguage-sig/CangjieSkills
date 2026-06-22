@@ -1,8 +1,8 @@
-# UIAbility组件概述
+﻿# UIAbility组件概述
 
 ## 概述
 
-[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)组件是一种包含UI的应用组件，主要用于和用户交互。
+[UIAbility](../cj-apis-ability/.overview.md)组件是一种包含UI的应用组件，主要用于和用户交互。
 
 UIAbility的设计理念：
 
@@ -29,7 +29,7 @@ UIAbility组件是系统调度的基本单元，为应用提供绘制界面的�
 
 ## 声明配置
 
-为使应用能够正常使用UIAbility，需要在[module.json5配置文件](../cj-start/basic-knowledge/module-configuration-file.md)的[abilities标签](../cj-start/basic-knowledge/module-configuration-file.md#abilities标签)中声明UIAbility的名称、入口、标签等相关信息。
+为使应用能够正常使用UIAbility，需要在[module.json5配置文件](../module-configuration-file/module-configuration-file.md)的[abilities标签](../module-configuration-file/module-configuration-file.md#abilities标签)中声明UIAbility的名称、入口、标签等相关信息。
 
 ```json
 {

@@ -1,4 +1,4 @@
-## class FormExtensionAbility
+﻿## class FormExtensionAbility
 
 ```cangjie
 public open class FormExtensionAbility {}
@@ -96,7 +96,7 @@ public open func onAcquireFormState(want: Want): FormState
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|want|[Want](../AbilityKit/cj-apis-ability.md#class-want)|是|-|want表示获取卡片状态的描述。描述包括Bundle名称、能力名称、模块名称、卡片名和卡片维度。|
+|want|[Want](../../../cj-apis-ability/.overview.md)|是|-|want表示获取卡片状态的描述。描述包括Bundle名称、能力名称、模块名称、卡片名和卡片维度。|
 
 **返回值：**
 

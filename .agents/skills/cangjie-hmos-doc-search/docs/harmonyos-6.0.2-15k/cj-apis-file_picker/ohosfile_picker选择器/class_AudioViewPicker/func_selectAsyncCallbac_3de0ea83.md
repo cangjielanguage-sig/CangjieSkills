@@ -1,4 +1,4 @@
-### func select(AsyncCallback\<Array\<String>>, AudioSelectOptions)
+﻿### func select(AsyncCallback\<Array\<String>>, AudioSelectOptions)
 
 ```cangjie
 public func select(
@@ -17,7 +17,7 @@ public func select(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<String>>|是|-|callback返回audioPicker选择音频后的结果集。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Array\<String>>|是|-|callback返回audioPicker选择音频后的结果集。|
 |option|[AudioSelectOptions](#struct-audioselectoptions)|否|AudioSelectOptions()| **命名参数。** audioPicker音频选择选项。|
 
 **示例：**

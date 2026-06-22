@@ -1,4 +1,4 @@
-# 动态订阅公共事件
+﻿# 动态订阅公共事件
 
 ## 场景介绍
 
@@ -6,7 +6,7 @@
 
 例如，某应用希望在其运行期间收到电量过低的事件，并根据该事件降低其运行功耗，那么该应用便可动态订阅电量过低事件，收到该事件后关闭一些非必要的任务来降低功耗。
 
-订阅部分系统公共事件需要先[申请权限](../../security/AccessToken/cj-determine-application-mode.md)。
+订阅部分系统公共事件需要先[申请权限](../cj-determine-application-mode/cj-determine-application-mode.md)。
 
 > **说明：**
 >
@@ -14,12 +14,12 @@
 
 ## 接口说明
 
-详细接口见[接口文档](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md)。
+详细接口见[接口文档](../cj-apis-common_event_manager/.overview.md)。
 
 | 接口名 | 接口描述 |
 | -------- | -------- |
-| createSubscriber(subscribeInfo:&nbsp;[CommonEventSubscribeInfo](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#class-commoneventsubscribeinfo)): [CommonEventSubscriber](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#class-commoneventsubscriber)| 创建订阅者对象。 |
-| subscribe(subscriber:&nbsp;[CommonEventSubscriber](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#class-commoneventsubscriber),&nbsp;callback: ([CommonEventData](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#struct-commoneventdata)) -> Unit): Unit | 订阅公共事件。 |
+| createSubscriber(subscribeInfo:&nbsp;[CommonEventSubscribeInfo](../cj-apis-common_event_manager/.overview.md)): [CommonEventSubscriber](../cj-apis-common_event_manager/.overview.md)| 创建订阅者对象。 |
+| subscribe(subscriber:&nbsp;[CommonEventSubscriber](../cj-apis-common_event_manager/.overview.md),&nbsp;callback: ([CommonEventData](../cj-apis-common_event_manager/.overview.md)) -> Unit): Unit | 订阅公共事件。 |
 
 ## 开发步骤
 
@@ -29,7 +29,7 @@
    import kit.BasicServicesKit.*
    ```
 
-2. 创建订阅者信息，详细的订阅者信息数据类型及包含的参数请见[CommonEventSubscribeInfo](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#class-commoneventsubscribeinfo)文档介绍。
+2. 创建订阅者信息，详细的订阅者信息数据类型及包含的参数请见[CommonEventSubscribeInfo](../cj-apis-common_event_manager/.overview.md)文档介绍。
 
    ```cangjie
    // 用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
@@ -47,7 +47,7 @@
    subscriber = CommonEventManager.createSubscriber(subscribeInfo)
    ```
 
-4. 创建订阅回调函数，订阅回调函数会在接收到事件时触发。订阅回调函数返回的data内包含了公共事件的名称、发布者携带的数据等信息，公共事件数据的详细参数和数据类型请见[CommonEventData](../../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md#struct-commoneventdata)文档介绍。
+4. 创建订阅回调函数，订阅回调函数会在接收到事件时触发。订阅回调函数返回的data内包含了公共事件的名称、发布者携带的数据等信息，公共事件数据的详细参数和数据类型请见[CommonEventData](../cj-apis-common_event_manager/.overview.md)文档介绍。
 
    ```cangjie
    // 订阅公共事件回调

@@ -1,4 +1,4 @@
-# ohos.file_grant_permission（文件授权）
+﻿# ohos.file_grant_permission（文件授权）
 
 对文件授予永久性权限。
 
@@ -13,9 +13,9 @@ import kit.CoreFileKit.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## 权限列表
 
@@ -99,7 +99,7 @@ public func checkPersistentPermission(policies: Array<PolicyInfo>): Array<Bool>
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md)。
 
   | 错误码ID | 错误信息              |
   | :-------- | :--------------------- |

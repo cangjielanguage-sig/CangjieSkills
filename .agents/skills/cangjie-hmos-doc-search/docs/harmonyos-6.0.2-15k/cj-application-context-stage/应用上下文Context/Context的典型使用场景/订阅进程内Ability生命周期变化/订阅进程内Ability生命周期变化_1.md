@@ -1,8 +1,8 @@
-### 订阅进程内Ability生命周期变化
+﻿### 订阅进程内Ability生命周期变化
 
-在应用内的DFX统计场景中，如需要统计对应页面停留时间和访问频率等信息，可以使用订阅进程内[UIAbility](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiability)生命周期变化功能。
+在应用内的DFX统计场景中，如需要统计对应页面停留时间和访问频率等信息，可以使用订阅进程内[UIAbility](../../../../cj-apis-ability/.overview.md)生命周期变化功能。
 
-通过[ApplicationContext](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-applicationcontext)提供的能力，可以订阅进程内Ability生命周期变化。当进程内的Ability生命周期变化时，如创建、可见/不可见、获焦/失焦、销毁等，会触发相应的回调函数。每次注册回调函数时，都会返回一个监听生命周期的ID，此ID会自增+1。当超过监听上限数量2<sup>63</sup>-1时，会返回-1。以[UIAbilityContext](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-uiabilitycontext)中的使用为例进行说明。
+通过[ApplicationContext](../../../../cj-apis-ability/.overview.md)提供的能力，可以订阅进程内Ability生命周期变化。当进程内的Ability生命周期变化时，如创建、可见/不可见、获焦/失焦、销毁等，会触发相应的回调函数。每次注册回调函数时，都会返回一个监听生命周期的ID，此ID会自增+1。当超过监听上限数量2<sup>63</sup>-1时，会返回-1。以[UIAbilityContext](../../../../cj-apis-ability/.overview.md)中的使用为例进行说明。
 
 ```cangjie
 import kit.UIKit.{AppLog, BusinessException}

@@ -1,6 +1,6 @@
-## 概述
+﻿## 概述
 
-层叠布局（StackLayout）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](../../API_Reference/source_zh_cn/arkui-cj/cj-row-column-stack-stack.md)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。
+层叠布局（StackLayout）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](../../cj-row-column-stack-stack/cj-row-column-stack-stack.md)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。
 
 层叠布局具有较强的页面层叠、位置定位能力，其使用场景有广告、卡片层叠效果等。
 
@@ -41,7 +41,7 @@ class EntryView {
 
 ## 对齐方式
 
-Stack组件通过[alignContent参数](../../API_Reference/source_zh_cn/arkui-cj/cj-row-column-stack-stack.md#func-aligncontentalignment)实现位置的相对移动。如图2所示，支持九种对齐方式。
+Stack组件通过[alignContent参数](../../cj-row-column-stack-stack/cj-row-column-stack-stack.md#func-aligncontentalignment)实现位置的相对移动。如图2所示，支持九种对齐方式。
 
 **图2** Stack容器内元素的对齐方式
 

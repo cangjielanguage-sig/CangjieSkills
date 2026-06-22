@@ -1,12 +1,12 @@
-### let descriptionResource
+﻿### let descriptionResource
 
 ```cangjie
 public let descriptionResource: AppResource
 ```
 
-**功能：** 应用程序的描述资源信息，包含了bundleName、moduleName和资源的id，可以调用全球化的接口[getMediaContent](../LocalizationKit/cj-apis-resource_manager.md#func-getmediacontentappresource-uint32)来获取详细的资源数据信息。
+**功能：** 应用程序的描述资源信息，包含了bundleName、moduleName和资源的id，可以调用全球化的接口[getMediaContent](../../../cj-apis-resource_manager/.overview.md)来获取详细的资源数据信息。
 
-**类型：** [AppResource](../LocalizationKit/cj-apis-resource_manager.md#class-appresource)
+**类型：** [AppResource](../../../cj-apis-resource_manager/.overview.md)
 
 **读写能力：** 只读
 
@@ -60,9 +60,9 @@ public let iconId: Int32
 public let iconResource: AppResource
 ```
 
-**功能：** 应用程序的图标资源信息，包含了bundleName、moduleName和资源的id，可以调用全球化的接口[getMediaContent](../LocalizationKit/cj-apis-resource_manager.md#func-getmediacontentappresource-uint32)来获取详细的资源数据信息。
+**功能：** 应用程序的图标资源信息，包含了bundleName、moduleName和资源的id，可以调用全球化的接口[getMediaContent](../../../cj-apis-resource_manager/.overview.md)来获取详细的资源数据信息。
 
-**类型：** [AppResource](../LocalizationKit/cj-apis-resource_manager.md#class-appresource)
+**类型：** [AppResource](../../../cj-apis-resource_manager/.overview.md)
 
 **读写能力：** 只读
 
@@ -116,9 +116,9 @@ public let labelId: Int32
 public let labelResource: AppResource
 ```
 
-**功能：** 应用程序的标签资源信息，包含了bundleName、moduleName和资源的id，可以调用全球化的接口[getMediaContent](../LocalizationKit/cj-apis-resource_manager.md#func-getmediacontentappresource-uint32)来获取详细的资源数据信息。
+**功能：** 应用程序的标签资源信息，包含了bundleName、moduleName和资源的id，可以调用全球化的接口[getMediaContent](../../../cj-apis-resource_manager/.overview.md)来获取详细的资源数据信息。
 
-**类型：** [AppResource](../LocalizationKit/cj-apis-resource_manager.md#class-appresource)
+**类型：** [AppResource](../../../cj-apis-resource_manager/.overview.md)
 
 **读写能力：** 只读
 

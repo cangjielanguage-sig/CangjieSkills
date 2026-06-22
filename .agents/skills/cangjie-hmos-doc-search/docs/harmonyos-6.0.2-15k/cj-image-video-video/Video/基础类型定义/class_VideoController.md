@@ -1,4 +1,4 @@
-### class VideoController
+﻿### class VideoController
 
 ```cangjie
 public class VideoController {
@@ -6,7 +6,7 @@ public class VideoController {
 }
 ```
 
-**功能：** VideoController对象可以控制一个或多个video，可用视频播放实例请参考[ohos.multimedia_media](../apis/MediaKit/cj-apis-multimedia_media.md)。
+**功能：** VideoController对象可以控制一个或多个video，可用视频播放实例请参考[ohos.multimedia_media](../../../cj-apis-multimedia_media/.overview.md)。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 

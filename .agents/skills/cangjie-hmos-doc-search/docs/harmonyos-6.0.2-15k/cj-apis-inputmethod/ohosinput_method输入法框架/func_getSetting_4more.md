@@ -1,4 +1,4 @@
-## func getSetting()
+﻿## func getSetting()
 
 ```cangjie
 public func getSetting(): InputMethodSetting
@@ -18,7 +18,7 @@ public func getSetting(): InputMethodSetting
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -52,11 +52,11 @@ public func getSystemInputMethodConfigAbility(): ElementName
 
 |类型|说明|
 |:----|:----|
-|[ElementName](../AbilityKit/cj-apis-ability.md#class-elementname)|系统输入法设置界面Ability的ElementName。|
+|[ElementName](../../cj-apis-ability/.overview.md)|系统输入法设置界面Ability的ElementName。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../errorcodes/cj-errorcode-inputmethod.md)。
+- BusinessException：对应错误码的详细介绍请参见[输入法框架错误码](../../cj-errorcode-inputmethod/cj-errorcode-inputmethod.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

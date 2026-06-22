@@ -1,12 +1,12 @@
-# 使用AVPlayer添加视频外挂字幕
+﻿# 使用AVPlayer添加视频外挂字幕
 
 当前仅支持视频播放前设置外挂字幕。
 
-在进行应用开发的过程中，开发者可以通过AVPlayer的实例注册[on('subtitleUpdate')](../../../API_Reference/source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md#func-onavplayercallbacktype-callback1argumentsubtitleinfo)方法监听字幕信息。
+在进行应用开发的过程中，开发者可以通过AVPlayer的实例注册[on('subtitleUpdate')](../../cj-apis-multimedia_media/.overview.md)方法监听字幕信息。
 
 ## 开发步骤及注意事项
 
-详细的API说明请参见[AVPlayer](../../../API_Reference/source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md#class-avplayer)。
+详细的API说明请参见[AVPlayer](../../cj-apis-multimedia_media/.overview.md)。
 
 1. 使用视频播放的AVPlayer实例设置外挂字幕资源。
 

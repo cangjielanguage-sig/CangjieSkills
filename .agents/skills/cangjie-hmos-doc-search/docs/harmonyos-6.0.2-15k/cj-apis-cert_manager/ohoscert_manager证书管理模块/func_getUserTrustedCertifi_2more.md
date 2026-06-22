@@ -1,4 +1,4 @@
-## func getUserTrustedCertificate(String)
+﻿## func getUserTrustedCertificate(String)
 
 ```cangjie
 public func getUserTrustedCertificate(certUri: String): CertInfo
@@ -26,7 +26,7 @@ public func getUserTrustedCertificate(certUri: String): CertInfo
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../errorcodes/cj-errorcode-cert-manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../cj-errorcode-cert-manager/cj-errorcode-cert-manager.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -84,7 +84,7 @@ public func installPrivateCertificate(keystore: Array<UInt8>, keystorePwd: Strin
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../errorcodes/cj-errorcode-cert-manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[证书管理错误码](../../cj-errorcode-cert-manager/cj-errorcode-cert-manager.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

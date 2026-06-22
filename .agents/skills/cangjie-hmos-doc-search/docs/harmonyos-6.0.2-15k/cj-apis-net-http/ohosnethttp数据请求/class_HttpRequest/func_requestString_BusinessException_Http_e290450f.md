@@ -1,4 +1,4 @@
-### func request(String, (?BusinessException, ?HttpResponse) -> Unit, ?HttpRequestOptions)
+﻿### func request(String, (?BusinessException, ?HttpResponse) -> Unit, ?HttpRequestOptions)
 
 ```cangjie
 public func request(url: String, callback: (?BusinessException, ?HttpResponse) -> Unit,
@@ -22,7 +22,7 @@ public func request(url: String, callback: (?BusinessException, ?HttpResponse) -
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |url|String|是|-|发起网络请求的URL地址。|
-|callback|(?[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception), ?[HttpResponse](#class-httpresponse)) -> Unit|是|-|回调函数。|
+|callback|(?[BusinessException](../../../cj-apis-base/.overview.md), ?[HttpResponse](#class-httpresponse)) -> Unit|是|-|回调函数。|
 |options|?[HttpRequestOptions](#class-httprequestoptions)|否|None| **命名参数。** 参考[HttpRequestOptions](#class-httprequestoptions)。|
 
 **异常：**
@@ -63,7 +63,7 @@ public func request(url: String, callback: (?BusinessException, ?HttpResponse) -
 
 > **错误码说明：**
 >
-> 以上错误码的详细介绍参见[HTTP错误码](../../errorcodes/cj-errorcode-net-http.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+> 以上错误码的详细介绍参见[HTTP错误码](../../../cj-errorcode-net-http/cj-errorcode-net-http.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 > HTTP接口返回错误码映射关系：2300000 + curl错误码。更多常用错误码，可参考：[curl错误码](https://curl.se/libcurl/c/libcurl-errors.html)。
 
 **示例：**

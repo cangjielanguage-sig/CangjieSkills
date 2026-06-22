@@ -1,4 +1,4 @@
-### static func removeAdsBlockAllowedList(Array\<String>)
+﻿### static func removeAdsBlockAllowedList(Array\<String>)
 
 ```cangjie
 public static func removeAdsBlockAllowedList(domainSuffixes: Array<String>): Unit
@@ -23,7 +23,7 @@ public static func removeAdsBlockAllowedList(domainSuffixes: Array<String>): Uni
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -54,7 +54,7 @@ public static func removeAdsBlockDisallowedList(domainSuffixes: Array<String>): 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -85,7 +85,7 @@ public static func setAdsBlockRules(rulesFile: String, replace: Bool): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-# 常见action与entities（不推荐使用）
+﻿# 常见action与entities（不推荐使用）
 
 > **说明：**
 >
@@ -6,7 +6,7 @@
 
 ## action
 
-表示调用方要执行的通用操作（如查看、分享、应用详情）。在隐式[Want](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-want)中，可以定义该字段，配合uri或parameters来表示对数据要执行的操作，如打开、查看该uri数据。例如，当uri为一段网址，action为`ACTION_VIEW_DATA`则表示匹配可访问该网址的应用组件。在Want内声明action字段表示希望被调用方应用支持声明的操作。在被调用方应用配置文件的[skills字段](../cj-start/basic-knowledge/module-configuration-file.md#skills标签)内声明actions表示该应用支持声明操作。常见的action如下，具体的action取值请参见[action常数说明](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#prop-action)。
+表示调用方要执行的通用操作（如查看、分享、应用详情）。在隐式[Want](../cj-apis-ability/.overview.md)中，可以定义该字段，配合uri或parameters来表示对数据要执行的操作，如打开、查看该uri数据。例如，当uri为一段网址，action为`ACTION_VIEW_DATA`则表示匹配可访问该网址的应用组件。在Want内声明action字段表示希望被调用方应用支持声明的操作。在被调用方应用配置文件的[skills字段](../module-configuration-file/module-configuration-file.md#skills标签)内声明actions表示该应用支持声明操作。常见的action如下，具体的action取值请参见[action常数说明](../cj-apis-ability/.overview.md)。
 
 **常见action:**
 
@@ -17,7 +17,7 @@
 
 ## entities
 
-表示目标应用组件的类别信息（如浏览器、视频播放器），在隐式[Want](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#class-want)中是对action的补充。在隐式Want中，开发者可定义该字段，来过滤匹配应用的类别，例如必须是浏览器。在Want内声明entities字段表示希望被调用方应用属于声明的类别。在被调用方应用配置文件的[skills字段](../cj-start/basic-knowledge/module-configuration-file.md#skills标签)内声明entites表示该应用支持的类别。常见的entities如下。
+表示目标应用组件的类别信息（如浏览器、视频播放器），在隐式[Want](../cj-apis-ability/.overview.md)中是对action的补充。在隐式Want中，开发者可定义该字段，来过滤匹配应用的类别，例如必须是浏览器。在Want内声明entities字段表示希望被调用方应用属于声明的类别。在被调用方应用配置文件的[skills字段](../module-configuration-file/module-configuration-file.md#skills标签)内声明entites表示该应用支持的类别。常见的entities如下。
 
 **常见entities:**
 

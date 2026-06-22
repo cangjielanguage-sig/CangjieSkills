@@ -1,4 +1,4 @@
-### class DragInfo
+﻿### class DragInfo
 
 ```cangjie
 public class DragInfo {
@@ -122,7 +122,7 @@ public var pixelMap: Option<PixelMap> = Option.None
 
 **功能：** 设置拖拽过程中显示的图片。
 
-**类型：** Option\<[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** Option\<[PixelMap](../../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 
@@ -144,6 +144,6 @@ public DragItemInfo(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|pixelMap|Option\<[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)>|否|Option.None| **命名参数。** 设置拖拽过程中显示的图片。|
+|pixelMap|Option\<[PixelMap](../../../cj-apis-image/.overview.md)>|否|Option.None| **命名参数。** 设置拖拽过程中显示的图片。|
 |builder|Option\<()->Unit>|否|Option.None| **命名参数。** 使用自定义生成器进行绘图，如果设置了pixelMap，则忽略此值。|
 |extraInfo|String|否|""| **命名参数。** 拖拽项的描述。|

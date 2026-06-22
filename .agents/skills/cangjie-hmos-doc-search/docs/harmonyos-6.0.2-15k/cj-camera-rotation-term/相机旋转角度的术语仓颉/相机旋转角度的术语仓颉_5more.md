@@ -1,4 +1,4 @@
-# 相机旋转角度的术语（仓颉）
+﻿# 相机旋转角度的术语（仓颉）
 
 在适配相机旋转角度中涉及设备方向、镜头角度、屏幕显示角度等多个术语，开发者可以了解相关概念，帮助理解框架的运作机制。
 
@@ -18,7 +18,7 @@
 
 显示设备的屏幕顺时针旋转角度，简称为**屏幕旋转角度**，即设备从自然方向到当前方向的顺时针夹角。
 
-如图所示，图示夹角即为屏幕旋转角度，可通过[Display.rotation](../../../API_Reference/source_zh_cn/arkui-cj/cj-apis-display.md#prop-rotation)获取。
+如图所示，图示夹角即为屏幕旋转角度，可通过[Display.rotation](../../cj-apis-display/.overview.md)获取。
 
 ![Camera Screen Rotation Angle](./figures/camera-screen-rotation-angle.png)
 

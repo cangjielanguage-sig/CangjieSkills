@@ -1,4 +1,4 @@
-# 保存用户文件
+﻿# 保存用户文件
 
 在从网络下载文件到本地或将已有用户文件另存为新的文件路径等场景下，需要使用FilePicker提供的保存用户文件的能力。需关注以下关键点：
 
@@ -10,13 +10,13 @@
 **系统隔离说明**
 
 - 通过Picker保存的文件存储在用户指定的目录。此类文件与图库管理的资源隔离，无法在图库中看到。
-- 若开发者需要保存图片、视频资源到图库，可使用用户无感的[安全控件进行保存](../media/medialibrary/cj-photoAccessHelper-savebutton.md)。
+- 若开发者需要保存图片、视频资源到图库，可使用用户无感的[安全控件进行保存](../../cj-photoAccessHelper-savebutton/cj-photoAccessHelper-savebutton.md)。
 
 ## 保存图片或视频类文件
 
-[PhotoViewPicker](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#class-photoviewpicker)在后续版本不再演进，建议使用[Media Library Kit（媒体文件管理服务）中能力来保存媒体库资源](../media/medialibrary/cj-photoAccessHelper-savebutton.md)。
+[PhotoViewPicker](../../cj-apis-file_picker/.overview.md)在后续版本不再演进，建议使用[Media Library Kit（媒体文件管理服务）中能力来保存媒体库资源](../../cj-photoAccessHelper-savebutton/cj-photoAccessHelper-savebutton.md)。
 
-如果开发场景无法调用安全控件进行图片、视频保存，可使用相册管理模块[PhotoAccessHelper.showAssetsCreationDialog](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-showassetscreationdialogarraystring-arrayphotocreationconfig-callback1argumentarraystring)接口进行保存操作。
+如果开发场景无法调用安全控件进行图片、视频保存，可使用相册管理模块[PhotoAccessHelper.showAssetsCreationDialog](../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口进行保存操作。
 
 ## 保存文档类文件
 
@@ -41,7 +41,7 @@
     )
     ```
 
-3. 创建[文件选择器DocumentViewPicker](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#documentviewpickerabilitycontext)实例。调用[save()](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_picker.md#func-saveasynccallbackarraystring-documentsaveoptions)接口拉起FilePicker界面进行文件保存。
+3. 创建[文件选择器DocumentViewPicker](../../cj-apis-file_picker/.overview.md)实例。调用[save()](../../cj-apis-file_picker/.overview.md)接口拉起FilePicker界面进行文件保存。
 
     ```cangjie
     let uris = Box<Array<String>>([])
@@ -69,7 +69,7 @@
     >
     > 可以通过[DOWNLOAD模式](#download模式保存文件)直达下载目录。
 
-4. 待界面从FilePicker返回后，使用[基础文件API的file_fs.open](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#static-func-openstring-int64)接口，通过uri打开这个文件得到文件描述符(fd)。
+4. 待界面从FilePicker返回后，使用[基础文件API的file_fs.open](../../cj-apis-file_fs/.overview.md)接口，通过uri打开这个文件得到文件描述符(fd)。
 
     ```cangjie
     let uri = ''
@@ -78,7 +78,7 @@
     AppLog.info('file fd: ${file.fd}')
     ```
 
-5. 通过(fd)使用[基础文件API的file_fs.write](../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#static-func-writeint32-string-writeoptions)接口对这个文件进行编辑修改，编辑修改完成后关闭(fd)。
+5. 通过(fd)使用[基础文件API的file_fs.write](../../cj-apis-file_fs/.overview.md)接口对这个文件进行编辑修改，编辑修改完成后关闭(fd)。
 
     ```cangjie
     let writeLen = FileFs.write(file.fd, "hello, world")

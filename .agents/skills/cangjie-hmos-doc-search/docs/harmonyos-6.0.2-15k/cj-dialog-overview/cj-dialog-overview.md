@@ -1,4 +1,4 @@
-# 弹窗概述
+﻿# 弹窗概述
 
 弹窗一般指打开应用时自动弹出或者用户行为操作时弹出的UI界面，用于短时间内展示用户需关注的信息或待处理的操作。
 
@@ -12,7 +12,7 @@
 
 > **说明：**
 >
-> 当前模态弹窗通过设置指定属性变成非模态，例如AlertDialog，可以设置[isModal](../../API_Reference/source_zh_cn/arkui-cj/cj-dialog-alertdialog.md#var-ismodal)为false变成非模态，其他弹窗详见API说明。
+> 当前模态弹窗通过设置指定属性变成非模态，例如AlertDialog，可以设置[isModal](../cj-dialog-alertdialog/.overview.md)为false变成非模态，其他弹窗详见API说明。
 
 ## 使用场景
 

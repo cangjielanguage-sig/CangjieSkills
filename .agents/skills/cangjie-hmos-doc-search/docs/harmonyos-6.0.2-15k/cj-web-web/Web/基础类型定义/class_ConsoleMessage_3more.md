@@ -1,4 +1,4 @@
-### class ConsoleMessage
+﻿### class ConsoleMessage
 
 ```cangjie
 public class ConsoleMessage {}
@@ -192,7 +192,7 @@ public func getErrorCode(): Int32
 
 |类型|说明|
 |:----|:----|
-|Int32|返回加载资源的错误码。错误码的含义可以参考[WebNetErrorList](../apis/ArkWeb/cj-apis-web-net_error_list.md)|
+|Int32|返回加载资源的错误码。错误码的含义可以参考[WebNetErrorList](../../../cj-apis-web-net_error_list/.overview.md)|
 
 #### func getErrorInfo()
 

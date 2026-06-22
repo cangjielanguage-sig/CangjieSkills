@@ -1,4 +1,4 @@
-## func createImageCreator(Size, Int32, Int32)
+﻿## func createImageCreator(Size, Int32, Int32)
 
 ```cangjie
 public func createImageCreator(size: Size, format: Int32, capacity: Int32): ImageCreator
@@ -132,7 +132,7 @@ public func createImageSource(uri: String): ImageSource
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../errorcodes/cj-errorcode-image.md)。
+- BusinessException：对应错误码的详细介绍请参见[Image错误码](../../cj-errorcode-image/cj-errorcode-image.md)。
 
   | 错误码ID | 错误信息 |
   | :------- | :--------------------------------------------|

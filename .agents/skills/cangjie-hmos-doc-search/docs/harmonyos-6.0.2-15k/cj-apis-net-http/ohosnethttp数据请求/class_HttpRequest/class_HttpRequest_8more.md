@@ -1,10 +1,10 @@
-## class HttpRequest
+﻿## class HttpRequest
 
 ```cangjie
 public class HttpRequest {}
 ```
 
-**功能：** HTTP请求任务。在调用HttpRequest的方法前，需要先通过[createHttp](../NetworkKit/cj-apis-net-http.md#func-createhttp)创建一个任务。
+**功能：** HTTP请求任务。在调用HttpRequest的方法前，需要先通过[createHttp](../../../cj-apis-net-http/.overview.md)创建一个任务。
 
 **系统能力：** SystemCapability.Communication.NetStack
 

@@ -1,4 +1,4 @@
-### class TextMenuItem
+﻿### class TextMenuItem
 
 ```cangjie
 public class TextMenuItem {
@@ -81,8 +81,8 @@ public init(content!: AppResource, icon!: AppResource, id!: TextMenuItemId)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 菜单参数名。|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 菜单图标。不支持网络图片。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 菜单参数名。|
+|icon|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 菜单图标。不支持网络图片。|
 |id|[TextMenuItemId](#class-textmenuitemid)|是|-| **命名参数。** 菜单id。|
 
 #### init(String, AppResource, TextMenuItemId)
@@ -102,7 +102,7 @@ public init(content!: String, icon!: AppResource, id!: TextMenuItemId)
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |content|String|是|-| **命名参数。** 菜单名称。|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 菜单图标。不支持网络图片。|
+|icon|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 菜单图标。不支持网络图片。|
 |id|[TextMenuItemId](#class-textmenuitemid)|是|-| **命名参数。** 菜单id。|
 
 #### init(String, String, TextMenuItemId)

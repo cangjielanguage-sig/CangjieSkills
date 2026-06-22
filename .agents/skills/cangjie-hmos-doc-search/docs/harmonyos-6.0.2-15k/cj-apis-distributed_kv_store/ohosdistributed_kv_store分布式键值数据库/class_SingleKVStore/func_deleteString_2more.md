@@ -1,4 +1,4 @@
-### func delete(String)
+﻿### func delete(String)
 
 ```cangjie
 public open func delete(key: String): Unit
@@ -18,7 +18,7 @@ public open func delete(key: String): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[分布式键值数据库错误码](../../errorcodes/cj-errorcode-distributed_kv_store.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[分布式键值数据库错误码](../../../cj-errorcode-distributed_kv_store/cj-errorcode-distributed_kv_store.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

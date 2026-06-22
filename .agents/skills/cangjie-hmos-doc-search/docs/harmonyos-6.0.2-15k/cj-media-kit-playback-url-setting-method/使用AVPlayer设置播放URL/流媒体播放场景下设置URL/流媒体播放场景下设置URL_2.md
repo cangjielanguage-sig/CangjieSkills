@@ -1,4 +1,4 @@
-public override func onWindowStageCreate(windowStage: WindowStage): Unit {
+﻿public override func onWindowStageCreate(windowStage: WindowStage): Unit {
         AppLog.info("MainAbility onWindowStageCreate.")
         windowStage.loadContent("EntryView")
         // declared in index.cj
@@ -9,7 +9,7 @@ public override func onWindowStageCreate(windowStage: WindowStage): Unit {
 
 **情况五：通过应用沙箱中的m3u8文件播放在线流媒体资源**
 
-当应用需要通过解析应用沙箱中的的m3u8文件，播放在线流媒体资源时，可以通过[fs.open](../../../API_Reference/source_zh_cn/apis/CoreFileKit/cj-apis-file_fs.md#static-func-openstring-int64)获取文件句柄，将其拼接成fdUrl。
+当应用需要通过解析应用沙箱中的的m3u8文件，播放在线流媒体资源时，可以通过[fs.open](../../../cj-apis-file_fs/.overview.md)获取文件句柄，将其拼接成fdUrl。
 
 ```cangjie
     import kit.CoreFileKit.*

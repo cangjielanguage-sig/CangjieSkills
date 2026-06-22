@@ -1,4 +1,4 @@
-# Basic Services Kit简介
+﻿# Basic Services Kit简介
 
 Basic Services Kit（基础服务）作为基础服务套件，为应用开发者提供常用的基础能力。比如常用的剪贴板读写、文件上传下载、文件压缩、文件打印、进程间/线程间通信、设备管理、应用账号管理等能力都由本Kit提供。
 
@@ -25,22 +25,22 @@ Basic Services Kit为开发者提供了多种基础能力，满足开发者不�
 根据不同使用场景分类，本Kit主要包含如下能力：
 
 - 数据文件处理：
-    - [剪贴板](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-pasteboard.md)：提供内容复制粘贴能力，支持多种数据类型包括文本、HTML数据、URI、PixelMap等。
-    - [压缩](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-bundle_manager.md)：提供文件压缩解压缩的能力。
-    - [上传下载](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-request-agent.md)：提供文件上传下载、后台传输代理的基础能力。
+    - [剪贴板](../../cj-apis-pasteboard/.overview.md)：提供内容复制粘贴能力，支持多种数据类型包括文本、HTML数据、URI、PixelMap等。
+    - [压缩](../../cj-apis-bundle_manager/.overview.md)：提供文件压缩解压缩的能力。
+    - [上传下载](../../cj-apis-request-agent/.overview.md)：提供文件上传下载、后台传输代理的基础能力。
 
 - 进程间/线程间通信：
-    - [公共事件](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-common_event_manager.md)：提供进程间通信的能力，包括订阅、发布、退订公共事件等，相关开发指南请参考[公共事件简介](./common-event/cj-common-event-overview.md)。
-    - [Emitter](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-emitter.md)：提供线程内通信的能力，包括订阅、发布、退订自定义事件等，相关开发指南请参考[使用Emitter进行线程间通信](./common-event/cj-itc-with-emitter.md)。
+    - [公共事件](../../cj-apis-common_event_manager/.overview.md)：提供进程间通信的能力，包括订阅、发布、退订公共事件等，相关开发指南请参考[公共事件简介](./common-event/cj-common-event-overview.md)。
+    - [Emitter](../../cj-apis-emitter/.overview.md)：提供线程内通信的能力，包括订阅、发布、退订自定义事件等，相关开发指南请参考[使用Emitter进行线程间通信](./common-event/cj-itc-with-emitter.md)。
 
 - 设备管理：
-    - [设备信息](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-device_info.md)：提供查询产品信息的能力，比如查询设备类型、设备品牌名称、产品系列、产品版本号等。
-    - [设置数据项](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-settings.md)：提供查询系统设置数据项的能力，比如查询是否启用飞行模式、是否启用触摸浏览等。
-    - [电量信息查询](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-battery_info.md)：提供查询电量信息的能力。
-    - [系统电源管理](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-power.md)：提供系统电源管理相关的能力，比如查询屏幕状态能力等。
-    - [RunningLock锁操作](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-running_lock.md)：提供RunningLock锁相关操作的能力，包括创建、查询、持锁、释放锁等操作。
+    - [设备信息](../../cj-apis-device_info/.overview.md)：提供查询产品信息的能力，比如查询设备类型、设备品牌名称、产品系列、产品版本号等。
+    - [设置数据项](../../cj-apis-settings/.overview.md)：提供查询系统设置数据项的能力，比如查询是否启用飞行模式、是否启用触摸浏览等。
+    - [电量信息查询](../../cj-apis-battery_info/.overview.md)：提供查询电量信息的能力。
+    - [系统电源管理](../../cj-apis-power/cj-apis-power.md)：提供系统电源管理相关的能力，比如查询屏幕状态能力等。
+    - [RunningLock锁操作](../../cj-apis-running_lock/.overview.md)：提供RunningLock锁相关操作的能力，包括创建、查询、持锁、释放锁等操作。
 
 - 其他：
-    - [应用账号管理](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-account-appAccount.md)：提供应用账号的期管理以及数据管理的能力，相关开发指南请参考[管理应用账号](./account/cj-manage-application-account.md)。
-    - [公共回调](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-base.md)：定义了Cangjie接口的公共回调类型，包括接口调用时出现的公共回调和公共错误信息。
-    - [时间时区](../../API_Reference/source_zh_cn/apis/BasicServicesKit/cj-apis-system_date_time.md)：提供获取系统时间以及系统时区的能力。
+    - [应用账号管理](../../cj-apis-account-appAccount/.overview.md)：提供应用账号的期管理以及数据管理的能力，相关开发指南请参考[管理应用账号](./account/cj-manage-application-account.md)。
+    - [公共回调](../../cj-apis-base/.overview.md)：定义了Cangjie接口的公共回调类型，包括接口调用时出现的公共回调和公共错误信息。
+    - [时间时区](../../cj-apis-system_date_time/.overview.md)：提供获取系统时间以及系统时区的能力。

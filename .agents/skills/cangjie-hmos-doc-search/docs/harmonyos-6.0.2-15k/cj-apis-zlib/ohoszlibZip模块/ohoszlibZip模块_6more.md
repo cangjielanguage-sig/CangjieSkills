@@ -1,4 +1,4 @@
-# ohos.zlib（Zip模块）
+﻿# ohos.zlib（Zip模块）
 
 本模块提供压缩解压缩文件的能力。
 
@@ -30,7 +30,7 @@ public func compressFile(inFile: String, outFile: String, options: ZipOptions): 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -74,7 +74,7 @@ public func compressFiles(inFiles: Array<String>, outFile: String, options: ZipO
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

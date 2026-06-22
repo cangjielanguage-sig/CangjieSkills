@@ -1,4 +1,4 @@
-## class CJSnapshotOptions
+﻿## class CJSnapshotOptions
 
 ```cangjie
 public class CJSnapshotOptions {
@@ -71,4 +71,4 @@ public CJSnapshotOptions(
 public type SnapshotRetCallBack = AsyncCallback<PixelMap>
 ```
 
-**功能：** SnapshotRetCallBack是[AsyncCallback](../apis/BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)>类型的别名。
+**功能：** SnapshotRetCallBack是[AsyncCallback](../../cj-apis-base/.overview.md)\<[PixelMap](../../cj-apis-image/.overview.md)>类型的别名。

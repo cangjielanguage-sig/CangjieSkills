@@ -1,4 +1,4 @@
-### func getDeviceType(String)
+﻿### func getDeviceType(String)
 
 ```cangjie
 public func getDeviceType(networkId: String): Int32
@@ -24,7 +24,7 @@ public func getDeviceType(networkId: String): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[设备管理错误码](../../errorcodes/cj-errorcode-distributed_device_manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[设备管理错误码](../../../cj-errorcode-distributed_device_manager/cj-errorcode-distributed_device_manager.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,7 +71,7 @@ public func getLocalDeviceId(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[设备管理错误码](../../errorcodes/cj-errorcode-distributed_device_manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[设备管理错误码](../../../cj-errorcode-distributed_device_manager/cj-errorcode-distributed_device_manager.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -118,7 +118,7 @@ public func getLocalDeviceName(): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[设备管理错误码](../../errorcodes/cj-errorcode-distributed_device_manager.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[设备管理错误码](../../../cj-errorcode-distributed_device_manager/cj-errorcode-distributed_device_manager.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

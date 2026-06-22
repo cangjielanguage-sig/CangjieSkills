@@ -1,6 +1,6 @@
-## 开发示例
+﻿## 开发示例
 
-在对应用文件开始访问前，开发者需要[获取应用文件路径](../application-models/cj-application-context-stage.md#获取应用文件路径)。以从AbilityContext获取HAP级别的文件路径为例进行说明，AbilityContext的获取方式请参见[获取UIAbility的上下文信息](../application-models/cj-uiability-usage.md#获取uiability的上下文信息)。
+在对应用文件开始访问前，开发者需要[获取应用文件路径](../../../cj-application-context-stage/.overview.md)。以从AbilityContext获取HAP级别的文件路径为例进行说明，AbilityContext的获取方式请参见[获取UIAbility的上下文信息](../../../cj-uiability-usage/.overview.md)。
 
 下面介绍几种常用操作示例。
 

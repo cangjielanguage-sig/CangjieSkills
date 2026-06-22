@@ -1,4 +1,4 @@
-# 查询密钥是否存在（仓颉）
+﻿# 查询密钥是否存在（仓颉）
 
 HUKS提供了接口供应用查询指定密钥是否存在。
 
@@ -6,9 +6,9 @@ HUKS提供了接口供应用查询指定密钥是否存在。
 
 1. 指定密钥别名keyAlias，密钥别名最大长度为128字节。
 
-2. 初始化密钥属性集。用于查询时指定[密钥的属性TAG](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#class-huksoptions)，当查询单个密钥时，TAG字段可传空。
+2. 初始化密钥属性集。用于查询时指定[密钥的属性TAG](../cj-apis-security_huks/.overview.md)，当查询单个密钥时，TAG字段可传空。
 
-3. 调用接口[isKeyItemExist](../../../API_Reference/source_zh_cn/apis/UniversalKeystoreKit/cj-apis-security_huks.md#func-iskeyitemexiststring-huksoptions)，查询密钥是否存在。
+3. 调用接口[isKeyItemExist](../cj-apis-security_huks/.overview.md)，查询密钥是否存在。
 
 ## 示例
 

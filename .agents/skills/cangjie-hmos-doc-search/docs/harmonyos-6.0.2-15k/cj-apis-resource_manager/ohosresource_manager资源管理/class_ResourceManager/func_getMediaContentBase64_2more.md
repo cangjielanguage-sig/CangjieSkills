@@ -1,4 +1,4 @@
-### func getMediaContentBase64(Int32, UInt32)
+﻿### func getMediaContentBase64(Int32, UInt32)
 
 ```cangjie
 public func getMediaContentBase64(resId: Int32, density!: UInt32 = 0): String
@@ -25,7 +25,7 @@ public func getMediaContentBase64(resId: Int32, density!: UInt32 = 0): String
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -76,7 +76,7 @@ public func getMediaContentBase64(resource: AppResource, density!: UInt32 = 0): 
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[资源管理错误码](../../errorcodes/cj-errorcode-resource-manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[资源管理错误码](../../../cj-errorcode-resource-manager/cj-errorcode-resource-manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

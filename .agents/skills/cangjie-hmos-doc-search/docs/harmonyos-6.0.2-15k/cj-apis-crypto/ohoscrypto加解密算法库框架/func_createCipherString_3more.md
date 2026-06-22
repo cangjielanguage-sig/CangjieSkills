@@ -1,4 +1,4 @@
-## func createCipher(String)
+﻿## func createCipher(String)
 
 ```cangjie
 public func createCipher(transformation: String): Cipher
@@ -6,7 +6,7 @@ public func createCipher(transformation: String): Cipher
 
 **功能：** 通过指定算法名称，获取相应的[Cipher](#class-cipher)实例。
 
-支持的规格详见[对称密钥加解密算法规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-sym-encrypt-decrypt-spec.md)和[非对称密钥加解密算法规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-asym-encrypt-decrypt-spec.md)。
+支持的规格详见[对称密钥加解密算法规格](../../cj-crypto-sym-encrypt-decrypt-spec/.overview.md)和[非对称密钥加解密算法规格](../../cj-crypto-asym-encrypt-decrypt-spec/.overview.md)。
 
 **系统能力：** SystemCapability.Security.CryptoFramework
 
@@ -26,7 +26,7 @@ public func createCipher(transformation: String): Cipher
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,7 +73,7 @@ public func createKdf(algName: String): Kdf
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -118,7 +118,7 @@ public func createKeyAgreement(algName: String): KeyAgreement
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

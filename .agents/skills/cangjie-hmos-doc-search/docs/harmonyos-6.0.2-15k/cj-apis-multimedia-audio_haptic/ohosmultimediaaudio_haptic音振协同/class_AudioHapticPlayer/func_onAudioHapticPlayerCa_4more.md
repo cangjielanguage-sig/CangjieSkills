@@ -1,4 +1,4 @@
-### func on(AudioHapticPlayerCallBackType, Callback0Argument)
+﻿### func on(AudioHapticPlayerCallBackType, Callback0Argument)
 
 ```cangjie
 public func on(cbType: AudioHapticPlayerCallBackType, callback: Callback0Argument): Unit
@@ -15,7 +15,7 @@ public func on(cbType: AudioHapticPlayerCallBackType, callback: Callback0Argumen
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |cbType|[AudioHapticPlayerCallBackType](#enum-audiohapticplayercallbacktype)|是|-|事件回调类型，值必须为AHP_AUDIO_INTERRRUPT。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|回调函数，返回播放中断时，应用接收的中断事件信息。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|回调函数，返回播放中断时，应用接收的中断事件信息。|
 
 **示例：**
 
@@ -57,7 +57,7 @@ public func on(cbType: AudioHapticPlayerCallBackType, callback: Callback1Argumen
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |cbType|[AudioHapticPlayerCallBackType](#enum-audiohapticplayercallbacktype)|是|-|事件回调类型，值必须为AHP_AUDIO_INTERRRUPT。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[InterruptEvent](cj-apis-multimedia-audio.md#class-interruptevent)>|是|-|回调函数，返回播放中断时，应用接收的中断事件信息。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[InterruptEvent](cj-apis-multimedia-audio.md#class-interruptevent)>|是|-|回调函数，返回播放中断时，应用接收的中断事件信息。|
 
 **示例：**
 
@@ -99,7 +99,7 @@ public func release(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -119,7 +119,7 @@ public func start(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

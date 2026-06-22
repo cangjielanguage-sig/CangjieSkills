@@ -1,4 +1,4 @@
-### func selectionMenuHidden(Bool)
+﻿### func selectionMenuHidden(Bool)
 
 ```cangjie
 public func selectionMenuHidden(value: Bool): This
@@ -36,7 +36,7 @@ public func setType(value: InputType): This
 
 > **说明：**
 >
-> 密码填充服务需要特定的输入框类型。如何使用密码填充服务参考[快速适配](../../../Dev_Guide/security/Password_Auto_Fill_Service/cj-quick-match.md)。
+> 密码填充服务需要特定的输入框类型。如何使用密码填充服务参考[快速适配](../../../cj-quick-match/cj-quick-match.md)。
 
 ### func showCounter(Bool, Float64, Bool)
 

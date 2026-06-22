@@ -1,6 +1,6 @@
-## uris标签说明
+﻿## uris标签说明
 
-当在[module.json5](../cj-start/basic-knowledge/module-configuration-file.md)文件的[skills字段](../cj-start/basic-knowledge/module-configuration-file.md#skills标签)中声明uris时，主要包含如下字段。
+当在[module.json5](../../module-configuration-file/module-configuration-file.md)文件的[skills字段](../../module-configuration-file/module-configuration-file.md#skills标签)中声明uris时，主要包含如下字段。
 
 > **说明：**
 >
@@ -52,7 +52,7 @@
    |RoutePlan|指示路线规划功能|
    |PlaceSearch|指示地点搜索功能|
 
-2. 跳转一键返回能力：用户从A应用跳转至B应用的某个功能界面后，B应用调用[一键返回能力](../../API_Reference/source_zh_cn/apis/AbilityKit/cj-apis-ability.md#func-backtocallerabilitywithresultabilityresult-string)，可以支持用户直接返回A应用，无问询弹窗。例如：A应用跳转至B应用的支付界面，若B应用已申请了支付的linkfeature，则用户在B应用内完成操作后，可一键返回A应用。
+2. 跳转一键返回能力：用户从A应用跳转至B应用的某个功能界面后，B应用调用[一键返回能力](../../cj-apis-ability/.overview.md)，可以支持用户直接返回A应用，无问询弹窗。例如：A应用跳转至B应用的支付界面，若B应用已申请了支付的linkfeature，则用户在B应用内完成操作后，可一键返回A应用。
 
    |值|说明|
    |---|---|

@@ -1,8 +1,8 @@
-## Web组件与ArkUI组件焦点控制
+﻿## Web组件与ArkUI组件焦点控制
 
-- 应用侧通用获焦回调接口[onFocus](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-focus.md#func-onfocus---unit)，获焦事件回调，绑定该接口的组件获焦时，回调响应。
-- 应用侧通用失焦回调接口[onBlur](../../API_Reference/source_zh_cn/arkui-cj/cj-universal-event-focus.md#func-onblur---unit)，失焦事件回调，绑定该接口的组件失焦时，回调响应。
-- 应用侧主动请求焦点接口[requestFocus](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-requestfocus)，组件主动请求焦点。
+- 应用侧通用获焦回调接口[onFocus](../../cj-universal-event-focus/cj-universal-event-focus.md#func-onfocus---unit)，获焦事件回调，绑定该接口的组件获焦时，回调响应。
+- 应用侧通用失焦回调接口[onBlur](../../cj-universal-event-focus/cj-universal-event-focus.md#func-onblur---unit)，失焦事件回调，绑定该接口的组件失焦时，回调响应。
+- 应用侧主动请求焦点接口[requestFocus](../../cj-apis-webview/.overview.md)，组件主动请求焦点。
 
 **示例：**
 

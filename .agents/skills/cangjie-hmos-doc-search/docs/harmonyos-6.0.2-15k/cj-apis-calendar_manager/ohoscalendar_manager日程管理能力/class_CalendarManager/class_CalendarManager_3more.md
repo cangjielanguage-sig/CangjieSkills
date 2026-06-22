@@ -1,4 +1,4 @@
-## class CalendarManager
+﻿## class CalendarManager
 
 ```cangjie
 public class CalendarManager {}
@@ -38,7 +38,7 @@ public func createCalendar(calendarAccount: CalendarAccount): Calendar
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
 |错误码ID|错误信息|
 |:---|:---|
@@ -83,7 +83,7 @@ public func deleteCalendar(calendar: Calendar): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
 |错误码ID|错误信息|
 |:---|:---|

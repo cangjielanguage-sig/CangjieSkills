@@ -1,4 +1,4 @@
-### func setRate(Int32, AudioRendererRate)
+﻿### func setRate(Int32, AudioRendererRate)
 
 ```cangjie
 public func setRate(streamID: Int32, rate: AudioRendererRate): Unit
@@ -15,11 +15,11 @@ public func setRate(streamID: Int32, rate: AudioRendererRate): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |streamID|Int32|是|-|音频流ID，通过play方法获取。|
-|rate|[AudioRendererRate](../AudioKit/cj-apis-multimedia-audio.md#enum-audiorendererrate)|是|-|音频rate相关参数。|
+|rate|[AudioRendererRate](../../../cj-apis-multimedia-audio/.overview.md)|是|-|音频rate相关参数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,7 +72,7 @@ public func setVolume(streamID: Int32, leftVolume: Float32, rightVolume: Float32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

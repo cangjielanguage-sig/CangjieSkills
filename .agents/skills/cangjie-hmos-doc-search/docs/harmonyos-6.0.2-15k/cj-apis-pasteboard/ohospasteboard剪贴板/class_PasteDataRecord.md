@@ -1,4 +1,4 @@
-## class PasteDataRecord
+﻿## class PasteDataRecord
 
 ```cangjie
 public class PasteDataRecord {
@@ -52,7 +52,7 @@ public let pixelMap: PixelMap
 
 **功能：** PixelMap内容。
 
-**类型：** [PixelMap](../../apis/ImageKit/cj-apis-image.md#class-pixelmap)
+**类型：** [PixelMap](../../cj-apis-image/.overview.md)
 
 **读写能力：** 只读
 

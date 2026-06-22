@@ -1,4 +1,4 @@
-### 图片插值
+﻿### 图片插值
 
 当原图分辨率较低并且放大显示时，图片会模糊出现锯齿。这时可以使用interpolation属性对图片进行插值，使图片显示得更清晰。
 
@@ -42,7 +42,7 @@ class EntryView {
 
 ### 设置图片重复样式
 
-通过objectRepeat属性设置图片的重复样式方式，重复样式请参考[ImageRepeat](../../API_Reference/source_zh_cn/arkui-cj/cj-common-types.md#enum-imagerepeat)枚举说明。
+通过objectRepeat属性设置图片的重复样式方式，重复样式请参考[ImageRepeat](../../../cj-common-types/.overview.md)枚举说明。
 
 <!-- run -->
 

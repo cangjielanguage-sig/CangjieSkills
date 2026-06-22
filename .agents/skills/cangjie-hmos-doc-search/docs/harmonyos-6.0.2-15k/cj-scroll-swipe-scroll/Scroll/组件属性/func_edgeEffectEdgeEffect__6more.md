@@ -1,4 +1,4 @@
-### func edgeEffect(EdgeEffect, EdgeEffectOptions)
+﻿### func edgeEffect(EdgeEffect, EdgeEffectOptions)
 
 ```cangjie
 public func edgeEffect(value: EdgeEffect, options: EdgeEffectOptions): This
@@ -106,4 +106,4 @@ public func friction(value: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|摩擦系数。非可穿戴设备初始值为0.75，可穿戴设备初始值为0.9。<br>取值范围：(0, +∞)，设置为小于等于0的值时，按初始值处理。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|摩擦系数。非可穿戴设备初始值为0.75，可穿戴设备初始值为0.9。<br>取值范围：(0, +∞)，设置为小于等于0的值时，按初始值处理。|

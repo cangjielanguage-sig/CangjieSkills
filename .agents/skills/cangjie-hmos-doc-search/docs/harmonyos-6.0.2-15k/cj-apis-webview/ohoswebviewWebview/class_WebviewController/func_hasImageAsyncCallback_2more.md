@@ -1,4 +1,4 @@
-### func hasImage(AsyncCallback\<Bool>)
+﻿### func hasImage(AsyncCallback\<Bool>)
 
 ```cangjie
 public func hasImage(callback: AsyncCallback<Bool>): Unit
@@ -14,11 +14,11 @@ public func hasImage(callback: AsyncCallback<Bool>): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Bool>|是|-|返回查找页面是否存在图像。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Bool>|是|-|返回查找页面是否存在图像。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -89,7 +89,7 @@ public func injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): Uni
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

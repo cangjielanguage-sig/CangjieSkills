@@ -1,4 +1,4 @@
-### class BorderImageOption
+﻿### class BorderImageOption
 
 ```cangjie
 public class BorderImageOption {
@@ -25,7 +25,7 @@ public class BorderImageOption {
 public let source: BorderImageOptionSourceType
 ```
 
-**功能：** 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](../../../Dev_Guide/arkui-cj/cj-graphics-display.md#加载图片资源)。
+**功能：** 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](../../../../cj-graphics-display/.overview.md)。
 
 **类型：** [BorderImageOptionSourceType](#interface-borderimageoptionsourcetype)
 

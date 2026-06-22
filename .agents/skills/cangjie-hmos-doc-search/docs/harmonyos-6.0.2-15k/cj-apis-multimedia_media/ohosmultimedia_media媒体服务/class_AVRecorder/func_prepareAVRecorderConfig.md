@@ -1,4 +1,4 @@
-### func prepare(AVRecorderConfig)
+﻿### func prepare(AVRecorderConfig)
 
 ```cangjie
 public func prepare(config: AVRecorderConfig): Unit
@@ -10,7 +10,7 @@ public func prepare(config: AVRecorderConfig): Unit
 
 不涉及音频录制时，可以不需要获ohos.permission.MICROPHONE权限。
 
-使用相机视频录制还需要与相机模块配合，相机模块接口的使用详情见[相机管理](../CameraKit/cj-apis-multimedia-camera.md)。
+使用相机视频录制还需要与相机模块配合，相机模块接口的使用详情见[相机管理](../../../cj-apis-multimedia-camera/.overview.md)。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
@@ -24,7 +24,7 @@ public func prepare(config: AVRecorderConfig): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

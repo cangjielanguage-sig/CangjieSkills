@@ -1,4 +1,4 @@
-## 选择器弹窗（PickerDialog）
+﻿## 选择器弹窗（PickerDialog）
 
 选择器弹窗通常用于在用户进行某些操作（如点击按钮）时显示特定的信息或选项。
 
@@ -16,7 +16,7 @@
 
 ### 日历选择器弹窗（CalendarPickerDialog）
 
-日历选择器弹窗提供日历视图，包含年、月和星期信息，通过[CalendarPickerDialog](../../API_Reference/source_zh_cn/arkui-cj/cj-dialog-calendarpickerdaialog.md#class-calendarpickerdialog)接口实现。开发者可调用show函数，定义并弹出日历选择器弹窗。
+日历选择器弹窗提供日历视图，包含年、月和星期信息，通过[CalendarPickerDialog](../../../cj-dialog-calendarpickerdaialog/.overview.md)接口实现。开发者可调用show函数，定义并弹出日历选择器弹窗。
 
 通过配置 acceptButtonStyle、cancelButtonStyle可以实现自定义按钮样式。
 

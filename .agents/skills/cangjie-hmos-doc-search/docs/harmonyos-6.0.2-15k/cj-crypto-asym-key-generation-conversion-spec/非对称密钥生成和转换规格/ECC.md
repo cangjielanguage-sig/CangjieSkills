@@ -1,4 +1,4 @@
-## ECC
+﻿## ECC
 
 ECC（Elliptic Curve Cryptography），是一种基于椭圆曲线数学的公钥密码算法。
 
@@ -66,9 +66,9 @@ Fp域下的ECC密钥参数，包括：
 
 > **说明：**
 >
-> - 当前ECC只支持Fp域，因此fieldType固定为"Fp"。fieldType和p构成了属性field，当前field只支持[ECFieldFp](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-ecfieldfp)。
+> - 当前ECC只支持Fp域，因此fieldType固定为"Fp"。fieldType和p构成了属性field，当前field只支持[ECFieldFp](../../cj-apis-crypto/.overview.md)。
 >
-> - g和pk为ECC曲线上的点，属于[Point](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-point)类型，需要指定具体X，Y坐标。
+> - g和pk为ECC曲线上的点，属于[Point](../../cj-apis-crypto/.overview.md)类型，需要指定具体X，Y坐标。
 
 ### 使用曲线名生成密钥参数
 

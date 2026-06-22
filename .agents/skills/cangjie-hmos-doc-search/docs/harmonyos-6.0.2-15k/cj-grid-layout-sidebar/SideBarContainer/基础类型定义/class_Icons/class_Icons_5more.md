@@ -1,4 +1,4 @@
-### class Icons
+﻿### class Icons
 
 ```cangjie
 public class Icons {
@@ -65,7 +65,7 @@ public init(shown!: String, hidden!: String, switching!: AppResource)
 |:---|:---|:---|:---|:---|
 |shown|String|是|-| **命名参数。** 侧边栏显示时控制按钮的图标。|
 |hidden|String|是|-| **命名参数。** 侧边栏隐藏时控制按钮的图标。|
-|switching|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 侧边栏显示和隐藏状态切换时控制按钮的图标。|
+|switching|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 侧边栏显示和隐藏状态切换时控制按钮的图标。|
 
 #### init(AppResource, String, String)
 
@@ -87,7 +87,7 @@ public init(shown!: AppResource, hidden!: String, switching!: String = "")
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|shown|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 侧边栏显示时控制按钮的图标。|
+|shown|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 侧边栏显示时控制按钮的图标。|
 |hidden|String|是|-| **命名参数。** 侧边栏隐藏时控制按钮的图标。|
 |switching|String|否|""| **命名参数。** 侧边栏显示和隐藏状态切换时控制按钮的图标。|
 
@@ -111,6 +111,6 @@ public init(shown!: AppResource, hidden!: String, switching!: AppResource)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|shown|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 侧边栏显示时控制按钮的图标。|
+|shown|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 侧边栏显示时控制按钮的图标。|
 |hidden|String|是|-| **命名参数。** 侧边栏隐藏时控制按钮的图标。|
-|switching|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 侧边栏显示和隐藏状态切换时控制按钮的图标。|
+|switching|[AppResource](../../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 侧边栏显示和隐藏状态切换时控制按钮的图标。|

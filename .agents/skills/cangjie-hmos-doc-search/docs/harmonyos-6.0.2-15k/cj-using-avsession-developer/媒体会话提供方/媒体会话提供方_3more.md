@@ -1,4 +1,4 @@
-# 媒体会话提供方
+﻿# 媒体会话提供方
 
 音视频应用在实现音视频功能的同时，需要作为媒体会话提供方接入媒体会话，在媒体会话控制方（例如播控中心）中展示媒体相关信息，及响应媒体会话控制方下发的播控命令。
 
@@ -29,4 +29,4 @@
 | setExtras(extras: HashMap\<String, ValueType>): Unit|设置键值对形式的自定义媒体数据包。|
 | getOutputDevice(): OutputDeviceInfo|获取当前输出设备信息。 |
 
-更多API说明请参见[API文档](../../../API_Reference/source_zh_cn/apis/AVSessionKit/cj-apis-multimedia_avsession.md)。
+更多API说明请参见[API文档](../../cj-apis-multimedia_avsession/.overview.md)。

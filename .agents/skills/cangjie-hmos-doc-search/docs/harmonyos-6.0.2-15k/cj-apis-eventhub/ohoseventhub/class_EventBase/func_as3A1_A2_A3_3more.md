@@ -1,4 +1,4 @@
-### func as3\<A1, A2, A3>()
+﻿### func as3\<A1, A2, A3>()
 
 ```cangjie
 public func as3<A1, A2, A3>(): Event3<A1, A2, A3>
@@ -18,7 +18,7 @@ public func as3<A1, A2, A3>(): Event3<A1, A2, A3>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码|错误信息|
   |:------|:-------------------------|
@@ -66,7 +66,7 @@ public func as4<A1, A2, A3, A4>(): Event4<A1, A2, A3, A4>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码|错误信息|
   |:------|:-------------------------|
@@ -114,7 +114,7 @@ public func as5<A1, A2, A3, A4, A5>(): Event5<A1, A2, A3, A4, A5>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码|错误信息|
   |:------|:-------------------------|

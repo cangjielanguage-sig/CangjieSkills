@@ -1,4 +1,4 @@
-### func effectStrategy(SymbolEffectStrategy)
+﻿### func effectStrategy(SymbolEffectStrategy)
 
 ```cangjie
 public func effectStrategy(value: SymbolEffectStrategy): This
@@ -68,7 +68,7 @@ public func fontColor(value: Array<AppResource>): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|Array\<[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)>|是|-|SymbolSpan组件颜色。<br>初始值：不同渲染策略下默认值不同。|
+|value|Array\<[AppResource](../../../cj-apis-resource_manager/.overview.md)>|是|-|SymbolSpan组件颜色。<br>初始值：不同渲染策略下默认值不同。|
 
 ### func fontSize(Length)
 

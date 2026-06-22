@@ -1,4 +1,4 @@
-# 使用PixelMap完成位图操作
+﻿# 使用PixelMap完成位图操作
 
 当需要对目标图片中的部分区域进行处理时，可以使用位图操作功能。此功能常用于图片美化等操作。
 
@@ -10,7 +10,7 @@
 
 ## 开发步骤
 
-位图操作相关API的详细介绍请参见[API参考](../../../API_Reference/source_zh_cn/apis/ImageKit/cj-apis-image.md#class-pixelmap)。
+位图操作相关API的详细介绍请参见[API参考](../cj-apis-image/.overview.md)。
 
 1. 完成[图片解码](./cj-image-decoding.md)，获取PixelMap位图对象。
 

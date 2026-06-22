@@ -1,4 +1,4 @@
-## class HapticFileDescriptor
+﻿## class HapticFileDescriptor
 
 ```cangjie
 public class HapticFileDescriptor {
@@ -9,7 +9,7 @@ public class HapticFileDescriptor {
 }
 ```
 
-**功能：** 自定义振动配置文件的描述符，必须确认资源文件可用，其参数可通过[文件管理API](../CoreFileKit/cj-apis-file_fs.md#static-func-openstring-int64)从沙箱路径获取或者通过[资源管理API](../LocalizationKit/cj-apis-resource_manager.md#func-getrawfdstring)从HAP资源获取。使用场景：振动序列被存储在一个文件中，需要根据偏移量和长度进行振动，振动序列存储格式。
+**功能：** 自定义振动配置文件的描述符，必须确认资源文件可用，其参数可通过[文件管理API](../../cj-apis-file_fs/.overview.md)从沙箱路径获取或者通过[资源管理API](../../cj-apis-resource_manager/.overview.md)从HAP资源获取。使用场景：振动序列被存储在一个文件中，需要根据偏移量和长度进行振动，振动序列存储格式。
 
 **系统能力：** SystemCapability.Sensors.MiscDevice
 
@@ -75,7 +75,7 @@ public init(fd: Int32, offSet!: Int64 = 0, length!: Int64 = FileFs.stat(fd).size
 |:---|:---|:---|:---|:---|
 |fd|Int32|是|-|资源文件描述符。|
 |offSet|Int64|否|0| **命名参数。** 距文件起始位置的偏移量，单位为字节。|
-|length|Int64|否|[FileFs.stat(fd).size](../CoreFileKit/cj-apis-file_fs.md#static-func-statint32) - offSet| **命名参数。** 资源长度，单位为字节。|
+|length|Int64|否|[FileFs.stat(fd).size](../../cj-apis-file_fs/.overview.md) - offSet| **命名参数。** 资源长度，单位为字节。|
 
 **示例：**
 

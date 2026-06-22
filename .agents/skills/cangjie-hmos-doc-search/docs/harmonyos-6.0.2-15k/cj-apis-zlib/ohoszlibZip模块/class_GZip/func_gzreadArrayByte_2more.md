@@ -1,4 +1,4 @@
-### func gzread(Array\<Byte>)
+﻿### func gzread(Array\<Byte>)
 
 ```cangjie
 public func gzread(buf: Array<Byte>): Int64
@@ -24,7 +24,7 @@ public func gzread(buf: Array<Byte>): Int64
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -77,7 +77,7 @@ public func gzwrite(buf: Array<Byte>, len: Int64): Int64
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../errorcodes/cj-errorcode-zlib.md)。
+- BusinessException：对应错误码的详细介绍请参见[zlib子系统错误码](../../../cj-errorcode-zlib/cj-errorcode-zlib.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

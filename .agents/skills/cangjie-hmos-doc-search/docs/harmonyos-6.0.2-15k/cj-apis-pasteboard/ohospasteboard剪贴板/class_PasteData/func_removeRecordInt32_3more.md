@@ -1,4 +1,4 @@
-### func removeRecord(Int32)
+﻿### func removeRecord(Int32)
 
 ```cangjie
 public func removeRecord(index: Int32): Unit
@@ -18,7 +18,7 @@ public func removeRecord(index: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[剪贴板错误码](../../errorcodes/cj-errorcode-pasteboard.md)。
+- BusinessException：对应错误码的详细介绍请参见[剪贴板错误码](../../../cj-errorcode-pasteboard/cj-errorcode-pasteboard.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-### func transmit(Array\<UInt8>, Callback0Argument)
+﻿### func transmit(Array\<UInt8>, Callback0Argument)
 
 ```cangjie
 public func transmit(responseApdu: Array<UInt8>, callback: Callback0Argument): Unit
@@ -17,11 +17,11 @@ public func transmit(responseApdu: Array<UInt8>, callback: Callback0Argument): U
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |responseApdu|Array\<UInt8>|是|发送到对端读卡设备的符合APDU协议的数据，每个UInt8十六进制表示，范围是0x00~0xFF。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|以callback形式异步返回发送APDU数据的结果。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|以callback形式异步返回发送APDU数据的结果。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[NFC错误码](../../errorcodes/cj-errorcode-nfc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[NFC错误码](../../../cj-errorcode-nfc/cj-errorcode-nfc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

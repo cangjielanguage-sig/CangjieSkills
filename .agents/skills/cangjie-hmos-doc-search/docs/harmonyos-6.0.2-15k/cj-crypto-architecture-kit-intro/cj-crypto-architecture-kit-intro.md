@@ -1,4 +1,4 @@
-# Crypto Architecture Kit简介
+﻿# Crypto Architecture Kit简介
 
 Crypto Architecture Kit提供加解密、签名验签、消息验证码、哈希、安全随机数、密钥派生等相关功能。
 
@@ -37,7 +37,7 @@ Crypto Architecture Kit提供加解密、签名验签、消息验证码、哈希
 
 加解密算法库框架仅提供密钥的密码学操作，不提供密钥管理功能。因此，使用算法库时，需要应用自己来保管密钥，适用于临时会话密钥等仅在内存中使用的场景，或者应用自己实现密钥安全存储的场景。
 
-如果业务需要由系统提供密钥管理功能（密钥存储等），请参见[Universal Keystore Kit（密钥管理服务）](../UniversalKeystoreKit/cj-huks-overview.md)。
+如果业务需要由系统提供密钥管理功能（密钥存储等），请参见[Universal Keystore Kit（密钥管理服务）](../cj-huks-overview/cj-huks-overview.md)。
 
 ## 约束与限制
 

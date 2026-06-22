@@ -1,4 +1,4 @@
-# ArkWeb进程
+﻿# ArkWeb进程
 
 ArkWeb是多进程模型，分为应用进程、Foundation进程、Web孵化进程、Web渲染进程和Web GPU进程。
 
@@ -37,9 +37,9 @@ ArkWeb是多进程模型，分为应用进程、Foundation进程、Web孵化进�
 
 相关API如下：
 
-1. 可通过[setRenderProcessMode](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-setrenderprocessmoderenderprocessmode)设置渲染子进程的模式，从而控制渲染过程的单进程或多进程状态。
+1. 可通过[setRenderProcessMode](../cj-apis-webview/.overview.md)设置渲染子进程的模式，从而控制渲染过程的单进程或多进程状态。
 
-    移动设备默认为单进程渲染，而2in1设备则默认采用多进程渲染。通过调用[getRenderProcessMode](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#static-func-getrenderprocessmode)可查询当前的渲染子进程模式，其中枚举值0表示单进程模式，枚举值1对应多进程模式。若获取的值超出[RenderProcessMode](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#enum-renderprocessmode)枚举范围，系统将自动采用多进程渲染模式作为默认设置。
+    移动设备默认为单进程渲染，而2in1设备则默认采用多进程渲染。通过调用[getRenderProcessMode](../cj-apis-webview/.overview.md)可查询当前的渲染子进程模式，其中枚举值0表示单进程模式，枚举值1对应多进程模式。若获取的值超出[RenderProcessMode](../cj-apis-webview/.overview.md)枚举范围，系统将自动采用多进程渲染模式作为默认设置。
 
     ```cangjie
     // xxx.cj
@@ -74,7 +74,7 @@ ArkWeb是多进程模型，分为应用进程、Foundation进程、Web孵化进�
     }
     ```
 
-2. 可通过[terminateRenderProcess](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-terminaterenderprocess)来主动关闭渲染进程。若渲染进程尚未启动或已销毁，此操作将不会产生任何影响。此外，销毁渲染进程将同时影响所有与之关联的其他实例。
+2. 可通过[terminateRenderProcess](../cj-apis-webview/.overview.md)来主动关闭渲染进程。若渲染进程尚未启动或已销毁，此操作将不会产生任何影响。此外，销毁渲染进程将同时影响所有与之关联的其他实例。
 
     ```cangjie
     // xxx.cj

@@ -1,4 +1,4 @@
-# SymbolSpan
+﻿# SymbolSpan
 
 作为[Text](cj-text-input-text.md)组件的子组件，用于显示图标小符号的组件。
 
@@ -29,7 +29,7 @@ public init(value: AppResource)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|SymbolSpan组件的资源名，如@r(sys.symbol.ohos_wifi)。|
+|value|[AppResource](../../cj-apis-resource_manager/.overview.md)|是|-|SymbolSpan组件的资源名，如@r(sys.symbol.ohos_wifi)。|
 
 > **说明：**
 >

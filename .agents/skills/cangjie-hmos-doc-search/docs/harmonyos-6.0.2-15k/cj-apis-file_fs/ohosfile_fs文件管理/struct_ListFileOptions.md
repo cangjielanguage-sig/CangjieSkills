@@ -1,4 +1,4 @@
-## struct ListFileOptions
+﻿## struct ListFileOptions
 
 ```cangjie
 public struct ListFileOptions {
@@ -90,4 +90,4 @@ public ListFileOptions(
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。

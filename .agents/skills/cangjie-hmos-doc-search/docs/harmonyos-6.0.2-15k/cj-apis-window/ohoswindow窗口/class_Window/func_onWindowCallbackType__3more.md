@@ -1,4 +1,4 @@
-### func on(WindowCallbackType, Callback1Argument\<RectChangeOptions>)
+﻿### func on(WindowCallbackType, Callback1Argument\<RectChangeOptions>)
 
 ```cangjie
 public func on(callbackType: WindowCallbackType, callback: Callback1Argument<RectChangeOptions>): Unit
@@ -15,11 +15,11 @@ public func on(callbackType: WindowCallbackType, callback: Callback1Argument<Rec
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |callbackType|[WindowCallbackType](#enum-windowcallbacktype)|是|-|监听事件，固定为WindowCallbackType.WindowRectChange，即窗口矩形变化事件。|
-|callback|[Callback1Argument](../apis/BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[RectChangeOptions](#class-rectchangeoptions)>|是|-|回调函数。返回当前窗口矩形变化值及变化原因。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[RectChangeOptions](#class-rectchangeoptions)>|是|-|回调函数。返回当前窗口矩形变化值及变化原因。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -46,7 +46,7 @@ public func recover(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../errorcodes/cj-errorcode-universal.md)和[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -71,7 +71,7 @@ public func resetAspectRatio(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../errorcodes/cj-errorcode-window.md)。
+- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

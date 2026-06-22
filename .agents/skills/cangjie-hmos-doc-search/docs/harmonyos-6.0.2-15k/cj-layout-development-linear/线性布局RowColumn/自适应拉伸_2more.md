@@ -1,6 +1,6 @@
-## 自适应拉伸
+﻿## 自适应拉伸
 
-在线性布局下，常用空白填充组件[Blank](../../API_Reference/source_zh_cn/arkui-cj/cj-blank-divider-blank.md)，在容器主轴方向自动填充空白空间，达到自适应拉伸效果。Row和Column作为容器，只需要添加宽高为百分比，当屏幕宽高发生变化时，会产生自适应效果。
+在线性布局下，常用空白填充组件[Blank](../../cj-blank-divider-blank/cj-blank-divider-blank.md)，在容器主轴方向自动填充空白空间，达到自适应拉伸效果。Row和Column作为容器，只需要添加宽高为百分比，当屏幕宽高发生变化时，会产生自适应效果。
 
 <!-- run -->
 

@@ -1,4 +1,4 @@
-### func onAnimationEnd((Int32, TabsAnimationEvent) -> Unit)
+﻿### func onAnimationEnd((Int32, TabsAnimationEvent) -> Unit)
 
 ```cangjie
 public func onAnimationEnd(callback: (index: Int32, event: TabsAnimationEvent) -> Unit): This
@@ -48,7 +48,7 @@ public func onChange(callback: (index: Int32) -> Unit): This
 
 2、通过[控制器](#class-tabscontroller)调用[changeIndex](#func-changeindexint32)接口，Tab页签切换后触发。<br>
 
-3、动态修改[状态变量](../../../Dev_Guide/arkui-cj/state_management/cj-macro-state.md)构造的index属性值，Tab页签切换后触发。<br>
+3、动态修改[状态变量](../../../cj-macro-state/.overview.md)构造的index属性值，Tab页签切换后触发。<br>
 
 4、点击TabBar页签，Tab页签切换后触发。
 

@@ -1,4 +1,4 @@
-### 媒体文件uri介绍
+﻿### 媒体文件uri介绍
 
 **媒体文件uri的格式类型为：**
 
@@ -22,6 +22,6 @@
 
 ### 媒体文件uri获取方式
 
-1. 通过[PhotoAccessHelper的PhotoViewPicker](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#class-photoviewpicker)选择媒体文件，返回选择的媒体文件文件的uri。
+1. 通过[PhotoAccessHelper的PhotoViewPicker](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)选择媒体文件，返回选择的媒体文件文件的uri。
 
-2. 通过[photoAccessHelper模块](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md)>中的[getAssets](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#func-getassetsfetchoptions)或[createAsset](../../API_Reference/source_zh_cn/apis/MediaLibraryKit/cj-apis-multimedia-photo_accesshelper.md#static-func-createassetrequestabilitycontext-phototype-string-createoptions)接口获取媒体文件对应文件的uri。
+2. 通过[photoAccessHelper模块](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)>中的[getAssets](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)或[createAsset](../../../cj-apis-multimedia-photo_accesshelper/.overview.md)接口获取媒体文件对应文件的uri。

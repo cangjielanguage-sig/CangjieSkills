@@ -1,4 +1,4 @@
-# ohos.webview（Webview）
+﻿# ohos.webview（Webview）
 
 提供web控制能力，组件提供网页显示的能力。
 
@@ -13,9 +13,9 @@ import kit.ArkWeb.*
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[接口使用说明](../../cj-development-intro.md#接口使用说明)。
+上述示例工程及配置模板详见[接口使用说明](../../cj-development-intro/.overview.md)。
 
 ## 权限列表
 
@@ -48,7 +48,7 @@ public func once(onceType: String, callback: () -> Unit): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

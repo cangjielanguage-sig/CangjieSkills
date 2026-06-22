@@ -1,4 +1,4 @@
-### func fontStyle(FontStyle)
+﻿### func fontStyle(FontStyle)
 
 ```cangjie
 public open func fontStyle(style: FontStyle): This
@@ -68,7 +68,7 @@ public open func fontFamily(content: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|content|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|安全控件上文字的字体。<br/>默认字体：'HarmonyOS Sans'。|
+|content|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|安全控件上文字的字体。<br/>默认字体：'HarmonyOS Sans'。|
 
 ### func fontColor(ResourceColor)
 

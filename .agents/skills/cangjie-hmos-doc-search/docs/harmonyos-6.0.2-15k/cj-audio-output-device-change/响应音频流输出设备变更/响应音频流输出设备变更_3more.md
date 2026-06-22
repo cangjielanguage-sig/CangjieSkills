@@ -1,18 +1,18 @@
-# 响应音频流输出设备变更
+﻿# 响应音频流输出设备变更
 
 开发者可以了解音频流输出设备变更信息，并完成相应适配，确保应用在设备发生变更时的用户体验。
 
-开发者可使用AudioRenderer的[on(AudioRendererCallbackType, Callback1Argument\<AudioStreamDeviceChangeInfo>)](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#func-onaudiorenderercallbacktype-callback1argumentaudiostreamdevicechangeinfo)接口，监听音频流输出设备变化及原因。当系统出现音频输出设备的上下线、用户强制选择、设备抢占或设备选择策略变更等情况，导致音频流输出设备变更时，系统将通过该接口通知应用当前音频流设备变更信息，包含当前音频流输出设备信息和设备变更原因。
+开发者可使用AudioRenderer的[on(AudioRendererCallbackType, Callback1Argument\<AudioStreamDeviceChangeInfo>)](../../cj-apis-multimedia-audio/.overview.md)接口，监听音频流输出设备变化及原因。当系统出现音频输出设备的上下线、用户强制选择、设备抢占或设备选择策略变更等情况，导致音频流输出设备变更时，系统将通过该接口通知应用当前音频流设备变更信息，包含当前音频流输出设备信息和设备变更原因。
 
 ## 音频流输出设备信息
 
-在[on(AudioRendererCallbackType, Callback1Argument\<AudioStreamDeviceChangeInfo>)](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#func-onaudiorenderercallbacktype-callback1argumentaudiostreamdevicechangeinfo)返回的音频流设备变更信息中，包含当前音频流输出设备信息，以数组形式发送，一般该列表仅包含一个设备信息，具体请参见[AudioDeviceDescriptors](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#type-audiodevicedescriptors)（设备信息列表）。
+在[on(AudioRendererCallbackType, Callback1Argument\<AudioStreamDeviceChangeInfo>)](../../cj-apis-multimedia-audio/.overview.md)返回的音频流设备变更信息中，包含当前音频流输出设备信息，以数组形式发送，一般该列表仅包含一个设备信息，具体请参见[AudioDeviceDescriptors](../../cj-apis-multimedia-audio/.overview.md)（设备信息列表）。
 
 ## 音频流输出设备变更原因
 
 > **说明：**
 >
-> 当发生下述四种情况（[AudioStreamDeviceChangeReason](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#enum-audiostreamdevicechangereason)）时，系统将向应用发送设备变更回调。
+> 当发生下述四种情况（[AudioStreamDeviceChangeReason](../../cj-apis-multimedia-audio/.overview.md)）时，系统将向应用发送设备变更回调。
 
 - **REASON_NEW_DEVICE_AVAILABLE：** 新设备可用。
 

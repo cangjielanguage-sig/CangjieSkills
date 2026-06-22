@@ -1,4 +1,4 @@
-## class AbilityMonitor
+﻿## class AbilityMonitor
 
 ```cangjie
 public class AbilityMonitor {
@@ -58,7 +58,7 @@ public var onAbilityBackground: ?(UIAbility) -> Unit = None
 
 **功能：** ability状态变成后台时的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 
@@ -72,7 +72,7 @@ public var onAbilityCreate: ?(UIAbility) -> Unit = None
 
 **功能：** ability被启动初始化时的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 
@@ -86,7 +86,7 @@ public var onAbilityDestroy: ?(UIAbility) -> Unit = None
 
 **功能：** ability被销毁前的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 
@@ -100,7 +100,7 @@ public var onAbilityForeground: ?(UIAbility) -> Unit = None
 
 **功能：** ability状态变成前台时的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 
@@ -114,7 +114,7 @@ public var onWindowStageCreate: ?(UIAbility) -> Unit = None
 
 **功能：** window stage被创建时的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 
@@ -128,7 +128,7 @@ public var onWindowStageDestroy: ?(UIAbility) -> Unit = None
 
 **功能：** window stage被销毁前的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 
@@ -142,7 +142,7 @@ public var onWindowStageRestore: ?(UIAbility) -> Unit = None
 
 **功能：** window stage被重载时的回调函数。不设置该属性则不能收到该生命周期回调。
 
-**类型：** ?([UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)) -> Unit
+**类型：** ?([UIAbility](../../../cj-apis-ability/.overview.md)) -> Unit
 
 **读写能力：** 可读写
 

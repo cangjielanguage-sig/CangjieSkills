@@ -1,4 +1,4 @@
-## func createSymKeyGenerator(String)
+﻿## func createSymKeyGenerator(String)
 
 ```cangjie
 public func createSymKeyGenerator(algName: String): SymKeyGenerator
@@ -6,7 +6,7 @@ public func createSymKeyGenerator(algName: String): SymKeyGenerator
 
 **功能：** 通过指定算法名称的字符串，获取相应的对称密钥生成器实例。
 
-支持的规格详见[对称密钥生成和转换规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-sym-key-generation-conversion-spec.md)。
+支持的规格详见[对称密钥生成和转换规格](../../cj-crypto-sym-key-generation-conversion-spec/cj-crypto-sym-key-generation-conversion-spec.md)。
 
 **系统能力：** SystemCapability.Security.CryptoFramework
 
@@ -16,7 +16,7 @@ public func createSymKeyGenerator(algName: String): SymKeyGenerator
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|algName|String|是|-|待生成对称密钥生成器的算法名称。具体取值详见[对称密钥生成和转换规格](../../../../Dev_Guide/security/CryptoArchitectureKit/cj-crypto-sym-key-generation-conversion-spec.md)一节中的“字符串参数”。|
+|algName|String|是|-|待生成对称密钥生成器的算法名称。具体取值详见[对称密钥生成和转换规格](../../cj-crypto-sym-key-generation-conversion-spec/cj-crypto-sym-key-generation-conversion-spec.md)一节中的“字符串参数”。|
 
 **返回值：**
 
@@ -26,7 +26,7 @@ public func createSymKeyGenerator(algName: String): SymKeyGenerator
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息               |
   | :-------- | :---------------------- |
@@ -70,7 +70,7 @@ public func createVerify(algName: String): Verify
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[crypto framework错误码](../../errorcodes/cj-errorcode-crypto.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[crypto framework错误码](../../cj-errorcode-crypto/cj-errorcode-crypto.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

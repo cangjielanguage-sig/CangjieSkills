@@ -1,4 +1,4 @@
-### 获取期望应用的Inspector树
+﻿### 获取期望应用的Inspector树
 
 上述示例中的element/render树主要包含多项内部实现，与应用代码中的组件无法一一对应。可以通过打印Inspector树来获取与应用中组件对应的树结构及组件基本信息。Inspector树与DevEco Testing及DevEco中的ArkUI Inspector完全匹配。
 
@@ -75,7 +75,7 @@ hdc shell "hidumper -s WindowManagerService -a '-w 5 -inspector'"
 
 > **说明：**
 >
-> 仅支持通过[Navigation](../arkui-cj/cj-navigation-navigation.md)组件实现页面路由的应用。
+> 仅支持通过[Navigation](../../../cj-navigation-navigation/cj-navigation-navigation.md)组件实现页面路由的应用。
 
 命令：
 

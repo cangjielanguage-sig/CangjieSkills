@@ -1,4 +1,4 @@
-# 随机生成非对称密钥对（仓颉）
+﻿# 随机生成非对称密钥对（仓颉）
 
 以RSA和SM2为例，随机生成非对称密钥对（KeyPair），并获得二进制数据。
 
@@ -8,13 +8,13 @@
 
 对应的算法规格请参见[非对称密钥生成和转换规格：RSA](./cj-crypto-asym-key-generation-conversion-spec.md#rsa)。
 
-1. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'RSA1024|PRIMES_2'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
+1. 调用[createAsyKeyGenerator](../cj-apis-crypto/.overview.md)，指定字符串参数'RSA1024|PRIMES_2'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
 
-2. 调用[generateKeyPair](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-generatekeypair)，随机生成非对称密钥对象（KeyPair）。
+2. 调用[generateKeyPair](../cj-apis-crypto/.overview.md)，随机生成非对称密钥对象（KeyPair）。
 
    KeyPair对象中包括公钥PubKey和私钥PriKey。
 
-3. 调用[getEncoded](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getencoded)，分别获取密钥对象的二进制数据。
+3. 调用[getEncoded](../cj-apis-crypto/.overview.md)，分别获取密钥对象的二进制数据。
 
 以随机生成RSA密钥对为例：
 
@@ -45,13 +45,13 @@ func generateAsyKey() {
 
 对应的算法规格请参见[非对称密钥生成和转换规格：SM2](./cj-crypto-asym-key-generation-conversion-spec.md#sm2)。
 
-1. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'SM2_256'，创建密钥算法为SM2、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
+1. 调用[createAsyKeyGenerator](../cj-apis-crypto/.overview.md)，指定字符串参数'SM2_256'，创建密钥算法为SM2、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
 
-2. 调用[generateKeyPair](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-generatekeypair)，随机生成非对称密钥对象（KeyPair）。
+2. 调用[generateKeyPair](../cj-apis-crypto/.overview.md)，随机生成非对称密钥对象（KeyPair）。
 
    KeyPair对象中包括公钥PubKey和私钥PriKey。
 
-3. 调用[getEncoded](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getencoded)，分别获取密钥对象的二进制数据。
+3. 调用[getEncoded](../cj-apis-crypto/.overview.md)，分别获取密钥对象的二进制数据。
 
 以随机生成SM2密钥对为例：
 

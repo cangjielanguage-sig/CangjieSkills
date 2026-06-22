@@ -1,4 +1,4 @@
-# ohos.request.agent（上传下载）
+﻿# ohos.request.agent（上传下载）
 
 request部件主要给应用提供上传下载文件、后台传输代理的基础能力。
 
@@ -17,9 +17,9 @@ ohos.permission.INTERNET
 API示例代码使用说明：
 
 - 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../AbilityKit/cj-apis-ability.md#class-context)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
+- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
 
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro.md#仓颉示例代码说明)。
+上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
 
 ## func create(StageContext, Config)
 
@@ -39,7 +39,7 @@ public func create(context: StageContext, config: Config): Task
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|是|-|基于应用程序的上下文。 |
+|context|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|是|-|基于应用程序的上下文。 |
 |config|[Config](#class-config)|是|-|上传/下载任务的配置信息。|
 
 **返回值：**
@@ -50,7 +50,7 @@ public func create(context: StageContext, config: Config): Task
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)与[通用错误码说明文档](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../cj-errorcode-request/cj-errorcode-request.md)与[通用错误码说明文档](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

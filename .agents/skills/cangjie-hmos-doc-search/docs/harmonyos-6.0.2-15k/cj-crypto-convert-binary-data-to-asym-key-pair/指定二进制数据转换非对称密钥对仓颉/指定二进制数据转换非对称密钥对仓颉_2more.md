@@ -1,4 +1,4 @@
-# 指定二进制数据转换非对称密钥对（仓颉）
+﻿# 指定二进制数据转换非对称密钥对（仓颉）
 
 以RSA、ECC、SM2为例，根据指定的对称密钥二进制数据，生成非对称密钥对（KeyPair），即将外部或存储的二进制数据转换为算法库的密钥对象，该对象可用于后续的加解密等操作。
 
@@ -18,11 +18,11 @@
 
    公钥和私钥可只传入其中一个，此处示例以传入公钥为例。
 
-2. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
+2. 调用[createAsyKeyGenerator](../../cj-apis-crypto/.overview.md)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
 
    生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。
 
-3. 调用[convertKey](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-convertkeydatablob-datablob)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。
+3. 调用[convertKey](../../cj-apis-crypto/.overview.md)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。
 
 以生成RSA密钥对为例：
 

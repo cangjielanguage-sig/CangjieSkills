@@ -1,4 +1,4 @@
-## func requestEnableNotification()
+﻿## func requestEnableNotification()
 
 ```cangjie
 public func requestEnableNotification(): Unit
@@ -12,7 +12,7 @@ public func requestEnableNotification(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../errorcodes/cj-errorcode-notification.md)。
+- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../cj-errorcode-notification/cj-errorcode-notification.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -54,11 +54,11 @@ public func requestEnableNotification(context: UIAbilityContext): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[UIAbilityContext](../AbilityKit/cj-apis-ability.md#class-uiabilitycontext)|是|-|通知弹窗绑定Ability的上下文。|
+|context|[UIAbilityContext](../../cj-apis-ability/.overview.md)|是|-|通知弹窗绑定Ability的上下文。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../errorcodes/cj-errorcode-notification.md)。
+- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../cj-errorcode-notification/cj-errorcode-notification.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -112,7 +112,7 @@ public func setBadgeNumber(badgeNumber: Int32): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../errorcodes/cj-errorcode-notification.md)。
+- BusinessException：对应错误码的详细介绍请参见[通知管理错误码](../../cj-errorcode-notification/cj-errorcode-notification.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

@@ -1,4 +1,4 @@
-## class PhotoEditorExtensionContext
+﻿## class PhotoEditorExtensionContext
 
 ```cangjie
 public class PhotoEditorExtensionContext <: ExtensionContext {}
@@ -30,8 +30,8 @@ public func saveEditedContentWithImage(pixelMap: PixelMap, option: PackingOption
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|pixelMap|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|是|-|编辑过的图片image.PixelMap。|
-|option|[PackingOption](../ImageKit/cj-apis-image.md#class-packingoption)|是|-|设置打包参数。|
+|pixelMap|[PixelMap](../../../cj-apis-image/.overview.md)|是|-|编辑过的图片image.PixelMap。|
+|option|[PackingOption](../../../cj-apis-image/.overview.md)|是|-|设置打包参数。|
 
 **返回值：**
 
@@ -41,7 +41,7 @@ public func saveEditedContentWithImage(pixelMap: PixelMap, option: PackingOption
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -52,7 +52,7 @@ public func saveEditedContentWithImage(pixelMap: PixelMap, option: PackingOption
 
 **示例：**
 
-详细使用说明请参见[拉起图片编辑类应用](../../../../Dev_Guide/application-models/cj-photoEditorExtensionAbility.md#拉起图片编辑类应用startabilitybytype)。
+详细使用说明请参见[拉起图片编辑类应用](../../../cj-photoEditorExtensionAbility/.overview.md)。
 
 ```cangjie
 import ohos.base.*

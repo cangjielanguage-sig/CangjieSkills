@@ -1,4 +1,4 @@
-### func batchInsert(String, Array\<Map\<String, RelationalStoreValueType>>)
+﻿### func batchInsert(String, Array\<Map\<String, RelationalStoreValueType>>)
 
 ```cangjie
 public func batchInsert(table: String, values: Array<Map<String, RelationalStoreValueType>>): Int64
@@ -25,7 +25,7 @@ public func batchInsert(table: String, values: Array<Map<String, RelationalStore
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

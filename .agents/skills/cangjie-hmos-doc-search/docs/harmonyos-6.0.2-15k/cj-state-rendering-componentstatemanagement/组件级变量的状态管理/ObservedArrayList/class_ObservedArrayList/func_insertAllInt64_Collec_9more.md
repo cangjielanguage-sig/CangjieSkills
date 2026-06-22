@@ -1,4 +1,4 @@
-#### func insertAll(Int64, Collection\<T>)
+﻿#### func insertAll(Int64, Collection\<T>)
 
 ```cangjie
 public func insertAll(index: Int64, elements: Collection<T>): Unit
@@ -111,7 +111,7 @@ public func remove(range: Range<Int64>): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|range|[Range](../apis/IMEKit/cj-apis-inputmethod.md#class-range)\<Int64>|是|-|需要被删除的元素的范围。|
+|range|[Range](../../../../cj-apis-inputmethod/.overview.md)\<Int64>|是|-|需要被删除的元素的范围。|
 
 #### func removeIf((T) -> Bool)
 

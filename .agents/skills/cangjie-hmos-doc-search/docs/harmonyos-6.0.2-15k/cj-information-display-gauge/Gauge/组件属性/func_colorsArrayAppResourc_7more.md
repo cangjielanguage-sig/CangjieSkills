@@ -1,4 +1,4 @@
-### func colors(Array\<(AppResource, Int32)>)
+﻿### func colors(Array\<(AppResource, Int32)>)
 
 ```cangjie
 public func colors(colorStop: Array<(AppResource, Int32)>): This
@@ -14,7 +14,7 @@ public func colors(colorStop: Array<(AppResource, Int32)>): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|colorStop|Array\<([AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource),Int32)>|是|-|量规图的颜色，支持分段颜色设置。|
+|colorStop|Array\<([AppResource](../../../cj-apis-resource_manager/.overview.md),Int32)>|是|-|量规图的颜色，支持分段颜色设置。|
 
 ### func colors(Color, Float32)
 
@@ -51,7 +51,7 @@ public func colors(color: AppResource, offset: Float32): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|color|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|量规图的颜色，支持分段颜色设置。|
+|color|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|量规图的颜色，支持分段颜色设置。|
 |offset|Float32|是|-|渐变色断点（0~1之间的比例值，若数据值小于0则置为0.0，若数据值大于1则置为1.0）。|
 
 ### func colors(UInt32, Float32)
@@ -108,7 +108,7 @@ public func colors(color: AppResource, offset: Int32): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|color|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|量规图的颜色，支持分段颜色设置。|
+|color|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|量规图的颜色，支持分段颜色设置。|
 |offset|Int32|是|-|渐变色断点（0~1之间的比例值，若数据值小于0则置为0，若数据值大于1则置为1）。|
 
 ### func colors(UInt32, Int32)

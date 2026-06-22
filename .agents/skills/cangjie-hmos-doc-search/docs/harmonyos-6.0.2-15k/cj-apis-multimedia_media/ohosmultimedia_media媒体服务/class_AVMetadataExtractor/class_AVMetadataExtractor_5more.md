@@ -1,4 +1,4 @@
-## class AVMetadataExtractor
+﻿## class AVMetadataExtractor
 
 ```cangjie
 public class AVMetadataExtractor {}
@@ -60,11 +60,11 @@ public func fetchAlbumCover(): PixelMap
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|音频专辑封面。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|音频专辑封面。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -112,7 +112,7 @@ public func fetchMetadata(): AVMetadata
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

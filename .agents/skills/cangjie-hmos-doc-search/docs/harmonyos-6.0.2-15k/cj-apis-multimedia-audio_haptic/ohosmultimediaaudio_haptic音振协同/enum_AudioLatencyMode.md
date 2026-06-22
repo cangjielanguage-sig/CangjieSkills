@@ -1,4 +1,4 @@
-## enum AudioLatencyMode
+﻿## enum AudioLatencyMode
 
 ```cangjie
 public enum AudioLatencyMode <: ToString & Equatable<AudioLatencyMode> {
@@ -25,7 +25,7 @@ public enum AudioLatencyMode <: ToString & Equatable<AudioLatencyMode> {
 AUDIO_LATENCY_MODE_FAST
 ```
 
-**功能：** 低时延模式。该模式适用于比较短的音频文件，音频文件过长时可能被截断，该特性与[SoundPool](../MediaKit/cj-apis-multimedia_media.md#class-soundpool)一致。
+**功能：** 低时延模式。该模式适用于比较短的音频文件，音频文件过长时可能被截断，该特性与[SoundPool](../../cj-apis-multimedia_media/.overview.md)一致。
 
 **系统能力：** SystemCapability.Multimedia.AudioHaptic.Core
 

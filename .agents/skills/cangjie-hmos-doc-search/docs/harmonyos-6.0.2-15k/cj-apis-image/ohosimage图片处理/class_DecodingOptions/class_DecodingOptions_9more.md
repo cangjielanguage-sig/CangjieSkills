@@ -1,4 +1,4 @@
-## class DecodingOptions
+﻿## class DecodingOptions
 
 ```cangjie
 public class DecodingOptions {
@@ -37,7 +37,7 @@ public let desiredColorSpace: ?ColorSpaceManager = None
 
 **功能：** 目标色彩空间。
 
-**类型：** ?[ColorSpaceManager](../ArkGraphics2D/cj-apis-color_manager.md#class-colorspacemanager)
+**类型：** ?[ColorSpaceManager](../../../cj-apis-color_manager/.overview.md)
 
 **读写能力：** 只读
 

@@ -1,4 +1,4 @@
-# 拨打电话
+﻿# 拨打电话
 
 ## 场景介绍
 
@@ -27,14 +27,14 @@
 
 > **说明：**
 >
-> 为了保证应用的运行效率，大部分API调用都是异步的，对于异步调用的API均提供了callback和Promise两种方式，以下示例均采用callback函数，更多方式可以查阅[API参考](../../API_Reference/source_zh_cn/apis/TelephonyKit/cj-apis-telephony_call.md)。
+> 为了保证应用的运行效率，大部分API调用都是异步的，对于异步调用的API均提供了callback和Promise两种方式，以下示例均采用callback函数，更多方式可以查阅[API参考](../cj-apis-telephony_call/.overview.md)。
 
 | 接口名 | 描述 |
 | :------------------------------------------- | :--------------------------------- |
 | hasVoiceCapability() | 判断是否具有语音功能。 |
 | makeCall(UIAbilityContext, String) | 转到拨号屏幕，显示被叫号码。  |
 
-observer模块为开发者提供订阅和取消订阅通话业务状态的功能。具体API说明详见[接口文档](../../API_Reference/source_zh_cn/apis/TelephonyKit/cj-apis-telephony_observer.md)。
+observer模块为开发者提供订阅和取消订阅通话业务状态的功能。具体API说明详见[接口文档](../cj-apis-telephony_observer/.overview.md)。
 
 | 接口名 | 描述 |
 | :------------------------------------------------------------ | :------------------ |

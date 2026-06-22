@@ -1,4 +1,4 @@
-## 指定二进制数据转换SM2密钥对
+﻿## 指定二进制数据转换SM2密钥对
 
 对应的算法规格请参见[非对称密钥生成和转换规格：SM2](./cj-crypto-asym-key-generation-conversion-spec.md#sm2)。
 
@@ -6,9 +6,9 @@
 
    公钥和私钥可只传入其中一个，此处示例以传入公钥、私钥为例。
 
-2. 调用[createAsyKeyGenerator](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorstring)，指定字符串参数'SM2_256'，创建密钥算法为SM2、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
+2. 调用[createAsyKeyGenerator](../../cj-apis-crypto/.overview.md)，指定字符串参数'SM2_256'，创建密钥算法为SM2、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
 
-3. 调用[convertKey](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-convertkeydatablob-datablob)，传入公钥二进制和私钥二进制，生成非对称密钥对象（KeyPair）。
+3. 调用[convertKey](../../cj-apis-crypto/.overview.md)，传入公钥二进制和私钥二进制，生成非对称密钥对象（KeyPair）。
 
 以生成SM2密钥对为例：
 

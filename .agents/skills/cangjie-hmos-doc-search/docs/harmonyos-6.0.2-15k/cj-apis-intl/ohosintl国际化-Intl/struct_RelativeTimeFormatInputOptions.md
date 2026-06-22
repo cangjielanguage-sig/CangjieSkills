@@ -1,4 +1,4 @@
-## struct RelativeTimeFormatInputOptions
+﻿## struct RelativeTimeFormatInputOptions
 
 ```cangjie
 public struct RelativeTimeFormatInputOptions {
@@ -84,7 +84,7 @@ public RelativeTimeFormatInputOptions(
 
 > **说明：**
 >
-> numeric、style不同参数取值显示的效果，请参见[相对时间格式化选项](../../../../Dev_Guide/internationalization/cj-i18n-time-date.md#相对时间格式化)。
+> numeric、style不同参数取值显示的效果，请参见[相对时间格式化选项](../../cj-i18n-time-date/.overview.md)。
 
 **示例：**
 

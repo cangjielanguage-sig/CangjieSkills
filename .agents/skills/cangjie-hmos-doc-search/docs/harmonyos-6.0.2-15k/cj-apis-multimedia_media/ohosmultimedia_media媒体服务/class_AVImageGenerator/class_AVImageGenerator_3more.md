@@ -1,4 +1,4 @@
-## class AVImageGenerator
+﻿## class AVImageGenerator
 
 ```cangjie
 public class AVImageGenerator {}
@@ -70,11 +70,11 @@ public func fetchFrameByTime(timeUs: Int64, option: AVImageQueryOptions, param: 
 
 |类型|说明|
 |:----|:----|
-|[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)|视频缩略图。|
+|[PixelMap](../../../cj-apis-image/.overview.md)|视频缩略图。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../errorcodes/cj-errorcode-multimedia-media.md)。
+- BusinessException：对应错误码的详细介绍请参见[Media错误码](../../../cj-errorcode-multimedia-media/cj-errorcode-multimedia-media.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

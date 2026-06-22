@@ -1,4 +1,4 @@
-### WindowProperties(Rect, Rect, WindowType, Bool, Bool, Bool, Bool, Float32, Bool, Bool, Bool, Bool, UInt32)
+﻿### WindowProperties(Rect, Rect, WindowType, Bool, Bool, Bool, Bool, Float32, Bool, Bool, Bool, Bool, UInt32)
 
 ```cangjie
 public WindowProperties(
@@ -28,7 +28,7 @@ public WindowProperties(
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|windowRect|[Rect](#class-rect)|是|-|窗口尺寸，可在页面生命周期[onPageShow](./cj-custom-component-lifecycle.md#func-onpageshow)或应用生命周期[onForeground](../apis/AbilityKit/cj-apis-ability.md#func-onforeground)阶段获取。|
+|windowRect|[Rect](#class-rect)|是|-|窗口尺寸，可在页面生命周期[onPageShow](./cj-custom-component-lifecycle.md#func-onpageshow)或应用生命周期[onForeground](../../../cj-apis-ability/.overview.md)阶段获取。|
 |drawableRect|[Rect](#class-rect)|是|-|窗口内可绘制区域尺寸，其中左边界上边界是相对窗口计算。|
 |winType|[WindowType](#enum-windowtype)|是|-|窗口类型。|
 |isFullScreen|Bool|是|-|是否全屏，初始为false。true表示全屏；false表示非全屏。|

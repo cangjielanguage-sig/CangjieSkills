@@ -1,4 +1,4 @@
-### func offAutoSyncProgress(Callback1Argument\<ProgressDetails>)
+﻿### func offAutoSyncProgress(Callback1Argument\<ProgressDetails>)
 
 ```cangjie
 public func offAutoSyncProgress(callback: Callback1Argument<ProgressDetails>): Unit
@@ -14,11 +14,11 @@ public func offAutoSyncProgress(callback: Callback1Argument<ProgressDetails>): U
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[ProgressDetails](#struct-progressdetails)>|是|-|指已注册的自动同步进度观察者。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[ProgressDetails](#struct-progressdetails)>|是|-|指已注册的自动同步进度观察者。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   | 错误码ID | 错误信息         |
   | :------------ |:--------------------|
@@ -65,7 +65,7 @@ public func offAutoSyncProgress(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[关系型数据库错误码](../../errorcodes/cj-errorcode-data-rdb.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[关系型数据库错误码](../../../cj-errorcode-data-rdb/cj-errorcode-data-rdb.md)。
 
   | 错误码ID | 错误信息         |
   | :------------ |:--------------------|

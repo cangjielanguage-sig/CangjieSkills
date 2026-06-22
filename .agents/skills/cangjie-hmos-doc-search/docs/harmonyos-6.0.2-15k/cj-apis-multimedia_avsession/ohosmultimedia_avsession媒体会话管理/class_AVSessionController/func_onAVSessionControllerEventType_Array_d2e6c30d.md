@@ -1,4 +1,4 @@
-### func on(AVSessionControllerEventType, Array\<KeyOfCallMetadata>, Callback1Argument\<CallMetadata>)
+﻿### func on(AVSessionControllerEventType, Array\<KeyOfCallMetadata>, Callback1Argument\<CallMetadata>)
 
 ```cangjie
 public func on(eventType: AVSessionControllerEventType, filter: Array<KeyOfCallMetadata>, callback: Callback1Argument<CallMetadata>): Unit
@@ -16,11 +16,11 @@ public func on(eventType: AVSessionControllerEventType, filter: Array<KeyOfCallM
 |:---|:---|:---|:---|:---|
 |eventType|[AVSessionControllerEventType](#enum-avsessioncontrollereventtype)|是|-|事件回调类型，支持事件EVENT_AVCALL_META_DATA_CHANGE：当通话元数据变化时，触发该事件。|
 |filter|Array\<[KeyOfCallMetadata](#enum-keyofcallmetadata)>|是|-|Array\<[KeyOfCallMetadata](#enum-keyofcallmetadata)>表示关注Array中的字段变化。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[CallMetadata](#class-callmetadata)>|是|-|回调函数，参数state是变化后的播放状态。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[CallMetadata](#class-callmetadata)>|是|-|回调函数，参数state是变化后的播放状态。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../errorcodes/cj-errorcode-multimedia-avsession.md)。
+- BusinessException：对应错误码的详细介绍请参见[媒体会话管理错误码](../../../cj-errorcode-multimedia-avsession/cj-errorcode-multimedia-avsession.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

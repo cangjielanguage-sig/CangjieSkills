@@ -1,4 +1,4 @@
-## class WebSocketCloseOptions
+﻿## class WebSocketCloseOptions
 
 ```cangjie
 public class WebSocketCloseOptions {
@@ -81,7 +81,7 @@ open public class WebSocketErrorCallback <: Callback1Argument<BusinessException>
 
 **父类型：**
 
-- [Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)>
+- [Callback1Argument](../../cj-apis-base/.overview.md)\<[BusinessException](../../cj-apis-base/.overview.md)>
 
 ### WebSocketErrorCallback((BusinessException) -> Unit)
 
@@ -99,7 +99,7 @@ public WebSocketErrorCallback(let f:(BusinessException) -> Unit)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|f|([BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)) -> Unit|是|-|回调方法。|
+|f|([BusinessException](../../cj-apis-base/.overview.md)) -> Unit|是|-|回调方法。|
 
 ### func invoke(BusinessException)
 
@@ -117,4 +117,4 @@ public open func invoke(arg1: BusinessException)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|arg1|[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)|是|-|BusinessException 返回值。|
+|arg1|[BusinessException](../../cj-apis-base/.overview.md)|是|-|BusinessException 返回值。|

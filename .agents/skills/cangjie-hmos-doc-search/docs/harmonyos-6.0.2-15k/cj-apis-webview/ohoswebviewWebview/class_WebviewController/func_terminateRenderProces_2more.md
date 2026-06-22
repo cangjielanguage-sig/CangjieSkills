@@ -1,4 +1,4 @@
-### func terminateRenderProcess()
+﻿### func terminateRenderProcess()
 
 ```cangjie
 public func terminateRenderProcess(): Bool
@@ -20,7 +20,7 @@ public func terminateRenderProcess(): Bool
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -77,7 +77,7 @@ public func webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<Snapshot
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |info|[SnapshotInfo](#class-snapshotinfo)|是|-|全量绘制结果入参。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[SnapshotResult](#class-snapshotresult)>|是|-|全量绘制回调结果。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<[SnapshotResult](#class-snapshotresult)>|是|-|全量绘制回调结果。|
 
 **示例：**
 

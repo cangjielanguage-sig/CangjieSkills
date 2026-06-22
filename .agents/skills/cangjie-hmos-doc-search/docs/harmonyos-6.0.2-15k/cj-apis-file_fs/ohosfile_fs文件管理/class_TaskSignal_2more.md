@@ -1,4 +1,4 @@
-## class TaskSignal
+﻿## class TaskSignal
 
 ```cangjie
 public class TaskSignal {
@@ -26,7 +26,7 @@ public init()
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 ### func cancel()
 
@@ -42,7 +42,7 @@ public func cancel(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 **示例：**
 
@@ -75,7 +75,7 @@ public class WatchEventListener <: Callback1Argument<WatchEvent> {
 }
 ```
 
-**功能：** 事件监听类。继承[单参回调抽象类](../BasicServicesKit/cj-apis-base.md#class-callback1argument)实现，使用需要的回调能力初始化回调对象。
+**功能：** 事件监听类。继承[单参回调抽象类](../../cj-apis-base/.overview.md)实现，使用需要的回调能力初始化回调对象。
 
 **系统能力：** SystemCapability.FileManagement.File.FileIO
 
@@ -83,7 +83,7 @@ public class WatchEventListener <: Callback1Argument<WatchEvent> {
 
 **父类型：**
 
-- [Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[WatchEvent](#class-watchevent)>
+- [Callback1Argument](../../cj-apis-base/.overview.md)\<[WatchEvent](#class-watchevent)>
 
 ### init((WatchEvent) -> Unit)
 
@@ -105,7 +105,7 @@ public init(callback: (WatchEvent) -> Unit)
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。
 
 ### func invoke(WatchEvent)
 
@@ -127,4 +127,4 @@ public func invoke(val: WatchEvent): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../errorcodes/cj-errorcode-filemanagement.md#文件管理错误码)。
+- BusinessException：对应错误码的详细介绍请参见[文件管理错误码](../../cj-errorcode-filemanagement/cj-errorcode-filemanagement.md#文件管理错误码)。

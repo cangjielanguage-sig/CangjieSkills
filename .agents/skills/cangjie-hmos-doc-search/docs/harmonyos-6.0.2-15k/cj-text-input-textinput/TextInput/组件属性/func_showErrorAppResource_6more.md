@@ -1,4 +1,4 @@
-### func showError(AppResource)
+﻿### func showError(AppResource)
 
 ```cangjie
 public func showError(value: AppResource): This
@@ -18,7 +18,7 @@ public func showError(value: AppResource): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|错误状态下提示的错误文本或者不显示错误状态。默认不显示错误状态。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|错误状态下提示的错误文本或者不显示错误状态。默认不显示错误状态。|
 
 ### func showError(String)
 
@@ -121,4 +121,4 @@ public func showUnit(builder: () -> Unit): This
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|builder|()->Unit|是|-|文本输入时，文本框的显示单位。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|builder|()->Unit|是|-|文本输入时，文本框的显示单位。使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|

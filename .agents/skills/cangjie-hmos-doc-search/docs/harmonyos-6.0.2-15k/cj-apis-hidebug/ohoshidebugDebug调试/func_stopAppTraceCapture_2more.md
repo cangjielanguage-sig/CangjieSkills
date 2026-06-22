@@ -1,4 +1,4 @@
-## func stopAppTraceCapture()
+﻿## func stopAppTraceCapture()
 
 ```cangjie
 public func stopAppTraceCapture(): Unit
@@ -14,7 +14,7 @@ public func stopAppTraceCapture(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Hidebug错误码](../../errorcodes/cj-errorcode-hidebug.md)。
+- BusinessException：对应错误码的详细介绍请参见[Hidebug错误码](../../cj-errorcode-hidebug/cj-errorcode-hidebug.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

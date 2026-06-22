@@ -1,4 +1,4 @@
-### func on(DeviceStatusType, CallbackObject)
+﻿### func on(DeviceStatusType, CallbackObject)
 
 ```cangjie
 public func on(`type`: DeviceStatusType, callback: CallbackObject): Unit
@@ -17,11 +17,11 @@ public func on(`type`: DeviceStatusType, callback: CallbackObject): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[DeviceStatusType](#enum-devicestatustype)|是|-|待注册的回调函数类型。|
-|callback|[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|是|-|callback是需要注册的回调函数，需要和type的值匹配。具体如下：<br>DEVICE_STATE_CHANGE：Callback2Argument\<[DeviceStateChange](#enum-devicestatechange), [DeviceBasicInfo](#class-devicebasicinfo)>。当发生状态发生变化时回调。<br>DEVICE_NAME_CHANGE： Callback1Argument\<String>。当设备名称改变时通知应用程序。<br>DISCOVER_SUCCESS：Callback1Argument\<[DeviceBasicInfo](#class-devicebasicinfo)>。发现设备成功的回调监听。<br>DISCOVER_FAILURE：Callback1Argument\<Int32>。注册设备发现失败回调监听。|
+|callback|[CallbackObject](../../../cj-apis-base/.overview.md)|是|-|callback是需要注册的回调函数，需要和type的值匹配。具体如下：<br>DEVICE_STATE_CHANGE：Callback2Argument\<[DeviceStateChange](#enum-devicestatechange), [DeviceBasicInfo](#class-devicebasicinfo)>。当发生状态发生变化时回调。<br>DEVICE_NAME_CHANGE： Callback1Argument\<String>。当设备名称改变时通知应用程序。<br>DISCOVER_SUCCESS：Callback1Argument\<[DeviceBasicInfo](#class-devicebasicinfo)>。发现设备成功的回调监听。<br>DISCOVER_FAILURE：Callback1Argument\<Int32>。注册设备发现失败回调监听。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

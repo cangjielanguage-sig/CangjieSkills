@@ -1,4 +1,4 @@
-### init(PixelMap, LengthMetricsUnit)
+﻿### init(PixelMap, LengthMetricsUnit)
 
 ```cangjie
 public init(date: PixelMap, unit!: LengthMetricsUnit = LengthMetricsUnit.DEFAULT)
@@ -14,7 +14,7 @@ public init(date: PixelMap, unit!: LengthMetricsUnit = LengthMetricsUnit.DEFAULT
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|date|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|图片的数据源支持PixelMap对象。|
+|date|[PixelMap](../../../cj-apis-image/.overview.md)|是|-|图片的数据源支持PixelMap对象。|
 |unit|[LengthMetricsUnit](./cj-common-types.md#enum-lengthmetricsunit)|否|LengthMetricsUnit.DEFAULT| **命名参数。** 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D](./cj-canvas-drawing-canvasrenderingcontext2d.md#class-canvasrenderingcontext2d)。|
 
 ### init(String, LengthMetricsUnit)

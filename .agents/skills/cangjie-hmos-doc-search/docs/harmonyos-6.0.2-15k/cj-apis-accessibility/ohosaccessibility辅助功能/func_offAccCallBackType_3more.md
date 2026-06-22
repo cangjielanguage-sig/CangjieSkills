@@ -1,4 +1,4 @@
-## func off(AccCallBackType)
+﻿## func off(AccCallBackType)
 
 ```cangjie
 public func off(`type`: AccCallBackType): Unit
@@ -18,7 +18,7 @@ public func off(`type`: AccCallBackType): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -41,11 +41,11 @@ public func on(`type`: AccCallBackType, callback: Callback1Argument<Bool>): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AccCallBackType](#enum-acccallbacktype)|是|-|监听的事件名。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Bool>|是|-|回调函数，此状态为全局辅助应用启用状态。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<Bool>|是|-|回调函数，此状态为全局辅助应用启用状态。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -99,7 +99,7 @@ public func sendAccessibilityEvent(event: EventInfo): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

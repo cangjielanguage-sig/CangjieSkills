@@ -1,8 +1,8 @@
-### 字符属性
+﻿### 字符属性
 
 字符属性用于判断字符类别，如判断字符是否为数字、字母、空格，是否为从右到左语言的字符，是否为表意文字（主要涉及中文、日文、韩文）等。
 
-该功能通过 `Unicode` 类的 [isDigit](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#static-func-isdigitstring) 等接口实现，具体开发步骤如下：
+该功能通过 `Unicode` 类的 [isDigit](../../../cj-apis-i18n/.overview.md) 等接口实现，具体开发步骤如下：
 
 1. 导入模块。
 
@@ -45,7 +45,7 @@ let unicodeType: String = Unicode.getType('a') // unicodeType = 'U_LOWERCASE_LET
 
 ### 音译
 
-音译是指以当地语言发音相近的内容替换原本的内容。通过 `Transliterator` 类的 [transform](../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md#func-transformstring) 接口实现，具体开发步骤如下：
+音译是指以当地语言发音相近的内容替换原本的内容。通过 `Transliterator` 类的 [transform](../../../cj-apis-i18n/.overview.md) 接口实现，具体开发步骤如下：
 
 > **说明：**
 >

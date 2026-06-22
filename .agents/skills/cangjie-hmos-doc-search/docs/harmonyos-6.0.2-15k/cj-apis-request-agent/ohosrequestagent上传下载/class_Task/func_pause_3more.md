@@ -1,4 +1,4 @@
-### func pause()
+﻿### func pause()
 
 ```cangjie
 public func pause(): Unit
@@ -12,7 +12,7 @@ public func pause(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../../cj-errorcode-request/cj-errorcode-request.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -60,7 +60,7 @@ public func resume(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../../cj-errorcode-request/cj-errorcode-request.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -108,7 +108,7 @@ public func start(): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../errorcodes/cj-errorcode-request.md)。
+- BusinessException：对应错误码的详细介绍请参见[上传下载错误码](../../../cj-errorcode-request/cj-errorcode-request.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

@@ -1,4 +1,4 @@
-## 流媒体播放场景下设置URL
+﻿## 流媒体播放场景下设置URL
 
 **情况一：播放HTTP/HTTPS媒体资源**
 
@@ -20,7 +20,7 @@
 
 **情况三：设置HTTP请求头信息播放**
 
-当服务器需要校验HTTP请求头信息时，可通过[createMediaSourceWithUrl](../../../API_Reference/source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md#func-createmediasourcewithurlstring-hashmapstringstring)设置HTTP请求头信息。
+当服务器需要校验HTTP请求头信息时，可通过[createMediaSourceWithUrl](../../../cj-apis-multimedia_media/.overview.md)设置HTTP请求头信息。
 
 ```cangjie
     // 创建avPlayer实例对象
@@ -35,7 +35,7 @@
 
 **情况四：通过本地RAW文件中的m3u8文件播放在线流媒体资源**
 
-当应用需要通过解析本地RAW文件中的m3u8文件，播放在线流媒体资源时，可以通过[resourceManager.getRawFd](../../../API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-resource_manager.md#func-getrawfdstring)获取文件描述符，将其拼接成url的形式。
+当应用需要通过解析本地RAW文件中的m3u8文件，播放在线流媒体资源时，可以通过[resourceManager.getRawFd](../../../cj-apis-resource_manager/.overview.md)获取文件描述符，将其拼接成url的形式。
 
 ```cangjie
     import kit.CoreFileKit.*

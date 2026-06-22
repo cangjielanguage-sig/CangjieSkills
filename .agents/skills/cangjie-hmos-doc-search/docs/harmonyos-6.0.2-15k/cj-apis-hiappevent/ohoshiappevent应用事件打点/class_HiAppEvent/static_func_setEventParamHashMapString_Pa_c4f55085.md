@@ -1,4 +1,4 @@
-### static func setEventParam(HashMap\<String, ParamType>, String, String)
+﻿### static func setEventParam(HashMap\<String, ParamType>, String, String)
 
 ```cangjie
 public static func setEventParam(params: HashMap<String, ParamType>, domain: String, name!: String = ""): Unit
@@ -20,7 +20,7 @@ public static func setEventParam(params: HashMap<String, ParamType>, domain: Str
 
 **异常：**
 
-- BusinessException：对应错误码如下表，详细介绍请参见[应用事件打点错误码](../../errorcodes/cj-errorcode-hiappevent.md)。
+- BusinessException：对应错误码如下表，详细介绍请参见[应用事件打点错误码](../../../cj-errorcode-hiappevent/cj-errorcode-hiappevent.md)。
 
   | 错误码ID | 错误信息              |
   | :-------- | :--------------------- |

@@ -1,4 +1,4 @@
-## func updateContact(Context, Contact, ContactAttributes)
+﻿## func updateContact(Context, Contact, ContactAttributes)
 
 ```cangjie
 public func updateContact(context: Context, contact: Contact, attrs!: ContactAttributes = ContactAttributes.ALL): Unit
@@ -16,13 +16,13 @@ public func updateContact(context: Context, contact: Contact, attrs!: ContactAtt
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[Context](../AbilityKit/cj-apis-ability.md#class-context)|是|-|应用上下文Context。|
+|context|[Context](../../cj-apis-ability/.overview.md)|是|-|应用上下文Context。|
 |contact|[Contact](#struct-contact)|是|-|联系人信息，其中需包含联系人id，否则抛出401异常。|
 |attrs|[ContactAttributes](#struct-contactattributes)|否|ContactAttributes.ALL| **命名参数。** 联系人的属性列表。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

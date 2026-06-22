@@ -1,4 +1,4 @@
-# 管理麦克风
+﻿# 管理麦克风
 
 因为在录制过程中需要使用麦克风录制相关音频数据，所以建议开发者在调用录制接口前查询麦克风状态，并在录制过程中监听麦克风的状态变化，避免影响录制效果。
 
@@ -6,7 +6,7 @@
 
 ## 开发示例
 
-在AudioVolumeGroupManager中提供了管理麦克风状态的方法，接口的详细说明请参见[API文档](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#class-audiovolumegroupmanager)。
+在AudioVolumeGroupManager中提供了管理麦克风状态的方法，接口的详细说明请参见[API文档](../cj-apis-multimedia-audio/.overview.md)。
 
 ```cangjie
 // index.cj

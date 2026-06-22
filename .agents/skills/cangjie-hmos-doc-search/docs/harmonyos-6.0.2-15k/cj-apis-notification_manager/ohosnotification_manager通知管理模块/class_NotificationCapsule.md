@@ -1,4 +1,4 @@
-## class NotificationCapsule
+﻿## class NotificationCapsule
 
 ```cangjie
 public class NotificationCapsule {
@@ -42,7 +42,7 @@ public var icon: Option<PixelMap> = None
 
 **系统能力：** SystemCapability.Notification.Notification
 
-**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 
@@ -85,5 +85,5 @@ public NotificationCapsule(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |title|String|否|""| **命名参数。** 胶囊标题。|
-|icon|[Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>|否|None| **命名参数。** 胶囊图片。|
+|icon|[Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../../cj-apis-image/.overview.md)>|否|None| **命名参数。** 胶囊图片。|
 |backgroundColor|String|否|""| **命名参数。** 背景颜色。|

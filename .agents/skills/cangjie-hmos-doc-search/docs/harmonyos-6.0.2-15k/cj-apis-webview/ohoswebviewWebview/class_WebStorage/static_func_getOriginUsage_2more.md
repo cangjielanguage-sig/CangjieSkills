@@ -1,4 +1,4 @@
-### static func getOriginUsage(String, AsyncCallback\<Int64>)
+﻿### static func getOriginUsage(String, AsyncCallback\<Int64>)
 
 ```cangjie
 public static func getOriginUsage(origin: String, callback: AsyncCallback<Int64>): Unit
@@ -15,11 +15,11 @@ public static func getOriginUsage(origin: String, callback: AsyncCallback<Int64>
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |origin|String|是|-|指定源的字符串索引。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Int64>|是|-|指定源的存储量。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Int64>|是|-|指定源的存储量。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -72,11 +72,11 @@ public static func getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>):
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Array\<[WebStorageOrigin](#class-webstorageorigin)>>|是|-|以数组方式返回源的信息，信息内容参考WebStorageOrigin。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Array\<[WebStorageOrigin](#class-webstorageorigin)>>|是|-|以数组方式返回源的信息，信息内容参考WebStorageOrigin。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../errorcodes/cj-errorcode-webview.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[Webview错误码](../../../cj-errorcode-webview/cj-errorcode-webview.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

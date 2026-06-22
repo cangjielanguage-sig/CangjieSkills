@@ -1,4 +1,4 @@
-### func on(AudioVolumeGroupManagerCallbackType, Callback1Argument\<AudioRingMode>)
+﻿### func on(AudioVolumeGroupManagerCallbackType, Callback1Argument\<AudioRingMode>)
 
 ```cangjie
 public func on(`type`: AudioVolumeGroupManagerCallbackType, callback: Callback1Argument<AudioRingMode>): Unit
@@ -15,11 +15,11 @@ public func on(`type`: AudioVolumeGroupManagerCallbackType, callback: Callback1A
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[AudioVolumeGroupManagerCallbackType](#enum-audiovolumegroupmanagercallbacktype)|是|-|监听事件，固定为：'RING_MODE_CHANGE'。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[AudioRingMode](#enum-audioringmode)>|是|-|回调函数，返回变化后的铃声模式。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<[AudioRingMode](#enum-audioringmode)>|是|-|回调函数，返回变化后的铃声模式。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../errorcodes/cj-errorcode-multimedia-audio.md)。
+- BusinessException：对应错误码的详细介绍请参见[Audio错误码](../../../cj-errorcode-multimedia-audio/cj-errorcode-multimedia-audio.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

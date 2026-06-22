@@ -1,4 +1,4 @@
-### func reportDrawnCompleted(AsyncCallback\<Unit>)
+﻿### func reportDrawnCompleted(AsyncCallback\<Unit>)
 
 ```cangjie
 public func reportDrawnCompleted(callback: AsyncCallback<Unit>): Unit
@@ -14,11 +14,11 @@ public func reportDrawnCompleted(callback: AsyncCallback<Unit>): Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<Unit>|是|-|页面加载完成打点的回调函数。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<Unit>|是|-|页面加载完成打点的回调函数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -45,7 +45,7 @@ public func startAbility(want: Want): Future<Unit>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

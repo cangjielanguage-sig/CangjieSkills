@@ -1,4 +1,4 @@
-# IME Kit简介
+﻿# IME Kit简介
 
 IME Kit 负责建立编辑框所在应用与输入法应用之间的通信通道，确保两者可以共同协作提供文本输入功能，也为系统应用提供管理输入法应用的能力。
 
@@ -32,6 +32,6 @@ ArkUI: IME Kit在输入法软键盘和自绘编辑框时使用ArkUI提供的部�
 
 ## IME Kit API参考
 
-- [inputMethod](../../API_Reference/source_zh_cn/apis/IMEKit/cj-apis-inputmethod.md)
+- [inputMethod](../cj-apis-inputmethod/.overview.md)
 
-- [InputMethodSubtype](../../API_Reference/source_zh_cn/apis/IMEKit/cj-apis-inputmethod.md#class-inputmethodsubtype)
+- [InputMethodSubtype](../cj-apis-inputmethod/.overview.md)

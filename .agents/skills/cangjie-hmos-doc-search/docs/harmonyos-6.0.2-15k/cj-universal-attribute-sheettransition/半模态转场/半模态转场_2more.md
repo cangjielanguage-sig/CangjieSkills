@@ -1,4 +1,4 @@
-# 半模态转场
+﻿# 半模态转场
 
 通过bindSheet属性为组件绑定半模态页面，在组件插入时可通过设置自定义或默认的内置高度确定半模态大小。
 
@@ -19,7 +19,7 @@ public func bindSheet(isShow: Bool, builder: () -> Unit, options!: SheetOptions 
 |名称|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 | isShow | Bool | 是 | \- | 是否显示半模态页面。 |
-| builder | () -> Unit | 是 |  \- | 配置半模态页面内容。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)使用。 |
+| builder | () -> Unit | 是 |  \- | 配置半模态页面内容。使用时结合[@Builder](../../cj-macro-builder/.overview.md)使用。 |
 | options | [SheetOptions](#class-sheetoptions) | 否 | SheetOptions() | **命名参数。**  配置半模态页面的可选属性。 |
 
 > **说明：**

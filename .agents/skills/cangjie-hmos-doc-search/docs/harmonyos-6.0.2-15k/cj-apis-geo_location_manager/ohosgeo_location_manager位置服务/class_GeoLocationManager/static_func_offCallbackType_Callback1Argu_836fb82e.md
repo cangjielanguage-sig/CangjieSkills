@@ -1,4 +1,4 @@
-### static func off(CallbackType, Callback1Argument\<Array\<Location>>)
+﻿### static func off(CallbackType, Callback1Argument\<Array\<Location>>)
 
 ```cangjie
 public static func off(`type`: CallbackType, callback: Callback1Argument<Array<Location>>): Unit
@@ -15,11 +15,11 @@ public static func off(`type`: CallbackType, callback: Callback1Argument<Array<L
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CallbackType](#enum-callbacktype)|是|-|设置事件类型。type为CallbackType.cachedGnssLocationsChange，表示GNSS缓存定位结果上报。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[Location](#class-location)>>|是|-|需要取消订阅的回调函数。该回调函数需要与on接口传入的回调函数保持一致。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[Location](#class-location)>>|是|-|需要取消订阅的回调函数。该回调函数需要与on接口传入的回调函数保持一致。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[位置服务子系统错误码](../../errorcodes/cj-errorcode-geo_location_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[位置服务子系统错误码](../../../cj-errorcode-geo_location_manager/cj-errorcode-geo_location_manager.md)。
 
   | 错误码ID | 错误信息 |
   |:-------- |:---------------------------------------- |

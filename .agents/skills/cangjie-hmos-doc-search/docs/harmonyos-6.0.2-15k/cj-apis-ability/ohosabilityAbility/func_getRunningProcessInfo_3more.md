@@ -1,4 +1,4 @@
-## func getRunningProcessInformation()
+﻿## func getRunningProcessInformation()
 
 ```cangjie
 public func getRunningProcessInformation(): Array<ProcessInformation>
@@ -18,7 +18,7 @@ public func getRunningProcessInformation(): Array<ProcessInformation>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[元能力子系统错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -67,7 +67,7 @@ public func getStageContext(abilityContext: UIAbilityContext): StageContext
 
 |类型|说明|
 |:----|:----|
-|[StageContext](../../arkinterop/cj-apis-ark_interop_helper.md#type-stagecontext)|StageContext是CPointer\<Unit> 类型的别名。|
+|[StageContext](../../cj-apis-ark_interop_helper/.overview.md)|StageContext是CPointer\<Unit> 类型的别名。|
 
 ## func getUid(WantAgent)
 
@@ -95,7 +95,7 @@ public func getUid(agent: WantAgent): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

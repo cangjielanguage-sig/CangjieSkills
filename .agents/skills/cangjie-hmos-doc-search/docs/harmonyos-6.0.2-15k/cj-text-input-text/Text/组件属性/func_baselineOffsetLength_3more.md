@@ -1,4 +1,4 @@
-### func baselineOffset(Length)
+﻿### func baselineOffset(Length)
 
 ```cangjie
 public func baselineOffset(value: Length): This
@@ -43,7 +43,7 @@ public func bindSelectionMenu(spanType: TextSpanType, content: () -> Unit, respo
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |spanType|[TextSpanType](#enum-textspantype)|是|-|选择菜单的类型。<br>初始值：TextSpanType.TEXT。|
-|content|()->Unit|是|-|选择菜单的内容。使用时结合[@Builder](../../../Dev_Guide/arkui-cj/paradigm/cj-macro-builder.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
+|content|()->Unit|是|-|选择菜单的内容。使用时结合[@Builder](../../../cj-macro-builder/.overview.md)和[bind](./cj-ui-framework.md#func-bindcustomview---viewbuilder-customview)方法使用。|
 |responseType|[TextResponseType](#enum-textresponsetype)|是|-|选择菜单的响应类型。<br>初始值：TextResponseType.LONG_PRESS。|
 |onAppear|(Int32, Int32)->Unit|否|{ _,_=> }| **命名参数。** 回调函数，自定义选择菜单弹出时触发。|
 |onDisappear|()->Unit|否|{ => }| **命名参数。** 回调函数，自定义选择菜单关闭时触发。|

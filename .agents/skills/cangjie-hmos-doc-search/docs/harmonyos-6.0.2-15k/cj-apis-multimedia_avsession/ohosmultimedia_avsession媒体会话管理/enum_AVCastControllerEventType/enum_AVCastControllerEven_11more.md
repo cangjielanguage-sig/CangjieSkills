@@ -1,4 +1,4 @@
-## enum AVCastControllerEventType
+﻿## enum AVCastControllerEventType
 
 ```cangjie
 public enum AVCastControllerEventType <: ToString & Equatable<AVCastControllerEventType> {
@@ -45,7 +45,7 @@ CAST_CONTROLLER_END_OF_STREAM
 CAST_CONTROLLER_ERROR
 ```
 
-**功能：** 远端播放器的错误事件，该事件仅用于错误提示，不需要用户停止播控动作，远端播放过程中发生的错误，会提供错误码ID和错误信息[BusinessException](../BasicServicesKit/cj-apis-base.md#class-businessexception)。
+**功能：** 远端播放器的错误事件，该事件仅用于错误提示，不需要用户停止播控动作，远端播放过程中发生的错误，会提供错误码ID和错误信息[BusinessException](../../../cj-apis-base/.overview.md)。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 

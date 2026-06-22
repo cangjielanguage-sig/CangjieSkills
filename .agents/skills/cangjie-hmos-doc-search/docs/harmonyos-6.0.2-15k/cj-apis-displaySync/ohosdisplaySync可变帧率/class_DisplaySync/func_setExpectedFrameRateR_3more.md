@@ -1,4 +1,4 @@
-### func setExpectedFrameRateRange(ExpectedFrameRateRange)
+﻿### func setExpectedFrameRateRange(ExpectedFrameRateRange)
 
 ```cangjie
 public func setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : Unit
@@ -14,11 +14,11 @@ public func setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : Unit
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|rateRange|[ExpectedFrameRateRange](../../arkui-cj/cj-animation-animateto.md#struct-expectedframeraterange)|是|-|设置DisplaySync期望的帧率。|
+|rateRange|[ExpectedFrameRateRange](../../../cj-animation-animateto/.overview.md)|是|-|设置DisplaySync期望的帧率。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

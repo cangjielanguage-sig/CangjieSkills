@@ -1,4 +1,4 @@
-## class PickInfo
+﻿## class PickInfo
 
 ```cangjie
 public class PickInfo {
@@ -37,7 +37,7 @@ public let pixelMap: PixelMap
 
 **功能：** 表示截取的图像PixelMap对象。
 
-**类型：** [PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)
+**类型：** [PixelMap](../../cj-apis-image/.overview.md)
 
 **读写能力：** 只读
 
@@ -63,7 +63,7 @@ public PickInfo(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |pickRect|[Rect](#class-rect)|是|-|表示截取图像的区域。|
-|pixelMap|[PixelMap](../apis/ImageKit/cj-apis-image.md#class-pixelmap)|是|-|表示截取的图像PixelMap对象|
+|pixelMap|[PixelMap](../../cj-apis-image/.overview.md)|是|-|表示截取的图像PixelMap对象|
 
 ## class Rect
 

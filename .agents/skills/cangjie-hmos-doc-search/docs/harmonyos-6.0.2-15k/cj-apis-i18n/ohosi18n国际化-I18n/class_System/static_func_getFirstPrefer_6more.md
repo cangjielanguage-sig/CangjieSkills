@@ -1,4 +1,4 @@
-### static func getFirstPreferredLanguage()
+﻿### static func getFirstPreferredLanguage()
 
 ```cangjie
 public static func getFirstPreferredLanguage(): String
@@ -84,7 +84,7 @@ public static func getSystemCountries(language: String): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[I18n错误码](../../errorcodes/cj-errorcode-i18n.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[I18n错误码](../../../cj-errorcode-i18n/cj-errorcode-i18n.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

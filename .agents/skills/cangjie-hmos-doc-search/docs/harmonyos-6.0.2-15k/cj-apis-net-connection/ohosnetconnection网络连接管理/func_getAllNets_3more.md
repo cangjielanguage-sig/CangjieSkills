@@ -1,4 +1,4 @@
-## func getAllNets()
+﻿## func getAllNets()
 
 ```cangjie
 public func getAllNets(): Array<NetHandle>
@@ -20,7 +20,7 @@ public func getAllNets(): Array<NetHandle>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[网络连接管理错误码](../../errorcodes/cj-errorcode-net-connection.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[网络连接管理错误码](../../cj-errorcode-net-connection/cj-errorcode-net-connection.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -62,7 +62,7 @@ public func getAppNet(): NetHandle
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[网络连接管理错误码](../../errorcodes/cj-errorcode-net-connection.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[网络连接管理错误码](../../cj-errorcode-net-connection/cj-errorcode-net-connection.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -111,7 +111,7 @@ public func getConnectionProperties(netHandle: NetHandle): ConnectionProperties
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[网络连接管理错误码](../../errorcodes/cj-errorcode-net-connection.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[网络连接管理错误码](../../cj-errorcode-net-connection/cj-errorcode-net-connection.md)和[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

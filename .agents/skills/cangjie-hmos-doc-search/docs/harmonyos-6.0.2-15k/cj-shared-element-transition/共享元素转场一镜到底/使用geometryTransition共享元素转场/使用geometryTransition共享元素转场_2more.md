@@ -1,6 +1,6 @@
-## 使用geometryTransition共享元素转场
+﻿## 使用geometryTransition共享元素转场
 
-[geometryTransition](../../API_Reference/source_zh_cn/arkui-cj/cj-animation-geometrytransition.md)用于组件内隐式共享元素转场，在视图状态切换过程中提供丝滑的上下文继承过渡体验。
+[geometryTransition](../../../cj-animation-geometrytransition/cj-animation-geometrytransition.md)用于组件内隐式共享元素转场，在视图状态切换过程中提供丝滑的上下文继承过渡体验。
 
 geometryTransition的使用方式为对需要添加一镜到底动效的两个组件使用geometryTransition接口绑定同一id，这样在其中一个组件消失同时另一个组件创建出现的时候，系统会对二者添加一镜到底动效。
 

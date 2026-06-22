@@ -1,4 +1,4 @@
-## class AVMediaDescription
+﻿## class AVMediaDescription
 
 ```cangjie
 public class AVMediaDescription {
@@ -128,7 +128,7 @@ public var dataSrc: ?AVDataSrcDescriptor
 
 **功能：** 播放列表数据源描述。
 
-**类型：** ?[AVDataSrcDescriptor](../MediaKit/cj-apis-multimedia_media.md#class-avdatasrcdescriptor)
+**类型：** ?[AVDataSrcDescriptor](../../../cj-apis-multimedia_media/.overview.md)
 
 **读写能力：** 可读写
 
@@ -212,7 +212,7 @@ public var fdSrc: ?AVFileDescriptor
 
 **功能：** 播放列表媒体本地文件的句柄。
 
-**类型：** ?[AVFileDescriptor](../MediaKit/cj-apis-multimedia_media.md#class-avfiledescriptor)
+**类型：** ?[AVFileDescriptor](../../../cj-apis-multimedia_media/.overview.md)
 
 **读写能力：** 可读写
 

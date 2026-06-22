@@ -1,4 +1,4 @@
-### func openAtomicService(String, ?AtomicServiceOptions, AsyncCallback\<AbilityResult>)
+﻿### func openAtomicService(String, ?AtomicServiceOptions, AsyncCallback\<AbilityResult>)
 
 ```cangjie
 public func openAtomicService(appId: String, options!: ?AtomicServiceOptions = None,
@@ -21,11 +21,11 @@ public func openAtomicService(appId: String, options!: ?AtomicServiceOptions = N
 |:---|:---|:---|:---|:---|
 |appId|String|是|-|应用的唯一标识，由云端统一分配。|
 |options|?[AtomicServiceOptions](#class-atomicserviceoptions)|否|None| **命名参数。** 跳出式启动原子化服务所携带的参数。|
-|callback|[AsyncCallback](../BasicServicesKit/cj-apis-base.md#type-asynccallback)\<[AbilityResult](#struct-abilityresult)>|是|-| **命名参数。** 通过异步回调返回[AbilityResult](#struct-abilityresult)对象。|
+|callback|[AsyncCallback](../../../cj-apis-base/.overview.md)\<[AbilityResult](#struct-abilityresult)>|是|-| **命名参数。** 通过异步回调返回[AbilityResult](#struct-abilityresult)对象。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

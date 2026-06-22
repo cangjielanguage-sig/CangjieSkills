@@ -1,4 +1,4 @@
-### static func on(ObserverEventType, Callback1Argument\<Array\<SignalInformation>>, ?ObserverOptions)
+﻿### static func on(ObserverEventType, Callback1Argument\<Array\<SignalInformation>>, ?ObserverOptions)
 
 ```cangjie
 public static func on(eventType: ObserverEventType,
@@ -16,12 +16,12 @@ public static func on(eventType: ObserverEventType,
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |eventType|[ObserverEventType](#enum-observereventtype)|是|-|事件类型，此处为卡账户变化事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<Array\<[SignalInformation](cj-apis-telephony_radio.md#class-signalinformation)>>|是|-|回调函数。|
+|callback|[Callback1Argument](../../../cj-apis-base/.overview.md)\<Array\<[SignalInformation](cj-apis-telephony_radio.md#class-signalinformation)>>|是|-|回调函数。|
 |options|?[ObserverOptions](#class-observeroptions)|否|None| **命名参数。** 电话相关事件订阅参数。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../errorcodes/cj-errorcode-telephony.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[电话子系统错误码](../../../cj-errorcode-telephony/cj-errorcode-telephony.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

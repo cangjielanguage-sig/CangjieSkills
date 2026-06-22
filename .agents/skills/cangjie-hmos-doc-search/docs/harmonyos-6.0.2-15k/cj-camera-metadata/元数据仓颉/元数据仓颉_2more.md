@@ -1,4 +1,4 @@
-# 元数据（仓颉）
+﻿# 元数据（仓颉）
 
 在开发相机应用时，需要先参考开发准备[申请相关权限](./cj-camera-preparation.md)。
 
@@ -8,7 +8,7 @@ Metadata主要是通过一个TAG（Key），去找对应的Data，用于传递�
 
 ## 开发步骤
 
-详细的API说明请参见[Camera API参考](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera.md)。
+详细的API说明请参见[Camera API参考](../../cj-apis-multimedia-camera/.overview.md)。
 
 1. 导入相关接口，导入方法如下。
 
@@ -17,7 +17,7 @@ Metadata主要是通过一个TAG（Key），去找对应的Data，用于传递�
     import kit.BasicServicesKit.*
     ```
 
-2. 调用[CameraOutputCapability](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera.md#struct-cameraoutputcapability)类中的supportedMetadataObjectTypes属性，获取当前设备支持的元数据类型，并通过[createMetadataOutput](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera.md#func-createmetadataoutputarraymetadataobjecttype)方法创建元数据输出流。
+2. 调用[CameraOutputCapability](../../cj-apis-multimedia-camera/.overview.md)类中的supportedMetadataObjectTypes属性，获取当前设备支持的元数据类型，并通过[createMetadataOutput](../../cj-apis-multimedia-camera/.overview.md)方法创建元数据输出流。
 
     ```cangjie
     func getMetadataOutput(cameraManager: CameraManager, cameraOutputCapability: CameraOutputCapability): MetadataOutput {
@@ -27,7 +27,7 @@ Metadata主要是通过一个TAG（Key），去找对应的Data，用于传递�
     }
     ```
 
-3. 调用[Session.start](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera.md#func-start)方法开启metadata数据输出，再通过监听事件metadataObjectsAvailable回调拿到数据，接口调用失败时，会返回相应错误码，错误码类型参见[Camera错误码](../../../API_Reference/source_zh_cn/errorcodes/cj-errorcode-multimedia-camera.md)。
+3. 调用[Session.start](../../cj-apis-multimedia-camera/.overview.md)方法开启metadata数据输出，再通过监听事件metadataObjectsAvailable回调拿到数据，接口调用失败时，会返回相应错误码，错误码类型参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
     previewOutput获取方式请参见[相机预览开发步骤](./cj-camera-preview.md#开发步骤)。
 
@@ -58,7 +58,7 @@ Metadata主要是通过一个TAG（Key），去找对应的Data，用于传递�
     }
     ```
 
-4. 调用[Session.stop](../../../API_Reference/source_zh_cn/apis/CameraKit/cj-apis-multimedia-camera.md#func-stop)方法停止输出metadata数据，接口调用失败会返回相应错误码，错误码类型参见[Camera错误码](../../../API_Reference/source_zh_cn/errorcodes/cj-errorcode-multimedia-camera.md)。
+4. 调用[Session.stop](../../cj-apis-multimedia-camera/.overview.md)方法停止输出metadata数据，接口调用失败会返回相应错误码，错误码类型参见[Camera错误码](../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
     ```cangjie
     func stopMetadataOutput(session: Session): Unit {

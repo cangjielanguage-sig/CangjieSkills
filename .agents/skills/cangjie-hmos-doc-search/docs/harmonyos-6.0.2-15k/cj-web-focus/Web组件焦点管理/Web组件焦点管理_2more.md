@@ -1,10 +1,10 @@
-# Web组件焦点管理
+﻿# Web组件焦点管理
 
 开发者可利用Web组件的焦点管理功能，有效管理Web组件的聚焦与失焦，同时利用H5侧的W3C标准接口，管理网页界面上唯一可交互的元素聚焦与失焦。
 
 - Web组件与ArkUI组件焦点控制的常用接口及其使用场景：
 
-    1. 通过requestFocus主动请求Web组件获焦：当应用内有多个组件时，开发者可通过Web组件的[requestFocus](../../API_Reference/source_zh_cn/apis/ArkWeb/cj-apis-webview.md#func-requestfocus)接口主动将焦点转移到Web组件上。
+    1. 通过requestFocus主动请求Web组件获焦：当应用内有多个组件时，开发者可通过Web组件的[requestFocus](../../cj-apis-webview/.overview.md)接口主动将焦点转移到Web组件上。
     2. 根据焦点情况更改Web组件样式：组件监听焦点事件上报，为组件修改样式，例如边框、背景色等，以提供视觉和交互反馈。
 
 - Web组件内H5元素焦点控制的常用接口及其使用场景：
@@ -15,7 +15,7 @@
 
 ## 基础概念
 
-Web组件焦点、焦点链和走焦的详情说明请参见[ArkUI焦点基础概念](../arkui-cj/cj-common-events-focus-event.md#基础概念)。
+Web组件焦点、焦点链和走焦的详情说明请参见[ArkUI焦点基础概念](../../cj-common-events-focus-event/.overview.md)。
 
 - 焦点：
     - 组件焦点：指当前应用界面上唯一的一个可交互元素。

@@ -1,4 +1,4 @@
-### func onExecuteInUIAbilityForegroundMode(String, String, WindowStage)
+﻿### func onExecuteInUIAbilityForegroundMode(String, String, WindowStage)
 
 ```cangjie
 public open func onExecuteInUIAbilityForegroundMode(name: String, param: String, pageLoader: WindowStage): ExecuteResult
@@ -16,7 +16,7 @@ public open func onExecuteInUIAbilityForegroundMode(name: String, param: String,
 |:---|:---|:---|:---|:---|
 |name|String|是|-|意图调用名称。|
 |param|String|是|-|意图调用参数。|
-|pageLoader|[WindowStage](../../arkui-cj/cj-apis-window.md#class-windowstage)|是|-|页面加载器。|
+|pageLoader|[WindowStage](../../../cj-apis-window/.overview.md)|是|-|页面加载器。|
 
 **返回值：**
 

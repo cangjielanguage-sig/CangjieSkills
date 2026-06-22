@@ -1,22 +1,22 @@
-## 指定密钥参数生成RSA公钥
+﻿## 指定密钥参数生成RSA公钥
 
 对应的算法规格请参见[非对称密钥生成和转换规格：RSA](./cj-crypto-asym-key-generation-conversion-spec.md#rsa)。
 
-1. 构造[RSACommonParamsSpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-rsacommonparamsspec)对象，用于指定RSA算法中公私钥包含的公共参数（n）。
+1. 构造[RSACommonParamsSpec](../../../cj-apis-crypto/.overview.md)对象，用于指定RSA算法中公私钥包含的公共参数（n）。
 
    RSACommonParamsSpec是AsyKeySpec的子类。需要通过参数algName指定算法'RSA'；指定密钥参数类型AsyKeySpecType.COMMON_PARAMS_SPEC，表示是公私钥中包含的公共参数。
 
    使用密钥参数生成密钥时，用到的bigint类型需要以大端模式输入，且必须为正数。
 
-2. 创建[RSAPubKeySpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#struct-rsapubkeyspec)对象，用于指定RSA算法中公钥包含的参数（n, pk）。
+2. 创建[RSAPubKeySpec](../../../cj-apis-crypto/.overview.md)对象，用于指定RSA算法中公钥包含的参数（n, pk）。
 
    RSAPubKeySpec是AsyKeySpec的子类。通过参数algName指定算法'RSA'；指定密钥参数类型AsyKeySpecType.PUBLIC_KEY_SPEC，表示是公钥中包含的参数。
 
-3. 调用[createAsyKeyGeneratorBySpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-createasykeygeneratorbyspecasykeyspec)，将RSAPubKeySpec对象传入，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。
+3. 调用[createAsyKeyGeneratorBySpec](../../../cj-apis-crypto/.overview.md)，将RSAPubKeySpec对象传入，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。
 
-4. 调用[generatePubKey](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-generatepubkey)，获得指定的公钥（PubKey）。
+4. 调用[generatePubKey](../../../cj-apis-crypto/.overview.md)，获得指定的公钥（PubKey）。
 
-5. 调用[getAsyKeySpec](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#func-getasykeyspecasykeyspecitem-1)，获取模数n和公钥pk（即公钥指数e）。
+5. 调用[getAsyKeySpec](../../../cj-apis-crypto/.overview.md)，获取模数n和公钥pk（即公钥指数e）。
 
 以根据密钥参数生成RSA公钥为例：
 

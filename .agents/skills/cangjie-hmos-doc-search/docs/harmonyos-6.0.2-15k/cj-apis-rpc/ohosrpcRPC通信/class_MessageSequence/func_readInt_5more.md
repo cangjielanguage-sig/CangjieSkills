@@ -1,4 +1,4 @@
-### func readInt()
+﻿### func readInt()
 
 ```cangjie
 public func readInt(): Int32
@@ -18,7 +18,7 @@ public func readInt(): Int32
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -57,7 +57,7 @@ public func readInt16Array(): Array<Int16>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -96,7 +96,7 @@ public func readInt32Array(): Array<Int32>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -135,7 +135,7 @@ public func readInt64Array(): Array<Int64>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -174,7 +174,7 @@ public func readInt8Array(): Array<Int8>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

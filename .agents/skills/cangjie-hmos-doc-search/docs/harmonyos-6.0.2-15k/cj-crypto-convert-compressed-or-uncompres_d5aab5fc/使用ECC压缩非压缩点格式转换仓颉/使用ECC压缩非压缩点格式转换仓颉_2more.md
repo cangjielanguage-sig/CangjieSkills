@@ -1,4 +1,4 @@
-# 使用ECC压缩/非压缩点格式转换（仓颉）
+﻿# 使用ECC压缩/非压缩点格式转换（仓颉）
 
 支持将压缩/非压缩的点数据，转换为Point对象，用于密钥对象生成；也支持将Point对象转换为压缩/非压缩的点数据。
 ECC的算法规格请参见[非对称密钥生成和转换规格：ECC](./cj-crypto-asym-key-generation-conversion-spec.md#ecc)
@@ -6,8 +6,8 @@ ECC的算法规格请参见[非对称密钥生成和转换规格：ECC](./cj-cry
 
 ## 指定非压缩点数据转换为压缩点数据
 
-1. 指定Uint8Array类型的ECC非压缩点数据，调用[convertPoint](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#static-func-convertpointstring-arrayuint8)对象，用于生成点数据。
-2. 调用[getEncodedPoint](../../../API_Reference/source_zh_cn/apis/CryptoArchitectureKit/cj-apis-crypto.md#static-func-getencodedpointstring-point-string)，获取压缩点数据。
+1. 指定Uint8Array类型的ECC非压缩点数据，调用[convertPoint](../../cj-apis-crypto/.overview.md)对象，用于生成点数据。
+2. 调用[getEncodedPoint](../../cj-apis-crypto/.overview.md)，获取压缩点数据。
 
 ```cangjie
 import kit.CryptoArchitectureKit.*

@@ -1,4 +1,4 @@
-# ohos.rpc.interop（IRemoteObject互操作）
+﻿# ohos.rpc.interop（IRemoteObject互操作）
 
 本模块提供[RemoteObject](#class-remoteobject)及[RemoteProxy](#class-remoteproxy)进行互操作的能力。
 
@@ -14,7 +14,7 @@ import kit.IPCKit.*
 public func fromJSValue(context: JSContext, input: JSValue): IRemoteObject
 ```
 
-**功能：** 从[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)转换为IRemoteObject类型。
+**功能：** 从[JSValue](../cj-apis-ark_interop/.overview.md)转换为IRemoteObject类型。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
 
@@ -24,8 +24,8 @@ public func fromJSValue(context: JSContext, input: JSValue): IRemoteObject
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext)|是|-|ArkTS互操作上下文。|
-|input|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue)|是|-|ArkTS统一类型。|
+|context|[JSContext](../cj-apis-ark_interop/.overview.md)|是|-|ArkTS互操作上下文。|
+|input|[JSValue](../cj-apis-ark_interop/.overview.md)|是|-|ArkTS统一类型。|
 
 **返回值：**
 
@@ -63,13 +63,13 @@ func toJSValue(context: JSContext): JSValue
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|context|[JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext) |是|-|ArkTS互操作上下文。|
+|context|[JSContext](../cj-apis-ark_interop/.overview.md) |是|-|ArkTS互操作上下文。|
 
 **返回值：**
 
 |类型|说明|
 |:----|:----|
-|[JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue) |返回ArkTS统一类型。|
+|[JSValue](../cj-apis-ark_interop/.overview.md) |返回ArkTS统一类型。|
 
 ## class RemoteObject
 
@@ -103,13 +103,13 @@ public func toJSValue(context: JSContext): JSValue
 
 | 参数名 | 类型   | 必填 | 说明               |
 | :------ | :------ | :---- | :------------------ |
-| context   | [JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext) | 是   | ArkTS互操作上下文。 |
+| context   | [JSContext](../cj-apis-ark_interop/.overview.md) | 是   | ArkTS互操作上下文。 |
 
 **返回值：**
 
 | 类型        | 说明                                                         |
 | :---------- | :----------------------------------------------------------- |
-| [JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue) | 返回ArkTS统一类型。 |
+| [JSValue](../cj-apis-ark_interop/.overview.md) | 返回ArkTS统一类型。 |
 
 ## class RemoteProxy
 
@@ -143,10 +143,10 @@ public func toJSValue(context: JSContext): JSValue
 
 | 参数名 | 类型   | 必填 | 说明               |
 | :------ | :------ | :---- | :------------------ |
-| context   | [JSContext](../../arkinterop/cj-apis-ark_interop.md#class-jscontext) | 是   | ArkTS互操作上下文。 |
+| context   | [JSContext](../cj-apis-ark_interop/.overview.md) | 是   | ArkTS互操作上下文。 |
 
 **返回值：**
 
 | 类型        | 说明                                                         |
 | :---------- | :----------------------------------------------------------- |
-| [JSValue](../../arkinterop/cj-apis-ark_interop.md#struct-jsvalue) | 返回ArkTS统一类型。 |
+| [JSValue](../cj-apis-ark_interop/.overview.md) | 返回ArkTS统一类型。 |

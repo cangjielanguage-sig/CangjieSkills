@@ -1,4 +1,4 @@
-### class TextFont
+﻿### class TextFont
 
 ```cangjie
 public class TextFont {
@@ -31,7 +31,7 @@ public init(size!: Length = 16.fp, weight!: FontWeight = FontWeight.Normal, fami
 |:---|:---|:---|:---|:---|
 |size|[Length](cj-common-types.md#interface-length)|否|16.fp| **命名参数。** 字体大小。|
 |weight|[FontWeight](cj-common-types.md#enum-fontweight)|否|FontWeight.Normal| **命名参数。** 字体粗细。|
-|family|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 字体列表。|
+|family|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 字体列表。|
 |style|[FontStyle](cj-common-types.md#enum-fontstyle)|否|FontStyle.Normal| **命名参数。** 字体样式。|
 
 #### init(Length, FontWeight, String, FontStyle)

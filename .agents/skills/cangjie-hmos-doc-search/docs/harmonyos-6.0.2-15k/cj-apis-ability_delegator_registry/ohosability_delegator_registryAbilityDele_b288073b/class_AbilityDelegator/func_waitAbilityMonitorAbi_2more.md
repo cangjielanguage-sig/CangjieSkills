@@ -1,10 +1,10 @@
-### func waitAbilityMonitor(AbilityMonitor, Int64)
+﻿### func waitAbilityMonitor(AbilityMonitor, Int64)
 
 ```cangjie
 public func waitAbilityMonitor(monitor: AbilityMonitor, timeout: Int64): UIAbility
 ```
 
-**功能：** 设置等待时间，并等待与[AbilityMonitor](#class-abilitymonitor)实例匹配的[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)到达[onCreate](../AbilityKit/cj-apis-ability.md#func-oncreatewant-launchparam)生命周期，并返回[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)实例。
+**功能：** 设置等待时间，并等待与[AbilityMonitor](#class-abilitymonitor)实例匹配的[UIAbility](../../../cj-apis-ability/.overview.md)到达[onCreate](../../../cj-apis-ability/.overview.md)生命周期，并返回[UIAbility](../../../cj-apis-ability/.overview.md)实例。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -21,11 +21,11 @@ public func waitAbilityMonitor(monitor: AbilityMonitor, timeout: Int64): UIAbili
 
 |类型|说明|
 |:----|:----|
-|[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)|返回[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)实例。|
+|[UIAbility](../../../cj-apis-ability/.overview.md)|返回[UIAbility](../../../cj-apis-ability/.overview.md)实例。|
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |
@@ -58,7 +58,7 @@ spawn {
 public func waitAbilityStageMonitor(stageMonitor: AbilityStageMonitor): AbilityStage
 ```
 
-**功能：** 等待并返回与给定[AbilityStageMonitor](#class-abilitystagemonitor)中设置的条件匹配的[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)对象。
+**功能：** 等待并返回与给定[AbilityStageMonitor](#class-abilitystagemonitor)中设置的条件匹配的[AbilityStage](../../../cj-apis-ability/.overview.md)对象。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -74,11 +74,11 @@ public func waitAbilityStageMonitor(stageMonitor: AbilityStageMonitor): AbilityS
 
 |类型|说明|
 |:----|:----|
-|[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)|返回[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)对象。|
+|[AbilityStage](../../../cj-apis-ability/.overview.md)|返回[AbilityStage](../../../cj-apis-ability/.overview.md)对象。|
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |

@@ -1,6 +1,6 @@
-# 管理全局音频输出设备
+﻿# 管理全局音频输出设备
 
-有时设备同时连接多个音频输出设备，需要指定音频输出设备进行音频播放，此时需要使用[AudioRoutingManager接口](../../../API_Reference/source_zh_cn/apis/AudioKit/cj-apis-multimedia-audio.md#class-audioroutingmanager)进行输出设备的管理。
+有时设备同时连接多个音频输出设备，需要指定音频输出设备进行音频播放，此时需要使用[AudioRoutingManager接口](../../cj-apis-multimedia-audio/.overview.md)进行输出设备的管理。
 
 ## 创建AudioRoutingManager实例
 

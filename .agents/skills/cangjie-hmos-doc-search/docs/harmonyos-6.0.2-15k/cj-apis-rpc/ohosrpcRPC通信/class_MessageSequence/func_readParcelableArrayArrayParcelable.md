@@ -1,4 +1,4 @@
-### func readParcelableArray(Array\<Parcelable>)
+﻿### func readParcelableArray(Array\<Parcelable>)
 
 ```cangjie
 public func readParcelableArray(parcelableArray: Array<Parcelable>): Unit
@@ -18,7 +18,7 @@ public func readParcelableArray(parcelableArray: Array<Parcelable>): Unit
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../errorcodes/cj-errorcode-rpc.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[RPC错误码](../../../cj-errorcode-rpc/cj-errorcode-rpc.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   |错误码ID|错误信息|
   |:---|:---|

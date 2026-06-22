@@ -1,10 +1,10 @@
-# 使用HiLog打印日志（仓颉）
+﻿# 使用HiLog打印日志（仓颉）
 
 在应用开发过程中，可在关键代码处输出日志信息。在运行应用后，通过查看日志信息来分析应用执行情况（如应用是否正常运行、代码运行时序、运行逻辑分支是否正常等）。
 
 ## 接口说明
 
-HiLog中定义了DEBUG、INFO、WARN、ERROR、FATAL五种日志级别，并提供了对应的方法输出不同级别的日志，接口如下表所示，具体说明可查阅[API参考文档](../../API_Reference/source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hilog.md)。
+HiLog中定义了DEBUG、INFO、WARN、ERROR、FATAL五种日志级别，并提供了对应的方法输出不同级别的日志，接口如下表所示，具体说明可查阅[API参考文档](../cj-apis-hilog/.overview.md)。
 
 | 接口名 | 功能描述 |
 | -------- | -------- |
@@ -27,7 +27,7 @@ HiLog中定义了DEBUG、INFO、WARN、ERROR、FATAL五种日志级别，并提�
 
 - **tag**：用于指定日志标识，可以为任意字符串，建议标识调用所在的类或者业务行为。tag最多为31字节，超出后会截断，不建议使用中文字符，可能出现乱码或者对齐问题。
 
-- **level**：用于指定日志级别。取值见[LogLevel](../../API_Reference/source_zh_cn/apis/PerformanceAnalysisKit/cj-apis-hilog.md#enum-loglevel)。
+- **level**：用于指定日志级别。取值见[LogLevel](../cj-apis-hilog/.overview.md)。
 
 - **format**：格式字符串，用于日志的格式化输出。
 

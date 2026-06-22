@@ -1,4 +1,4 @@
-# 使用AVPlayer播放流媒体
+﻿# 使用AVPlayer播放流媒体
 
 本开发指导将介绍如何使用[AVPlayer](./cj-media-kit-intro.md#avplayer)开发流媒体播放功能，以完整地播放一个流媒体视频作为示例，实现端到端播放流媒体资源。
 
@@ -15,7 +15,7 @@
 
 ## 开发步骤
 
-创建AVPlayer，设置播放资源和窗口，设置播放参数（音量/倍速/缩放模式），播放控制（播放/暂停/跳转/停止），重置，销毁资源。在进行应用开发的过程中，开发者可以通过AVPlayer的state属性主动获取当前状态或使用on("stateChange")方法监听状态变化。如果应用在视频播放器处于错误状态时执行操作，系统可能会抛出异常或生成其他未定义的行为。状态的详细说明请参见[AVPlayerState](../../../API_Reference/source_zh_cn/apis/MediaKit/cj-apis-multimedia_media.md#enum-avplayerstate)。具体的开发步骤如下：
+创建AVPlayer，设置播放资源和窗口，设置播放参数（音量/倍速/缩放模式），播放控制（播放/暂停/跳转/停止），重置，销毁资源。在进行应用开发的过程中，开发者可以通过AVPlayer的state属性主动获取当前状态或使用on("stateChange")方法监听状态变化。如果应用在视频播放器处于错误状态时执行操作，系统可能会抛出异常或生成其他未定义的行为。状态的详细说明请参见[AVPlayerState](../../cj-apis-multimedia_media/.overview.md)。具体的开发步骤如下：
 
 1. 创建实例createAVPlayer()，AVPlayer初始化idle状态。
 
@@ -44,7 +44,7 @@
 
 4. 设置窗口：获取并设置属性SurfaceID，用于设置显示画面。
 
-   应用需要从XComponent组件获取surfaceID，获取方式请参见[XComponent](../../../API_Reference/source_zh_cn/arkui-cj/cj-rendering-drawing-xcomponent.md)。
+   应用需要从XComponent组件获取surfaceID，获取方式请参见[XComponent](../../cj-rendering-drawing-xcomponent/.overview.md)。
 
 5. 准备播放：调用prepare()，AVPlayer进入prepared状态，此时可以获取duration，设置缩放模式、音量等。
 

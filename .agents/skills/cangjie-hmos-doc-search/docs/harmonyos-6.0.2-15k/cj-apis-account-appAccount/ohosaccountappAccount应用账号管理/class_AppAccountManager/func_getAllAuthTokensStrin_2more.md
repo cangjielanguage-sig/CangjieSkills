@@ -1,4 +1,4 @@
-### func getAllAuthTokens(String, String)
+﻿### func getAllAuthTokens(String, String)
 
 ```cangjie
 public func getAllAuthTokens(name: String, owner: String): Array<AuthTokenInfo>
@@ -25,7 +25,7 @@ public func getAllAuthTokens(name: String, owner: String): Array<AuthTokenInfo>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |
@@ -84,7 +84,7 @@ public func getAuthList(name: String, authType: String): Array<String>
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../errorcodes/cj-errorcode-basic-account.md)和[通用错误码](../../errorcodes/cj-errorcode-universal.md)。
+- BusinessException：对应错误码的详细介绍请参见[账号管理错误码](../../../cj-errorcode-basic-account/cj-errorcode-basic-account.md)和[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :-------- |

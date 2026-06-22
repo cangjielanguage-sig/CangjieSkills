@@ -1,4 +1,4 @@
-## class NotificationBasicContent
+﻿## class NotificationBasicContent
 
 ```cangjie
 public open class NotificationBasicContent {
@@ -46,7 +46,7 @@ public var lockscreenPicture: Option<PixelMap> = None
 
 **系统能力：** SystemCapability.Notification.Notification
 
-**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** [Option](#notificationcapsulestring-optionpixelmap-string)\<[PixelMap](../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 
@@ -133,7 +133,7 @@ public var icons: Array<PixelMap> = []
 
 **系统能力：** SystemCapability.Notification.Notification
 
-**类型：** Array\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>
+**类型：** Array\<[PixelMap](../../cj-apis-image/.overview.md)>
 
 **读写能力：** 可读写
 
@@ -175,4 +175,4 @@ public NotificationButton(
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |names|Array\<String>|否|[]| **命名参数。** 按钮名称（最多支持3个）。|
-|icons|Array\<[PixelMap](../ImageKit/cj-apis-image.md#class-pixelmap)>|否|[]| **命名参数。** 按钮图片（最多支持3个）。|
+|icons|Array\<[PixelMap](../../cj-apis-image/.overview.md)>|否|[]| **命名参数。** 按钮图片（最多支持3个）。|

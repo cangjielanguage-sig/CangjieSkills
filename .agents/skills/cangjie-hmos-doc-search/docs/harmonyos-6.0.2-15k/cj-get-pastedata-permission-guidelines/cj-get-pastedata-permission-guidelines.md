@@ -1,4 +1,4 @@
-# 申请访问剪贴板权限
+﻿# 申请访问剪贴板权限
 
 ## 访问剪贴板内容
 
@@ -10,8 +10,8 @@
 
     权限申请步骤：
 
-    1. 通过[ACL方式](../../security/AccessToken/cj-permissions-for-acl.md)，申请高级别权限。
+    1. 通过[ACL方式](../cj-permissions-for-acl/.overview.md)，申请高级别权限。
 
-    2. 在module.json5配置文件中[声明权限](../../security/AccessToken/cj-declare-permissions.md)。
+    2. 在module.json5配置文件中[声明权限](../cj-declare-permissions/.overview.md)。
 
-    3. 通过弹窗[向用户申请权限](../../security/AccessToken/cj-request-user-authorization.md)。
+    3. 通过弹窗[向用户申请权限](../cj-request-user-authorization/.overview.md)。

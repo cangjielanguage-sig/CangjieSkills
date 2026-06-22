@@ -1,10 +1,10 @@
-## class AbilityDelegator
+﻿## class AbilityDelegator
 
 ```cangjie
 public class AbilityDelegator {}
 ```
 
-**功能：** AbilityDelegator用于创建并管理一个[AbilityMonitor](#class-abilitymonitor)对象（该对象用于监视指定[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)生命周期状态的更改），包括对[AbilityMonitor](#class-abilitymonitor)实例的添加、删除，等待[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)到达OnCreate生命周期、设置等待时间、获取指定Ability的生命周期状态、获取当前应用顶部[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)、启动指定[UIAbility](../AbilityKit/cj-apis-ability.md#class-uiability)等。
+**功能：** AbilityDelegator用于创建并管理一个[AbilityMonitor](#class-abilitymonitor)对象（该对象用于监视指定[UIAbility](../../../cj-apis-ability/.overview.md)生命周期状态的更改），包括对[AbilityMonitor](#class-abilitymonitor)实例的添加、删除，等待[UIAbility](../../../cj-apis-ability/.overview.md)到达OnCreate生命周期、设置等待时间、获取指定Ability的生命周期状态、获取当前应用顶部[UIAbility](../../../cj-apis-ability/.overview.md)、启动指定[UIAbility](../../../cj-apis-ability/.overview.md)等。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -30,7 +30,7 @@ public func addAbilityMonitor(monitor: AbilityMonitor): Unit
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |
@@ -62,7 +62,7 @@ delegator.addAbilityMonitor(monitor)
 public func addAbilityStageMonitor(stageMonitor: AbilityStageMonitor): Unit
 ```
 
-**功能：** 添加一个[AbilityStageMonitor](#class-abilitystagemonitor)对象，用于监视指定[AbilityStage](../AbilityKit/cj-apis-ability.md#class-abilitystage)的生命周期状态更改。
+**功能：** 添加一个[AbilityStageMonitor](#class-abilitystagemonitor)对象，用于监视指定[AbilityStage](../../../cj-apis-ability/.overview.md)的生命周期状态更改。
 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
 
@@ -76,7 +76,7 @@ public func addAbilityStageMonitor(stageMonitor: AbilityStageMonitor): Unit
 
 **异常：**
 
-以下错误码详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[元能力子系统错误码](../../errorcodes/cj-errorcode-ability.md)。
+以下错误码详细介绍请参见[通用错误码](../../../cj-errorcode-universal/cj-errorcode-universal.md)和[元能力子系统错误码](../../../cj-errorcode-ability/cj-errorcode-ability.md)。
 
   | 错误码ID | 错误信息 |
   | :--- | :--- |

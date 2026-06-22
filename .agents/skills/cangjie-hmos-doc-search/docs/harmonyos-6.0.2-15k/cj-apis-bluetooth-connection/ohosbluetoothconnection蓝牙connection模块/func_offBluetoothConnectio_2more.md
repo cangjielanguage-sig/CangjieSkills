@@ -1,4 +1,4 @@
-## func off(BluetoothConnectionCallbackType, ?CallbackObject)
+﻿## func off(BluetoothConnectionCallbackType, ?CallbackObject)
 
 ```cangjie
 public func off(`type`: BluetoothConnectionCallbackType, callback!: ?CallbackObject = None): Unit
@@ -15,11 +15,11 @@ public func off(`type`: BluetoothConnectionCallbackType, callback!: ?CallbackObj
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type`|[BluetoothConnectionCallbackType](#enum-bluetoothconnectioncallbacktype)|是|-|填写`BATTERY_CHANGE`，表示蓝牙远端设备的电池信息变更事件。填写`BLUETOOTH_DEVICE_FIND`，表示蓝牙设备发现事件。|
-|callback|?[CallbackObject](../BasicServicesKit/cj-apis-base.md#class-callbackobject)|否|None| **命名参数。** 表示取消订阅蓝牙设备发现事件上报。不填该参数则取消订阅该type对应的所有回调。|
+|callback|?[CallbackObject](../../cj-apis-base/.overview.md)|否|None| **命名参数。** 表示取消订阅蓝牙设备发现事件上报。不填该参数则取消订阅该type对应的所有回调。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   |错误码ID|错误信息|
   |:---|:---|
@@ -73,11 +73,11 @@ public func on(`type`: BluetoothConnectionCallbackType, callback: Callback1Argum
 |参数名|类型|必填|说明|
 |:---|:---|:---|:---|
 |\`type`|[BluetoothConnectionCallbackType](#enum-bluetoothconnectioncallbacktype)|是|填写`BATTERY_CHANGE`，表示蓝牙远端设备的电池信息变更事件。|
-|callback|[Callback1Argument](../BasicServicesKit/cj-apis-base.md#class-callback1argument)\<[BatteryInfo](#class-batteryinfo)>|是|表示回调函数的入参，返回电量信息。|
+|callback|[Callback1Argument](../../cj-apis-base/.overview.md)\<[BatteryInfo](#class-batteryinfo)>|是|表示回调函数的入参，返回电量信息。|
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../errorcodes/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../errorcodes/cj-errorcode-bluetooth_manager.md)。
+- BusinessException：对应错误码的详细介绍请参见[通用错误码](../../cj-errorcode-universal/cj-errorcode-universal.md)和[蓝牙服务子系统错误码](../../cj-errorcode-bluetooth_manager/cj-errorcode-bluetooth_manager.md)。
 
   | 错误码ID | 错误信息 |
   | :-------- | :------------|

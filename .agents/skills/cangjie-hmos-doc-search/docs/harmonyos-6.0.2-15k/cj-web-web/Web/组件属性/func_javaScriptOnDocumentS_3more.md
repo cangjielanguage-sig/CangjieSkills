@@ -1,4 +1,4 @@
-### func javaScriptOnDocumentStart(Array\<ScriptItem>)
+﻿### func javaScriptOnDocumentStart(Array\<ScriptItem>)
 
 ```cangjie
 public func javaScriptOnDocumentStart(scripts: Array<ScriptItem>): This
@@ -34,7 +34,7 @@ public func javaScriptProxy(funcList!: Array<(String)->String>, name!: String, m
 > - javaScriptProxy接口需要和deleteJavaScriptRegister接口配合使用，防止内存泄漏。
 > - javaScriptProxy对象的所有参数不支持更新。
 > - 注册对象时，同步与异步方法列表请至少选择一项不为空，可同时注册两类方法。
-> - 此接口只支持注册一个对象，若需要注册多个对象请使用[registerJavaScriptProxy](../apis/ArkWeb/cj-apis-webview.md)。
+> - 此接口只支持注册一个对象，若需要注册多个对象请使用[registerJavaScriptProxy](../../../cj-apis-webview/.overview.md)。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
@@ -47,7 +47,7 @@ public func javaScriptProxy(funcList!: Array<(String)->String>, name!: String, m
 |funcList|Array\<(String)->String>|是|-| **命名参数。** 参与注册的应用侧JavaScript对象的同步方法。|
 |name|String|是|-| **命名参数。** 注册对象的名称，与window中调用的对象名一致。|
 |methodList|Array\<String>|是|-| **命名参数。** 参与注册的应用侧JavaScript对象的异步方法。|
-|controller|[WebviewController](../apis/ArkWeb/cj-apis-webview.md)|是|-| **命名参数。** 设置Web控制器|
+|controller|[WebviewController](../../../cj-apis-webview/.overview.md)|是|-| **命名参数。** 设置Web控制器|
 
 ### func keyboardAvoidMode(WebKeyboardAvoidMode)
 

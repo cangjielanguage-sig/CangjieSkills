@@ -1,4 +1,4 @@
-# 文本样式设置
+﻿# 文本样式设置
 
 针对包含文本元素的组件，设置文本样式。
 
@@ -108,7 +108,7 @@ public func fontFamily(value: AppResource): This
 
 | 名称|类型|必填|默认值|说明|
 |:---|:---|:--- |:---|:---|
-| value  | [AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource) | 是  | \- | 文本的字体列表。<br>**说明：** 使用多个字体，使用','进行分割，优先级按顺序生效。例如："Arial, sans-serif"。 |
+| value  | [AppResource](../../cj-apis-resource_manager/.overview.md) | 是  | \- | 文本的字体列表。<br>**说明：** 使用多个字体，使用','进行分割，优先级按顺序生效。例如："Arial, sans-serif"。 |
 
 ## func lineHeight(value: Length)
 

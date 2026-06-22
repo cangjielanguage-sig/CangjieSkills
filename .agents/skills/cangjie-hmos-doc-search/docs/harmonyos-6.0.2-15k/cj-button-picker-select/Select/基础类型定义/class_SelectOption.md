@@ -1,4 +1,4 @@
-### class SelectOption
+﻿### class SelectOption
 
 ```cangjie
 public class SelectOption {
@@ -85,7 +85,7 @@ public init(value: String, icon!: AppResource)
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |value|String|是|-|下拉选项内容。|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 下拉选项图标。|
+|icon|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 下拉选项图标。|
 
 #### init(AppResource, String)
 
@@ -103,7 +103,7 @@ public init(value: AppResource, icon!: String)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|下拉选项内容。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|下拉选项内容。|
 |icon|String|是|-| **命名参数。** 下拉选项图标。|
 
 #### init(AppResource, AppResource)
@@ -122,5 +122,5 @@ public init(value: AppResource, icon!: AppResource)
 
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
-|value|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-|下拉选项内容。|
-|icon|[AppResource](../apis/LocalizationKit/cj-apis-resource_manager.md#class-appresource)|是|-| **命名参数。** 下拉选项图标。|
+|value|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-|下拉选项内容。|
+|icon|[AppResource](../../../cj-apis-resource_manager/.overview.md)|是|-| **命名参数。** 下拉选项图标。|

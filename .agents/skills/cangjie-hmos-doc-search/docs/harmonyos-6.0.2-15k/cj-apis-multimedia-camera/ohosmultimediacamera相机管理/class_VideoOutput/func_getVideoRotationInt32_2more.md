@@ -1,4 +1,4 @@
-### func getVideoRotation(Int32)
+﻿### func getVideoRotation(Int32)
 
 ```cangjie
 public func getVideoRotation(deviceDegree: Int32): ImageRotation
@@ -28,7 +28,7 @@ public func getVideoRotation(deviceDegree: Int32): ImageRotation
 
 **异常：**
 
-- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../errorcodes/cj-errorcode-multimedia-camera.md)。
+- BusinessException：对应错误码的详细介绍请参见[Camera错误码](../../../cj-errorcode-multimedia-camera/cj-errorcode-multimedia-camera.md)。
 
   | 错误码ID         | 错误信息        |
   | :-------------- | :-------------- |
@@ -74,7 +74,7 @@ public func off(`type`: CameraCallbackType, callback: Callback0Argument): Unit
 |参数名|类型|必填|默认值|说明|
 |:---|:---|:---|:---|:---|
 |\`type\`|[CameraCallbackType](#enum-cameracallbacktype)|是|-|监听事件，必须为frameStart或frameEnd，videoOutput创建成功后可监听。|
-|callback|[Callback0Argument](../BasicServicesKit/cj-apis-base.md#class-callback0argument)|是|-|回调函数，取消对应callback。|
+|callback|[Callback0Argument](../../../cj-apis-base/.overview.md)|是|-|回调函数，取消对应callback。|
 
 **示例：**
 

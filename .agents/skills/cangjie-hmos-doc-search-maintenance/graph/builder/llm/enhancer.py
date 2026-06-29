@@ -24,9 +24,9 @@ import urllib.error
 from pathlib import Path
 from typing import Optional
 
-API_KEY = os.environ.get("DASHSCOPE_API_KEY", "xxx")
-API_BASE = os.environ.get("DASHSCOPE_API_BASE", "xxx")
-MODEL = "qwen3.6-plus"
+API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
+API_BASE = os.environ.get("DASHSCOPE_API_BASE", "")
+MODEL = os.environ.get("DASHSCOPE_MODEL", "qwen3.6-plus")
 MAX_BATCH_CHARS = 40000  # 单批次最大字符数，超出则分批
 LLM_TIMEOUT = 600  # 单次 LLM 调用超时（秒）
 
@@ -160,6 +160,9 @@ def _call_llm_sync(prompt: str, result_holder: dict) -> None:
     - error: 失败时为异常字符串
     自动剥离 ```json markdown 包装。
     """
+    if not API_KEY or not API_BASE:
+        result_holder["error"] = "缺少 DASHSCOPE_API_KEY 或 DASHSCOPE_API_BASE 环境变量（graph enhance 需 DashScope 兼容 LLM；可选 DASHSCOPE_MODEL 指定模型）"
+        return
     url = f"{API_BASE}/chat/completions"
     headers = {
         "Authorization": f"Bearer {API_KEY}",

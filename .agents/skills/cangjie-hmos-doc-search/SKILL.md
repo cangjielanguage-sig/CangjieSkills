@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-doc-search
-description: "鸿蒙仓颉开发文档检索，适用于仓颉鸿蒙开发 API 用法、开发指南、跨平台迁移对应、语义模糊问题定位或组合场景方案检索。"
+description: "鸿蒙仓颉开发文档检索，支持 card/graph/fusion 三引擎搜索。适用于仓颉鸿蒙开发 API 用法、开发指南、跨平台迁移对应、语义模糊问题定位或组合场景方案检索。精确 API 查询优先 card，语义/组合/跨生态优先 graph，日常用 fusion；fusion 命中不佳时可降级 --engine graph。"
 tags: [workflow, platform, search]
 ---
 
@@ -63,6 +63,8 @@ python unified_search.py "<query>" [options]
 
 场景指引：**默认用 fusion**；精确 API/构建报错 → `card`；需要纯图遍历（neighbors/path/god-nodes/community）→ `graph`；其余一律 fusion。
 
+**降级策略**：当 fusion 命中不佳（top-5 无相关结果或结果泛化）时，建议切换 `--engine graph` 单独搜索。graph 引擎在语义/组合/跨生态类查询上召回率更高（Recall@5 91.7% vs fusion 77.6%），fusion 的 card 结果可能挤占 graph 命中位导致召回下降。
+
 `--engine graph` 可附加子命令：`--cmd neighbors <node>` / `path <s> <t>` / `god-nodes [n]` / `community <id>` / `explain <node>`。
 
 > **Windows 注意**：PowerShell 会吞掉 `""` 空字符串参数，导致图遍历命令参数错位。已内置自动修正，调用时**无需传空 query**，直接 `--engine graph --cmd neighbors List` 即可。加 `--json` 可获取结构化输出。
@@ -72,6 +74,11 @@ python unified_search.py "<query>" [options]
 ## 步骤 3：结果解读
 
 输出字段：`label`（主题名）、`source_file`（相对路径）、`score`（分数，≥400 高度相关、200-400 较相关、<100 疑似噪声）、`engine`（来源引擎）。
+
+`engine` 标记含义：
+- `card+graph`：双引擎重叠命中，最高可信度
+- `graph`：仅图谱引擎命中，语义关联线索
+- `card`：仅卡片引擎命中，精确事实单一来源
 
 ## 步骤 4：读取原文
 

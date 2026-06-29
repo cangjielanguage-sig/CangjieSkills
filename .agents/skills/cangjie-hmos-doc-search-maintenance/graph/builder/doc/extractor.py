@@ -103,7 +103,7 @@ def infer_layer(rel_path: str) -> int:
     # 错误码 → L2
     if "errorcode" in path or "错误码" in rel_path:
         return 2
-    # 有 **功能：** 标记 → L2
+    # 其余 → L1（概念层权重更高，利于搜索召回；**功能：** 标记的文档也归 L1 以保持高排名）
     return 1
 
 
@@ -242,7 +242,7 @@ def detect_doc_type(rel_path: str, content: str) -> str:
         return "overview"
     if "errorcode" in path or "错误码" in rel_path:
         return "errorcode"
-    if any(x in path for x in ["Guide/", "Tutorial/"]):
+    if any(x in path for x in ["guide/", "tutorial/"]):
         return "guide"
     if any(prefix in path for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]):
         return "api"
@@ -275,43 +275,6 @@ def compute_node_id(rel_path: str, root_dir: Path, stem: str) -> str:
     return f"{category}_{namespace}_{doc_type}_{id_stem}".replace(" ", "_").lower()
 
 
-def _resolve_link_target(link_target: str, doc_path: Path, root_dir: Path) -> Optional[str]:
-    """解析 Markdown 链接目标为 root_dir 下的相对路径。
-    
-    策略：
-    1. 精确解析：doc_path.parent / link → resolve → relative_to(root_dir)
-    2. 模糊匹配：精确解析失败时，在同目录找 clean_filename 匹配的 .md 文件
-    """
-    target_file_raw = link_target.split("#")[0]
-    if not target_file_raw:
-        return None
-    stem = Path(target_file_raw).stem
-    if stem.startswith("."):
-        return None
-
-    root_resolved = root_dir.resolve()
-
-    # 策略 1：精确解析
-    target_path = (doc_path.parent / target_file_raw).resolve()
-    try:
-        target_rel = str(target_path.relative_to(root_resolved))
-        if target_path.is_file():
-            return target_rel
-    except ValueError:
-        pass
-
-    # 策略 2：模糊匹配 — 在同目录下找 clean_filename 匹配的 .md 文件
-    link_stem_clean = clean_filename(stem)
-    parent_dir = doc_path.parent
-    for candidate in parent_dir.iterdir():
-        if candidate.suffix == '.md' and not candidate.name.startswith("."):
-            if clean_filename(candidate.stem) == link_stem_clean:
-                try:
-                    return str(candidate.resolve().relative_to(root_resolved))
-                except ValueError:
-                    continue
-
-    return None
 
 
 def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, list[Edge]]]:
@@ -572,6 +535,7 @@ def extract_overview_nodes(overview_path: Path, root_dir: Path) -> tuple[list[Do
     category = infer_category(rel_path, root_dir.name)
     namespace = build_namespace(rel_path)
     dir_name = overview_path.parent.name
+    dir_path = overview_path.parent
 
     desc_text = content[:500]
     zh_chars = re.findall(r"[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef，。！？；：""''（）【】《》]", desc_text)
@@ -617,7 +581,6 @@ def extract_overview_nodes(overview_path: Path, root_dir: Path) -> tuple[list[Do
                     seen.add(child_id)
 
     # 基于目录结构自动建立 CONTAINS 边
-    dir_path = overview_path.parent
     for item in dir_path.iterdir():
         if item.name.startswith(".") or item.name == overview_path.name:
             continue

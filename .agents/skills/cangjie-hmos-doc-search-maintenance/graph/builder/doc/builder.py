@@ -154,7 +154,7 @@ def build_doc_graph(root_dir: Path, use_cache: bool = True) -> tuple[dict[str, D
         except Exception:
             continue
 
-        md_links = __import__("re").findall(r"\[([^\]]+)\]\(([^)]+)\)", content)
+        md_links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", content)
         for link_text, link_target in md_links:
             if not link_target.endswith(".md"):
                 continue

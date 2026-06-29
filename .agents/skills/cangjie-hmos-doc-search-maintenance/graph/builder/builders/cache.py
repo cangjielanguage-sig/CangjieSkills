@@ -36,14 +36,6 @@ def file_hash(path: Path, root: Path = Path("."), namespace: str = "") -> str:
     return h.hexdigest()
 
 
-def llm_cache_namespace(model: str = "", api_base: str = "", prompt_version: str = "") -> str:
-    return "|".join([
-        f"model={model or os.environ.get('OPENAI_MODEL', '')}",
-        f"api_base={api_base or os.environ.get('OPENAI_BASE_URL', '')}",
-        f"prompt_version={prompt_version or os.environ.get('GRAPHIFY_PROMPT_VERSION', 'semantic-llm-v2')}",
-    ])
-
-
 def cache_dir(root: Path = Path(".")) -> Path:
     d = Path(root).resolve() / "graphify-out" / "cache"
     d.mkdir(parents=True, exist_ok=True)

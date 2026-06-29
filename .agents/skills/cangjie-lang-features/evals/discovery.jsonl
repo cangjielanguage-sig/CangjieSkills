@@ -1,2 +1,0 @@
-{"id":"discover-option-pattern","input":"仓颉 Option 的 ?. 和 ?? 怎么用，match 需要穷举吗？","expected_skills":["cangjie-lang-features"],"forbidden_skills":[],"min_rank":3}
-{"id":"discover-generic-concurrency-cffi","input":"仓颉的泛型 where 约束、spawn 并发和 CFFI 怎么写？","expected_skills":["cangjie-lang-features"],"forbidden_skills":[],"min_rank":3}

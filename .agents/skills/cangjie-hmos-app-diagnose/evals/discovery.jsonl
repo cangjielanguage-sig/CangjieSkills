@@ -1,5 +1,0 @@
-{"id":"discover-white-screen","input":"构建成功后鸿蒙应用白屏，需要采集截图、控件树和 hilog 做运行诊断","expected_skills":["cangjie-hmos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
-{"id":"discover-runtime-log","input":"帮我抓一下鸿蒙应用的运行时 hilog 日志并结合 UI 状态诊断","expected_skills":["cangjie-hmos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
-{"id":"discover-crash","input":"鸿蒙应用运行时崩溃了，需要用截图、控件树和 hilog 分析原因","expected_skills":["cangjie-hmos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
-{"id":"discover-ui-health","input":"构建成功后验证一下鸿蒙 app 的界面表现是否正常","expected_skills":["cangjie-hmos-app-diagnose"],"forbidden_skills":[],"min_rank":3}
-{"id":"discover-anr","input":"构建成功后鸿蒙应用出现 ANR，需要抓 hilog 并结合截图和控件树诊断","expected_skills":["cangjie-hmos-app-diagnose"],"forbidden_skills":[],"min_rank":3}

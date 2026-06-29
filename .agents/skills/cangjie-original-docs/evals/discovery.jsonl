@@ -1,2 +1,0 @@
-{"id":"discover-raw-language-tools","input":"现有专题 Skill 没覆盖这个仓颉编译器细节，我要查原始语言文档和 cjc、cjpm 工具链手册。","expected_skills":["cangjie-original-docs"],"forbidden_skills":[],"min_rank":3}
-{"id":"discover-raw-library-definitions","input":"我需要核对仓颉 std 和 stdx 原始 API 文档中的完整定义。","expected_skills":["cangjie-original-docs"],"forbidden_skills":[],"min_rank":3}

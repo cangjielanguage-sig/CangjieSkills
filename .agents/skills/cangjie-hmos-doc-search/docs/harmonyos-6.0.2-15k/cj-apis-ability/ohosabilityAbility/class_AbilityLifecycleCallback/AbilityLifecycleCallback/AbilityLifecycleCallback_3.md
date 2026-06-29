@@ -1,3 +1,0 @@
-﻿re|?([UIAbility](#class-uiability), [WindowStage](../../../../cj-apis-window/.overview.md))->Unit|否|None| **命名参数。** 注册监听应用上下文的生命周期后，在Ability的onWindowStageRestore触发后回调。|
-|onAbilityWillSaveState|?([UIAbility](#class-uiability))->Unit|否|None| **命名参数。** 注册监听应用上下文的生命周期后，在Ability的onSaveState触发前回调。|
-|onAbilitySaveState|?([UIAbility](#class-uiability))->Unit|否|None| **命名参数。** 注册监听应用上下文的生命周期后，在Ability的onSaveState触发后回调。|

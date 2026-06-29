@@ -1,2 +1,0 @@
-{"id":"raw-language-and-tools-search","input":"专题文档不足时，如何在此 Skill 的原始文档中定位仓颉语言细节与 cjpm 工具链手册？请说明索引入口和搜索顺序。","expected_patterns":["kernel/index.md","tools/index.md","索引","关键词"],"min_score":0.7}
-{"id":"raw-std-and-stdx-indexes","input":"需要核对仓颉标准库与扩展标准库的原始 API 文档时，应从此 Skill 的哪些索引和目录开始？","expected_patterns":["std.md","stdx.md","std","libs_stdx"],"min_score":0.7}

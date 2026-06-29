@@ -1,3 +1,0 @@
-{"input":"我准备修复一个 Skill 的 lint 告警。请按 cangjie-skill-lint-fix 给出必须执行的顺序、报告目录和最终验收条件。","expected_patterns":["skill-lint","reports/lint","reports/eval","0 warnings"],"min_score":0.7}
-{"input":"如果当前机器没有 skill-lint 和 skill-eval，按此 Skill 应该安装哪个 release，并执行什么安装验证命令？","expected_patterns":["release-1.0.0","python -m pip install -e","skill-lint --help","skill-eval --help"],"min_score":0.7}
-{"input":"skill-lint 报 E-1 缺少 evals。请说明补用例后必须怎样用真实 agent 验证。","expected_patterns":["evals","skill-eval","agent-command","reports/eval"],"min_score":0.7}

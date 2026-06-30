@@ -40,7 +40,7 @@ sys.path.insert(0, str(GRAPH_DIR))
 from query import create_session
 
 sys.path.insert(0, str(CARD_DIR))
-from search_v3 import load_index, search_cards, hits_to_grouped, MODE_TYPES, TYPE_ID_KEY
+from search_v3 import load_index, search_cards, collect, hits_to_grouped, MODE_TYPES, TYPE_ID_KEY
 
 KEYWORDS_PATH = EVAL_DIR / "keywords_v7_prompt.json"
 DATASET_PATH = EVAL_DIR / "datasets" / "eval_queries_comprehensive_deduped.jsonl"
@@ -65,8 +65,8 @@ def load_queries(path=None):
 
 
 def norm(p):
-    """路径归一化：剥离顶层目录并统一为相对路径格式。"""
-    return _strip_top_dir(p).replace("\\", "/").strip("/")
+    """路径归一化：剥离顶层目录、统一斜杠、忽略大小写。"""
+    return _strip_top_dir(p).replace("\\", "/").strip("/").lower()
 
 
 def check_hit(direct_paths, related_paths, acceptable):
@@ -97,30 +97,9 @@ def compute_mrr(direct_paths, related_paths, acceptable):
 
 
 def run_card_search(card_index, query_str, limit=5):
-    """V3 卡片搜索：对四种卡片类型（task/api/example/doc）分别搜索，
-    合并去重后返回结果。用于评测 card 引擎的纯搜索能力。"""
-    all_hits = {}
-    for ct in ("task", "api", "example", "doc"):
-        all_hits[ct] = search_cards(card_index["db"], query_str, MODE_TYPES[ct], limit)
-
-    sections = {}
-    paths = []
-    for ct, hits in all_hits.items():
-        id_key = TYPE_ID_KEY[ct]
-        grouped = hits_to_grouped(hits, ct, id_key, limit)
-        sections[ct] = grouped
-        for item in grouped:
-            for p in item.get("paths", []):
-                if p not in paths:
-                    paths.append(p)
-
-    return {
-        "tasks": sections.get("task", []),
-        "apis": sections.get("api", []),
-        "examples": sections.get("example", []),
-        "docs": sections.get("doc", []),
-        "paths": paths[:limit * 4],
-    }
+    """V3 卡片搜索：使用完整的 collect() 管线（understanding + expand + rerank）。"""
+    result = collect(card_index, query_str, "auto", limit, understanding_mode="rule")
+    return result
 
 
 def run_graph_search(session, query_str, limit=5):

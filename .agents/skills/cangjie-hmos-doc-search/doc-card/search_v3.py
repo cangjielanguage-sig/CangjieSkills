@@ -459,21 +459,21 @@ def expand_query_for_understanding(query: str, aliases: dict[str, list[str]], un
 
 
 def tokenize_query(query: str) -> str:
-    """将查询分词为 SQLite FTS5 MATCH 表达式 — 中文逐字分词，英文保留完整标识符。
+    """将查询分词为 SQLite FTS5 MATCH 表达式 — 中文作为 FTS5 短语查询，英文保留完整标识符。
 
-    输出格式：各词元用 OR 连接，每个词元用双引号包裹。
-    例："List 列表" → '"List" OR "列" OR "表"'
+    中文连续词被转为空格分隔的 FTS5 短语（匹配 spaced_cjk 索引），
+    英文标识符和数字保留原样。
+    例："List 列表" → '"List" OR "列 表"'
     """
     import re
 
     tokens = re.findall(r"[A-Za-z_][A-Za-z0-9_.-]*|[\u3400-\u4dbf\u4e00-\u9fff]+|[0-9]+", query)
     parts: list[str] = []
     for token in tokens:
-        for char in token:
-            if "\u3400" <= char <= "\u9fff":
-                parts.append(char)
         if token.isascii():
             parts.append(token)
+        else:
+            parts.append(" ".join(token))
     parts = list(dict.fromkeys(part for part in parts if part.strip()))
     return " OR ".join(f'"{part}"' for part in parts)
 

@@ -37,6 +37,10 @@ def safe_read_text(path: Path) -> str:
 TITLE_STOP_ZH = {
     "注意事项", "示例", "示例代码", "运行结果", "说明", "备注", "相关文档", "参见",
     "导入模块", "权限列表", "使用说明", "通用属性", "通用事件", "创建组件", "参数", "返回值",
+    # 中文泛化词 — 高频低区分度，作为关键词会淹没专有词信号
+    "概览", "概述", "介绍", "使用方法", "使用方式", "配置", "功能介绍", "功能描述",
+    "支持", "接口", "事件", "属性", "类型", "定义", "模块", "应用程序", "开发",
+    "使用", "方法", "组件",
 }
 TITLE_STOP_EN = {
     "example", "note", "see also", "output", "result", "import", "permission",
@@ -226,10 +230,12 @@ def extract_keywords(content: str, doc_type: str, rel_path: str, label: str) -> 
         ns = build_namespace(rel_path)
         keywords_en.extend(ns.split("_"))
 
-    # 去重 + 停词过滤
+    # 去重 + 停词过滤（含领域泛化词）
     keywords_zh = list(dict.fromkeys(k for k in keywords_zh if k not in TITLE_STOP_ZH))[:15]
-    # 保留 @ 符号，不转小写（@State 保持原样）
-    keywords_en = list(dict.fromkeys(k for k in keywords_en if k.lower() not in TITLE_STOP_EN and len(k) >= 3))[:15]
+    keywords_en = list(dict.fromkeys(
+        k for k in keywords_en
+        if k.lower() not in TITLE_STOP_EN and k.lower() not in EN_STOP_WORDS and len(k) >= 3
+    ))[:15]
 
     return keywords_zh, keywords_en
 
@@ -472,6 +478,12 @@ EN_STOP_WORDS = {
     "commercial", "industrial", "technical", "digital", "electronic", "virtual",
     "internal", "external", "external", "outside", "inside", "above", "below",
     "around", "back", "forward", "away", "down", "up", "off", "on", "in",
+    # 领域泛化词 — 高频低区分度，在几乎所有文档中出现，需从关键词中剔除
+    "cangjie", "harmonyos", "arkui", "arkts", "api", "apis", "ohos",
+    "class", "enum", "func", "struct", "interface", "type", "prop",
+    "ui", "web", "to", "get", "put", "run", "init",
+    "module", "component", "kit", "sdk", "application", "package",
+    "int", "string", "array", "length", "start", "end",
 }
 
 

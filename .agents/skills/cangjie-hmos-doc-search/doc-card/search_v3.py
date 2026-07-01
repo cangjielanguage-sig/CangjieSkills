@@ -459,13 +459,14 @@ def expand_query_for_understanding(query: str, aliases: dict[str, list[str]], un
 
 
 def tokenize_query(query: str) -> str:
-    """将查询分词为 SQLite FTS5 MATCH 表达式 — 中文作为 FTS5 短语查询，英文保留完整标识符。
+    """将查询分词为 SQLite FTS5 MATCH 表达式。
 
-    中文连续词被转为空格分隔的 FTS5 短语（匹配 spaced_cjk 索引），
+    使用 jieba 对中文段做词切分，再在词内生成 bigram 短语查询（匹配 spaced_cjk 逐字索引）。
     英文标识符和数字保留原样。
-    例："List 列表" → '"List" OR "列 表"'
+    例："List 列表滑动" → '"List" OR "列 表" OR "滑 动"'
     """
     import re
+    import jieba as _jieba
 
     tokens = re.findall(r"[A-Za-z_][A-Za-z0-9_.-]*|[\u3400-\u4dbf\u4e00-\u9fff]+|[0-9]+", query)
     parts: list[str] = []
@@ -473,7 +474,20 @@ def tokenize_query(query: str) -> str:
         if token.isascii():
             parts.append(token)
         else:
-            parts.append(" ".join(token))
+            words = _jieba.lcut(token)
+            for word in words:
+                chars = list(word)
+                n = len(chars)
+                if n == 0:
+                    continue
+                if n == 1:
+                    parts.append(chars[0])
+                elif n == 2:
+                    parts.append(f"{chars[0]} {chars[1]}")
+                else:
+                    for i in range(n - 1):
+                        parts.append(f"{chars[i]} {chars[i+1]}")
+                    parts.append(" ".join(chars))
     parts = list(dict.fromkeys(part for part in parts if part.strip()))
     return " OR ".join(f'"{part}"' for part in parts)
 
@@ -982,6 +996,9 @@ def rerank_score(understanding: dict, item: dict, card_type: str) -> float:
         score += 5.0
     score += path_intent_bonus(lowered_query, metadata, card_type)
     score += float(metadata.get("priority", 0.0))
+    paths = metadata.get("source_paths", [])
+    if paths and all(".abstract" in p for p in paths):
+        score -= 50
     return round(score, 3)
 
 

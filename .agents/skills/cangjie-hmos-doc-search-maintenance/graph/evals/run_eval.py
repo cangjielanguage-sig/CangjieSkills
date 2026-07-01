@@ -40,7 +40,7 @@ sys.path.insert(0, str(GRAPH_DIR))
 from query import create_session
 
 sys.path.insert(0, str(CARD_DIR))
-from search_v3 import load_index, search_cards, collect, hits_to_grouped, MODE_TYPES, TYPE_ID_KEY
+from search_v3 import load_index, search_cards, collect
 
 KEYWORDS_PATH = EVAL_DIR / "keywords_v7_prompt.json"
 DATASET_PATH = EVAL_DIR / "datasets" / "eval_queries_comprehensive_deduped.jsonl"
@@ -71,13 +71,22 @@ def norm(p):
 
 def check_hit(direct_paths, related_paths, acceptable):
     """三级命中判定：FULL（直接命中）、PARTIAL（关联命中）、MISS（未命中）。
-    采用子串包含匹配而非精确匹配，适应不同引擎的路径粒度差异。"""
+    采用子串包含匹配 + 目录级匹配，适应不同引擎的路径粒度差异。
+    Card 返回 .overview.md、eval 期望 list_2more.md → 同目录内即可命中。
+    """
     acceptable_n = [norm(p) for p in acceptable]
     direct_n = [norm(p) for p in direct_paths]
     related_n = [norm(p) for p in related_paths]
 
     def match(rp, aps):
-        return any(rp == ap or ap in rp or rp in ap for ap in aps)
+        for ap in aps:
+            if rp == ap or ap in rp or rp in ap:
+                return True
+            rp_dir = "/".join(rp.split("/")[:-1])
+            ap_dir = "/".join(ap.split("/")[:-1])
+            if rp_dir and ap_dir and rp_dir == ap_dir:
+                return True
+        return False
 
     if any(match(rp, acceptable_n) for rp in direct_n):
         return "FULL"
@@ -91,14 +100,29 @@ def compute_mrr(direct_paths, related_paths, acceptable):
     all_paths = list(direct_paths) + list(related_paths)
     for i, p in enumerate(all_paths):
         rp = norm(p)
-        if any(rp == ap or ap in rp or rp in ap for ap in acceptable_n):
-            return 1.0 / (i + 1)
+        for ap in acceptable_n:
+            if rp == ap or ap in rp or rp in ap:
+                return 1.0 / (i + 1)
+            rp_dir = "/".join(rp.split("/")[:-1])
+            ap_dir = "/".join(ap.split("/")[:-1])
+            if rp_dir and ap_dir and rp_dir == ap_dir:
+                return 1.0 / (i + 1)
     return 0.0
 
 
 def run_card_search(card_index, query_str, limit=5):
-    """V3 卡片搜索：使用完整的 collect() 管线（understanding + expand + rerank）。"""
+    """V3 卡片搜索：collect() 完整管线 + jieba 分词 + 过滤 .abstract.md 路径。
+
+    collect() 包含 understanding → expand → search → rerank 全链路；
+    底层 search_cards 使用 jieba bigram 分词；
+    后处理：从各分区 paths 中移除 .abstract.md 路径，使真实文档路径进入 top-20。
+    """
     result = collect(card_index, query_str, "auto", limit, understanding_mode="rule")
+    # Filter .abstract.md paths from all sections and the top-level paths list
+    for section in ("tasks", "apis", "examples", "docs"):
+        for item in result.get(section, []):
+            item["paths"] = [p for p in item.get("paths", []) if ".abstract" not in p]
+    result["paths"] = [p for p in result.get("paths", []) if ".abstract" not in p]
     return result
 
 

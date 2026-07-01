@@ -1,23 +1,3 @@
-﻿# Faultlogger 错误码
-
-> **说明：**
->
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](../)。
-
-## 10600001 服务未启动或故障
-
-**错误信息**
-
-The service is not started or is faulty.
-
-**错误描述**
-
-服务未启动或者遇到未知错误。
-
-**可能原因**
-
-hiview服务未启动。
-
-**处理步骤**
-
-不应该发生的场景，考虑重试。
+version https://git-lfs.github.com/spec/v1
+oid sha256:ef07812168daf0137be30cc49fb627078d7a020d5811004399bb1e214af50343
+size 441

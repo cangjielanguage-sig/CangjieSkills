@@ -1,7 +1,3 @@
-# Button
-
-按钮组件，可快速创建不同样式的按钮。
-
-## 子组件
-
-可以包含单个子组件。
+version https://git-lfs.github.com/spec/v1
+oid sha256:a41468b7d07ac69c58bb218195879441f1897a28c7bd11c4a0bb81ce7ecf2582
+size 116

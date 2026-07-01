@@ -1,13 +1,3 @@
-### static const HUKS_KEY_PURPOSE_WRAP
-
-```cangjie
-public static const HUKS_KEY_PURPOSE_WRAP: HuksParamValue = HuksParamValue.uint32(32)
-```
-
-**功能：** 表示密钥用于加密导出。
-
-**系统能力：** SystemCapability.Security.Huks.Extension
-
-**类型：** [HuksParamValue](#enum-huksparamvalue)
-
-**起始版本：** 15
+version https://git-lfs.github.com/spec/v1
+oid sha256:6c42dbe88441544350fb737a4f7a4aa8d45e95892545562d0c7717147e82051c
+size 341

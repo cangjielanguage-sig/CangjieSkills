@@ -1,29 +1,3 @@
-## struct JSUndefined
-
-```cangjie
-public struct JSUndefined {}
-```
-
-**功能：** ArkTS null。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Napi
-
-**起始版本：** 13
-
-### func toJSValue()
-
-```cangjie
-public func toJSValue(): JSValue
-```
-
-**功能：** 转换为 JSValue 。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Napi
-
-**起始版本：** 13
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|[JSValue](#struct-jsvalue)|ArkTS 统一类型。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:6ce8b305678ad0ddb9777dc69a7c47055ffef9ec5765c540d8619b7e159e42b7
+size 489

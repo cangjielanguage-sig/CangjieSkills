@@ -1,15 +1,3 @@
-### var primaryButton
-
-```cangjie
-public var primaryButton: AlertDialogButtonOptions = AlertDialogButtonOptions()
-```
-
-**功能：** 确认Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。
-
-**类型：** [AlertDialogButtonOptions](cj-dialog-alertdialog.md#class-alertdialogbuttonoptions)
-
-**读写能力：** 可读写
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
+version https://git-lfs.github.com/spec/v1
+oid sha256:c8d6c5adeb84dbc156920a0bdd61d4c29e30c0def31f85e5caa4f5ce4d404e0d
+size 476

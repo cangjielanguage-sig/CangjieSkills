@@ -1,11 +1,3 @@
-### static const WRITE_TO_ASHMEM_ERROR
-
-```cangjie
-public static const WRITE_TO_ASHMEM_ERROR: Int32 = 1900003
-```
-
-**功能：** 向共享内存写数据失败。
-
-**类型：** Int32
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:559874a896fa5d1cb5fcb6003bd997a7bdddaec4ec32e105a3d225cc7a2051a0
+size 217

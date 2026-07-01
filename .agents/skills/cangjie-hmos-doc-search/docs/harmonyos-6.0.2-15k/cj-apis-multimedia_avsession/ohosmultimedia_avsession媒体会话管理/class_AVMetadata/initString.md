@@ -1,17 +1,3 @@
-### init(String)
-
-```cangjie
-public init(assetId: String)
-```
-
-**功能：** [AVMetadata](#class-avmetadata)构造函数。
-
-**系统能力：** SystemCapability.Multimedia.AVSession.Core
-
-**起始版本：** 19
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|assetId|String|是|-|体ID。歌曲的唯一标识，由应用自定义。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:ee3078efad5e53916d10ed5734a38239e93167a4eeec6271c3493131dd0b48ee
+size 390

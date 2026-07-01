@@ -1,19 +1,3 @@
-## type IDeliveryShortMessageCallback
-
-```cangjie
-public type IDeliveryShortMessageCallback = (Array<Int32>) -> Unit
-```
-
-**功能：** 回调实例，返回短信送达报告。[IDeliveryShortMessageCallback](#type-ideliveryshortmessagecallback)是(Array\<Int32>) -> Unit类型的别名。
-
-**起始版本：** 19
-
-## type ISendShortMessageCallback
-
-```cangjie
-public type ISendShortMessageCallback = (SendSmsResult) -> Unit
-```
-
-**功能：** 回调实例。[ISendShortMessageCallback](#type-isendshortmessagecallback)是([SendSmsResult](#enum-sendsmsresult)) -> Unit类型的别名。
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:88990bea5ed757066935ad1962c575acbd46b55539539407b54aa560681dc9f4
+size 629

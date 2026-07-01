@@ -1,17 +1,3 @@
-### static func closeCustomDialog(Int32)
-
-```cangjie
-public static func closeCustomDialog(dialogId: Int32): Unit
-```
-
-**功能：** 关闭自定义弹窗。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|dialogId|Int32|是|-|openCustomDialog返回的对话框id。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:a8d683b04cf7fe4e0d9ae66e305baded4743ddc51935e70364d9ad70f834903a
+size 400

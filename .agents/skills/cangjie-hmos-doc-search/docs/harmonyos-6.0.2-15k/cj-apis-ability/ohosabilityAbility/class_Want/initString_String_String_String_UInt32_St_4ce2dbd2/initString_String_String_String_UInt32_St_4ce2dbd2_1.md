@@ -1,24 +1,3 @@
-### init(String, String, String, String, UInt32, String, String, Array\<String>, String, String)
-
-```cangjie
-public init(
-    deviceId!: String = "",
-    bundleName!: String = "",
-    abilityName!: String = "",
-    moduleName!: String = "",
-    flags!: UInt32 = 0,
-    uri!: String = "",
-    action!: String = "",
-    entities!: Array<String> = [],
-    `type`!: String = "",
-    parameters!: String = ""
-)
-```
-
-**功能：** Want的构造函数。
-
-**系统能力：** SystemCapability.Ability.AbilityBase
-
-**起始版本：** 12
-
-**参数：**
+version https://git-lfs.github.com/spec/v1
+oid sha256:8b5b4a000c14bff7cf34c9f31973cd983d61c1701cb37d411816e93b134359a6
+size 567

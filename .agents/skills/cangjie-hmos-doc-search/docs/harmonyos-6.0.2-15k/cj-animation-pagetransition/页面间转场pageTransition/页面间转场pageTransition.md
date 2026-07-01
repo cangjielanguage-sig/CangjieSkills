@@ -1,7 +1,3 @@
-﻿# 页面间转场（pageTransition）
-
-当路由进行切换时，可以通过在pageTransition函数中自定义页面入场和页面退场的转场动效。
-
-> **说明：**
->
-> 为了实现更好的转场效果，推荐使用Navigation组件和[模态转场](../../cj-modal-transition/.overview.md)。
+version https://git-lfs.github.com/spec/v1
+oid sha256:05e827966261da41c7e79c6548bf3ab5eaa2e02a51ee92b7a129e9bb83324cce
+size 313

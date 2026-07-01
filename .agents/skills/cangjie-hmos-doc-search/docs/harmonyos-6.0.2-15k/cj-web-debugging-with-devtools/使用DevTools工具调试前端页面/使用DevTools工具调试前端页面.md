@@ -1,3 +1,3 @@
-﻿# 使用DevTools工具调试前端页面
-
-Web组件支持使用DevTools工具调试前端页面。DevTools是一个Web前端开发调试工具，提供了电脑上调试移动设备前端页面的能力。开发者通过[setWebDebuggingAccess()](../../cj-apis-webview/.overview.md)接口开启Web组件前端页面调试能力，利用DevTools工具可以在电脑上调试移动设备上的前端网页，设备需为4.1.0及以上版本。
+version https://git-lfs.github.com/spec/v1
+oid sha256:89b8861bb14eda6b5a13a82de6a2d5794ee9ff1bc02d01ec5c02576933904bb9
+size 446

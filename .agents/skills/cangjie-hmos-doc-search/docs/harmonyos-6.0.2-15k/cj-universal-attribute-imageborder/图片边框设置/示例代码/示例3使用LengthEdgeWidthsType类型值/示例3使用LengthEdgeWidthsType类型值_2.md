@@ -1,20 +1,3 @@
-Row {
-                    Flex(FlexParams(justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center)) {
-                        Text("borderImageFill:${this.FillValue} ")
-                        Toggle(ToggleType.SwitchType, isOn: this.FillValue).selectedColor(0x39a2db).switchPointColor(
-                            0xe5ffffff).onChange(
-                            {
-                                isOn: Bool =>
-                                this.FillValue = !this.FillValue
-                                nativeLog("Component status: ${isOn}")
-                            }
-                        )
-                    }
-                }
-            }.width(100.percent)
-        }.height(100.percent)
-    }
-}
-```
-
-![border_image](./figures/border_image3.png)
+version https://git-lfs.github.com/spec/v1
+oid sha256:f47bb5ea7e32dce7d0120a7e94327efa38516937fe2697686999213b2fd1cec8
+size 791

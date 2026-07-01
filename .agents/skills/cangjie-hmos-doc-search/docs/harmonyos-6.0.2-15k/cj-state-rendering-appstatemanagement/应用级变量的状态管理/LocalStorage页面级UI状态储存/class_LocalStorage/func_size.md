@@ -1,25 +1,3 @@
-#### func size()
-
-```cangjie
-public func size(): Int64
-```
-
-**功能：** 返回LocalStorage中的属性数量。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|Int64|LocalStorage中属性的数量。|
-
-**示例：**
-
-```cangjie
-let storage = LocalStorage()
-let tmp = storage.setOrCreate("PropA", 47)
-let size = storage.size()
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:e6394952bb10fd7cea49958ddcc73a5b44cb44ee5793c8919510cbab692b830c
+size 436

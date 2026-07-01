@@ -1,25 +1,3 @@
-## hnpPackages标签
-
-该标签标识应用包含的Native软件包信息。
-
-**表21** hnpPackages标签说明
-
-| 属性名称 | 含义 | 数据类型 | 是否可缺省 |
-| -------- | -------- | -------- | -------- |
-| package | 标识Native软件包名称。 | 字符串 | 该标签不可缺省。 |
-| type | 标识Native软件包类型。支持的取值如下：<br/>-&nbsp;public：公有类型。<br/>-&nbsp;private：私有类型。  | 字符串 | 该标签不可缺省。 |
-
-hnpPackages示例：
-
-```json
-{
-  "module" : {
-    "hnpPackages": [
-      {
-        "package": "hnpsample.hnp",
-        "type": "public"
-      }
-    ]
-  }
-}
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:3ae98223e998ce362ddcc827debbb219fce2c4dfa1cc371e34737bd26f1b71e4
+size 666

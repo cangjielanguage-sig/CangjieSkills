@@ -1,5 +1,3 @@
-**功能：** 本结构体提供了系统公共事件的管理能力。系统公共事件是指由系统服务或系统应用发布的事件，订阅这些公共事件需要特定的权限、使用相应的值。
-
-**系统能力：** SystemCapability.Notification.CommonEvent
-
-**起始版本：** 12
+version https://git-lfs.github.com/spec/v1
+oid sha256:d0b55b5fa74bb0880056c1add932820f32728754961c3a428d799148064099fb
+size 303

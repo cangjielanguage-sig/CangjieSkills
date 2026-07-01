@@ -1,15 +1,3 @@
-﻿# Hyperlink
-
-超链接组件，组件宽高范围内点击实现跳转
-
-> **说明：**
->
-> 该组件仅支持与系统浏览器配合使用。
-
-## 需要权限
-
-跳转的目标应用使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](../../cj-declare-permissions/.overview.md)。
-
-## 子组件
-
-支持包含[Image](cj-image-video-image.md)子组件。
+version https://git-lfs.github.com/spec/v1
+oid sha256:2aa5173f08b0d54c36722a04a82d01d53d56586d5e6b1bc6a254967a724b6f58
+size 422

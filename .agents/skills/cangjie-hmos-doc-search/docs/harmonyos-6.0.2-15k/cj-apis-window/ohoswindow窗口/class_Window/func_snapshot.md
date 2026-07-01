@@ -1,25 +1,3 @@
-﻿### func snapshot()
-
-```cangjie
-public func snapshot(): PixelMap
-```
-
-**功能：** 获取窗口截图，使用callback异步回调。
-
-**系统能力：** SystemCapability.WindowManager.WindowManager.Core
-
-**起始版本：** 12
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|[PixelMap](../../../cj-apis-image/.overview.md)|返回当前窗口截图。|
-
-**异常：**
-
-- BusinessException：对应错误码的详细介绍请参见[窗口错误码](../../../cj-errorcode-window/cj-errorcode-window.md)。
-
-  |错误码ID|错误信息|
-  |:---|:---|
-  |1300002|[Window] snapshot: This window state is abnormal.|
+version https://git-lfs.github.com/spec/v1
+oid sha256:a873e51c2a3b8739352bcb11aca38791d5267eb72af013c6cf91b76771b86491
+size 640

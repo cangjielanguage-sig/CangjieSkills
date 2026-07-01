@@ -1,1 +1,3 @@
-如表中最后一行所示，为了兼容由密钥参数生成的密钥，RSA签名验签参数输入密钥类型时支持不带长度，签名验签运算取决于实际输入的密钥长度。
+version https://git-lfs.github.com/spec/v1
+oid sha256:921ac8a05f19a445013a48ab285591875b01a6f49df9a84a46f08828d42a7209
+size 195

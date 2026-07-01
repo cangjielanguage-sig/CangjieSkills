@@ -1,17 +1,3 @@
-### func onWillDisappear(() -> Unit)
-
-```cangjie
-public func onWillDisappear(callback: ()->Unit): This
-```
-
-**功能：** 当该Destination卸载之前触发的生命周期(有转场动画时，在转场动画开始之前触发)。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 20
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|callback|() -> Unit|是|-|回调函数，当该Destination卸载之前触发此回调。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:636a6654ad06422c6b524752d8160f6f16feb67d1c79be29116f6462b9157f6c
+size 503

@@ -1,27 +1,3 @@
-### static const SYNC_TYPE
-
-```cangjie
-public static const SYNC_TYPE: UInt32 = AssetTagType.NUMBER | 0x10
-```
-
-**功能：** 关键资产支持的同步类型。
-
-**系统能力：** SystemCapability.Security.Asset
-
-**类型：** UInt32
-
-**起始版本：** 19
-
-### static const UPDATE_TIME
-
-```cangjie
-public static const UPDATE_TIME: UInt32 = AssetTagType.BYTES | 0x45
-```
-
-**功能：** 数据的更新时间（时间戳形式）。
-
-**系统能力：** SystemCapability.Security.Asset
-
-**类型：** UInt32
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:75a118a22d25ab7feb77d2b3767de6a386313b7417e543f282b36e7864dac77c
+size 560

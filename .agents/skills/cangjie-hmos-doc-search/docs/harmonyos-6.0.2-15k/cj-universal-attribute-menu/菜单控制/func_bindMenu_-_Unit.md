@@ -1,17 +1,3 @@
-﻿## func bindMenu(() -> Unit)
-
-```cangjie
-public func bindMenu(builder!: () -> Unit): This
-```
-
-**功能：** 给组件绑定菜单，点击后弹出菜单。弹出菜单项支持图标+文本排列和自定义两种功能。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|builder|() -> Unit|是|\-| **命名参数。** 自定义UI描述。使用时结合[@Builder](../../cj-macro-builder/.overview.md)使用。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbcf624620733767e082ca502155e74fc46667a9fce02989a593a311d0f55173
+size 549

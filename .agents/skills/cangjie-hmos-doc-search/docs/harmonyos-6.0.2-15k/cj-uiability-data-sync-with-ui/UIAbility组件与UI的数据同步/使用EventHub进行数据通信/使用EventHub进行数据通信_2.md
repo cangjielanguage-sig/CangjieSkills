@@ -1,12 +1,3 @@
-```cangjie
-    import kit.AbilityKit.UIAbility
-
-    class MainAbility <: UIAbility {
-        // ...
-        public override func onDestroy(): Unit {
-            this.context.eventhub.get0("event0").off()
-            this.context.eventhub.get1<String>("event1").off()
-            this.context.eventhub.get2<String, String>("event2").off()
-        }
-    }
-    ```
+version https://git-lfs.github.com/spec/v1
+oid sha256:3a445f5e808adde176a17ba72e1bbf9892b91290b6aa9ef1c74340d5c4447c25
+size 372

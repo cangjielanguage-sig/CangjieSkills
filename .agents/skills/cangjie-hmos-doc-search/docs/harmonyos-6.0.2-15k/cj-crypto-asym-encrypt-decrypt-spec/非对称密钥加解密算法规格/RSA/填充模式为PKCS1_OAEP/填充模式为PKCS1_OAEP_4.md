@@ -1,1 +1,3 @@
-如表中最后一行所示，为了兼容由密钥参数生成的密钥，RSA加解密参数输入密钥类型时支持不带长度，加解密运算取决于实际输入的密钥长度。
+version https://git-lfs.github.com/spec/v1
+oid sha256:5a4d2e4435cb26168044af5d87f0bcc19bb3737647c1b6903b73ef135a7ac9ca
+size 189

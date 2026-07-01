@@ -1,9 +1,3 @@
-### WORK_SCHEDULER
-
-```cangjie
-WORK_SCHEDULER
-```
-
-**功能：** 延时任务扩展能力，允许应用在系统闲时执行实时性不高的任务。
-
-**起始版本：** 12
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f44ca8b0bc6fdaa1120ca30235da27747b654d126cae9c8a4020f0d3aec8895
+size 184

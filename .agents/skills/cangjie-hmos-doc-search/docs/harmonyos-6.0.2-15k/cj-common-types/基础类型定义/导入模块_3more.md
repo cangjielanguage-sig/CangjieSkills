@@ -1,29 +1,3 @@
-## 导入模块
-
-```cangjie
-import kit.UIKit.*
-```
-
-## interface Length
-
-```cangjie
-public interface Length
-```
-
-**功能：** Float64、Int64、AppResource 均实现了 Length 接口类型。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-## interface ResourceColor
-
-```cangjie
-public interface ResourceColor
-```
-
-**功能：** Color、UInt32、Int64、AppResource 均实现了 ResourceColor 接口类型。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
+version https://git-lfs.github.com/spec/v1
+oid sha256:50452fbd69ceaffa9e7a62910cdbcafb8457c4950e1897817de21e8863e1f59f
+size 548

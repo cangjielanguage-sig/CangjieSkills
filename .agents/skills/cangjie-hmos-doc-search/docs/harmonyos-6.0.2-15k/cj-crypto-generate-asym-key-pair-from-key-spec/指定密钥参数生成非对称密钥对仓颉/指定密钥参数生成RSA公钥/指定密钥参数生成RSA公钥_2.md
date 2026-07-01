@@ -1,16 +1,3 @@
-func rsaUsePubKeySpecGet() {
-    let rsaPubKeySpec = genRsa2048PubKeySpec()
-    let rsaGeneratorSpec = createAsyKeyGeneratorBySpec(rsaPubKeySpec)
-    try {
-        let pubKey = rsaGeneratorSpec.generatePubKey()
-        let nBN = pubKey.getAsyKeySpec(AsyKeySpecItem.RSA_N_BN)
-        let eBN = pubKey.getAsyKeySpec(AsyKeySpecItem.RSA_PK_BN)
-        if (compareRsaPubKeyBySpec(rsaPubKeySpec, nBN, eBN) != true) {
-            AppLog.error('error pub key big number')
-        }
-        AppLog.info('n, e in the pubKey are same as the spec.')
-    } catch (e: BusinessException) {
-        AppLog.error("get pub key result fail, ${e.code}, ${e.message}")
-    }
-}
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:94302bec5fdda5b865e2cf4281d2994eaacafb8a94c9481e2e23a75d887909b9
+size 674

@@ -1,5 +1,3 @@
-## extensionAbilities标签
-
-描述extensionAbilities的配置信息，标签值为数组类型，该标签下的配置只对当前extensionAbilities生效。
-
-**表9** extensionAbilities标签说明
+version https://git-lfs.github.com/spec/v1
+oid sha256:ba9fa0988e1f2a4a077fb2ba14a8b2903963b18b77c2018cd3a5a6288082dca9
+size 203

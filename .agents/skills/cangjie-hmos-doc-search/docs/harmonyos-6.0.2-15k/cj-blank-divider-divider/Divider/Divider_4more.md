@@ -1,27 +1,3 @@
-# Divider
-
-提供分隔器组件，分隔不同内容块/内容元素。
-
-## 子组件
-
-无
-
-## 创建组件
-
-### init()
-
-```cangjie
-public init()
-```
-
-**功能：** 创建一个分隔器组件。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-## 通用属性/通用事件
-
-通用属性：全部支持。
-
-通用事件：全部支持。
+version https://git-lfs.github.com/spec/v1
+oid sha256:9a5011f9431aa513b472b2f1faaf6b1a4220e4781e7ae11637d8abb8e4f66e95
+size 395

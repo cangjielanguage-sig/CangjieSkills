@@ -1,15 +1,3 @@
-### var secondaryButton
-
-```cangjie
-public var secondaryButton: AlertDialogButtonOptions = AlertDialogButtonOptions()
-```
-
-**功能：** 确认Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。
-
-**类型：** [AlertDialogButtonOptions](cj-dialog-alertdialog.md#class-alertdialogbuttonoptions)
-
-**读写能力：** 可读写
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
+version https://git-lfs.github.com/spec/v1
+oid sha256:dd0760abd2e9a1b621dfc4b1f94bafdf4b66100bdca1edf4d68d3b7c900b9311
+size 480

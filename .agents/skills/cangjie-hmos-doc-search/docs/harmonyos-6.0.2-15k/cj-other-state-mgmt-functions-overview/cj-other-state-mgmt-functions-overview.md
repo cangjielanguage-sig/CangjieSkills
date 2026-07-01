@@ -1,5 +1,3 @@
-# 其他状态管理概述
-
-除了前面章节提到的组件状态管理和应用状态管理，仓颉UI还提供了@Watch来为开发者提供更多功能：
-
-- [@Watch](./cj-macro-watch.md)：用于监听状态变量的变化。
+version https://git-lfs.github.com/spec/v1
+oid sha256:1450211253713d46b633202032b0a009d2a074cddb88635513148a49e705a574
+size 237

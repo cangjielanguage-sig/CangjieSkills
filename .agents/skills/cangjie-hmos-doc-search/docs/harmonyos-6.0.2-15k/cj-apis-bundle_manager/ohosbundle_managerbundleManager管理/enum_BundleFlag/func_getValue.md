@@ -1,17 +1,3 @@
-### func getValue()
-
-```cangjie
-public func getValue(): Int32
-```
-
-**功能：** 获取枚举的值。
-
-**系统能力：** SystemCapability.BundleManager.BundleFramework.Core
-
-**起始版本：** 12
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|Int32|枚举的值。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:2e47b30acfe40194dd89ec19ba8ba01c1f754c9dec5fff7573fb510fcb9aca0b
+size 288

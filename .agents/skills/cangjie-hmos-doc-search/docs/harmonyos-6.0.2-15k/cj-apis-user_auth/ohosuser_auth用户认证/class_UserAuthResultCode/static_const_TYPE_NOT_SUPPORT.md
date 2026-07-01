@@ -1,11 +1,3 @@
-### static const TYPE_NOT_SUPPORT
-
-```cangjie
-public static const TYPE_NOT_SUPPORT: Int32 = 12500005
-```
-
-**功能：** 不支持的认证类型。
-
-**类型：** Int32
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:d73e47ced3fd9e9e0a56ca11f83a871f37940a565e69fbacfac4485cc647dc41
+size 202

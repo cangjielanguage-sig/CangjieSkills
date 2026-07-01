@@ -1,3 +1,3 @@
-> **说明：**
-   >
-   > 使用真机或模拟器运行应用的具体步骤请参见[构建第一个HarmonyOS应用（仓颉）](./cj-quick-start-first-cangjie-hybrid-app.md#使用真机或模拟器运行应用)。
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb0b00fba0a3d8e8117061073d99f3cb3a44be4e25d64d5047664450cf2093c6
+size 218

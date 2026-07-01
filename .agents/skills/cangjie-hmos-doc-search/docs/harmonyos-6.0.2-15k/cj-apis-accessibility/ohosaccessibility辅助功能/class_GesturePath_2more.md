@@ -1,23 +1,3 @@
-## class GesturePath
-
-```cangjie
-public class GesturePath {}
-```
-
-**功能：** 表示手势路径信息。
-
-**系统能力：** SystemCapability.BarrierFree.Accessibility.Core
-
-**起始版本：** 19
-
-## class GesturePoint
-
-```cangjie
-public class GesturePoint {}
-```
-
-**功能：** 表示手势触摸点。
-
-**系统能力：** SystemCapability.BarrierFree.Accessibility.Core
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:4a707fcc4ab64938bd53a77c2086fb242d60ebe24994920c6fc2d82daab406c7
+size 423

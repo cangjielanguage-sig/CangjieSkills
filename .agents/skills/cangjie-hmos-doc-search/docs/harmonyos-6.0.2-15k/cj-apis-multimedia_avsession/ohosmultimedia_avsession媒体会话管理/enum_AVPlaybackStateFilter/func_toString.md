@@ -1,17 +1,3 @@
-### func toString()
-
-```cangjie
-public func toString(): String
-```
-
-**功能：** 获取枚举值的字符串表示。
-
-**系统能力：** SystemCapability.Multimedia.AVSession.Core
-
-**起始版本：** 19
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|String|枚举值的字符串表示。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd5ea2f2d338fec293f8938270b0b2448a7e5e1e9797f246e35b15170a4069fa
+size 311

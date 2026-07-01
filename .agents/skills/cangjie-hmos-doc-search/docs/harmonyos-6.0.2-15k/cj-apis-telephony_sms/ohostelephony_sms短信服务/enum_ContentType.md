@@ -1,35 +1,3 @@
-## enum ContentType
-
-```cangjie
-public enum ContentType {
-    | STRING(String)
-    | UINT8ARR(Array<UInt8>)
-    | ...
-}
-```
-
-**功能：** 短信类型。
-
-**系统能力：** SystemCapability.Telephony.SmsMms
-
-**起始版本：** 19
-
-### STRING(String)
-
-```cangjie
-STRING(String)
-```
-
-**功能：** 字符串类型。
-
-**起始版本：** 19
-
-### UINT8ARR(Array\<UInt8>)
-
-```cangjie
-UINT8ARR(Array<UInt8>)
-```
-
-**功能：** 数据类型。
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:1b224718d533c46e957bdff61e464f66d7e9b70095c3fa985d9845da0c98d87c
+size 499

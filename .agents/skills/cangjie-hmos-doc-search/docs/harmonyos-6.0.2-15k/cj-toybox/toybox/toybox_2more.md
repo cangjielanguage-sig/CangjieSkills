@@ -1,14 +1,3 @@
-# toybox
-
-toybox 是一个轻量级的Linux命令行工具集合，它将常用的Linux命令行工具合并到一个单独的可执行文件中。
-
-## 前置条件
-
-### 使用方法1
-
-- 正常连接设备
-- 使用hdc shell进入命令行执行模式
-
-### 使用方法2
-
-- 应用沙箱内运行
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ee4ae0c0577916bf94865d6952b2862810739c35f14349e2981592c50166df2
+size 307

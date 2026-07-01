@@ -1,3 +1,3 @@
-# 使用AudioCapturer开发音频录制功能
-
-AudioCapturer是音频采集器，用于录制PCM（Pulse Code Modulation）音频数据，适合有音频开发经验的开发者实现更灵活的录制功能。
+version https://git-lfs.github.com/spec/v1
+oid sha256:713adcfcc5dc5d6efd7ed7d0f46d0e25bd10734c0d5c59e0665db23ae7e0ff7d
+size 212

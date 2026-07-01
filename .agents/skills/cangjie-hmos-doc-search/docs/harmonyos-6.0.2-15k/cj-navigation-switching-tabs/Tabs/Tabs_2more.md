@@ -1,12 +1,3 @@
-﻿# Tabs
-
-通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
-
-## 子组件
-
-不支持自定义组件作为子组件，仅可包含子组件[TabContent](./cj-navigation-switching-tabcontent.md)，以及渲染控制类型[if/else](../../cj-rendering-control-ifelse/.overview.md)和[ForEach](cj-state-rendering-foreach.md)，并且if/else和ForEach下也仅支持TabContent，不支持自定义组件。
-
-> **说明：**
->
-> - Tabs子组件的visibility属性设置为None，或者visibility属性设置为Hidden时，对应子组件不显示，但依然会在视窗内占位。
-> - Tabs子组件TabContent显示之后不会销毁，若需要页面懒加载和释放，请参见[示例12](#示例12页面懒加载和释放)。
+version https://git-lfs.github.com/spec/v1
+oid sha256:d6fe88d572bc0c2fedbe20692fd3521508bf1063e6e4d9bcdd6f0c94851ec6a3
+size 778

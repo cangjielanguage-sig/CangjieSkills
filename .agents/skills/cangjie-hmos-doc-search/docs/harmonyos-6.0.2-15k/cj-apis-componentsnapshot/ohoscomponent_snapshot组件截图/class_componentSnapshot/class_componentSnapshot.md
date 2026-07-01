@@ -1,11 +1,3 @@
-## class componentSnapshot
-
-```cangjie
-public class componentSnapshot {}
-```
-
-**功能：** 提供获取组件截图。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:b8d15a5a1069afe7c84a610377a7ce592dc69bafefab56038c62061203014d6f
+size 208

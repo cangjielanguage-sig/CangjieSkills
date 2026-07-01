@@ -1,5 +1,3 @@
-## abilities标签
-
-abilities标签描述UIAbility组件的配置信息，标签值为数组类型，该标签下的配置只对当前UIAbility生效。
-
-**表6** abilities标签说明
+version https://git-lfs.github.com/spec/v1
+oid sha256:ae9393f72f8b641dd9805d820248121ce07cd99bd021b44499281a5776acff80
+size 188

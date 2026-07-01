@@ -1,17 +1,3 @@
-### func toString()
-
-```cangjie
-public func toString(): String
-```
-
-**功能：** 返回COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键的字符串表示。
-
-**系统能力：** SystemCapability.PowerManager.BatteryManager.Core
-
-**起始版本：** 19
-
-**返回值：**
-
-| 类型  | 说明  |
-| :------ | :------ |
-| String | COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键对应的字符串。 |
+version https://git-lfs.github.com/spec/v1
+oid sha256:16a7eb705314be94bda5d2118e5a80c5d30311223719dfc5a6a62d7f6cf3fbdf
+size 446

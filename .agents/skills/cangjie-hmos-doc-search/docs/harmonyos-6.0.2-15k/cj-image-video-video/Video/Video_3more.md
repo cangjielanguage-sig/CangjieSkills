@@ -1,15 +1,3 @@
-# Video
-
-用于播放视频文件并控制其播放状态的组件。
-
-> **说明：**
->
-> Video组件只提供简单的视频播放功能，无法支撑复杂的视频播控场景。
-
-## 需要权限
-
-使用网络视频时，需要申请权限ohos.permission.INTERNET。
-
-## 子组件
-
-不支持子组件。
+version https://git-lfs.github.com/spec/v1
+oid sha256:af025998941f3d8d54b07f09725138e2e05751be7c80a8f76b1b05ab519158f4
+size 322

@@ -1,17 +1,3 @@
-### init(String)
-
-```cangjie
-public init(assetId: String)
-```
-
-**功能：** [AVMediaDescription](#class-avmediadescription)构造函数。
-
-**系统能力：** SystemCapability.Multimedia.AVSession.Core
-
-**起始版本：** 19
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|assetId|String|是|-|播放列表媒体ID。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:e91f5336411f41b2a74c23103db3fb7e1511fb6281be5a56745339bb959d5b0a
+size 376

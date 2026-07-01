@@ -1,21 +1,3 @@
-﻿### interface BorderImageOptionSourceType
-
-```cangjie
-sealed interface BorderImageOptionSourceType {}
-```
-
-**功能：** 联合类型接口，可接受 String、[AppResource](../../../cj-apis-resource_manager/.overview.md)、[LinearGradientOption](#class-lineargradientoption)类型。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 19
-
-### interface LengthEdgeWidthsType
-
-```cangjie
-sealed interface LengthEdgeWidthsType {}
-```
-
-**功能：** 联合类型接口，可接受 [LengthType](./cj-common-types.md#enum-lengthtype)、[EdgeWidths](./cj-universal-attribute-border.md#class-edgewidths)类型。
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:080bbee9e9a8c1971a166119233ba3fd50cd5ee6d7a4d303c237009efe002596
+size 678

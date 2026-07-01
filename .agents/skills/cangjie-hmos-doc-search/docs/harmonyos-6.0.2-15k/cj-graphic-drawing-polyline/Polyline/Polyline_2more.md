@@ -1,9 +1,3 @@
-# Polyline
-
-折线绘制组件。
-
-继承自Shape组件，更多组件属性详见 [Shape](./cj-graphic-drawing-shape.md) 章节。
-
-## 子组件
-
-无
+version https://git-lfs.github.com/spec/v1
+oid sha256:833c8d7b1dbbd32fffeb5e1e2970d49ce0fa2db5506def7a72db6272651954df
+size 158

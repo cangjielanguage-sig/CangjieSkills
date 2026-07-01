@@ -1,33 +1,3 @@
-# Select
-
-提供下拉选择菜单，可以让用户在多个选项之间选择。
-
-## 子组件
-
-无
-
-## 创建组件
-
-### init(Array\<SelectOption>)
-
-```cangjie
-public init(values: Array<SelectOption>)
-```
-
-**功能：** 构造一个下拉选择菜单组件。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|values|Array\<[SelectOption](#class-selectoption)>|是|-|设置下拉选项。|
-
-## 通用属性/通用事件
-
-通用属性：全部支持。
-
-通用事件：全部支持。
+version https://git-lfs.github.com/spec/v1
+oid sha256:b6f0fc39c39e531d5843b5729c14db25d71c968a2ef31fad6666e1632f191b09
+size 634

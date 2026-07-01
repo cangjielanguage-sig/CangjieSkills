@@ -1,3 +1,3 @@
-# 滚动组件通用API
-
-滚动组件通用属性和事件目前只支持[List](./cj-scroll-swipe-list.md)、[Grid](./cj-scroll-swipe-grid.md)、[Scroll](./cj-scroll-swipe-scroll.md)和[WaterFlow](./cj-scroll-swipe-waterflow.md)组件。
+version https://git-lfs.github.com/spec/v1
+oid sha256:dfb780c0c37a91345fa937af0f60fae27ac1c4ee9a8105a6c85020cc85777771
+size 239

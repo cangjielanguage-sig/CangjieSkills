@@ -1,5 +1,3 @@
-# Tablet
-
-SysCap，全称SystemCapability，即系统能力，指操作系统中每一个相对独立的特性。
-
-开发者使用某个接口进行开发前，建议先阅读[系统能力SystemCapability使用指南](cj-syscap.md)，了解Syscap的定义和使用指导。
+version https://git-lfs.github.com/spec/v1
+oid sha256:63b2bfb33959cecae5faa397a8a5bb345863283493e9bba58d299d8e34e48e69
+size 277

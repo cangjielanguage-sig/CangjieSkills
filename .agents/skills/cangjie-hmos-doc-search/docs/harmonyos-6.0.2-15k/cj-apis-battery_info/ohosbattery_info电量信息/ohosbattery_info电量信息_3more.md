@@ -1,18 +1,3 @@
-﻿# ohos.battery_info（电量信息）
-
-该模块主要提供电池状态和充放电状态的查询接口。
-
-## 导入模块
-
-```cangjie
-import kit.BasicServicesKit.*
-```
-
-## 使用说明
-
-API示例代码使用说明：
-
-- 若示例代码首行有“// index.cj”注释，表示该示例可在仓颉模板工程的“index.cj”文件中编译运行。
-- 若示例需获取[Context](../../cj-apis-ability/.overview.md)应用上下文，需在仓颉模板工程中的“main_ability.cj”文件中进行配置。
-
-上述示例工程及配置模板详见[仓颉示例代码说明](../../cj-development-intro/.overview.md)。
+version https://git-lfs.github.com/spec/v1
+oid sha256:3eba5192352708ba405def314aab2cfa20c1fa1188cbf2818b2765cbc0758342
+size 644

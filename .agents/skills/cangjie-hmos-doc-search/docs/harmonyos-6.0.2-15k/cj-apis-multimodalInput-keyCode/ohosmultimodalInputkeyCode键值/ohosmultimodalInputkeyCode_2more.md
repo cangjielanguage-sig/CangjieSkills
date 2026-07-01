@@ -1,9 +1,3 @@
-# ohos.multimodalInput.keyCode（键值）
-
-按键设备的键码值，按键设备包括键盘、电源键、拍照键等。
-
-## 导入模块
-
-```cangjie
-import kit.InputKit.*
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:5ddb287729e807f5645ef36b7332d62a35c48711e1ccb4662bdb64a9c8784d98
+size 188

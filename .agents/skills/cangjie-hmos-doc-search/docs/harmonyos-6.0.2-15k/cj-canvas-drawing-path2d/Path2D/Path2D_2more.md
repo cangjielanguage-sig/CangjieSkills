@@ -1,9 +1,3 @@
-# Path2D
-
-路径对象，支持通过对象的接口进行路径的描述，并通过Canvas的stroke接口或者fill接口进行绘制。
-
-## 导入模块
-
-```cangjie
-import kit.UIKit.*
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:63b41ff2e4de60734e96d8f6b886153125eee3be69598833c3c395b92c587f12
+size 197

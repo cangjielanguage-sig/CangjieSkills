@@ -1,17 +1,3 @@
-### func span(GridColColumnOption)
-
-```cangjie
-public func span(span: GridColColumnOption): This
-```
-
-**功能：** 设置占用列数。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|span|[GridColColumnOption](#struct-gridcolcolumnoption)|是|-|占用列数。<br>span为0表示该元素不参与布局计算，即不会被渲染。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:ec324efabb8f1fddef05292b031ef4ff5599e0fb38abfc85282eafbdd91e9ece
+size 470

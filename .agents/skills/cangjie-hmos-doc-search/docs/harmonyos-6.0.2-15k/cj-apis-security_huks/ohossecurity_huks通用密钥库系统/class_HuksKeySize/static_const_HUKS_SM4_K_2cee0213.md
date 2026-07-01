@@ -1,13 +1,3 @@
-### static const HUKS_SM4_KEY_SIZE_128
-
-```cangjie
-public static const HUKS_SM4_KEY_SIZE_128: HuksParamValue = HuksParamValue.uint32(128)
-```
-
-**功能：** 表示SM4算法的密钥长度为128bit。
-
-**系统能力：** SystemCapability.Security.Huks.Extension
-
-**类型：** [HuksParamValue](#enum-huksparamvalue)
-
-**起始版本：** 15
+version https://git-lfs.github.com/spec/v1
+oid sha256:d69ce4a9c5c47579de43d0046f2fa96c1e6aa2c901dd9945ac2eff0290cf1088
+size 351

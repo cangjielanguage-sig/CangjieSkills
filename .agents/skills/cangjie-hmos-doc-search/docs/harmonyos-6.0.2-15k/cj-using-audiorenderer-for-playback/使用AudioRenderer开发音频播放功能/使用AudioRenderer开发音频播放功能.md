@@ -1,3 +1,3 @@
-﻿# 使用AudioRenderer开发音频播放功能
-
-AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音频数据，与 [AVPlayer](../../cj-media-kit-using-avplayer-for-playback/.overview.md)相比，它可以在输入前添加数据预处理，更适合有音频开发经验的开发者，以实现更灵活的播放功能。
+version https://git-lfs.github.com/spec/v1
+oid sha256:9764c694eef8e328b6697d470031bd90e3538effabc41b531755e93bd79cb1f4
+size 353

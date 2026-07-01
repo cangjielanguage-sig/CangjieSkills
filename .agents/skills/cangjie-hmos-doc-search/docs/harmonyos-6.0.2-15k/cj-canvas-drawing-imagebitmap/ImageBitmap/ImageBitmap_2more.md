@@ -1,9 +1,3 @@
-# ImageBitmap
-
-ImageBitmap对象可以存储canvas渲染的像素数据。
-
-## 导入模块
-
-```cangjie
-import kit.UIKit.*
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:1581731ad4deb628d9787d27b0bcf47630860ef22a11b854d5e870c94a48c151
+size 134

@@ -1,17 +1,3 @@
-### func scrollable(ScrollDirection)
-
-```cangjie
-public func scrollable(scrollDirection: ScrollDirection): This
-```
-
-**功能：** 设置滚动方向。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|scrollDirection|[ScrollDirection](./cj-common-types.md#enum-scrolldirection)|是|-|滚动方向。<br>初始值：ScrollDirection.Vertical。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:1c12de7d9e81889c7a68847bf2386cf843a164c544322845a817b84c344b71f9
+size 477

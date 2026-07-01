@@ -1,17 +1,3 @@
-### func toString()
-
-```cangjie
-public func toString(): String
-```
-
-**功能：** 将枚举值转换为字符串。
-
-**系统能力：** SystemCapability.Sensors.Sensor
-
-**起始版本：** 19
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|String|转换后的字符串。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:81b64cc8db18d046776d2ec9c2ce34b7a60d7915f9d2a25bd52ee8e17a755f59
+size 291

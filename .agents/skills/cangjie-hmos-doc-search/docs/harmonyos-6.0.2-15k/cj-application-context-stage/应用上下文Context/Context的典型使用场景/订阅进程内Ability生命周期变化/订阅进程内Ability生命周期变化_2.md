@@ -1,13 +1,3 @@
-// ...
-    public override func onDestroy(): Unit {
-        // 获取应用上下文
-        let applicationContext = this.context.getApplicationContext()
-        try {
-            // 取消应用内生命周期回调
-            applicationContext.off(ApplicationContextType.ABILITY_LIFE_CYCLE, lifecycleId)
-        } catch (e: BusinessException) {
-            AppLog.error("Failed to unregister applicationContext. Code is ${e.code}, message is ${e.message}")
-        }
-    }
-}
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:78f6bd89be073552ddd4724af61585be29726b4fc5bc61f3490a4cd9c4d405cc
+size 495

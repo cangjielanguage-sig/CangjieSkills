@@ -1,23 +1,3 @@
-```cangjie
-  package ohos_app_cangjie_entry
-
-  import kit.UIKit.*
-  import ohos.state_macro_manage.*
-
-  @Entry
-  @Component
-  class EntryView {
-      func build() {
-          Column() {
-              Column() {
-              }.width(80.percent).height(50).backgroundColor(0xF5DEB3)
-              Column() {
-              }.width(80.percent).height(50).backgroundColor(0xD2B48C)
-              Column() {
-              }.width(80.percent).height(50).backgroundColor(0xF5DEB3)
-          }.width(100.percent).height(300).backgroundColor(0xF2F2F2).justifyContent(FlexAlign.SpaceEvenly)
-      }
-  }
-  ```
-
-  ![Column12](figures/Column12.PNG)
+version https://git-lfs.github.com/spec/v1
+oid sha256:3118657926637520072c9f6ac2fe22c76b7a0bcddd11b189235abb8d95a44d81
+size 657

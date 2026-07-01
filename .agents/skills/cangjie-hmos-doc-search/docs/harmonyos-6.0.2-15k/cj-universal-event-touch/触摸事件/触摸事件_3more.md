@@ -1,25 +1,3 @@
-# 触摸事件
-
-当手指在组件上按下、滑动、抬起时触发。
-
-## 权限列表
-
-无
-
-## func onTouch((TouchEvent)->Unit)
-
-```cangjie
-public func onTouch(callback: (TouchEvent)->Unit): This
-```
-
-**功能：** 手指触摸动作触发该事件。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
-
-**参数：**
-
-|参数名|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|callback|([TouchEvent](#class-touchevent))->Unit|是|-|回调函数，手指触摸动作触发该回调。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:8fc9fc5fb206fa86fe9d4bddaac35ff87e07803bff607aa56ca74eb4bde2db0b
+size 554

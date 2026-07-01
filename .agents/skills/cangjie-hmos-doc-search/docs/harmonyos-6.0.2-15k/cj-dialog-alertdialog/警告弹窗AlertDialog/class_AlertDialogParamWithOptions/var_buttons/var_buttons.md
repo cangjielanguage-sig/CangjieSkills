@@ -1,15 +1,3 @@
-### var buttons
-
-```cangjie
-public var buttons: Array<AlertDialogButtonOptions> = Array<AlertDialogButtonOptions>()
-```
-
-**功能：** 弹窗容器中的多个按钮。
-
-**类型：** Array\<[AlertDialogButtonOptions](#class-alertdialogbuttonoptions)>
-
-**读写能力：** 可读写
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 12
+version https://git-lfs.github.com/spec/v1
+oid sha256:dee15426b9917ff40ec934bec2ad6285bdab67173ae13d446ee3e95c0c12470a
+size 375

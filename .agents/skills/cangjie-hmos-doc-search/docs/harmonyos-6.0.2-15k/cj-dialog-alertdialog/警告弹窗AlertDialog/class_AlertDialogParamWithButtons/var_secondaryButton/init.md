@@ -1,11 +1,3 @@
-#### init()
-
-```cangjie
-public init()
-```
-
-**功能：** 定义带有两个确认按钮的警告弹窗。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb66ba54dd9a4cb8ace9a5a7d7f395e2e37155ddad679796ff361e5c6ca3db64
+size 194

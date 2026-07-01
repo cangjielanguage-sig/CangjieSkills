@@ -1,17 +1,3 @@
-### func toString()
-
-```cangjie
-public func toString(): String
-```
-
-**功能：** 获取音视频录制状态的字符串表示。
-
-**系统能力：** SystemCapability.Multimedia.Media.AVRecorder
-
-**起始版本：** 19
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|String|音视频录制状态的字符串表示。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:c39524d2da39f4c8dd51cbec83852948ccc9a6044790b48c1565dfd26ee8afb6
+size 337

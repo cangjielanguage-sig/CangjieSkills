@@ -1,29 +1,3 @@
-## func getSystemPasteboard()
-
-```cangjie
-public func getSystemPasteboard(): SystemPasteboard
-```
-
-**功能：** 获取系统剪贴板对象。
-
-**系统能力：** SystemCapability.MiscServices.Pasteboard
-
-**起始版本：** 12
-
-**返回值：**
-
-|类型|说明|
-|:----|:----|
-|[SystemPasteboard](#class-systempasteboard)|系统剪贴板对象。|
-
-**示例：**
-
-<!-- compile -->
-
-```cangjie
-// index.cj
-
-import kit.BasicServicesKit.*
-
-let sysBoard = getSystemPasteboard()
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa07674bf8d196b48ef9379df2e967a25a3b3640f70fbd7565915b86753450d7
+size 507

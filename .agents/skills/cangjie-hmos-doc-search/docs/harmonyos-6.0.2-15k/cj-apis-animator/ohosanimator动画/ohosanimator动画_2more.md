@@ -1,9 +1,3 @@
-# ohos.animator（动画）
-
-本模块提供组件动画效果，包括定义动画、启动动画和以相反的顺序播放动画等。
-
-## 导入模块
-
-```cangjie
-import kit.UIKit.*
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:83ea2848bc8a7ec25834fd6b866d79810f027c8cebd61e54004b3a996d5d7822
+size 197

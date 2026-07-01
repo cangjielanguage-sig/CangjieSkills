@@ -1,11 +1,3 @@
-#### init()
-
-```cangjie
-public init()
-```
-
-**功能：** 定义告警弹窗。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 19
+version https://git-lfs.github.com/spec/v1
+oid sha256:55b25c65f0d9a8f0b0465ba0007a9a42d958375451deb4cb17ff1706998fa6fb
+size 167

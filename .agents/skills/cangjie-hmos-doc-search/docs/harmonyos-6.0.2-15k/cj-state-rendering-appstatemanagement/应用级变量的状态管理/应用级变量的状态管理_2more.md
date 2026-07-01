@@ -1,9 +1,3 @@
-# 应用级变量的状态管理
-
-状态管理模块提供了应用程序的数据存储能力、持久化数据管理能力、UIAbility数据存储能力和应用程序需要的环境状态。
-
-## 导入模块
-
-```cangjie
-import kit.UIKit.*
-```
+version https://git-lfs.github.com/spec/v1
+oid sha256:aabcdcd5b8fe86b0f14d2aa9c35b83069a7978daaa5cd22a189878346920647b
+size 253

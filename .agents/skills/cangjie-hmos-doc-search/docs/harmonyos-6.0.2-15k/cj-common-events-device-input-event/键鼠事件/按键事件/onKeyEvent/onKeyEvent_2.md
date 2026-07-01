@@ -1,24 +1,3 @@
-Divider()
-            Text(this.columnText).fontColor(Color.RED)
-        }.width(100.percent).height(100.percent).justifyContent(FlexAlign.Center).onKeyEvent(
-            {
-                event =>
-                if (event.keyType.getValue() == KeyType.Down.getValue()) {
-                    this.columnType = 'Down'
-                }
-                if (event.keyType.getValue() == KeyType.Up.getValue()) {
-                    this.columnType = 'Up'
-                }
-                this.columnText = """
-                Column:
-                KeyType: ${this.columnType}
-                KeyCode: ${event.keyCode.toString()}
-                KeyText: ${event.keyText.toString()}
-            """
-            }
-        )
-    }
-}
-```
-
-![KeyEventStop](./figures/KeyEventStop.gif)
+version https://git-lfs.github.com/spec/v1
+oid sha256:6afe62c15c91d71b48d2b4933f992a077c6fa1ebf238067ceef8f6c5756a4d41
+size 801

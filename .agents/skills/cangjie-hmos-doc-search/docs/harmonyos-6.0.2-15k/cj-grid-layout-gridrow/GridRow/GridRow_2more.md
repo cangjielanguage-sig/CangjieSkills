@@ -1,9 +1,3 @@
-# GridRow
-
-栅格布局可以为布局提供规律性的结构，解决多尺寸多设备的动态布局问题，保证不同设备上各个模块的布局一致性。
-
-栅格容器组件，仅可以和栅格子组件([GridCol](./cj-grid-layout-gridcol.md))在栅格布局场景中使用。
-
-## 子组件
-
-可以包含GridCol子组件。
+version https://git-lfs.github.com/spec/v1
+oid sha256:52b7e1fa3b1dc0a8cac96050474badd39b1cc278db0f87ce58d8fa0f50014559
+size 345

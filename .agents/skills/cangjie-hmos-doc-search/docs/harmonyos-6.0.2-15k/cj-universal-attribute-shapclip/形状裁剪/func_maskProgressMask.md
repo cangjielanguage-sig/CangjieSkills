@@ -1,17 +1,3 @@
-## func mask(ProgressMask)
-
-```cangjie
-public func mask(value: ProgressMask): This
-```
-
-**功能：** 为组件上添加[ProgressMask](#class-progressmask)形状的遮罩。
-
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-**起始版本：** 19
-
-**参数：**
-
-|名称|类型|必填|默认值|说明|
-|:---|:---|:---|:---|:---|
-|value|[ProgressMask](#class-progressmask)|是|-|在当前组件上加上可动态设置进度、最大值和颜色的遮罩。|
+version https://git-lfs.github.com/spec/v1
+oid sha256:05462afbb2fa2c5b47f27a081bb643a7f8fdfb54c9e56de99523964fcc0a623b
+size 480

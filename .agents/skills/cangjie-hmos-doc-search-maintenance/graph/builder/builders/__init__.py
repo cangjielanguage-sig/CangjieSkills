@@ -11,7 +11,6 @@ from .build import (
 )
 from .cluster import cluster, cohesion_score, score_all, assign_communities_to_nodes
 from .cache import load_cached, save_cached, cache_dir, clear_cache
-from .validate import validate_extraction, assert_valid, VALID_FILE_TYPES, VALID_CONFIDENCES
 
 __all__ = [
     "detect", "detect_incremental", "classify_file", "FileType", "count_words",
@@ -19,5 +18,4 @@ __all__ = [
     "deduplicate_by_label", "annotate_layers", "load_graph",
     "cluster", "cohesion_score", "score_all", "assign_communities_to_nodes",
     "load_cached", "save_cached", "cache_dir", "clear_cache",
-    "validate_extraction", "assert_valid", "VALID_FILE_TYPES", "VALID_CONFIDENCES",
 ]

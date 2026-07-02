@@ -783,7 +783,7 @@ def _extract_callee_name(node, source, config):
         if func_node:
             if func_node.type == "identifier":
                 return _read_text(func_node, source)
-            elif func_node.type in ("member_expression", "member_expression"):
+            elif func_node.type in ("member_expression",):
                 prop = node.child_by_field_name(config.call_accessor_field)
                 if prop:
                     return _read_text(prop, source)

@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-doc-search-maintenance
-description: "维护 cangjie-hmos-doc-search 的文档更新、索引/卡片重建、图谱构建、LLM 离线增强、评测集健康检查、严格 blind 轮换和发布门禁流程。适用于文档路径或内容变化后重新生成检索索引、图谱数据和评测素材并判断 pass/gray_release/blocked。"
+description: "维护 cangjie-hmos-doc-search 的文档更新、索引/卡片重建、图谱构建与 LLM 离线增强、三引擎评测、发布门禁流程。支持 OpenAI 兼容 LLM 端点（GLM-5.2/DashScope 等）。适用于文档变化后重建检索索引/图谱数据、跑 enhance-graph 补全中文关键词、三引擎评测对比、发布门禁判定 pass/gray_release/blocked。"
 tags: [workflow, evaluation, maintenance, platform]
 ---
 
@@ -134,9 +134,12 @@ PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py build-code \
 
 PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py merge --graph-dir <graph_dir>
 
-# LLM 增强（可选）
+# LLM 增强（可选）— 补全中文关键词，en-only 从 9336→417
+# 支持任何 OpenAI 兼容 LLM 端点（不限于 DashScope），env 变量名保持 DASHSCOPE_* 是历史命名
+# 合并策略保护 API 名不被覆盖（ClientCert/Grid 等保留）、keywords 增量去重合并
 DASHSCOPE_API_KEY="..." \
 DASHSCOPE_API_BASE="..." \
+DASHSCOPE_MODEL="GLM-5.2" \
 PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py enhance-graph \
   --graph-dir <graph_dir> \
   --docs-dir <docs_corpus_dir>
@@ -221,12 +224,29 @@ PYTHONDONTWRITEBYTECODE=1 python card/scripts/analyze_search_logs.py \
 
 ## 当前基线
 
-已验证基线：
+### card 单引擎旧基线
 
-- 全量发布评估：7 套评测集，合计 814 条，`release status = pass`
-- 全量评测：所有套件 `success@5 = 1.0`、`error_rate = 0.0`
+全量发布评估（card-only，未含 graph/fusion）：
+- 7 套评测集，合计 814 条，`release status = pass`
+- 所有套件 `success@5 = 1.0`、`error_rate = 0.0`
 - 健康检查：所有套件 `blocking = false`、`issue_counts = {}`
 - 严格 blind：`fusion/evals/eval_queries_user_appdev_blind_20260424.jsonl`，80 条，首跑 `success@1 = 0.875`、`success@5 = 1.0`
+
+> 此基线仅覆盖 card 单引擎，不含 graph/fusion 评测。
+
+### 三引擎评测基线（0629，192 条全量）
+
+评测集：`graph/evals/datasets/eval_queries_comprehensive_deduped.jsonl`（192 条去重集）
+
+| 指标 | card | graph | fusion |
+|---|---:|---:|---:|
+| Recall@5 | 34.9% | **91.7%** | 77.6% |
+| MRR | 0.133 | 0.460 | 0.422 |
+| 平均耗时 | 69.6ms | **1.7ms** | 66.5ms |
+
+已知问题：fusion 77.6% < graph 91.7%，根因是 `unified_search.fuse_results` 中 card 路径挤占 graph 命中位。50 条子集上 fusion=78% vs graph=96%。属独立优化点。
+
+图谱数据状态：11,661 nodes / 17,154 links / 11,107 llm_enhanced / 417 en-only。
 
 ## 参考资料
 

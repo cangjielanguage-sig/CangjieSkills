@@ -5,4 +5,6 @@
 .agents/skills/cangjie-hmos-doc-search/doc-card/index/docs.jsonl filter=lfs diff=lfs merge=lfs -text
 .agents/skills/cangjie-hmos-doc-search/doc-card/index/search.db filter=lfs diff=lfs merge=lfs -text
 .agents/skills/cangjie-hmos-doc-search-maintenance/fusion/evals/eval_queries_full.jsonl filter=lfs diff=lfs merge=lfs -text
-.agents/skills/cangjie-hmos-doc-search/docs/harmonyos-6.0.2-15k/** filter=lfs diff=lfs merge=lfs -text
+.agents/skills/cangjie-hmos-doc-search/doc-card/evals/eval_queries_full.jsonl filter=lfs diff=lfs merge=lfs -text
+.agents/skills/cangjie-hmos-doc-search/doc-card/index/*.jsonl filter=lfs diff=lfs merge=lfs -text
+.agents/skills/cangjie-hmos-doc-search/doc-graph/data/doc/graph.json filter=lfs diff=lfs merge=lfs -text

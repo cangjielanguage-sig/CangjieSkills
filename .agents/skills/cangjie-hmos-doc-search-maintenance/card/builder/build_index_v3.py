@@ -3439,7 +3439,7 @@ def build(
         },
         "entrypoints": {
             "search": "doc-card/search_v3.py",
-            "build": "../cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py",
+            "build": "../cangjie-hmos-doc-search-maintenance/card/builder/build_index_v3.py",
         },
     }
     if llm_stats is not None:
@@ -3499,5 +3499,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as exc:  # noqa: BLE001
-        print(f"build_index_v2 失败: {exc}", file=sys.stderr)
+        print(f"build_index_v3 失败: {exc}", file=sys.stderr)
         sys.exit(1)

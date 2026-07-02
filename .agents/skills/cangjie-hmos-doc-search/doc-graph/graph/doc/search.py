@@ -106,7 +106,7 @@ class DocSearchEngine:
     """文档图搜索引擎 — 使用倒排索引加速候选定位。
 
     生命周期：build() 加载节点+邻居 → _build_inverted_index() 构倒排索引 → search() 查询
-    与 BaseSearchEngine 的差异：使用倒排索引先缩小候选集，避免对全部节点逐一打分。
+    与全量扫描的差异：使用倒排索引先缩小候选集，避免对全部节点逐一打分。
     """
 
     def __init__(self) -> None:

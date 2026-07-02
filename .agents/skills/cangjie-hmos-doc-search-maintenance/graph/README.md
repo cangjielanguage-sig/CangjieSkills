@@ -92,7 +92,7 @@ graph/
 
 ```bash
 # 构建文档图（最常用）
-python graph/builder/build_cli.py build-doc --root-dir docs/harmonyos-6.0.2-15k --output doc-graph/data/doc/graph.json
+python graph/builder/build_cli.py build-doc --docs-dir docs/harmonyos-6.0.2-15k --output doc-graph/data/doc/graph.json
 
 # 快捷脚本
 python graph/scripts/build_doc_graph.py
@@ -101,18 +101,19 @@ python graph/scripts/build_doc_graph.py
 python graph/scripts/build_code_graph.py
 
 # 全量构建（doc + code + merge + enhance）
-python graph/builder/build_cli.py build --docs-root docs/harmonyos-6.0.2-15k
+python graph/builder/build_cli.py build --docs-dir docs/harmonyos-6.0.2-15k
 ```
 
 ### LLM 增强
 
 ```bash
 # 增强已有图谱的关键词
-python graph/builder/build_cli.py enhance-graph --input doc-graph/data/doc/graph.json --output doc-graph/data/doc/graph.json
+python graph/builder/build_cli.py enhance-graph --graph-dir doc-graph/data --docs-dir docs/harmonyos-6.0.2-15k
 
 # 需要设置环境变量
-export OPENAI_API_KEY=...
-export OPENAI_BASE_URL=...
+export DASHSCOPE_API_KEY=...
+export DASHSCOPE_API_BASE=...
+export DASHSCOPE_MODEL=qwen3.6-plus  # 可选，默认 qwen3.6-plus
 ```
 
 ### 图数据验证

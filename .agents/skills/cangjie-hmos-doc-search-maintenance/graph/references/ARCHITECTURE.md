@@ -30,7 +30,7 @@
 │  │ 图谱构建  │   │  │                  │  │  │ engines/               │  │
 │  │ builders/ │   │  │                  │  │  │ 路径查找/邻居/统计      │  │
 │  │ cluster   │   │  │                  │  │  └───────────────────────┘  │
-│  │ validate  │   │  │                  │  │                              │
+│  │           │   │  │                  │  │                              │
 │  │ detect    │   │  │                  │  │                              │
 │  │ cache     │   │  │                  │  │                              │
 │  └───────────┘   │  │                  │  │                              │
@@ -447,12 +447,7 @@ detect(root) → 扫描目录，分类文件类型
   │  大语料预警: <50k词可能不需要图谱, >500k词语义提取昂贵
   │  增量检测: detect_incremental() → 基于 mtime manifest.json
 
-validate 模块 (graph/builders/validate.py)
-  │  validate_extraction() → 校验提取 JSON schema
-  │  REQUIRED_NODE_FIELDS: id/label/file_type/source_file
-  │  REQUIRED_EDGE_FIELDS: source/target/relation/confidence/source_file
-  │  VALID_FILE_TYPES: code/document/paper/image/rationale
-  │  VALID_CONFIDENCES: EXTRACTED/INFERRED/AMBIGUOUS
+(已移除) validate 模块 (graph/builders/validate.py) — schema 与当前 core/models 不符且从未被构建流水线调用，已删除。如需校验提取结果，请在 build_cli.py 中重新接入与 DocNode/Edge 对齐的 schema。
 ```
 
 ### cache 模块 (graph/builders/cache.py)
@@ -536,7 +531,6 @@ knowledge-graph-template/
 │   │   ├── build.py         # 图谱操作 (合并/去重/聚类/分层/保存/加载)
 │   │   ├── build_doc_graph.py  # 文档图构建(旧版, 引用 core.graph)
 │   │   ├── cluster.py       # 社区检测 (Leiden/Louvain, 大社区拆分)
-│   │   ├── validate.py      # 提取结果校验 (schema验证)
 │   │   ├── detect.py        # 文件类型检测 (多类型/敏感文件/增量/论文信号)
 │   │   ├── cache.py         # 文件提取缓存 (SHA256哈希, frontmatter去除)
 │   │   └── __init__.py

@@ -9,40 +9,40 @@
 | 指标 | card | graph | fusion |
 |------|------|-------|--------|
 | 总查询数 | 192 | 192 | 192 |
-| 完全命中 FULL | 67 (34.9%) | 156 (81.2%) | 128 (66.7%) |
-| 部分命中 PARTIAL | 0 (0.0%) | 20 (10.4%) | 21 (10.9%) |
-| 未命中 MISS | 125 (65.1%) | 16 (8.3%) | 43 (22.4%) |
-| Recall@5 (FULL+PARTIAL) | 34.9% | 91.7% | 77.6% |
-| Precision@1 (FULL) | 34.9% | 81.2% | 66.7% |
-| MRR (平均倒数排名) | 0.133 | 0.460 | 0.422 |
+| 完全命中 FULL | 65 (33.9%) | 154 (80.2%) | 128 (66.7%) |
+| 部分命中 PARTIAL | 0 (0.0%) | 20 (10.4%) | 22 (11.5%) |
+| 未命中 MISS | 127 (66.1%) | 18 (9.4%) | 42 (21.9%) |
+| Recall@5 (FULL+PARTIAL) | 33.9% | 90.6% | 78.1% |
+| Precision@1 (FULL) | 33.9% | 80.2% | 66.7% |
+| MRR (平均倒数排名) | 0.131 | 0.449 | 0.413 |
 | 平均直接命中数 | 5.0 | 5.0 | 6.0 |
-| 平均搜索耗时 | 69.6ms | 1.7ms | 66.5ms |
-| P50 耗时 | 62.1ms | 1.3ms | 59.6ms |
-| P95 耗时 | 147.0ms | 5.0ms | 137.8ms |
+| 平均搜索耗时 | 64.7ms | 1.9ms | 65.3ms |
+| P50 耗时 | 58.9ms | 1.4ms | 58.6ms |
+| P95 耗时 | 153.6ms | 5.2ms | 156.6ms |
 
 ## 2. 各类别 Recall@5 对比
 
 | 类别 | card | graph | fusion |
 |------|------|-------|--------|
-| api_lookup | 50.0% | 95.0% | 85.0% |
-| comparison | 46.7% | 80.0% | 66.7% |
-| composition | 46.7% | 100.0% | 100.0% |
+| api_lookup | 40.0% | 95.0% | 80.0% |
+| comparison | 46.7% | 86.7% | 80.0% |
+| composition | 46.7% | 100.0% | 93.3% |
 | constrained | 30.0% | 75.0% | 65.0% |
-| cross_ecosystem | 33.3% | 100.0% | 93.3% |
-| enumeration | 25.0% | 100.0% | 85.0% |
-| how_to | 27.3% | 86.4% | 63.6% |
+| cross_ecosystem | 40.0% | 93.3% | 93.3% |
+| enumeration | 30.0% | 100.0% | 80.0% |
+| how_to | 22.7% | 81.8% | 59.1% |
 | performance_boundary | 25.0% | 93.8% | 81.2% |
-| reverse_lookup | 25.0% | 93.8% | 62.5% |
-| semantic_fuzzy | 37.5% | 93.8% | 81.2% |
+| reverse_lookup | 18.8% | 87.5% | 68.8% |
+| semantic_fuzzy | 37.5% | 93.8% | 93.8% |
 | workflow | 41.2% | 94.1% | 76.5% |
 
 ## 3. 搜索耗时分布
 
 | 范围 | card | graph | fusion |
 |------|------|-------|--------|
-| <10ms | 8 | 191 | 10 |
-| 10-100ms | 149 | 1 | 150 |
-| 100-500ms | 35 | 0 | 32 |
+| <10ms | 9 | 191 | 8 |
+| 10-100ms | 153 | 1 | 153 |
+| 100-500ms | 30 | 0 | 31 |
 | 500ms-1s | 0 | 0 | 0 |
 | >1s | 0 | 0 | 0 |
 
@@ -50,23 +50,22 @@
 
 | ID | 类别 | 查询 | card | graph | fusion |
 |---:|------|------|------|-------|--------|
-| 1 | api_lookup | HttpRequest的timeout参数怎么设置 | MISS | PARTIAL | PARTIAL |
-| 2 | api_lookup | DeviceInfo获取设备信息的具体API | MISS | FULL | FULL |
-| 6 | api_lookup | Router.back的用法 | FULL | FULL | MISS |
-| 7 | api_lookup | Router.replaceUrl的参数 | FULL | FULL | MISS |
+| 5 | api_lookup | Router.pushUrl的参数 | MISS | PARTIAL | PARTIAL |
+| 6 | api_lookup | Router.back的用法 | MISS | FULL | MISS |
+| 7 | api_lookup | Router.replaceUrl的参数 | MISS | FULL | MISS |
 | 9 | api_lookup | UIAbilityContext的API有哪些 | MISS | FULL | FULL |
-| 10 | api_lookup | Timer.once的参数 | MISS | FULL | FULL |
+| 10 | api_lookup | Timer.once的参数 | MISS | FULL | MISS |
 | 12 | api_lookup | SwiperController的API有哪些 | MISS | FULL | FULL |
 | 14 | api_lookup | Duration的构造方法 | MISS | MISS | MISS |
 | 16 | api_lookup | HttpResponseCache的创建方法 | MISS | FULL | FULL |
 | 17 | api_lookup | MultiFormData的属性 | MISS | FULL | FULL |
 | 18 | api_lookup | ClientCert的配置方法 | MISS | FULL | FULL |
+| 19 | api_lookup | PerformanceTiming的属性 | MISS | FULL | FULL |
 | 20 | api_lookup | geometryTransition的参数有哪些 | MISS | FULL | FULL |
 | 21 | enumeration | Timer定时器的配置参数有哪些 | MISS | FULL | MISS |
 | 22 | enumeration | AppStorage有哪些方法 | MISS | FULL | FULL |
 | 23 | enumeration | Swiper有哪些回调事件 | MISS | FULL | FULL |
 | 24 | enumeration | UIAbility的生命周期状态有哪些 | MISS | FULL | MISS |
-| 27 | enumeration | ResponseCode有哪些状态码 | MISS | FULL | FULL |
 | 29 | enumeration | NotificationSlot有哪些配置 | MISS | FULL | FULL |
 | 30 | enumeration | Want的属性有哪些 | MISS | FULL | FULL |
 | 31 | enumeration | UIAbility有哪些生命周期回调 | MISS | FULL | FULL |
@@ -76,37 +75,36 @@
 | 36 | enumeration | WebCookieManager有哪些方法 | MISS | FULL | FULL |
 | 37 | enumeration | AnimateParam有哪些配置 | MISS | FULL | FULL |
 | 38 | enumeration | TransitionEffect有哪些类型 | MISS | FULL | MISS |
-| 40 | enumeration | PersistentStorage有哪些限制 | MISS | FULL | PARTIAL |
-| 42 | reverse_lookup | 要实现懒加载用什么方案 | MISS | FULL | MISS |
+| 40 | enumeration | PersistentStorage有哪些限制 | MISS | FULL | MISS |
+| 42 | reverse_lookup | 要实现懒加载用什么方案 | MISS | FULL | FULL |
 | 43 | reverse_lookup | 要实现轮播用什么组件 | MISS | FULL | FULL |
-| 44 | reverse_lookup | 要发送通知用什么API | MISS | PARTIAL | MISS |
+| 44 | reverse_lookup | 要发送通知用什么API | MISS | MISS | MISS |
 | 45 | reverse_lookup | 要取消通知用什么方法 | MISS | FULL | MISS |
 | 47 | reverse_lookup | 要查询数据库用什么类 | MISS | FULL | FULL |
+| 48 | reverse_lookup | 要实现页面跳转用什么方法 | MISS | PARTIAL | PARTIAL |
 | 49 | reverse_lookup | 要启动另一个Ability用什么API | MISS | FULL | MISS |
 | 50 | reverse_lookup | 要获取相机列表用什么方法 | MISS | FULL | FULL |
 | 52 | reverse_lookup | 要设置Cookie用什么API | MISS | MISS | MISS |
 | 53 | reverse_lookup | 要实现页面转场用什么API | MISS | FULL | FULL |
-| 54 | reverse_lookup | 要实现共享元素转场用什么方法 | MISS | FULL | PARTIAL |
+| 54 | reverse_lookup | 要实现共享元素转场用什么方法 | MISS | PARTIAL | PARTIAL |
 | 55 | reverse_lookup | 要持久化状态用什么组件 | MISS | FULL | FULL |
 | 56 | reverse_lookup | 要获取设备环境参数用什么API | MISS | FULL | MISS |
 | 57 | semantic_fuzzy | 列表滑动卡顿怎么优化 | MISS | FULL | FULL |
-| 59 | semantic_fuzzy | 页面切换有白屏怎么办 | MISS | FULL | MISS |
-| 62 | semantic_fuzzy | 数据库查询结果为空怎么办 | FULL | MISS | MISS |
+| 59 | semantic_fuzzy | 页面切换有白屏怎么办 | MISS | FULL | FULL |
+| 62 | semantic_fuzzy | 数据库查询结果为空怎么办 | MISS | MISS | MISS |
 | 63 | semantic_fuzzy | 图片解码失败怎么办 | MISS | FULL | FULL |
 | 64 | semantic_fuzzy | 相机拍照失败怎么处理 | MISS | FULL | FULL |
-| 65 | semantic_fuzzy | 动画执行后界面不更新怎么办 | MISS | FULL | MISS |
 | 66 | semantic_fuzzy | 转场动画效果不对怎么办 | MISS | FULL | FULL |
 | 67 | semantic_fuzzy | 持久化数据丢失怎么办 | MISS | FULL | PARTIAL |
 | 69 | semantic_fuzzy | Ability启动失败怎么排查 | MISS | PARTIAL | PARTIAL |
 | 70 | semantic_fuzzy | Ability生命周期回调不执行怎么办 | MISS | FULL | FULL |
 | 72 | semantic_fuzzy | 相机无法打开怎么办 | MISS | FULL | FULL |
-| 73 | comparison | List和LazyForEach有什么区别 | MISS | FULL | MISS |
+| 73 | comparison | List和LazyForEach有什么区别 | MISS | FULL | PARTIAL |
 | 76 | comparison | AES和RSA加密有什么区别 | MISS | MISS | MISS |
-| 78 | comparison | RdbStore和ResultSet有什么区别 | FULL | MISS | FULL |
 | 79 | comparison | ImageSource和PixelMap有什么区别 | MISS | FULL | MISS |
 | 80 | comparison | PhotoSession和VideoSession有什么区别 | MISS | MISS | MISS |
 | 81 | comparison | UIAbility和UIAbilityContext有什么区别 | MISS | FULL | FULL |
-| 82 | comparison | animateTo和animation有什么区别 | MISS | FULL | MISS |
+| 82 | comparison | animateTo和animation有什么区别 | MISS | PARTIAL | PARTIAL |
 | 83 | comparison | geometryTransition和sharedTransition | MISS | FULL | PARTIAL |
 | 84 | comparison | PersistentStorage和AppStorage有什么区别 | MISS | FULL | FULL |
 | 89 | composition | 做一个带虚拟滚动的大数据表格 | MISS | FULL | FULL |
@@ -115,17 +113,16 @@
 | 95 | composition | 做一个带动画的列表删除 | MISS | FULL | FULL |
 | 96 | composition | 做一个带转场的页面跳转 | MISS | FULL | FULL |
 | 97 | composition | 做一个持久化的用户设置页 | MISS | PARTIAL | PARTIAL |
-| 99 | composition | 做一个带相机的页面 | MISS | PARTIAL | PARTIAL |
+| 99 | composition | 做一个带相机的页面 | MISS | PARTIAL | MISS |
 | 101 | composition | 做一个带通知的下载任务 | MISS | FULL | FULL |
 | 103 | cross_ecosystem | Android的RecyclerView在鸿蒙对应什么 | MISS | FULL | FULL |
 | 105 | cross_ecosystem | RN的FlatList对应鸿蒙什么组件 | MISS | FULL | FULL |
-| 107 | cross_ecosystem | Android的Notification在鸿蒙对应什么 | MISS | PARTIAL | MISS |
+| 107 | cross_ecosystem | Android的Notification在鸿蒙对应什么 | MISS | MISS | MISS |
 | 109 | cross_ecosystem | Android的Camera在鸿蒙对应什么 | MISS | FULL | FULL |
 | 110 | cross_ecosystem | iOS的UIView动画在鸿蒙对应什么 | MISS | FULL | FULL |
 | 112 | cross_ecosystem | Flutter的Hero动画在鸿蒙对应什么 | MISS | FULL | FULL |
-| 113 | cross_ecosystem | Android的SharedPreferences在鸿蒙对应什么 | MISS | FULL | FULL |
+| 113 | cross_ecosystem | Android的SharedPreferences在鸿蒙对应什么 | MISS | FULL | PARTIAL |
 | 114 | cross_ecosystem | Android的Activity在鸿蒙对应什么 | MISS | FULL | FULL |
-| 115 | cross_ecosystem | Android的Intent在鸿蒙对应什么 | MISS | FULL | FULL |
 | 116 | cross_ecosystem | iOS的UIViewController在鸿蒙对应什么 | MISS | FULL | FULL |
 | 119 | workflow | UIAbility启动流程是什么 | MISS | FULL | PARTIAL |
 | 123 | workflow | 相机拍照的完整流程是什么 | MISS | FULL | FULL |
@@ -160,15 +157,15 @@
 | 162 | performance_boundary | 页面转场内存占用过大 | MISS | PARTIAL | PARTIAL |
 | 163 | performance_boundary | PersistentStorage读写慢怎么办 | MISS | FULL | PARTIAL |
 | 164 | performance_boundary | 大量Ability启动性能问题 | MISS | PARTIAL | PARTIAL |
-| 165 | performance_boundary | WebView内存占用过大怎么办 | MISS | PARTIAL | PARTIAL |
+| 165 | performance_boundary | WebView内存占用过大怎么办 | MISS | FULL | PARTIAL |
 | 166 | performance_boundary | 相机录像内存飙升怎么办 | MISS | MISS | MISS |
 | 169 | performance_boundary | HTTP缓存过多怎么办 | MISS | FULL | FULL |
 | 170 | performance_boundary | 定时器执行延迟怎么办 | MISS | FULL | FULL |
 | 171 | how_to | List组件怎么用 | MISS | FULL | MISS |
-| 174 | how_to | 页面跳转怎么做 | FULL | FULL | MISS |
+| 174 | how_to | 页面跳转怎么做 | MISS | FULL | MISS |
 | 175 | how_to | Swiper轮播怎么用 | MISS | FULL | FULL |
 | 176 | how_to | Grid网格布局怎么用 | MISS | MISS | MISS |
-| 178 | how_to | Timer定时器怎么用 | MISS | FULL | FULL |
+| 178 | how_to | Timer定时器怎么用 | MISS | FULL | MISS |
 | 180 | how_to | UIAbility怎么创建和启动 | MISS | FULL | FULL |
 | 181 | how_to | 后台任务怎么调度 | MISS | MISS | MISS |
 | 182 | how_to | 定位服务怎么获取位置 | MISS | FULL | FULL |
@@ -176,7 +173,7 @@
 | 184 | how_to | 图片处理怎么实现 | MISS | FULL | FULL |
 | 185 | how_to | 动画效果怎么实现 | MISS | MISS | MISS |
 | 186 | how_to | 图片选择器怎么用 | MISS | FULL | FULL |
-| 187 | how_to | 通知怎么发 | MISS | PARTIAL | MISS |
+| 187 | how_to | 通知怎么发 | MISS | MISS | MISS |
 | 189 | how_to | 图片怎么解码 | MISS | FULL | FULL |
 | 190 | how_to | 显式动画怎么用 | MISS | FULL | MISS |
 | 191 | how_to | PersistentStorage怎么配置 | MISS | FULL | PARTIAL |
@@ -184,21 +181,19 @@
 
 ## 5. Fusion 补救命中（fusion=FULL 但 card 或 graph = MISS）
 
-共 69 条：
+共 65 条：
 
 | ID | 查询 | card | graph |
 |---:|------|------|-------|
-| 2 | DeviceInfo获取设备信息的具体API | MISS | FULL |
 | 9 | UIAbilityContext的API有哪些 | MISS | FULL |
-| 10 | Timer.once的参数 | MISS | FULL |
 | 12 | SwiperController的API有哪些 | MISS | FULL |
 | 16 | HttpResponseCache的创建方法 | MISS | FULL |
 | 17 | MultiFormData的属性 | MISS | FULL |
 | 18 | ClientCert的配置方法 | MISS | FULL |
+| 19 | PerformanceTiming的属性 | MISS | FULL |
 | 20 | geometryTransition的参数有哪些 | MISS | FULL |
 | 22 | AppStorage有哪些方法 | MISS | FULL |
 | 23 | Swiper有哪些回调事件 | MISS | FULL |
-| 27 | ResponseCode有哪些状态码 | MISS | FULL |
 | 29 | NotificationSlot有哪些配置 | MISS | FULL |
 | 30 | Want的属性有哪些 | MISS | FULL |
 | 31 | UIAbility有哪些生命周期回调 | MISS | FULL |
@@ -207,18 +202,19 @@
 | 34 | CameraInput有哪些事件 | MISS | FULL |
 | 36 | WebCookieManager有哪些方法 | MISS | FULL |
 | 37 | AnimateParam有哪些配置 | MISS | FULL |
+| 42 | 要实现懒加载用什么方案 | MISS | FULL |
 | 43 | 要实现轮播用什么组件 | MISS | FULL |
 | 47 | 要查询数据库用什么类 | MISS | FULL |
 | 50 | 要获取相机列表用什么方法 | MISS | FULL |
 | 53 | 要实现页面转场用什么API | MISS | FULL |
 | 55 | 要持久化状态用什么组件 | MISS | FULL |
 | 57 | 列表滑动卡顿怎么优化 | MISS | FULL |
+| 59 | 页面切换有白屏怎么办 | MISS | FULL |
 | 63 | 图片解码失败怎么办 | MISS | FULL |
 | 64 | 相机拍照失败怎么处理 | MISS | FULL |
 | 66 | 转场动画效果不对怎么办 | MISS | FULL |
 | 70 | Ability生命周期回调不执行怎么办 | MISS | FULL |
 | 72 | 相机无法打开怎么办 | MISS | FULL |
-| 78 | RdbStore和ResultSet有什么区别 | FULL | MISS |
 | 81 | UIAbility和UIAbilityContext有什么区别 | MISS | FULL |
 | 84 | PersistentStorage和AppStorage有什么区别 | MISS | FULL |
 | 89 | 做一个带虚拟滚动的大数据表格 | MISS | FULL |
@@ -231,9 +227,7 @@
 | 109 | Android的Camera在鸿蒙对应什么 | MISS | FULL |
 | 110 | iOS的UIView动画在鸿蒙对应什么 | MISS | FULL |
 | 112 | Flutter的Hero动画在鸿蒙对应什么 | MISS | FULL |
-| 113 | Android的SharedPreferences在鸿蒙对应什么 | MISS | FULL |
 | 114 | Android的Activity在鸿蒙对应什么 | MISS | FULL |
-| 115 | Android的Intent在鸿蒙对应什么 | MISS | FULL |
 | 116 | iOS的UIViewController在鸿蒙对应什么 | MISS | FULL |
 | 123 | 相机拍照的完整流程是什么 | MISS | FULL |
 | 128 | Ability生命周期流程是什么 | FULL | MISS |
@@ -250,7 +244,6 @@
 | 169 | HTTP缓存过多怎么办 | MISS | FULL |
 | 170 | 定时器执行延迟怎么办 | MISS | FULL |
 | 175 | Swiper轮播怎么用 | MISS | FULL |
-| 178 | Timer定时器怎么用 | MISS | FULL |
 | 180 | UIAbility怎么创建和启动 | MISS | FULL |
 | 182 | 定位服务怎么获取位置 | MISS | FULL |
 | 183 | 相机拍照怎么实现 | MISS | FULL |

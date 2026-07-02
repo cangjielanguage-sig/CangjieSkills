@@ -1,7 +1,7 @@
 {
   "version": "v3",
   "generation_mode": "rule+llm",
-  "generated_at": "2026-05-12T00:59:20.493046+00:00",
+  "generated_at": "2026-06-29T14:18:45.536258+00:00",
   "prompt_version": "v1",
   "sources": [
     "harmonyos-6.0.2-15k",
@@ -12,69 +12,133 @@
   ],
   "counts": {
     "tasks": 100,
-    "apis": 4635,
-    "examples": 584,
-    "docs": 14824,
-    "llm_enriched_tasks": 88,
-    "llm_enriched_apis": 4632,
-    "llm_enriched_examples": 584,
-    "llm_enriched_docs": 14824
+    "apis": 4804,
+    "examples": 510,
+    "docs": 14546,
+    "llm_enriched_tasks": 82,
+    "llm_enriched_apis": 4795,
+    "llm_enriched_examples": 510,
+    "llm_enriched_docs": 14539
   },
   "eval": {
     "full_eval_queries": "evals/eval_queries_full.jsonl",
-    "full_eval_query_count": 93486
+    "full_eval_query_count": 94440
   },
   "entrypoints": {
-    "search": "search_v3.py",
-    "build": "../../cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py"
+    "search": "doc-card/search_v3.py",
+    "build": "../cangjie-hmos-doc-search-maintenance/card/builder/build_index_v3.py"
   },
   "llm": {
-    "requested": 20128,
-    "succeeded": 20128,
-    "failed": 0,
-    "skipped": 15,
+    "requested": 19936,
+    "succeeded": 19926,
+    "failed": 10,
+    "skipped": 24,
     "skipped_due_to_provider_unhealthy": 0,
     "batch_fallbacks": 0,
-    "cache_hits": 20128,
-    "cache_writes": 0,
-    "failures": [],
-    "failure_summary_by_type": {},
+    "cache_hits": 0,
+    "cache_writes": 19926,
+    "failures": [
+      {
+        "card_type": "api",
+        "card_id": "api.harmonyos-6-0-2-15k-cj-apis-nfc-cardemulation-ohosnfccardemulation-nfc-cardemulation-func-isdefaultserviceel-6fa1f8b2",
+        "error": "IncompleteRead(0 bytes read)",
+        "error_type": "unknown_error"
+      },
+      {
+        "card_type": "api",
+        "card_id": "api.harmonyos-6-0-2-15k-cj-basicservices-cj-apis-battery-info-ohosbattery-info-class-batteryinfo",
+        "error": "Unterminated string starting at: line 879 column 9 (char 26391)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "api",
+        "card_id": "api.harmonyos-6-0-2-15k-cj-information-display-badge-badge-class-badgestyle",
+        "error": "Unterminated string starting at: line 611 column 9 (char 21905)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-accesstoken-cj-app-permission-mgmt-overview",
+        "error": "Unterminated string starting at: line 753 column 9 (char 20131)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-apis-multimedia-photo-accesshelper-ohosmultimediaphoto-accesshelper-class-photoasset-abstract",
+        "error": "Unterminated string starting at: line 667 column 9 (char 22687)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-apis-multimedia-avsession-ohosmultimedia-avsession-class-avcastcontroller-abstract",
+        "error": "Unterminated string starting at: line 941 column 9 (char 29920)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-arkui-cj-dialog-alertdialog-alertdialog-class-alertdialogparam",
+        "error": "Unterminated string starting at: line 895 column 9 (char 29512)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-arkui-cj-universal-attribute-location-overview-2",
+        "error": "Expecting value: line 821 column 25 (char 20515)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-dialog-actionsheet-actionsheet-class-actionsheetoptions-actionsheetoptions-actionsheetoptions-1",
+        "error": "Unterminated string starting at: line 672 column 9 (char 27076)",
+        "error_type": "response_error"
+      },
+      {
+        "card_type": "doc",
+        "card_id": "doc.harmonyos-6-0-2-15k-cj-text-input-textinput-textinput-class-textinputcontroller",
+        "error": "Unterminated string starting at: line 508 column 9 (char 24656)",
+        "error_type": "response_error"
+      }
+    ],
+    "failure_summary_by_type": {
+      "unknown_error": 1,
+      "response_error": 9
+    },
     "by_card_type": {
       "task": {
-        "requested": 88,
-        "succeeded": 88,
+        "requested": 82,
+        "succeeded": 82,
         "failed": 0,
-        "skipped": 12,
-        "review": 78
+        "skipped": 18,
+        "review": 18
       },
       "api": {
-        "requested": 4632,
-        "succeeded": 4632,
-        "failed": 0,
-        "skipped": 3,
-        "review": 2348
+        "requested": 4798,
+        "succeeded": 4795,
+        "failed": 3,
+        "skipped": 6,
+        "review": 340
       },
       "example": {
-        "requested": 584,
-        "succeeded": 584,
+        "requested": 510,
+        "succeeded": 510,
         "failed": 0,
         "skipped": 0,
-        "review": 365
+        "review": 37
       },
       "doc": {
-        "requested": 14824,
-        "succeeded": 14824,
-        "failed": 0,
+        "requested": 14546,
+        "succeeded": 14539,
+        "failed": 7,
         "skipped": 0,
-        "review": 6300
+        "review": 791
       }
     },
     "usage": {
-      "prompt_tokens": 0,
-      "completion_tokens": 0,
-      "total_tokens": 0
+      "prompt_tokens": 28353072,
+      "completion_tokens": 7527656,
+      "total_tokens": 35880728
     },
-    "provider_status": "healthy",
+    "provider_status": "degraded",
     "provider_stop_reason": "",
     "provider_last_error": "",
     "enabled_card_types": [
@@ -83,13 +147,13 @@
       "example",
       "doc"
     ],
-    "concurrency": 4,
-    "cache_dir": "/tmp/llm-cache-skill15k",
+    "concurrency": 5,
+    "cache_dir": "records\\llm-cache",
     "max_evidence_docs": 4,
     "max_evidence_chars": 1800,
-    "model": "deepseek-v3.2",
-    "base_url": "https://api.modelarts-maas.com/openai/v1",
+    "model": "deepseek-chat",
+    "base_url": "https://api.deepseek.com/v1",
     "prompt_version": "v1",
-    "example_candidate_count": 584
+    "example_candidate_count": 510
   }
 }

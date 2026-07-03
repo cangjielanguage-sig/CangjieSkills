@@ -1,6 +1,6 @@
 ---
 name: cangjie-testcase-xmind
-description: Generate Cangjie API test case JSON and XMind mind maps from structured interface and parameter information. Use when Codex needs to design Cangjie test cases, fill multi-parameter cases with Pair-wise coverage, validate the fixed testcase mind-map schema, or convert testcase JSON into a .xmind file.
+description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only when the user explicitly asks to design Cangjie interface test cases, generate testcase JSON, apply Pair-wise parameter coverage, validate the fixed testcase mind-map schema, or convert testcase JSON into a .xmind file. Not for code generation."
 ---
 
 # Cangjie Testcase XMind

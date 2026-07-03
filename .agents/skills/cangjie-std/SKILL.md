@@ -1,7 +1,20 @@
 ---
 name: cangjie-std
-description: "当需要查询仓颉标准库 API、示例或使用方式时使用此 Skill；提供核心类型、集合、时间日期、数学运算、并发同步、文件系统、IO、网络、进程与单元测试常用功能速查文档。"
+description: "ALWAYS PAIR for Cangjie .cj code generation, code filling, and function implementation that touches standard-library APIs. Use when signatures or comments mention Array, String, Rune, Bool, Int64, Float64, Option, Tuple, collection, substring, sort, filter, map, split, contains, size, empty, ceiling, floor, parsing, math, or when fixing Array.append/ArrayList.append, HashMap.put/HashSet.put, arr.sort, .length, .isEmpty, subString, toLower/toUpper, isUpperCase, ceil/floor/round. Pair with cangjie-lang-features."
 ---
+
+## 代码生成 API 首检
+
+- `Array<T>` 固定长度，没有 `append`/成员 `sort`。需要动态追加时用 `ArrayList<T>` 的 `add`，最后 `toArray()`；知道结果长度时优先 `Array<T>(size, { i => ... })` 并按下标赋值。
+- `Array<T>(size, repeat: value)` 用于重复填充值；按下标生成元素时写 `Array<T>(size, { i => expr })`，不要写 `item:` 或 `initElement:` 调用。
+- `ArrayList`、`HashMap`、`HashSet` 来自 `std.collection`，使用前写 `import std.collection.*`。`ArrayList` 和 `HashSet` 添加元素都用 `add`；不要写 `append` 或 `put`。
+- `HashMap` 更新可写 `map[key] = value` 或 `map.add(key, value)`；安全取值后参与比较时先加括号，例如 `(map.get(key) ?? 0) == 1`。不要把 `put` 当作 HashMap/HashSet API。
+- 排序使用 `std.sort` 的自由函数：`import std.sort.*` 后写 `sort(arr)`、`sort(arr, descending: true)` 或 `sort(arr, lessThan: { a, b => ... })`；不要写 `arr.sort()`。
+- `Array` 没有成员 `filter`/`map` 时，优先用显式循环加 `ArrayList` 收集；若使用迭代器函数，确认已导入对应集合工具并用 `collectArray`/`collectArrayList` 收尾。不要写 `filter(func...)` 或 `sort(func...)`。
+- `String` 长度属性是 `size`，判空调用 `isEmpty()`；不要写 `.length` 或 `.isEmpty`。子串用区间下标，例如 `s[start..end]`；简单查找优先 `contains`、`indexOf`、`startsWith`、`endsWith`。
+- `String.trim()`、`String.toLower()`、`String.toUpper()`、`Rune.isLetter()`、`Rune.isUpperCase()`、`Rune.toLowerCase()` 等 Unicode 扩展需要 `import std.unicode.*`。只裁剪 ASCII 空白可用核心 `trimAscii()`。
+- `ceil`、`floor`、`round`、`sqrt`、`pow`、`abs` 等数学自由函数需要 `import std.math.*`，调用方式是 `ceil(x)`，不要写 `x.ceil()`。
+- 字符集合常用 `HashSet<Rune>` 配合 `s.runes()`；需要字符串结果时用 `ArrayList<Rune>` 收集、`String(list.toArray())` 返回。
 
 请按需查询当前目录下的标准库文档：
 
@@ -56,4 +69,3 @@ description: "当需要查询仓颉标准库 API、示例或使用方式时使�
 [std.args](./args/README.md)：命令行参数处理，包括 main(args) 接收命令行参数、std.argopt 包解析短选项(-v)/长选项(--output)/组合选项、ArgumentSpec/ParsedArguments API 等。
 
 [std.ref](./ref/README.md)：弱引用，包括 WeakRef 弱引用管理、CleanupPolicy 清理策略(EAGER/DEFERRED)、缓存场景用法等。
-

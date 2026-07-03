@@ -1,6 +1,6 @@
 ---
 name: cangjie-original-docs
-description: "当专题 Skill 无法提供有效仓颉知识，或需要核对仓颉语言、标准库、扩展标准库及工具链原始文档时使用此 Skill；支持按索引和关键词检索原始文档。"
+description: "LOW PRIORITY fallback. Select only when focused skills cannot answer or the user explicitly asks to verify original Cangjie language, std, stdx, or toolchain documentation by index/keyword search. For normal coding, prefer cangjie-lang-features, cangjie-std, and cangjie-stdx first."
 ---
 
 # 仓颉原始文档检索

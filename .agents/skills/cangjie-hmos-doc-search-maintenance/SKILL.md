@@ -1,7 +1,6 @@
 ---
 name: cangjie-hmos-doc-search-maintenance
-description: "维护 cangjie-hmos-doc-search 的文档更新、索引/卡片重建、图谱构建与 LLM 离线增强、三引擎评测、发布门禁流程。支持 OpenAI 兼容 LLM 端点（GLM-5.2/DashScope 等）。适用于文档变化后重建检索索引/图谱数据、跑 enhance-graph 补全中文关键词、三引擎评测对比、发布门禁判定 pass/gray_release/blocked。"
-tags: [workflow, evaluation, maintenance, platform]
+description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only to maintain the cangjie-hmos-doc-search corpus and engines: rebuild card indexes, graph data, fusion release gates, offline LLM enrichment, or search-quality gates after documentation changes. Not for answering user questions or coding tasks."
 ---
 
 # cangjie-hmos-doc-search-maintenance

@@ -1,7 +1,6 @@
 ---
 name: cangjie-hmos-doc-search
-description: "鸿蒙仓颉开发文档检索，支持 card/graph/fusion 三引擎搜索。适用于仓颉鸿蒙开发 API 用法、开发指南、跨平台迁移对应、语义模糊问题定位或组合场景方案检索。精确 API 查询优先 card，语义/组合/跨生态优先 graph，日常用 fusion；fusion 命中不佳时可降级 --engine graph。"
-tags: [workflow, platform, search]
+description: "LOW PRIORITY outside HarmonyOS. Select only for explicit HarmonyOS/HMOS Cangjie platform references: UI components, lifecycle, router/navigation, ability, ArkUI, migration comparisons, or app-scenario guidance. Do not use for core language or library coding tasks."
 ---
 
 # 鸿蒙仓颉文档检索

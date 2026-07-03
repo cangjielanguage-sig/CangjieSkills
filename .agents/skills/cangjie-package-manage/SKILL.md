@@ -1,6 +1,6 @@
 ---
 name: cangjie-package-manage
-description: "cjpm/package 专项预检 Skill。Use when 需要检查 Cangjie/cjpm 项目的 cjpm.toml、workspace、package 声明、目录到包名映射、src-dir、organization/orgName::、import 位置/语法、依赖可见性。用于定位 no '.cj' file、cyclic dependency、can not find dependencies、包声明位置错误和包依赖语法问题；不覆盖纯语言、纯文档、UI 组件或深度 Hvigor/ohpm 构建排查。"
+description: "LOW PRIORITY. Select only for an actual cjpm project/package issue with cjpm.toml, workspace, package declarations, src-dir, organization/orgName::, import dependency visibility, no '.cj' file, cyclic dependency, or can not find dependencies. Do not auto-select for standalone code generation or library reference lookup."
 ---
 
 # cjpm 包管理预检

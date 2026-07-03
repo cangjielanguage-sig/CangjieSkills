@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-app-diagnose
-description: "构建成功后，采集设备上的应用 UI 截图与控件树，抓取 hilog 运行日志，分析界面状态与运行时异常并给出迭代建议。当需要验证构建产物的界面表现、排查 UI 缺陷、诊断应用崩溃/ANR/运行时错误、或评估是否需要进一步开发时使用此 Skill。"
+description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only after a HarmonyOS app build/install exists and the user asks to inspect device UI screenshots, component trees, hilog logs, crashes, ANR, runtime exceptions, or visual behavior. Not for coding or reference lookup."
 ---
 
 # HarmonyOS 应用运行诊断 Skill

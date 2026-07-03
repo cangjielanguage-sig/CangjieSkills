@@ -1,6 +1,6 @@
 ---
 name: cangjie-skill-evolution
-description: "当需要基于 cangjie-rollout-collector 生成的 Rollout Record、trace、ground truth 或 eval 结果，对已有仓颉 Agent Skill 做治理、演进、修复、抽象规则、生成 consolidated patch、沉淀或拒绝经验、从零起草 Skill 时使用此 Skill。它提供统一的 rollout 证据治理流程：读取证据、校验 ground truth、跨 rollout 对比、扫描目标 Skill 本体、增量去重、生成候选、抽象规则、编译补丁、执行 experience gate、合并写入与验证；只有用户明确要求写入时才修改目标 Skill。"
+description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only for explicit Cangjie Agent Skill governance or evolution based on rollout records, traces, ground truth, or assessment results: derive rules, patch SKILL.md, consolidate evidence, or reject experience. Not for ordinary coding or reference lookup."
 ---
 
 # 仓颉 Skill 自进化治理

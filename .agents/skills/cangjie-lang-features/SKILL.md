@@ -1,9 +1,22 @@
 ---
 name: cangjie-lang-features
-description: "当使用仓颉语言开发软件或回答仓颉语言问题时使用此 Skill，提供仓颉编程语言核心特性的优质文档导航。"
+description: "ALWAYS AUTO-SELECT for Cangjie .cj code generation, code filling, and function implementation. Use when the user asks to 生成/填充/实现仓颉代码, edit a .cj file, fill a TODO/function skeleton, or provides func signatures, comments/specs/examples, one-shot/single-pass instructions, compile errors, or syntax tokens such as func, let/var, if/while/for, Array, String, Rune, Bool, Int64, Float64, Option, match, lambda, ranges, packages/imports. Pair with cangjie-std for standard-library APIs."
 ---
 
 # 仓颉编程语言特性目录
+
+## 代码生成首检
+
+- `import` 只能出现在顶层声明区：有 `package` 时放在 package 后、其它声明前；没有 package 时放在所有函数/类型声明前。不要在函数或声明后追加 import。
+- `if`、`while`、`match` 的条件/匹配目标使用括号：`if (cond) { ... }`、`while (cond) { ... }`、`match (x) { ... }`。不要写 `if a < b {` 或 `while x {`。
+- `match` 的每个 `case` 右侧必须有表达式或语句；空分支写 `case _ => ()`，不要只写 `case _ =>`。
+- 非 `Unit` 返回函数必须在所有可达路径显式 `return` 对应类型；编译器不一定把 `while (true)` 识别为永不结束，循环后补一个保底 `return`。
+- `String` 默认迭代得到 `Byte`/`UInt8`，按字符处理时使用 `for (r in s.runes())`、`toRuneArray()` 和 Rune 字面量 `r'a'`。不要把 `for (r in s)` 得到的 `UInt8` 与 `Rune`/`String` 直接比较。
+- 字符串、数组和集合的下标/大小通常用 `Int64`；循环计数器显式写 `var i: Int64 = 0`。不要混用 `UInt32` 计数器和 `.size`。
+- 区间写 `0..n` 或 `0..=n`；仓颉没有 `0..<n` 语法。遍历下标时优先 `while (i < arr.size)`，避免越界。
+- 命名实参只在参数定义带 `!` 时可用；不确定时优先用位置参数，例如 `s.indexOf(sub, start)`、`Array<Int64>(n, { i => ... })`。
+- 仓颉使用类型构造函数转换数值和字符：`Int64(x)`、`UInt32(r)`、`Rune(code)`；不要写 `.toInt64()`，也不要写 `Int64(rune)`，Rune 转整数先用 `Int64(UInt32(rune))`。
+- 初始化器或高阶函数的 lambda 若需要修改外层变量，优先改用显式循环；需要捕获时先绑定不可变局部值，避免 mutable capture 编译失败。
 
 > 请按需查阅相关文档
 

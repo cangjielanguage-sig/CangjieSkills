@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-build
-description: "当需要构建鸿蒙应用项目时，使用此 Skill 执行构建流程。"
+description: "LOW PRIORITY. Select only for building or debugging a real HarmonyOS/HMOS app project with Hvigor, ohpm, build-profile.json5, oh-package.json5, SyncCangjieResource, signing, emulator/device packaging, or platform build logs. Do not use for routine language or library coding tasks."
 ---
 
 # 鸿蒙应用构建 Skill

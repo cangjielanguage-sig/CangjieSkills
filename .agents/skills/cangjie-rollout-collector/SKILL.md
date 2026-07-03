@@ -1,6 +1,6 @@
 ---
 name: cangjie-rollout-collector
-description: "当目标 Skill 执行完成后需要从结构化 trace、显式日志或可审计会话证据生成并保存统一 Rollout Record 时使用此 Skill：通过统一 collector 入口选择 agent 平台 adapter，集中写入 .agents/skills/cangjie-rollout-collector/records/rollouts/。只记录可复核事实，不做 Skill 治理，不修改目标 Skill。"
+description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only after another skill run completes and the user explicitly needs a Rollout Record saved from structured trace, logs, or auditable session evidence. It records facts only and does not modify skills or answer coding questions."
 ---
 
 # 仓颉 Rollout Collector

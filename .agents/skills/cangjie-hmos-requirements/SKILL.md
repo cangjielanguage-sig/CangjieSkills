@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-requirements
-description: "当用户提出鸿蒙应用开发需求时，使用此 Skill 进行需求澄清、方案设计与验收定义。不负责知识检索与编码实现。"
+description: "LOW PRIORITY. Select only for HarmonyOS app product requirements: clarify features, design an implementation plan, and define acceptance criteria. This skill does not perform reference lookup, code generation, or build debugging."
 ---
 
 # 仓颉鸿蒙需求分析与设计 Skill

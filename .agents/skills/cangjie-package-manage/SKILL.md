@@ -1,6 +1,6 @@
 ---
 name: cangjie-package-manage
-description: "LOW PRIORITY. Select only for an actual cjpm project/package issue with cjpm.toml, workspace, package declarations, src-dir, organization/orgName::, import dependency visibility, no '.cj' file, cyclic dependency, or can not find dependencies. Do not auto-select for standalone code generation or library reference lookup."
+description: "Cangjie cjpm project and package management guidance. Use for actual project/package issues involving cjpm.toml, workspace, package declarations, src-dir, organization/orgName::, import dependency visibility, no '.cj' file, cyclic dependency, or can not find dependencies. For standalone .cj code generation or library reference lookup, use cangjie-lang-features and cangjie-std."
 ---
 
 # cjpm 包管理预检

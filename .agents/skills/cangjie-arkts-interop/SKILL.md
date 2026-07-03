@@ -1,6 +1,6 @@
 ---
 name: cangjie-arkts-interop
-description: "LOW PRIORITY. Select only for explicit HarmonyOS ArkTS interop work: @Interop macros, generated .d.ts files, ohos.ark_interop manual registration, or Cangjie/ArkTS type mapping and symbol conflicts. Do not auto-select for routine Cangjie coding tasks."
+description: "HarmonyOS ArkTS interop guidance for Cangjie projects. Use when the task involves @Interop macros, generated .d.ts files, ohos.ark_interop manual registration, Cangjie/ArkTS type mapping, cross-language calls, or symbol conflicts. For routine .cj language/API code without ArkTS interop, use cangjie-lang-features and cangjie-std."
 ---
 
 # 仓颉 ↔ ArkTS 互操作 Skill

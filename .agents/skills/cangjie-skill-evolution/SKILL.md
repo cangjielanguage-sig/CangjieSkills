@@ -1,6 +1,6 @@
 ---
 name: cangjie-skill-evolution
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only for explicit Cangjie Agent Skill governance or evolution based on rollout records, traces, ground truth, or assessment results: derive rules, patch SKILL.md, consolidate evidence, or reject experience. Not for ordinary coding or reference lookup."
+description: "Cangjie Agent Skill governance and evolution from rollout records, traces, ground truth, or assessment results. Use when the user explicitly asks to derive rules, patch SKILL.md, consolidate evidence, or reject experience. Not for ordinary coding or reference lookup."
 ---
 
 # 仓颉 Skill 自进化治理

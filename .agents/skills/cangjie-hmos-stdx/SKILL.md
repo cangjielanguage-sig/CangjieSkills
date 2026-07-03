@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-stdx
-description: "LOW PRIORITY. Select only for HarmonyOS app stdx binary/package setup: unzip bundled stdx artifacts, configure entry/cjpm.toml bin-dependencies.path-option, or fix platform link/build errors involving stdx. For general extension-library usage, prefer cangjie-stdx."
+description: "HarmonyOS app stdx binary and package setup. Use for bundled stdx artifacts, entry/cjpm.toml bin-dependencies.path-option, platform link/build errors involving stdx, or HarmonyOS-specific stdx packaging. For general extension-library API usage outside app packaging, use cangjie-stdx."
 ---
 
 # 鸿蒙应用 stdx 依赖配置 Skill

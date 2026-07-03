@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-doc-search-maintenance
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only to maintain the cangjie-hmos-doc-search corpus and engines: rebuild card indexes, graph data, fusion release gates, offline LLM enrichment, or search-quality gates after documentation changes. Not for answering user questions or coding tasks."
+description: "Maintenance workflow for the cangjie-hmos-doc-search corpus and engines. Use when the user asks to rebuild card indexes, graph data, fusion release gates, offline LLM enrichment, or search-quality gates after documentation changes. Not for answering ordinary reference questions or coding tasks."
 ---
 
 # cangjie-hmos-doc-search-maintenance

@@ -1,6 +1,6 @@
 ---
 name: cangjie-std
-description: "ALWAYS PAIR for Cangjie .cj code generation, code filling, and function implementation that touches standard-library APIs. Use when signatures or comments mention Array, String, Rune, Bool, Int64, Float64, Option, Tuple, collection, substring, sort, filter, map, split, contains, size, empty, ceiling, floor, parsing, math, or when fixing Array.append/ArrayList.append, HashMap.put/HashSet.put, arr.sort, .length, .isEmpty, subString, toLower/toUpper, isUpperCase, ceil/floor/round. Pair with cangjie-lang-features."
+description: "Cangjie standard-library API guidance for .cj code generation, code filling, and function implementation. Use when signatures or comments mention Array, String, Rune, Bool, Int64, Float64, Option, Tuple, collection, substring, sort, filter, map, split, contains, size, empty, ceiling, floor, parsing, math, or when fixing Array.append/ArrayList.append, HashMap.put/HashSet.put, arr.sort, .length, .isEmpty, subString, toLower/toUpper, isUpperCase, ceil/floor/round. Pair with cangjie-lang-features."
 ---
 
 ## 代码生成 API 首检

@@ -1,6 +1,6 @@
 ---
 name: cangjie-skill-lint-fix
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only when the user explicitly asks to fix skill-lint errors or warnings for an Agent Skill by running Skill-CLI, analyzing lint reports, adding validated checks, and iterating to 0 errors / 0 warnings. Not for coding or library lookup."
+description: "Agent Skill lint repair workflow. Use when the user explicitly asks to fix skill-lint errors or warnings by running Skill-CLI, analyzing lint reports, adding validated checks, and iterating to 0 errors / 0 warnings. Not for coding or library lookup."
 ---
 
 # Skill Lint Fix

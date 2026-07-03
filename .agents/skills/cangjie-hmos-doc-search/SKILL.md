@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-doc-search
-description: "LOW PRIORITY outside HarmonyOS. Select only for explicit HarmonyOS/HMOS Cangjie platform references: UI components, lifecycle, router/navigation, ability, ArkUI, migration comparisons, or app-scenario guidance. Do not use for core language or library coding tasks."
+description: "HarmonyOS/HMOS Cangjie platform documentation search. Use when the task asks for HarmonyOS APIs, UI components, lifecycle, router/navigation, ability, ArkUI, migration comparisons, app-scenario guidance, or platform reference lookup. For core language and standard-library APIs, use cangjie-lang-features, cangjie-std, or cangjie-stdx."
 ---
 
 # 鸿蒙仓颉文档检索

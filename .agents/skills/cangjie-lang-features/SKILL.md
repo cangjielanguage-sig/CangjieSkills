@@ -1,6 +1,6 @@
 ---
 name: cangjie-lang-features
-description: "ALWAYS AUTO-SELECT for Cangjie .cj code generation, code filling, and function implementation. Use when the user asks to 生成/填充/实现仓颉代码, edit a .cj file, fill a TODO/function skeleton, or provides func signatures, comments/specs/examples, one-shot/single-pass instructions, compile errors, or syntax tokens such as func, let/var, if/while/for, Array, String, Rune, Bool, Int64, Float64, Option, match, lambda, ranges, packages/imports. Pair with cangjie-std for standard-library APIs."
+description: "Cangjie language syntax and .cj code generation guidance. Use when the user asks to 生成/填充/实现仓颉代码, edit a .cj file, fill a TODO/function skeleton, or provides func signatures, comments/specs/examples, one-shot/single-pass instructions, compile errors, or syntax tokens such as func, let/var, if/while/for, Array, String, Rune, Bool, Int64, Float64, Option, match, lambda, ranges, packages/imports. Pair with cangjie-std for standard-library APIs."
 ---
 
 # 仓颉编程语言特性目录

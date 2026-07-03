@@ -1,6 +1,6 @@
 ---
 name: cangjie-project-entry
-description: "HIGH PRIORITY routing gateway for broad Cangjie tasks and .cj code filling. Use when a request asks to 生成/填充/实现仓颉代码, edit a .cj file, fill a TODO/function skeleton, or mixes Cangjie language/API work with local project files, cjpm.toml, package/import structure, HarmonyOS/HMOS app build, Hvigor/ohpm, stdx setup, ArkTS interop, or docs. For standalone func implementation from signatures, comments, examples, prompt-only code generation, or isolated .cj snippets, route directly to cangjie-lang-features plus cangjie-std, adding cangjie-stdx only for configured extension-library APIs."
+description: "Routing gateway for broad Cangjie tasks and .cj code filling. Use when a request asks to 生成/填充/实现仓颉代码, edit a .cj file, fill a TODO/function skeleton, or mixes Cangjie language/API work with local project files, cjpm.toml, package/import structure, HarmonyOS/HMOS app build, Hvigor/ohpm, stdx setup, ArkTS interop, or docs. For standalone func implementation from signatures, comments, examples, prompt-only code generation, or isolated .cj snippets, route to cangjie-lang-features plus cangjie-std, adding cangjie-stdx only for configured extension-library APIs."
 ---
 
 # Cangjie 路由入口

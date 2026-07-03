@@ -1,6 +1,6 @@
 ---
 name: cangjie-original-docs
-description: "LOW PRIORITY fallback. Select only when focused skills cannot answer or the user explicitly asks to verify original Cangjie language, std, stdx, or toolchain documentation by index/keyword search. For normal coding, prefer cangjie-lang-features, cangjie-std, and cangjie-stdx first."
+description: "Original Cangjie language, std, stdx, and toolchain documentation lookup by index or keyword search. Use when focused skills lack the needed detail or the user explicitly asks to verify original documentation. For direct .cj coding and common APIs, use cangjie-lang-features, cangjie-std, or cangjie-stdx."
 ---
 
 # 仓颉原始文档检索

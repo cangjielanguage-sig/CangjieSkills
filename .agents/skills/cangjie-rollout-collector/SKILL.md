@@ -1,6 +1,6 @@
 ---
 name: cangjie-rollout-collector
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only after another skill run completes and the user explicitly needs a Rollout Record saved from structured trace, logs, or auditable session evidence. It records facts only and does not modify skills or answer coding questions."
+description: "Cangjie rollout record collector. Use after another skill run completes and the user explicitly needs a Rollout Record saved from structured trace, logs, or auditable session evidence. It records facts only and does not modify skills or answer coding questions."
 ---
 
 # 仓颉 Rollout Collector

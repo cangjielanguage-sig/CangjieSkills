@@ -1,6 +1,6 @@
 ---
 name: cangjie-testcase-xmind
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only when the user explicitly asks to design Cangjie interface test cases, generate testcase JSON, apply Pair-wise parameter coverage, validate the fixed testcase mind-map schema, or convert testcase JSON into a .xmind file. Not for code generation."
+description: "Cangjie interface testcase design and XMind generation. Use when the user explicitly asks to design interface test cases, generate testcase JSON, apply Pair-wise parameter coverage, validate the fixed testcase mind-map schema, or convert testcase JSON into a .xmind file. Not for code generation."
 ---
 
 # Cangjie Testcase XMind

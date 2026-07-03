@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-project-init
-description: "LOW PRIORITY. Select only when the user explicitly asks to create, initialize, scaffold, or set up a new HarmonyOS/HMOS Cangjie app/project from scratch. Not for fixing existing code or reference lookup."
+description: "HarmonyOS/HMOS Cangjie app project initialization. Use when the user asks to create, initialize, scaffold, or set up a new HarmonyOS/HMOS Cangjie app/project from scratch. Not for fixing existing code or reference lookup."
 ---
 
 # 仓颉鸿蒙项目初始化 Skill

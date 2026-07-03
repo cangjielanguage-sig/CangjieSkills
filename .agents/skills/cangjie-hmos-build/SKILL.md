@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-build
-description: "LOW PRIORITY. Select only for building or debugging a real HarmonyOS/HMOS app project with Hvigor, ohpm, build-profile.json5, oh-package.json5, SyncCangjieResource, signing, emulator/device packaging, or platform build logs. Do not use for routine language or library coding tasks."
+description: "HarmonyOS/HMOS app build and packaging guidance. Use for real app projects involving Hvigor, ohpm, build-profile.json5, oh-package.json5, SyncCangjieResource, signing, emulator/device packaging, build failures, or platform build logs. For standalone .cj language/API code, use cangjie-lang-features and cangjie-std."
 ---
 
 # 鸿蒙应用构建 Skill

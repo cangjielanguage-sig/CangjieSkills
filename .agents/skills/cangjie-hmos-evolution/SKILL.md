@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-evolution
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only for verified HarmonyOS app build experience management: read or update Evolution.md after a concrete build failure or successful fix. Do not use for ordinary Cangjie coding or reference lookup."
+description: "HarmonyOS app build experience management. Use when the user explicitly asks to read, update, or consolidate Evolution.md after a concrete HarmonyOS build failure or successful fix. Not for ordinary Cangjie coding or reference lookup."
 ---
 
 # 鸿蒙应用经验沉淀 Skill

@@ -1,6 +1,6 @@
 ---
 name: cangjie-stdx
-description: "PRIMARY when Cangjie code needs configured extension-library stdx APIs. Use for coding tasks that require JSON, Base64/Hex/URL encoding, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing, HMAC, MD5/SHA/SM3-style digest work, or stdx configuration examples. Prefer cangjie-std for core language and standard-library APIs."
+description: "Cangjie extension standard-library guidance for configured stdx APIs. Use for coding tasks that require JSON, Base64/Hex/URL encoding, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing, HMAC, MD5/SHA/SM3-style digest work, or stdx configuration examples. For core language and standard-library APIs, use cangjie-lang-features and cangjie-std."
 ---
 
 ## 使用前判断

@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-requirements
-description: "LOW PRIORITY. Select only for HarmonyOS app product requirements: clarify features, design an implementation plan, and define acceptance criteria. This skill does not perform reference lookup, code generation, or build debugging."
+description: "HarmonyOS app product requirements and planning. Use to clarify app features, user flows, implementation plans, constraints, and acceptance criteria. This skill does not perform reference lookup, code generation, or build debugging."
 ---
 
 # 仓颉鸿蒙需求分析与设计 Skill

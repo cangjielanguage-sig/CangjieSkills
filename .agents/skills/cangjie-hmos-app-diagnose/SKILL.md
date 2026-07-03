@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-app-diagnose
-description: "LOWEST PRIORITY / DO NOT AUTO-SELECT. Use only after a HarmonyOS app build/install exists and the user asks to inspect device UI screenshots, component trees, hilog logs, crashes, ANR, runtime exceptions, or visual behavior. Not for coding or reference lookup."
+description: "HarmonyOS app runtime and UI diagnosis. Use after a HarmonyOS app build/install exists and the user asks to inspect device screenshots, component trees, hilog logs, crashes, ANR, runtime exceptions, or visual behavior. Not for source code generation or reference lookup."
 ---
 
 # HarmonyOS 应用运行诊断 Skill

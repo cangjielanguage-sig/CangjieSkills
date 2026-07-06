@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-stdx
-description: "在鸿蒙应用（Cangjie）开发中，当需要使用 stdx 拓展库（如 crypto、encoding、net、log、actors 等），或在构建/链接阶段出现 stdx 相关错误时，使用此 Skill 自动解压 stdx 包并在 entry/cjpm.toml 中配置 bin-dependencies.path-option。"
+description: "HarmonyOS app stdx binary and package setup. Use for bundled stdx artifacts, entry/cjpm.toml bin-dependencies.path-option, platform link/build errors involving stdx, or HarmonyOS-specific stdx packaging. For general extension-library API usage outside app packaging, use cangjie-stdx."
 ---
 
 # 鸿蒙应用 stdx 依赖配置 Skill
@@ -93,4 +93,3 @@ API 详情请使用 cangjie-hmos-doc-search 或 cangjie_stdx Skill 检索
 3. 检查 `entry/cjpm.toml` 是否已配置 stdx 路径 → 未配置则自动追加
 4. 确认目标平台匹配 → x86_64 用 x86_64 包，aarch64 用 aarch64 包
 5. 仍报错 → 要求用户贴出完整错误信息，判断是路径、版本还是符号问题
-

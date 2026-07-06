@@ -1,6 +1,6 @@
 ---
 name: cangjie-arkts-interop
-description: "仓颉与 ArkTS 互操作实战 Skill（宏优先）：优先使用声明式互操作宏 @Interop 为 ArkTS 生成近原生调用与 .d.ts；仅在宏无法覆盖时使用 ohos.ark_interop 互操作库手工注册。覆盖异步/接口/类/枚举场景、类型映射、命名与符号冲突规则、仓颉调用 ArkTS 模块、排障清单。"
+description: "HarmonyOS ArkTS interop guidance for Cangjie projects. Use when the task involves @Interop macros, generated .d.ts files, ohos.ark_interop manual registration, Cangjie/ArkTS type mapping, cross-language calls, or symbol conflicts. For routine .cj language/API code without ArkTS interop, use cangjie-lang-features and cangjie-std."
 ---
 
 # 仓颉 ↔ ArkTS 互操作 Skill

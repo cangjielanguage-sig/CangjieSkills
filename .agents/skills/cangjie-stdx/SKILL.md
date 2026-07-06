@@ -1,7 +1,13 @@
 ---
 name: cangjie-stdx
-description: "当需要查询仓颉扩展标准库 stdx 的 API、示例、配置或使用方式时使用此 Skill；提供 JSON 编解码、日志、编码、压缩、序列化、HTTP、WebSocket、TLS 和加密功能速查文档。"
+description: "Cangjie extension standard-library guidance for configured stdx APIs. Use for coding tasks that require JSON, Base64/Hex/URL encoding, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing, HMAC, MD5/SHA/SM3-style digest work, or stdx configuration examples. For core language and standard-library APIs, use cangjie-lang-features and cangjie-std."
 ---
+
+## 使用前判断
+
+- `stdx` 扩展库通常需要额外 import path/link 配置。若目标是裸 `cjc` 编译或未知编译环境，先确认 stdx 已配置；否则不要假设 `stdx.crypto.digest`、`stdx.encoding.hex` 等包可直接导入。
+- 只需要核心语言或标准库能力时，优先使用 `cangjie-std`；确需 JSON、HTTP、TLS、加密、编码、压缩等扩展库能力且构建环境可用时再使用本 Skill。
+- `std.crypto.digest` 只提供摘要接口，具体摘要算法和 Hex/Base64 编码在 `stdx` 中；若 standalone 代码无法导入 `stdx`，不要生成会直接编译失败的 stdx import，应先说明依赖配置需求，或在函数契约明确要求时给出自包含实现。
 
 请按需查询当前目录下的工具文档：
 
@@ -26,4 +32,3 @@ description: "当需要查询仓颉扩展标准库 stdx 的 API、示例、配�
 [tls](./tls/README.md)：TLS 安全通信（stdx.net.tls），包括 TlsSocket 加密传输、证书验证与解析、会话恢复、ALPN 协商等；配置构建指导见 [tls/BUILD.md](./tls/BUILD.md)
 
 [crypto](./crypto/README.md)：加密与证书（stdx.crypto），包括 SecureRandom 安全随机数、消息摘要(SHA256/SM3/HMAC)、RSA/ECDSA/SM2 非对称加密与签名、X509 数字证书处理等
-

@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-evolution
-description: "当鸿蒙应用构建失败需要排查经验或构建成功需要沉淀经验时使用此 Skill。它能将遇到的难点和已验证解决方案记录到 Evolution.md，构建失败时优先查阅已有经验快速定位问题。禁止将未验证方案写入。"
+description: "HarmonyOS app build experience management. Use when the user explicitly asks to read, update, or consolidate Evolution.md after a concrete HarmonyOS build failure or successful fix. Not for ordinary Cangjie coding or reference lookup."
 ---
 
 # 鸿蒙应用经验沉淀 Skill

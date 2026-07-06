@@ -1,6 +1,6 @@
 ---
 name: cangjie-hmos-build
-description: "当需要构建鸿蒙应用项目时，使用此 Skill 执行构建流程。"
+description: "HarmonyOS/HMOS app build and packaging guidance. Use for real app projects involving Hvigor, ohpm, build-profile.json5, oh-package.json5, SyncCangjieResource, signing, emulator/device packaging, build failures, or platform build logs. For standalone .cj language/API code, use cangjie-lang-features and cangjie-std."
 ---
 
 # 鸿蒙应用构建 Skill

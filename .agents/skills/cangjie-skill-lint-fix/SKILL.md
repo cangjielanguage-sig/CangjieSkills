@@ -1,6 +1,6 @@
 ---
 name: cangjie-skill-lint-fix
-description: "当需要修复某个 Skill 的 skill-lint errors 或 warnings 时使用此 Skill：检查并安装 Skill-CLI，运行 lint 扫描到 reports/lint，分析诊断，补充经过真实 agent 验证的 evals，迭代修复直到重新运行 skill-lint 得到 0 errors 0 warnings。"
+description: "Agent Skill lint repair workflow. Use when the user explicitly asks to fix skill-lint errors or warnings by running Skill-CLI, analyzing lint reports, adding validated checks, and iterating to 0 errors / 0 warnings. Not for coding or library lookup."
 ---
 
 # Skill Lint Fix

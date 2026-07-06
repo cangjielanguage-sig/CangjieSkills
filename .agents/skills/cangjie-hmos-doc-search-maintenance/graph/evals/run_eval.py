@@ -40,7 +40,7 @@ sys.path.insert(0, str(GRAPH_DIR))
 from query import create_session
 
 sys.path.insert(0, str(CARD_DIR))
-from search_v3 import load_index, search_cards, collect
+from search_v3 import load_index, search_cards, collect, collect_paths, hits_to_grouped, MODE_TYPES, TYPE_ID_KEY
 
 KEYWORDS_PATH = EVAL_DIR / "keywords_v7_prompt.json"
 DATASET_PATH = EVAL_DIR / "datasets" / "eval_queries_comprehensive_deduped.jsonl"
@@ -65,8 +65,8 @@ def load_queries(path=None):
 
 
 def norm(p):
-    """路径归一化：剥离顶层目录、统一斜杠、忽略大小写。"""
-    return _strip_top_dir(p).replace("\\", "/").strip("/").lower()
+    """路径归一化：剥离顶层目录并统一为相对路径格式。"""
+    return _strip_top_dir(p).replace("\\", "/").strip("/")
 
 
 def check_hit(direct_paths, related_paths, acceptable):
@@ -111,19 +111,30 @@ def compute_mrr(direct_paths, related_paths, acceptable):
 
 
 def run_card_search(card_index, query_str, limit=5):
-    """V3 卡片搜索：collect() 完整管线 + jieba 分词 + 过滤 .abstract.md 路径。
+    """V3 卡片搜索：对四种卡片类型（task/api/example/doc）分别搜索，
+    合并去重后返回结果。用于评测 card 引擎的纯搜索能力。"""
+    all_hits = {}
+    for ct in ("task", "api", "example", "doc"):
+        all_hits[ct] = search_cards(card_index["db"], query_str, MODE_TYPES[ct], limit)
 
-    collect() 包含 understanding → expand → search → rerank 全链路；
-    底层 search_cards 使用 jieba bigram 分词；
-    后处理：从各分区 paths 中移除 .abstract.md 路径，使真实文档路径进入 top-20。
-    """
-    result = collect(card_index, query_str, "auto", limit, understanding_mode="rule")
-    # Filter .abstract.md paths from all sections and the top-level paths list
-    for section in ("tasks", "apis", "examples", "docs"):
-        for item in result.get(section, []):
-            item["paths"] = [p for p in item.get("paths", []) if ".abstract" not in p]
-    result["paths"] = [p for p in result.get("paths", []) if ".abstract" not in p]
-    return result
+    sections = {}
+    paths = []
+    for ct, hits in all_hits.items():
+        id_key = TYPE_ID_KEY[ct]
+        grouped = hits_to_grouped(hits, ct, id_key, limit)
+        sections[ct] = grouped
+        for item in grouped:
+            for p in item.get("paths", []):
+                if p not in paths:
+                    paths.append(p)
+
+    return {
+        "tasks": sections.get("task", []),
+        "apis": sections.get("api", []),
+        "examples": sections.get("example", []),
+        "docs": sections.get("doc", []),
+        "paths": paths[:limit * 4],
+    }
 
 
 def run_graph_search(session, query_str, limit=5):
@@ -135,15 +146,18 @@ def run_graph_search(session, query_str, limit=5):
 
 
 def search_card(card_index, query_str, limit=5):
-    card_result = run_card_search(card_index, query_str, limit)
-    if not card_result:
-        return SearchResult(query=query_str, engine="card")
-    card_paths, titles = extract_card_paths(card_result)
+    """Card 搜索：每张卡片取 1 条最优路径，实现真正的 Recall@N。
+    
+    collect_paths() 跨段（tasks/apis/docs）按 card 分数排序，
+    每卡只取 paths[0]（去字母排序后即最相关路径），产出 N 条路径。
+    与 Graph 的 session.search(top_k=N) 严格对齐 Recall@N 语义。
+    """
+    entries = collect_paths(card_index, query_str, limit)
     hits = []
-    for p in card_paths[:limit]:
+    for e in entries:
         hits.append(Hit(
-            node_id="", label=titles.get(p, p), source_file=p,
-            score=0, match_type="v3_card", engine="card"
+            node_id="", label=e.get("card", e.get("path", "")), source_file=e["path"],
+            score=e.get("score", 0), match_type="v3_card", engine="card"
         ))
     return SearchResult(query=query_str, engine="card", direct_hits=hits)
 

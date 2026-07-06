@@ -1808,6 +1808,8 @@ def discover_docs(root: Path) -> list[DocRecord]:
         for file_path in source_root.rglob("*.md"):
             if file_path.name == "SKILL.md":
                 continue
+            if file_path.name.startswith(".abstract"):
+                continue
             rel = file_path.relative_to(root).as_posix()
             content = read_text(file_path).strip()
             if not content:
@@ -1841,6 +1843,7 @@ def prefer_primary_doc(records: list[DocRecord]) -> list[DocRecord]:
             0 if "/示例代码/" not in path and "示例代码.md" not in path else 1,
             len(path),
         )
+        
 
     return sorted(records, key=score)
 
@@ -2116,7 +2119,7 @@ def build_task_cards(records: list[DocRecord], examples: list[dict]) -> list[dic
                 "recommended_apis": config["recommended_apis"],
                 "optional_apis": config["optional_apis"],
                 "example_ids": example_ids,
-                "source_paths": sorted({record.path for record in matched[:8]}),
+                "source_paths": list(dict.fromkeys(record.path for record in matched[:8])),
                 "tags": config["tags"],
                 "generation_mode": "rule",
                 "confidence": 0.8,
@@ -3439,7 +3442,7 @@ def build(
         },
         "entrypoints": {
             "search": "doc-card/search_v3.py",
-            "build": "../cangjie-hmos-doc-search-maintenance/card/builder/build_index_v3.py",
+            "build": "../cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py",
         },
     }
     if llm_stats is not None:
@@ -3499,5 +3502,5 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as exc:  # noqa: BLE001
-        print(f"build_index_v3 失败: {exc}", file=sys.stderr)
+        print(f"build_index_v2 失败: {exc}", file=sys.stderr)
         sys.exit(1)

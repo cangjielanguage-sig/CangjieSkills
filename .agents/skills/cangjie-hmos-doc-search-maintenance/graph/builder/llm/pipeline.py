@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
-from llm.enhancer import create_batches, call_llm, merge_llm_results, MAX_BATCH_CHARS
+from llm.enhancer import create_batches, call_llm, merge_llm_results, MAX_BATCH_CHARS, FAIL_ABORT
 
 
 def _process_single_batch(
@@ -118,6 +118,7 @@ def enhance_graph_from_files(
 
     enhanced_count = 0
     failed_count = 0
+    consecutive_fails = 0
     total_docs = sum(len(b) for b in batches)
     processed_docs = 0
     start_time = time.time()
@@ -143,8 +144,15 @@ def enhance_graph_from_files(
             
             if merged > 0:
                 enhanced_count += merged
+                consecutive_fails = 0
             else:
                 failed_count += batch_size
+                consecutive_fails += batch_size
+                if FAIL_ABORT > 0 and consecutive_fails >= FAIL_ABORT:
+                    print(f"\n  [熔断] 连续失败 {consecutive_fails} 批 (>= {FAIL_ABORT})，自动停止。")
+                    print(f"  可能原因: API_KEY/API_BASE/MODEL 配置错误或端点不可用。")
+                    executor.shutdown(wait=False, cancel_futures=True)
+                    break
 
             # 每批次完成后立即保存，防止中断丢失数据（checkpoint 策略）
             if isinstance(graph_data.get("nodes"), list):

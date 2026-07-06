@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -30,6 +31,47 @@ from core.models import DocNode, CodeNode, Edge
 from doc.builder import build_doc_graph
 from code.builder import build_code_graph
 from builders import merge_graphs, save_graph
+
+
+def post_filter_graph(graph_path: Path) -> int:
+    """后处理：用 extractor.py 的停词表过滤 graph.json 的噪声关键词。
+
+    对 keywords_en 应用 EN_STOP_WORDS，对 keywords_zh 应用 TITLE_STOP_ZH。
+    返回清除的噪声词总数。
+    """
+    if not EXTRACTOR_PATH.exists():
+        print(f"  [post-filter] 跳过: 找不到 extractor.py ({EXTRACTOR_PATH})")
+        return 0
+
+    src = EXTRACTOR_PATH.read_text(encoding="utf-8")
+    m_en = re.search(r"EN_STOP_WORDS\s*=\s*\{([^}]+)\}", src, re.DOTALL)
+    m_zh = re.search(r"TITLE_STOP_ZH\s*=\s*\{([^}]+)\}", src, re.DOTALL)
+    if not m_en or not m_zh:
+        print("  [post-filter] 跳过: 无法解析停词表")
+        return 0
+
+    # Safe eval of set literals
+    en_stop = eval("{" + m_en.group(1) + "}")
+    zh_stop = eval("{" + m_zh.group(1) + "}")
+
+    with open(graph_path, encoding="utf-8") as f:
+        g = json.load(f)
+
+    removed = 0
+    for node in g.get("nodes", []):
+        old_en = node.get("keywords_en", [])
+        node["keywords_en"] = [k for k in old_en if k.lower() not in en_stop]
+        removed += len(old_en) - len(node["keywords_en"])
+
+        old_zh = node.get("keywords_zh", [])
+        node["keywords_zh"] = [k for k in old_zh if k not in zh_stop]
+        removed += len(old_zh) - len(node["keywords_zh"])
+
+    with open(graph_path, "w", encoding="utf-8") as f:
+        json.dump(g, f, ensure_ascii=False, indent=2)
+
+    print(f"  [post-filter] 清除 {removed} 个噪声关键词")
+    return removed
 
 
 def cmd_build_doc(args):
@@ -159,6 +201,8 @@ def cmd_build(args):
     if args.enhance:
         cmd_enhance(argparse.Namespace(graph_dir=str(graph_dir), docs_dir=args.docs_dir, max_workers=args.max_workers, batch_limit=args.batch_limit))
 
+    post_filter_graph(doc_output)
+
     print(f"\n=== 构建完成! 图谱保存在 {graph_dir} ===")
 
 
@@ -169,7 +213,8 @@ def main():
     p_build_doc = subparsers.add_parser("build-doc", help="构建文档图谱")
     p_build_doc.add_argument("--docs-dir", required=True, help="文档语料目录")
     p_build_doc.add_argument("--output", help="输出路径 (默认 doc-graph/data/doc/graph.json)")
-    p_build_doc.add_argument("--use-cache", action="store_true", default=True, help="使用缓存")
+    p_build_doc.add_argument("--use-cache", action="store_true", default=True, help="使用缓存（改 extractor.py 后需清除 docs/.../graphify-out/cache/ 或传 --no-use-cache）")
+    p_build_doc.add_argument("--no-use-cache", action="store_false", dest="use_cache", help="强制重建，不使用缓存")
     p_build_doc.set_defaults(func=cmd_build_doc)
 
     p_build_code = subparsers.add_parser("build-code", help="构建源码图谱")

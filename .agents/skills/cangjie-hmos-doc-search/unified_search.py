@@ -265,23 +265,34 @@ def extract_card_paths(card_result):
 
     遍历 tasks/apis/examples/docs 四个分区，收集每个 item 的 paths 和 title。
     同时收集顶层的 paths 字段（可能有未被分区包含的路径）。
+    用剥除前缀的归一化键去重（避免不同来源的相同路径重复占据位），输出仍保留原始路径。
     返回 (paths列表, {path→title}映射)。
     """
+    def _dedup_key(p):
+        """仅用于去重比较的归一化键"""
+        return _strip_top_dir(normalize_source_file(p)).replace("\\", "/").strip("/").lower()
+
     paths = []
     titles_by_path = {}
+    seen_keys = set()
     if not card_result:
         return paths, titles_by_path
     for section in ("tasks", "apis", "examples", "docs"):
         for item in card_result.get(section, []):
             title = item.get("title", "")
             for p in item.get("paths", []):
-                norm = normalize_source_file(p)
-                paths.append(norm)
-                titles_by_path.setdefault(norm, title)
+                np = normalize_source_file(p)
+                key = _dedup_key(p)
+                if key not in seen_keys:
+                    seen_keys.add(key)
+                    paths.append(np)
+                    titles_by_path.setdefault(np, title)
     for p in card_result.get("paths", []):
-        norm = normalize_source_file(p)
-        if norm not in paths:
-            paths.append(norm)
+        np = normalize_source_file(p)
+        key = _dedup_key(p)
+        if key not in seen_keys:
+            seen_keys.add(key)
+            paths.append(np)
     return paths, titles_by_path
 
 

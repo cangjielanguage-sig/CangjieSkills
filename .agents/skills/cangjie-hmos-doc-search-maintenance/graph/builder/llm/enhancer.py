@@ -24,11 +24,12 @@ import urllib.error
 from pathlib import Path
 from typing import Optional
 
-API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")
-API_BASE = os.environ.get("DASHSCOPE_API_BASE", "")
-MODEL = os.environ.get("DASHSCOPE_MODEL", "qwen3.6-plus")
-MAX_BATCH_CHARS = 40000  # 单批次最大字符数，超出则分批
-LLM_TIMEOUT = 600  # 单次 LLM 调用超时（秒）
+API_KEY = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("DASHSCOPE_API_KEY", "xxx")
+API_BASE = os.environ.get("DEEPSEEK_API_BASE") or os.environ.get("DASHSCOPE_API_BASE", "xxx")
+MODEL = os.environ.get("DEEPSEEK_MODEL") or os.environ.get("DASHSCOPE_MODEL", "deepseek-chat")
+MAX_BATCH_CHARS = int(os.environ.get("MAX_BATCH_CHARS", "40000"))  # 单批次最大字符数
+LLM_TIMEOUT = int(os.environ.get("LLM_TIMEOUT", "600"))  # 单次 LLM 调用超时（秒）
+FAIL_ABORT = int(os.environ.get("ENHANCE_FAIL_ABORT", "50"))  # 连续失败 N 批后熔断（0=不熔断）
 
 
 
@@ -160,9 +161,6 @@ def _call_llm_sync(prompt: str, result_holder: dict) -> None:
     - error: 失败时为异常字符串
     自动剥离 ```json markdown 包装。
     """
-    if not API_KEY or not API_BASE:
-        result_holder["error"] = "缺少 DASHSCOPE_API_KEY 或 DASHSCOPE_API_BASE 环境变量（graph enhance 需 DashScope 兼容 LLM；可选 DASHSCOPE_MODEL 指定模型）"
-        return
     url = f"{API_BASE}/chat/completions"
     headers = {
         "Authorization": f"Bearer {API_KEY}",

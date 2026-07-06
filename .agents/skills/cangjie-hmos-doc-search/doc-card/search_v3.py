@@ -5,7 +5,7 @@
 1. load_index() 加载预构建索引（JSONL卡片 + SQLite FTS + aliases映射）
 2. load_understanding() 通过 query_understanding.py 解析用户查询意图
 3. expand_query_for_understanding() 扩展查询词（aliases + 域扩展 + 动作扩展）
-4. search_cards() 通过 SQLite FTS5 全文检索获取初始候选
+4. search_cards() 通过 SQLite FTS5 全文检索获取初始候选，初排序
 5. rerank_score() 基于 understanding 结果对候选重新排序
 6. collect() 组装最终搜索结果（按 mode 选择分区策略）
 
@@ -459,35 +459,21 @@ def expand_query_for_understanding(query: str, aliases: dict[str, list[str]], un
 
 
 def tokenize_query(query: str) -> str:
-    """将查询分词为 SQLite FTS5 MATCH 表达式。
+    """将查询分词为 SQLite FTS5 MATCH 表达式 — 中文逐字分词，英文保留完整标识符。
 
-    使用 jieba 对中文段做词切分，再在词内生成 bigram 短语查询（匹配 spaced_cjk 逐字索引）。
-    英文标识符和数字保留原样。
-    例："List 列表滑动" → '"List" OR "列 表" OR "滑 动"'
+    输出格式：各词元用 OR 连接，每个词元用双引号包裹。
+    例："List 列表" → '"List" OR "列" OR "表"'
     """
     import re
-    import jieba as _jieba
 
     tokens = re.findall(r"[A-Za-z_][A-Za-z0-9_.-]*|[\u3400-\u4dbf\u4e00-\u9fff]+|[0-9]+", query)
     parts: list[str] = []
     for token in tokens:
+        for char in token:
+            if "\u3400" <= char <= "\u9fff":
+                parts.append(char)
         if token.isascii():
             parts.append(token)
-        else:
-            words = _jieba.lcut(token)
-            for word in words:
-                chars = list(word)
-                n = len(chars)
-                if n == 0:
-                    continue
-                if n == 1:
-                    parts.append(chars[0])
-                elif n == 2:
-                    parts.append(f"{chars[0]} {chars[1]}")
-                else:
-                    for i in range(n - 1):
-                        parts.append(f"{chars[i]} {chars[i+1]}")
-                    parts.append(" ".join(chars))
     parts = list(dict.fromkeys(part for part in parts if part.strip()))
     return " OR ".join(f'"{part}"' for part in parts)
 
@@ -996,9 +982,6 @@ def rerank_score(understanding: dict, item: dict, card_type: str) -> float:
         score += 5.0
     score += path_intent_bonus(lowered_query, metadata, card_type)
     score += float(metadata.get("priority", 0.0))
-    paths = metadata.get("source_paths", [])
-    if paths and all(".abstract" in p for p in paths):
-        score -= 50
     return round(score, 3)
 
 
@@ -1223,6 +1206,30 @@ def collect(
     }
 
 
+def collect_paths(index: dict, query: str, limit: int = 5, understanding_mode: str = "rule") -> list[dict]:
+    """每张卡片取 1 条最优路径，跨段按分数排序取 top-N。
+
+    解决 Card 与 Graph 的 Recall@N 语义不对齐问题：
+    Card 的 1 张卡片 = 1 个搜索结果（含 N 条 source_paths），
+    Graph 的 1 个节点 = 1 个搜索结果（含 1 条 source_file）。
+    本函数让 Card 每卡只产出 1 条最相关路径，实现真正的 Recall@N。
+    """
+    result = collect(index, query, "auto", limit, understanding_mode=understanding_mode)
+    entries = []
+    for section in ("tasks", "apis", "examples", "docs"):
+        for item in result.get(section, []):
+            paths = item.get("paths", [])
+            if paths:
+                entries.append({
+                    "path": paths[0],
+                    "score": item.get("score", 0),
+                    "card": item.get("title", ""),
+                    "type": section.rstrip("s"),
+                })
+    entries.sort(key=lambda e: e["score"], reverse=True)
+    return entries[:limit]
+
+
 def print_text(result: dict) -> None:
     print(f"query: {result['query']}")
     print(f"mode: {result['mode']}")
@@ -1310,6 +1317,7 @@ def main() -> None:
     parser.add_argument("--index-dir", default=str(DEFAULT_INDEX_DIR))
     parser.add_argument("--understanding-mode", choices=("rule", "host-agent"), default="rule")
     parser.add_argument("--understanding-json", default="", help="host-agent 模式下传入的理解结果 JSON")
+    parser.add_argument("--paths", action="store_true", help="输出 top-N 最终检索路径（每卡片 1 条最优路径）")
     args = parser.parse_args()
 
     utf8_stdio()
@@ -1354,6 +1362,8 @@ def main() -> None:
         (time.perf_counter() - started) * 1000,
     )
     if args.json:
+        if args.paths:
+            result["top_paths"] = collect_paths(index, args.query, args.limit, understanding_mode=args.understanding_mode)
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
         print_text(result)

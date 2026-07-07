@@ -69,14 +69,18 @@ class SearchResult:
     engine: str
     direct_hits: list = field(default_factory=list)
     related_hits: list = field(default_factory=list)
+    top_paths: list = field(default_factory=list)   # collect_paths() 产出，与 card --paths 对齐
 
     def to_dict(self):
-        return {
+        d = {
             "query": self.query,
             "engine": self.engine,
             "direct_hits": [h.to_dict() for h in self.direct_hits],
             "related_hits": [h.to_dict() for h in self.related_hits],
         }
+        if self.top_paths:
+            d["top_paths"] = self.top_paths
+        return d
 
     def to_brief_text(self):
         lines = []
@@ -98,11 +102,12 @@ def run_card(query, limit=5):
     """调用 doc-card 引擎（search_v3.py）获取卡片搜索结果。
 
     通过子进程执行，超时30秒。返回解析后的 JSON dict，失败返回 None。
+    --paths 确保返回包含 top_paths（每卡 1 条最优路径 + 分数）。
     """
     script = CARD_DIR / "search_v3.py"
     cmd = [
         sys.executable, str(script),
-        query, "--json", "--limit", str(limit),
+        query, "--json", "--paths", "--limit", str(limit),
     ]
     try:
         result = subprocess.run(
@@ -481,6 +486,8 @@ def main():
     card_result = run_card(args.query, args.limit)
     graph_result = run_graph(args.query, args.limit)
     result = fuse_results(args.query, card_result, graph_result, args.limit)
+    if card_result and card_result.get("top_paths"):
+        result.top_paths = card_result["top_paths"]
 
     if args.json:
         print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))

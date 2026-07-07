@@ -227,6 +227,24 @@ class SearchResult:
                 lines.append(f"[{h.score:.1f}] {h.label} | {h.source_file}{from_str}")
         return "\n".join(lines)
 
+    def to_dict(self) -> dict:
+        """JSON 输出 — 与 unified_search.SearchResult.to_dict() 对齐。"""
+        def hit_dict(h):
+            d = {"label": h.label, "source_file": h.source_file, "score": h.score}
+            if h.related_from:
+                d["related_from"] = h.related_from
+            if h.relation_type:
+                d["relation_type"] = h.relation_type
+            return d
+        return {
+            "query": self.query,
+            "engine": "graph",
+            "graph_used": self.graph_used,
+            "latency_ms": self.latency_ms,
+            "direct_hits": [hit_dict(h) for h in self.direct_hits],
+            "related_hits": [hit_dict(h) for h in self.related_hits],
+        }
+
     def to_full_text(self) -> str:
         """完整模式输出。"""
         lines = [f"查询: {self.query}", f"图谱: {self.graph_used}", f"耗时: {self.latency_ms:.1f}ms"]

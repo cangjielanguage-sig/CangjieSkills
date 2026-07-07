@@ -1206,6 +1206,20 @@ def collect(
     }
 
 
+def _best_path(paths: list[str]) -> str:
+    """从多条 source_paths 中选最具体的一条。
+    
+    优先级：非 .overview.md > 文件名更长（更具体的子文档名通常更长） > 自然顺序。
+    解决 collect_paths() 取 paths[0] 时盲目选到概览页而错失具体文档的问题。
+    """
+    if len(paths) <= 1:
+        return paths[0] if paths else ""
+    non_overview = [p for p in paths if ".overview" not in p]
+    if non_overview:
+        return max(non_overview, key=lambda p: len(Path(p).stem))
+    return paths[0]
+
+
 def collect_paths(index: dict, query: str, limit: int = 5, understanding_mode: str = "rule") -> list[dict]:
     """每张卡片取 1 条最优路径，跨段按分数排序取 top-N。
 
@@ -1221,7 +1235,7 @@ def collect_paths(index: dict, query: str, limit: int = 5, understanding_mode: s
             paths = item.get("paths", [])
             if paths:
                 entries.append({
-                    "path": paths[0],
+                    "path": _best_path(paths),
                     "score": item.get("score", 0),
                     "card": item.get("title", ""),
                     "type": section.rstrip("s"),

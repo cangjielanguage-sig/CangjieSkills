@@ -223,6 +223,76 @@
     "父子滚动协同",
     "Nested Scroll"
   ],
+  "发送通知": [
+    "发送通知",
+    "通知",
+    "Notification",
+    "推送通知",
+    "本地通知"
+  ],
+  "数据库查询": [
+    "数据库查询",
+    "SQL查询",
+    "RdbStore查询",
+    "RelationalStore"
+  ],
+  "加载网页": [
+    "加载网页",
+    "Web组件",
+    "WebView",
+    "嵌入H5页面"
+  ],
+  "深色模式适配": [
+    "深色模式适配",
+    "深色模式",
+    "Dark Mode",
+    "主题切换",
+    "颜色模式"
+  ],
+  "后台任务调度": [
+    "后台任务调度",
+    "后台任务",
+    "WorkScheduler",
+    "延迟任务",
+    "后台执行"
+  ],
+  "权限申请": [
+    "权限申请",
+    "动态权限",
+    "用户授权",
+    "敏感权限"
+  ],
+  "持久化数据限制": [
+    "持久化数据限制",
+    "PersistentStorage 限制",
+    "持久化2kb限制",
+    "状态持久化"
+  ],
+  "Ability 生命周期流程": [
+    "Ability 生命周期流程",
+    "Ability 生命周期",
+    "UIAbility 生命周期",
+    "前后台切换"
+  ],
+  "BLE 蓝牙通信": [
+    "BLE 蓝牙通信",
+    "蓝牙通信",
+    "BLE",
+    "低功耗蓝牙",
+    "GATT"
+  ],
+  "创建数据库": [
+    "创建数据库",
+    "初始化数据库",
+    "建表",
+    "getRdbStore"
+  ],
+  "Environment 环境参数": [
+    "Environment 环境参数",
+    "Environment",
+    "设备环境参数",
+    "环境变量"
+  ],
   "WebSocket 长连接": [
     "WebSocket 长连接",
     "WebSocket 通信",
@@ -676,12 +746,7 @@
     "func_flexBasis",
     "flexGrow",
     "func flexGrow(Float64)",
-    "func_flexGrow",
-    "func flexGrow(Int64)",
-    "func_flexGrow_2more_eb19efc2",
-    "flexShrink",
-    "func flexShrink(Float64)",
-    "func_flexShrink"
+    "func_flexGrow"
   ],
   "Stack": [
     "Stack",
@@ -721,12 +786,6 @@
     "AlertDialogParam",
     "class AlertDialogParam",
     "class_AlertDialogParam",
-    "AlertDialogParamWithButtons",
-    "class AlertDialogParamWithButtons",
-    "class_AlertDialogParamWithButtons",
-    "AlertDialogParamWithConfirm",
-    "class AlertDialogParamWithConfirm",
-    "class_AlertDialogParamWithConfirm",
     "DialogButtonDirection",
     "enum DialogButtonDirection",
     "enum_DialogButtonDirection"
@@ -748,35 +807,18 @@
     "Web 组件",
     "网页组件",
     "Webview 组件",
-    "Error",
+    "once",
     "导入模块",
     "ohoswebviewWebview",
-    "class_Error",
-    "Preload",
-    "enum_Preload",
-    "once",
     "func_once",
     "Class_Webdownloaditem",
     "Class_Webviewcontroller"
   ],
   "HttpRequest": [
     "HttpRequest",
-    "网络请求",
-    "HTTP 请求",
-    "HttpRequest 网络请求",
-    "ClientCert",
     "导入模块",
     "ohosnethttp数据请求",
-    "class_ClientCert",
-    "class_HttpRequest",
-    "CertType",
-    "enum_CertType",
-    "HttpData",
-    "enum_HttpData",
-    "UsingProxy",
-    "enum_UsingProxy",
-    "createHttp",
-    "func_createHttp"
+    "class_HttpRequest"
   ],
   "AppStorage": [
     "AppStorage",
@@ -805,23 +847,13 @@
   "Bluetooth": [
     "Bluetooth",
     "蓝牙",
-    "蓝牙开发",
-    "off",
-    "导入模块",
-    "ohosbluetoothble蓝牙ble模块",
-    "func_off",
-    "on",
-    "func_on"
+    "蓝牙开发"
   ],
   "ArkTSInterop": [
     "ArkTSInterop",
     "ArkTS 互操作",
     "仓颉与 ArkTS 互操作",
-    "ArkTS 调仓颉",
-    "JSArray",
-    "导入模块",
-    "ohosark_interopArkTS互操作库",
-    "class_JSArray"
+    "ArkTS 调仓颉"
   ],
   "Animation": [
     "Animation",
@@ -841,12 +873,8 @@
     "class_Mac",
     "Md",
     "class_Md",
-    "Point",
-    "class_Point",
     "Sign",
-    "class_Sign",
-    "Result",
-    "enum_Result"
+    "class_Sign"
   ],
   "std.crypto": [
     "std.crypto",
@@ -874,8 +902,6 @@
     "enum_Field",
     "Origin",
     "enum_Origin",
-    "Progress",
-    "enum_Progress",
     "Class_Rdbstore"
   ],
   "ErrorManager": [
@@ -914,10 +940,6 @@
     "class_Rect",
     "Size",
     "class_Size",
-    "ColorSpace",
-    "enum_ColorSpace",
-    "WindowType",
-    "enum_WindowType",
     "Class_Window"
   ],
   "Permission": [
@@ -928,17 +950,43 @@
   "CanvasRenderingContext2D": [
     "CanvasRenderingContext2D",
     "Canvas 2D",
+    "内存不足错误",
     "RenderingContextSettings",
+    "导入模块",
     "class_RenderingContextSettings",
-    "Class_Canvasrenderingcontext2D",
-    "CanvasRenderingContext2D_Nmore",
-    "class_CanvasRenderingContext2D_Nmore"
+    "Class_Canvasrenderingcontext2D"
   ],
   "BuilderMacro": [
     "BuilderMacro",
     "Builder 宏",
     "编译错误找不到符号",
     "BuilderParam"
+  ],
+  ".abstract": [
+    ".abstract",
+    "class_WebDownloadItem",
+    "class_WebviewController"
+  ],
+  "class_ListScroller": [
+    "class_ListScroller"
+  ],
+  "ListScroller_5more": [
+    "ListScroller_5more",
+    "class ListScroller",
+    "class_ListScroller",
+    "class_ListScroller_5more"
+  ],
+  "getVisibleListContentInfo": [
+    "getVisibleListContentInfo",
+    "func getVisibleListContentInfo(Float64, Float64)",
+    "class_ListScroller",
+    "func_getVisibleListContentInfoFloat64_Float64"
+  ],
+  "scrollToItemInGroup": [
+    "scrollToItemInGroup",
+    "func scrollToItemInGroup(Int32, Int32, Bool, ScrollAlign)",
+    "class_ListScroller",
+    "func_scrollToItemInGrou_5e14639b"
   ],
   "AbilityConfiguration": [
     "AbilityConfiguration",
@@ -2146,6 +2194,12 @@
     "ohosrelational_store关系型数据库",
     "enum_PRIKeyType"
   ],
+  "Progress": [
+    "Progress",
+    "导入模块",
+    "ohosrequestagent上传下载",
+    "class_Progress"
+  ],
   "ProgressCode": [
     "ProgressCode",
     "导入模块",
@@ -2324,7 +2378,7 @@
   "ColorSpace": [
     "ColorSpace",
     "导入模块",
-    "ohoscolor_manager色彩管理",
+    "ohoswindow窗口",
     "enum_ColorSpace"
   ],
   "create": [
@@ -2380,6 +2434,12 @@
     "导入模块",
     "ohoseffect_kit图像效果",
     "func_createEffect"
+  ],
+  "JSArray": [
+    "JSArray",
+    "导入模块",
+    "ohosark_interop_advanceArkTS互操作库",
+    "class_JSArray"
   ],
   "JSArrayBuffer": [
     "JSArrayBuffer",
@@ -2572,12 +2632,6 @@
     "导入模块",
     "ohosark_interop_advanceArkTS互操作库",
     "interface_ToJSValue"
-  ],
-  "JSArray": [
-    "JSArray",
-    "导入模块",
-    "ohosark_interop_advanceArkTS互操作库",
-    "class_JSArray"
   ],
   "JSProxyWithSubRef": [
     "JSProxyWithSubRef",
@@ -3267,6 +3321,12 @@
     "ohoswindow窗口",
     "enum_WindowStatusType"
   ],
+  "WindowType": [
+    "WindowType",
+    "导入模块",
+    "ohoswindow窗口",
+    "enum_WindowType"
+  ],
   "createWindow": [
     "createWindow",
     "导入模块",
@@ -3296,6 +3356,12 @@
     "导入模块",
     "class_Window",
     "class_Window_Nmore"
+  ],
+  "CanvasRenderingContext2D_Nmore": [
+    "CanvasRenderingContext2D_Nmore",
+    "导入模块",
+    "class_CanvasRenderingContext2D",
+    "class_CanvasRenderingContext2D_Nmore"
   ],
   "fp2px": [
     "fp2px",
@@ -4253,6 +4319,18 @@
     "列表选择弹窗ActionSheet",
     "enum_DismissReason"
   ],
+  "AlertDialogParamWithButtons": [
+    "AlertDialogParamWithButtons",
+    "class AlertDialogParamWithButtons",
+    "警告弹窗AlertDialog",
+    "class_AlertDialogParamWithButtons"
+  ],
+  "AlertDialogParamWithConfirm": [
+    "AlertDialogParamWithConfirm",
+    "class AlertDialogParamWithConfirm",
+    "警告弹窗AlertDialog",
+    "class_AlertDialogParamWithConfirm"
+  ],
   "AlertDialogParamWithOptions": [
     "AlertDialogParamWithOptions",
     "class AlertDialogParamWithOptions",
@@ -4889,10 +4967,18 @@
     "安全区域",
     "func_setKeyboardAvoidMode"
   ],
+  "flexGrow": [
+    "flexGrow",
+    "func flexGrow(Int64)",
+    "Flex布局",
+    "func_flexGrow_2more_eb19efc2"
+  ],
   "flexShrink": [
     "flexShrink",
-    "func flexShrink(Int64)",
+    "func flexShrink(Float64)",
     "Flex布局",
+    "func_flexShrink",
+    "func flexShrink(Int64)",
     "func_flexShrink_2more_fbd7f840"
   ],
   "defaultFocus": [
@@ -5286,9 +5372,13 @@
     "形状裁剪",
     "func_clip",
     "func clip(CircleShape)",
+    "func_clip_2more_872d7161",
     "func clip(PathShape)",
+    "func_clip_2more_9b6e801d",
     "func clip(RectShape)",
-    "func clip(EllipseShape)"
+    "func_clip_2more_becd10ac",
+    "func clip(EllipseShape)",
+    "func_clip_2more_ecb43286"
   ],
   "mask": [
     "mask",
@@ -6844,12 +6934,6 @@
     "导入模块",
     "ohosrequestagent上传下载",
     "class_HttpResponseMessage"
-  ],
-  "Progress": [
-    "Progress",
-    "导入模块",
-    "ohosrequestagent上传下载",
-    "class_Progress"
   ],
   "Task": [
     "Task",
@@ -9310,6 +9394,12 @@
     "ohoscrypto加解密算法库框架",
     "enum_CryptoMode"
   ],
+  "Result": [
+    "Result",
+    "导入模块",
+    "ohoscrypto加解密算法库框架",
+    "enum_Result"
+  ],
   "ResultSpec": [
     "ResultSpec",
     "导入模块",
@@ -11590,6 +11680,12 @@
     "ohosnetconnection网络连接管理",
     "func_setAppNet"
   ],
+  "ClientCert": [
+    "ClientCert",
+    "导入模块",
+    "ohosnethttp数据请求",
+    "class_ClientCert"
+  ],
   "DataReceiveProgressInfo": [
     "DataReceiveProgressInfo",
     "导入模块",
@@ -12968,6 +13064,12 @@
     "ohoswebviewWebview",
     "class_CacheOptions"
   ],
+  "Error": [
+    "Error",
+    "导入模块",
+    "ohoswebviewWebview",
+    "class_Error"
+  ],
   "GeolocationPermissions": [
     "GeolocationPermissions",
     "导入模块",
@@ -13183,6 +13285,12 @@
     "导入模块",
     "ohoswebviewWebview",
     "enum_PlaybackStatus"
+  ],
+  "Preload": [
+    "Preload",
+    "导入模块",
+    "ohoswebviewWebview",
+    "enum_Preload"
   ],
   "ReadyState": [
     "ReadyState",

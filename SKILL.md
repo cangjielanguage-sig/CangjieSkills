@@ -202,6 +202,18 @@ Copy-Item -Recurse -Force <output_dir>\* `
 cd .agents\skills\cangjie-hmos-doc-search\doc-graph
 $env:PYTHONIOENCODING="utf-8"
 
+cd D:\ZSY\CangjieSkills
+# 关键词拼接并返回搜索词
+python -c "
+import json
+with open(r'D:\ZSY\CangjieSkills\.agents\skills\cangjie-hmos-doc-search-maintenance\graph\evals\keywords_v7_prompt.json', encoding='utf-8') as f:
+    kw = json.load(f)
+k = kw['6']  # 数字为评测数据集中的查询索引
+print('en:', k['keywords_en'])
+print('zh:', k['keywords_zh'])
+print('search_q:', ' '.join(k['keywords_en'] + k['keywords_zh']))
+"
+
 # 基本搜索
 python cli.py search "List 组件" --graph doc -k 5
 
@@ -226,6 +238,19 @@ python cli.py stats
 ```powershell
 cd .agents\skills\cangjie-hmos-doc-search\doc-card
 $env:PYTHONIOENCODING="utf-8"
+
+cd D:\ZSY\CangjieSkills
+
+# 关键词拼接并返回搜索词
+python -c "
+import json
+with open(r'D:\ZSY\CangjieSkills\.agents\skills\cangjie-hmos-doc-search-maintenance\graph\evals\keywords_v7_prompt.json', encoding='utf-8') as f:
+    kw = json.load(f)
+k = kw['6']  # 数字为评测数据集中的查询索引
+print('en:', k['keywords_en'])
+print('zh:', k['keywords_zh'])
+print('search_q:', ' '.join(k['keywords_en'] + k['keywords_zh']))
+"
 
 # 基本搜索
 python search_v3.py "Router.pushUrl 参数" --mode auto --limit 5 --json
@@ -256,6 +281,51 @@ python unified_search.py "要实现下拉刷新用什么组件" --json --limit 5
 | 关键词映射 | `.agents/skills/cangjie-hmos-doc-search-maintenance/graph/evals/keywords_v7_prompt.json` |
 | 查询原始文本 | 评测数据集每条记录的 `query` 字段 |
 | 查询搜索词 | `keywords_en + keywords_zh` 空格拼接（`keywords_v7_prompt.json`） |
+
+### 三引擎完整检索输出查看命令
+
+```powershell
+$env:PYTHONIOENCODING="utf-8"
+
+# === Card（结构化卡片检索 + top-5 最优路径） ===
+cd .agents\skills\cangjie-hmos-doc-search\doc-card
+python search_v3.py "List 组件 列表" --mode auto --limit 5 --json --paths
+
+# === Graph（知识图谱语义检索 + JSON 输出） ===
+cd .agents\skills\cangjie-hmos-doc-search\doc-graph
+python cli.py search "List 组件 列表" --graph doc -k 5 --json
+
+# === Fusion（双引擎融合 + top-5 最优路径） ===
+cd .agents\skills\cangjie-hmos-doc-search
+python unified_search.py "List 组件 列表" --json --limit 5
+```
+
+### 输出格式对照表（agent 读取指引）
+
+| 引擎 | JSON 根字段 | agent 取路径字段 | agent 取来源字段 | score 字段 |
+|------|------|------|------|:---:|
+| **card** `--json --paths` | `{query, mode, understanding, tasks, apis, docs, paths, top_paths}` | `top_paths[].path` | `top_paths[].card` + `top_paths[].type` | `top_paths[].score` |
+| **graph** `--json` | `{query, engine, graph_used, latency_ms, direct_hits, related_hits}` | `direct_hits[].source_file` | `direct_hits[].label` | `direct_hits[].score` |
+| **fusion** `--json` | `{query, engine, direct_hits, related_hits, top_paths}` | `top_paths[].path`（优先）或 `direct_hits[].source_file` | `top_paths[].card` + `top_paths[].type`（优先）或 `direct_hits[].label` | `top_paths[].score` |
+
+### `engine` 字段含义速查（fusion 输出）
+
+| engine 值 | 含义 | agent 应如何处理 |
+|------|------|------|
+| `card+graph` | 同一文档被两个引擎都找到 | **最高优先级**，直接打开阅读 |
+| `graph` | 仅图谱语义关联找到 | 次优先，验证相关性后阅读 |
+| `card` | 仅卡片精确匹配找到 | 补充参考 |
+
+### agent 决策优先级
+
+```
+agent 从三次检索（card / graph / fusion）获取结果后，按以下顺序决策：
+
+1. 若结果含 top_paths 字段 → 直接按 score 排序取 top-3 → 读取 path 指向的文档
+2. 若结果仅有 direct_hits → 取 engine="card+graph" 的（双引擎确认）→ 再取 engine="graph" 的
+3. 若结果仅有 sections（card 未传 --paths 时）→ 遍历 tasks → apis → docs，取每个 item 的 paths[0]
+4. 读取文档后，交叉验证文档内容是否与用户查询意图匹配
+```
 
 ## 评测
 

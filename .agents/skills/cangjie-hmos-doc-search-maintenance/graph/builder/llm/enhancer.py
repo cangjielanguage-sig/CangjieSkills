@@ -168,7 +168,8 @@ def _call_llm_sync(prompt: str, result_holder: dict) -> None:
     }
     payload = {
         "model": MODEL,
-        "messages": [{"role": "user", "content": prompt}]
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": int(os.environ.get("LLM_MAX_TOKENS", "8000")),
     }
     req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")
     try:

@@ -1,7 +1,7 @@
 {
   "version": "v3",
-  "generation_mode": "rule+llm",
-  "generated_at": "2026-07-02T07:26:33.986127+00:00",
+  "generation_mode": "rule",
+  "generated_at": "2026-07-07T07:48:43.445239+00:00",
   "prompt_version": "v1",
   "sources": [
     "harmonyos-6.0.2-15k",
@@ -11,124 +11,21 @@
     "tools"
   ],
   "counts": {
-    "tasks": 100,
-    "apis": 2206,
+    "tasks": 111,
+    "apis": 2233,
     "examples": 0,
-    "docs": 3697,
-    "llm_enriched_tasks": 76,
-    "llm_enriched_apis": 2195,
+    "docs": 4110,
+    "llm_enriched_tasks": 0,
+    "llm_enriched_apis": 0,
     "llm_enriched_examples": 0,
-    "llm_enriched_docs": 3692
+    "llm_enriched_docs": 0
   },
   "eval": {
     "full_eval_queries": "evals/eval_queries_full.jsonl",
-    "full_eval_query_count": 28889
+    "full_eval_query_count": 29930
   },
   "entrypoints": {
     "search": "doc-card/search_v3.py",
     "build": "../cangjie-hmos-doc-search-maintenance/builder/build_index_v3.py"
-  },
-  "llm": {
-    "requested": 5969,
-    "succeeded": 5963,
-    "failed": 6,
-    "skipped": 34,
-    "skipped_due_to_provider_unhealthy": 0,
-    "batch_fallbacks": 0,
-    "cache_hits": 0,
-    "cache_writes": 5963,
-    "failures": [
-      {
-        "card_type": "api",
-        "card_id": "api.harmonyos-6-0-2-15k-cj-image-cj-apis-image-ohosimage-class-image",
-        "error": "Unterminated string starting at: line 907 column 9 (char 22009)",
-        "error_type": "response_error"
-      },
-      {
-        "card_type": "doc",
-        "card_id": "doc.harmonyos-6-0-2-15k-cj-accesstoken-cj-app-permission-mgmt-overview",
-        "error": "Unterminated string starting at: line 719 column 9 (char 19792)",
-        "error_type": "response_error"
-      },
-      {
-        "card_type": "doc",
-        "card_id": "doc.harmonyos-6-0-2-15k-cj-arkui-cj-common-events-drag-event",
-        "error": "Unterminated string starting at: line 375 column 9 (char 14052)",
-        "error_type": "response_error"
-      },
-      {
-        "card_type": "doc",
-        "card_id": "doc.harmonyos-6-0-2-15k-cj-arkts-interop-cj-apis-ark-interop-ohosark-interoparkts-class-jsarrayrangemismatch",
-        "error": "Unterminated string starting at: line 613 column 9 (char 27001)",
-        "error_type": "response_error"
-      },
-      {
-        "card_type": "doc",
-        "card_id": "doc.harmonyos-6-0-2-15k-cj-arkts-interop-cj-apis-ark-interop-ohosark-interoparkts-class-jshashmapex",
-        "error": "Unterminated string starting at: line 569 column 9 (char 19429)",
-        "error_type": "response_error"
-      },
-      {
-        "card_type": "doc",
-        "card_id": "doc.harmonyos-6-0-2-15k-cj-arkui-cj-dialog-alertdialog-alertdialog-class-alertdialogparam",
-        "error": "Unterminated string starting at: line 699 column 9 (char 25532)",
-        "error_type": "response_error"
-      }
-    ],
-    "failure_summary_by_type": {
-      "response_error": 6
-    },
-    "by_card_type": {
-      "task": {
-        "requested": 76,
-        "succeeded": 76,
-        "failed": 0,
-        "skipped": 24,
-        "review": 25
-      },
-      "api": {
-        "requested": 2196,
-        "succeeded": 2195,
-        "failed": 1,
-        "skipped": 10,
-        "review": 26
-      },
-      "example": {
-        "requested": 0,
-        "succeeded": 0,
-        "failed": 0,
-        "skipped": 0,
-        "review": 0
-      },
-      "doc": {
-        "requested": 3697,
-        "succeeded": 3692,
-        "failed": 5,
-        "skipped": 0,
-        "review": 3
-      }
-    },
-    "usage": {
-      "prompt_tokens": 9529356,
-      "completion_tokens": 2244076,
-      "total_tokens": 11773432
-    },
-    "provider_status": "degraded",
-    "provider_stop_reason": "",
-    "provider_last_error": "",
-    "enabled_card_types": [
-      "task",
-      "api",
-      "example",
-      "doc"
-    ],
-    "concurrency": 5,
-    "cache_dir": "records\\llm-cache-0702",
-    "max_evidence_docs": 4,
-    "max_evidence_chars": 1800,
-    "model": "deepseek-chat",
-    "base_url": "https://api.deepseek.com/v1",
-    "prompt_version": "v1",
-    "example_candidate_count": 0
   }
 }

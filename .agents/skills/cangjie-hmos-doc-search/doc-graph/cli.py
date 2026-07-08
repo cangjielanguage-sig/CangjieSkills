@@ -50,6 +50,11 @@ def cmd_search(args):
     session = create_session()
     result = session.search(args.query, top_k=args.limit, graph=args.graph)
 
+    if args.json:
+        import json as _j
+        print(_j.dumps(result.to_dict(), ensure_ascii=False, indent=2))
+        return
+
     print(f"\n查询: {args.query}")
     print(f"策略: OR+累加")
     print(f"使用图谱: {result.graph_used}")
@@ -231,6 +236,7 @@ def main():
     p_search.add_argument("--limit", "-k", type=int, default=5, help="直接命中返回数量")
     p_search.add_argument("--graph", choices=["doc", "code", "auto", "both"], default="auto", help="选择图谱")
     p_search.add_argument("--brief", "-b", action="store_true", help="仅返回 label + source_file")
+    p_search.add_argument("--json", action="store_true", help="输出结构化 JSON（与 card/fusion 对齐）")
     p_search.set_defaults(func=cmd_search)
 
     p_path = subparsers.add_parser("path", help="查找关系路径")

@@ -575,21 +575,9 @@ def event_from_assistant_part(
         )
 
     if part_type == "patch":
-        return ordered_event(
-            trace_event(
-                runtime="opencode",
-                session_id=session_id,
-                source_path=source_path,
-                timestamp=timestamp,
-                event_type="patch",
-                tool_name="patch",
-                status="observed",
-                input_summary=summarize_value(public_patch_part(part)),
-                output_summary="patch part observed",
-                evidence_ref=part_ref(session_id, part_id),
-            ),
-            order,
-        )
+        # OpenCode can emit workspace-wide patch summary parts during parallel runs.
+        # Tool parts for edit/write/patch still carry the auditable task edit.
+        return None
 
     return None
 
@@ -725,11 +713,13 @@ def summarize_public_input_value(key: str, value: Any) -> Any:
 
 
 def public_patch_part(part: dict[str, Any]) -> dict[str, Any]:
-    return {
-        key: part.get(key)
-        for key in ("id", "sessionID", "messageID", "files", "path", "status")
-        if part.get(key) not in {None, ""}
-    }
+    public: dict[str, Any] = {}
+    for key in ("id", "sessionID", "messageID", "files", "path", "status"):
+        value = part.get(key)
+        if value is None or value == "":
+            continue
+        public[key] = value
+    return public
 
 
 def command_from_input(value: Any) -> str:

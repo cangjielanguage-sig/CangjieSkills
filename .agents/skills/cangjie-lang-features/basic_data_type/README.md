@@ -47,6 +47,7 @@
   let f = Float64(n)             // 将整数转换为 Float64
   let r = Rune(65)               // 将整数转换为 Rune → 'A'
   ```
+- 类型构造函数只适用于数值/字符等明确转换；`String(n)` 不是数字转字符串。需要拼接或返回数字字符串时用 `n.toString()` 或 `"${n}"`，指定进制转换再查 `std.convert.*` 并确认 import。
 - 字符串解析为数值使用 `parse` 静态方法（需导入 `std.convert.*`）：
   ```cangjie
   import std.convert.*

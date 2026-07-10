@@ -1,20 +1,60 @@
 ---
 name: cangjie-std
-description: "Cangjie standard-library API guidance for .cj code generation, code filling, and function implementation. Use when signatures or comments mention Array, String, Rune, Bool, Int64, Float64, Option, Tuple, collection, substring, sort, filter, map, split, contains, size, empty, ceiling, floor, parsing, math, or when fixing Array.append/ArrayList.append, HashMap.put/HashSet.put, arr.sort, .length, .isEmpty, subString, toLower/toUpper, isUpperCase, ceil/floor/round. Pair with cangjie-lang-features."
+description: "Use when generating, reviewing, or repairing Cangjie .cj code that may need std APIs, core types, collections, String/Rune, sort, math, unicode, convert, tests, or common API pitfalls. Pair with cangjie-lang-features for .cj code; route to cangjie-stdx only for configured extension-library APIs."
 ---
+
+## 标准库使用流程
+
+1. 先从签名、返回类型、输入输出形状和已有 import 判断需求属于核心类型、集合、字符串、数学、转换、I/O、进程、网络还是扩展库；不要把其它语言的 API 习惯直接迁移到仓颉。
+2. 写标准库 API 前先定位所属包和 import：`std.core` 自动导入，其它常用包如 `std.collection.*`、`std.sort.*`、`std.math.*`、`std.unicode.*`、`std.convert.*` 通常需要显式导入；不能新增 import 时不要调用对应扩展成员。
+3. 先选数据结构再写逻辑：固定长度结果用 `Array<T>`，需要追加/过滤/收集用 `ArrayList<T>`，需要去重或计数用 `HashSet`/`HashMap`，需要有序语义再考虑 `TreeMap`/`TreeSet`。
+4. 对会改变状态、提前退出、多步构造或依赖下标移动的逻辑，优先使用显式循环和可变容器；只有在函数签名明确、lambda 纯表达式且不读取此前被 `var` 更新过的局部值时才使用迭代器组合。
+5. 标准库只覆盖 `std.*`。发现 `stdx.*`、具体摘要算法、Hex/Base64/URL、JSON、HTTP/TLS、压缩、日志等需求时，切换或并用 `cangjie-stdx` 并确认项目配置。
+
+## import 闭包速查
+
+| 使用的符号或能力 | 必须确认的 import | 禁止替代写法 |
+| --- | --- | --- |
+| `ArrayList`、`HashMap`、`HashSet` | `import std.collection.*` | 裸用集合类、`Array.append`、`HashMap.put`、`HashSet.put` |
+| `sort(...)` | `import std.sort.*` | `arr.sort()`、`let sorted = sort(arr)`、`sort(arr)[i]` |
+| `abs`、`sqrt`、`pow`、`ceil`、`floor`、`round` | `import std.math.*` | 假设数学自由函数内置、写 `x.ceil()` |
+| `String.toLower()`/`toUpper()`/`trim()`、`Rune.isLetter()`/`toLowerCase()` | `import std.unicode.*` | 无 import 调用 Unicode 扩展、逐个 Rune 调 `toAsciiLower()` |
+| `parse`、`tryParse`、`toString(radix:)` | `import std.convert.*` | 对 `parse()` 使用 `??`、把 `String(n)` 当数值转换 |
+
+新增任何上表符号后，写入后必须回看顶层声明区，确认 import 位于 `package` 之后、其它声明之前；不能新增 import 时改写为不依赖该能力的实现。
+
+## 写入后 API 闭包检查
+
+- 集合：`Array<T>` 固定长度，出现 `.append` 一律改为 `ArrayList.add` 或预分配数组下标赋值；出现 `put` 时按目标类型改为 `add`、下标赋值或已有 API。
+- 排序：`sort` 原地修改并返回 `Unit`，不得把返回值赋给变量、继续下标或作为表达式传参。
+- 字符串：`for (c in s)` 得到 `UInt8`，只有按 UTF-8 字节处理时才保留；要与字符、字符串或 Unicode 分类比较时改为 `s.runes()`。
+- Option：只有静态类型为 `?T`/`Option<T>` 的表达式才能用 `??`；和比较、算术混用时给 `??` 表达式加括号。
+- 命名参数：只在文档签名带 `!` 时使用；不确定时使用位置参数，避免 `item:`、`initElement:` 等其它语言习惯。
 
 ## 代码生成 API 首检
 
-- `Array<T>` 固定长度，没有 `append`/成员 `sort`。需要动态追加时用 `ArrayList<T>` 的 `add`，最后 `toArray()`；知道结果长度时优先 `Array<T>(size, { i => ... })` 并按下标赋值。
-- `Array<T>(size, repeat: value)` 用于重复填充值；按下标生成元素时写 `Array<T>(size, { i => expr })`，不要写 `item:` 或 `initElement:` 调用。
+### 集合与数组
+
+- `Array<T>` 固定长度，没有 `append`/成员 `sort`。需要动态追加时用 `ArrayList<T>` 的 `add`，最后 `toArray()`；知道结果长度时可预分配 `Array<T>(size, repeat: value)` 并用显式循环按下标赋值。
+- `Array<T>(size, repeat: value)` 用于重复填充值；按下标生成元素时可写 `Array<T>(size, { i => expr })`，但该 lambda 只能读取不可变局部值。若 `expr` 依赖扫描、排序、条件更新后仍为 `var` 的局部或可变容器，改用预分配数组加显式循环，不要把外层可变结果捕获进初始化器。
 - `ArrayList`、`HashMap`、`HashSet` 来自 `std.collection`，使用前写 `import std.collection.*`。`ArrayList` 和 `HashSet` 添加元素都用 `add`；不要写 `append` 或 `put`。
 - `HashMap` 更新可写 `map[key] = value` 或 `map.add(key, value)`；安全取值后参与比较时先加括号，例如 `(map.get(key) ?? 0) == 1`。不要把 `put` 当作 HashMap/HashSet API。
-- 排序使用 `std.sort` 的自由函数：`import std.sort.*` 后写 `sort(arr)`、`sort(arr, descending: true)` 或 `sort(arr, lessThan: { a, b => ... })`；不要写 `arr.sort()`。
+- 排序使用 `std.sort` 的自由函数：`import std.sort.*` 后写 `sort(arr)`、`sort(arr, descending: true)` 或 `sort(arr, lessThan: { a, b => ... })`；`sort` 原地修改集合并返回 `Unit`，不要写 `arr.sort()`、`let sorted = sort(arr)`、`sort(arr)[i]`，也不要把排序调用结果继续下标。
 - `Array` 没有成员 `filter`/`map` 时，优先用显式循环加 `ArrayList` 收集；若使用迭代器函数，确认已导入对应集合工具并用 `collectArray`/`collectArrayList` 收尾。不要写 `filter(func...)` 或 `sort(func...)`。
+- `get`、`remove`、`peek`、`tryRemove`、`tryParse`、溢出检查等 API 常返回 `?T`/`Option<T>`；比较、算术或传参前先模式匹配、`??` 提供默认值或显式解包，并给 `??` 表达式加括号。
+
+### 字符串、Rune 与 Unicode
+
 - `String` 长度属性是 `size`，判空调用 `isEmpty()`；不要写 `.length` 或 `.isEmpty`。子串用区间下标，例如 `s[start..end]`；简单查找优先 `contains`、`indexOf`、`startsWith`、`endsWith`。
-- `String.trim()`、`String.toLower()`、`String.toUpper()`、`Rune.isLetter()`、`Rune.isUpperCase()`、`Rune.toLowerCase()` 等 Unicode 扩展需要 `import std.unicode.*`。只裁剪 ASCII 空白可用核心 `trimAscii()`。
-- `ceil`、`floor`、`round`、`sqrt`、`pow`、`abs` 等数学自由函数需要 `import std.math.*`，调用方式是 `ceil(x)`，不要写 `x.ceil()`。
-- 字符集合常用 `HashSet<Rune>` 配合 `s.runes()`；需要字符串结果时用 `ArrayList<Rune>` 收集、`String(list.toArray())` 返回。
+- `String.trim()`、`String.toLower()`、`String.toUpper()`、`Rune.isLetter()`、`Rune.isUpperCase()`、`Rune.toLowerCase()` 等 Unicode 扩展需要 `import std.unicode.*`；没有该 import 时 `toLower` 不是 `String` 成员。ASCII-only 整串场景可用 `String` 核心方法 `toAsciiLower()`、`toAsciiUpper()`、`trimAscii()`；逐个 `Rune` 没有这些成员，需用 `UInt32(r)` 加减后转回 `Rune`、`match` 分支，或补 Unicode import。
+- 按字符处理字符串时用 `s.runes()` 或 `toRuneArray()`，字符集合常用 `HashSet<Rune>`；需要字符串结果时用 `ArrayList<Rune>` 收集、`String(list.toArray())` 返回。
+
+### 数学、排序与转换
+
+- `ceil`、`floor`、`round`、`sqrt`、`pow`、`abs` 等数学自由函数需要 `import std.math.*`，调用方式是 `ceil(x)`，不要写 `x.ceil()`；静态复核时必须确认 import 实际出现在顶层声明区，否则 `abs` 等会是未声明标识符。
+- 数值转字符串不要写 `String(n)` 或 `String(digit)`；十进制使用 `n.toString()` 或 `"${n}"`，指定进制使用 `std.convert.*` 的 `n.toString(radix: base)` 并确认 import，或手写 digit 表。
+- 字符串解析、进制解析、格式化宽度/精度等能力属于 `std.convert.*`；`parse` 返回普通值并可能抛异常，`tryParse` 才返回 `?T`。只有 `tryParse` 等可空结果能用 `??`，不要对 `Int64.parse(...)` 再写 `??`。
+- `std.crypto.digest` 只定义摘要接口和 `digest()` 便捷函数；MD5、SHA、HMAC 等具体算法以及 Hex/Base64 编码属于扩展库，必须交给 `cangjie-stdx` 处理配置和 import。
 
 请按需查询当前目录下的标准库文档：
 

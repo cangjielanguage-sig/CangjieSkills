@@ -3,14 +3,14 @@
 ## 1. 基本排序
 
 - 来自 `std.sort.*`
-- `sort(data)` — 对集合排序，要求 `T <: Comparable`
+- `sort(data)` — 原地对集合排序，返回 `Unit`，要求 `T <: Comparable`
 - **支持 `Array<T>`、`ArrayList<T>`、`List<T>` 三种集合类型，所有重载形式均适用**
 
 | 函数 | 说明 |
 |------|------|
-| `sort<T>(data: Array<T>)` | 默认升序排序（`T <: Comparable`） |
-| `sort<T>(data: ArrayList<T>)` | 对 `ArrayList` 升序排序 |
-| `sort<T>(data: Array<T>, descending!: Bool)` | 降序排序 |
+| `sort<T>(data: Array<T>)` | 默认升序原地排序（`T <: Comparable`），返回 `Unit` |
+| `sort<T>(data: ArrayList<T>)` | 对 `ArrayList` 升序原地排序，返回 `Unit` |
+| `sort<T>(data: Array<T>, descending!: Bool)` | 原地降序排序，返回 `Unit` |
 
 ---
 
@@ -88,7 +88,7 @@ main() {
 
 ## 4. 关键规则速查
 
-1. `sort(arr)` 默认不稳定、升序，需要稳定排序须显式传 `stable: true`
+1. `sort(arr)` 默认不稳定、升序、原地修改并返回 `Unit`；不要写 `let sorted = sort(arr)`、`sort(arr)[i]` 或把排序调用结果继续传给需要数组的表达式
 2. `by` 参数接收返回 `Ordering` 的比较器
 3. `lessThan` 参数接收返回 `Bool` 的比较函数
 4. `key` 参数接收键提取函数，按提取值排序

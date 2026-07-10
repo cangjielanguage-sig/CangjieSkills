@@ -1,6 +1,8 @@
 # 仓颉标准库类型转换 Skill
 
 > 导入：`import std.convert.*`
+>
+> `std.convert.*` 不会自动导入；没有该 import 时不要使用 `parse`、`tryParse` 或 `toString(radix:)`。普通十进制数值转字符串用核心 `n.toString()` 或 `"${n}"`，不要写 `String(n)`。
 
 ---
 
@@ -65,6 +67,7 @@ Int8, Int16, Int32, Int64, UInt8, UInt16, UInt32, UInt64
 - `radix` 范围：2 ~ 36（10 个数字 + 26 个字母）
 - Int 系列支持 `+`/`-` 前缀；UInt 系列不允许 `-` 前缀
 - `toString` 输出使用小写字母
+- 若当前任务不能安全新增 `import std.convert.*`，不要调用 `n.toString(radix: base)`；改用显式 digit 表、循环和字符串拼接完成受限进制转换。
 
 ### 2.3 用法示例
 

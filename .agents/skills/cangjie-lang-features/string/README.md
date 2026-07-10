@@ -41,6 +41,8 @@ let bytes: Array<UInt8> = [72, 101, 108, 108, 111]
 let s8 = String.fromUtf8(bytes) // "Hello"（会校验 UTF-8 合法性）
 ```
 
+`String(...)` 不是通用数值转字符串构造器；不要写 `String(n)` 或 `String(digit)`。数值拼接用 `n.toString()` 或 `"${n}"`，Rune 数组/UTF-8 字节数组才使用 `String(runes)` / `String.fromUtf8(bytes)`。
+
 ---
 
 ## 3. 属性
@@ -330,6 +332,8 @@ func toAsciiTitle(): String   // 首字母大写（仅 ASCII 字母）
 "Hello World".toAsciiUpper() // "HELLO WORLD"
 "hello world".toAsciiTitle() // "Hello World"
 ```
+
+这些 ASCII 方法属于核心 `String`。Unicode 级别的 `toLower()` / `toUpper()` 来自 `std.unicode.*`，必须显式导入；若只需要英文小写输出，优先直接生成小写字面量或用 `toAsciiLower()`。
 
 ---
 

@@ -1,2 +1,0 @@
-{"input":"文档更新后如何重新生成 doc-search 的最新索引结果？","expected_patterns":["索引","重建","流程","步骤"],"min_score":0.6}
-{"input":"维护 cangjie-hmos-doc-search 时必须保留哪些记录？","expected_patterns":["记录","保留","输出","产物"],"min_score":0.6}

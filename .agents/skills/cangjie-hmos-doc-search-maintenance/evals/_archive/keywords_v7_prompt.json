@@ -494,7 +494,8 @@
     ],
     "keywords_zh": [
       "Duration",
-      "构造"
+      "构造",
+      "构造方法"
     ]
   },
   "15": {
@@ -1806,7 +1807,7 @@
     "category": "reverse_lookup",
     "core": {
       "zh": [
-        "共享转场"
+        "元素转场"
       ],
       "en": [
         "geometryTransition"
@@ -1832,7 +1833,7 @@
       "transition"
     ],
     "keywords_zh": [
-      "共享转场",
+      "元素转场",
       "转场动画"
     ]
   },

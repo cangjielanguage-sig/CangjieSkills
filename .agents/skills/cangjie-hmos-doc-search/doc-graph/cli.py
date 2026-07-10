@@ -47,7 +47,12 @@ def _ensure_utf8():
 
 def cmd_search(args):
     """搜索命令 — 调用 GraphSession.search() 并输出结果。"""
-    session = create_session()
+    if args.graph_path:
+        session = create_session(graph_dir=str(Path(args.graph_path).parent))
+        session.doc_engine = None
+        session.load_doc_graph(args.graph_path)
+    else:
+        session = create_session()
     result = session.search(args.query, top_k=args.limit, graph=args.graph)
 
     if args.json:
@@ -235,6 +240,7 @@ def main():
     p_search.add_argument("query", help="查询字符串")
     p_search.add_argument("--limit", "-k", type=int, default=5, help="直接命中返回数量")
     p_search.add_argument("--graph", choices=["doc", "code", "auto", "both"], default="auto", help="选择图谱")
+    p_search.add_argument("--graph-path", default=None, help="自定义 graph.json 路径 (如 data/doc/graph_cj.json)")
     p_search.add_argument("--brief", "-b", action="store_true", help="仅返回 label + source_file")
     p_search.add_argument("--json", action="store_true", help="输出结构化 JSON（与 card/fusion 对齐）")
     p_search.set_defaults(func=cmd_search)

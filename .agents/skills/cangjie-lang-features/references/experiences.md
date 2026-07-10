@@ -7,7 +7,6 @@
 - 触发条件: 生成数组初始化器、map/filter/sort 回调或尾随 lambda，且实现需要累加、交换、追加或提前退出。
 - 经验: 主流程已覆盖；命中时执行 `.cj 生成闭包检查` 和 lambda 硬门禁。
 - 适用边界: 适用于有状态生成、排序后取片、一次性代码填充；纯表达式 lambda 且只读不可变捕获不适用。
-- 来源 rollout: cangjie-lang-features-20260708-150822-001#GroundTruth; cangjie-lang-features-20260708-141522-001#GroundTruth; cangjie-lang-features-20260708-160115-001#GroundTruth; cangjie-lang-features-20260709-091552-001#GroundTruth; cangjie-lang-features-20260709-091554-001#GroundTruth; cangjie-lang-features-20260709-091556-001#GroundTruth; cangjie-lang-features-20260709-091558-001#GroundTruth; cangjie-lang-features-20260709-140728-001#GroundTruth
 - 状态: accepted
 
 ## CJLF-E002
@@ -15,7 +14,6 @@
 - 触发条件: lambda 体内想声明 var/let、写多步分支、更新状态或多处返回。
 - 经验: Lambda 不是小代码块；体内要声明或分支时写局部函数/循环，并保留 `=>`。
 - 适用边界: 适用于语句式逻辑和复杂谓词；单表达式 lambda 不适用。
-- 来源 rollout: cangjie-lang-features-20260708-141526-001#GroundTruth
 - 状态: accepted
 
 ## CJLF-E003
@@ -23,7 +21,6 @@
 - 触发条件: 需要 `stdx.*`、摘要算法、Hex/Base64/URL、JSON、HTTP/TLS，但只能改 `.cj` 或构建配置未知。
 - 经验: 主流程已覆盖；命中时执行 `stdx` 配置门禁，不得写入不可编译 import。
 - 适用边界: 适用于扩展标准库依赖不明的代码生成；项目已配置 stdx 且允许改配置时不适用。
-- 来源 rollout: cangjie-lang-features-20260708-141531-001#GroundTruth; cangjie-lang-features-20260708-150827-001#GroundTruth; cangjie-lang-features-20260708-160118-001#GroundTruth; cangjie-lang-features-20260708-172308-001#GroundTruth; cangjie-lang-features-20260709-091600-001#GroundTruth
 - 状态: accepted
 
 ## CJLF-E004
@@ -31,7 +28,6 @@
 - 触发条件: 一次性生成数学相关代码，出现 `abs`、`sqrt`、`pow`、`round`、`ceil` 或 `floor`。
 - 经验: 把数学函数当 `std.math` 自由函数处理，先补 import；不要假设 `abs` 是内置。
 - 适用边界: 适用于需要数学库函数的实现；只用整数四则运算或比较时不适用。
-- 来源 rollout: cangjie-lang-features-20260708-160113-001#GroundTruth
 - 状态: accepted
 
 ## CJLF-E005
@@ -39,7 +35,6 @@
 - 触发条件: 在比较、排序、默认值或可空结果附近想写 `?`、`??`、`?.`。
 - 经验: `?` 只用于固定 Option 语法；不确定时回查 Option 文档，别发明简写。
 - 适用边界: 适用于 Option、空值默认和安全访问；`parse()`、数组下标、普通三目/条件表达式思路不适用。
-- 来源 rollout: cangjie-lang-features-20260708-141530-001#GroundTruth; cangjie-lang-features-20260709-140724-001#GroundTruth
 - 状态: accepted
 
 ## CJLF-E006
@@ -47,7 +42,6 @@
 - 触发条件: 逐个 `Rune` 做 ASCII 大小写转换，想调用 `toAsciiLower()` / `toAsciiUpper()`。
 - 经验: 这些 ASCII 方法属于 `String`；`Rune` 用编码加减或 Unicode import。
 - 适用边界: 适用于按 `message.runes()` 逐字符处理；整串 ASCII 转换仍可用 `String` 方法。
-- 来源 rollout: cangjie-lang-features-20260709-140726-001#GroundTruth
 - 状态: accepted
 
 ## CJLF-E007
@@ -55,5 +49,4 @@
 - 触发条件: 手写哈希、编码、掩码或移植 C/Java 位运算代码，出现取反。
 - 经验: 仓颉按位取反写 `!x`，不是 `~x`；手写前逐项静态复核。
 - 适用边界: 适用于整数位运算；布尔逻辑非也用 `!`，需确认操作数类型。
-- 来源 rollout: cangjie-lang-features-20260709-140730-001#GroundTruth
 - 状态: accepted

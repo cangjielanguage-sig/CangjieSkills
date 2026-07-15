@@ -163,6 +163,9 @@ func repeat(times: Int64): Array<T>
 let arr = [1, 2].repeat(3) // [1, 2, 1, 2, 1, 2]
 ```
 
+- `times` 必须大于 `0`；`times <= 0` 时抛出 `IllegalArgumentException`。
+- 重复次数由输入或算式派生且可能为 `0` 时，先显式分支并构造契约要求的空数组或其它结果；不要用 `repeat(0)` 构造空数组。
+
 ---
 
 ## 7. 拷贝
@@ -375,14 +378,15 @@ while (true) {
 
 ## 14. 排序（使用 std.sort）
 
-Array 本身不提供排序方法，需导入 `std.sort`：
+Array 本身不提供排序方法，需导入 `std.sort`。精确重载、是否原地修改及返回类型以 `cangjie-std` 的 `std.sort` 专题为准：
 
 ```cangjie
 import std.sort.*
 
 var arr = [3, 1, 4, 1, 5, 9]
 sort(arr)                        // 原地升序：[1, 1, 3, 4, 5, 9]
-sort(arr) { a, b => b - a }     // 自定义降序
+let byDescending = {a: Int64, b: Int64 => b.compare(a)}
+sort(arr, by: byDescending)     // 原地降序；比较器返回 Ordering
 ```
 
 ---

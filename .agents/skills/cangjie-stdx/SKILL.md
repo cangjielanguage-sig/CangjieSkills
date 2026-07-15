@@ -1,44 +1,61 @@
 ---
 name: cangjie-stdx
-description: "Use when generating or reviewing Cangjie code that explicitly needs configured stdx APIs or dependency gates: JSON, Base64/Hex/URL encoding, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing, HMAC, MD5/SHA/SM3-style digest work, or stdx configuration examples. For core .cj language and std.* APIs, use cangjie-lang-features plus cangjie-std."
+description: "Use for generating, reviewing, or configuring Cangjie code that needs an extension capability or an stdx availability decision: JSON, Base64/Hex/URL, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing/HMAC, certificates, or stdx configuration. The project need not be preconfigured; this Skill selects among existing configuration, authorized configuration changes, source-level alternatives, and an explicit dependency gap."
 ---
 
-## stdx 使用流程
+## 职责边界
 
-1. 先判断需求是否确属扩展标准库：JSON、HTTP/HTTPS、WebSocket、TLS、具体密码学算法、Hex/Base64/URL、压缩、序列化、日志等走本 Skill；核心类型、集合、字符串、数学和 `std.*` API 仍交给 `cangjie-std`。
-2. 再判断构建环境是否能使用 `stdx`：优先查项目是否有 `cjpm.toml`、目标架构、`bin-dependencies.path-option`、动态/静态库路径和运行方式；裸 `cjc`、单文件编译环境或未知环境不能默认导入 `stdx.*`。
-3. 如果 `glob **/cjpm.toml` 无结果、只能改 `.cj` 源码、用户禁止改配置，或项目没有 stdx 配置，把 `stdx.*` 代码生成标为不可用路径，不得写入会编译失败的 `stdx.*` import；应改用可用的 `std.*` 能力，给出可编译降级实现，或明确说明当前契约下无法完成。
-4. 确认可用后再选择精确包并添加顶层 import：例如摘要算法用 `stdx.crypto.digest.*`，摘要展示再配 `stdx.encoding.hex.*`；HTTPS/HTTP2 通常同时涉及 `stdx.net.http.*`、`stdx.net.tls.*` 和证书相关包。
-5. 写入后复核三件事：`.cj` import 与 API 包匹配、`cjpm.toml` 或等效配置能解析依赖、运行时系统依赖可满足。
+- 本 Skill 负责扩展能力识别、stdx 可行性选路、精确包路由和运行前提；核心语法与 `std.*` API 分别交给 `cangjie-lang-features` 和 `cangjie-std`。
+- “需要 stdx 能力”本身就是加载条件。是否已配置由本 Skill 检查，不能要求调用方在加载前先证明依赖可用。
+- 构建、动态/静态链接、系统库和部署细节只在 [config](./config/README.md) 与各专题中维护，主文件不复制平台参数。
+- HarmonyOS/HMOS 的 stdx 二进制包和打包路径由 `cangjie-hmos-stdx` 负责；本 Skill 只保留这条路由。
 
-## 触发边界
+## 扩展能力选路流程
 
-- 不要仅因为任务是仓颉 `.cj` 代码生成就加载本 Skill；普通集合、字符串、数学、转换、Option、排序和测试能力属于 `cangjie-std`。
-- 只有出现明确扩展库需求时才进入本 Skill：JSON/编码/压缩/序列化/日志、HTTP/HTTPS/WebSocket/TLS、具体摘要或加密算法、HMAC、MD5/SHA/SM3、OpenSSL/证书、stdx 配置示例。
-- 在 HarmonyOS/HMOS 项目里，如果问题是 stdx 二进制包、平台 zip、`bin-dependencies.path-option` 或 Hvigor/ohpm 打包路径，转给 `cangjie-hmos-stdx`；本 Skill 只处理通用扩展库 API 和非平台化配置门禁。
+1. 判断需求是否确属扩展库，并读取对应 API 专题；普通集合、数学、Unicode、转换、Option 和排序不进入本 Skill。
+2. 检查项目形态、`cjpm.toml` 或等效配置、目标平台、允许修改范围和运行方式；仅看到 API 文档不能证明依赖已可用。
+3. 按下表选择可行路径。路径选择先于源码 import，不能把依赖风险留到写入之后说明。
+4. 采用 stdx 时核对精确包、API 签名、返回/错误模型及配置专题中的构建前提；采用源码替代时同步加载语言与标准库专题核对实现所需能力。
+5. 写入后检查源码、构建配置和运行时依赖三层闭包；无法验证的层级必须明确列出。
 
-## 配置门禁
+## 可行路径矩阵
 
-- `stdx` 不是 `std.core` 自动能力，也不是仅靠 import 就可用的内置包；看到本目录文档只能说明 API 形态，不能证明目标项目已经配置了依赖。
-- 无 `cjpm.toml`、临时生成包、裸 `cjc` 或单文件编译环境、只能修改 `.cj` 源码、用户禁止改配置、或无法确认依赖可见性时，禁止采用“源码里写入 `stdx.*` import、回复里提示依赖风险”的做法；该路径会直接制造不可编译代码。
-- 动态库方式需要在 `cjpm.toml` 的目标平台 `bin-dependencies` 中把 `path-option` 指向 `dynamic/stdx`；`cjpm run` 会处理动态库搜索路径，直接运行产物时还要设置 Linux `LD_LIBRARY_PATH`、macOS `DYLD_LIBRARY_PATH` 或 Windows `PATH`。
-- 静态库方式把 `path-option` 指向 `static/stdx`；涉及 crypto/net 时按平台补充编译选项，例如 Linux 的 `-ldl`、Windows 的 `-lcrypt32`，具体以 [config](./config/README.md) 为准。
-- crypto、TLS、HTTPS 和部分 net 能力依赖 OpenSSL 3；生成相关代码前要把 OpenSSL 安装/路径视为运行前提，不能只检查仓颉 import。
-- 只有任务明确允许修改项目配置时才编辑 `cjpm.toml` 或构建脚本；否则在实现说明里列出缺失配置，而不是把依赖问题藏在源码里。
+| 环境与权限 | 选择 |
+| --- | --- |
+| 项目已有匹配目标平台的 stdx 配置 | 使用对应 stdx API，并验证 import、链接和运行时依赖 |
+| 当前未配置，但用户允许修改项目配置 | 先按 [config](./config/README.md) 完成配置，再使用 stdx API |
+| 只能修改源码或使用裸编译环境 | 比较 `std.*` 组合与自包含实现；只有契约必须产出实现且语法、算法和验证路径均可满足时才选择自包含方案 |
+| 没有可用依赖，也没有可可靠实现的源码路径 | 说明缺失能力、所需配置和受影响产物，不生成明知无法解析的 stdx import |
 
-## 不可用路径处理
+自包含实现不是默认方案，也不是一律禁止的方案。应根据任务是否必须完成、算法规模、已有语言能力和可用验证证据作出选择；复杂度超过当前可复核范围时保留依赖缺口，而不是伪造可用性。
 
-- 若任务要求 MD5/SHA/Hex/Base64/URL/JSON 等扩展能力，但当前契约只允许改 `.cj` 源码或不能证明 `stdx` 配置可用，优先报告依赖缺口，并避免写入任何 `stdx.*` import。
-- 只有在算法规模可控、仓颉语法和位运算可逐项静态复核、且不会引入不可验证的大段移植代码时，才考虑自包含替代实现；否则明确说明当前约束下无法可靠完成。
-- 若必须手写位运算或编码逻辑，复核 `!x` 按位取反、整数类型、移位范围、字节/字符串转换和返回类型；不要移植其它语言的 `~x`、隐式字节数组或字符串构造习惯。
+## 交付收敛与停止条件
 
-## 能力路由首检
+- 当任务明确要求生成、填充或修改产物时，把“产物已写入且路径闭合”或“已明确报告不可消除的依赖缺口”作为终止条件；完成环境调研本身不算交付。
+- 将可行性调查限制为一轮项目配置检查、一轮直接相关 API/算法专题检查和必要的目标平台确认。除非出现推翻前提的新证据，不要扩展到评测框架、无关源码、其它任务或宽泛仓库探索。
+- 调查结束后立即固定矩阵中的一条路径并执行：已有配置则使用；允许改配置则先配置；源码受限但存在可验证替代则实现；没有可靠路径则停止并报告依赖缺口。不要在这些路径之间反复切换。
+- 对 one-shot/single-pass 源码任务，若存在满足契约且可静态复核或用已知向量验证的自包含路径，应在唯一写入中完成它；不得以继续调查代替写入。若不存在可靠路径，不写占位实现、不伪造 stdx import，并在写入前说明阻塞条件。
+- 最终回复列出采用路径、实际修改的源码/配置、未验证层级和剩余依赖；如果没有修改产物，必须明确说明为什么所有可行路径均被排除。
 
-- `std.crypto.digest` 只提供摘要接口；MD5/SHA/SM3/HMAC 等具体算法在 `stdx.crypto.digest`，二进制摘要转文本通常再用 `stdx.encoding.hex` 或 `stdx.encoding.base64`。若 MD5 任务没有可用 stdx 配置且只能改 `.cj`，不得导入 `stdx.crypto.digest`；报告依赖缺口，或仅在契约允许且可控时选择自包含替代实现。
-- Hex/Base64/URL 解码函数可能返回 `Option<Array<Byte>>`；解码结果参与字符串构造、比较或写入前必须先处理 `None`。
-- JSON 简单值解析/构建优先查 `stdx.encoding.json`；流式读写或自定义类型互转查 `stdx.encoding.json.stream` 和序列化文档，不要把 JSON 当作普通字符串拼接。
-- HTTP 客户端、服务端、Cookie、分块传输和 WebSocket 都属于 `stdx.net.http` 相关文档；HTTPS/TLS、HTTP/2 ALPN、证书解析/验证需要同时查 TLS 与 crypto/x509 文档。
-- 日志抽象与实现分在 `stdx.log` 和 `stdx.logger`；压缩在 `stdx.compress.zlib`；通用序列化在 `stdx.serialization.serialization`。不要把这些包名归入 `std.*`。
+## 扩展 API 闭包
+
+- **能力闭包**：专题确实提供所需算法、编码、协议或序列化语义，不能把相邻接口当作具体实现。
+- **源码闭包**：包名、import、参数、返回类型、Option/异常处理和资源释放与专题一致。
+- **配置闭包**：目标平台的依赖路径和链接方式可由项目配置解析，且修改权限明确。
+- **运行闭包**：系统库、证书、动态库搜索路径和部署方式满足对应专题前提。
+- **替代闭包**：若不使用 stdx，替代路径覆盖原契约，并能对关键边界或已知向量进行验证。
+
+## 高频能力路由
+
+| 能力 | 必读专题 |
+| --- | --- |
+| 下载、动态/静态依赖、平台配置 | [config](./config/README.md) |
+| JSON | [json](./json/README.md)；流式或类型映射同时读 [serialization](./serialization/README.md) |
+| Base64、Hex、URL | [encoding](./encoding/README.md) |
+| 摘要、HMAC、非对称算法、X509 | [crypto](./crypto/README.md) |
+| HTTP 客户端/服务端与 WebSocket | [http_client](./http_client/README.md)、[http_server](./http_server/README.md)、[websocket](./websocket/README.md) |
+| HTTPS、证书与 ALPN | [tls](./tls/README.md) 及对应 HTTP HTTPS 专题 |
+| 日志、压缩、通用序列化 | [log](./log/README.md)、[compress](./compress/README.md)、[serialization](./serialization/README.md) |
 
 请按需查询当前目录下的工具文档：
 

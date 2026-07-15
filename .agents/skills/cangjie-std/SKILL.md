@@ -1,60 +1,51 @@
 ---
 name: cangjie-std
-description: "Use when generating, reviewing, or repairing Cangjie .cj code that may need std APIs, core types, collections, String/Rune, sort, math, unicode, convert, tests, or common API pitfalls. Pair with cangjie-lang-features for .cj code; route to cangjie-stdx only for configured extension-library APIs."
+description: "Use for every .cj generation/edit paired with cangjie-lang-features to verify whether the candidate needs Cangjie std.* APIs and, when it does, their packages/imports, signatures, return values, mutation effects, failure models, collections, String/Rune, sort, math, unicode, convert, I/O, networking, processes, or tests. Invoke before the first .cj write; use cangjie-stdx for extension capabilities or stdx availability decisions."
 ---
 
-## 标准库使用流程
+## 职责边界
 
-1. 先从签名、返回类型、输入输出形状和已有 import 判断需求属于核心类型、集合、字符串、数学、转换、I/O、进程、网络还是扩展库；不要把其它语言的 API 习惯直接迁移到仓颉。
-2. 写标准库 API 前先定位所属包和 import：`std.core` 自动导入，其它常用包如 `std.collection.*`、`std.sort.*`、`std.math.*`、`std.unicode.*`、`std.convert.*` 通常需要显式导入；不能新增 import 时不要调用对应扩展成员。
-3. 先选数据结构再写逻辑：固定长度结果用 `Array<T>`，需要追加/过滤/收集用 `ArrayList<T>`，需要去重或计数用 `HashSet`/`HashMap`，需要有序语义再考虑 `TreeMap`/`TreeSet`。
-4. 对会改变状态、提前退出、多步构造或依赖下标移动的逻辑，优先使用显式循环和可变容器；只有在函数签名明确、lambda 纯表达式且不读取此前被 `var` 更新过的局部值时才使用迭代器组合。
-5. 标准库只覆盖 `std.*`。发现 `stdx.*`、具体摘要算法、Hex/Base64/URL、JSON、HTTP/TLS、压缩、日志等需求时，切换或并用 `cangjie-stdx` 并确认项目配置。
+- 本 Skill 负责 `std.*` API 的选择与契约核对，不重复语言语法；语法、捕获、类型和顶层结构由 `cangjie-lang-features` 负责。
+- 具体 API 以本目录专题文档为唯一权威来源。主文件负责识别能力、加载专题和检查调用闭包，不维护针对单个评测错误的黑名单。
+- 具体摘要算法、Hex/Base64/URL、JSON、HTTP/TLS、压缩和日志等扩展能力交给 `cangjie-stdx`；是否已配置不是加载该 Skill 的前置条件。
 
-## import 闭包速查
+## 标准库选路流程
 
-| 使用的符号或能力 | 必须确认的 import | 禁止替代写法 |
+1. 从任务契约识别能力和输入输出形状，区分核心类型、集合、排序、数学、Unicode、转换、I/O、网络、进程或测试。
+2. 为每项能力读取对应专题，记录实际符号、所属包、完整签名、返回类型、是否修改输入以及失败方式；不要凭其它语言的同名 API 推断。
+3. 枚举符合约束的调用路径，比较数据结构、错误语义、是否保留输入和所需 import；选择后再生成代码。
+4. 将所有非 `std.core` 符号加入依赖清单，确认顶层 import 可见且不存在别名或本地声明冲突。
+5. 完整候选写入前按“签名、类型、效果、失败、依赖”复核每个 API 调用；任一项不闭合都不得写入。写后再对实际文件复核传输结果；验证不可用时至少手算契约样例。
+
+## 解法路径选择
+
+| 需求 | 合理路径 | 选择依据 |
 | --- | --- | --- |
-| `ArrayList`、`HashMap`、`HashSet` | `import std.collection.*` | 裸用集合类、`Array.append`、`HashMap.put`、`HashSet.put` |
-| `sort(...)` | `import std.sort.*` | `arr.sort()`、`let sorted = sort(arr)`、`sort(arr)[i]` |
-| `abs`、`sqrt`、`pow`、`ceil`、`floor`、`round` | `import std.math.*` | 假设数学自由函数内置、写 `x.ceil()` |
-| `String.toLower()`/`toUpper()`/`trim()`、`Rune.isLetter()`/`toLowerCase()` | `import std.unicode.*` | 无 import 调用 Unicode 扩展、逐个 Rune 调 `toAsciiLower()` |
-| `parse`、`tryParse`、`toString(radix:)` | `import std.convert.*` | 对 `parse()` 使用 `??`、把 `String(n)` 当数值转换 |
+| 构造结果集合 | 固定长度 `Array`、动态集合、迭代器收集 | 结果长度、追加/去重需求、回调状态模型 |
+| 排序 | 原地排序，或先复制再排序 | 是否允许修改输入；返回值与副作用以 [sort](./sort/README.md) 为准 |
+| 字符大小写与分类 | String 的 ASCII 核心方法、Unicode 扩展、逐 Rune 转换 | ASCII/Unicode 语义和 import 可用性 |
+| 文本解析 | `parse`、`tryParse` 或显式校验 | 失败应抛异常、返回 Option 还是由调用方处理 |
+| 多步变换 | 纯回调组合、显式循环或局部函数 | 是否存在可变状态、提前退出和多阶段控制流 |
 
-新增任何上表符号后，写入后必须回看顶层声明区，确认 import 位于 `package` 之后、其它声明之前；不能新增 import 时改写为不依赖该能力的实现。
+## API 契约闭包
 
-## 写入后 API 闭包检查
+- **符号与依赖**：每个类型、自由函数和扩展成员都能映射到专题中的包与 import。
+- **签名**：参数位置、命名参数标记、泛型约束和回调类型与文档一致。
+- **类型**：返回值、Option、下标和转换结果在后续表达式中的用法匹配静态类型。
+- **效果**：明确 API 是原地修改、返回新值还是返回 `Unit`；需要保留输入时先选择复制路径。
+- **失败**：区分抛异常、返回 Option、运行时前置条件和 I/O 错误，并让调用方完整处理。
+- **平台**：涉及文件、网络、进程或 native 依赖时，确认目标平台和运行方式满足专题前提。
 
-- 集合：`Array<T>` 固定长度，出现 `.append` 一律改为 `ArrayList.add` 或预分配数组下标赋值；出现 `put` 时按目标类型改为 `add`、下标赋值或已有 API。
-- 排序：`sort` 原地修改并返回 `Unit`，不得把返回值赋给变量、继续下标或作为表达式传参。
-- 字符串：`for (c in s)` 得到 `UInt8`，只有按 UTF-8 字节处理时才保留；要与字符、字符串或 Unicode 分类比较时改为 `s.runes()`。
-- Option：只有静态类型为 `?T`/`Option<T>` 的表达式才能用 `??`；和比较、算术混用时给 `??` 表达式加括号。
-- 命名参数：只在文档签名带 `!` 时使用；不确定时使用位置参数，避免 `item:`、`initElement:` 等其它语言习惯。
+## 高频专题路由
 
-## 代码生成 API 首检
-
-### 集合与数组
-
-- `Array<T>` 固定长度，没有 `append`/成员 `sort`。需要动态追加时用 `ArrayList<T>` 的 `add`，最后 `toArray()`；知道结果长度时可预分配 `Array<T>(size, repeat: value)` 并用显式循环按下标赋值。
-- `Array<T>(size, repeat: value)` 用于重复填充值；按下标生成元素时可写 `Array<T>(size, { i => expr })`，但该 lambda 只能读取不可变局部值。若 `expr` 依赖扫描、排序、条件更新后仍为 `var` 的局部或可变容器，改用预分配数组加显式循环，不要把外层可变结果捕获进初始化器。
-- `ArrayList`、`HashMap`、`HashSet` 来自 `std.collection`，使用前写 `import std.collection.*`。`ArrayList` 和 `HashSet` 添加元素都用 `add`；不要写 `append` 或 `put`。
-- `HashMap` 更新可写 `map[key] = value` 或 `map.add(key, value)`；安全取值后参与比较时先加括号，例如 `(map.get(key) ?? 0) == 1`。不要把 `put` 当作 HashMap/HashSet API。
-- 排序使用 `std.sort` 的自由函数：`import std.sort.*` 后写 `sort(arr)`、`sort(arr, descending: true)` 或 `sort(arr, lessThan: { a, b => ... })`；`sort` 原地修改集合并返回 `Unit`，不要写 `arr.sort()`、`let sorted = sort(arr)`、`sort(arr)[i]`，也不要把排序调用结果继续下标。
-- `Array` 没有成员 `filter`/`map` 时，优先用显式循环加 `ArrayList` 收集；若使用迭代器函数，确认已导入对应集合工具并用 `collectArray`/`collectArrayList` 收尾。不要写 `filter(func...)` 或 `sort(func...)`。
-- `get`、`remove`、`peek`、`tryRemove`、`tryParse`、溢出检查等 API 常返回 `?T`/`Option<T>`；比较、算术或传参前先模式匹配、`??` 提供默认值或显式解包，并给 `??` 表达式加括号。
-
-### 字符串、Rune 与 Unicode
-
-- `String` 长度属性是 `size`，判空调用 `isEmpty()`；不要写 `.length` 或 `.isEmpty`。子串用区间下标，例如 `s[start..end]`；简单查找优先 `contains`、`indexOf`、`startsWith`、`endsWith`。
-- `String.trim()`、`String.toLower()`、`String.toUpper()`、`Rune.isLetter()`、`Rune.isUpperCase()`、`Rune.toLowerCase()` 等 Unicode 扩展需要 `import std.unicode.*`；没有该 import 时 `toLower` 不是 `String` 成员。ASCII-only 整串场景可用 `String` 核心方法 `toAsciiLower()`、`toAsciiUpper()`、`trimAscii()`；逐个 `Rune` 没有这些成员，需用 `UInt32(r)` 加减后转回 `Rune`、`match` 分支，或补 Unicode import。
-- 按字符处理字符串时用 `s.runes()` 或 `toRuneArray()`，字符集合常用 `HashSet<Rune>`；需要字符串结果时用 `ArrayList<Rune>` 收集、`String(list.toArray())` 返回。
-
-### 数学、排序与转换
-
-- `ceil`、`floor`、`round`、`sqrt`、`pow`、`abs` 等数学自由函数需要 `import std.math.*`，调用方式是 `ceil(x)`，不要写 `x.ceil()`；静态复核时必须确认 import 实际出现在顶层声明区，否则 `abs` 等会是未声明标识符。
-- 数值转字符串不要写 `String(n)` 或 `String(digit)`；十进制使用 `n.toString()` 或 `"${n}"`，指定进制使用 `std.convert.*` 的 `n.toString(radix: base)` 并确认 import，或手写 digit 表。
-- 字符串解析、进制解析、格式化宽度/精度等能力属于 `std.convert.*`；`parse` 返回普通值并可能抛异常，`tryParse` 才返回 `?T`。只有 `tryParse` 等可空结果能用 `??`，不要对 `Int64.parse(...)` 再写 `??`。
-- `std.crypto.digest` 只定义摘要接口和 `digest()` 便捷函数；MD5、SHA、HMAC 等具体算法以及 Hex/Base64 编码属于扩展库，必须交给 `cangjie-stdx` 处理配置和 import。
+| 能力 | 必读专题 |
+| --- | --- |
+| Array、ArrayList、Map/Set、迭代收集 | [std.collection](./collection/README.md) |
+| 排序及比较器 | [std.sort](./sort/README.md) |
+| 数学函数和扩展数值 | [std.math](./math/README.md) 与 [std.math.numeric](./math_numeric/README.md) |
+| Rune/String 的 Unicode 操作 | [std.unicode](./unicode/README.md) |
+| 解析、进制与格式化 | [解析](./convert/parsable.md) 与 [格式化](./convert/formattable.md) |
+| 摘要接口与具体算法边界 | [std.crypto.digest](./crypto_digest/README.md)，具体算法再加载 `cangjie-stdx` |
 
 请按需查询当前目录下的标准库文档：
 

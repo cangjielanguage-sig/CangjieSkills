@@ -58,31 +58,34 @@ ERROR_PATTERNS = (
 )
 
 CONTROL_KEYWORD_RE = re.compile(r"\b(if|while|match)\b")
-DECLARATION_RE = re.compile(
-    r"^(?:@[A-Za-z_]\w*|(?:(?:public|private|protected|internal|open|abstract|sealed|static|unsafe)\s+)*"
-    r"(?:func|main|class|struct|enum|interface|extend|let|var|const|type|foreign|macro)\b)"
+DECLARATION_KEYWORD_RE = re.compile(
+    r"\b(?:func|main|class|struct|enum|interface|extend|let|var|const|type|foreign|macro)\b"
 )
-FUNC_RE = re.compile(r"\b(?:func\s+[A-Za-z_]\w*|main)\s*\([^{};]*\)[^{;]*\{")
+FUNC_RE = re.compile(
+    r"\b(?:func\s+[A-Za-z_]\w*(?:\s*<[^>{};]*>)?|main)\s*"
+    r"\([^{};]*\)[^{;]*\{"
+)
 VAR_RE = re.compile(r"\bvar\s+([A-Za-z_]\w*)")
 IDENT_RE = re.compile(r"\b[A-Za-z_]\w*\b")
 CASE_BRACE_RE = re.compile(r"\bcase\b[^{}]{0,500}?=>\s*(\{)")
-EXPLICIT_TYPE_BINDING_RE = re.compile(
-    r"\b([A-Za-z_]\w*)!?\s*:\s*([A-Za-z_]\w*)\b"
-)
-EXPLICIT_LOCAL_TYPE_RE = re.compile(
-    r"\b(?:let|var)\s+([A-Za-z_]\w*)\s*:\s*([A-Za-z_]\w*)\b"
-)
 DIRECT_FOR_RE = re.compile(
     r"\bfor\s*\(\s*([A-Za-z_]\w*)\s+in\s+([A-Za-z_]\w*)\s*\)\s*\{"
+)
+FOR_HEADER_RE = re.compile(
+    r"\bfor\s*\((?P<pattern>[^{};]*?)\s+in\s+[^{};]*\)\s*\{"
+)
+CASE_HEADER_RE = re.compile(r"\bcase\b(?P<pattern>[^{}]{0,500}?)=>")
+CONTROL_PATTERN_BODY_RE = re.compile(
+    r"\b(?:if|while)\s*\((?P<header>[^{};]*)\)\s*\{"
 )
 SORT_CALL_RE = re.compile(r"(?<![.\w])sort\s*(\()")
 ARRAYLIST_USE_RE = re.compile(r"(?<![.\w])ArrayList\b(?=\s*(?:<|\.|\())")
 ARRAY_NAME_RE = re.compile(r"\bArray\b")
-APPEND_USE_RE = re.compile(r"(?<![.\w])([A-Za-z_]\w*)\s*\.\s*append\s*\(")
-LENGTH_USE_RE = re.compile(r"(?<![.\w])([A-Za-z_]\w*)\s*\.\s*length\b")
-TO_INT64_USE_RE = re.compile(r"(?<![.\w])([A-Za-z_]\w*)\s*\.\s*toInt64\s*\(")
-REMOVE_AT_USE_RE = re.compile(r"(?<![.\w])([A-Za-z_]\w*)\s*\.\s*removeAt\s*\(")
-IMPORT_LINE_RE = re.compile(r"(?:public\s+)?import\b")
+APPEND_USE_RE = re.compile(r"(?<!\.)\.\s*append\s*\(")
+LENGTH_USE_RE = re.compile(r"(?<!\.)\.\s*length\b")
+TO_INT64_USE_RE = re.compile(r"(?<!\.)\.\s*toInt64\s*\(")
+REMOVE_AT_USE_RE = re.compile(r"(?<!\.)\.\s*removeAt\s*\(")
+IMPORT_TOKEN_RE = re.compile(r"\bimport\b")
 CORE_NUMERIC_TYPES = {
     "Int8",
     "Int16",
@@ -98,7 +101,12 @@ CORE_NUMERIC_TYPES = {
     "Float32",
     "Float64",
 }
-INFERABLE_CONSTRUCTORS = CORE_NUMERIC_TYPES | {"Array", "ArrayList", "StringBuilder"}
+INFERABLE_CONSTRUCTORS = CORE_NUMERIC_TYPES | {
+    "Array",
+    "ArrayList",
+    "String",
+    "StringBuilder",
+}
 NON_BYTE_LITERAL_FRAGMENT = (
     r"(?<![A-Za-z0-9_])(?:"
     r"r(?:'(?:\\.|[^'\\\r\n])*'|\"(?:\\.|[^\"\\\r\n])*\")|"
@@ -157,6 +165,11 @@ def mask_non_code(source: str) -> str:
             end = n if end < 0 else end + 3
             blank(i, end)
             i = end
+        elif source[i] == "`":
+            end = source.find("`", i + 1)
+            end = n if end < 0 else end + 1
+            blank(i, end)
+            i = end
         elif source[i] == '"':
             j = i + 1
             while j < n:
@@ -210,7 +223,7 @@ def add_finding(
     message: str,
     reference: str,
     *,
-    severity: Severity = "error",
+    severity: Severity,
 ) -> None:
     line, column = location(starts, max(0, offset))
     findings.append(Finding(path, line, column, code, message, reference, severity))
@@ -236,6 +249,7 @@ def bracket_pairs(
                     "CJ001",
                     f"Unmatched closing delimiter {ch!r}.",
                     "basic_concepts/README.md",
+                    severity="error",
                 )
                 continue
             opening, pos = stack.pop()
@@ -249,6 +263,7 @@ def bracket_pairs(
             "CJ002",
             f"Unclosed delimiter {opening!r}; expected {opens[opening]!r}.",
             "basic_concepts/README.md",
+            severity="error",
         )
     return pairs
 
@@ -256,38 +271,54 @@ def bracket_pairs(
 def scan_imports(
     masked: str, path: str, starts: list[int], findings: list[Finding]
 ) -> None:
+    """Check every import token against its exact brace depth and declaration order."""
+
+    events: list[tuple[int, str]] = [
+        (match.start(), "import") for match in IMPORT_TOKEN_RE.finditer(masked)
+    ]
+    for match in DECLARATION_KEYWORD_RE.finditer(masked):
+        previous = match.start() - 1
+        while previous >= 0 and masked[previous].isspace():
+            previous -= 1
+        if previous >= 0 and masked[previous] == ".":
+            continue
+        events.append((match.start(), "declaration"))
+
     depth = 0
     seen_declaration = False
-    offset = 0
-    for line in masked.splitlines(keepends=True):
-        stripped = line.strip()
-        import_match = IMPORT_LINE_RE.match(stripped)
-        if import_match is not None:
-            import_column = line.find("import")
+    cursor = 0
+    for offset, kind in sorted(events):
+        for char in masked[cursor:offset]:
+            if char == "{":
+                depth += 1
+            elif char == "}":
+                depth = max(0, depth - 1)
+        cursor = offset
+        if kind == "import":
             if depth > 0:
                 add_finding(
                     findings,
                     path,
                     starts,
-                    offset + import_column,
+                    offset,
                     "CJ010",
                     "import is inside a declaration; imports must be at top level.",
                     "package/README.md",
+                    severity="error",
                 )
             elif seen_declaration:
                 add_finding(
                     findings,
                     path,
                     starts,
-                    offset + import_column,
+                    offset,
                     "CJ011",
                     "import appears after another top-level declaration.",
                     "package/README.md",
+                    severity="error",
                 )
-        elif depth == 0 and stripped and DECLARATION_RE.match(stripped):
+        elif depth == 0:
             seen_declaration = True
-        depth += line.count("{") - line.count("}")
-        offset += len(line)
 
 
 def imports_symbol(masked: str, package: str, symbol: str) -> bool:
@@ -336,7 +367,7 @@ def known_receiver_type(
         signature = ""
         body_start = 0
 
-    candidates: list[tuple[int, str]] = []
+    candidates: list[tuple[int, str | None]] = []
     receiver_pattern = re.escape(receiver)
     parameter_re = re.compile(
         rf"(?<![.\w]){receiver_pattern}!?\s*:\s*([A-Za-z_]\w*)\b"
@@ -344,12 +375,77 @@ def known_receiver_type(
     for match in parameter_re.finditer(signature):
         candidates.append((func_start + match.start(), match.group(1)))
 
+    for opening, closing in pairs.items():
+        if masked[opening] != "{" or not (opening < use_offset < closing):
+            continue
+        arrow = top_level_arrow(masked, opening, closing)
+        if arrow is None or use_offset <= arrow:
+            continue
+        header = masked[opening + 1 : arrow]
+        if re.search(r"\bcase\b", header):
+            continue
+        lambda_parameter_re = re.compile(
+            rf"(?<![.\w]){receiver_pattern}!?\s*(?=:|,|$)"
+        )
+        lambda_parameter = lambda_parameter_re.search(header)
+        if lambda_parameter is not None:
+            type_match = re.match(
+                r"\s*:\s*([A-Za-z_]\w*)\b", header[lambda_parameter.end() :]
+            )
+            candidates.append(
+                (
+                    opening + 1 + lambda_parameter.start(),
+                    type_match.group(1) if type_match is not None else None,
+                )
+            )
+
+    for match in FOR_HEADER_RE.finditer(masked):
+        opening = masked.rfind("{", match.start(), match.end())
+        closing = pairs.get(opening)
+        if closing is None or not (opening < use_offset < closing):
+            continue
+        if receiver in IDENT_RE.findall(match.group("pattern")):
+            candidates.append((match.start(), None))
+
+    latest_case_by_scope: dict[int, re.Match[str]] = {}
+    for match in CASE_HEADER_RE.finditer(masked, 0, use_offset):
+        containing_scopes = [
+            (opening, closing)
+            for opening, closing in pairs.items()
+            if masked[opening] == "{" and opening < match.start() < closing
+        ]
+        if not containing_scopes:
+            continue
+        opening, closing = max(containing_scopes, key=lambda item: item[0])
+        if use_offset >= closing:
+            continue
+        previous = latest_case_by_scope.get(opening)
+        if previous is None or previous.start() < match.start():
+            latest_case_by_scope[opening] = match
+    for match in latest_case_by_scope.values():
+        if receiver in IDENT_RE.findall(match.group("pattern")):
+            candidates.append((match.start(), None))
+
+    for match in CONTROL_PATTERN_BODY_RE.finditer(masked):
+        opening = masked.rfind("{", match.start(), match.end())
+        closing = pairs.get(opening)
+        if closing is None or not (opening < use_offset < closing):
+            continue
+        for pattern_match in re.finditer(
+            r"\blet\s+(?P<pattern>.*?)\s*<-", match.group("header")
+        ):
+            if receiver in IDENT_RE.findall(pattern_match.group("pattern")):
+                candidates.append((match.start(), None))
+                break
+
     prefix = masked[body_start:use_offset]
     local_type_re = re.compile(
         rf"\b(?:let|var)\s+{receiver_pattern}\s*:\s*([A-Za-z_]\w*)\b"
     )
     for match in local_type_re.finditer(prefix):
-        candidates.append((body_start + match.start(), match.group(1)))
+        declaration_offset = body_start + match.start()
+        if binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            candidates.append((declaration_offset, match.group(1)))
 
     constructor_names = "|".join(
         sorted((re.escape(name) for name in INFERABLE_CONSTRUCTORS), key=len, reverse=True)
@@ -358,11 +454,110 @@ def known_receiver_type(
         rf"\b(?:let|var)\s+{receiver_pattern}\s*=\s*({constructor_names})\b"
     )
     for match in constructor_re.finditer(prefix):
-        candidates.append((body_start + match.start(), match.group(1)))
+        declaration_offset = body_start + match.start()
+        if binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            candidates.append((declaration_offset, match.group(1)))
+
+    array_literal_re = re.compile(
+        rf"\b(?:let|var)\s+{receiver_pattern}\s*=\s*\["
+    )
+    for match in array_literal_re.finditer(prefix):
+        declaration_offset = body_start + match.start()
+        if binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            candidates.append((declaration_offset, "Array"))
 
     if not candidates:
         return None
     return max(candidates, key=lambda item: item[0])[1]
+
+
+def binding_visible_at(
+    masked: str,
+    pairs: dict[int, int],
+    declaration_offset: int,
+    use_offset: int,
+) -> bool:
+    """Check the lexical brace scope of a local declaration."""
+
+    containing_scopes = [
+        (opening, closing)
+        for opening, closing in pairs.items()
+        if masked[opening] == "{" and opening < declaration_offset < closing
+    ]
+    if not containing_scopes:
+        return True
+    opening, closing = max(containing_scopes, key=lambda item: item[0])
+    return opening < use_offset < closing
+
+
+def simple_receiver_before(masked: str, member_offset: int) -> str | None:
+    """Return a bare identifier receiver, excluding property/member chains."""
+
+    match = re.search(r"([A-Za-z_]\w*)\s*$", masked[:member_offset])
+    if match is None:
+        return None
+    previous = match.start(1) - 1
+    while previous >= 0 and masked[previous].isspace():
+        previous -= 1
+    if previous >= 0 and masked[previous] == ".":
+        return None
+    return match.group(1)
+
+
+def direct_constructor_type_before(
+    masked: str, member_offset: int, pairs: dict[int, int]
+) -> str | None:
+    """Infer the type of a bare direct constructor expression before a member."""
+
+    cursor = member_offset - 1
+    while cursor >= 0 and masked[cursor].isspace():
+        cursor -= 1
+    if cursor < 0 or masked[cursor] != ")":
+        return None
+
+    call_open = next(
+        (opening for opening, closing in pairs.items() if closing == cursor), None
+    )
+    if call_open is None or masked[call_open] != "(":
+        return None
+
+    cursor = call_open - 1
+    while cursor >= 0 and masked[cursor].isspace():
+        cursor -= 1
+    if cursor >= 0 and masked[cursor] == ">":
+        depth = 1
+        cursor -= 1
+        while cursor >= 0 and depth:
+            if masked[cursor] == ">" and not (
+                cursor > 0 and masked[cursor - 1] == "-"
+            ):
+                depth += 1
+            elif masked[cursor] == "<":
+                depth -= 1
+            cursor -= 1
+        if depth:
+            return None
+        while cursor >= 0 and masked[cursor].isspace():
+            cursor -= 1
+
+    type_match = re.search(r"([A-Za-z_]\w*)$", masked[: cursor + 1])
+    if type_match is None or type_match.group(1) not in INFERABLE_CONSTRUCTORS:
+        return None
+    previous = type_match.start(1) - 1
+    while previous >= 0 and masked[previous].isspace():
+        previous -= 1
+    if previous >= 0 and (masked[previous] == "." or masked[previous].isalnum()):
+        return None
+    return type_match.group(1)
+
+
+def locally_known_receiver_type(
+    masked: str, member_offset: int, pairs: dict[int, int]
+) -> str | None:
+    receiver = simple_receiver_before(masked, member_offset)
+    if receiver is not None:
+        return known_receiver_type(masked, receiver, member_offset, pairs)
+    return direct_constructor_type_before(masked, member_offset, pairs)
 
 
 def scan_control_headers(
@@ -386,6 +581,7 @@ def scan_control_headers(
             "CJ012",
             f"{keyword} must be followed by {requirement} after optional whitespace.",
             "basic_concepts/README.md",
+            severity="error",
         )
 
 
@@ -451,6 +647,7 @@ def scan_array_item_named_argument(
                         "CJ025",
                         "Array has no top-level constructor argument named item:; use repeat: or an initializer function.",
                         "collections/array/README.md",
+                        severity="error",
                     )
                     break
             cursor += 1
@@ -466,8 +663,7 @@ def scan_receiver_aware_members(
     arraylist_is_std = imports_symbol(masked, "std.collection", "ArrayList")
 
     for match in APPEND_USE_RE.finditer(masked):
-        receiver = match.group(1)
-        receiver_type = known_receiver_type(masked, receiver, match.start(), pairs)
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
         if receiver_type == "StringBuilder":
             continue
         is_known_collection = receiver_type == "Array" or (
@@ -489,8 +685,7 @@ def scan_receiver_aware_members(
         )
 
     for match in LENGTH_USE_RE.finditer(masked):
-        receiver = match.group(1)
-        receiver_type = known_receiver_type(masked, receiver, match.start(), pairs)
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
         is_core_sized = receiver_type in {"Array", "String"}
         add_finding(
             findings,
@@ -508,8 +703,7 @@ def scan_receiver_aware_members(
         )
 
     for match in TO_INT64_USE_RE.finditer(masked):
-        receiver = match.group(1)
-        receiver_type = known_receiver_type(masked, receiver, match.start(), pairs)
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
         is_core_numeric = receiver_type in CORE_NUMERIC_TYPES
         add_finding(
             findings,
@@ -527,8 +721,7 @@ def scan_receiver_aware_members(
         )
 
     for match in REMOVE_AT_USE_RE.finditer(masked):
-        receiver = match.group(1)
-        receiver_type = known_receiver_type(masked, receiver, match.start(), pairs)
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
         is_known_collection = receiver_type == "Array" or (
             receiver_type == "ArrayList" and arraylist_is_std
         )
@@ -583,6 +776,7 @@ def scan_case_branch_braces(
             "CJ028",
             "A match case branch cannot use a braced statement block after =>; write branch expressions directly.",
             "pattern_match/README.md",
+            severity="error",
         )
 
 
@@ -607,7 +801,9 @@ def scan_mutable_lambda_capture(
         if arrow is None:
             continue
         header = masked[opening + 1 : arrow].strip()
-        if "case" in header or not re.fullmatch(r"[A-Za-z0-9_\s,:()<>?]*", header):
+        if re.search(r"\bcase\b", header) or not re.fullmatch(
+            r"[A-Za-z0-9_\s,:()<>?]*", header
+        ):
             continue
         after = masked[closing + 1 :].lstrip()
         if after.startswith("("):
@@ -632,7 +828,7 @@ def scan_mutable_lambda_capture(
                 starts,
                 opening,
                 "CJ030",
-                f"Escaping lambda captures local var binding(s): {names}; use immutable inputs or explicit control flow.",
+                f"Lambda may escape while capturing local var binding(s): {names}; verify its lifetime, or use immutable inputs or explicit control flow.",
                 "function/README.md",
                 severity="warning",
             )
@@ -645,7 +841,7 @@ def scan_untyped_sort_trailing_lambda(
     pairs: dict[int, int],
     findings: list[Finding],
 ) -> None:
-    """Reject the documented bad std.sort trailing-lambda shape."""
+    """Flag the documented risky std.sort trailing-lambda shape."""
 
     if not imports_symbol(masked, "std.sort", "sort"):
         return
@@ -673,7 +869,7 @@ def scan_untyped_sort_trailing_lambda(
             starts,
             lambda_open,
             "CJ032",
-            "Untyped trailing lambda after std.sort leaves the overload and comparator contract unresolved; use an explicit by:/lessThan:/key: argument and type every lambda parameter.",
+            "Untyped trailing lambda after std.sort may leave the overload or comparator contract unresolved; verify the selected overload, and prefer an explicit by:/lessThan:/key: argument with typed lambda parameters.",
             "collections/array/README.md and cangjie-std/sort/README.md",
             severity="warning",
         )
@@ -729,13 +925,7 @@ def scan_string_byte_to_rune(
         containing = [item for item in functions if item[1] < match.start() < item[2]]
         if not containing:
             continue
-        func_start, _, _ = min(containing, key=lambda item: item[2] - item[1])
-        prefix = masked[func_start : match.start()]
-        binding_types = {
-            name: type_name
-            for name, type_name in EXPLICIT_TYPE_BINDING_RE.findall(prefix)
-        }
-        if binding_types.get(iterable_name) != "String":
+        if known_receiver_type(masked, iterable_name, match.start(), pairs) != "String":
             continue
 
         opening = masked.rfind("{", match.start(), match.end())
@@ -748,19 +938,19 @@ def scan_string_byte_to_rune(
         source_body = source[body_start:closing]
         sink_offsets: list[int] = []
         statement_end = r"(?=\s*(?:;|\r?\n|\}|$))"
-        local_types = {
-            name: type_name
-            for name, type_name in EXPLICIT_LOCAL_TYPE_RE.findall(prefix)
-        }
-        rune_names = {name for name, type_name in local_types.items() if type_name == "Rune"}
-        for rune_name in rune_names:
-            assignment = re.search(
-                rf"(?<![.\w]){re.escape(rune_name)}\s*=(?!=)\s*"
-                rf"{re.escape(loop_name)}\b{statement_end}",
-                body,
-            )
-            if assignment is not None:
-                sink_offsets.append(body_start + assignment.start())
+        assignment_re = re.compile(
+            rf"(?<![.\w])(?P<name>[A-Za-z_]\w*)\s*=(?!=)\s*"
+            rf"{re.escape(loop_name)}\b{statement_end}"
+        )
+        for assignment in assignment_re.finditer(body):
+            assignment_offset = body_start + assignment.start()
+            if (
+                known_receiver_type(
+                    masked, assignment.group("name"), assignment_offset, pairs
+                )
+                == "Rune"
+            ):
+                sink_offsets.append(assignment_offset)
         declaration = re.search(
             rf"\b(?:let|var)\s+[A-Za-z_]\w*\s*:\s*Rune\s*=\s*"
             rf"{re.escape(loop_name)}\b{statement_end}",
@@ -810,6 +1000,7 @@ def scan_string_byte_to_rune(
             "CJ031",
             f"Direct iteration over String {iterable_name!r} yields UInt8, but {loop_name!r} is used with Rune/String character semantics; keep byte semantics with UInt8 and b'...', or iterate {iterable_name}.runes() and use Rune values.",
             "string/README.md and basic_data_type/README.md",
+            severity="error",
         )
 
 
@@ -831,6 +1022,7 @@ def scan_source(source: str, path: str) -> list[Finding]:
                 code,
                 message,
                 reference,
+                severity="error",
             )
 
     for code, pattern, message, reference in ADVISORY_PATTERNS:
@@ -895,7 +1087,7 @@ def source_inputs(paths: Iterable[str]) -> Iterable[tuple[str, str]]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Check generated Cangjie sources for deterministic closure violations."
+        description="Check generated Cangjie sources for deterministic closure diagnostics."
     )
     parser.add_argument("paths", nargs="+", help=".cj files, directories, or '-' for stdin")
     parser.add_argument("--format", choices=("text", "json"), default="text")
@@ -926,7 +1118,8 @@ def main() -> int:
             )
         else:
             print(
-                f"closure-check: ok ({len(inputs)} source(s); {len(warnings)} warning(s))"
+                "closure-check: passed with warnings; review required "
+                f"({len(inputs)} source(s); {len(warnings)} warning(s))"
             )
     else:
         print(f"closure-check: ok ({len(inputs)} source(s))")

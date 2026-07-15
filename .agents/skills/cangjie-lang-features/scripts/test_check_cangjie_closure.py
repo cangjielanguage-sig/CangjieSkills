@@ -4,9 +4,12 @@
 from __future__ import annotations
 
 import io
+import json
 import sys
+import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
+from pathlib import Path
 from unittest.mock import patch
 
 from check_cangjie_closure import main, scan_source
@@ -16,8 +19,29 @@ def finding_codes(source: str) -> set[str]:
     return {finding.code for finding in scan_source(source, "test.cj")}
 
 
+def finding_severities(source: str, code: str) -> set[str]:
+    return {
+        finding.severity
+        for finding in scan_source(source, "test.cj")
+        if finding.code == code
+    }
+
+
+def run_main_stdin(candidate: str, *options: str) -> tuple[int, str, str]:
+    stdout = io.StringIO()
+    stderr = io.StringIO()
+    with (
+        patch.object(sys, "argv", ["check_cangjie_closure.py", *options, "-"]),
+        patch.object(sys, "stdin", io.StringIO(candidate)),
+        redirect_stdout(stdout),
+        redirect_stderr(stderr),
+    ):
+        exit_code = main()
+    return exit_code, stdout.getvalue(), stderr.getvalue()
+
+
 class ClosureCheckerTests(unittest.TestCase):
-    def test_existing_array_and_capture_rules_cover_rollout_regressions(self) -> None:
+    def test_known_array_and_capture_diagnostics_have_distinct_severity(self) -> None:
         source = """
 func build(xs: Array<Int64>): Array<Int64> {
     let appended = Array<Int64>()
@@ -28,6 +52,244 @@ func build(xs: Array<Int64>): Array<Int64> {
 }
 """
         self.assertTrue({"CJ020", "CJ025", "CJ030"} <= finding_codes(source))
+        self.assertEqual(finding_severities(source, "CJ020"), {"error"})
+        self.assertEqual(finding_severities(source, "CJ025"), {"error"})
+        self.assertEqual(finding_severities(source, "CJ030"), {"warning"})
+
+    def test_string_builder_append_is_valid(self) -> None:
+        source = """
+func build(): String {
+    let builder = StringBuilder()
+    builder.append("Hello")
+    return builder.toString()
+}
+"""
+        self.assertNotIn("CJ020", finding_codes(source))
+
+    def test_direct_string_builder_constructor_append_is_valid(self) -> None:
+        source = 'func build(): Unit { StringBuilder().append("Hello") }'
+        self.assertNotIn("CJ020", finding_codes(source))
+
+    def test_direct_array_constructor_append_is_error(self) -> None:
+        source = "func build(): Unit { Array<Int64>().append(1) }"
+        self.assertEqual(finding_severities(source, "CJ020"), {"error"})
+
+    def test_unknown_append_is_advisory(self) -> None:
+        source = """
+func addOne(target: CustomBuffer): Unit {
+    target.append(1)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+
+    def test_complex_receivers_are_advisory_instead_of_silently_skipped(self) -> None:
+        source = """
+func inspect(holder: Holder): Unit {
+    makeBuffer().append(1)
+    println(holder.value.length)
+    println(holder.value.toInt64())
+    holder.values.removeAt(0)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+        self.assertEqual(finding_severities(source, "CJ023"), {"warning"})
+        self.assertEqual(finding_severities(source, "CJ022"), {"warning"})
+        self.assertEqual(finding_severities(source, "CJ027"), {"warning"})
+
+    def test_range_operator_is_not_a_length_member_access(self) -> None:
+        source = "func indices(length: Int64): Range<Int64> { return 0..length }"
+        self.assertNotIn("CJ023", finding_codes(source))
+
+    def test_out_of_scope_inner_type_does_not_prove_outer_receiver(self) -> None:
+        source = """
+func addOne(target: CustomBuffer, condition: Bool): Unit {
+    if (condition) {
+        let target: Array<Int64> = []
+        println(target.size)
+    }
+    target.append(1)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+
+    def test_typed_lambda_parameter_shadows_outer_array_type(self) -> None:
+        source = """
+func build(): (StringBuilder) -> Unit {
+    let value: Array<Int64> = [1]
+    return {value: StringBuilder => value.append("ok")}
+}
+"""
+        self.assertNotIn("CJ020", finding_codes(source))
+
+    def test_generic_array_lambda_parameter_proves_append_error(self) -> None:
+        source = """
+func build(): (Array<Int64>) -> Unit {
+    let value: StringBuilder = StringBuilder()
+    return {value: Array<Int64> => value.append(1)}
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"error"})
+
+    def test_generic_custom_lambda_parameter_does_not_inherit_outer_array(self) -> None:
+        source = """
+func build(): (Custom<Int64>) -> Unit {
+    let value: Array<Int64> = [1]
+    return {value: Custom<Int64> => value.append(1)}
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+
+    def test_for_binding_shadows_outer_array_type(self) -> None:
+        source = """
+func build(buffers: Array<CustomBuffer>): Unit {
+    let value: Array<Int64> = [1]
+    for (value in buffers) {
+        value.append(1)
+    }
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+
+    def test_match_pattern_binding_does_not_inherit_outer_array_type(self) -> None:
+        source = """
+func build(value: ?StringBuilder): Unit {
+    let item: Array<Int64> = [1]
+    match (value) {
+        case Some(item) => item.append("ok")
+        case None => ()
+    }
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+
+    def test_if_let_binding_does_not_inherit_outer_array_type(self) -> None:
+        source = """
+func build(value: ?StringBuilder): Unit {
+    let item: Array<Int64> = [1]
+    if (let Some(item) <- value) {
+        item.append("ok")
+    }
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"warning"})
+
+    def test_known_array_parameter_append_is_error(self) -> None:
+        source = """
+func addOne(target: Array<Int64>): Unit {
+    target.append(1)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"error"})
+
+    def test_generic_function_array_parameter_append_is_error(self) -> None:
+        source = """
+func addOne<T>(target: Array<T>, item: T): Unit {
+    target.append(item)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"error"})
+
+    def test_array_literal_binding_append_is_error(self) -> None:
+        source = """
+func build(): Unit {
+    let target = [1, 2]
+    target.append(3)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ020"), {"error"})
+
+    def test_receiver_aware_length_conversion_and_remove_rules(self) -> None:
+        source = """
+import std.collection.*
+func inspect(text: String, values: Array<Int64>, list: ArrayList<Int64>, custom: Custom): Unit {
+    let n: Int32 = 1
+    println(text.length)
+    println(values.length)
+    println(n.toInt64())
+    list.removeAt(0)
+    println(custom.length)
+    println(custom.toInt64())
+    custom.removeAt(0)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ023"), {"error", "warning"})
+        self.assertEqual(finding_severities(source, "CJ022"), {"error", "warning"})
+        self.assertEqual(finding_severities(source, "CJ027"), {"error", "warning"})
+
+    def test_control_headers_allow_spacing_and_targetless_match(self) -> None:
+        source = """
+func inspect(ok: Bool, value: Int64): Unit {
+    if  (ok) {}
+    while
+        (ok) { break }
+    match {
+        case value > 0 => println(value)
+        case _ => ()
+    }
+}
+"""
+        self.assertNotIn("CJ012", finding_codes(source))
+
+    def test_escaped_keyword_identifiers_are_not_control_headers(self) -> None:
+        source = "func echo(`if`: Bool): Bool { return `if` }"
+        self.assertNotIn("CJ012", finding_codes(source))
+
+    def test_invalid_control_headers_are_errors(self) -> None:
+        source = """
+func inspect(ok: Bool, value: Int64): Unit {
+    if ok {}
+    match value { case _ => () }
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ012"), {"error"})
+
+    def test_import_inside_or_after_declaration_is_error(self) -> None:
+        inside = """
+func build(): Unit {
+    import std.collection.*
+}
+"""
+        after = """
+func helper(): Unit {}
+public import std.collection.*
+"""
+        self.assertEqual(finding_severities(inside, "CJ010"), {"error"})
+        self.assertEqual(finding_severities(after, "CJ011"), {"error"})
+
+    def test_inline_import_inside_or_after_declaration_is_error(self) -> None:
+        inside = "func build(): Unit { import std.collection.* }"
+        after = "func helper(): Unit {} import std.collection.*"
+        self.assertEqual(finding_severities(inside, "CJ010"), {"error"})
+        self.assertEqual(finding_severities(after, "CJ011"), {"error"})
+
+    def test_typed_array_initializer_parameter_named_item_is_valid(self) -> None:
+        source = """
+func identityArray(size: Int64): Array<Int64> {
+    return Array<Int64>(size, {item: Int64 => item})
+}
+"""
+        self.assertNotIn("CJ025", finding_codes(source))
+
+    def test_true_array_item_named_argument_is_error(self) -> None:
+        source = """
+func zeroes(size: Int64): Array<Int64> {
+    return Array<Int64>(size, item: 0)
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ025"), {"error"})
+
+    def test_raw_and_triple_single_strings_are_masked(self) -> None:
+        source = """
+func notes(): Unit {
+    let raw = #"if broken { target.append(1)"#
+    let multiline = '''match broken { custom.length'''
+}
+"""
+        codes = finding_codes(source)
+        self.assertNotIn("CJ001", codes)
+        self.assertNotIn("CJ012", codes)
+        self.assertNotIn("CJ020", codes)
+        self.assertNotIn("CJ023", codes)
 
     def test_case_branch_brace_is_rejected(self) -> None:
         source = """
@@ -152,6 +414,38 @@ func consume(data: String): Rune {
 """
         self.assertNotIn("CJ031", finding_codes(source))
 
+    def test_expired_inner_string_binding_does_not_taint_outer_iterable(self) -> None:
+        source = """
+func keepRunes(data: Array<Rune>, condition: Bool): Rune {
+    if (condition) {
+        let data: String = "temporary"
+        println(data)
+    }
+    var last: Rune = r' '
+    for (item in data) {
+        last = item
+    }
+    return last
+}
+"""
+        self.assertNotIn("CJ031", finding_codes(source))
+
+    def test_expired_inner_rune_binding_does_not_taint_byte_assignment(self) -> None:
+        source = """
+func lastByte(data: String, condition: Bool): UInt8 {
+    var last: UInt8 = 0
+    if (condition) {
+        var last: Rune = r' '
+        println(last)
+    }
+    for (item in data) {
+        last = item
+    }
+    return last
+}
+"""
+        self.assertNotIn("CJ031", finding_codes(source))
+
     def test_direct_string_byte_character_comparisons_are_rejected(self) -> None:
         for expression in ("item == \"A\"", "item >= 'A'", "r'A' == item"):
             with self.subTest(expression=expression):
@@ -211,6 +505,7 @@ func order(values: Array<Int64>): Unit {
 }
 """
         self.assertIn("CJ032", finding_codes(source))
+        self.assertEqual(finding_severities(source, "CJ032"), {"warning"})
 
     def test_named_or_typed_sort_callbacks_are_not_flagged(self) -> None:
         named = """
@@ -244,6 +539,7 @@ func build(): ArrayList<Int64> {
 }
 """
         self.assertIn("CJ033", finding_codes(source))
+        self.assertEqual(finding_severities(source, "CJ033"), {"warning"})
 
     def test_numeric_expression_is_not_a_string_constructor_argument(self) -> None:
         source = """
@@ -252,6 +548,7 @@ func bit(n: Int64): String {
 }
 """
         self.assertIn("CJ034", finding_codes(source))
+        self.assertEqual(finding_severities(source, "CJ034"), {"warning"})
 
     def test_documented_string_constructors_are_not_numeric_conversion_findings(self) -> None:
         source = """
@@ -312,6 +609,67 @@ func build(): ArrayList<Int64> {
         ):
             self.assertEqual(main(), 0)
         self.assertIn("closure-check: ok", stdout.getvalue())
+
+    def test_warning_only_stdin_returns_success(self) -> None:
+        exit_code, stdout, stderr = run_main_stdin(
+            "func use(target: CustomBuffer): Unit { target.append(1) }"
+        )
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(stderr, "")
+        self.assertIn("CJ020 [warning]", stdout)
+        self.assertIn("passed with warnings; review required", stdout)
+
+    def test_error_and_warning_stdin_returns_failure(self) -> None:
+        source = """
+func use(values: Array<Int64>, target: CustomBuffer): Unit {
+    values.append(1)
+    target.append(1)
+}
+"""
+        exit_code, stdout, stderr = run_main_stdin(source)
+        self.assertEqual(exit_code, 1)
+        self.assertEqual(stderr, "")
+        self.assertIn("CJ020 [error]", stdout)
+        self.assertIn("CJ020 [warning]", stdout)
+        self.assertIn("closure-check: failed", stdout)
+
+    def test_json_output_includes_severity_without_dropping_existing_fields(self) -> None:
+        exit_code, stdout, stderr = run_main_stdin(
+            "func use(target: CustomBuffer): Unit { target.append(1) }",
+            "--format",
+            "json",
+        )
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(stderr, "")
+        payload = json.loads(stdout)
+        self.assertEqual(len(payload), 1)
+        self.assertEqual(payload[0]["severity"], "warning")
+        self.assertEqual(payload[0]["code"], "CJ020")
+        self.assertTrue(
+            {"path", "line", "column", "code", "message", "reference", "severity"}
+            <= payload[0].keys()
+        )
+
+    def test_empty_file_and_directory_are_input_errors(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            empty_file = root / "empty.cj"
+            empty_file.write_text("", encoding="utf-8")
+            for candidate in (str(empty_file), str(root / "no_sources")):
+                if candidate.endswith("no_sources"):
+                    Path(candidate).mkdir()
+                with self.subTest(candidate=candidate):
+                    stdout = io.StringIO()
+                    stderr = io.StringIO()
+                    with (
+                        patch.object(
+                            sys, "argv", ["check_cangjie_closure.py", candidate]
+                        ),
+                        redirect_stdout(stdout),
+                        redirect_stderr(stderr),
+                    ):
+                        self.assertEqual(main(), 2)
+                    self.assertIn("input error", stderr.getvalue())
 
     def test_powershell_utf8_bom_stdin_is_decoded_before_scanning(self) -> None:
         candidate = b"\xef\xbb\xbffunc consume(text: String): Bool {\n    for (item in text) {\n        if (item == 'A') { return true }\n    }\n    return false\n}\n"

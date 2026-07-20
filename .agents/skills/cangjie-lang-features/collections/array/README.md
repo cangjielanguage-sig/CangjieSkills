@@ -35,6 +35,8 @@ let arr2 = Array<Int64>(5, {i => i * 2})  // [0, 2, 4, 6, 8]
 | `init(size: Int64, initElement: (Int64) -> T)` | 创建指定大小数组，元素由函数生成 |
 
 - `size < 0` 时抛出 `NegativeArraySizeException`
+- `repeat!` 是命名参数：重复标量必须写成 `Array<T>(size, repeat: value)`；`Array<T>(size, value)` 会把第二个位置解释为初始化函数，不能用标量占位。
+- 初始化函数是会作为参数传递的 Lambda；若它读取局部 `var`，还必须按 [函数与闭包](../../function/README.md) 检查捕获与逃逸，或改用显式填充。
 
 ---
 
@@ -325,6 +327,8 @@ func trimEnd(predicate: (T) -> Bool): Array<T>
 ---
 
 ## 11. 相等比较（需要 T <: Equatable<T>）
+
+只有元素类型满足 `Equatable<T>` 时，`Array<T>` 才支持 `==` / `!=`。元组元素不会仅因各字段可比较就自动满足此约束；对 `Array<(...)>` 应先比较 `size`，再按索引解构并逐字段比较。
 
 ```cangjie
 let a = [1, 2, 3]

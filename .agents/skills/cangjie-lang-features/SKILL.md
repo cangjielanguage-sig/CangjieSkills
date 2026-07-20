@@ -1,6 +1,6 @@
 ---
 name: cangjie-lang-features
-description: "Use when generating or editing any Cangjie .cj file, filling a TODO/function skeleton, or answering one-shot/single-pass implementation requests involving func, let/var, control flow, Array, String/Rune, Option, match, lambda, ranges, packages/imports, or compile errors. This Skill must be invoked before the first .cj write. Pair every .cj generation/edit with cangjie-std; add cangjie-stdx before choosing any extension-library path."
+description: "用于生成或编辑任何仓颉 .cj 文件、填充函数骨架等；即使任务简单、只用 std.core，也必须在第一次写入前加载。Use for every Cangjie .cj generation/edit or one-shot implementation involving syntax, types, control flow, Array, String/Rune, Option, match, lambda, ranges, packages/imports, or compile errors. Pair every .cj write with cangjie-std; load cangjie-stdx before any extension-library path."
 ---
 
 # 仓颉编程语言特性目录
@@ -9,15 +9,15 @@ description: "Use when generating or editing any Cangjie .cj file, filling a TOD
 
 - 本 Skill 负责语言层语义：顶层结构、控制流、类型、绑定与可变性、函数/闭包、String/Rune、Option、包与 import 语法。
 - 生成或修改 `.cj` 时同步使用 `cangjie-std` 核对标准库 API；出现 JSON、编码、摘要、HTTP/TLS、压缩、日志等扩展需求或需要判断 `stdx` 是否可用时，同时加载 `cangjie-stdx`，由它完成环境选路。
-- 具体语法和边界以本目录专题文档为权威来源；主文件只保留流程、路由和跨专题闭包，不复制专题中的反模式清单。
+- 语言语法与核心类型边界以本目录专题文档为权威来源；非核心 API 的精确调用形态、签名和 import 仍以 `cangjie-std` / `cangjie-stdx` 对应专题为准。主文件只保留流程、路由和跨专题闭包，不复制专题中的反模式清单。
 
 ## 实现流程
 
 1. 读取目标文件和契约：确认签名、返回类型、注释样例、现有 `package/import`、辅助声明、允许修改范围和可用验证方式。
 2. 枚举符合约束的实现路径；比较状态模型、依赖、复杂度和可验证性。若只有一条可行路径，明确排除其它路径的原因。
-3. 按下表读取首轮可预见的语言专题，并在构造候选前加载 `cangjie-std`，形成非核心符号、精确签名、返回类型、副作用与 import 的依赖清单；即使最终清单为空也要完成核对。若需求涉及扩展能力，必须在候选中出现任何 `stdx` import 之前加载 `cangjie-stdx` 并完成环境选路。
+3. 按下表读取首轮可预见的语言专题，并在构造候选前确认本次会话已有成功的 `cangjie-lang-features` 与 `cangjie-std` Skill 调用；直接读取 Skill 目录文件、计划稍后调用或认为任务只用 `std.core` 都不能替代加载。建立写前收据：最终构造 → 已读专题，非核心符号 → 精确签名/返回类型/副作用/包/import，契约样例 → 期望结果；依赖清单为空也要显式记录。若需求涉及扩展能力，必须在候选中出现任何 `stdx` import 之前加载 `cangjie-stdx` 并完成环境选路。
 4. 选择路径并构造完整候选源码，暂不写入目标文件。不要把“lambda”“显式循环”或“局部函数”预设为唯一风格；依据捕获、状态更新、提前退出和返回形状选择。候选源码中新引入一种构造时，按“构造触发重路由”补读专题后再继续构造。
-5. 在第一次写入任何 `.cj` 前运行确定性闭包扫描，再完成静态类型复核和样例手算。输入必须由 Agent 先确认为目标文件的完整、非空候选源码，包含保留的 `package/import`、辅助声明和本次实现，不能只传补丁片段或函数体；扫描器只拒绝空输入，不能替 Agent 证明候选完整。扫描器未实际运行、候选不完整或退出码为 `1`/`2` 都是门禁失败，不得写入；退出码 `0` 无 `warning` 才完成扫描门禁，退出码 `0` 有非阻断 `warning` 时必须逐条按接收者类型和权威专题复核并裁决，不能为消除提示机械改写有文档依据的合法源码。one-shot、single-pass 或只允许一次编辑时，通过后才执行唯一一次目标写入；写后再对目标文件复扫传输结果。不能编译或测试时如实说明验证边界，不能把扫描通过等同于已编译通过。
+5. 在第一次写入任何 `.cj` 前运行确定性闭包扫描，再完成静态类型复核和样例手算。输入必须由 Agent 先确认为目标文件的完整、非空候选源码，包含保留的 `package/import`、辅助声明和本次实现，不能只传补丁片段或函数体；扫描器只拒绝空输入，不能替 Agent 证明候选完整。固定脚本位于 `.agents/skills/cangjie-lang-features/scripts/check_cangjie_closure.py`，应直接调用该路径，不得用会忽略隐藏目录的 Glob 结果判定脚本不存在。扫描器未实际运行、候选不完整或退出码为 `1`/`2` 都是门禁失败，不得写入；退出码 `0` 无 `warning` 才完成扫描门禁，退出码 `0` 有非阻断 `warning` 时必须逐条按接收者类型和权威专题复核并裁决，不能为消除提示机械改写有文档依据的合法源码。one-shot、single-pass 或只允许一次编辑时，通过后才执行唯一一次目标写入；写后再对目标文件复扫传输结果。不能编译或测试时如实说明验证边界，不能把扫描通过等同于已编译通过。
 
 ## 解法路径选择
 
@@ -47,22 +47,22 @@ description: "Use when generating or editing any Cangjie .cj file, filling a TOD
 - **结构闭包**：`package`、`import` 和其它顶层声明顺序合法；新增声明不破坏已有包结构或名称绑定。
 - **语法闭包**：使用的控制流、lambda、模式和运算符均能在对应专题中定位；没有从其它语言迁移而来的语法猜测。
 - **状态闭包**：参数、`let`、迭代变量和捕获变量的可变性与生命周期一致；闭包是否允许逃逸以 [函数与闭包](./function/README.md) 为准。
-- **类型闭包**：操作数、下标、分支、Option 解包和所有可达返回路径的静态类型一致。
+- **类型闭包**：操作数、下标、分支、Option 解包和所有可达返回路径的静态类型一致。循环表达式的类型是 `Unit`；不能仅因循环体内存在 `return` 就把尾部循环视为非 `Unit` 函数的返回闭包。递归局部函数若无法由上下文唯一推断返回类型，应显式标注返回类型。
 - **依赖闭包**：每个非核心符号都能映射到已确认的包和 import；API 的返回值、副作用与失败模型由 `cangjie-std` 或 `cangjie-stdx` 核对。加载 `cangjie-stdx` 只表示开始环境选路，不是依赖可用证据；未找到匹配项目与目标平台的 `cjpm.toml`/等效配置时，完整候选不得包含无法解析的 `stdx` import，必须选择可复核的 `std.*`/源码替代或在写入前报告依赖阻塞。
-- **行为闭包**：用契约样例覆盖空输入、单元素、边界值和错误路径；验证不可用时不声称已编译或测试。
+- **行为闭包**：为契约中的每条可见样例建立 witness，逐项记录输入、期望输出、候选推演和最终输出，并核对输出形状、顺序、重复项、精度/舍入与哨兵值；再覆盖空输入、单元素、边界值和错误路径。禁止执行验证时，不得用自造样例、静态扫描或主观推断替代契约样例，也不得声称已编译或测试。
 
 首次写入前，将未落盘的完整候选源码传入标准输入。以下 PowerShell 示例中的 `$candidateSource` 必须已经包含完整源码；若 Python 或脚本不可用，应报告门禁未执行，不得把人工目检表述为扫描通过：
 
 ```shell
-$candidateSource | python .opencode/skills/cangjie-lang-features/scripts/check_cangjie_closure.py -
+$candidateSource | python .agents/skills/cangjie-lang-features/scripts/check_cangjie_closure.py -
 ```
 
-参数 `-` 只声明 stdin 模式；绝不能在没有管道或重定向内容时单独运行该命令。扫描器会把空或仅空白 stdin 作为输入错误并返回退出码 `2`，但非空不代表候选完整，完整性仍由第 1、4 步核对。
+参数 `-` 只声明 stdin 模式；绝不能在没有管道或重定向内容时单独运行该命令。扫描器会把空或仅空白 stdin 作为输入错误并返回退出码 `2`，但非空不代表候选完整，完整性仍由第 1、4 步核对。扫描结果为 `ok` 也不能替代写前收据中的专题、依赖、静态类型和样例 witness。
 
 普通任务写入后，或 one-shot 写入完成后需要复核传输结果时，对每个改动后的 `.cj` 文件执行：
 
 ```shell
-python .opencode/skills/cangjie-lang-features/scripts/check_cangjie_closure.py <target.cj>
+python .agents/skills/cangjie-lang-features/scripts/check_cangjie_closure.py <target.cj>
 ```
 
 扫描器以退出码 `0` 表示没有阻断 `error`（可以同时报告 `warning`），以 `1` 表示存在可由当前源码证明的 `error`，以 `2` 表示输入失败。`1`/`2` 自动失败；`0` 无 `warning` 表示扫描阶段通过；`0` 有 `warning` 只表示进程不阻断，在逐条结合接收者类型、import、项目配置和权威专题完成裁决前仍不能写入。确认合法时保留源码并继续，不能为消除提示机械改写合法代码。扫描器是保守 linter，不是编译器或完整静态类型证明，仍需人工完成类型与行为闭包。

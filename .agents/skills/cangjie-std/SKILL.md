@@ -1,6 +1,6 @@
 ---
 name: cangjie-std
-description: "Use for every .cj generation/edit paired with cangjie-lang-features to verify whether the candidate needs Cangjie std.* APIs and, when it does, their packages/imports, signatures, return values, mutation effects, failure models, collections, String/Rune, sort, math, unicode, convert, I/O, networking, processes, or tests. Invoke before the first .cj write; use cangjie-stdx for extension capabilities or stdx availability decisions."
+description: "用于每一次仓颉 .cj 生成或编辑，包括看似只用 std.core 的简单函数；必须在第一次写入前与 cangjie-lang-features 配对加载。Use to verify every candidate's std.* needs, packages/imports, signatures, return values, mutation effects and failure models across collections, String/Rune, sort, math, unicode, convert, I/O, networking, processes and tests. Use cangjie-stdx for extension capabilities."
 ---
 
 ## 职责边界
@@ -12,10 +12,10 @@ description: "Use for every .cj generation/edit paired with cangjie-lang-feature
 ## 标准库选路流程
 
 1. 从任务契约识别能力和输入输出形状，区分核心类型、集合、排序、数学、Unicode、转换、I/O、网络、进程或测试。
-2. 为每项能力读取对应专题，记录实际符号、所属包、完整签名、返回类型、是否修改输入以及失败方式；不要凭其它语言的同名 API 推断。
+2. 为每项能力读取对应专题，记录实际符号、所属包、调用形态（实例成员、静态成员、自由函数或构造器）、完整签名、返回类型、是否修改输入以及失败方式；不要凭其它语言的同名 API 推断。
 3. 枚举符合约束的调用路径，比较数据结构、错误语义、是否保留输入和所需 import；选择后再生成代码。
-4. 将所有非 `std.core` 符号加入依赖清单，确认顶层 import 可见且不存在别名或本地声明冲突。
-5. 完整候选写入前按“签名、类型、效果、失败、依赖”复核每个 API 调用；任一项不闭合都不得写入。写后再对实际文件复核传输结果；验证不可用时至少手算契约样例。
+4. 将所有非 `std.core` 符号加入“符号 → 包 → 顶层 import”收据，并逐项确认完整候选源码中实际存在所需 import、位置在顶层声明之前且无别名或本地声明冲突；读过专题、在说明中提到包名或打算稍后补 import 都不算依赖闭合。
+5. 完整候选写入前按“签名、类型、效果、失败、依赖”复核每个 API 调用，并把收据与候选源码逐项对照；任一项不闭合都不得写入。写后再对实际文件复核传输结果；验证不可用时至少手算契约样例。
 
 ## 解法路径选择
 
@@ -30,6 +30,7 @@ description: "Use for every .cj generation/edit paired with cangjie-lang-feature
 ## API 契约闭包
 
 - **符号与依赖**：每个类型、自由函数和扩展成员都能映射到专题中的包与 import。
+- **调用形态**：区分实例成员、静态成员、自由函数和构造器；命名实参只用于定义中以 `!` 标记的参数，不能把签名中的普通参数名直接搬成调用标签。
 - **签名**：参数位置、命名参数标记、泛型约束和回调类型与文档一致。
 - **类型**：返回值、Option、下标和转换结果在后续表达式中的用法匹配静态类型。
 - **效果**：明确 API 是原地修改、返回新值还是返回 `Unit`；需要保留输入时先选择复制路径。

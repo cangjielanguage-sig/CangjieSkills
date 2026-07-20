@@ -1,6 +1,6 @@
 ---
 name: cangjie-stdx
-description: "Use for generating, reviewing, or configuring Cangjie code that needs an extension capability or an stdx availability decision: JSON, Base64/Hex/URL, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing/HMAC, certificates, or stdx configuration. The project need not be preconfigured; this Skill selects among existing configuration, authorized configuration changes, source-level alternatives, and an explicit dependency gap."
+description: "仅当仓颉任务明确需要 stdx 扩展能力或必须判断 stdx 是否可用时使用：JSON、Base64/Hex/URL、压缩、序列化、日志、HTTP/HTTPS、WebSocket、TLS、加密、摘要/HMAC、证书或 stdx 配置；项目尚未配置也可先加载并选路。Use only for these extension capabilities or an stdx availability decision, then select existing configuration, an authorized config change, a source alternative, or an explicit dependency gap."
 ---
 
 ## 职责边界
@@ -12,7 +12,7 @@ description: "Use for generating, reviewing, or configuring Cangjie code that ne
 
 ## 扩展能力选路流程
 
-1. 判断需求是否确属扩展库，并读取对应 API 专题；普通集合、数学、Unicode、转换、Option 和排序不进入本 Skill。
+1. 判断需求是否确属扩展库，并读取对应 API 专题；普通核心容器、数学、Unicode、转换、可选值和顺序编排能力不进入本 Skill。
 2. 检查项目形态、`cjpm.toml` 或等效配置、目标平台、允许修改范围和运行方式；仅看到 API 文档不能证明依赖已可用。
 3. 按下表选择可行路径。路径选择先于源码 import，不能把依赖风险留到写入之后说明。
 4. 采用 stdx 时核对精确包、API 签名、返回/错误模型及配置专题中的构建前提；采用源码替代时同步加载语言与标准库专题核对实现所需能力。
@@ -40,7 +40,7 @@ description: "Use for generating, reviewing, or configuring Cangjie code that ne
 ## 扩展 API 闭包
 
 - **能力闭包**：专题确实提供所需算法、编码、协议或序列化语义，不能把相邻接口当作具体实现。
-- **源码闭包**：包名、import、参数、返回类型、Option/异常处理和资源释放与专题一致。
+- **源码闭包**：包名、import、参数、返回类型、可选返回值、异常处理和资源释放与专题一致。
 - **配置闭包**：目标平台的依赖路径和链接方式可由项目配置解析，且修改权限明确。
 - **运行闭包**：系统库、证书、动态库搜索路径和部署方式满足对应专题前提。
 - **替代闭包**：若不使用 stdx，替代路径覆盖原契约，并能对关键边界或已知向量进行验证。

@@ -147,6 +147,8 @@ let result = match (("Alice", 24)) {
 println(result)  // "Alice is 24"
 ```
 
+`match` 的外层括号只包一个匹配目标；目标本身是元组时必须保留元组表达式的内层括号，即 `match ((left, right))`。写成 `match (left, right)` 会把逗号暴露在匹配目标外层，不能解析为 tuple match。
+
 ### 2.5 类型模式
 `_: Type`（无绑定）或 `id: Type`（有绑定），检查运行时类型是否为 `Type` 的子类型，匹配时转换并可选绑定。
 

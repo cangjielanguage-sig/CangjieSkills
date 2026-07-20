@@ -41,7 +41,7 @@ def run_main_stdin(candidate: str, *options: str) -> tuple[int, str, str]:
 
 
 class ClosureCheckerTests(unittest.TestCase):
-    def test_known_array_and_capture_diagnostics_have_distinct_severity(self) -> None:
+    def test_known_array_and_capture_diagnostics_are_errors(self) -> None:
         source = """
 func build(xs: Array<Int64>): Array<Int64> {
     let appended = Array<Int64>()
@@ -54,7 +54,7 @@ func build(xs: Array<Int64>): Array<Int64> {
         self.assertTrue({"CJ020", "CJ025", "CJ030"} <= finding_codes(source))
         self.assertEqual(finding_severities(source, "CJ020"), {"error"})
         self.assertEqual(finding_severities(source, "CJ025"), {"error"})
-        self.assertEqual(finding_severities(source, "CJ030"), {"warning"})
+        self.assertEqual(finding_severities(source, "CJ030"), {"error"})
 
     def test_string_builder_append_is_valid(self) -> None:
         source = """
@@ -277,6 +277,22 @@ func zeroes(size: Int64): Array<Int64> {
 }
 """
         self.assertEqual(finding_severities(source, "CJ025"), {"error"})
+
+    def test_array_init_element_label_is_error_but_positional_initializer_is_valid(
+        self,
+    ) -> None:
+        invalid = """
+func zeroes(size: Int64): Array<Int64> {
+    return Array<Int64>(size, initElement: {i => i})
+}
+"""
+        valid = """
+func zeroes(size: Int64): Array<Int64> {
+    return Array<Int64>(size, {i => i})
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ025"), {"error"})
+        self.assertNotIn("CJ025", finding_codes(valid))
 
     def test_raw_and_triple_single_strings_are_masked(self) -> None:
         source = """
@@ -550,6 +566,166 @@ func bit(n: Int64): String {
         self.assertIn("CJ034", finding_codes(source))
         self.assertEqual(finding_severities(source, "CJ034"), {"warning"})
 
+    def test_array_sort_members_are_rejected_but_free_sort_is_not(self) -> None:
+        invalid = """
+func order(values: Array<Int64>): Unit {
+    values.sort()
+    let copy = values.sorted()
+    values.sortBy({a, b => a < b})
+}
+"""
+        valid = """
+import std.sort.*
+func order(values: Array<Int64>): Unit {
+    sort(values)
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ035"), {"error"})
+        self.assertNotIn("CJ035", finding_codes(valid))
+
+    def test_std_hash_put_is_rejected_and_unproven_hash_put_is_advisory(self) -> None:
+        standard = """
+import std.collection.*
+func update(values: HashMap<String, Int64>, seen: HashSet<Int64>): Unit {
+    values.put("x", 1)
+    seen.put(1)
+}
+"""
+        unproven = """
+func update(values: HashMap<String, Int64>): Unit {
+    values.put("x", 1)
+}
+"""
+        self.assertEqual(finding_severities(standard, "CJ036"), {"error"})
+        self.assertEqual(finding_severities(unproven, "CJ036"), {"warning"})
+
+    def test_known_string_legacy_members_are_errors_and_unknown_substring_is_warning(
+        self,
+    ) -> None:
+        known = """
+func convert(text: String): String {
+    return text.subString(0, 1).toUpper()
+}
+"""
+        unknown = """
+func convert(text: CustomText): CustomText {
+    return text.substring(0, 1)
+}
+"""
+        self.assertEqual(finding_severities(known, "CJ037"), {"error"})
+        self.assertEqual(finding_severities(unknown, "CJ021"), {"warning"})
+
+    def test_invalid_numeric_suffix_bitwise_tilde_none_comparison_and_float_modulo(
+        self,
+    ) -> None:
+        source = """
+func inspect(value: ?Int64, number: Int64): Bool {
+    let typed = 2Int64
+    let complement = ~number
+    let wrapped = 361.0 % 360.0
+    return value != None
+}
+"""
+        self.assertTrue(
+            {"CJ038", "CJ039", "CJ040", "CJ043"} <= finding_codes(source)
+        )
+        for code in ("CJ038", "CJ039", "CJ040", "CJ043"):
+            self.assertEqual(finding_severities(source, code), {"error"})
+
+    def test_valid_suffix_destructor_composition_typed_none_and_integer_modulo_are_allowed(
+        self,
+    ) -> None:
+        source = """
+class Resource {
+    ~init() {}
+}
+func first(value: Int64): Int64 { value + 1 }
+func second(value: Int64): Int64 { value * 2 }
+func inspect(number: Int64): Unit {
+    let typed = 2i64
+    let composed = first ~> second
+    let missing = None<Int64>
+    let remainder = number % 2
+}
+"""
+        codes = finding_codes(source)
+        self.assertFalse({"CJ038", "CJ039", "CJ040", "CJ043"} & codes)
+
+    def test_string_index_character_semantics_are_rejected(self) -> None:
+        source = """
+func inspect(text: String): Bool {
+    if (text[0] == "a") { return true }
+    let first = String(text[0])
+    return false
+}
+"""
+        self.assertEqual(finding_severities(source, "CJ041"), {"error"})
+
+    def test_string_byte_index_and_string_slice_are_allowed(self) -> None:
+        source = """
+func inspect(text: String): Bool {
+    let prefix = text[0..1]
+    return text[0] == b'a' && prefix == "a"
+}
+"""
+        self.assertNotIn("CJ041", finding_codes(source))
+
+    def test_rune_array_requires_rune_literal_in_comparisons(self) -> None:
+        invalid = """
+func inspect(text: String): Bool {
+    let runes = text.toRuneArray()
+    return runes[0] == 'a'
+}
+"""
+        valid = """
+func inspect(text: String): Bool {
+    let runes = text.toRuneArray()
+    return runes[0] == r'a'
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ042"), {"error"})
+        self.assertNotIn("CJ042", finding_codes(valid))
+
+    def test_empty_match_case_is_rejected_and_explicit_unit_is_valid(self) -> None:
+        invalid = """
+func inspect(value: ?Int64): Unit {
+    match (value) {
+        case Some(item) => println(item)
+        case None =>
+    }
+}
+"""
+        valid = """
+func inspect(value: ?Int64): Unit {
+    match (value) {
+        case Some(item) => println(item)
+        case None => ()
+    }
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ044"), {"error"})
+        self.assertNotIn("CJ044", finding_codes(valid))
+
+    def test_recursive_local_function_without_return_type_is_advisory(self) -> None:
+        invalid = """
+func outer(): Unit {
+    func visit(value: Int64) {
+        if (value > 0) { visit(value - 1) }
+    }
+    visit(2)
+}
+"""
+        valid = """
+func outer(): Unit {
+    func visit(value: Int64): Unit {
+        if (value > 0) { visit(value - 1) }
+    }
+    visit(2)
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ045"), {"warning"})
+        self.assertNotIn("CJ045", finding_codes(valid))
+
     def test_documented_string_constructors_are_not_numeric_conversion_findings(self) -> None:
         source = """
 func text(runes: Array<Rune>): String {
@@ -583,6 +759,148 @@ func build(): ArrayList<Int64> {
 }
 """
         self.assertNotIn("CJ033", finding_codes(source))
+
+    def test_to_string_result_proves_string_byte_iteration(self) -> None:
+        invalid = """
+func inspect(value: Int64): Bool {
+    let text = value.toString(radix: 16)
+    for (item in text) {
+        if (item >= 'a' && item <= 'f') { return true }
+    }
+    return false
+}
+"""
+        valid = """
+func inspect(value: Int64): Bool {
+    let text = value.toString(radix: 16)
+    for (item in text) {
+        if (item >= b'a' && item <= b'f') { return true }
+    }
+    return false
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ031"), {"error"})
+        self.assertNotIn("CJ031", finding_codes(valid))
+
+    def test_control_operand_must_remain_inside_parentheses(self) -> None:
+        invalid = """
+func sum(n: Int64): Int64 {
+    var i: Int64 = 0
+    while (n - i) > 0 { i += 1 }
+    return i
+}
+"""
+        valid = """
+func sum(n: Int64): Int64 {
+    var i: Int64 = 0
+    while (n - i > 0) { i += 1 }
+    return i
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ012"), {"error"})
+        self.assertNotIn("CJ012", finding_codes(valid))
+
+    def test_tuple_match_selector_requires_inner_parentheses(self) -> None:
+        invalid = """
+func inspect(left: ?Int64, right: ?Int64): Bool {
+    match (left, right) {
+        case (Some(_), Some(_)) => true
+        case _ => false
+    }
+}
+"""
+        valid = """
+func inspect(left: ?Int64, right: ?Int64): Bool {
+    match ((left, right)) {
+        case (Some(_), Some(_)) => true
+        case _ => false
+    }
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ047"), {"error"})
+        self.assertNotIn("CJ047", finding_codes(valid))
+
+    def test_array_positional_scalar_repeat_is_rejected(self) -> None:
+        invalid = "func zeroes(n: Int64): Array<Int64> { Array<Int64>(n, 0) }"
+        named = "func zeroes(n: Int64): Array<Int64> { Array<Int64>(n, repeat: 0) }"
+        initializer = (
+            "func zeroes(n: Int64): Array<Int64> { "
+            "Array<Int64>(n, {index: Int64 => index * 0}) }"
+        )
+        self.assertEqual(finding_severities(invalid, "CJ046"), {"error"})
+        self.assertNotIn("CJ046", finding_codes(named))
+        self.assertNotIn("CJ046", finding_codes(initializer))
+
+    def test_function_parameters_are_not_assignable(self) -> None:
+        invalid = """
+func search(low: Int64, high: Int64): Int64 {
+    low = low + 1
+    high -= 1
+    return low + high
+}
+"""
+        valid = """
+func search(low: Int64, high: Int64): Int64 {
+    var left = low
+    var right = high
+    left += 1
+    right -= 1
+    return left + right
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ048"), {"error"})
+        self.assertNotIn("CJ048", finding_codes(valid))
+
+    def test_non_unit_function_cannot_end_in_a_loop(self) -> None:
+        invalid = """
+func find(values: Array<Int64>): Int64 {
+    while (true) {
+        if (values.size > 0) { return values[0] }
+    }
+}
+"""
+        valid = """
+func find(values: Array<Int64>): Int64 {
+    while (values.size > 0) {
+        return values[0]
+    }
+    return 0
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ049"), {"error"})
+        self.assertNotIn("CJ049", finding_codes(valid))
+
+    def test_array_of_tuple_requires_elementwise_equality(self) -> None:
+        invalid = """
+func same(
+    left: Array<(Int64, Int64)>,
+    right: Array<(Int64, Int64)>
+): Bool {
+    return left == right
+}
+"""
+        scalar_array = """
+func same(left: Array<Int64>, right: Array<Int64>): Bool {
+    return left == right
+}
+"""
+        self.assertEqual(finding_severities(invalid, "CJ050"), {"error"})
+        self.assertNotIn("CJ050", finding_codes(scalar_array))
+
+    def test_bare_std_math_calls_require_import_review(self) -> None:
+        missing = """
+func distance(value: Float64): Float64 {
+    return pow(sin(value), 2.0) + sqrt(value)
+}
+"""
+        imported = """
+import std.math.*
+func distance(value: Float64): Float64 {
+    return pow(sin(value), 2.0) + sqrt(value)
+}
+"""
+        self.assertEqual(finding_severities(missing, "CJ051"), {"warning"})
+        self.assertNotIn("CJ051", finding_codes(imported))
 
     def test_empty_or_whitespace_stdin_is_an_input_error(self) -> None:
         for candidate in ("", " \r\n\t"):

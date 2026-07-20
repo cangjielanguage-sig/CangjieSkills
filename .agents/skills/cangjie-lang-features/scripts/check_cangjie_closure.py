@@ -29,12 +29,6 @@ class Finding:
 
 ADVISORY_PATTERNS = (
     (
-        "CJ021",
-        re.compile(r"\.(?:subString|substring)\s*\("),
-        "substring is receiver-specific; verify the receiver API before replacing it. Core String uses documented range or search APIs.",
-        "string/README.md",
-    ),
-    (
         "CJ024",
         re.compile(r"\.(?:isNone|isSome)\b(?!\s*\()"),
         "isNone/isSome without a call is receiver-specific; Option state checks are calls, but custom members must be verified against their own API.",
@@ -53,6 +47,39 @@ ERROR_PATTERNS = (
         "CJ026",
         re.compile(r"\b(?:U?Int(?:8|16|32|64|Native))\.(?:MaxValue|MinValue)\b"),
         "Invalid integer extrema name; use the documented Max/Min member for the concrete integer type.",
+        "basic_data_type/README.md",
+    ),
+    (
+        "CJ038",
+        re.compile(
+            r"(?<![A-Za-z0-9_.])"
+            r"(?:0[xX][0-9A-Fa-f_]+|0[bB][01_]+|0[oO][0-7_]+|\d[\d_]*)"
+            r"(?:U?Int(?:8|16|32|64|Native)|Float(?:16|32|64))\b"
+        ),
+        "Invalid numeric type-name suffix; use i8/i16/i32/i64, u8/u16/u32/u64, f16/f32/f64, or an explicit type constructor.",
+        "basic_data_type/README.md",
+    ),
+    (
+        "CJ039",
+        re.compile(r"(?<![A-Za-z0-9_~])~(?!>|init\b)"),
+        "Cangjie uses ! for integer bitwise complement; ~ is reserved for forms such as ~init and the ~> composition operator.",
+        "basic_data_type/README.md and class/README.md",
+    ),
+    (
+        "CJ040",
+        re.compile(
+            r"(?:==|!=)\s*None\b(?!\s*<)|\bNone\b(?!\s*<)\s*(?:==|!=)"
+        ),
+        "Bare None in an equality comparison has no explicit type argument; use Option pattern matching/isSome()/isNone(), or a typed None<T> where a value is required.",
+        "option/README.md",
+    ),
+    (
+        "CJ043",
+        re.compile(
+            r"(?:\d[\d_]*\.[\d_]*|\.[\d_]+)(?:[eE][+-]?\d[\d_]*)?\s*%"
+            r"|%\s*(?:\d[\d_]*\.[\d_]*|\.[\d_]+)(?:[eE][+-]?\d[\d_]*)?"
+        ),
+        "The % operator is integer-only; a floating-point operand requires an explicitly verified alternative.",
         "basic_data_type/README.md",
     ),
 )
@@ -85,6 +112,17 @@ APPEND_USE_RE = re.compile(r"(?<!\.)\.\s*append\s*\(")
 LENGTH_USE_RE = re.compile(r"(?<!\.)\.\s*length\b")
 TO_INT64_USE_RE = re.compile(r"(?<!\.)\.\s*toInt64\s*\(")
 REMOVE_AT_USE_RE = re.compile(r"(?<!\.)\.\s*removeAt\s*\(")
+ARRAY_SORT_MEMBER_RE = re.compile(
+    r"(?<!\.)\.\s*(?P<member>sort|sorted|sortBy)\s*\("
+)
+PUT_USE_RE = re.compile(r"(?<!\.)\.\s*put\s*\(")
+STRING_MEMBER_RE = re.compile(
+    r"(?<!\.)\.\s*(?P<member>subString|substring|toUpper|toLower)\s*\("
+)
+LOCAL_FUNC_RE = re.compile(
+    r"\bfunc\s+(?P<name>[A-Za-z_]\w*)(?:\s*<[^>{};]*>)?\s*"
+    r"\([^{};]*\)\s*(?P<return>:\s*[^{};]+)?\s*(?P<open>\{)"
+)
 IMPORT_TOKEN_RE = re.compile(r"\bimport\b")
 CORE_NUMERIC_TYPES = {
     "Int8",
@@ -104,6 +142,8 @@ CORE_NUMERIC_TYPES = {
 INFERABLE_CONSTRUCTORS = CORE_NUMERIC_TYPES | {
     "Array",
     "ArrayList",
+    "HashMap",
+    "HashSet",
     "String",
     "StringBuilder",
 }
@@ -114,6 +154,44 @@ NON_BYTE_LITERAL_FRAGMENT = (
     r"\"(?:\\.|[^\"\\\r\n])*\""
     r")"
 )
+PLAIN_STRING_LITERAL_FRAGMENT = (
+    r"(?<![A-Za-z0-9_#rb])(?:"
+    r"'(?:\\.|[^'\\\r\n])*'|"
+    r"\"(?:\\.|[^\"\\\r\n])*\""
+    r")"
+)
+SCALAR_LITERAL_RE = re.compile(
+    r"(?:true|false|[+-]?(?:0[xX][0-9A-Fa-f_]+|0[bB][01_]+|0[oO][0-7_]+|"
+    r"(?:\d[\d_]*(?:\.[\d_]*)?|\.[\d_]+)(?:[eE][+-]?\d[\d_]*)?)"
+    r"(?:i(?:8|16|32|64)|u(?:8|16|32|64)|f(?:16|32|64))?)"
+)
+STD_MATH_SYMBOLS = {
+    "abs",
+    "acos",
+    "asin",
+    "atan",
+    "atan2",
+    "cbrt",
+    "ceil",
+    "checkedAbs",
+    "clamp",
+    "cos",
+    "exp",
+    "exp2",
+    "floor",
+    "gcd",
+    "lcm",
+    "log",
+    "log10",
+    "log2",
+    "pow",
+    "rotate",
+    "round",
+    "sin",
+    "sqrt",
+    "tan",
+    "trunc",
+}
 
 
 def mask_non_code(source: str) -> str:
@@ -266,6 +344,39 @@ def bracket_pairs(
             severity="error",
         )
     return pairs
+
+
+def top_level_argument_ranges(
+    masked: str, opening: int, closing: int, pairs: dict[int, int]
+) -> list[tuple[int, int]]:
+    """Split a parenthesized construct without splitting nested calls or generics."""
+
+    ranges: list[tuple[int, int]] = []
+    start = opening + 1
+    cursor = start
+    angle_depth = 0
+    while cursor < closing:
+        char = masked[cursor]
+        nested_close = pairs.get(cursor)
+        if char in "([{" and nested_close is not None and nested_close < closing:
+            cursor = nested_close + 1
+            continue
+        if char == "<" and not masked.startswith("<-", cursor):
+            angle_depth += 1
+        elif (
+            char == ">"
+            and angle_depth > 0
+            and not (cursor > 0 and masked[cursor - 1] == "-")
+        ):
+            angle_depth -= 1
+        elif char == "," and angle_depth == 0:
+            if masked[start:cursor].strip():
+                ranges.append((start, cursor))
+            start = cursor + 1
+        cursor += 1
+    if masked[start:closing].strip():
+        ranges.append((start, closing))
+    return ranges
 
 
 def scan_imports(
@@ -466,6 +577,15 @@ def known_receiver_type(
         if binding_visible_at(masked, pairs, declaration_offset, use_offset):
             candidates.append((declaration_offset, "Array"))
 
+    string_result_re = re.compile(
+        rf"\b(?:let|var)\s+{receiver_pattern}\s*=\s*"
+        r"[^\r\n;]*?\.toString\s*\("
+    )
+    for match in string_result_re.finditer(prefix):
+        declaration_offset = body_start + match.start()
+        if binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            candidates.append((declaration_offset, "String"))
+
     if not candidates:
         return None
     return max(candidates, key=lambda item: item[0])[1]
@@ -561,7 +681,11 @@ def locally_known_receiver_type(
 
 
 def scan_control_headers(
-    masked: str, path: str, starts: list[int], findings: list[Finding]
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
 ) -> None:
     for match in CONTROL_KEYWORD_RE.finditer(masked):
         keyword = match.group(1)
@@ -570,19 +694,53 @@ def scan_control_headers(
             next_offset += 1
         next_char = masked[next_offset] if next_offset < len(masked) else ""
         allowed = {"(", "{"} if keyword == "match" else {"("}
-        if next_char in allowed:
+        if next_char not in allowed:
+            requirement = "'(' or a targetless '{'" if keyword == "match" else "'('"
+            add_finding(
+                findings,
+                path,
+                starts,
+                match.start(),
+                "CJ012",
+                f"{keyword} must be followed by {requirement} after optional whitespace.",
+                "basic_concepts/README.md",
+                severity="error",
+            )
             continue
-        requirement = "'(' or a targetless '{'" if keyword == "match" else "'('"
-        add_finding(
-            findings,
-            path,
-            starts,
-            match.start(),
-            "CJ012",
-            f"{keyword} must be followed by {requirement} after optional whitespace.",
-            "basic_concepts/README.md",
-            severity="error",
-        )
+        if next_char == "{":
+            continue
+        closing = pairs.get(next_offset)
+        if closing is None:
+            continue
+        after = closing + 1
+        while after < len(masked) and masked[after].isspace():
+            after += 1
+        if after >= len(masked) or masked[after] != "{":
+            add_finding(
+                findings,
+                path,
+                starts,
+                closing,
+                "CJ012",
+                f"{keyword} condition or selector must remain entirely inside its parentheses; the next token after ')' must be '{{'.",
+                "basic_concepts/README.md",
+                severity="error",
+            )
+            continue
+        if (
+            keyword == "match"
+            and len(top_level_argument_ranges(masked, next_offset, closing, pairs)) > 1
+        ):
+            add_finding(
+                findings,
+                path,
+                starts,
+                next_offset,
+                "CJ047",
+                "match accepts one parenthesized selector; a tuple selector needs its own inner parentheses, for example match ((left, right)).",
+                "pattern_match/README.md",
+                severity="error",
+            )
 
 
 def scan_array_item_named_argument(
@@ -592,7 +750,7 @@ def scan_array_item_named_argument(
     pairs: dict[int, int],
     findings: list[Finding],
 ) -> None:
-    """Reject only a top-level Array constructor argument named item:."""
+    """Reject unsupported named labels in top-level Array constructor arguments."""
 
     for match in ARRAY_NAME_RE.finditer(masked):
         cursor = match.end()
@@ -623,6 +781,24 @@ def scan_array_item_named_argument(
         if call_close is None:
             continue
 
+        argument_ranges = top_level_argument_ranges(
+            masked, call_open, call_close, pairs
+        )
+        if len(argument_ranges) >= 2:
+            second_start, second_end = argument_ranges[1]
+            second = masked[second_start:second_end].strip()
+            if SCALAR_LITERAL_RE.fullmatch(second) is not None:
+                add_finding(
+                    findings,
+                    path,
+                    starts,
+                    second_start,
+                    "CJ046",
+                    "A positional scalar cannot satisfy Array's (Int64) -> T initializer parameter; use repeat: value or a positional initializer lambda.",
+                    "collections/array/README.md",
+                    severity="error",
+                )
+
         cursor = call_open + 1
         while cursor < call_close:
             if masked[cursor] in "([{":
@@ -630,22 +806,30 @@ def scan_array_item_named_argument(
                 if nested_close is not None:
                     cursor = nested_close + 1
                     continue
-            item_match = re.match(r"item\b", masked[cursor:call_close])
-            if item_match is not None:
+            argument_match = re.match(
+                r"(?P<name>item|initElement)\b", masked[cursor:call_close]
+            )
+            if argument_match is not None:
                 previous = cursor - 1
                 while previous > call_open and masked[previous].isspace():
                     previous -= 1
-                after = cursor + len(item_match.group(0))
+                after = cursor + len(argument_match.group(0))
                 while after < call_close and masked[after].isspace():
                     after += 1
                 if masked[previous] in "(," and after < call_close and masked[after] == ":":
+                    name = argument_match.group("name")
+                    message = (
+                        "Array has no top-level constructor argument named item:; use repeat: or a positional initializer function."
+                        if name == "item"
+                        else "Array initElement is a positional function parameter, not a named parameter; use Array<T>(size, {index => ...}) or repeat: for a repeated value."
+                    )
                     add_finding(
                         findings,
                         path,
                         starts,
                         cursor,
                         "CJ025",
-                        "Array has no top-level constructor argument named item:; use repeat: or an initializer function.",
+                        message,
                         "collections/array/README.md",
                         severity="error",
                     )
@@ -661,6 +845,8 @@ def scan_receiver_aware_members(
     findings: list[Finding],
 ) -> None:
     arraylist_is_std = imports_symbol(masked, "std.collection", "ArrayList")
+    hashmap_is_std = imports_symbol(masked, "std.collection", "HashMap")
+    hashset_is_std = imports_symbol(masked, "std.collection", "HashSet")
 
     for match in APPEND_USE_RE.finditer(masked):
         receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
@@ -739,6 +925,80 @@ def scan_receiver_aware_members(
             "collections/arraylist/README.md and cangjie-std/collection/README.md",
             severity="error" if is_known_collection else "warning",
         )
+
+    for match in ARRAY_SORT_MEMBER_RE.finditer(masked):
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
+        if receiver_type != "Array":
+            continue
+        member = match.group("member")
+        add_finding(
+            findings,
+            path,
+            starts,
+            match.start(),
+            "CJ035",
+            f"Array has no {member} member; std.sort provides free sort(...) functions that mutate the passed collection and return Unit.",
+            "collections/array/README.md and cangjie-std/sort/README.md",
+            severity="error",
+        )
+
+    for match in PUT_USE_RE.finditer(masked):
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
+        if receiver_type not in {"HashMap", "HashSet"}:
+            continue
+        is_std_collection = (receiver_type == "HashMap" and hashmap_is_std) or (
+            receiver_type == "HashSet" and hashset_is_std
+        )
+        replacement = (
+            "HashMap uses add(key, value) or indexed assignment"
+            if receiver_type == "HashMap"
+            else "HashSet uses add(element)"
+        )
+        add_finding(
+            findings,
+            path,
+            starts,
+            match.start(),
+            "CJ036",
+            (
+                f"std.collection.{receiver_type} has no put member; {replacement}."
+                if is_std_collection
+                else f"{receiver_type}.put is not documented for std.collection; verify whether this is a same-package custom type before using {replacement}."
+            ),
+            "collections/hashmap/README.md, collections/hashset/README.md, and cangjie-std/collection/README.md",
+            severity="error" if is_std_collection else "warning",
+        )
+
+    for match in STRING_MEMBER_RE.finditer(masked):
+        receiver_type = locally_known_receiver_type(masked, match.start(), pairs)
+        member = match.group("member")
+        if receiver_type == "String":
+            replacement = (
+                "use a documented byte-range slice"
+                if member in {"subString", "substring"}
+                else "use toAsciiUpper/toAsciiLower for ASCII or std.unicode for Unicode casing"
+            )
+            add_finding(
+                findings,
+                path,
+                starts,
+                match.start(),
+                "CJ037",
+                f"Core String has no {member} member; {replacement}.",
+                "string/README.md and cangjie-std/unicode/README.md",
+                severity="error",
+            )
+        elif member in {"subString", "substring"}:
+            add_finding(
+                findings,
+                path,
+                starts,
+                match.start(),
+                "CJ021",
+                "substring is receiver-specific; verify the receiver API before replacing it. Core String uses documented byte-range slices.",
+                "string/README.md",
+                severity="warning",
+            )
 
 
 def top_level_arrow(masked: str, opening: int, closing: int) -> int | None:
@@ -828,10 +1088,263 @@ def scan_mutable_lambda_capture(
                 starts,
                 opening,
                 "CJ030",
-                f"Lambda may escape while capturing local var binding(s): {names}; verify its lifetime, or use immutable inputs or explicit control flow.",
+                f"Lambda captures local var binding(s) and is not called directly: {names}; such a closure cannot escape, so use immutable inputs, an immediate call, or explicit control flow.",
                 "function/README.md",
-                severity="warning",
+                severity="error",
             )
+
+
+def binding_shadowed_in_function(
+    masked: str,
+    pairs: dict[int, int],
+    name: str,
+    func_open: int,
+    func_close: int,
+    use_offset: int,
+) -> bool:
+    body_start = func_open + 1
+    prefix = masked[body_start:use_offset]
+    local_re = re.compile(rf"\b(?:let|var|const)\s+{re.escape(name)}\b")
+    for match in local_re.finditer(prefix):
+        declaration_offset = body_start + match.start()
+        if binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            return True
+
+    for opening, closing in pairs.items():
+        if (
+            masked[opening] != "{"
+            or not (func_open < opening < use_offset < closing < func_close)
+        ):
+            continue
+        arrow = top_level_arrow(masked, opening, closing)
+        if arrow is None or use_offset <= arrow:
+            continue
+        header = masked[opening + 1 : arrow]
+        if re.search(r"\bcase\b", header) is None and name in IDENT_RE.findall(header):
+            return True
+
+    for match in FOR_HEADER_RE.finditer(masked, func_open + 1, use_offset):
+        opening = masked.rfind("{", match.start(), match.end())
+        closing = pairs.get(opening)
+        if (
+            closing is not None
+            and opening < use_offset < closing
+            and name in IDENT_RE.findall(match.group("pattern"))
+        ):
+            return True
+
+    latest_case_by_scope: dict[int, re.Match[str]] = {}
+    for match in CASE_HEADER_RE.finditer(masked, func_open + 1, use_offset):
+        containing_scopes = [
+            (opening, closing)
+            for opening, closing in pairs.items()
+            if masked[opening] == "{"
+            and func_open < opening < match.start() < use_offset < closing < func_close
+        ]
+        if not containing_scopes:
+            continue
+        opening, _ = max(containing_scopes, key=lambda item: item[0])
+        previous = latest_case_by_scope.get(opening)
+        if previous is None or previous.start() < match.start():
+            latest_case_by_scope[opening] = match
+    if any(name in IDENT_RE.findall(match.group("pattern")) for match in latest_case_by_scope.values()):
+        return True
+
+    for match in CONTROL_PATTERN_BODY_RE.finditer(masked, func_open + 1, use_offset):
+        opening = masked.rfind("{", match.start(), match.end())
+        closing = pairs.get(opening)
+        if closing is None or not (opening < use_offset < closing):
+            continue
+        for pattern_match in re.finditer(
+            r"\blet\s+(?P<pattern>.*?)\s*<-", match.group("header")
+        ):
+            if name in IDENT_RE.findall(pattern_match.group("pattern")):
+                return True
+    return False
+
+
+def scan_parameter_reassignment(
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
+) -> None:
+    functions = function_ranges(masked, pairs)
+    for func_start, func_open, func_close in functions:
+        params_open = masked.find("(", func_start, func_open)
+        params_close = pairs.get(params_open)
+        if params_open < 0 or params_close is None or params_close > func_open:
+            continue
+        parameter_names: list[str] = []
+        for start, end in top_level_argument_ranges(
+            masked, params_open, params_close, pairs
+        ):
+            parameter = re.match(
+                r"\s*([A-Za-z_]\w*)!?\s*:", masked[start:end]
+            )
+            if parameter is not None:
+                parameter_names.append(parameter.group(1))
+
+        for name in parameter_names:
+            escaped = re.escape(name)
+            write_patterns = (
+                re.compile(
+                    rf"(?<![.\w])(?P<name>{escaped})\b\s*"
+                    r"(?:\+\+|--|<<=|>>=|\+=|-=|\*=|/=|%=|&=|\|=|\^=|=(?!=|>))"
+                ),
+                re.compile(rf"(?<![.\w])(?:\+\+|--)\s*(?P<name>{escaped})\b"),
+            )
+            offsets: set[int] = set()
+            for pattern in write_patterns:
+                for match in pattern.finditer(masked, func_open + 1, func_close):
+                    offset = match.start("name")
+                    containing = [
+                        item for item in functions if item[1] < offset < item[2]
+                    ]
+                    if not containing:
+                        continue
+                    innermost = min(
+                        containing, key=lambda item: item[2] - item[1]
+                    )
+                    if innermost[1] != func_open:
+                        continue
+                    if binding_shadowed_in_function(
+                        masked,
+                        pairs,
+                        name,
+                        func_open,
+                        func_close,
+                        offset,
+                    ):
+                        continue
+                    offsets.add(offset)
+            for offset in sorted(offsets):
+                add_finding(
+                    findings,
+                    path,
+                    starts,
+                    offset,
+                    "CJ048",
+                    f"Function parameter {name!r} is immutable; copy it into a local var before updating search bounds or accumulated state.",
+                    "function/README.md and basic_concepts/README.md",
+                    severity="error",
+                )
+
+
+def scan_non_unit_tail_loops(
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
+) -> None:
+    for func_start, func_open, func_close in function_ranges(masked, pairs):
+        params_open = masked.find("(", func_start, func_open)
+        params_close = pairs.get(params_open)
+        if params_open < 0 or params_close is None:
+            continue
+        tail_signature = masked[params_close + 1 : func_open]
+        return_type = re.search(r":\s*(\??[A-Za-z_]\w*)", tail_signature)
+        if return_type is None or return_type.group(1).lstrip("?") in {"Unit", "Nothing"}:
+            continue
+
+        last = func_close - 1
+        while last > func_open and (
+            masked[last].isspace() or masked[last] == ";"
+        ):
+            last -= 1
+        if masked[last] != "}":
+            continue
+
+        loop_re = re.compile(r"\b(?P<keyword>while|for)\b")
+        for match in loop_re.finditer(masked, func_open + 1, last + 1):
+            condition_open = match.end()
+            while (
+                condition_open < last and masked[condition_open].isspace()
+            ):
+                condition_open += 1
+            if condition_open >= last or masked[condition_open] != "(":
+                continue
+            condition_close = pairs.get(condition_open)
+            if condition_close is None:
+                continue
+            body_open = condition_close + 1
+            while body_open < last and masked[body_open].isspace():
+                body_open += 1
+            if (
+                body_open < last
+                and masked[body_open] == "{"
+                and pairs.get(body_open) == last
+            ):
+                add_finding(
+                    findings,
+                    path,
+                    starts,
+                    match.start(),
+                    "CJ049",
+                    f"A trailing {match.group('keyword')} expression has type Unit in a non-Unit function even when its body contains return; add an explicit reachable return after the loop or restructure control flow.",
+                    "basic_concepts/README.md",
+                    severity="error",
+                )
+                break
+
+
+def scan_empty_case_branches(
+    masked: str, path: str, starts: list[int], findings: list[Finding]
+) -> None:
+    for match in CASE_HEADER_RE.finditer(masked):
+        cursor = match.end()
+        while cursor < len(masked) and masked[cursor].isspace():
+            cursor += 1
+        if cursor >= len(masked):
+            continue
+        if masked.startswith("case", cursor) or masked[cursor] == "}":
+            add_finding(
+                findings,
+                path,
+                starts,
+                match.start(),
+                "CJ044",
+                "A match case must contain at least one expression after =>; use () for an explicit Unit branch.",
+                "pattern_match/README.md",
+                severity="error",
+            )
+
+
+def scan_recursive_local_functions(
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
+) -> None:
+    functions = function_ranges(masked, pairs)
+    for match in LOCAL_FUNC_RE.finditer(masked):
+        opening = match.start("open")
+        closing = pairs.get(opening)
+        if closing is None or match.group("return") is not None:
+            continue
+        if not any(
+            outer_open < match.start() < outer_close
+            for _, outer_open, outer_close in functions
+            if outer_open != opening
+        ):
+            continue
+        name = match.group("name")
+        body = masked[opening + 1 : closing]
+        if re.search(rf"(?<![.\w]){re.escape(name)}\s*\(", body) is None:
+            continue
+        add_finding(
+            findings,
+            path,
+            starts,
+            match.start(),
+            "CJ045",
+            f"Recursive local function {name!r} has no explicit return type; add one when recursive inference is not uniquely determined.",
+            "function/README.md",
+            severity="warning",
+        )
 
 
 def scan_untyped_sort_trailing_lambda(
@@ -899,6 +1412,130 @@ def scan_arraylist_import(
         "CJ033",
         "Bare ArrayList use has no visible std.collection ArrayList import.",
         "collections/arraylist/README.md and cangjie-std/collection/README.md",
+        severity="warning",
+    )
+
+
+def known_array_tuple_binding(
+    masked: str,
+    receiver: str,
+    use_offset: int,
+    pairs: dict[int, int],
+) -> bool:
+    containing = [
+        item for item in function_ranges(masked, pairs) if item[1] < use_offset < item[2]
+    ]
+    if containing:
+        func_start, func_open, _ = min(
+            containing, key=lambda item: item[2] - item[1]
+        )
+        signature = masked[func_start:func_open]
+        body_start = func_open + 1
+    else:
+        func_start = 0
+        signature = ""
+        body_start = 0
+
+    receiver_pattern = re.escape(receiver)
+    candidates: list[tuple[int, bool]] = []
+    parameter_re = re.compile(
+        rf"(?<![.\w]){receiver_pattern}!?\s*:\s*"
+        r"(?P<type>Array\s*<\s*\(|[A-Za-z_]\w*)"
+    )
+    for match in parameter_re.finditer(signature):
+        candidates.append(
+            (
+                func_start + match.start(),
+                re.match(r"Array\s*<\s*\(", match.group("type")) is not None,
+            )
+        )
+
+    prefix = masked[body_start:use_offset]
+    declaration_re = re.compile(
+        rf"\b(?:let|var)\s+{receiver_pattern}\b(?P<tail>[^\r\n;]*)"
+    )
+    for match in declaration_re.finditer(prefix):
+        declaration_offset = body_start + match.start()
+        if binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            candidates.append(
+                (
+                    declaration_offset,
+                    re.search(r":\s*Array\s*<\s*\(", match.group("tail"))
+                    is not None,
+                )
+            )
+    if not candidates:
+        return False
+    return max(candidates, key=lambda item: item[0])[1]
+
+
+def scan_array_tuple_equality(
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
+) -> None:
+    if re.search(r"\boperator\s+func\s+(?:==|!=)", masked) is not None:
+        return
+    pattern = re.compile(
+        r"(?<![.\w])(?P<left>[A-Za-z_]\w*)\s*"
+        r"(?P<operator>==|!=)\s*(?P<right>[A-Za-z_]\w*)\b"
+    )
+    for match in pattern.finditer(masked):
+        if not known_array_tuple_binding(
+            masked, match.group("left"), match.start("left"), pairs
+        ):
+            continue
+        if not known_array_tuple_binding(
+            masked, match.group("right"), match.start("right"), pairs
+        ):
+            continue
+        add_finding(
+            findings,
+            path,
+            starts,
+            match.start("operator"),
+            "CJ050",
+            "Array<(...)> has no default direct equality from tuple fields; compare sizes, then destructure elements and compare fields.",
+            "collections/array/README.md",
+            severity="error",
+        )
+
+
+def scan_std_math_imports(
+    masked: str,
+    path: str,
+    starts: list[int],
+    findings: list[Finding],
+) -> None:
+    missing: list[tuple[int, str]] = []
+    for symbol in sorted(STD_MATH_SYMBOLS):
+        if imports_symbol(masked, "std.math", symbol) or imports_symbol(
+            masked, "std.math.numeric", symbol
+        ):
+            continue
+        escaped = re.escape(symbol)
+        if re.search(
+            rf"\bfunc\s+{escaped}\s*\(|\b(?:let|var|const)\s+{escaped}\b|"
+            rf"(?<![.\w]){escaped}!?\s*:",
+            masked,
+        ) is not None:
+            continue
+        call = re.search(rf"(?<![.\w]){escaped}\s*\(", masked)
+        if call is not None:
+            missing.append((call.start(), symbol))
+    if not missing:
+        return
+    names = ", ".join(symbol for _, symbol in sorted(missing))
+    add_finding(
+        findings,
+        path,
+        starts,
+        min(offset for offset, _ in missing),
+        "CJ051",
+        f"Bare math call(s) {names} have no visible std.math import; verify same-package declarations or add the documented top-level import.",
+        "cangjie-std/math/README.md",
         severity="warning",
     )
 
@@ -1004,13 +1641,185 @@ def scan_string_byte_to_rune(
         )
 
 
+def scan_string_index_character_semantics(
+    source: str,
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
+) -> None:
+    indexed = (
+        r"(?P<receiver>[A-Za-z_]\w*)\s*"
+        r"\[(?P<index>[^\]\r\n]+)\]"
+    )
+    comparison_patterns = (
+        re.compile(
+            indexed
+            + r"\s*(?P<operator>==|!=|<=|>=|<|>)\s*"
+            + rf"(?P<literal>{NON_BYTE_LITERAL_FRAGMENT})"
+        ),
+        re.compile(
+            rf"(?P<literal>{NON_BYTE_LITERAL_FRAGMENT})\s*"
+            r"(?P<operator>==|!=|<=|>=|<|>)\s*"
+            + indexed
+        ),
+    )
+    sink_offsets: set[int] = set()
+    for pattern in comparison_patterns:
+        for match in pattern.finditer(source):
+            receiver = match.group("receiver")
+            receiver_offset = match.start("receiver")
+            operator = match.group("operator")
+            operator_offset = match.start("operator")
+            if ".." in match.group("index"):
+                continue
+            if masked[receiver_offset : receiver_offset + len(receiver)] != receiver:
+                continue
+            if masked[operator_offset : operator_offset + len(operator)] != operator:
+                continue
+            if known_receiver_type(masked, receiver, receiver_offset, pairs) == "String":
+                sink_offsets.add(receiver_offset)
+
+    constructor_pattern = re.compile(
+        r"(?<![.\w])String\s*\(\s*" + indexed + r"\s*\)"
+    )
+    for match in constructor_pattern.finditer(source):
+        receiver = match.group("receiver")
+        receiver_offset = match.start("receiver")
+        if ".." in match.group("index"):
+            continue
+        if masked[receiver_offset : receiver_offset + len(receiver)] != receiver:
+            continue
+        if known_receiver_type(masked, receiver, receiver_offset, pairs) == "String":
+            sink_offsets.add(receiver_offset)
+
+    for offset in sorted(sink_offsets):
+        add_finding(
+            findings,
+            path,
+            starts,
+            offset,
+            "CJ041",
+            "Direct String indexing yields UInt8; compare with b'...', use a byte-range slice for String, or use runes()/toRuneArray() with Rune values for character semantics.",
+            "string/README.md and basic_data_type/README.md",
+            severity="error",
+        )
+
+
+def known_rune_array(
+    masked: str,
+    receiver: str,
+    use_offset: int,
+    pairs: dict[int, int],
+) -> bool:
+    containing = [
+        item for item in function_ranges(masked, pairs) if item[1] < use_offset < item[2]
+    ]
+    if containing:
+        func_start, func_open, _ = min(
+            containing, key=lambda item: item[2] - item[1]
+        )
+        signature = masked[func_start:func_open]
+        body_start = func_open + 1
+    else:
+        func_start = 0
+        signature = ""
+        body_start = 0
+
+    receiver_pattern = re.escape(receiver)
+    candidates: list[tuple[int, bool]] = []
+    parameter_re = re.compile(
+        rf"(?<![.\w]){receiver_pattern}!?\s*:\s*"
+        r"(?P<type>Array\s*<\s*Rune\s*>|[A-Za-z_]\w*)"
+    )
+    for match in parameter_re.finditer(signature):
+        candidates.append(
+            (
+                func_start + match.start(),
+                re.fullmatch(r"Array\s*<\s*Rune\s*>", match.group("type"))
+                is not None,
+            )
+        )
+
+    prefix = masked[body_start:use_offset]
+    declaration_re = re.compile(
+        rf"\b(?:let|var)\s+{receiver_pattern}\b(?P<tail>[^\r\n;]*)"
+    )
+    for match in declaration_re.finditer(prefix):
+        declaration_offset = body_start + match.start()
+        if not binding_visible_at(masked, pairs, declaration_offset, use_offset):
+            continue
+        tail = match.group("tail")
+        is_rune_array = (
+            re.search(r":\s*Array\s*<\s*Rune\s*>", tail) is not None
+            or re.search(r"=\s*[A-Za-z_]\w*\.toRuneArray\s*\(\s*\)", tail)
+            is not None
+        )
+        candidates.append((declaration_offset, is_rune_array))
+
+    if not candidates:
+        return False
+    return max(candidates, key=lambda item: item[0])[1]
+
+
+def scan_rune_array_literal_comparisons(
+    source: str,
+    masked: str,
+    path: str,
+    starts: list[int],
+    pairs: dict[int, int],
+    findings: list[Finding],
+) -> None:
+    indexed = (
+        r"(?P<receiver>[A-Za-z_]\w*)\s*"
+        r"\[(?P<index>[^\]\r\n]+)\]"
+    )
+    patterns = (
+        re.compile(
+            indexed
+            + r"\s*(?P<operator>==|!=|<=|>=|<|>)\s*"
+            + rf"(?P<literal>{PLAIN_STRING_LITERAL_FRAGMENT})"
+        ),
+        re.compile(
+            rf"(?P<literal>{PLAIN_STRING_LITERAL_FRAGMENT})\s*"
+            r"(?P<operator>==|!=|<=|>=|<|>)\s*"
+            + indexed
+        ),
+    )
+    offsets: set[int] = set()
+    for pattern in patterns:
+        for match in pattern.finditer(source):
+            receiver = match.group("receiver")
+            receiver_offset = match.start("receiver")
+            operator = match.group("operator")
+            operator_offset = match.start("operator")
+            if masked[receiver_offset : receiver_offset + len(receiver)] != receiver:
+                continue
+            if masked[operator_offset : operator_offset + len(operator)] != operator:
+                continue
+            if known_rune_array(masked, receiver, receiver_offset, pairs):
+                offsets.add(receiver_offset)
+    for offset in sorted(offsets):
+        add_finding(
+            findings,
+            path,
+            starts,
+            offset,
+            "CJ042",
+            "Array<Rune> element comparisons require Rune literals such as r'0'; plain string literals do not convert in comparison expressions.",
+            "basic_data_type/README.md",
+            severity="error",
+        )
+
+
 def scan_source(source: str, path: str) -> list[Finding]:
     masked = mask_non_code(source)
     starts = line_starts(source)
     findings: list[Finding] = []
     pairs = bracket_pairs(masked, path, starts, findings)
     scan_imports(masked, path, starts, findings)
-    scan_control_headers(masked, path, starts, findings)
+    scan_control_headers(masked, path, starts, pairs, findings)
 
     for code, pattern, message, reference in ERROR_PATTERNS:
         for match in pattern.finditer(masked):
@@ -1042,9 +1851,21 @@ def scan_source(source: str, path: str) -> list[Finding]:
     scan_receiver_aware_members(masked, path, starts, pairs, findings)
     scan_case_branch_braces(masked, path, starts, pairs, findings)
     scan_mutable_lambda_capture(masked, path, starts, pairs, findings)
+    scan_parameter_reassignment(masked, path, starts, pairs, findings)
+    scan_non_unit_tail_loops(masked, path, starts, pairs, findings)
+    scan_empty_case_branches(masked, path, starts, findings)
+    scan_recursive_local_functions(masked, path, starts, pairs, findings)
     scan_untyped_sort_trailing_lambda(masked, path, starts, pairs, findings)
     scan_arraylist_import(masked, path, starts, findings)
+    scan_array_tuple_equality(masked, path, starts, pairs, findings)
+    scan_std_math_imports(masked, path, starts, findings)
     scan_string_byte_to_rune(source, masked, path, starts, pairs, findings)
+    scan_string_index_character_semantics(
+        source, masked, path, starts, pairs, findings
+    )
+    scan_rune_array_literal_comparisons(
+        source, masked, path, starts, pairs, findings
+    )
     return sorted(set(findings), key=lambda item: (item.path, item.line, item.column, item.code))
 
 

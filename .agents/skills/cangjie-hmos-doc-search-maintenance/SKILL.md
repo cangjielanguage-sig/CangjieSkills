@@ -1,261 +1,190 @@
 ---
 name: cangjie-hmos-doc-search-maintenance
-description: "Maintenance workflow for the cangjie-hmos-doc-search corpus and engines. Use when the user asks to rebuild card indexes, graph data, fusion release gates, offline LLM enrichment, or search-quality gates after documentation changes. Not for answering ordinary reference questions or coding tasks."
+description: "指导 agent 独立完成 cangjie-docs 的 grep vs graph 对比评测。agent 用 PowerShell 命令做 grep 搜索，用 cli.py 做 graph 搜索，逐条对比命中率和耗时，输出 Markdown 报告。包含 10 条采样测试。不依赖 Python 脚本。"
 ---
 
-# cangjie-hmos-doc-search-maintenance
+# grep vs graph 对比评测 — Agent 独立完成指导
 
-## 目录结构
+## 目的
 
-```
-cangjie-hmos-doc-search-maintenance/
-├── card/                    # 卡片索引（doc-card）构建与评测
-│   ├── builder/             # build_index_v3.py, high_value_tasks_ext.py
-│   ├── evals/               # content-basic.jsonl, discovery.jsonl
-│   ├── records/             # run-history/, baselines/, changelog, seeds
-│   ├── references/          # workflow-overview.md, indexing-rules.md, llm-enrichment.md, ...
-│   └── scripts/             # run_maintenance.py, run_ab_eval.py, eval_bench.py, ...
-├── graph/                   # 知识图谱（doc-graph）构建与评测
-│   ├── builder/             # doc/extractor+builder, code/extractor+builder, llm/enhancer+pipeline, builders/
-│   ├── evals/               # run_eval.py, datasets/, keywords_v7_prompt.json
-│   ├── records/             # docs_statistics.json, baselines/, run-history/
-│   ├── references/          # BUILD_GUIDE.md, ARCHITECTURE.md
-│   └── scripts/             # build_doc_graph.py, build_code_graph.py, validate_graph_data.py, ...
-├── fusion/                  # 融合发布门禁（V3 + doc-graph fusion AB）
-│   ├── evals/               # 15 JSONL 评测集（real_session, paraphrase, composition, ...）
-│   ├── records/             # run-history/, baselines/, changelog.md
-│   ├── references/          # (空，card references 覆盖大部分)
-│   └── scripts/             # run_maintenance.py, run_ab_eval.py, run_release_eval.py, ...
-└── SKILL.md
-```
+指导 agent 独立完成 cangjie-docs 语料的 grep（字面匹配）与 graph（语义图谱）对比评测。agent 直接使用 PowerShell 命令和 cli.py 接口完成搜索，无需编写 Python 脚本。
 
-## 与 doc-search 的关系
+## 关键路径
 
-`cangjie-hmos-doc-search` 是用户面向的搜索运行时（仅搜索，不构建），包含：
-- `doc-card/search_v3.py` — 卡片索引搜索
-- `doc-graph/cli.py` — 知识图谱搜索 CLI（search/path/explain/neighbors/god-nodes/surprises/stats/export）
-- `doc-graph/query.py` — GraphSession，双图搜索引擎
-- `unified_search.py` — fusion 入口，编排 card + graph
+| 用途 | 路径 |
+|------|------|
+| 源文档语料 | `.agents/skills/cangjie-docs/` |
+| graph 图谱 | `.agents/skills/cangjie-hmos-doc-search/doc-graph/data/doc/graph_cj.json` |
+| graph 搜索 CLI | `.agents/skills/cangjie-hmos-doc-search/doc-graph/cli.py` |
+| 评测集（119 条） | `.agents/skills/cangjie-hmos-doc-search-maintenance/evals/datasets/eval_queries_cangjie.jsonl` |
+| 关键词映射 | `.agents/skills/cangjie-hmos-doc-search-maintenance/evals/keywords/keywords_cangjie.json` |
 
-maintenance 负责：
-- card 端：重建索引（rule / rule+llm），评测卡片搜索质量
-- graph 端：构建图谱数据（doc/code/merged graph.json），评测图搜索质量
-- fusion 端：AB 门禁确保 fusion 召回不低于单引擎
+## 工作流程
 
-构建产物写入 doc-search 运行时目录：
-- card → `cangjie-hmos-doc-search/doc-card/index/`
-- graph → `cangjie-hmos-doc-search/doc-graph/data/`
+对每条 query 重复以下 4 步：
 
-## 适用场景
+### Step 1: 读取 query 和关键词
 
-在以下情况使用本 Skill：
+```powershell
+# 查看第 N 条 query（以 Q1 为例，将 qs[0] 改为 qs[N-1]）
+python -c "import json; qs=[json.loads(l) for l in open(r'.agents/skills/cangjie-hmos-doc-search-maintenance/evals/datasets/eval_queries_cangjie.jsonl',encoding='utf-8')]; q=qs[0]; print('Q1:', q['query']); print('期望:', q['acceptable_paths'])"
 
-- `cangjie-hmos-doc-search` 的文档路径或正文内容更新
-- 需要重建 `rule` 或 `rule+llm` 索引/卡片 → `card/scripts/run_maintenance.py`
-- 需要重建知识图谱数据 → `graph/builder/build_cli.py` 或 `graph/scripts/build_doc_graph.py`
-- 需要基于文档 diff 生成候选 query 或新严格 blind 集
-- 需要检查主评测集是否因文档变化失效
-- 需要运行发布门禁并输出 `pass / gray_release / blocked` → `fusion/scripts/run_maintenance.py`
-- 需要收集真实搜索日志、失败反馈并沉淀候选评测素材
-
-不适用：
-
-- 在线回答普通用户的 HarmonyOS/Cangjie API 用法问题。此类问题使用 `cangjie-hmos-doc-search`。
-- 未经评测直接替换正式 `index/` 或 `data/`。
-- 自动把候选 query 合并进主门禁。
-
-## card 分区 — 卡片索引维护
-
-### 标准流程
-
-```bash
-cd .agents/skills/cangjie-hmos-doc-search-maintenance
-
-PYTHONDONTWRITEBYTECODE=1 python card/scripts/build_doc_manifest.py \
-  --output /tmp/doc_manifest_current.json
-
-PYTHONDONTWRITEBYTECODE=1 python card/scripts/diff_doc_manifest.py \
-  --old /tmp/doc_manifest_old.json \
-  --new /tmp/doc_manifest_current.json \
-  --output /tmp/doc_diff.json
-
-PYTHONDONTWRITEBYTECODE=1 python card/builder/build_index_v3.py \
-  --mode rule \
-  --docs-dir <docs_corpus_dir> \
-  --index-dir /tmp/cangjie-index-rule
-
-PYTHONDONTWRITEBYTECODE=1 python card/scripts/run_release_eval.py \
-  --index-dir /tmp/cangjie-index-rule \
-  --output-dir /tmp/cangjie-release-eval
+# 查看该 query 的搜索关键词（将 kw['1'] 改为 kw['N']）
+python -c "import json; kw=json.load(open(r'.agents/skills/cangjie-hmos-doc-search-maintenance/evals/keywords/keywords_cangjie.json',encoding='utf-8')); k=kw['1']; print('keywords_en:', k['keywords_en']); print('keywords_zh:', k['keywords_zh'])"
 ```
 
-### LLM 卡片重建
+### Step 2: Graph 搜索
 
-`rule+llm` 是离线构建能力，只在维护阶段调用 OpenAI 兼容 API。
+```powershell
+cd .agents\skills\cangjie-hmos-doc-search\doc-graph
 
-```bash
-OPENAI_BASE_URL="..." \
-OPENAI_API_KEY="..." \
-OPENAI_MODEL="..." \
-OPENAI_TEMPERATURE="0" \
-PYTHONDONTWRITEBYTECODE=1 python card/builder/build_index_v3.py \
-  --mode rule+llm \
-  --docs-dir <docs_corpus_dir> \
-  --index-dir /tmp/cangjie-index-llm \
-  --llm-card-types task,api,example,doc \
-  --llm-concurrency 24 \
-  --llm-cache-dir /tmp/cangjie-llm-cache
+# 将搜索字符串替换为 Step 1 的 keywords_en + keywords_zh（空格拼接，去重）
+python cli.py search "HashMap put store 键值对" --graph doc --graph-path "data/doc/graph_cj.json" -b -k 5
 ```
 
-约束：
+### Step 3: Grep 搜索
 
-- 默认先写临时索引目录，不直接覆盖正式 `index/`。
-- 发布前必须跑 `card/scripts/run_release_eval.py --index-dir /tmp/cangjie-index-llm`。
-- `llm.failed > 0` 或任一卡片类型未完成增强时，不允许发布 `rule+llm` 索引。
-- 需要详细约束时读取 `card/references/llm-enrichment.md`。
+```powershell
+cd .agents\skills\cangjie-docs
 
-## graph 分区 — 知识图谱维护
-
-### 构建图谱
-
-```bash
-PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py build \
-  --docs-dir <docs_corpus_dir> \
-  [--code-dir <code_corpus_dir>] \
-  --graph-dir cangjie-hmos-doc-search/doc-graph/data
-
-# 单步构建
-PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py build-doc \
-  --docs-dir <docs_corpus_dir>
-
-PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py build-code \
-  --code-dir <code_corpus_dir>
-
-PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py merge --graph-dir <graph_dir>
-
-# LLM 增强（可选）— 补全中文关键词，en-only 从 9336→417
-# 支持任何 OpenAI 兼容 LLM 端点（不限于 DashScope），env 变量名保持 DASHSCOPE_* 是历史命名
-# 合并策略保护 API 名不被覆盖（ClientCert/Grid 等保留）、keywords 增量去重合并
-DASHSCOPE_API_KEY="..." \
-DASHSCOPE_API_BASE="..." \
-DASHSCOPE_MODEL="GLM-5.2" \
-PYTHONDONTWRITEBYTECODE=1 python graph/builder/build_cli.py enhance-graph \
-  --graph-dir <graph_dir> \
-  --docs-dir <docs_corpus_dir>
+# 将 @(...) 内的关键词替换为 Step 1 的 keywords_en + keywords_zh（去重）
+<#
+递归扫描 .agents\skills\cangjie-docs 目录下的所有 Markdown 文件，使用 Step 1 生成并去重后的中英文关键词进行全文匹配，统计每个文件命中的不同关键词数量作为相关性分数，过滤掉未命中任何关键词的文件，再按分数从高到低排序并输出最相关的前 5 个文件；其中 Score 表示命中的关键词种类数，而不是关键词出现的总次数。
+#>
+$kws=@("HashMap","put","store","键值对"); Get-ChildItem -Recurse -Filter *.md | ForEach-Object { $c=Get-Content $_.FullName -Raw; $s=($kws | Where-Object {$c -match $_}).Count; if($s -gt 0){[PSCustomObject]@{File=$_.FullName.Replace('D:\ZSY\CangjieSkills\.agents\skills\cangjie-docs\','').Replace('\','/');Score=$s}} } | Sort-Object Score -Descending | Select-Object -First 5
 ```
 
-### 评测图谱搜索
+### Step 4: 对比判定
 
-```bash
-PYTHONDONTWRITEBYTECODE=1 python graph/evals/run_eval.py --limit 50
-PYTHONDONTWRITEBYTECODE=1 python graph/scripts/run_graph_release_eval.py
+对每条 query 记录以下信息：
+
+| 记录项 | 说明 |
+|------|------|
+| 期望路径 | eval_queries_cangjie.jsonl 中的 `acceptable_paths` |
+| Graph Top-5 | cli.py 返回的 `source_file` 列表 |
+| Grep Top-5 | PowerShell 返回的 File 列表 |
+| Graph 状态 | Top-5 中是否包含期望路径 → FULL / MISS |
+| Grep 状态 | 同上 |
+| Graph 耗时 | cli.py 输出的 `latency_ms`（直接读取） |
+| Grep 耗时 | 用 `Measure-Command { ... }` 包裹 grep 命令，读取 `TotalMilliseconds` |
+| Graph Token | 由 token-logger 插件自动记录（见下方 Token 统计方法） |
+| Grep Token | 同上 |
+
+判定规则：Top-5 中任一路径与期望路径匹配（子串包含或同目录）即为 FULL，否则 MISS。
+
+**耗时测量方法：**
+- Graph：cli.py 输出中包含 `latency_ms` 字段，直接读取
+- Grep：用 `Measure-Command` 包裹 Step 3 的 PowerShell 命令，示例：
+```powershell
+Measure-Command { $kws=@("HashMap","put","store","键值对"); Get-ChildItem -Recurse -Filter *.md | ForEach-Object { $c=Get-Content $_.FullName -Raw; $s=($kws | Where-Object {$c -match $_}).Count; if($s -gt 0){[PSCustomObject]@{File=$_.Name;Score=$s}} } | Sort-Object Score -Descending | Select-Object -First 5 } | Select-Object TotalMilliseconds
 ```
 
-### 验证图谱数据
+**Token 消耗统计方法（API 级精确统计）：**
 
-```bash
-PYTHONDONTWRITEBYTECODE=1 python graph/scripts/validate_graph_data.py
+使用 opencode 插件 `token-logger.ts` 自动记录每次 LLM API 调用的真实 token 数据，无需手动估算。
+
+- 插件路径：`.opencode/plugins/token-logger.ts`
+- 插件配置：`opencode.json` 中 `"plugin": ["./.opencode/plugins/token-logger.ts"]`
+- 日志路径：`.agents/skills/cangjie-hmos-doc-search-maintenance/evals/token_log.jsonl`
+- 日志格式（每行一个 JSON）：
+```json
+{"ts":"2026-07-13T03:34:23Z","sessionID":"...","modelID":"GLM-5.2","cost":0,"input":737,"output":115,"reasoning":1031,"cache_read":0,"cache_write":0,"total":1883}
 ```
 
-## fusion 分区 — 融合发布门禁
+工作原理：
+1. 插件监听 opencode 的 `message.updated` 事件
+2. 每当 LLM API 返回响应时，从 `AssistantMessage.tokens` 字段提取 input/output/reasoning
+3. 自动追加到 `token_log.jsonl`
 
-### Fusion AB 门禁
+使用方式：
+1. 确保 `opencode.json` 中已注册插件（重启 opencode 后生效）
+2. 记录评测开始前的日志条数作为 baseline
+3. 正常执行 grep vs graph 对比评测（插件自动记录）
+4. 评测完成后读取 `token_log.jsonl`，分析 baseline 之后的新条目
+5. 去重（同一消息会触发两次 `message.updated`，产生重复条目）后汇总
 
-`fusion/scripts/run_maintenance.py` 支持 `--fusion-ab-gate`：在发布候选 `index/` 前执行 `sync_v3_to_graph` + `run_ab_eval`（`real_session` / `paraphrase` / `composition`），要求 **fusion 召回不低于 V3 与 doc-graph**。
+日志分析命令：
+```powershell
+# 查看日志总条数
+(Get-Content ".agents/skills/cangjie-hmos-doc-search-maintenance/evals/token_log.jsonl").Count
 
-```bash
-PYTHONDONTWRITEBYTECODE=1 python fusion/scripts/run_maintenance.py \
-  --fusion-ab-gate \
-  [--openviking] \
-  --note "重建 reason"
+# 查看最近条目
+Get-Content ".agents/skills/cangjie-hmos-doc-search-maintenance/evals/token_log.jsonl" -Tail 5
+
+# 汇总 token（去重：按 messageID 去重，跳过 total=0 的空消息）
+python -c "
+import json
+seen = set()
+total_input = total_output = total_reasoning = 0
+for line in open(r'.agents/skills/cangjie-hmos-doc-search-maintenance/evals/token_log.jsonl', encoding='utf-8'):
+    e = json.loads(line)
+    if e.get('total', 0) == 0: continue
+    mid = e.get('messageID', '')
+    if mid in seen: continue
+    seen.add(mid)
+    total_input += e.get('input', 0)
+    total_output += e.get('output', 0)
+    total_reasoning += e.get('reasoning', 0)
+print(f'去重后: input={total_input}, output={total_output}, reasoning={total_reasoning}, total={total_input+total_output+total_reasoning}')
+"
 ```
 
-### 独立 AB 评测
+## 10 条采样测试
 
-```bash
-PYTHONDONTWRITEBYTECODE=1 python fusion/scripts/run_ab_eval.py \
-  --eval-dir fusion/evals \
-  --index-dir cangjie-hmos-doc-search/doc-card/index \
-  --graph-dir cangjie-hmos-doc-search/doc-graph/data \
-  --splits real_session,paraphrase,composition \
-  --limit 5
-```
+先跑以下 10 条，验证流程后再 resume 扩展到 119 条：
 
-## 测试集与候选集规则
+| Q# | 难度 | 类别 | 查询 |
+|---:|:---:|------|------|
+| 1 | 简单 | api_lookup | HashMap怎么存键值对 |
+| 5 | 简单 | api_lookup | File怎么读写文件内容 |
+| 17 | 中等 | enumeration | Cangjie标准库有哪些集合数据结构 |
+| 50 | 中等 | how_to | 仓颉怎么用正则表达式匹配邮箱地址 |
+| 100 | hard | reverse_lookup | 怎么把对象转成JSON字符串 |
+| 104 | hard | reverse_lookup | 怎么在多线程间传递消息 |
+| 105 | hard | reverse_lookup | 定时执行任务不用sleep循环 |
+| 108 | hard | semantic_fuzzy | 变量出了作用域还能访问吗 |
+| 113 | hard | cross_ecosystem | Python的json.loads在Cangjie里对应什么 |
+| 117 | hard | constrained | 内存有限时怎么处理超大JSON |
 
-- 主评测集只接受审核后的 query。
-- `card/scripts/generate_eval_candidates_from_doc_diff.py` 和 `card/scripts/analyze_search_logs.py` 产物只能进入候选池。
-- `card/scripts/validate_eval_set.py` 出现 `missing_path` 时发布必须 blocked。
-- 候选集失败不阻塞发布，但必须记录。
-- 已经用于调参的 blind 集降级为回归集，不再作为严格盲测。
+## 输出格式
 
-## 严格 Blind 轮换
+报告保存到 `evals/reports/grep_vs_graph_agent.md`，格式如下：
 
-生成新的时间戳 blind 集：
+**总体统计：**
 
-```bash
-PYTHONDONTWRITEBYTECODE=1 python card/scripts/generate_appdev_eval_batch3_blind.py \
-  --strict-blind-out card/evals/eval_queries_user_appdev_blind_YYYYMMDD.jsonl \
-  --strict-source strict-blind-YYYYMMDD
-```
+| 指标 | Graph | Grep |
+|------|:---:|:---:|
+| Recall@5 | ?% | ?% |
+| FULL 数 | ? | ? |
+| MISS 数 | ? | ? |
+| 总耗时 | ?ms | ?ms |
+| 平均每条耗时 | ?ms | ?ms |
+| 总 Token 消耗 | ? (插件自动记录) | ? (插件自动记录) |
+| 平均每条 Token | ? | ? |
 
-首跑后立即记录结果，作为严格 blind 首次基线。
+**逐条对比：**
 
-## 真实 Query 闭环
+### Q1 [api_lookup] HashMap怎么存键值对
+- 期望路径: `cj-std/collection/class_HashMap.md`
+- 搜索关键词: HashMap, put, store, 键值对
 
-```bash
-DOC_SEARCH_LOG_PATH=/tmp/search-events.jsonl \
-PYTHONDONTWRITEBYTECODE=1 python search_v3.py "WebView loadUrl headers 怎么传" --json --limit 5
+| # | Graph 返回路径 | 分数 | Grep 返回路径 | 命中数 |
+|:---:|------|:---:|------|:---:|
+| 1 | ... | ... | ... | ... |
+| 2 | ... | ... | ... | ... |
+| 3 | ... | ... | ... | ... |
+| 4 | ... | ... | ... | ... |
+| 5 | ... | ... | ... | ... |
 
-PYTHONDONTWRITEBYTECODE=1 python card/scripts/record_search_feedback.py \
-  --log /tmp/search-events.jsonl \
-  --query "WebView loadUrl headers 怎么传" \
-  --out /tmp/real_failed_queries.jsonl \
-  --reason "top5_not_helpful"
+| 指标 | Graph | Grep |
+|------|:---:|:---:|
+| 耗时 | ?ms | ?ms |
+| Token | ? | ? |
+| 状态 | ✅ FULL | ❌ MISS |
 
-PYTHONDONTWRITEBYTECODE=1 python card/scripts/analyze_search_logs.py \
-  --log /tmp/search-events.jsonl \
-  --feedback /tmp/real_failed_queries.jsonl \
-  --output-dir /tmp/search-log-analysis
-```
+## 注意事项
 
-日志不得包含 API key、环境变量、用户工程代码或完整文档正文。
-
-## 当前基线
-
-### card 单引擎旧基线
-
-全量发布评估（card-only，未含 graph/fusion）：
-- 7 套评测集，合计 814 条，`release status = pass`
-- 所有套件 `success@5 = 1.0`、`error_rate = 0.0`
-- 健康检查：所有套件 `blocking = false`、`issue_counts = {}`
-- 严格 blind：`fusion/evals/eval_queries_user_appdev_blind_20260424.jsonl`，80 条，首跑 `success@1 = 0.875`、`success@5 = 1.0`
-
-> 此基线仅覆盖 card 单引擎，不含 graph/fusion 评测。
-
-### 三引擎评测基线（0629，192 条全量）
-
-评测集：`graph/evals/datasets/eval_queries_comprehensive_deduped.jsonl`（192 条去重集）
-
-| 指标 | card | graph | fusion |
-|---|---:|---:|---:|
-| Recall@5 | 34.9% | **91.7%** | 77.6% |
-| MRR | 0.133 | 0.460 | 0.422 |
-| 平均耗时 | 69.6ms | **1.7ms** | 66.5ms |
-
-已知问题：fusion 77.6% < graph 91.7%，根因是 `unified_search.fuse_results` 中 card 路径挤占 graph 命中位。50 条子集上 fusion=78% vs graph=96%。属独立优化点。
-
-图谱数据状态：11,661 nodes / 17,154 links / 11,107 llm_enhanced / 417 en-only。
-
-## 参考资料
-
-card 分区：
-- 流程总览：`card/references/workflow-overview.md`
-- 索引与卡片规则：`card/references/indexing-rules.md`
-- LLM 补全约束：`card/references/llm-enrichment.md`
-- 评测说明：`card/references/evaluation-guide.md`
-- 故障排查：`card/references/troubleshooting.md`
-
-graph 分区：
-- 构建指南：`graph/references/BUILD_GUIDE.md`
-- 架构说明：`graph/references/ARCHITECTURE.md`
+- Grep 跳过 `.overview.md` 和 `.abstract.md`（以 `.` 开头的文件名）
+- Graph 必须用 `--graph-path "data/doc/graph_cj.json"`，否则默认加载 harmonyos 图谱
+- 关键词从 `keywords_cangjie.json` 按 query ID（1-119）索引
+- Grep 命令中的路径前缀需根据实际工作目录调整

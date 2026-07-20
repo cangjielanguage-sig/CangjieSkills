@@ -1,660 +1,920 @@
-"""文档图谱提取器。1文档=1节点，纯示例文件不建节点。
-
-本模块负责从 .md 文件提取图谱节点（DocNode）和边（Edge），是文档图谱
-构建流水线的核心抽取步骤。主要功能：
-- extract_doc_node: 从普通文档提取节点 + SEE_ALSO 边
-- extract_overview_nodes: 从 .overview.md 提取概览节点 + CONTAINS 边
-- 各种辅助函数：文档类型检测、层级推断、关键词提取、描述提取等
-
-节点 ID 格式: {category}_{namespace}_{doc_type}_{label}
-边关系类型: SEE_ALSO（文档间引用）、CONTAINS（概览包含子文档）
-
-设计决策：
-- 纯示例文件（代码多、文字少）不建节点，避免噪声
-- .overview/.abstract 文件不建普通节点，而是建概览节点
-- 概览节点 is_god_node=True，用于图谱搜索的入口导航
-"""
+"""源码图谱提取器。基于 tree-sitter AST 的多语言提取。"""
 from __future__ import annotations
 
+import importlib
 import re
-import sys
+from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
-from core.models import DocNode, Edge, EdgeRelation
-
-
-def safe_read_text(path: Path) -> str:
-    """读取文件内容，自动处理 Windows 长路径问题。"""
-    full = str(path.resolve())
-    if sys.platform == "win32" and len(full) > 240:
-        full = "\\\\?\\" + full
-    return Path(full).read_text(encoding="utf-8", errors="replace")
+from core.models import CodeNode, Edge, EdgeRelation
 
 
-# === 停词表 ===
+# ── LanguageConfig ───────────────────────────────────────────────────────────
 
-TITLE_STOP_ZH = {
-    "注意事项", "示例", "示例代码", "运行结果", "说明", "备注", "相关文档", "参见",
-    "导入模块", "权限列表", "使用说明", "通用属性", "通用事件", "创建组件", "参数", "返回值",
-    # 中文泛化词 — 高频低区分度，作为关键词会淹没专有词信号
-    "概览", "概述", "介绍", "使用方法", "使用方式", "配置", "功能介绍", "功能描述",
-    "支持", "接口", "事件", "属性", "类型", "定义", "模块", "应用程序", "开发",
-    "使用", "方法", "组件",
-}
-TITLE_STOP_EN = {
-    "example", "note", "see also", "output", "result", "import", "permission",
-    "usage", "parameters", "return value",
-}
-
-
-def is_pure_example(content: str) -> bool:
-    """判断是否为纯示例文件：全文去代码后文字极少（中文<10字且英文<5词），
-    或文件名明确标记为示例。纯示例文件不建节点，避免图谱噪声。"""
-    text_without_code = re.sub(r"```[\s\S]*?```", "", content)
-    text_clean = re.sub(r"[#*>`\-\[\]()]", "", text_without_code).strip()
-    text_clean = re.sub(r"<[^>]+>", "", text_clean).strip()
-    
-    # 中文字符数 + 英文单词数
-    zh_chars = len(re.findall(r"[\u4e00-\u9fff]", text_clean))
-    en_words = len(re.findall(r"[A-Za-z]{3,}", text_clean))
-    
-    # 如果文字量极少（中文<10字且英文<5词），判定为纯示例
-    # API 定义文件（函数/属性/枚举）即使文字少也应保留
-    return zh_chars < 10 and en_words < 5
+@dataclass
+class LanguageConfig:
+    ts_module: str
+    ts_language_fn: str = "language"
+    class_types: frozenset = frozenset()
+    function_types: frozenset = frozenset()
+    import_types: frozenset = frozenset()
+    call_types: frozenset = frozenset()
+    name_field: str = "name"
+    name_fallback_child_types: tuple = ()
+    body_field: str = "body"
+    body_fallback_child_types: tuple = ()
+    call_function_field: str = "function"
+    call_accessor_node_types: frozenset = frozenset()
+    call_accessor_field: str = "attribute"
+    function_boundary_types: frozenset = frozenset()
+    import_handler: Optional[Callable] = None
+    resolve_function_name_fn: Optional[Callable] = None
+    function_label_parens: bool = True
+    extra_walk_fn: Optional[Callable] = None
+    member_types: frozenset = frozenset()
+    enum_value_parent: str = ""
+    extension_types: frozenset = frozenset()
+    extend_type_child: str = ""
 
 
-def clean_filename(stem: str) -> str:
-    """清理文件名为展示 label：去除哈希后缀、类型前缀、Nmore 后缀。"""
-    clean = re.sub(r"_[a-f0-9]{8}$", "", stem)
-    for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]:
-        if clean.startswith(prefix):
-            clean = clean[len(prefix):]
-            break
-    clean = re.sub(r"_\d+more$", "", clean)
-    clean = re.sub(r"__+$", "", clean)
-    return clean if clean else stem
+# ── Helpers ──────────────────────────────────────────────────────────────────
+
+def _make_id(*parts: str) -> str:
+    combined = "_".join(p.strip("_.") for p in parts if p)
+    cleaned = re.sub(r"[^a-zA-Z0-9]+", "_", combined)
+    return cleaned.strip("_").lower()
 
 
-def clean_id_stem(stem: str) -> str:
-    """清理文件名为 ID 组件：仅去除类型前缀，保留哈希/Nmore 后缀以确保唯一性。"""
-    clean = stem
-    for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]:
-        if clean.startswith(prefix):
-            clean = clean[len(prefix):]
-            break
-    return clean if clean else stem
+def _read_text(node, source: bytes) -> str:
+    return source[node.start_byte:node.end_byte].decode("utf-8", errors="replace")
 
 
-def infer_layer(rel_path: str) -> int:
-    """推断节点层级：L1=指南/概览/教程，L2=API/错误码/具体实现。
-    层级影响搜索优先级——L1 概览节点更适合作为入口。"""
-    path = rel_path.replace("\\", "/").lower()
-    if path.endswith(".overview.md") or path.endswith(".abstract.md"):
-        return 1
-    # Guide/Tutorial 目录 → L1
-    if any(x in path for x in ["guide/", "tutorial/", "overview/"]):
-        return 1
-    parent = Path(path).parent.name.lower()
-    if parent in ("guide", "tutorial", "overview", "samples"):
-        return 1
-    # API 目录下的文件 → L2
-    if "/api/" in path or path.startswith("api/"):
-        return 2
-    # 文件名含 class_/func_/enum_ 等 → L2
-    if any(prefix in path for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]):
-        return 2
-    # 错误码 → L2
-    if "errorcode" in path or "错误码" in rel_path:
-        return 2
-    # 有 **功能：** 标记 → L2
-    return 1
-
-
-def infer_category(rel_path: str, root_dir_name: str = "") -> str:
-    """推断文档所属技术分类：harmonyos/std/stdx/lang/tools。
-    分类影响节点 ID 前缀和搜索时的模块过滤。"""
-    path = rel_path.replace("\\", "/").lower()
-    if "harmonyos" in path or "harmonyos" in root_dir_name.lower():
-        return "harmonyos"
-    if "stdx" in path or root_dir_name.lower() == "stdx":
-        return "stdx"
-    if ("std" in path and "stdx" not in path) or root_dir_name.lower() == "std":
-        return "std"
-    if "lang-features" in path or root_dir_name.lower() in ("lang-features", "cangjie-lang-features"):
-        return "lang"
-    if "tools" in path or root_dir_name.lower() in ("tools", "cmd-tools"):
-        return "tools"
-    return "harmonyos"
-
-
-def build_namespace(rel_path: str) -> str:
-    """从文件路径构建命名空间标识，取最后 3 个有意义的路径段。
-    跳过通用目录名（api/package/index 等）和 cj-/ohos 前缀。"""
-    parts = rel_path.replace("\\", "/").split("/")
-    ns_parts = []
-    skip = {"api", "package", "index", "samples", "guide", "tutorial", "overview"}
-    for p in parts:
-        if p.startswith("cj-"):
-            ns_parts.append(p[3:])
-        elif p.startswith("ohos"):
-            ns_parts.append(p[4:])
-        elif p and not p.endswith(".md") and not p.startswith("."):
-            clean = p.lower()
-            if clean not in skip:
-                ns_parts.append(p)
-    meaningful = [p for p in ns_parts if p.lower() not in skip]
-    return "_".join(meaningful[-3:]) if meaningful else "unknown"
-
-
-def extract_label_zh(content: str) -> str:
-    """从 H1/H2 标题提取中文标签。"""
-    h2_match = re.search(r"^##\s+(.+)", content, re.MULTILINE)
-    if h2_match:
-        title = h2_match.group(1).strip()
-        if any('\u4e00' <= c <= '\u9fff' for c in title):
-            return title
-    h1_match = re.search(r"^#\s+(.+)", content, re.MULTILINE)
-    if h1_match:
-        title = h1_match.group(1).strip()
-        if any('\u4e00' <= c <= '\u9fff' for c in title):
-            return title
-    return ""
-
-
-def extract_description(content: str) -> tuple[str, str]:
-    """提取中英文描述。"""
-    # 找 **功能：** 后的内容
-    func_match = re.search(r"\*\*功能[：:]\*\*\s*(.+?)(?=\n|$)", content)
-    if func_match:
-        desc = func_match.group(1).strip()
-        zh_chars = re.findall(r"[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef，。！？；：""''（）【】《》]", desc)
-        desc_zh = "".join(zh_chars)[:200]
-        desc_en = desc[:500]
-        return desc_zh, desc_en
-
-    # 找 H1 后第一段
-    h1_match = re.search(r"^#\s+.+\n(.+?)(?=\n##|\n#|\Z)", content, re.DOTALL)
-    if h1_match:
-        first_para = h1_match.group(1).strip()
-        first_para = re.sub(r"<!--.*?-->", "", first_para, flags=re.DOTALL).strip()
-        first_para = re.sub(r"```[\s\S]*?```", "", first_para).strip()
-        zh_chars = re.findall(r"[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef，。！？；：""''（）【】《》]", first_para)
-        desc_zh = "".join(zh_chars)[:200]
-        en_words = re.findall(r"[A-Za-z_][A-Za-z0-9_]*", first_para)
-        desc_en = " ".join(en_words)[:500]
-        return desc_zh, desc_en
-
-    return "", ""
-
-
-def extract_keywords(content: str, doc_type: str, rel_path: str, label: str) -> tuple[list[str], list[str]]:
-    """根据文档类型提取关键词。"""
-    keywords_zh = []
-    keywords_en = []
-
-    if doc_type == "overview":
-        # 从 Quick Navigation 提取
-        nav = re.findall(r"\*\*\s*(.+?)\s*\*\*", content)
-        for item in nav:
-            zh = re.findall(r"[\u4e00-\u9fff]{2,}", item)
-            keywords_zh.extend(zh)
-            en = re.findall(r"@[A-Za-z_][A-Za-z0-9_]*|[A-Za-z]{3,}", item)
-            keywords_en.extend(en)
-    elif doc_type == "api":
-        # 文件名 + 标题
-        keywords_en.append(label.lower())
-        h2_titles = re.findall(r"^##\s+(.+)", content, re.MULTILINE)
-        for t in h2_titles:
-            t_clean = t.strip()
-            if t_clean not in TITLE_STOP_ZH and t_clean not in TITLE_STOP_EN:
-                zh = re.findall(r"[\u4e00-\u9fff]{2,}", t_clean)
-                keywords_zh.extend(zh)
-                en = re.findall(r"@[A-Za-z_][A-Za-z0-9_]*|[A-Za-z]{3,}", t_clean)
-                keywords_en.extend(en)
-    elif doc_type == "guide":
-        # 模块名 + 标题
-        ns = build_namespace(rel_path)
-        keywords_en.extend(ns.split("_"))
-        h1_match = re.search(r"^#\s+(.+)", content, re.MULTILINE)
-        if h1_match:
-            title = h1_match.group(1).strip()
-            zh = re.findall(r"[\u4e00-\u9fff]{2,}", title)
-            keywords_zh.extend(zh)
-            en = re.findall(r"@[A-Za-z_][A-Za-z0-9_]*|[A-Za-z]{3,}", title)
-            keywords_en.extend(en)
-    elif doc_type == "errorcode":
-        # 错误码编号 + 模块名
-        codes = re.findall(r"\b(\d{8})\b", content)
-        keywords_en.extend(codes)
-        ns = build_namespace(rel_path)
-        keywords_en.extend(ns.split("_"))
-
-    # 去重 + 停词过滤
-    keywords_zh = list(dict.fromkeys(k for k in keywords_zh if k not in TITLE_STOP_ZH))[:15]
-    keywords_en = list(dict.fromkeys(
-        k for k in keywords_en
-        if k.lower() not in TITLE_STOP_EN and k.lower() not in EN_STOP_WORDS and len(k) >= 3
-    ))[:15]
-
-    return keywords_zh, keywords_en
-
-
-def detect_doc_type(rel_path: str, content: str) -> str:
-    """检测文档类型：overview/guide/api/errorcode。
-    影响关键词提取策略和节点 ID 格式。"""
-    path = rel_path.replace("\\", "/").lower()
-    if path.endswith(".overview.md"):
-        return "overview"
-    if "errorcode" in path or "错误码" in rel_path:
-        return "errorcode"
-    if any(x in path for x in ["Guide/", "Tutorial/"]):
-        return "guide"
-    if any(prefix in path for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]):
-        return "api"
-    # 检查是否有 **功能：** 标记
-    if "**功能" in content or "**功能：" in content:
-        return "api"
-    return "guide"
-
-
-def detect_doc_type_from_path(rel_path: str) -> str:
-    """仅从路径推断文档类型（无需读取内容），用于边目标 ID 计算。"""
-    path = rel_path.replace("\\", "/").lower()
-    if path.endswith(".overview.md"):
-        return "overview"
-    if path.endswith(".abstract.md"):
-        return "guide"
-    if "errorcode" in path or "错误码" in rel_path:
-        return "errorcode"
-    if any(prefix in path for prefix in ["class_", "func_", "enum_", "interface_", "struct_", "prop_"]):
-        return "api"
-    return "guide"
-
-
-def compute_node_id(rel_path: str, root_dir: Path, stem: str) -> str:
-    """从文件相对路径和 stem 计算节点 ID，与 extract_doc_node 的 ID 公式一致。"""
-    category = infer_category(rel_path, root_dir.name)
-    namespace = build_namespace(rel_path)
-    doc_type = detect_doc_type_from_path(rel_path)
-    id_stem = clean_id_stem(stem)
-    return f"{category}_{namespace}_{doc_type}_{id_stem}".replace(" ", "_").lower()
-
-
-def _resolve_link_target(link_target: str, doc_path: Path, root_dir: Path) -> Optional[str]:
-    """解析 Markdown 链接目标为 root_dir 下的相对路径。
-    
-    策略：
-    1. 精确解析：doc_path.parent / link → resolve → relative_to(root_dir)
-    2. 模糊匹配：精确解析失败时，在同目录找 clean_filename 匹配的 .md 文件
-    """
-    target_file_raw = link_target.split("#")[0]
-    if not target_file_raw:
+def _resolve_name(node, source: bytes, config: LanguageConfig) -> Optional[str]:
+    if config.resolve_function_name_fn:
         return None
-    stem = Path(target_file_raw).stem
-    if stem.startswith("."):
-        return None
-
-    root_resolved = root_dir.resolve()
-
-    # 策略 1：精确解析
-    target_path = (doc_path.parent / target_file_raw).resolve()
-    try:
-        target_rel = str(target_path.relative_to(root_resolved))
-        if target_path.is_file():
-            return target_rel
-    except ValueError:
-        pass
-
-    # 策略 2：模糊匹配 — 在同目录下找 clean_filename 匹配的 .md 文件
-    link_stem_clean = clean_filename(stem)
-    parent_dir = doc_path.parent
-    for candidate in parent_dir.iterdir():
-        if candidate.suffix == '.md' and not candidate.name.startswith("."):
-            if clean_filename(candidate.stem) == link_stem_clean:
-                try:
-                    return str(candidate.resolve().relative_to(root_resolved))
-                except ValueError:
-                    continue
-
+    n = node.child_by_field_name(config.name_field)
+    if n:
+        return _read_text(n, source)
+    for child in node.children:
+        if child.type in config.name_fallback_child_types:
+            return _read_text(child, source)
     return None
 
 
-def extract_doc_node(doc_path: Path, root_dir: Path) -> Optional[tuple[DocNode, list[Edge]]]:
-    """从 .md 文件提取节点和边。返回 None 表示不建节点（纯示例/overview/abstract）。
+def _find_body(node, config: LanguageConfig):
+    b = node.child_by_field_name(config.body_field)
+    if b:
+        return b
+    for child in node.children:
+        if child.type in config.body_fallback_child_types:
+            return child
+    return None
 
-    节点构建步骤：读取内容 → 跳过纯示例 → 清理文件名 → 推断层级/分类/命名空间
-    → 检测文档类型 → 提取标签/描述/关键词 → 构建 DocNode。
-    边构建：从 Markdown 链接提取 SEE_ALSO 边（同分类同命名空间下的文档引用）。
-    """
-    rel_path = str(doc_path.relative_to(root_dir)).replace("\\", "/")
 
-    # 跳过 overview/abstract
-    if doc_path.name.startswith(".overview") or doc_path.name.startswith(".abstract"):
-        return None
+# ── Import handlers ─────────────────────────────────────────────────────────
 
+def _import_python(node, source, file_nid, edges, str_path):
+    t = node.type
+    if t == "import_statement":
+        for child in node.children:
+            if child.type in ("dotted_name", "aliased_import"):
+                raw = _read_text(child, source)
+                module_name = raw.split(" as ")[0].strip().lstrip(".")
+                tgt_nid = _make_id("import", module_name)
+                edges.append(Edge(source=file_nid, target=tgt_nid, relation=EdgeRelation.USES.value,
+                                  source_file=str_path, confidence="EXTRACTED", confidence_score=1.0))
+    elif t == "import_from_statement":
+        module_node = node.child_by_field_name("module_name")
+        if module_node:
+            raw = _read_text(module_node, source)
+            tgt_nid = _make_id("import", raw.lstrip("."))
+            edges.append(Edge(source=file_nid, target=tgt_nid, relation=EdgeRelation.USES.value,
+                              source_file=str_path, confidence="EXTRACTED", confidence_score=1.0))
+
+
+def _import_js(node, source, file_nid, edges, str_path):
+    for child in node.children:
+        if child.type == "string":
+            raw = _read_text(child, source).strip("'\"` ")
+            if raw:
+                module_name = raw.split("/")[-1] if not raw.startswith(".") else raw.lstrip("./")
+                tgt_nid = _make_id("import", module_name)
+                edges.append(Edge(source=file_nid, target=tgt_nid, relation=EdgeRelation.USES.value,
+                                  source_file=str_path, confidence="EXTRACTED", confidence_score=1.0))
+            break
+
+
+def _import_java(node, source, file_nid, edges, str_path):
+    for child in node.children:
+        if child.type in ("scoped_identifier", "identifier"):
+            raw = _read_text(child, source)
+            module_name = raw.split(".")[-1].strip("*").strip(".")
+            if module_name:
+                tgt_nid = _make_id("import", module_name)
+                edges.append(Edge(source=file_nid, target=tgt_nid, relation=EdgeRelation.USES.value,
+                                  source_file=str_path, confidence="EXTRACTED", confidence_score=1.0))
+            break
+
+
+def _import_c(node, source, file_nid, edges, str_path):
+    for child in node.children:
+        if child.type in ("string_literal", "system_lib_string", "string"):
+            raw = _read_text(child, source).strip('"<> ')
+            module_name = raw.split("/")[-1].split(".")[0]
+            if module_name:
+                tgt_nid = _make_id("import", module_name)
+                edges.append(Edge(source=file_nid, target=tgt_nid, relation=EdgeRelation.USES.value,
+                                  source_file=str_path, confidence="EXTRACTED", confidence_score=1.0))
+            break
+
+
+def _import_cangjie(node, source, file_nid, edges, str_path):
+    for child in node.children:
+        if child.type == "scoped_identifier":
+            raw = _read_text(child, source)
+            module_name = raw.split(".")[-1].strip()
+            if module_name:
+                tgt_nid = _make_id("import", module_name)
+                edges.append(Edge(source=file_nid, target=tgt_nid, relation=EdgeRelation.USES.value,
+                                  source_file=str_path, confidence="EXTRACTED", confidence_score=1.0))
+            break
+
+
+# ── C/C++ function name helpers ─────────────────────────────────────────────
+
+def _get_c_func_name(node, source):
+    if node.type == "identifier":
+        return _read_text(node, source)
+    decl = node.child_by_field_name("declarator")
+    if decl:
+        return _get_c_func_name(decl, source)
+    for child in node.children:
+        if child.type == "identifier":
+            return _read_text(child, source)
+    return None
+
+
+def _get_cpp_func_name(node, source):
+    if node.type == "identifier":
+        return _read_text(node, source)
+    if node.type == "qualified_identifier":
+        name_node = node.child_by_field_name("name")
+        if name_node:
+            return _read_text(name_node, source)
+    decl = node.child_by_field_name("declarator")
+    if decl:
+        return _get_cpp_func_name(decl, source)
+    for child in node.children:
+        if child.type == "identifier":
+            return _read_text(child, source)
+    return None
+
+
+# ── Language configs ────────────────────────────────────────────────────────
+
+_CANGJIE_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_cangjie",
+    ts_language_fn="language",
+    class_types=frozenset({"structDefinition", "classDefinition", "enumDefinition", "interfaceDefinition"}),
+    function_types=frozenset({"functionDefinition", "init"}),
+    import_types=frozenset({"importList"}),
+    call_types=frozenset({"postfixExpression"}),
+    name_field="name",
+    name_fallback_child_types=("structName", "className", "enumName", "funcName", "interfaceName"),
+    body_field="body",
+    body_fallback_child_types=("block", "classBody", "structBody", "enumBody", "interfaceBody", "extendBody"),
+    function_boundary_types=frozenset({"functionDefinition", "init"}),
+    import_handler=_import_cangjie,
+    function_label_parens=True,
+    member_types=frozenset({"variableDeclaration", "propertyDeclaration"}),
+    enum_value_parent="enumBody",
+    extension_types=frozenset({"extendDefinition"}),
+    extend_type_child="extendType",
+)
+
+_PYTHON_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_python",
+    class_types=frozenset({"class_definition"}),
+    function_types=frozenset({"function_definition"}),
+    import_types=frozenset({"import_statement", "import_from_statement"}),
+    call_types=frozenset({"call"}),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"attribute"}),
+    call_accessor_field="attribute",
+    function_boundary_types=frozenset({"function_definition"}),
+    import_handler=_import_python,
+)
+
+_JS_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_javascript",
+    class_types=frozenset({"class_declaration"}),
+    function_types=frozenset({"function_declaration", "method_definition"}),
+    import_types=frozenset({"import_statement"}),
+    call_types=frozenset({"call_expression"}),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"member_expression"}),
+    call_accessor_field="property",
+    function_boundary_types=frozenset({"function_declaration", "arrow_function", "method_definition"}),
+    import_handler=_import_js,
+)
+
+_TS_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_typescript",
+    ts_language_fn="language_typescript",
+    class_types=frozenset({"class_declaration"}),
+    function_types=frozenset({"function_declaration", "method_definition"}),
+    import_types=frozenset({"import_statement"}),
+    call_types=frozenset({"call_expression"}),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"member_expression"}),
+    call_accessor_field="property",
+    function_boundary_types=frozenset({"function_declaration", "arrow_function", "method_definition"}),
+    import_handler=_import_js,
+)
+
+_JAVA_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_java",
+    class_types=frozenset({"class_declaration", "interface_declaration"}),
+    function_types=frozenset({"method_declaration", "constructor_declaration"}),
+    import_types=frozenset({"import_declaration"}),
+    call_types=frozenset({"method_invocation"}),
+    call_function_field="name",
+    function_boundary_types=frozenset({"method_declaration", "constructor_declaration"}),
+    import_handler=_import_java,
+)
+
+_C_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_c",
+    class_types=frozenset(),
+    function_types=frozenset({"function_definition"}),
+    import_types=frozenset({"preproc_include"}),
+    call_types=frozenset({"call_expression"}),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"field_expression"}),
+    call_accessor_field="field",
+    function_boundary_types=frozenset({"function_definition"}),
+    import_handler=_import_c,
+    resolve_function_name_fn=_get_c_func_name,
+)
+
+_CPP_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_cpp",
+    class_types=frozenset({"class_specifier"}),
+    function_types=frozenset({"function_definition"}),
+    import_types=frozenset({"preproc_include"}),
+    call_types=frozenset({"call_expression"}),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"field_expression", "qualified_identifier"}),
+    call_accessor_field="field",
+    function_boundary_types=frozenset({"function_definition"}),
+    import_handler=_import_c,
+    resolve_function_name_fn=_get_cpp_func_name,
+)
+
+_CSHARP_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_c_sharp",
+    class_types=frozenset({"class_declaration", "interface_declaration"}),
+    function_types=frozenset({"method_declaration"}),
+    import_types=frozenset({"using_directive"}),
+    call_types=frozenset({"invocation_expression"}),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"member_access_expression"}),
+    call_accessor_field="name",
+    body_fallback_child_types=("declaration_list",),
+    function_boundary_types=frozenset({"method_declaration"}),
+    import_handler=_import_c,
+)
+
+_KOTLIN_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_kotlin",
+    class_types=frozenset({"class_declaration", "object_declaration"}),
+    function_types=frozenset({"function_declaration"}),
+    import_types=frozenset({"import_header"}),
+    call_types=frozenset({"call_expression"}),
+    name_fallback_child_types=("simple_identifier",),
+    body_fallback_child_types=("function_body", "class_body"),
+    function_boundary_types=frozenset({"function_declaration"}),
+    import_handler=_import_java,
+)
+
+_SWIFT_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_swift",
+    class_types=frozenset({"class_declaration", "protocol_declaration"}),
+    function_types=frozenset({"function_declaration", "init_declaration", "deinit_declaration", "subscript_declaration"}),
+    import_types=frozenset({"import_declaration"}),
+    call_types=frozenset({"call_expression"}),
+    name_fallback_child_types=("simple_identifier", "type_identifier", "user_type"),
+    body_fallback_child_types=("class_body", "protocol_body", "function_body", "enum_class_body"),
+    function_boundary_types=frozenset({"function_declaration", "init_declaration", "deinit_declaration", "subscript_declaration"}),
+    import_handler=_import_js,
+)
+
+_GO_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_go",
+    class_types=frozenset({"type_declaration"}),
+    function_types=frozenset({"function_declaration", "method_declaration"}),
+    import_types=frozenset({"import_declaration"}),
+    call_types=frozenset({"call_expression"}),
+    name_field="name",
+    name_fallback_child_types=("type_identifier", "identifier", "field_identifier", "package_identifier"),
+    body_field="body",
+    body_fallback_child_types=("block",),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"selector_expression"}),
+    call_accessor_field="field",
+    function_boundary_types=frozenset({"function_declaration", "method_declaration"}),
+    import_handler=_import_js,
+)
+
+_RUST_CONFIG = LanguageConfig(
+    ts_module="tree_sitter_rust",
+    class_types=frozenset({"struct_item", "enum_item", "trait_item", "impl_item"}),
+    function_types=frozenset({"function_item", "function_signature_item"}),
+    import_types=frozenset({"use_declaration"}),
+    call_types=frozenset({"call_expression"}),
+    name_field="name",
+    name_fallback_child_types=("type_identifier", "identifier"),
+    body_field="body",
+    body_fallback_child_types=("block",),
+    call_function_field="function",
+    call_accessor_node_types=frozenset({"field_expression"}),
+    call_accessor_field="field",
+    function_boundary_types=frozenset({"function_item"}),
+    import_handler=_import_js,
+)
+
+# Extension → config mapping
+_LANG_MAP: dict[str, LanguageConfig] = {}
+
+
+def _build_lang_map():
+    for ext, cfg in [
+        (".cj", _CANGJIE_CONFIG),
+        (".py", _PYTHON_CONFIG),
+        (".js", _JS_CONFIG),
+        (".jsx", _JS_CONFIG),
+        (".mjs", _JS_CONFIG),
+        (".ts", _TS_CONFIG),
+        (".tsx", _TS_CONFIG),
+        (".java", _JAVA_CONFIG),
+        (".c", _C_CONFIG),
+        (".h", _C_CONFIG),
+        (".cpp", _CPP_CONFIG),
+        (".cc", _CPP_CONFIG),
+        (".cxx", _CPP_CONFIG),
+        (".hpp", _CPP_CONFIG),
+        (".cs", _CSHARP_CONFIG),
+        (".kt", _KOTLIN_CONFIG),
+        (".kts", _KOTLIN_CONFIG),
+        (".swift", _SWIFT_CONFIG),
+        (".go", _GO_CONFIG),
+        (".rs", _RUST_CONFIG),
+    ]:
+        _LANG_MAP[ext] = cfg
+
+
+_build_lang_map()
+
+
+def detect_language(file_path: Path) -> Optional[LanguageConfig]:
+    ext = file_path.suffix.lower()
+    return _LANG_MAP.get(ext)
+
+
+# ── Generic extractor ───────────────────────────────────────────────────────
+
+def _extract_ast(file_path: Path, config: LanguageConfig) -> tuple[list[CodeNode], list[Edge]]:
     try:
-        content = safe_read_text(doc_path)
-    except Exception:
-        return None
-
-    # 纯示例文件不建节点
-    if is_pure_example(content):
-        return None
-
-    label = clean_filename(doc_path.stem)
-    id_stem = clean_id_stem(doc_path.stem)
-    label_zh = extract_label_zh(content)
-    layer = infer_layer(rel_path)
-    category = infer_category(rel_path, root_dir.name)
-    namespace = build_namespace(rel_path)
-    doc_type = detect_doc_type(rel_path, content)
-
-    desc_zh, desc_en = extract_description(content)
-    keywords_zh, keywords_en = extract_keywords(content, doc_type, rel_path, label)
-
-    node = DocNode(
-        id=f"{category}_{namespace}_{doc_type}_{id_stem}".replace(" ", "_").lower(),
-        label=label,
-        label_zh=label_zh,
-        layer=layer,
-        description_zh=desc_zh,
-        description_en=desc_en,
-        keywords_zh=keywords_zh,
-        keywords_en=keywords_en,
-        category=category,
-        namespace=namespace,
-        source_file=rel_path,
-    )
-
-    # 提取 SEE_ALSO 边：基于目标文件的实际路径计算 ID
-    edges = []
-    md_links = re.findall(r"\[([^\]]+)\]\(([^)]+)\)", content)
-    for link_text, link_target in md_links:
-        if link_target.startswith("./") or "/" in link_target:
-            target_file_raw = link_target.split("#")[0]
-            if not target_file_raw or Path(target_file_raw).stem.startswith("."):
-                continue
-            target_path = (doc_path.parent / target_file_raw).resolve()
-            try:
-                target_rel = str(target_path.relative_to(root_dir.resolve()))
-            except ValueError:
-                continue
-            target_id = compute_node_id(target_rel, root_dir, Path(target_file_raw).stem)
-            edges.append(Edge(
-                source=node.id, target=target_id,
-                relation=EdgeRelation.SEE_ALSO.value,
-                source_file=rel_path,
-            ))
-
-    return node, edges
-
-
-# === 概览节点关键词提取 ===
-
-EN_STOP_WORDS = {
-    "the", "this", "that", "with", "from", "for", "and", "are", "but", "not",
-    "you", "all", "can", "had", "her", "was", "one", "our", "out",
-    "directory", "comprehensive", "technical", "resource", "provides", "essential",
-    "guidance", "developers", "framework", "specifically", "designed", "utilizing",
-    "programming", "module", "reference", "documentation", "covers", "functions",
-    "features", "includes", "overview", "introduction", "concept", "basic",
-    "advanced", "usage", "example", "sample", "code", "implementation", "details",
-    "information", "content", "following", "section", "chapter", "page", "part",
-    "topic", "subject", "area", "field", "domain", "category", "type", "kind",
-    "sort", "class", "group", "set", "collection", "list", "array", "table",
-    "chart", "graph", "diagram", "figure", "image", "picture", "photo",
-    "illustration", "drawing", "sketch", "outline", "summary", "abstract",
-    "synopsis", "review", "survey", "analysis", "study", "research",
-    "investigation", "examination", "inspection", "observation", "note", "remark",
-    "comment", "statement", "declaration", "announcement", "proclamation",
-    "publication", "release", "issue", "edition", "version", "revision", "update",
-    "upgrade", "improvement", "enhancement", "modification", "alteration", "change",
-    "adjustment", "adaptation", "conversion", "transformation", "translation",
-    "interpretation", "explanation", "description", "definition", "meaning", "sense",
-    "significance", "importance", "value", "worth", "merit", "quality",
-    "characteristic", "feature", "attribute", "property", "trait", "aspect",
-    "element", "component", "factor", "item", "piece", "portion", "segment",
-    "fragment", "chunk", "block", "unit", "package", "bundle", "cluster", "batch",
-    "series", "sequence", "chain", "string", "line", "row", "column", "matrix",
-    "network", "system", "structure", "architecture", "design", "plan", "scheme",
-    "pattern", "model", "template", "format", "style", "layout", "arrangement",
-    "organization", "configuration", "setup", "installation", "deployment",
-    "distribution", "delivery", "transfer", "transmission", "communication",
-    "connection", "link", "relation", "relationship", "association", "correlation",
-    "interaction", "interface", "integration", "combination", "merger", "fusion",
-    "union", "alliance", "partnership", "collaboration", "cooperation",
-    "coordination", "synchronization", "alignment", "matching", "correspondence",
-    "agreement", "consensus", "harmony", "balance", "equilibrium", "stability",
-    "consistency", "uniformity", "regularity", "predictability", "reliability",
-    "dependability", "trustworthiness", "credibility", "authenticity", "validity",
-    "accuracy", "precision", "correctness", "exactness", "perfection",
-    "completeness", "thoroughness", "comprehensiveness", "extensiveness", "breadth",
-    "scope", "range", "extent", "degree", "level", "stage", "phase", "step",
-    "point", "moment", "time", "period", "duration", "interval", "span", "length",
-    "width", "height", "depth", "size", "dimension", "measurement", "scale",
-    "proportion", "ratio", "rate", "speed", "velocity", "pace", "tempo", "rhythm",
-    "frequency", "occurrence", "appearance", "emergence", "arrival", "entry",
-    "access", "admission", "entrance", "gateway", "door", "portal", "window",
-    "opening", "hole", "gap", "space", "room", "zone", "region", "territory",
-    "district", "neighborhood", "community", "society", "population", "people",
-    "human", "person", "individual", "user", "client", "customer", "consumer",
-    "buyer", "purchaser", "shopper", "visitor", "guest", "stranger", "foreigner",
-    "alien", "immigrant", "emigrant", "migrant", "traveler", "tourist", "passenger",
-    "rider", "driver", "operator", "controller", "manager", "administrator",
-    "director", "leader", "chief", "head", "boss", "master", "owner", "proprietor",
-    "holder", "keeper", "guardian", "protector", "defender", "supporter", "advocate",
-    "champion", "promoter", "sponsor", "backer", "financier", "investor",
-    "shareholder", "stakeholder", "participant", "member", "associate", "colleague",
-    "partner", "ally", "friend", "companion", "mate", "buddy", "pal", "peer",
-    "equal", "match", "rival", "competitor", "opponent", "adversary", "enemy", "foe",
-    "antagonist", "villain", "criminal", "offender", "violator", "transgressor",
-    "sinner", "wrongdoer", "culprit", "perpetrator", "author", "creator", "maker",
-    "builder", "constructor", "developer", "producer", "manufacturer", "fabricator",
-    "assembler", "installer", "implementer", "executor", "performer", "actor",
-    "player", "artist", "craftsman", "artisan", "worker", "laborer", "employee",
-    "staff", "personnel", "workforce", "crew", "team", "squad", "division",
-    "department", "branch", "sector", "sphere", "realm", "kingdom", "empire",
-    "nation", "country", "state", "province", "county", "city", "town", "village",
-    "hamlet", "settlement", "colony", "outpost", "station", "post", "base", "camp",
-    "site", "location", "place", "spot", "position", "venue", "facility",
-    "building", "construction", "edifice", "house", "home", "residence", "dwelling",
-    "apartment", "flat", "condo", "mansion", "palace", "castle", "fortress",
-    "tower", "skyscraper", "office", "shop", "store", "market", "mall", "center",
-    "complex", "plaza", "square", "park", "garden", "yard", "farm", "ranch",
-    "estate", "property", "land", "ground", "soil", "earth", "world", "planet",
-    "globe", "sphere", "orb", "ball", "circle", "ring", "loop", "cycle", "round",
-    "turn", "revolution", "rotation", "spin", "twirl", "whirl", "swirl", "spiral",
-    "coil", "spring", "helix", "curve", "arc", "bend", "fold", "crease", "wrinkle",
-    "stroke", "mark", "trace", "track", "trail", "path", "way", "route", "road",
-    "street", "avenue", "boulevard", "lane", "alley", "passage", "corridor", "hall",
-    "hallway", "tunnel", "pipe", "tube", "hose", "cable", "wire", "cord", "thread",
-    "fiber", "strand", "filament", "hair", "bristle", "whisker", "beard", "mustache",
-    "eyebrow", "eyelash", "eyelid", "eye", "pupil", "iris", "cornea", "lens",
-    "retina", "nerve", "brain", "mind", "thought", "idea", "notion", "belief",
-    "opinion", "view", "perspective", "angle", "stance", "attitude", "approach",
-    "method", "technique", "procedure", "process", "mechanism", "device", "tool",
-    "instrument", "apparatus", "equipment", "gear", "kit", "outfit", "rig",
-    "blueprint", "plot", "map", "atlas", "how", "use", "using", "used", "need",
-    "also", "more", "other", "some", "such", "than", "then", "these", "through",
-    "under", "what", "when", "where", "which", "while", "who", "will", "each",
-    "about", "over", "after", "before", "between", "into", "during", "without",
-    "against", "upon", "much", "many", "does", "did", "been", "being", "have",
-    "has", "had", "do", "done", "make", "made", "take", "get", "got", "give",
-    "given", "know", "think", "see", "come", "want", "look", "find", "tell",
-    "become", "keep", "let", "begin", "show", "hear", "play", "run", "move",
-    "like", "live", "believe", "hold", "bring", "happen", "must", "should",
-    "would", "could", "may", "might", "shall", "provide", "allow", "enable",
-    "help", "work", "support", "include", "contain", "represent", "refer",
-    "describe", "define", "explain", "demonstrate", "illustrate", "indicate",
-    "suggest", "recommend", "require", "ensure", "return", "create", "build",
-    "call", "invoke", "handle", "manage", "process", "perform", "execute",
-    "implement", "apply", "access", "connect", "send", "receive", "read", "write",
-    "open", "close", "start", "stop", "end", "finish", "complete", "continue",
-    "different", "various", "several", "multiple", "number", "first", "second",
-    "third", "last", "next", "same", "another", "both", "either", "neither",
-    "every", "any", "most", "few", "less", "least", "enough", "very", "just",
-    "only", "even", "already", "still", "yet", "always", "never", "often",
-    "sometimes", "usually", "generally", "typically", "commonly", "normally",
-    "actually", "really", "quite", "rather", "fairly", "pretty", "almost",
-    "nearly", "hardly", "simply", "clearly", "easily", "directly", "mainly",
-    "largely", "mostly", "especially", "particularly", "specifically", "exactly",
-    "probably", "possibly", "perhaps", "maybe", "certainly", "definitely",
-    "obviously", "apparently", "generally", "overall", "basically", "essentially",
-    "effectively", "efficiently", "successfully", "properly", "correctly",
-    "appropriately", "suitably", "adequately", "well", "good", "better", "best",
-    "great", "high", "low", "new", "old", "long", "short", "big", "small",
-    "large", "little", "young", "right", "wrong", "true", "false", "real",
-    "full", "empty", "hard", "soft", "easy", "difficult", "simple", "complex",
-    "important", "necessary", "possible", "available", "ready", "able", "likely",
-    "certain", "sure", "clear", "obvious", "main", "major", "key", "common",
-    "public", "private", "local", "global", "general", "special", "particular",
-    "current", "present", "recent", "latest", "final", "original", "initial",
-    "primary", "secondary", "basic", "standard", "normal", "regular", "natural",
-    "physical", "mental", "social", "political", "economic", "financial",
-    "commercial", "industrial", "technical", "digital", "electronic", "virtual",
-    "internal", "external", "external", "outside", "inside", "above", "below",
-    "around", "back", "forward", "away", "down", "up", "off", "on", "in",
-    # 仓颉/HarmonyOS 域名泛化词
-    "harmonyos", "cangjie", "arkui", "api", "sdk",
-    # 领域泛化词 — 高频低区分度，在几乎所有文档中出现，需从关键词中剔除
-    "cangjie", "harmonyos", "arkui", "arkts", "api", "apis", "ohos",
-    "class", "enum", "func", "struct", "interface", "type", "prop",
-    "ui", "web", "to", "get", "put", "run", "init",
-    "module", "component", "kit", "sdk", "application", "package",
-    "int", "string", "array", "length", "start", "end",
-}
-
-
-def _split_camel(s: str) -> list[str]:
-    """Split camelCase into words."""
-    parts = re.sub(r"([a-z])([A-Z])", r"\1 \2", s)
-    return [p for p in re.split(r"[-_\s]+", parts) if len(p) > 1]
-
-
-def extract_overview_keywords(dir_name: str, desc_text: str, rel_path: str) -> tuple[list[str], list[str]]:
-    """从概览目录名和描述文本提取中英文关键词。"""
-    keywords_en = []
-    keywords_zh = []
-    
-    # 1. 从目录名提取英文关键词（去除 cj- 前缀，拆分驼峰/连字符/下划线）
-    clean_dir = re.sub(r"^cj-", "", dir_name.lower())
-    clean_dir = re.sub(r"-?\d+more$", "", clean_dir)
-    clean_dir = re.sub(r"_[a-f0-9]{8}$", "", clean_dir)
-    clean_dir = re.sub(r"^[._]+", "", clean_dir)
-    if clean_dir and len(clean_dir) > 2:
-        parts = re.findall(r"[A-Z][a-z]+|[a-z]+|\d+", clean_dir.replace("-", "_"))
-        for p in parts:
-            if len(p) > 2 and p.lower() not in EN_STOP_WORDS:
-                keywords_en.append(p.lower())
-        if clean_dir.lower() not in EN_STOP_WORDS and len(clean_dir) > 2:
-            keywords_en.append(clean_dir.lower())
-    
-    # 2. 从描述提取英文关键词（API名、组件名、技术术语，保留 @ 符号）
-    en_terms = re.findall(r"@[A-Za-z_][A-Za-z0-9_]*|[A-Z][a-zA-Z]{2,}|[A-Z]{2,}", desc_text)
-    for w in en_terms:
-        if w.lower() not in EN_STOP_WORDS and w.lower() not in keywords_en:
-            keywords_en.append(w)
-    
-    # 3. 从描述提取中文关键词（2字以上连续中文）
-    zh_chars = re.findall(r"[\u4e00-\u9fff]{2,}", desc_text[:500])
-    for zh in zh_chars:
-        if zh not in TITLE_STOP_ZH:
-            keywords_zh.append(zh)
-    
-    # 去重
-    keywords_en = list(dict.fromkeys(keywords_en))[:15]
-    keywords_zh = list(dict.fromkeys(keywords_zh))[:15]
-    
-    return keywords_en, keywords_zh
-
-
-def extract_overview_nodes(overview_path: Path, root_dir: Path) -> tuple[list[DocNode], list[Edge]]:
-    """从 .overview.md 提取概览节点和 CONTAINS 边。
-
-    概览节点是图谱中的"上帝节点"（is_god_node=True），代表一个文档模块的入口。
-    CONTAINS 边来源：
-    1. 快速导航章节中的 Markdown 链接
-    2. 同目录下的 .md 文件和子目录（基于目录结构推断）
-    """
-    try:
-        content = safe_read_text(overview_path)
+        mod = importlib.import_module(config.ts_module)
+        from tree_sitter import Language, Parser
+        lang_fn = getattr(mod, config.ts_language_fn, None)
+        if lang_fn is None:
+            lang_fn = getattr(mod, "language", None)
+        if lang_fn is None:
+            return [], []
+        language = Language(lang_fn())
+    except ImportError:
+        return [], []
     except Exception:
         return [], []
 
-    rel_path = str(overview_path.relative_to(root_dir)).replace("\\", "/")
-    category = infer_category(rel_path, root_dir.name)
-    namespace = build_namespace(rel_path)
-    dir_name = overview_path.parent.name
-    dir_path = overview_path.parent
+    try:
+        parser = Parser(language)
+        source = file_path.read_bytes()
+        tree = parser.parse(source)
+        root = tree.root_node
+    except Exception:
+        return [], []
 
-    desc_text = content[:500]
-    zh_chars = re.findall(r"[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef，。！？；：""''（）【】《》]", desc_text)
-    desc_zh = "".join(zh_chars)[:200]
+    str_path = str(file_path)
+    category = _infer_category(str_path)
+    namespace = _build_namespace(str_path)
 
-    # 从目录名和描述提取关键词
-    keywords_en, keywords_zh = extract_overview_keywords(dir_name, desc_text, rel_path)
+    nodes: list[CodeNode] = []
+    edges: list[Edge] = []
+    seen_ids: set[str] = set()
+    function_bodies: list = []
+    label_to_nid: dict[str, str] = {}
+    node_by_id: dict[str, CodeNode] = {}
 
-    overview_node = DocNode(
-        id=f"{category}_{namespace}_overview_{dir_name}".replace(" ", "_").lower(),
-        label=dir_name,
-        layer=1,
-        namespace=namespace,
-        category=category,
-        source_file=rel_path,
-        description_en=desc_text[:500],
-        description_zh=desc_zh,
-        keywords_zh=keywords_zh,
-        keywords_en=keywords_en,
-        is_god_node=True,
-    )
+    def add_node(nid: str, label: str, api_kind: str, line: int, **kwargs):
+        if nid not in seen_ids:
+            seen_ids.add(nid)
+            node = CodeNode(
+                id=nid, label=label, api_kind=api_kind,
+                namespace=namespace, category=category, source_file=str_path,
+                **kwargs
+            )
+            nodes.append(node)
+            node_by_id[nid] = node
+            label_to_nid[label.lower()] = nid
+            label_to_nid[label.lower().rstrip("()").lstrip(".")] = nid
 
-    edges = []
-    seen = set()
-    nav_section = re.search(r"##\s*快速导航[\s\S]*?(?=##|$)", content)
-    if nav_section:
-        links = re.findall(r"[`]?([a-zA-Z0-9_./-]+\.md)[`]?", nav_section.group())
-        for link in links:
-            link_clean = link.strip().rstrip("/")
-            if link_clean and link_clean != dir_name:
-                target_path = (dir_path / link_clean).resolve()
-                try:
-                    target_rel = str(target_path.relative_to(root_dir.resolve()))
-                    child_id = compute_node_id(target_rel, root_dir, Path(link_clean).stem)
-                except ValueError:
-                    child_id = None
-                if child_id and child_id not in seen:
+    def add_edge(src: str, tgt: str, relation: str, line: int):
+        edges.append(Edge(
+            source=src, target=tgt, relation=relation,
+            source_file=str_path, confidence="EXTRACTED", confidence_score=1.0
+        ))
+
+    file_nid = _make_id("file", str_path)
+    add_node(file_nid, file_path.name, "file", 1)
+
+    def walk(node, parent_class_nid: Optional[str] = None):
+        t = node.type
+
+        if t in config.import_types:
+            if config.import_handler:
+                config.import_handler(node, source, file_nid, edges, str_path)
+            return
+
+        if t in config.class_types:
+            name_node = node.child_by_field_name(config.name_field)
+            if name_node is None:
+                for child in node.children:
+                    if child.type in config.name_fallback_child_types:
+                        name_node = child
+                        break
+            if not name_node:
+                return
+
+            class_name = _read_text(name_node, source)
+            api_kind = "class"
+            if "enum" in t.lower():
+                api_kind = "enum"
+            elif "interface" in t.lower() or "protocol" in t.lower():
+                api_kind = "interface"
+            elif "struct" in t.lower():
+                api_kind = "struct"
+
+            class_nid = _make_id(namespace, api_kind, class_name)
+            line = node.start_point[0] + 1
+            add_node(class_nid, class_name, api_kind, line)
+            add_edge(file_nid, class_nid, EdgeRelation.CONTAINS.value, line)
+
+            parent_type = _extract_inheritance(node, source, config)
+            if parent_type:
+                parent_lower = parent_type.lower().rstrip("()").lstrip(".")
+                existing_nid = label_to_nid.get(parent_lower)
+                if existing_nid and existing_nid in seen_ids:
+                    parent_nid = existing_nid
+                else:
+                    parent_nid = _make_id(namespace, "class", parent_type)
+                    add_node(parent_nid, parent_type, "class", line)
+                add_edge(class_nid, parent_nid, EdgeRelation.EXTENDS.value, line)
+                node_by_id[class_nid].parent_type = parent_type
+
+            body = _find_body(node, config)
+            if body:
+                if api_kind == "enum" and config.enum_value_parent:
+                    _extract_enum_values(body, source, class_nid, node_by_id)
+                for child in body.children:
+                    walk(child, parent_class_nid=class_nid)
+            return
+
+        if t in config.extension_types:
+            target_name = None
+            for child in node.children:
+                if child.type == config.extend_type_child:
+                    target_name = _read_text(child, source)
+                    break
+            if not target_name:
+                return
+
+            ext_nid = _make_id(namespace, "extension", target_name)
+            line = node.start_point[0] + 1
+            add_node(ext_nid, target_name, "extension", line)
+            add_edge(file_nid, ext_nid, EdgeRelation.CONTAINS.value, line)
+
+            tgt_nid = _make_id(namespace, "class", target_name)
+            if tgt_nid in seen_ids:
+                add_edge(ext_nid, tgt_nid, EdgeRelation.EXTENSION_OF.value, line)
+            else:
+                if _is_user_type(target_name):
+                    node_by_id[ext_nid].keywords.append(target_name)
+                    label_to_nid[target_name.lower()] = tgt_nid
+
+            body = _find_body(node, config)
+            if body:
+                for child in body.children:
+                    walk(child, parent_class_nid=ext_nid)
+            return
+
+        if t in config.function_types:
+            func_name = None
+            if config.resolve_function_name_fn:
+                declarator = node.child_by_field_name("declarator")
+                if declarator:
+                    func_name = config.resolve_function_name_fn(declarator, source)
+            elif t == "init":
+                func_name = "init"
+            else:
+                func_name = _resolve_name(node, source, config)
+
+            if not func_name:
+                return
+
+            line = node.start_point[0] + 1
+            if parent_class_nid:
+                node_by_id[parent_class_nid].methods.append(func_name)
+                caller_nid = parent_class_nid
+            else:
+                caller_nid = _make_id(namespace, "function", func_name)
+                add_node(caller_nid, f"{func_name}()", "function", line)
+                add_edge(file_nid, caller_nid, EdgeRelation.CONTAINS.value, line)
+
+            body = _find_body(node, config)
+            if body:
+                function_bodies.append((caller_nid, body))
+
+            _extract_param_types(node, source, config, caller_nid, namespace, seen_ids,
+                                 label_to_nid, node_by_id, edges, str_path)
+            _extract_return_type(node, source, config, caller_nid, namespace, seen_ids,
+                                 label_to_nid, node_by_id, edges, str_path)
+            return
+
+        if t in config.member_types:
+            if parent_class_nid and parent_class_nid in node_by_id:
+                _extract_member(node, source, parent_class_nid, node_by_id, namespace,
+                                seen_ids, label_to_nid, edges, str_path, config)
+            return
+
+        if config.extra_walk_fn:
+            if config.extra_walk_fn(node, source, file_nid, str_path,
+                                     nodes, edges, seen_ids, function_bodies,
+                                     parent_class_nid, add_node, add_edge):
+                return
+
+        for child in node.children:
+            walk(child, parent_class_nid=parent_class_nid)
+
+    walk(root)
+
+    seen_call_pairs: set = set()
+    for func_nid, body_node in function_bodies:
+        _walk_calls(body_node, func_nid, source, config, label_to_nid, seen_call_pairs,
+                     file_nid, str_path, edges, add_node, namespace)
+
+    for node_obj in nodes:
+        for kw in node_obj.keywords:
+            target_id = _make_id(namespace, "class", kw)
+            if target_id != node_obj.id and target_id in seen_ids:
+                edges.append(Edge(
+                    source=node_obj.id, target=target_id,
+                    relation=EdgeRelation.USES.value,
+                    source_file=str_path, confidence="EXTRACTED", confidence_score=1.0
+                ))
+
+    return nodes, edges
+
+
+def _extract_inheritance(node, source, config):
+    if config.ts_module == "tree_sitter_cangjie":
+        for child in node.children:
+            if child.type == "superOrInterface":
+                for sub in child.children:
+                    if sub.type == "identifier":
+                        return _read_text(sub, source)
+    elif config.ts_module == "tree_sitter_python":
+        args = node.child_by_field_name("superclasses")
+        if args:
+            for arg in args.children:
+                if arg.type == "identifier":
+                    return _read_text(arg, source)
+    elif config.ts_module == "tree_sitter_java":
+        sup = node.child_by_field_name("superclass")
+        if sup:
+            for sub in sup.children:
+                if sub.type == "type_identifier":
+                    return _read_text(sub, source)
+    elif config.ts_module == "tree_sitter_swift":
+        for child in node.children:
+            if child.type == "inheritance_specifier":
+                for sub in child.children:
+                    if sub.type in ("user_type", "type_identifier"):
+                        return _read_text(sub, source)
+    elif config.ts_module == "tree_sitter_c_sharp":
+        for child in node.children:
+            if child.type == "base_list":
+                for sub in child.children:
+                    if sub.type in ("identifier", "generic_name"):
+                        if sub.type == "generic_name":
+                            name_child = sub.child_by_field_name("name")
+                            return _read_text(name_child, source) if name_child else _read_text(sub.children[0], source)
+                        return _read_text(sub, source)
+    return ""
+
+
+_BUILTIN_TYPES = frozenset({
+    "Int", "Int8", "Int16", "Int32", "Int64", "UInt", "UInt8", "UInt16", "UInt32", "UInt64", "UIntNative",
+    "Float", "Float16", "Float32", "Float64",
+    "Bool", "Unit", "String", "CString", "Array", "Option", "Result", "Map", "Set", "HashMap", "HashSet",
+    "Nothing", "None", "CPointer", "CFunc", "RuneInt",
+})
+
+
+def _is_user_type(type_name: str) -> bool:
+    return type_name not in _BUILTIN_TYPES and not type_name.startswith("C")
+
+
+def _extract_type_name_from_userType(node, source) -> Optional[str]:
+    for child in node.children:
+        if child.type == "identifier":
+            name = _read_text(child, source)
+            if _is_user_type(name):
+                return name
+    return None
+
+
+def _extract_enum_values(body_node, source, class_nid, node_by_id):
+    for child in body_node.children:
+        if child.type == "identifier" and child.is_named:
+            value_name = _read_text(child, source)
+            if value_name and value_name[0].isupper():
+                node_by_id[class_nid].enum_values.append(value_name)
+
+
+def _extract_member(node, source, parent_nid, node_by_id, namespace,
+                    seen_ids, label_to_nid, edges, str_path, config):
+    t = node.type
+    if t == "variableDeclaration":
+        for child in node.children:
+            if child.type == "variableName":
+                for sub in child.children:
+                    if sub.type == "varBindingPattern":
+                        field_name = _read_text(sub, source)
+                        node_by_id[parent_nid].fields.append(field_name)
+                        break
+            if child.type == "userType":
+                type_name = _extract_type_name_from_userType(child, source)
+                if type_name:
+                    node_by_id[parent_nid].keywords.append(type_name)
+                    tgt_nid = _make_id(namespace, "class", type_name)
+                    if tgt_nid not in seen_ids:
+                        label_to_nid[type_name.lower()] = tgt_nid
+    elif t == "propertyDefinition":
+        for child in node.children:
+            if child.type == "propertyName":
+                field_name = _read_text(child, source)
+                node_by_id[parent_nid].fields.append(field_name)
+            if child.type == "userType":
+                type_name = _extract_type_name_from_userType(child, source)
+                if type_name:
+                    node_by_id[parent_nid].keywords.append(type_name)
+                    tgt_nid = _make_id(namespace, "class", type_name)
+                    if tgt_nid not in seen_ids:
+                        label_to_nid[type_name.lower()] = tgt_nid
+
+
+def _extract_param_types(node, source, config, caller_nid, namespace, seen_ids,
+                         label_to_nid, node_by_id, edges, str_path):
+    params_node = node.child_by_field_name("parameterList")
+    if not params_node:
+        return
+    for child in params_node.children:
+        if child.type in ("parameter", "namedParameter"):
+            for sub in child.children:
+                if sub.type in ("userType", "identifier"):
+                    type_name = None
+                    if sub.type == "userType":
+                        type_name = _extract_type_name_from_userType(sub, source)
+                    elif sub.type == "identifier" and _is_user_type(_read_text(sub, source)):
+                        type_name = _read_text(sub, source)
+                    if type_name and caller_nid in node_by_id:
+                        node_by_id[caller_nid].keywords.append(type_name)
+                        tgt_nid = _make_id(namespace, "class", type_name)
+                        if tgt_nid not in seen_ids:
+                            label_to_nid[type_name.lower()] = tgt_nid
+
+
+def _extract_return_type(node, source, config, caller_nid, namespace, seen_ids,
+                         label_to_nid, node_by_id, edges, str_path):
+    ret_node = node.child_by_field_name("returnType")
+    if not ret_node:
+        return
+    for child in ret_node.children:
+        if child.type in ("userType", "identifier"):
+            type_name = None
+            if child.type == "userType":
+                type_name = _extract_type_name_from_userType(child, source)
+            elif child.type == "identifier" and _is_user_type(_read_text(child, source)):
+                type_name = _read_text(child, source)
+            if type_name and caller_nid in node_by_id:
+                node_by_id[caller_nid].keywords.append(type_name)
+                tgt_nid = _make_id(namespace, "class", type_name)
+                if tgt_nid not in seen_ids:
+                    label_to_nid[type_name.lower()] = tgt_nid
+
+
+def _walk_calls(node, caller_nid, source, config, label_to_nid, seen_pairs,
+                file_nid, str_path, edges, add_node, namespace):
+    """Walk call sites and emit USES edges."""
+    if node.type in config.function_boundary_types:
+        return
+
+    if node.type in config.call_types:
+        callee_name = _extract_callee_name(node, source, config)
+        if callee_name:
+            callee_lower = callee_name.lower()
+            target_nid = label_to_nid.get(callee_lower)
+            if target_nid and target_nid != caller_nid:
+                pair = (caller_nid, target_nid)
+                if pair not in seen_pairs:
+                    seen_pairs.add(pair)
                     edges.append(Edge(
-                        source=overview_node.id, target=child_id,
-                        relation=EdgeRelation.CONTAINS.value,
-                        source_file=rel_path,
+                        source=caller_nid, target=target_nid,
+                        relation=EdgeRelation.USES.value,
+                        source_file=str_path, confidence="EXTRACTED", confidence_score=1.0
                     ))
-                    seen.add(child_id)
 
-    # 基于目录结构自动建立 CONTAINS 边
-    for item in dir_path.iterdir():
-        if item.name.startswith(".") or item.name == overview_path.name:
-            continue
-        target_id = None
-        if item.is_dir():
-            sub_overview = item / ".overview.md"
-            if sub_overview.exists():
-                sub_rel_path = str(sub_overview.relative_to(root_dir)).replace("\\", "/")
-                sub_category = infer_category(sub_rel_path, root_dir.name)
-                sub_namespace = build_namespace(sub_rel_path)
-                target_id = f"{sub_category}_{sub_namespace}_overview_{item.name}".replace(" ", "_").lower()
-        elif item.is_file() and item.suffix == ".md":
-            if item.name.startswith(".abstract") or item.name.startswith(".overview"):
-                continue
-            item_rel_path = str(item.relative_to(root_dir)).replace("\\", "/")
-            target_id = compute_node_id(item_rel_path, root_dir, item.stem)
+    for child in node.children:
+        _walk_calls(child, caller_nid, source, config, label_to_nid, seen_pairs,
+                    file_nid, str_path, edges, add_node, namespace)
 
-        if target_id and target_id not in seen:
-            edges.append(Edge(
-                source=overview_node.id, target=target_id,
-                relation=EdgeRelation.CONTAINS.value,
-                source_file=rel_path,
-            ))
-            seen.add(target_id)
 
-    return [overview_node], edges
+def _extract_callee_name(node, source, config):
+    """Extract callee function name from a call node."""
+    if config.ts_module == "tree_sitter_cangjie":
+        has_call = any(c.type == "callSuffix" for c in node.children)
+        if has_call:
+            deepest = node
+            for child in node.children:
+                if child.type == "postfixExpression":
+                    deepest = child
+                    break
+            for child in deepest.children:
+                if child.type == "fieldAccess":
+                    for sub in child.children:
+                        if sub.type == "simpleIdentifier":
+                            return _read_text(sub, source)
+                elif child.type == "atomicVariable":
+                    return _read_text(child, source)
+    elif config.ts_module == "tree_sitter_python":
+        func_node = node.child_by_field_name(config.call_function_field)
+        if func_node:
+            if func_node.type == "identifier":
+                return _read_text(func_node, source)
+            elif func_node.type == "attribute":
+                attr = node.child_by_field_name(config.call_accessor_field)
+                if attr:
+                    return _read_text(attr, source)
+    elif config.ts_module in ("tree_sitter_javascript", "tree_sitter_typescript"):
+        func_node = node.child_by_field_name(config.call_function_field)
+        if func_node:
+            if func_node.type == "identifier":
+                return _read_text(func_node, source)
+            elif func_node.type in ("member_expression", "member_expression"):
+                prop = node.child_by_field_name(config.call_accessor_field)
+                if prop:
+                    return _read_text(prop, source)
+    elif config.ts_module == "tree_sitter_java":
+        name_node = node.child_by_field_name("name")
+        if name_node:
+            return _read_text(name_node, source)
+    elif config.ts_module == "tree_sitter_c":
+        func_node = node.child_by_field_name(config.call_function_field)
+        if func_node:
+            if func_node.type == "identifier":
+                return _read_text(func_node, source)
+            elif func_node.type == "field_expression":
+                field = node.child_by_field_name(config.call_accessor_field)
+                if field:
+                    return _read_text(field, source)
+    elif config.ts_module == "tree_sitter_cpp":
+        func_node = node.child_by_field_name(config.call_function_field)
+        if func_node:
+            if func_node.type == "identifier":
+                return _read_text(func_node, source)
+            elif func_node.type in ("field_expression", "qualified_identifier"):
+                name = func_node.child_by_field_name("field") or func_node.child_by_field_name("name")
+                if name:
+                    return _read_text(name, source)
+    elif config.ts_module == "tree_sitter_c_sharp":
+        name_node = node.child_by_field_name("name")
+        if name_node:
+            return _read_text(name_node, source)
+        for child in node.children:
+            if child.is_named:
+                raw = _read_text(child, source)
+                if "." in raw:
+                    return raw.split(".")[-1]
+                return raw
+    elif config.ts_module == "tree_sitter_kotlin":
+        first = node.children[0] if node.children else None
+        if first:
+            if first.type == "simple_identifier":
+                return _read_text(first, source)
+            elif first.type == "navigation_expression":
+                for child in reversed(first.children):
+                    if child.type == "simple_identifier":
+                        return _read_text(child, source)
+    elif config.ts_module == "tree_sitter_swift":
+        first = node.children[0] if node.children else None
+        if first:
+            if first.type == "simple_identifier":
+                return _read_text(first, source)
+            elif first.type == "navigation_expression":
+                for child in first.children:
+                    if child.type == "navigation_suffix":
+                        for sc in child.children:
+                            if sc.type == "simple_identifier":
+                                return _read_text(sc, source)
+    elif config.ts_module == "tree_sitter_go":
+        func_node = node.child_by_field_name(config.call_function_field)
+        if func_node:
+            if func_node.type == "identifier":
+                return _read_text(func_node, source)
+            elif func_node.type == "selector_expression":
+                field = node.child_by_field_name(config.call_accessor_field)
+                if field:
+                    return _read_text(field, source)
+    elif config.ts_module == "tree_sitter_rust":
+        func_node = node.child_by_field_name(config.call_function_field)
+        if func_node:
+            if func_node.type == "identifier":
+                return _read_text(func_node, source)
+            elif func_node.type == "field_expression":
+                field = node.child_by_field_name(config.call_accessor_field)
+                if field:
+                    return _read_text(field, source)
+    return None
+
+
+# ── Category / namespace inference ──────────────────────────────────────────
+
+def _infer_category(rel_path: str) -> str:
+    path = rel_path.replace("\\", "/").lower()
+    if path.startswith("stdx/") or "/stdx/" in path:
+        return "stdx"
+    if path.startswith("std/") or "/std/" in path:
+        return "std"
+    if "harmonyos" in path:
+        return "harmonyos"
+    if "lang-features" in path:
+        return "lang"
+    return "code"
+
+
+def _build_namespace(rel_path: str) -> str:
+    parts = rel_path.replace("\\", "/").split("/")
+    ns_parts = []
+    skip = {"api", "package", "index", "samples", "guide", "tutorial", "overview", "src"}
+    for p in parts[:-1]:
+        if p.startswith("cj-"):
+            ns_parts.append(p[3:])
+        elif p and not p.startswith("."):
+            clean = p.lower()
+            if clean not in skip:
+                ns_parts.append(p)
+    return "_".join(ns_parts[-3:]) if ns_parts else "unknown"
+
+
+# ── Public API ──────────────────────────────────────────────────────────────
+
+def collect_files(root_dir: Path, extensions: Optional[set[str]] = None) -> list[Path]:
+    """Collect source files from directory."""
+    if extensions is None:
+        extensions = set(_LANG_MAP.keys())
+    files = []
+    for ext in extensions:
+        files.extend(root_dir.rglob(f"*{ext}"))
+    return sorted(files)
+
+
+def extract_file(file_path: Path, root_dir: Path) -> tuple[list[CodeNode], list[Edge]]:
+    """Extract nodes and edges from a single source file using tree-sitter AST."""
+    config = detect_language(file_path)
+    if config is None:
+        return [], []
+    return _extract_ast(file_path, config)
+
+
+def extract_files(file_paths: list[Path], root_dir: Path) -> tuple[list[CodeNode], list[Edge]]:
+    """Extract from multiple source files."""
+    all_nodes: list[CodeNode] = []
+    all_edges: list[Edge] = []
+    for fp in file_paths:
+        nodes, edges = extract_file(fp, root_dir)
+        all_nodes.extend(nodes)
+        all_edges.extend(edges)
+    return all_nodes, all_edges

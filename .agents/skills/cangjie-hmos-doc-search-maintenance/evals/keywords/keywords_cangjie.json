@@ -1,0 +1,3499 @@
+{
+  "1": {
+    "query": "HashMap怎么存键值对",
+    "intent": "HashMap存键值对",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "HashMap"
+      ],
+      "en": [
+        "HashMap"
+      ]
+    },
+    "context": {
+      "zh": [
+        "键值对"
+      ],
+      "en": [
+        "put",
+        "store"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "HashMap",
+      "put",
+      "store"
+    ],
+    "keywords_zh": [
+      "HashMap",
+      "键值对"
+    ]
+  },
+  "2": {
+    "query": "ArrayList怎么添加和删除元素",
+    "intent": "ArrayList用法",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "ArrayList"
+      ],
+      "en": [
+        "ArrayList"
+      ]
+    },
+    "context": {
+      "zh": [
+        "添加",
+        "删除",
+        "元素"
+      ],
+      "en": [
+        "add",
+        "remove",
+        "element"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "ArrayList",
+      "add",
+      "remove",
+      "element"
+    ],
+    "keywords_zh": [
+      "ArrayList",
+      "添加",
+      "删除",
+      "元素"
+    ]
+  },
+  "3": {
+    "query": "String字符串有哪些常用方法",
+    "intent": "String字符串操作",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "String"
+      ],
+      "en": [
+        "String",
+        "string"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": [
+        "method"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "String",
+      "string",
+      "method"
+    ],
+    "keywords_zh": [
+      "String"
+    ]
+  },
+  "4": {
+    "query": "Array数组怎么创建和遍历",
+    "intent": "Array数组用法",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "Array"
+      ],
+      "en": [
+        "Array",
+        "array"
+      ]
+    },
+    "context": {
+      "zh": [
+        "数组",
+        "创建",
+        "遍历"
+      ],
+      "en": [
+        "create",
+        "iterate"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Array",
+      "array",
+      "create",
+      "iterate"
+    ],
+    "keywords_zh": [
+      "Array",
+      "数组",
+      "创建",
+      "遍历"
+    ]
+  },
+  "5": {
+    "query": "File怎么读写文件内容",
+    "intent": "File文件读写",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "File"
+      ],
+      "en": [
+        "File",
+        "file"
+      ]
+    },
+    "context": {
+      "zh": [
+        "读写",
+        "文件"
+      ],
+      "en": [
+        "read",
+        "write"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "File",
+      "file",
+      "read",
+      "write"
+    ],
+    "keywords_zh": [
+      "File",
+      "读写",
+      "文件"
+    ]
+  },
+  "6": {
+    "query": "缓冲输入流怎么读取数据",
+    "intent": "缓冲输入流",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "BufferedInputStream"
+      ],
+      "en": [
+        "BufferedInputStream"
+      ]
+    },
+    "context": {
+      "zh": [
+        "缓冲",
+        "输入流",
+        "读取"
+      ],
+      "en": [
+        "buffer",
+        "stream",
+        "read"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "BufferedInputStream",
+      "buffer",
+      "stream",
+      "read"
+    ],
+    "keywords_zh": [
+      "BufferedInputStream",
+      "缓冲",
+      "输入流",
+      "读取"
+    ]
+  },
+  "7": {
+    "query": "Mutex互斥锁怎么加锁解锁",
+    "intent": "Mutex互斥锁",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "Mutex"
+      ],
+      "en": [
+        "Mutex",
+        "mutex"
+      ]
+    },
+    "context": {
+      "zh": [
+        "互斥锁",
+        "加锁",
+        "解锁"
+      ],
+      "en": [
+        "lock",
+        "unlock"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Mutex",
+      "mutex",
+      "lock",
+      "unlock"
+    ],
+    "keywords_zh": [
+      "Mutex",
+      "互斥锁",
+      "加锁",
+      "解锁"
+    ]
+  },
+  "8": {
+    "query": "DateTime怎么获取当前时间",
+    "intent": "DateTime日期时间",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "DateTime"
+      ],
+      "en": [
+        "DateTime"
+      ]
+    },
+    "context": {
+      "zh": [
+        "当前时间"
+      ],
+      "en": [
+        "time",
+        "now"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "DateTime",
+      "time",
+      "now"
+    ],
+    "keywords_zh": [
+      "DateTime",
+      "当前时间"
+    ]
+  },
+  "9": {
+    "query": "IPAddress怎么解析IP地址",
+    "intent": "IP地址类",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "IPAddress"
+      ],
+      "en": [
+        "IPAddress"
+      ]
+    },
+    "context": {
+      "zh": [
+        "IP地址",
+        "解析"
+      ],
+      "en": [
+        "IP",
+        "address",
+        "parse"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "IPAddress",
+      "IP",
+      "address",
+      "parse"
+    ],
+    "keywords_zh": [
+      "IPAddress",
+      "IP地址",
+      "解析"
+    ]
+  },
+  "10": {
+    "query": "sort排序函数怎么用",
+    "intent": "sort排序函数",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "sort"
+      ],
+      "en": [
+        "sort"
+      ]
+    },
+    "context": {
+      "zh": [
+        "排序"
+      ],
+      "en": [
+        "sort",
+        "ordering"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "sort",
+      "ordering"
+    ],
+    "keywords_zh": [
+      "sort",
+      "排序"
+    ]
+  },
+  "11": {
+    "query": "JsonArray怎么创建和遍历",
+    "intent": "JsonArray用法",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "JsonArray"
+      ],
+      "en": [
+        "JsonArray"
+      ]
+    },
+    "context": {
+      "zh": [
+        "创建",
+        "遍历"
+      ],
+      "en": [
+        "JSON"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "JsonArray",
+      "JSON"
+    ],
+    "keywords_zh": [
+      "JsonArray",
+      "创建",
+      "遍历"
+    ]
+  },
+  "12": {
+    "query": "JsonObject怎么读取和修改字段",
+    "intent": "JsonObject用法",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "JsonObject"
+      ],
+      "en": [
+        "JsonObject"
+      ]
+    },
+    "context": {
+      "zh": [
+        "读取",
+        "修改",
+        "字段"
+      ],
+      "en": [
+        "JSON",
+        "object",
+        "field"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "JsonObject",
+      "JSON",
+      "object",
+      "field"
+    ],
+    "keywords_zh": [
+      "JsonObject",
+      "读取",
+      "修改",
+      "字段"
+    ]
+  },
+  "13": {
+    "query": "HttpRequest怎么设置请求头和请求体",
+    "intent": "HTTP请求",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "HttpRequest"
+      ],
+      "en": [
+        "HttpRequest"
+      ]
+    },
+    "context": {
+      "zh": [
+        "请求头",
+        "请求体"
+      ],
+      "en": [
+        "HTTP",
+        "request",
+        "header",
+        "body"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "HttpRequest",
+      "HTTP",
+      "request",
+      "header",
+      "body"
+    ],
+    "keywords_zh": [
+      "HttpRequest",
+      "请求头",
+      "请求体"
+    ]
+  },
+  "14": {
+    "query": "SM4加密算法怎么用",
+    "intent": "SM4加密",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "SM4"
+      ],
+      "en": [
+        "SM4"
+      ]
+    },
+    "context": {
+      "zh": [
+        "加密"
+      ],
+      "en": [
+        "encrypt",
+        "cipher"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "SM4",
+      "encrypt",
+      "cipher"
+    ],
+    "keywords_zh": [
+      "SM4",
+      "加密"
+    ]
+  },
+  "15": {
+    "query": "Logger怎么记录不同级别的日志",
+    "intent": "日志记录",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "Logger"
+      ],
+      "en": [
+        "Logger"
+      ]
+    },
+    "context": {
+      "zh": [
+        "日志",
+        "级别"
+      ],
+      "en": [
+        "log",
+        "level"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Logger",
+      "log",
+      "level"
+    ],
+    "keywords_zh": [
+      "Logger",
+      "日志",
+      "级别"
+    ]
+  },
+  "16": {
+    "query": "DataModel怎么实现数据序列化",
+    "intent": "数据序列化",
+    "category": "api_lookup",
+    "core": {
+      "zh": [
+        "DataModel"
+      ],
+      "en": [
+        "DataModel"
+      ]
+    },
+    "context": {
+      "zh": [
+        "序列化"
+      ],
+      "en": [
+        "serialize"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "DataModel",
+      "serialize"
+    ],
+    "keywords_zh": [
+      "DataModel",
+      "序列化"
+    ]
+  },
+  "17": {
+    "query": "Cangjie标准库有哪些集合数据结构",
+    "intent": "collection枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "collection",
+        "data structure"
+      ]
+    },
+    "context": {
+      "zh": [
+        "集合",
+        "数据结构"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "collection",
+      "data structure"
+    ],
+    "keywords_zh": [
+      "集合",
+      "数据结构"
+    ]
+  },
+  "18": {
+    "query": "Cangjie的core包提供哪些核心类型",
+    "intent": "core枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "core",
+        "type"
+      ]
+    },
+    "context": {
+      "zh": [
+        "核心类型"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "core",
+      "type"
+    ],
+    "keywords_zh": [
+      "核心类型"
+    ]
+  },
+  "19": {
+    "query": "Cangjie的io包有哪些输入输出流",
+    "intent": "io枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "io",
+        "stream"
+      ]
+    },
+    "context": {
+      "zh": [
+        "输入输出流"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "io",
+      "stream"
+    ],
+    "keywords_zh": [
+      "输入输出流"
+    ]
+  },
+  "20": {
+    "query": "Cangjie标准库有哪些网络编程类",
+    "intent": "net枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "net",
+        "network",
+        "socket"
+      ]
+    },
+    "context": {
+      "zh": [
+        "网络"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "net",
+      "network",
+      "socket"
+    ],
+    "keywords_zh": [
+      "网络"
+    ]
+  },
+  "21": {
+    "query": "Cangjie有哪些线程同步原语",
+    "intent": "sync枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "sync",
+        "mutex",
+        "semaphore"
+      ]
+    },
+    "context": {
+      "zh": [
+        "线程同步",
+        "同步原语"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "sync",
+      "mutex",
+      "semaphore"
+    ],
+    "keywords_zh": [
+      "线程同步",
+      "同步原语"
+    ]
+  },
+  "22": {
+    "query": "Cangjie有哪些时间日期类型",
+    "intent": "time枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "time",
+        "DateTime",
+        "duration"
+      ]
+    },
+    "context": {
+      "zh": [
+        "时间",
+        "日期"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "time",
+      "DateTime",
+      "duration"
+    ],
+    "keywords_zh": [
+      "时间",
+      "日期"
+    ]
+  },
+  "23": {
+    "query": "Cangjie的fs包提供哪些文件系统操作",
+    "intent": "fs枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "fs",
+        "file"
+      ]
+    },
+    "context": {
+      "zh": [
+        "文件系统"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "fs",
+      "file"
+    ],
+    "keywords_zh": [
+      "文件系统"
+    ]
+  },
+  "24": {
+    "query": "Cangjie的unittest包有哪些测试断言方法",
+    "intent": "unittest枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "unittest",
+        "test",
+        "assert"
+      ]
+    },
+    "context": {
+      "zh": [
+        "测试",
+        "断言"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "unittest",
+      "test",
+      "assert"
+    ],
+    "keywords_zh": [
+      "测试",
+      "断言"
+    ]
+  },
+  "25": {
+    "query": "仓颉编程语言有哪些基本数据类型",
+    "intent": "basic_data_type枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "data type",
+        "integer",
+        "float",
+        "bool"
+      ]
+    },
+    "context": {
+      "zh": [
+        "基本数据类型"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "data type",
+      "integer",
+      "float",
+      "bool"
+    ],
+    "keywords_zh": [
+      "基本数据类型"
+    ]
+  },
+  "26": {
+    "query": "仓颉的函数有哪几种定义方式",
+    "intent": "function枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [
+        "函数"
+      ],
+      "en": [
+        "function",
+        "lambda",
+        "closure"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "function",
+      "lambda",
+      "closure"
+    ],
+    "keywords_zh": [
+      "函数"
+    ]
+  },
+  "27": {
+    "query": "仓颉泛型有哪些约束条件",
+    "intent": "generic枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "generic",
+        "constraint",
+        "where"
+      ]
+    },
+    "context": {
+      "zh": [
+        "泛型",
+        "约束"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "generic",
+      "constraint",
+      "where"
+    ],
+    "keywords_zh": [
+      "泛型",
+      "约束"
+    ]
+  },
+  "28": {
+    "query": "仓颉宏有哪些种类和用法",
+    "intent": "Macro枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "macro",
+        "quote"
+      ]
+    },
+    "context": {
+      "zh": [
+        "宏"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "macro",
+      "quote"
+    ],
+    "keywords_zh": [
+      "宏"
+    ]
+  },
+  "29": {
+    "query": "仓颉语言有哪些并发编程机制",
+    "intent": "concurrency枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "concurrency",
+        "thread",
+        "spawn"
+      ]
+    },
+    "context": {
+      "zh": [
+        "并发"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "concurrency",
+      "thread",
+      "spawn"
+    ],
+    "keywords_zh": [
+      "并发"
+    ]
+  },
+  "30": {
+    "query": "仓颉有哪些异常处理类型",
+    "intent": "error_handle枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [
+        "异常"
+      ],
+      "en": [
+        "exception",
+        "error",
+        "try",
+        "catch"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "exception",
+      "error",
+      "try",
+      "catch"
+    ],
+    "keywords_zh": [
+      "异常"
+    ]
+  },
+  "31": {
+    "query": "仓颉的枚举和模式匹配怎么配合使用",
+    "intent": "enum_and_pattern_match枚举",
+    "category": "enumeration",
+    "core": {
+      "zh": [],
+      "en": [
+        "enum",
+        "match",
+        "pattern"
+      ]
+    },
+    "context": {
+      "zh": [
+        "枚举",
+        "模式匹配"
+      ],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "enum",
+      "match",
+      "pattern"
+    ],
+    "keywords_zh": [
+      "枚举",
+      "模式匹配"
+    ]
+  },
+  "32": {
+    "query": "仓颉的字符串类型怎么用",
+    "intent": "字符串类型概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "字符串"
+      ],
+      "en": [
+        "String",
+        "string"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "字符串类型"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "String",
+      "string"
+    ],
+    "keywords_zh": [
+      "字符串",
+      "字符串类型"
+    ]
+  },
+  "33": {
+    "query": "仓颉怎么定义和使用类",
+    "intent": "类概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "类"
+      ],
+      "en": [
+        "class"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "类定义"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "class"
+    ],
+    "keywords_zh": [
+      "类",
+      "类定义"
+    ]
+  },
+  "34": {
+    "query": "仓颉的接口有什么用怎么实现",
+    "intent": "接口概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "接口"
+      ],
+      "en": [
+        "interface"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "接口实现"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "interface"
+    ],
+    "keywords_zh": [
+      "接口",
+      "接口实现"
+    ]
+  },
+  "35": {
+    "query": "仓颉泛型编程怎么写",
+    "intent": "泛型概述概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "泛型"
+      ],
+      "en": [
+        "generic",
+        "generics"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "泛型编程"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "generic",
+      "generics"
+    ],
+    "keywords_zh": [
+      "泛型",
+      "泛型编程"
+    ]
+  },
+  "36": {
+    "query": "仓颉异常处理机制怎么工作",
+    "intent": "定义异常概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "异常",
+        "异常处理"
+      ],
+      "en": [
+        "exception",
+        "try",
+        "catch"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "exception",
+      "try",
+      "catch"
+    ],
+    "keywords_zh": [
+      "异常",
+      "异常处理"
+    ]
+  },
+  "37": {
+    "query": "仓颉多线程并发怎么实现",
+    "intent": "并发概述概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "并发",
+        "多线程"
+      ],
+      "en": [
+        "concurrency",
+        "thread",
+        "spawn"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "concurrency",
+      "thread",
+      "spawn"
+    ],
+    "keywords_zh": [
+      "并发",
+      "多线程"
+    ]
+  },
+  "38": {
+    "query": "仓颉宏怎么定义和使用",
+    "intent": "宏的简介概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "宏"
+      ],
+      "en": [
+        "macro"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "宏定义"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "macro"
+    ],
+    "keywords_zh": [
+      "宏",
+      "宏定义"
+    ]
+  },
+  "39": {
+    "query": "仓颉的扩展机制怎么用",
+    "intent": "扩展概述概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "扩展"
+      ],
+      "en": [
+        "extension",
+        "extend"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "扩展机制"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "extension",
+      "extend"
+    ],
+    "keywords_zh": [
+      "扩展",
+      "扩展机制"
+    ]
+  },
+  "40": {
+    "query": "仓颉的反射和动态特性怎么用",
+    "intent": "动态特性概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "反射",
+        "动态特性"
+      ],
+      "en": [
+        "reflection",
+        "annotation",
+        "dynamic"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "reflection",
+      "annotation",
+      "dynamic"
+    ],
+    "keywords_zh": [
+      "反射",
+      "动态特性"
+    ]
+  },
+  "41": {
+    "query": "仓颉怎么和C语言互操作",
+    "intent": "仓颉-C 互操作概念",
+    "category": "semantic_fuzzy",
+    "core": {
+      "zh": [
+        "互操作"
+      ],
+      "en": [
+        "FFI",
+        "interop",
+        "C"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [
+        "C互操作"
+      ],
+      "en": []
+    },
+    "keywords_en": [
+      "FFI",
+      "interop",
+      "C"
+    ],
+    "keywords_zh": [
+      "互操作",
+      "C互操作"
+    ]
+  },
+  "42": {
+    "query": "cjpm怎么添加第三方依赖包",
+    "intent": "cjpm使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "cjpm"
+      ],
+      "en": [
+        "cjpm"
+      ]
+    },
+    "context": {
+      "zh": [
+        "依赖包"
+      ],
+      "en": [
+        "dependency"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "cjpm",
+      "dependency"
+    ],
+    "keywords_zh": [
+      "cjpm",
+      "依赖包"
+    ]
+  },
+  "43": {
+    "query": "cjdb怎么调试仓颉程序",
+    "intent": "cjdb使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "cjdb"
+      ],
+      "en": [
+        "cjdb"
+      ]
+    },
+    "context": {
+      "zh": [
+        "调试"
+      ],
+      "en": [
+        "debug",
+        "debugger"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "cjdb",
+      "debug",
+      "debugger"
+    ],
+    "keywords_zh": [
+      "cjdb",
+      "调试"
+    ]
+  },
+  "44": {
+    "query": "cjfmt怎么自动格式化仓颉代码",
+    "intent": "cjfmt使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "cjfmt"
+      ],
+      "en": [
+        "cjfmt"
+      ]
+    },
+    "context": {
+      "zh": [
+        "格式化"
+      ],
+      "en": [
+        "format",
+        "formatter"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "cjfmt",
+      "format",
+      "formatter"
+    ],
+    "keywords_zh": [
+      "cjfmt",
+      "格式化"
+    ]
+  },
+  "45": {
+    "query": "cjlint怎么检查代码规范问题",
+    "intent": "cjlint使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "cjlint"
+      ],
+      "en": [
+        "cjlint"
+      ]
+    },
+    "context": {
+      "zh": [
+        "代码规范",
+        "检查"
+      ],
+      "en": [
+        "lint",
+        "check"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "cjlint",
+      "lint",
+      "check"
+    ],
+    "keywords_zh": [
+      "cjlint",
+      "代码规范",
+      "检查"
+    ]
+  },
+  "46": {
+    "query": "cjcov怎么生成代码覆盖率报告",
+    "intent": "cjcov使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "cjcov"
+      ],
+      "en": [
+        "cjcov"
+      ]
+    },
+    "context": {
+      "zh": [
+        "覆盖率"
+      ],
+      "en": [
+        "coverage"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "cjcov",
+      "coverage"
+    ],
+    "keywords_zh": [
+      "cjcov",
+      "覆盖率"
+    ]
+  },
+  "47": {
+    "query": "cjprof怎么分析程序性能瓶颈",
+    "intent": "cjprof使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "cjprof"
+      ],
+      "en": [
+        "cjprof"
+      ]
+    },
+    "context": {
+      "zh": [
+        "性能分析"
+      ],
+      "en": [
+        "profile",
+        "profiler"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "cjprof",
+      "profile",
+      "profiler"
+    ],
+    "keywords_zh": [
+      "cjprof",
+      "性能分析"
+    ]
+  },
+  "48": {
+    "query": "程序崩溃后怎么恢复堆栈跟踪信息",
+    "intent": "cjtrace_recover使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "堆栈跟踪",
+        "崩溃"
+      ],
+      "en": [
+        "stack trace",
+        "crash"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "stack trace",
+      "crash"
+    ],
+    "keywords_zh": [
+      "堆栈跟踪",
+      "崩溃"
+    ]
+  },
+  "49": {
+    "query": "chir_dis工具怎么反序列化CHIR",
+    "intent": "chir_dis使用",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "chir_dis"
+      ],
+      "en": [
+        "chir_dis"
+      ]
+    },
+    "context": {
+      "zh": [
+        "反序列化"
+      ],
+      "en": [
+        "deserialize",
+        "CHIR"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "chir_dis",
+      "deserialize",
+      "CHIR"
+    ],
+    "keywords_zh": [
+      "chir_dis",
+      "反序列化"
+    ]
+  },
+  "50": {
+    "query": "仓颉怎么用正则表达式匹配邮箱地址",
+    "intent": "使用正则表达式匹配字符串",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "Regex"
+      ],
+      "en": [
+        "Regex"
+      ]
+    },
+    "context": {
+      "zh": [
+        "正则",
+        "匹配",
+        "邮箱"
+      ],
+      "en": [
+        "regex",
+        "pattern",
+        "match",
+        "email"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Regex",
+      "regex",
+      "pattern",
+      "match",
+      "email"
+    ],
+    "keywords_zh": [
+      "Regex",
+      "正则",
+      "匹配",
+      "邮箱"
+    ]
+  },
+  "51": {
+    "query": "仓颉怎么生成一个随机数",
+    "intent": "生成随机数",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "Random"
+      ],
+      "en": [
+        "Random"
+      ]
+    },
+    "context": {
+      "zh": [
+        "随机数"
+      ],
+      "en": [
+        "random"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Random",
+      "random"
+    ],
+    "keywords_zh": [
+      "Random",
+      "随机数"
+    ]
+  },
+  "52": {
+    "query": "仓颉怎么对一个数组进行排序",
+    "intent": "对数组元素排序",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "sort"
+      ],
+      "en": [
+        "sort"
+      ]
+    },
+    "context": {
+      "zh": [
+        "数组",
+        "排序"
+      ],
+      "en": [
+        "sort",
+        "ordering"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "sort",
+      "ordering"
+    ],
+    "keywords_zh": [
+      "sort",
+      "数组",
+      "排序"
+    ]
+  },
+  "53": {
+    "query": "仓颉怎么遍历一个目录下的所有文件",
+    "intent": "遍历目录中的文件",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "Directory"
+      ],
+      "en": [
+        "Directory"
+      ]
+    },
+    "context": {
+      "zh": [
+        "遍历",
+        "目录",
+        "文件"
+      ],
+      "en": [
+        "directory",
+        "traverse",
+        "walk"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Directory",
+      "directory",
+      "traverse",
+      "walk"
+    ],
+    "keywords_zh": [
+      "Directory",
+      "遍历",
+      "目录",
+      "文件"
+    ]
+  },
+  "54": {
+    "query": "仓颉怎么创建并启动一个新线程",
+    "intent": "创建并启动线程",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "Thread"
+      ],
+      "en": [
+        "Thread"
+      ]
+    },
+    "context": {
+      "zh": [
+        "线程",
+        "创建"
+      ],
+      "en": [
+        "thread",
+        "spawn",
+        "create"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Thread",
+      "thread",
+      "spawn",
+      "create"
+    ],
+    "keywords_zh": [
+      "Thread",
+      "线程",
+      "创建"
+    ]
+  },
+  "55": {
+    "query": "仓颉怎么捕获并处理程序抛出的异常",
+    "intent": "捕获和处理异常",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "Exception"
+      ],
+      "en": [
+        "Exception"
+      ]
+    },
+    "context": {
+      "zh": [
+        "捕获"
+      ],
+      "en": [
+        "catch",
+        "try"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Exception",
+      "catch",
+      "try"
+    ],
+    "keywords_zh": [
+      "Exception",
+      "捕获"
+    ]
+  },
+  "56": {
+    "query": "仓颉怎么把字符串转换成整数类型",
+    "intent": "字符串转换为数值类型",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "字符串",
+        "整数",
+        "转换"
+      ],
+      "en": [
+        "parse",
+        "convert",
+        "string",
+        "int"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "parse",
+      "convert",
+      "string",
+      "int"
+    ],
+    "keywords_zh": [
+      "字符串",
+      "整数",
+      "转换"
+    ]
+  },
+  "57": {
+    "query": "仓颉怎么高效拼接大量字符串",
+    "intent": "高效拼接字符串",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "StringBuilder"
+      ],
+      "en": [
+        "StringBuilder"
+      ]
+    },
+    "context": {
+      "zh": [
+        "拼接"
+      ],
+      "en": [
+        "concat",
+        "append"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "StringBuilder",
+      "concat",
+      "append"
+    ],
+    "keywords_zh": [
+      "StringBuilder",
+      "拼接"
+    ]
+  },
+  "58": {
+    "query": "怎么用仓颉的http客户端发起一个GET请求获取网页内容",
+    "intent": "HTTP GET 请求",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "HttpClient"
+      ],
+      "en": [
+        "HttpClient"
+      ]
+    },
+    "context": {
+      "zh": [
+        "GET请求",
+        "网页"
+      ],
+      "en": [
+        "HTTP",
+        "GET",
+        "client"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "HttpClient",
+      "HTTP",
+      "GET",
+      "client"
+    ],
+    "keywords_zh": [
+      "HttpClient",
+      "GET请求",
+      "网页"
+    ]
+  },
+  "59": {
+    "query": "如何为TLS服务端配置证书和私钥文件",
+    "intent": "TLS 证书配置",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "TlsSocket"
+      ],
+      "en": [
+        "TlsSocket"
+      ]
+    },
+    "context": {
+      "zh": [
+        "证书",
+        "私钥",
+        "TLS"
+      ],
+      "en": [
+        "TLS",
+        "certificate",
+        "key"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "TlsSocket",
+      "TLS",
+      "certificate",
+      "key"
+    ],
+    "keywords_zh": [
+      "TlsSocket",
+      "证书",
+      "私钥",
+      "TLS"
+    ]
+  },
+  "60": {
+    "query": "怎么用zlib对文件做gzip压缩和解压",
+    "intent": "gzip 压缩解压",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "zlib"
+      ],
+      "en": [
+        "zlib"
+      ]
+    },
+    "context": {
+      "zh": [
+        "压缩",
+        "解压",
+        "gzip"
+      ],
+      "en": [
+        "gzip",
+        "compress",
+        "decompress"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "zlib",
+      "gzip",
+      "compress",
+      "decompress"
+    ],
+    "keywords_zh": [
+      "zlib",
+      "压缩",
+      "解压",
+      "gzip"
+    ]
+  },
+  "61": {
+    "query": "怎么把字节数组和Base64字符串互相转换",
+    "intent": "Base64 编码解码",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "base64"
+      ],
+      "en": [
+        "base64"
+      ]
+    },
+    "context": {
+      "zh": [
+        "字节数组",
+        "编码"
+      ],
+      "en": [
+        "encode",
+        "decode"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "base64",
+      "encode",
+      "decode"
+    ],
+    "keywords_zh": [
+      "base64",
+      "字节数组",
+      "编码"
+    ]
+  },
+  "62": {
+    "query": "如何把JSON字符串解析成JsonValue对象并读取字段",
+    "intent": "JSON 解析",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "JsonValue"
+      ],
+      "en": [
+        "JsonValue"
+      ]
+    },
+    "context": {
+      "zh": [
+        "JSON",
+        "解析",
+        "字段"
+      ],
+      "en": [
+        "JSON",
+        "parse"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "JsonValue",
+      "JSON",
+      "parse"
+    ],
+    "keywords_zh": [
+      "JsonValue",
+      "JSON",
+      "解析",
+      "字段"
+    ]
+  },
+  "63": {
+    "query": "仓颉库里怎么配置和打印日志",
+    "intent": "日志配置",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "Logger"
+      ],
+      "en": [
+        "Logger"
+      ]
+    },
+    "context": {
+      "zh": [
+        "日志",
+        "配置"
+      ],
+      "en": [
+        "log",
+        "config"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Logger",
+      "log",
+      "config"
+    ],
+    "keywords_zh": [
+      "Logger",
+      "日志",
+      "配置"
+    ]
+  },
+  "64": {
+    "query": "怎么用parse函数解析URL字符串拿到协议路径查询参数等各部分",
+    "intent": "URL 解析",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "URL"
+      ],
+      "en": [
+        "URL"
+      ]
+    },
+    "context": {
+      "zh": [
+        "解析",
+        "协议",
+        "路径"
+      ],
+      "en": [
+        "parse",
+        "protocol"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "URL",
+      "parse",
+      "protocol"
+    ],
+    "keywords_zh": [
+      "URL",
+      "解析",
+      "协议",
+      "路径"
+    ]
+  },
+  "65": {
+    "query": "如何给自定义class实现序列化和反序列化",
+    "intent": "序列化",
+    "category": "how_to",
+    "core": {
+      "zh": [
+        "DataModel"
+      ],
+      "en": [
+        "DataModel"
+      ]
+    },
+    "context": {
+      "zh": [
+        "序列化",
+        "反序列化"
+      ],
+      "en": [
+        "serialize",
+        "deserialize"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "DataModel",
+      "serialize",
+      "deserialize"
+    ],
+    "keywords_zh": [
+      "DataModel",
+      "序列化",
+      "反序列化"
+    ]
+  },
+  "66": {
+    "query": "完整的加密解密流程是怎样的：怎么生成RSA密钥对，再用SM4加密数据最后解密还原",
+    "intent": "密钥生成→加密→解密流程",
+    "category": "workflow",
+    "core": {
+      "zh": [
+        "密钥",
+        "加密",
+        "解密"
+      ],
+      "en": [
+        "key",
+        "encrypt",
+        "decrypt",
+        "RSA",
+        "SM4"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "key",
+      "encrypt",
+      "decrypt",
+      "RSA",
+      "SM4"
+    ],
+    "keywords_zh": [
+      "密钥",
+      "加密",
+      "解密"
+    ]
+  },
+  "67": {
+    "query": "从零开始配置日志的完整步骤：怎么创建Logger、设置日志级别、再通过SimpleLogger输出日志",
+    "intent": "创建Logger→设置级别→输出流程",
+    "category": "workflow",
+    "core": {
+      "zh": [
+        "Logger"
+      ],
+      "en": [
+        "Logger"
+      ]
+    },
+    "context": {
+      "zh": [
+        "日志级别",
+        "输出"
+      ],
+      "en": [
+        "level",
+        "SimpleLogger"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Logger",
+      "level",
+      "SimpleLogger"
+    ],
+    "keywords_zh": [
+      "Logger",
+      "日志级别",
+      "输出"
+    ]
+  },
+  "68": {
+    "query": "搭建HTTP服务的完整流程：怎么用ServerBuilder创建Server、注册路由Handler然后启动服务",
+    "intent": "创建Server→配置路由→启动流程",
+    "category": "workflow",
+    "core": {
+      "zh": [
+        "ServerBuilder",
+        "Server"
+      ],
+      "en": [
+        "ServerBuilder",
+        "Server"
+      ]
+    },
+    "context": {
+      "zh": [
+        "路由"
+      ],
+      "en": [
+        "HTTP",
+        "server",
+        "route",
+        "handler"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "ServerBuilder",
+      "Server",
+      "HTTP",
+      "server",
+      "route",
+      "handler"
+    ],
+    "keywords_zh": [
+      "ServerBuilder",
+      "Server",
+      "路由"
+    ]
+  },
+  "69": {
+    "query": "TLS客户端和服务端建立连接握手的全过程怎么写：从配置TlsClientConfig到TlsSocket握手完成",
+    "intent": "TLS 握手流程",
+    "category": "workflow",
+    "core": {
+      "zh": [
+        "TlsSocket"
+      ],
+      "en": [
+        "TlsSocket"
+      ]
+    },
+    "context": {
+      "zh": [
+        "握手",
+        "客户端",
+        "服务端"
+      ],
+      "en": [
+        "TLS",
+        "handshake",
+        "client",
+        "server"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "TlsSocket",
+      "TLS",
+      "handshake",
+      "client",
+      "server"
+    ],
+    "keywords_zh": [
+      "TlsSocket",
+      "握手",
+      "客户端",
+      "服务端"
+    ]
+  },
+  "70": {
+    "query": "怎么用JsonReader流式解析大JSON数据：从创建reader到逐token读取完整流程",
+    "intent": "JSON 流式解析流程",
+    "category": "workflow",
+    "core": {
+      "zh": [
+        "JsonReader"
+      ],
+      "en": [
+        "JsonReader"
+      ]
+    },
+    "context": {
+      "zh": [
+        "流式",
+        "解析",
+        "token"
+      ],
+      "en": [
+        "JSON",
+        "stream",
+        "reader",
+        "token"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "JsonReader",
+      "JSON",
+      "stream",
+      "reader",
+      "token"
+    ],
+    "keywords_zh": [
+      "JsonReader",
+      "流式",
+      "解析",
+      "token"
+    ]
+  },
+  "71": {
+    "query": "用zlib做压缩解压的完整流程：怎么用CompressOutputStream压缩、再用DecompressInputStream解压还原",
+    "intent": "压缩解压流式流程",
+    "category": "workflow",
+    "core": {
+      "zh": [
+        "压缩",
+        "解压"
+      ],
+      "en": [
+        "CompressOutputStream",
+        "DecompressInputStream",
+        "compress",
+        "decompress"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "CompressOutputStream",
+      "DecompressInputStream",
+      "compress",
+      "decompress"
+    ],
+    "keywords_zh": [
+      "压缩",
+      "解压"
+    ]
+  },
+  "72": {
+    "query": "ArrayList和LinkedList有什么区别",
+    "intent": "对比两种列表容器的差异",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "ArrayList",
+        "LinkedList"
+      ],
+      "en": [
+        "ArrayList",
+        "LinkedList"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "ArrayList",
+      "LinkedList"
+    ],
+    "keywords_zh": [
+      "ArrayList",
+      "LinkedList"
+    ]
+  },
+  "73": {
+    "query": "Int和Int64有什么区别",
+    "intent": "对比Int类型别名与Int64内置类型的区别",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "Int",
+        "Int64"
+      ],
+      "en": [
+        "Int",
+        "Int64"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Int",
+      "Int64"
+    ],
+    "keywords_zh": [
+      "Int",
+      "Int64"
+    ]
+  },
+  "74": {
+    "query": "Mutex和Semaphore有什么区别",
+    "intent": "对比互斥锁与信号量的差异",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "Mutex",
+        "Semaphore"
+      ],
+      "en": [
+        "Mutex",
+        "Semaphore"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Mutex",
+      "Semaphore"
+    ],
+    "keywords_zh": [
+      "Mutex",
+      "Semaphore"
+    ]
+  },
+  "75": {
+    "query": "sort和stableSort有什么区别",
+    "intent": "对比两种排序函数的差异",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "sort",
+        "stableSort"
+      ],
+      "en": [
+        "sort",
+        "stableSort"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "sort",
+      "stableSort"
+    ],
+    "keywords_zh": [
+      "sort",
+      "stableSort"
+    ]
+  },
+  "76": {
+    "query": "class和interface有什么区别",
+    "intent": "对比类与接口的区别",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "类",
+        "接口"
+      ],
+      "en": [
+        "class",
+        "interface"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "class",
+      "interface"
+    ],
+    "keywords_zh": [
+      "类",
+      "接口"
+    ]
+  },
+  "77": {
+    "query": "struct和class有什么区别",
+    "intent": "对比结构体与类的区别",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "结构体",
+        "类"
+      ],
+      "en": [
+        "struct",
+        "class"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "struct",
+      "class"
+    ],
+    "keywords_zh": [
+      "结构体",
+      "类"
+    ]
+  },
+  "78": {
+    "query": "enum和match有什么区别",
+    "intent": "对比枚举类型与模式匹配的区别",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "枚举",
+        "模式匹配"
+      ],
+      "en": [
+        "enum",
+        "match",
+        "pattern"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "enum",
+      "match",
+      "pattern"
+    ],
+    "keywords_zh": [
+      "枚举",
+      "模式匹配"
+    ]
+  },
+  "79": {
+    "query": "let和const有什么区别",
+    "intent": "对比let与const两种变量修饰符",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "let",
+        "const"
+      ],
+      "en": [
+        "let",
+        "const"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "let",
+      "const"
+    ],
+    "keywords_zh": [
+      "let",
+      "const"
+    ]
+  },
+  "80": {
+    "query": "泛型和子类型有什么区别",
+    "intent": "对比泛型与子类型多态",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "泛型",
+        "子类型"
+      ],
+      "en": [
+        "generic",
+        "subtype"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "generic",
+      "subtype"
+    ],
+    "keywords_zh": [
+      "泛型",
+      "子类型"
+    ]
+  },
+  "81": {
+    "query": "闭包和lambda有什么区别",
+    "intent": "对比闭包与lambda表达式",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "闭包"
+      ],
+      "en": [
+        "closure",
+        "lambda"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "closure",
+      "lambda"
+    ],
+    "keywords_zh": [
+      "闭包"
+    ]
+  },
+  "82": {
+    "query": "同步和异步有什么区别",
+    "intent": "对比同步与异步并发机制",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "同步",
+        "异步"
+      ],
+      "en": [
+        "sync",
+        "async",
+        "concurrent"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "sync",
+      "async",
+      "concurrent"
+    ],
+    "keywords_zh": [
+      "同步",
+      "异步"
+    ]
+  },
+  "83": {
+    "query": "FFI和互操作有什么区别",
+    "intent": "对比FFI与互操作概念",
+    "category": "comparison",
+    "core": {
+      "zh": [
+        "互操作"
+      ],
+      "en": [
+        "FFI",
+        "interop"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "FFI",
+      "interop"
+    ],
+    "keywords_zh": [
+      "互操作"
+    ]
+  },
+  "84": {
+    "query": "什么API能把字符串转成整数",
+    "intent": "反向查找字符串转数值的API",
+    "category": "reverse_lookup",
+    "core": {
+      "zh": [
+        "字符串",
+        "整数",
+        "转换"
+      ],
+      "en": [
+        "parse",
+        "convert",
+        "string",
+        "int"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "parse",
+      "convert",
+      "string",
+      "int"
+    ],
+    "keywords_zh": [
+      "字符串",
+      "整数",
+      "转换"
+    ]
+  },
+  "85": {
+    "query": "哪个类能高效拼接大量字符串",
+    "intent": "反向查找高效字符串拼接类",
+    "category": "reverse_lookup",
+    "core": {
+      "zh": [
+        "StringBuilder"
+      ],
+      "en": [
+        "StringBuilder"
+      ]
+    },
+    "context": {
+      "zh": [
+        "拼接"
+      ],
+      "en": [
+        "concat",
+        "append"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "StringBuilder",
+      "concat",
+      "append"
+    ],
+    "keywords_zh": [
+      "StringBuilder",
+      "拼接"
+    ]
+  },
+  "86": {
+    "query": "哪个类能流式解析大JSON数据",
+    "intent": "反向查找流式JSON解析类",
+    "category": "reverse_lookup",
+    "core": {
+      "zh": [
+        "JsonReader"
+      ],
+      "en": [
+        "JsonReader"
+      ]
+    },
+    "context": {
+      "zh": [
+        "流式",
+        "解析",
+        "JSON"
+      ],
+      "en": [
+        "stream",
+        "parse",
+        "JSON"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "JsonReader",
+      "stream",
+      "parse",
+      "JSON"
+    ],
+    "keywords_zh": [
+      "JsonReader",
+      "流式",
+      "解析",
+      "JSON"
+    ]
+  },
+  "87": {
+    "query": "什么API能做Base64编码解码",
+    "intent": "反向查找Base64编解码API",
+    "category": "reverse_lookup",
+    "core": {
+      "zh": [
+        "base64"
+      ],
+      "en": [
+        "base64"
+      ]
+    },
+    "context": {
+      "zh": [
+        "编码",
+        "解码"
+      ],
+      "en": [
+        "encode",
+        "decode"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "base64",
+      "encode",
+      "decode"
+    ],
+    "keywords_zh": [
+      "base64",
+      "编码",
+      "解码"
+    ]
+  },
+  "88": {
+    "query": "用File和BufferedInputStream组合读取大文件",
+    "intent": "File+BufferedInputStream组合读大文件",
+    "category": "composition",
+    "core": {
+      "zh": [
+        "File",
+        "BufferedInputStream"
+      ],
+      "en": [
+        "File",
+        "BufferedInputStream"
+      ]
+    },
+    "context": {
+      "zh": [
+        "读取",
+        "大文件"
+      ],
+      "en": [
+        "read"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "File",
+      "BufferedInputStream",
+      "read"
+    ],
+    "keywords_zh": [
+      "File",
+      "BufferedInputStream",
+      "读取",
+      "大文件"
+    ]
+  },
+  "89": {
+    "query": "用Regex和String组合验证邮箱格式",
+    "intent": "Regex+String组合验证邮箱",
+    "category": "composition",
+    "core": {
+      "zh": [
+        "Regex",
+        "String"
+      ],
+      "en": [
+        "Regex",
+        "String"
+      ]
+    },
+    "context": {
+      "zh": [
+        "验证",
+        "邮箱"
+      ],
+      "en": [
+        "regex",
+        "pattern",
+        "email"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Regex",
+      "String",
+      "regex",
+      "pattern",
+      "email"
+    ],
+    "keywords_zh": [
+      "Regex",
+      "String",
+      "验证",
+      "邮箱"
+    ]
+  },
+  "90": {
+    "query": "用Logger和DataModel组合记录序列化日志",
+    "intent": "Logger+DataModel组合记录序列化",
+    "category": "composition",
+    "core": {
+      "zh": [
+        "Logger",
+        "DataModel"
+      ],
+      "en": [
+        "Logger",
+        "DataModel"
+      ]
+    },
+    "context": {
+      "zh": [
+        "序列化",
+        "日志"
+      ],
+      "en": [
+        "serialize",
+        "log"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Logger",
+      "DataModel",
+      "serialize",
+      "log"
+    ],
+    "keywords_zh": [
+      "Logger",
+      "DataModel",
+      "序列化",
+      "日志"
+    ]
+  },
+  "91": {
+    "query": "用JsonArray和url组合解析API返回的JSON并提取URL参数",
+    "intent": "JsonArray+url组合解析JSON提取URL",
+    "category": "composition",
+    "core": {
+      "zh": [
+        "JsonArray",
+        "URL"
+      ],
+      "en": [
+        "JsonArray",
+        "URL"
+      ]
+    },
+    "context": {
+      "zh": [
+        "解析"
+      ],
+      "en": [
+        "JSON",
+        "parse"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "JsonArray",
+      "URL",
+      "JSON",
+      "parse"
+    ],
+    "keywords_zh": [
+      "JsonArray",
+      "URL",
+      "解析"
+    ]
+  },
+  "92": {
+    "query": "在多线程并发下怎么安全操作HashMap",
+    "intent": "并发约束下安全操作HashMap",
+    "category": "constrained",
+    "core": {
+      "zh": [
+        "ConcurrentHashMap"
+      ],
+      "en": [
+        "ConcurrentHashMap"
+      ]
+    },
+    "context": {
+      "zh": [
+        "并发",
+        "线程安全"
+      ],
+      "en": [
+        "concurrent",
+        "thread-safe",
+        "HashMap"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "ConcurrentHashMap",
+      "concurrent",
+      "thread-safe",
+      "HashMap"
+    ],
+    "keywords_zh": [
+      "ConcurrentHashMap",
+      "并发",
+      "线程安全"
+    ]
+  },
+  "93": {
+    "query": "在TLS只配单向认证的情况下怎么连接服务端",
+    "intent": "TLS单向认证约束下连接",
+    "category": "constrained",
+    "core": {
+      "zh": [
+        "TlsSocket"
+      ],
+      "en": [
+        "TlsSocket"
+      ]
+    },
+    "context": {
+      "zh": [
+        "单向认证",
+        "连接"
+      ],
+      "en": [
+        "TLS",
+        "one-way",
+        "connect"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "TlsSocket",
+      "TLS",
+      "one-way",
+      "connect"
+    ],
+    "keywords_zh": [
+      "TlsSocket",
+      "单向认证",
+      "连接"
+    ]
+  },
+  "94": {
+    "query": "在只读约束下怎么遍历集合不修改内容",
+    "intent": "只读约束下遍历集合",
+    "category": "constrained",
+    "core": {
+      "zh": [
+        "只读",
+        "遍历",
+        "集合"
+      ],
+      "en": [
+        "read-only",
+        "ReadOnlyList",
+        "iterate"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "read-only",
+      "ReadOnlyList",
+      "iterate"
+    ],
+    "keywords_zh": [
+      "只读",
+      "遍历",
+      "集合"
+    ]
+  },
+  "95": {
+    "query": "发HTTP请求用stdx的http还是harmonyos的NetworkKit",
+    "intent": "跨生态HTTP请求方案选择",
+    "category": "cross_ecosystem",
+    "core": {
+      "zh": [
+        "HttpClient",
+        "NetworkKit"
+      ],
+      "en": [
+        "HttpClient",
+        "NetworkKit"
+      ]
+    },
+    "context": {
+      "zh": [
+        "HTTP请求"
+      ],
+      "en": [
+        "HTTP",
+        "request"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "HttpClient",
+      "NetworkKit",
+      "HTTP",
+      "request"
+    ],
+    "keywords_zh": [
+      "HttpClient",
+      "NetworkKit",
+      "HTTP请求"
+    ]
+  },
+  "96": {
+    "query": "文件操作用std.fs还是harmonyos的CoreFileKit",
+    "intent": "跨生态文件操作方案选择",
+    "category": "cross_ecosystem",
+    "core": {
+      "zh": [
+        "文件操作"
+      ],
+      "en": [
+        "fs",
+        "CoreFileKit",
+        "file"
+      ]
+    },
+    "context": {
+      "zh": [],
+      "en": []
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "fs",
+      "CoreFileKit",
+      "file"
+    ],
+    "keywords_zh": [
+      "文件操作"
+    ]
+  },
+  "97": {
+    "query": "Array和ArrayList在大量数据时性能差异",
+    "intent": "Array vs ArrayList性能边界",
+    "category": "performance_boundary",
+    "core": {
+      "zh": [
+        "Array",
+        "ArrayList"
+      ],
+      "en": [
+        "Array",
+        "ArrayList"
+      ]
+    },
+    "context": {
+      "zh": [
+        "大量数据"
+      ],
+      "en": [
+        "performance",
+        "benchmark"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "Array",
+      "ArrayList",
+      "performance",
+      "benchmark"
+    ],
+    "keywords_zh": [
+      "Array",
+      "ArrayList",
+      "大量数据"
+    ]
+  },
+  "98": {
+    "query": "HashMap和TreeMap的查找性能对比",
+    "intent": "HashMap vs TreeMap查找性能",
+    "category": "performance_boundary",
+    "core": {
+      "zh": [
+        "HashMap",
+        "TreeMap"
+      ],
+      "en": [
+        "HashMap",
+        "TreeMap"
+      ]
+    },
+    "context": {
+      "zh": [
+        "查找"
+      ],
+      "en": [
+        "lookup",
+        "search",
+        "performance"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "HashMap",
+      "TreeMap",
+      "lookup",
+      "search",
+      "performance"
+    ],
+    "keywords_zh": [
+      "HashMap",
+      "TreeMap",
+      "查找"
+    ]
+  },
+  "99": {
+    "query": "zlib不同压缩级别对性能的影响",
+    "intent": "zlib压缩级别性能边界",
+    "category": "performance_boundary",
+    "core": {
+      "zh": [
+        "zlib"
+      ],
+      "en": [
+        "zlib"
+      ]
+    },
+    "context": {
+      "zh": [
+        "压缩级别"
+      ],
+      "en": [
+        "compress",
+        "level",
+        "performance"
+      ]
+    },
+    "synonym": {
+      "zh": [],
+      "en": []
+    },
+    "keywords_en": [
+      "zlib",
+      "compress",
+      "level",
+      "performance"
+    ],
+    "keywords_zh": [
+      "zlib",
+      "压缩级别"
+    ]
+  }
+}

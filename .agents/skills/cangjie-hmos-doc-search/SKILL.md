@@ -1,120 +1,117 @@
 ---
 name: cangjie-hmos-doc-search
-description: "HarmonyOS/HMOS Cangjie platform documentation search. Use when the task asks for HarmonyOS APIs, UI components, lifecycle, router/navigation, ability, ArkUI, migration comparisons, app-scenario guidance, or platform reference lookup. For core language and standard-library APIs, use cangjie-lang-features, cangjie-std, or cangjie-stdx."
+description: "仓颉鸿蒙开发文档检索。当需要查询 HarmonyOS API 用法、仓颉标准库 API、开发指南、跨平台迁移对应、语义模糊问题定位时使用。通过知识图谱语义检索定位文档，agent 读取原文后组织回答。"
 ---
 
-# 鸿蒙仓颉文档检索
+# 仓颉鸿蒙文档检索
 
-职责是**索引定位**，Agent 责责**语义理解、关键词提取、读取原文、组织回答**。
+通过知识图谱语义检索定位文档路径，agent 读取原文后组织回答。
 
 ## 适用场景
 
-- 仓颉鸿蒙开发 API / 开发指南查询
+- HarmonyOS API / 开发指南查询（"Router.pushUrl 参数"）
+- 仓颉标准库 / 扩展库 API 查询（"HashMap 怎么用"）
 - 跨生态类比（"Android RecyclerView 对应鸿蒙什么"）
-- 组合场景方案（"带下拉刷新的网络列表页怎么做"）
-- 语义模糊症状（"列表卡顿怎么优化"、"白屏怎么办"）
+- 语义模糊问题（"列表卡顿怎么优化"、"白屏怎么办"）
 - 构建报错 / 错误码排查
 
 ## 工作流
 
-```
-用户查询 → 语义分析提取关键词 → 搜索 → 读取原文 → 组织回答
-```
+用户提问 → 提取关键词 → graph 搜索 → 读取原文 → 组织回答
 
-## 步骤 1：关键词提取
+## 步骤 1：提取关键词
 
-按 core/context/synonym 分类，合并为 `keywords_en` + `keywords_zh`，总数不超过 10 词。
+从用户提问中提取搜索关键词，合并为空格分隔的查询串，3-8 词。
 
-- **core**（1-2词）：最高区分度术语（如 NavPathStack, @State），严禁泛化词（如 create, configuration）
-- **context**（1-3词）：限定 core 侧面（如 pushPath, timeout），严禁泛化域类别词
-- **synonym**（0-2词）：概念级联想（如 navigation, persistence），宁少勿多。**禁止主动添加其他生态术语**（如 RecyclerView、SwipeRefreshLayout），仅在用户明确提到跨生态类比时才加入
+- **核心词**（1-2 词）：API 名或概念名（如 NavPathStack, HashMap），禁用泛化词（如 create, configuration, 使用, 方法, 怎么, 参数）
+- **上下文词**（1-3 词）：限定核心词侧面（如 pushPath, timeout, 键值对）
+- **同义词**（0-2 词）：概念级联想（如 navigation, persistence），宁少勿多。禁止主动添加其他生态术语，仅在用户明确提到跨生态类比时才加入
 
 ### 组合场景搜索策略
 
-组合场景（"信息流App用什么组件"、"带下拉刷新的网络列表页"）应**严格按子意图分别搜索**，避免关键词合并后互相干扰产生噪声。每个子意图独立搜索后合并结果组织回答。
+组合场景（"带下拉刷新的网络列表页怎么做"）应**按子意图分别搜索**，避免关键词合并后互相干扰。每个子意图独立搜索后合并结果组织回答。
 
 ### 构建报错关键词策略
 
 | 错误模式 | 提取关键词 |
 |---------|-----------|
-| "cannot convert X to type Y" | core=类型Y |
-| "undeclared identifier 'Z'" | core=Z |
-| "invalid named arguments prefix 'K:'" | core=目标函数名 |
-| "extra argument given for parameter" | core=目标函数名 |
-| "cannot access field 'F'" | core=F |
+| "cannot convert X to type Y" | 核心词=类型 Y |
+| "undeclared identifier 'Z'" | 核心词=Z |
+| "invalid named arguments prefix 'K:'" | 核心词=目标函数名 |
+| "extra argument given for parameter" | 核心词=目标函数名 |
+| "cannot access field 'F'" | 核心词=F |
 
 不将完整错误信息、宏展开代码、行号作为关键词。
-
-详细规则（意图识别、跨生态映射、隐含意图、组合查询拆分）见 `SKILL_DETAIL.md`。
 
 ## 步骤 2：搜索
 
 ```bash
-python unified_search.py "<query>" [options]
+cd [Skill目录]/doc-graph
+python cli.py search "关键词1 关键词2 关键词3" --graph doc --graph-path "data/doc/graph.json" --json -k 5
 ```
 
-| 参数 | 默认值 | 说明 |
-|------|--------|------|
-| `query` | — | 关键词合并后的查询串 |
-| `--engine` | `fusion` | `fusion` / `card` / `graph` |
-| `--json` | off | 输出 JSON |
-| `--limit` | `5` | 直接命中数量上限 |
+HarmonyOS API 搜索：`--graph-path "data/doc/graph.json"`
+仓颉标准库搜索：`--graph-path "data/doc/graph_cj.json"`
 
-场景指引：**默认用 fusion**；精确 API/构建报错 → `card`；需要纯图遍历（neighbors/path/god-nodes/community）→ `graph`；其余一律 fusion。
+agent 推荐使用 `--json` 输出，解析 `direct_hits[].source_file` 获取文档路径。
 
-**降级策略**：当 fusion 命中不佳（top-5 无相关结果或结果泛化）时，建议切换 `--engine graph` 单独搜索。graph 引擎在语义/组合/跨生态类查询上召回率更高（Recall@5 91.7% vs fusion 77.6%），fusion 的 card 结果可能挤占 graph 命中位导致召回下降。
+| 参数 | 说明 |
+|------|------|
+| `--graph doc` | 搜索文档图谱（必选） |
+| `--graph-path` | 图谱文件路径（默认 data/doc/graph.json，cangjie 用 data/doc/graph_cj.json） |
+| `--json` | JSON 输出（含分数、direct/related 分类，**agent 推荐**） |
+| `-b` | 简洁文本输出（仅 label + 路径，非 JSON 场景备用） |
+| `-k N` | 返回 N 条 |
 
-`--engine graph` 可附加子命令：`--cmd neighbors <node>` / `path <s> <t>` / `god-nodes [n]` / `community <id>` / `explain <node>`。
+### 结果结构
 
-> **Windows 注意**：PowerShell 会吞掉 `""` 空字符串参数，导致图遍历命令参数错位。已内置自动修正，调用时**无需传空 query**，直接 `--engine graph --cmd neighbors List` 即可。加 `--json` 可获取结构化输出。
+搜索返回两类结果：
 
-详细调用示例见 `SKILL_DETAIL.md`。
+- **direct_hits**（直接命中）：关键词匹配节点 label/keywords/description，分数高，**优先读取**
+- **related_hits**（关联推荐）：通过 SEE_ALSO 边推荐的相邻节点，分数较低，作为补充
 
-## 步骤 3：结果解读
+### 分数解读
 
-输出字段：`label`（主题名）、`source_file`（相对路径）、`score`（分数，≥400 高度相关、200-400 较相关、<100 疑似噪声）、`engine`（来源引擎）。
+| 分数范围 | 含义 | 处理 |
+|---------|------|------|
+| ≥ 400 | 高度相关 | 直接读取原文 |
+| 200-400 | 较相关 | 可参考 |
+| < 100 | 疑似噪声 | 忽略 |
 
-`engine` 标记含义：
-- `card+graph`：双引擎重叠命中，最高可信度
-- `graph`：仅图谱引擎命中，语义关联线索
-- `card`：仅卡片引擎命中，精确事实单一来源
+## 步骤 3：读取原文
 
-## 步骤 4：读取原文
+搜索返回的 `source_file` 是相对路径，需要拼接完整路径后读取：
 
-### 路径解析
-
+**HarmonyOS 文档**（graph.json 返回）：
 ```
-完整绝对路径 = [Skill目录]/docs/[source_file]
-```
-
-示例：
-```
-Skill 目录: "C:\CangjieSkills_3499\.agents\skills\cangjie-hmos-doc-search"
-source_file: "harmonyos-6.0.2-15k/cj-scroll-swipe-list/List/.overview.md"
-→ 完整绝对路径: "C:\CangjieSkills_3499\.agents\skills\cangjie-hmos-doc-search\docs\harmonyos-6.0.2-15k\cj-scroll-swipe-list\List\.overview.md"
+完整路径 = [Skill目录]/docs/harmonyos-6.0.2-15k/[source_file]
+示例：source_file = "cj-arkui/cj-scroll-swipe-list.md"
+     → docs/harmonyos-6.0.2-15k/cj-arkui/cj-scroll-swipe-list.md
 ```
 
-### 读取策略（硬性约束）
+**仓颉标准库/扩展库/内核文档**（graph_cj.json 返回）：
+```
+完整路径 = [skills目录]/cangjie-docs/[source_file]
+示例：source_file = "cj-std/collection/class_HashMap.md"
+     → ../../cangjie-docs/cj-std/collection/class_HashMap.md
+```
+
+### 读取策略
 
 1. **只读 Top 1-2** 直接命中的 `source_file`，若无所需内容，再查看后续文件
-2. **overview.md 不含所需信息时**：根据其 Quick Navigation 段定位 1 个最相关子文件，总计仍不超过 2 个文件
+2. **`.overview.md` 不含所需信息时**：根据其 Quick Navigation 段定位 1 个最相关子文件，总计仍不超过 2 个文件
 3. **组合查询**：各子意图只取 Top1，不逐一全文阅读
 4. **提取不粘贴**：从原文提取 API 签名、关键用法、注意事项，用自己的语言组织回答
 5. **限制读取范围**：每个文件用 offset/limit 只读相关段落，不读全文
 
-## 步骤 5：搜索失败与重试
+## 搜索失败与重试
 
-| 原因 | 处理 |
-|------|------|
-| 关键词泛化 | 添加更具体术语 |
-| 缺少原生态术语 | 跨生态查询添加 Android/iOS 术语 |
-| 关键词过多/噪音 | 减少噪音词，聚焦 core |
-| CLI 不可用 | 回退到 Glob/Grep，但仍遵守"只读 Top 1-2"限制 |
+| 失败模式 | 判断依据 | 处理 |
+|---------|---------|------|
+| 关键词泛化 | Top-1 score < 100 | 添加更具体的 API 名或类型名重新搜索 |
+| 缺少生态术语 | 跨生态查询全部 MISS | 添加 Android/iOS 对应术语重新搜索 |
+| 关键词过多/噪声 | Top-5 score 全部接近且偏低 | 减至 3-5 个核心词重新搜索 |
+| 搜索结果无关 | Top-1 路径与查询意图不符 | 换关键词角度重新搜索 |
+| CLI 不可用 | 命令报错或超时 | 回退到 Glob/Grep 搜索 `docs/` 目录，仍遵守"只读 Top 1-2"限制 |
 
-## 子技能
-
-仅在需要深入理解引擎内部机制时参阅：
-- **doc-card**：详见 `doc-card/SKILL.md`
-- **doc-graph**：详见 `doc-graph/SKILL.md`
-
-日常检索始终使用顶层 `unified_search.py`，无需直接调用子技能 CLI。
+重试时每次只调整 1-2 个关键词，不要一次性全部替换。

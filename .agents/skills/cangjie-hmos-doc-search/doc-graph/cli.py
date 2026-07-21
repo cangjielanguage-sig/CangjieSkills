@@ -240,7 +240,7 @@ def main():
     p_search.add_argument("query", help="查询字符串")
     p_search.add_argument("--limit", "-k", type=int, default=5, help="直接命中返回数量")
     p_search.add_argument("--graph", choices=["doc", "code", "auto", "both"], default="auto", help="选择图谱")
-    p_search.add_argument("--graph-path", default=None, help="自定义 graph.json 路径 (如 data/doc/graph_cj.json)")
+    p_search.add_argument("--graph-path", default=None, help="自定义 graph.json 路径 (默认 data/doc/graph.json，cangjie 用 data/doc/graph_cj.json)")
     p_search.add_argument("--brief", "-b", action="store_true", help="仅返回 label + source_file")
     p_search.add_argument("--json", action="store_true", help="输出结构化 JSON（与 card/fusion 对齐）")
     p_search.set_defaults(func=cmd_search)

@@ -4,6 +4,17 @@
 
 - 来自 `std.unicode.*`
 - `UnicodeRuneExtension` 扩展接口，为 `Rune` 类型添加 Unicode 分类方法
+- 必须在顶层写 `import std.unicode.*`；没有该 import 时这些扩展成员不可见
+
+### 1.1 字符处理路径选择
+
+| 契约语义 | 路径 |
+| --- | --- |
+| 整串 ASCII 大小写或裁剪 | 使用核心 `String.toAsciiLower()`、`toAsciiUpper()`、`trimAscii()` |
+| Unicode 大小写、分类或空白 | 导入 `std.unicode.*`，按本专题使用 String/Rune 扩展 |
+| 逐个 Rune 的受限 ASCII 映射 | 使用显式码点判断与转换；Rune 没有 String 的 `toAsciiLower()`/`toAsciiUpper()` 成员 |
+
+路径由契约的字符语义决定；不能因为样例只含英文就把 Unicode 需求降级成 ASCII。
 
 | 方法 | 说明 |
 |------|------|
@@ -99,5 +110,5 @@ main() {
 2. Rune 使用 `toLowerCase()` / `toUpperCase()`，String 使用 `toLower()` / `toUpper()`（注意名称差异）
 3. 需要语言特定转换时使用 `CasingOption` 参数（如土耳其语 I/İ 问题）
 4. `String.isBlank()` 检查是否为空或仅含空白字符
-5. `String.trim()` / `trimStart()` / `trimEnd()` 去除空白字符
+5. `String.trim()` / `trimStart()` / `trimEnd()` 去除 Unicode 空白字符；只处理 ASCII 空白时用核心 `trimAscii()`
 6. Rune 字面量使用 `r"字符"` 语法

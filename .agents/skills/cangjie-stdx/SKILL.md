@@ -1,13 +1,61 @@
 ---
 name: cangjie-stdx
-description: "Cangjie extension standard-library guidance for configured stdx APIs. Use for coding tasks that require JSON, Base64/Hex/URL encoding, compression, serialization, logging, HTTP/HTTPS, WebSocket, TLS, crypto, hashing, HMAC, MD5/SHA/SM3-style digest work, or stdx configuration examples. For core language and standard-library APIs, use cangjie-lang-features and cangjie-std."
+description: "仅当仓颉任务明确需要 stdx 扩展能力或必须判断 stdx 是否可用时使用：JSON、Base64/Hex/URL、压缩、序列化、日志、HTTP/HTTPS、WebSocket、TLS、加密、摘要/HMAC、证书或 stdx 配置；项目尚未配置也可先加载并选路。Use only for these extension capabilities or an stdx availability decision, then select existing configuration, an authorized config change, a source alternative, or an explicit dependency gap."
 ---
 
-## 使用前判断
+## 职责边界
 
-- `stdx` 扩展库通常需要额外 import path/link 配置。若目标是裸 `cjc` 编译或未知编译环境，先确认 stdx 已配置；否则不要假设 `stdx.crypto.digest`、`stdx.encoding.hex` 等包可直接导入。
-- 只需要核心语言或标准库能力时，优先使用 `cangjie-std`；确需 JSON、HTTP、TLS、加密、编码、压缩等扩展库能力且构建环境可用时再使用本 Skill。
-- `std.crypto.digest` 只提供摘要接口，具体摘要算法和 Hex/Base64 编码在 `stdx` 中；若 standalone 代码无法导入 `stdx`，不要生成会直接编译失败的 stdx import，应先说明依赖配置需求，或在函数契约明确要求时给出自包含实现。
+- 本 Skill 负责扩展能力识别、stdx 可行性选路、精确包路由和运行前提；核心语法与 `std.*` API 分别交给 `cangjie-lang-features` 和 `cangjie-std`。
+- “需要 stdx 能力”本身就是加载条件。是否已配置由本 Skill 检查，不能要求调用方在加载前先证明依赖可用。
+- 构建、动态/静态链接、系统库和部署细节只在 [config](./config/README.md) 与各专题中维护，主文件不复制平台参数。
+- HarmonyOS/HMOS 的 stdx 二进制包和打包路径由 `cangjie-hmos-stdx` 负责；本 Skill 只保留这条路由。
+
+## 扩展能力选路流程
+
+1. 判断需求是否确属扩展库，并读取对应 API 专题；普通核心容器、数学、Unicode、转换、可选值和顺序编排能力不进入本 Skill。
+2. 检查项目形态、`cjpm.toml` 或等效配置、目标平台、允许修改范围和运行方式；仅看到 API 文档不能证明依赖已可用。
+3. 按下表选择可行路径。路径选择先于源码 import，不能把依赖风险留到写入之后说明。
+4. 采用 stdx 时核对精确包、API 签名、返回/错误模型及配置专题中的构建前提；采用源码替代时同步加载语言与标准库专题核对实现所需能力。
+5. 写入后检查源码、构建配置和运行时依赖三层闭包；无法验证的层级必须明确列出。
+
+## 可行路径矩阵
+
+| 环境与权限 | 选择 |
+| --- | --- |
+| 项目已有匹配目标平台的 stdx 配置 | 使用对应 stdx API，并验证 import、链接和运行时依赖 |
+| 当前未配置，但用户允许修改项目配置 | 先按 [config](./config/README.md) 完成配置，再使用 stdx API |
+| 只能修改源码或使用裸编译环境 | 比较 `std.*` 组合与自包含实现；只有契约必须产出实现且语法、算法和验证路径均可满足时才选择自包含方案 |
+| 没有可用依赖，也没有可可靠实现的源码路径 | 说明缺失能力、所需配置和受影响产物，不生成明知无法解析的 stdx import |
+
+自包含实现不是默认方案，也不是一律禁止的方案。应根据任务是否必须完成、算法规模、已有语言能力和可用验证证据作出选择；复杂度超过当前可复核范围时保留依赖缺口，而不是伪造可用性。
+
+## 交付收敛与停止条件
+
+- 当任务明确要求生成、填充或修改产物时，把“产物已写入且路径闭合”或“已明确报告不可消除的依赖缺口”作为终止条件；完成环境调研本身不算交付。
+- 将可行性调查限制为一轮项目配置检查、一轮直接相关 API/算法专题检查和必要的目标平台确认。除非出现推翻前提的新证据，不要扩展到评测框架、无关源码、其它任务或宽泛仓库探索。
+- 调查结束后立即固定矩阵中的一条路径并执行：已有配置则使用；允许改配置则先配置；源码受限但存在可验证替代则实现；没有可靠路径则停止并报告依赖缺口。不要在这些路径之间反复切换。
+- 对 one-shot/single-pass 源码任务，若存在满足契约且可静态复核或用已知向量验证的自包含路径，应在唯一写入中完成它；不得以继续调查代替写入。若不存在可靠路径，不写占位实现、不伪造 stdx import，并在写入前说明阻塞条件。
+- 最终回复列出采用路径、实际修改的源码/配置、未验证层级和剩余依赖；如果没有修改产物，必须明确说明为什么所有可行路径均被排除。
+
+## 扩展 API 闭包
+
+- **能力闭包**：专题确实提供所需算法、编码、协议或序列化语义，不能把相邻接口当作具体实现。
+- **源码闭包**：包名、import、参数、返回类型、可选返回值、异常处理和资源释放与专题一致。
+- **配置闭包**：目标平台的依赖路径和链接方式可由项目配置解析，且修改权限明确。
+- **运行闭包**：系统库、证书、动态库搜索路径和部署方式满足对应专题前提。
+- **替代闭包**：若不使用 stdx，替代路径覆盖原契约，并能对关键边界或已知向量进行验证。
+
+## 高频能力路由
+
+| 能力 | 必读专题 |
+| --- | --- |
+| 下载、动态/静态依赖、平台配置 | [config](./config/README.md) |
+| JSON | [json](./json/README.md)；流式或类型映射同时读 [serialization](./serialization/README.md) |
+| Base64、Hex、URL | [encoding](./encoding/README.md) |
+| 摘要、HMAC、非对称算法、X509 | [crypto](./crypto/README.md) |
+| HTTP 客户端/服务端与 WebSocket | [http_client](./http_client/README.md)、[http_server](./http_server/README.md)、[websocket](./websocket/README.md) |
+| HTTPS、证书与 ALPN | [tls](./tls/README.md) 及对应 HTTP HTTPS 专题 |
+| 日志、压缩、通用序列化 | [log](./log/README.md)、[compress](./compress/README.md)、[serialization](./serialization/README.md) |
 
 请按需查询当前目录下的工具文档：
 

@@ -1,20 +1,52 @@
 ---
 name: cangjie-std
-description: "Cangjie standard-library API guidance for .cj code generation, code filling, and function implementation. Use when signatures or comments mention Array, String, Rune, Bool, Int64, Float64, Option, Tuple, collection, substring, sort, filter, map, split, contains, size, empty, ceiling, floor, parsing, math, or when fixing Array.append/ArrayList.append, HashMap.put/HashSet.put, arr.sort, .length, .isEmpty, subString, toLower/toUpper, isUpperCase, ceil/floor/round. Pair with cangjie-lang-features."
+description: "用于每一次仓颉 .cj 生成或编辑，包括看似只用 std.core 的简单函数；必须在第一次写入前与 cangjie-lang-features 配对加载。Use to verify every candidate's std.* needs, packages/imports, signatures, return values, mutation effects and failure models across collections, String/Rune, sort, math, unicode, convert, I/O, networking, processes and tests. Use cangjie-stdx for extension capabilities."
 ---
 
-## 代码生成 API 首检
+## 职责边界
 
-- `Array<T>` 固定长度，没有 `append`/成员 `sort`。需要动态追加时用 `ArrayList<T>` 的 `add`，最后 `toArray()`；知道结果长度时优先 `Array<T>(size, { i => ... })` 并按下标赋值。
-- `Array<T>(size, repeat: value)` 用于重复填充值；按下标生成元素时写 `Array<T>(size, { i => expr })`，不要写 `item:` 或 `initElement:` 调用。
-- `ArrayList`、`HashMap`、`HashSet` 来自 `std.collection`，使用前写 `import std.collection.*`。`ArrayList` 和 `HashSet` 添加元素都用 `add`；不要写 `append` 或 `put`。
-- `HashMap` 更新可写 `map[key] = value` 或 `map.add(key, value)`；安全取值后参与比较时先加括号，例如 `(map.get(key) ?? 0) == 1`。不要把 `put` 当作 HashMap/HashSet API。
-- 排序使用 `std.sort` 的自由函数：`import std.sort.*` 后写 `sort(arr)`、`sort(arr, descending: true)` 或 `sort(arr, lessThan: { a, b => ... })`；不要写 `arr.sort()`。
-- `Array` 没有成员 `filter`/`map` 时，优先用显式循环加 `ArrayList` 收集；若使用迭代器函数，确认已导入对应集合工具并用 `collectArray`/`collectArrayList` 收尾。不要写 `filter(func...)` 或 `sort(func...)`。
-- `String` 长度属性是 `size`，判空调用 `isEmpty()`；不要写 `.length` 或 `.isEmpty`。子串用区间下标，例如 `s[start..end]`；简单查找优先 `contains`、`indexOf`、`startsWith`、`endsWith`。
-- `String.trim()`、`String.toLower()`、`String.toUpper()`、`Rune.isLetter()`、`Rune.isUpperCase()`、`Rune.toLowerCase()` 等 Unicode 扩展需要 `import std.unicode.*`。只裁剪 ASCII 空白可用核心 `trimAscii()`。
-- `ceil`、`floor`、`round`、`sqrt`、`pow`、`abs` 等数学自由函数需要 `import std.math.*`，调用方式是 `ceil(x)`，不要写 `x.ceil()`。
-- 字符集合常用 `HashSet<Rune>` 配合 `s.runes()`；需要字符串结果时用 `ArrayList<Rune>` 收集、`String(list.toArray())` 返回。
+- 本 Skill 负责 `std.*` API 的选择与契约核对，不重复语言语法；语法、捕获、类型和顶层结构由 `cangjie-lang-features` 负责。
+- 具体 API 以本目录专题文档为唯一权威来源。主文件负责识别能力、加载专题和检查调用闭包，不维护针对单个评测错误的黑名单。
+- 具体摘要算法、Hex/Base64/URL、JSON、HTTP/TLS、压缩和日志等扩展能力交给 `cangjie-stdx`；是否已配置不是加载该 Skill 的前置条件。
+
+## 标准库选路流程
+
+1. 从任务契约识别能力和输入输出形状，区分核心类型、集合、排序、数学、Unicode、转换、I/O、网络、进程或测试。
+2. 为每项能力读取对应专题，记录实际符号、所属包、调用形态（实例成员、静态成员、自由函数或构造器）、完整签名、返回类型、是否修改输入以及失败方式；不要凭其它语言的同名 API 推断。
+3. 枚举符合约束的调用路径，比较数据结构、错误语义、是否保留输入和所需 import；选择后再生成代码。
+4. 将所有非 `std.core` 符号加入“符号 → 包 → 顶层 import”收据，并逐项确认完整候选源码中实际存在所需 import、位置在顶层声明之前且无别名或本地声明冲突；读过专题、在说明中提到包名或打算稍后补 import 都不算依赖闭合。
+5. 完整候选写入前按“签名、类型、效果、失败、依赖”复核每个 API 调用，并把收据与候选源码逐项对照；任一项不闭合都不得写入。写后再对实际文件复核传输结果；验证不可用时至少手算契约样例。
+
+## 解法路径选择
+
+| 需求 | 合理路径 | 选择依据 |
+| --- | --- | --- |
+| 构造结果集合 | 固定长度 `Array`、动态集合、迭代器收集 | 结果长度、追加/去重需求、回调状态模型 |
+| 排序 | 原地排序，或先复制再排序 | 是否允许修改输入；返回值与副作用以 [sort](./sort/README.md) 为准 |
+| 字符大小写与分类 | String 的 ASCII 核心方法、Unicode 扩展、逐 Rune 转换 | ASCII/Unicode 语义和 import 可用性 |
+| 文本解析 | `parse`、`tryParse` 或显式校验 | 失败应抛异常、返回 Option 还是由调用方处理 |
+| 多步变换 | 纯回调组合、显式循环或局部函数 | 是否存在可变状态、提前退出和多阶段控制流 |
+
+## API 契约闭包
+
+- **符号与依赖**：每个类型、自由函数和扩展成员都能映射到专题中的包与 import。
+- **调用形态**：区分实例成员、静态成员、自由函数和构造器；命名实参只用于定义中以 `!` 标记的参数，不能把签名中的普通参数名直接搬成调用标签。
+- **签名**：参数位置、命名参数标记、泛型约束和回调类型与文档一致。
+- **类型**：返回值、Option、下标和转换结果在后续表达式中的用法匹配静态类型。
+- **效果**：明确 API 是原地修改、返回新值还是返回 `Unit`；需要保留输入时先选择复制路径。
+- **失败**：区分抛异常、返回 Option、运行时前置条件和 I/O 错误，并让调用方完整处理。
+- **平台**：涉及文件、网络、进程或 native 依赖时，确认目标平台和运行方式满足专题前提。
+
+## 高频专题路由
+
+| 能力 | 必读专题 |
+| --- | --- |
+| Array、ArrayList、Map/Set、迭代收集 | [std.collection](./collection/README.md) |
+| 排序及比较器 | [std.sort](./sort/README.md) |
+| 数学函数和扩展数值 | [std.math](./math/README.md) 与 [std.math.numeric](./math_numeric/README.md) |
+| Rune/String 的 Unicode 操作 | [std.unicode](./unicode/README.md) |
+| 解析、进制与格式化 | [解析](./convert/parsable.md) 与 [格式化](./convert/formattable.md) |
+| 摘要接口与具体算法边界 | [std.crypto.digest](./crypto_digest/README.md)，具体算法再加载 `cangjie-stdx` |
 
 请按需查询当前目录下的标准库文档：
 

@@ -1,6 +1,8 @@
 # 仓颉标准库类型转换 Skill
 
 > 导入：`import std.convert.*`
+>
+> `std.convert.*` 不会自动导入；使用本专题 API 前必须确认顶层 import。
 
 ---
 
@@ -13,11 +15,17 @@ public interface Parsable<T> {
 }
 ```
 
-### 1.1 已实现类型
+### 1.1 解析路径选择
+
+- 输入无效属于契约违例、并且调用栈已有异常处理时，使用 `parse`；其结果是普通 `T`。
+- 输入来自用户、文件或网络，解析失败是预期分支时，使用 `tryParse`；其结果是 `Option<T>`，由调用方匹配、解包或提供默认值。
+- `??` 只适用于 `tryParse` 等 Option 结果，不能用于 `parse` 的普通返回值。两条路径的区别是失败语义，不是语法偏好。
+
+### 1.2 已实现类型
 
 Bool, Rune, Int8, Int16, Int32, Int64, UInt8, UInt16, UInt32, UInt64, Float16, Float32, Float64
 
-### 1.2 用法示例
+### 1.3 用法示例
 
 ```cangjie
 import std.convert.*
@@ -65,6 +73,7 @@ Int8, Int16, Int32, Int64, UInt8, UInt16, UInt32, UInt64
 - `radix` 范围：2 ~ 36（10 个数字 + 26 个字母）
 - Int 系列支持 `+`/`-` 前缀；UInt 系列不允许 `-` 前缀
 - `toString` 输出使用小写字母
+- 无法使用 `std.convert.*` 时，本专题的进制 API 不可用；若契约必须完成指定进制转换，可选择经过验证的 digit 表与循环实现，否则说明依赖缺口。
 
 ### 2.3 用法示例
 

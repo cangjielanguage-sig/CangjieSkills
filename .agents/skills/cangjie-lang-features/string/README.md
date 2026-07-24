@@ -41,6 +41,8 @@ let bytes: Array<UInt8> = [72, 101, 108, 108, 111]
 let s8 = String.fromUtf8(bytes) // "Hello"（会校验 UTF-8 合法性）
 ```
 
+`String` 构造、数值转换与 Rune/UTF-8 转换的边界统一见 [基本数据类型](../basic_data_type/README.md)；本节只说明字符串构造 API。
+
 ---
 
 ## 3. 属性
@@ -330,6 +332,8 @@ func toAsciiTitle(): String   // 首字母大写（仅 ASCII 字母）
 "Hello World".toAsciiUpper() // "HELLO WORLD"
 "hello world".toAsciiTitle() // "Hello World"
 ```
+
+这些 ASCII 方法属于核心 `String`。契约限定 ASCII 时可直接使用；需要 Unicode 语义时改用 `std.unicode.*` 的 `toLower()` / `toUpper()`，固定常量输出才直接写字面量。
 
 ---
 

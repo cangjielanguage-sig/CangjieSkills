@@ -14,6 +14,7 @@ description: "Routing gateway for broad Cangjie tasks and .cj code filling. Use 
 1. 函数签名/注释/示例驱动的独立实现、prompt-only 生成、孤立 `.cj` 片段、纯语法/类型/集合/字符串问题：直接加载 `cangjie-lang-features` 和 `cangjie-std`；涉及 JSON、编码、哈希、HTTP、TLS、WebSocket、压缩、序列化或其他扩展库且环境已配置时再加载 `cangjie-stdx`。不要先加载 `cangjie-package-manage`。
 2. 本地项目包含 `cjpm.toml`、workspace、package/import 结构、依赖可见性、`no '.cj' file`、`cyclic dependency`、`can not find dependencies` 等包管理信号：先加载 `cangjie-package-manage`。
 3. HarmonyOS/HMOS 应用、Hvigor、ohpm、`build-profile.json5`、`oh-package.json5`、`SyncCangjieResource`、设备运行或平台 API 文档：按后续路由加载对应 HarmonyOS Skill。
+4. `.cj` 文件含 `@Entry`、`@Component`、`build()`、`@State`、`@Prop`、`@Link`、`@Observed`、`ForEach` 或 `LazyForEach` 等 ArkUI 信号：同时加载 `cangjie-hmos-arkui`，并保留 `cangjie-lang-features` + `cangjie-std` 的通用写入门禁；不要因出现 `build()` 就误路由到 `cangjie-hmos-build`。
 
 ## 如何加载 cangjie-package-manage
 
@@ -40,6 +41,7 @@ description: "Routing gateway for broad Cangjie tasks and .cj code filling. Use 
 - 本地 cjpm/package/import 问题：使用 `cangjie-package-manage`。
 - 构建、Hvigor、ohpm 深度排查：使用 `cangjie-hmos-build`；若同时有 cjpm/package 信号，先用 `cangjie-package-manage`。
 - 鸿蒙 API、组件、开发指南查询：使用 `cangjie-hmos-doc-search`。
+- ArkUI 声明式 UI、`build()` 规则、状态宏与渲染控制：使用 `cangjie-hmos-arkui`；如需写入 `.cj`，同时使用 `cangjie-lang-features` + `cangjie-std`。
 - 纯仓颉语言特性：使用 `cangjie-lang-features`。
 - 标准库或扩展库 API：使用 `cangjie-std` 或 `cangjie-stdx`。
 - HarmonyOS stdx 二进制配置：使用 `cangjie-hmos-stdx`。

@@ -1,0 +1,8 @@
+{"id":"discover-cangjie-hmos-arkui","input":"用仓颉语言开发鸿蒙应用的 UI 界面，写 build 函数和状态变量时要注意什么语法规则？","expected_skills":["cangjie-hmos-arkui"],"forbidden_skills":["cangjie-hmos-build","cangjie-hmos-app-diagnose"],"min_rank":3}
+{"id":"discover-state-macro-init","input":"仓颉 ArkUI 里 @State、@Prop、@Link 装饰器分别要不要本地初始化、能不能用 let？","expected_skills":["cangjie-hmos-arkui"],"forbidden_skills":["cangjie-hmos-build"],"min_rank":3}
+{"id":"discover-build-rules","input":"仓颉的 build() 函数里为什么不能写 match 和本地变量？根节点有什么要求？","expected_skills":["cangjie-hmos-arkui"],"forbidden_skills":["cangjie-hmos-build"],"min_rank":3}
+{"id":"discover-observe-nested","input":"仓颉状态变量改了 class 的属性但 UI 不刷新，怎么处理嵌套对象的变化观察？","expected_skills":["cangjie-hmos-arkui"],"forbidden_skills":["cangjie-hmos-app-diagnose"],"min_rank":3}
+{"id":"discover-foreach-key","input":"仓颉 ForEach 列表插入新项后渲染结果不对，keyGenerator 该怎么写？","expected_skills":["cangjie-hmos-arkui"],"forbidden_skills":["cangjie-hmos-app-diagnose"],"min_rank":3}
+{"id":"discover-access-modifier","input":"仓颉 @State 加了 private 修饰符为什么会编译报错？状态宏能用什么访问限定符？","expected_skills":["cangjie-hmos-arkui"],"forbidden_skills":["cangjie-hmos-build"],"min_rank":3}
+{"id":"exclude-build-packaging","input":"Hvigor assembleHap 失败，ohpm 和 build-profile.json5 应该怎么排查？","expected_skills":["cangjie-hmos-build"],"forbidden_skills":["cangjie-hmos-arkui"],"min_rank":3}
+{"id":"exclude-runtime-diagnose","input":"鸿蒙应用安装后页面白屏并崩溃，请结合截图、组件树和 hilog 定位。","expected_skills":["cangjie-hmos-app-diagnose"],"forbidden_skills":["cangjie-hmos-arkui"],"min_rank":3}

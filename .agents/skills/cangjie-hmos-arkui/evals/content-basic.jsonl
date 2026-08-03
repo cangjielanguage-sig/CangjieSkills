@@ -1,0 +1,7 @@
+{"id":"state-macro-quick-table","input":"说明 @State/@Prop/@Link/@Provide/@Consume 各装饰器的初始值要求、var/let、类型标注、能否外部初始化。","expected_patterns":["@State","@Prop","@Link","@Provide","@Consume","var","let","初始化"],"min_score":0.7}
+{"id":"build-function-prohibitions","input":"build() 函数里有哪些禁止行为？根节点规则是什么？","expected_patterns":["build","根节点","ForEach","match","本地变量","Hilog","状态变量"],"min_score":0.7}
+{"id":"access-modifier-matrix","input":"哪些状态宏禁止 private，哪些禁止 public？给出兼容性矩阵。","expected_patterns":["private","public","@State","@Prop","@Link","@Consume","@StorageLink"],"min_score":0.7}
+{"id":"observe-boundary","input":"struct、class、数组、ObservedArrayList 各能观察到什么变化？@Observed 和 @Publish 怎么用？","expected_patterns":["struct","@Observed","@Publish","ObservedArrayList","数组","嵌套"],"min_score":0.7}
+{"id":"rendering-control-keys","input":"ForEach 和 LazyForEach 的 keyGenerator 规则是什么？为什么不能包含 index？","expected_patterns":["ForEach","LazyForEach","keyGenerator","index","唯一"],"min_score":0.7}
+{"id":"builder-pass-by-ref","input":"@Builder 按值传递和按引用传递有什么区别？@BuilderParam 怎么初始化？","expected_patterns":["@Builder","@BuilderParam","按引用","按值","Unit"],"min_score":0.7}
+{"id":"routing-boundaries","input":"区分 ArkUI 编码期规则、Hvigor/ohpm 构建失败、运行时崩溃/UI 诊断分别应使用哪个 Skill。","expected_patterns":["cangjie-hmos-arkui","cangjie-hmos-build","cangjie-hmos-app-diagnose","编译期","运行时"],"min_score":0.7}

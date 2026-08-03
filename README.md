@@ -42,6 +42,7 @@ DEVECO_HOME_MACOS = "/Applications/DevEco-Studio.app/Contents"
 | **鸿蒙开发** | `cangjie-hmos-doc-search` | 基于Openviking的鸿蒙开发文档语义检索 |
 | | `cangjie-hmos-project-init` | 从零初始化可运行的仓颉鸿蒙项目模板（含完整目录与配置） |
 | | `cangjie-hmos-requirements` | 鸿蒙需求分析与设计 Skill（需求分析→方案设计→知识搜集） |
+| | `cangjie-hmos-arkui` | 仓颉 ArkUI 声明式 UI、build()、状态宏、观察边界与渲染控制防错指南 |
 | | `cangjie-hmos-build` | 标准构建与日志采集，失败按固定优先级排查（Evolution→基础技能→文档检索） |
 | | `cangjie-hmos-evolution` | 仅沉淀 BUILD SUCCESSFUL 后的已验证经验，失败排查优先复用历史记录 |
 | | `cangjie-hmos-stdx` | 鸿蒙项目 stdx 依赖自动解压与 `entry/cjpm.toml` 路径配置 |

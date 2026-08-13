@@ -1,4 +1,4 @@
-# Cangjie Coding Skill
+# 仓颉通用程序开发 Skills
 
 在大模型对[仓颉编程语言](https://cangjie-lang.cn/)训练支持还不够充分的阶段，本项目为仓颉 AI Coding 提供一套高效辅助技能库，以极低额外开销实现仓颉编码自由，相比上一代 Skills 平均开销降低 40%。
 
@@ -14,7 +14,7 @@
 
 相比上一代 CangjieSkills 的效能优化情况：
 
-<img width="1852" height="1386" alt="result" src="https://github.com/user-attachments/assets/d702093e-d9ed-4c8b-a817-0160721d76ec" />
+![result.png](https://raw.gitcode.com/user-images/assets/9193544/071cca1b-cc5c-4554-b399-76bdfe50be16/result.png 'result.png')
 
 ## 快速使用
 

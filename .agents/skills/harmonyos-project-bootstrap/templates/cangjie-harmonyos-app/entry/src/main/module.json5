@@ -1,0 +1,36 @@
+{
+  "module": {
+    "name": "__MODULE_NAME__",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "srcEntry": "__PACKAGE_NAME__.MyAbilityStage",
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "__PACKAGE_NAME__.MainAbility",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

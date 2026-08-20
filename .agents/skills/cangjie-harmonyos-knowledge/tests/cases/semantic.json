@@ -1,0 +1,224 @@
+[
+  {
+    "id": "semantic-preferences",
+    "query": "persist user settings across app launches",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["persistence-by-preferences", "persistentstorage"]
+  },
+  {
+    "id": "semantic-gatt",
+    "query": "exchange characteristic values with a low energy peripheral",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["gatt-development-guide"]
+  },
+  {
+    "id": "semantic-image-encode",
+    "query": "compress an in-memory bitmap and write it into a file",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["image-encoding", "packtofile", "packtodata"]
+  },
+  {
+    "id": "semantic-ability-foreground",
+    "query": "callbacks when an application returns from the background",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["uiability-lifecycle", "onforeground", "onbackground"]
+  },
+  {
+    "id": "semantic-display-fold",
+    "query": "observe fold state and the physical screen refresh rate",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["screenproperty-guideline", "cj-apis-display", "foldstatus", "refreshrate"]
+  },
+  {
+    "id": "semantic-event-unsubscribe",
+    "query": "stop receiving a previously registered system broadcast",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["common-event-unsubscription", "unsubscribecommoneventsubscriber"]
+  },
+  {
+    "id": "semantic-file-uri",
+    "query": "turn a local absolute file path into an address another application can consume",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["file_fileuri", "share-app-file"]
+  },
+  {
+    "id": "semantic-battery-level",
+    "query": "read the current remaining charge percentage of the device",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["battery_info"]
+  },
+  {
+    "id": "semantic-uptime",
+    "query": "find how long the operating system has been running since boot",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["system_date_time"]
+  },
+  {
+    "id": "semantic-cookie-cleanup",
+    "query": "remove every persisted website session cookie from the embedded browser",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["cj-apis-webview"]
+  },
+  {
+    "id": "semantic-performance-span",
+    "query": "mark the beginning and end of a code region to inspect its execution time",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["hi_tracemeter", "hitracemeter"]
+  },
+  {
+    "id": "semantic-video-frame",
+    "query": "extract a still picture at a specified timestamp from a video",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["avimagegenerator"]
+  },
+  {
+    "id": "semantic-timezone-label",
+    "query": "show a time zone name translated for the current language and region",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["time-zone-display"]
+  },
+  {
+    "id": "semantic-network-capability",
+    "query": "inspect what transport and connectivity features the active default network provides",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["net-connection"]
+  },
+  {
+    "id": "semantic-emergency-call",
+    "query": "check whether a telephone number belongs to emergency services",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["telephony-call"]
+  },
+  {
+    "id": "semantic-rdb",
+    "query": "应用需要长期保存带字段和关系的本地业务数据",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["data-persistence-by-rdb-store", "relational_store"]
+  },
+  {
+    "id": "semantic-huks-key",
+    "query": "在设备安全硬件中创建一个后续可用于加密的密钥",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["huks-key-generation", "generatekeyitem"]
+  },
+  {
+    "id": "semantic-runtime-permission",
+    "query": "首次使用敏感能力时弹窗征求用户同意",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["request-user-authorization"]
+  },
+  {
+    "id": "semantic-log",
+    "query": "把调试信息写入系统日志并按级别查看",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["hilog-guidelines"]
+  },
+  {
+    "id": "semantic-camera-preview",
+    "query": "把设备镜头采集到的实时画面显示在应用界面",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["camera-session-management", "camera-preview", "createpreviewoutput"]
+  },
+  {
+    "id": "semantic-http-download",
+    "query": "从远程服务器读取一段网页接口返回的数据",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["cj-http-request", "net-http"]
+  },
+  {
+    "id": "semantic-current-location",
+    "query": "取得用户此刻所在位置的经纬度信息",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["location-guidelines", "geo_location_manager"]
+  },
+  {
+    "id": "semantic-motion-sensor",
+    "query": "持续接收手机在三个方向上的运动加速度",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["sensor-guidelines", "accelerometer"]
+  },
+  {
+    "id": "semantic-ble-discovery",
+    "query": "发现周围正在广播的低功耗无线外设",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["ble-development-guide", "startblescan"]
+  },
+  {
+    "id": "semantic-sandbox",
+    "query": "找到当前应用私有的数据、缓存和临时文件位置",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["app-sandbox-directory"]
+  },
+  {
+    "id": "semantic-share-file",
+    "query": "把沙箱中的文档交给另一个应用打开或处理",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["share-app-file", "file_fileuri"]
+  },
+  {
+    "id": "semantic-want-routing",
+    "query": "按明确组件或按能力条件选择要启动的页面",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["explicit-implicit-want-mappings"]
+  },
+  {
+    "id": "semantic-window-stage",
+    "query": "窗口创建完成后取得主窗口并加载页面内容",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["application-window-stage", "class-windowstage"]
+  },
+  {
+    "id": "semantic-digest",
+    "query": "为一段二进制消息计算不可逆的固定长度指纹",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["crypto-generate-message-digest"]
+  },
+  {
+    "id": "semantic-nested-scroll",
+    "query": "网页内容放进可滚动容器后协调内外层滑动手势",
+    "top_k": 5,
+    "max_rank": 5,
+    "expect_any": ["web-nested-scrolling", "nestedscroll"]
+  },
+  {
+    "id": "semantic-out-of-domain",
+    "query": "how to bake sourdough bread in a wood-fired oven",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "semantic-random",
+    "query": "zzqx_impossible_harmony_api_kappa7429",
+    "top_k": 3,
+    "expect_empty": true
+  }
+]

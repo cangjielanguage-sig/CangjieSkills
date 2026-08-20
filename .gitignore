@@ -1,58 +1,24 @@
-# Generated reports and local measurements
-reports/
-
-# Python bytecode and tool caches
 __pycache__/
 *.py[cod]
-*$py.class
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.hypothesis/
-.tox/
-.nox/
-.cache/
-.coverage
-.coverage.*
-coverage.xml
-htmlcov/
-build/
-dist/
-*.egg-info/
 
-# Virtual environments
-.venv/
-venv/
-env/
+# Local configuration and credentials
+.env
+.env.*
+!cangjie.skills.toml
 
-# Temporary and diagnostic files
-*.tmp
-*.temp
-*.bak
-*.orig
-*.rej
+# Test and knowledge-maintenance outputs
+temp/
+tmp/
 *.log
-*.trace
-*.jsonl
-*.swp
-*.swo
-*~
+*.report.json
+*.building.sqlite
+vector_cache.sqlite
 
-# Cangjie local build outputs
-target/
-.cangjie/
-*.sqlite3-journal
-*.sqlite3-shm
-*.sqlite3-wal
-
-# Local editor and agent state
+# IDE and OS metadata
 .idea/
 .vscode/
-.cache/
-.claude/
-.opencode/
-
-# Operating-system metadata
 .DS_Store
 Thumbs.db
-Desktop.ini

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cangjie-harmony-skills.local/ui-scenario.schema.json",
+  "title": "HarmonyOS UI Capture Scenario",
+  "type": "object",
+  "required": ["steps"],
+  "properties": {
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "steps": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/step"}
+    },
+    "assertions": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/assertion"},
+      "description": "Assertions evaluated against the final post-interaction layout."
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "target": {
+      "type": "object",
+      "properties": {
+        "key": {"type": "string"},
+        "text": {"type": "string"},
+        "type": {"type": "string"},
+        "index": {"type": "integer", "minimum": 0},
+        "hint": {"type": "string"},
+        "x": {"type": "integer"},
+        "y": {"type": "integer"}
+      },
+      "additionalProperties": true
+    },
+    "assertion": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "enum": [
+            "exists",
+            "not_exists",
+            "text_equals",
+            "text_changed",
+            "clickable",
+            "count_changed",
+            "page_changed"
+          ]
+        },
+        "target": {"$ref": "#/$defs/target"},
+        "expected": {},
+        "message": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "step": {
+      "type": "object",
+      "required": ["action"],
+      "properties": {
+        "action": {
+          "enum": [
+            "click",
+            "long_click",
+            "double_click",
+            "input",
+            "swipe",
+            "fling",
+            "back",
+            "home",
+            "wait",
+            "snapshot"
+          ]
+        },
+        "target": {"$ref": "#/$defs/target"},
+        "text": {"type": "string"},
+        "hide_keyboard": {"type": "boolean"},
+        "seconds": {"type": "number", "minimum": 0},
+        "wait_after": {"type": "number", "minimum": 0},
+        "label": {"type": "string"},
+        "assertions": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/assertion"},
+          "description": "For snapshot steps, assertions evaluated immediately against that snapshot."
+        },
+        "direction": {"enum": ["up", "down", "left", "right"]},
+        "from": {"$ref": "#/$defs/target"},
+        "to": {"$ref": "#/$defs/target"},
+        "speed": {"type": "integer", "minimum": 1},
+        "stepLen": {"type": "integer", "minimum": 1},
+        "duration": {"type": "integer", "minimum": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"action": {"const": "snapshot"}}},
+          "then": {"properties": {"assertions": {"type": "array"}}}
+        }
+      ],
+      "additionalProperties": true
+    }
+  }
+}

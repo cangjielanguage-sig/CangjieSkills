@@ -1,0 +1,40 @@
+# Canonical configuration example for the Cangjie HarmonyOS skills.
+# Copy only the settings you want to override. Omitted settings use the defaults
+# documented in config/README.md.
+
+[toolchain]
+# deveco_home = "C:/Program Files/Huawei/DevEco Studio"
+# cangjie_sdk = "~/.cangjie-sdk/6.1/cangjie"
+# hdc = "C:/Program Files/Huawei/DevEco Studio/sdk/default/openharmony/toolchains/hdc.exe"
+ohpm_registry = "https://ohpm.openharmony.cn/ohpm/"
+verify_tls = true
+
+[device]
+target = "127.0.0.1:5555"
+
+[runtime]
+# bundle = "com.example.myapplication"
+# ability = "EntryAbility"
+# module = "entry"
+# hap = "entry/build/default/outputs/default/entry-default-unsigned.hap"
+
+[scaffold]
+# These optional shared defaults apply only when a project generator is used.
+# app_name = "Cangjie App"
+# bundle_name = "com.example.myapplication"
+# module_name = "entry"
+
+[knowledge]
+version = "default"
+
+[knowledge.embedding]
+mode = "search" # Packaged 256d vectors; degrades to deterministic search without credentials.
+api_format = "dashscope" # dashscope | openai
+model = "text-embedding-v4"
+base_url = "https://dashscope.aliyuncs.com/api/v1/services/embeddings/text-embedding/text-embedding"
+api_key_env = "DASHSCOPE_API_KEY"
+dimensions = 256 # Measured speed/quality default for text-embedding-v4.
+min_similarity = 0.40 # Reject weaker dense matches; lower only after evaluation.
+batch_size = 10
+timeout_seconds = 60.0
+max_retries = 2

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "agent-canvas-explicit-type",
+    "query": "Canvas 上下文字段怎样显式类型完全定型",
+    "top_k": 3,
+    "max_rank": 1,
+    "expect_any": ["canvasrenderingcontext2d"]
+  },
+  {
+    "id": "agent-foreach-item-callback",
+    "query": "ForEach itemGenerator 回调参数形状和索引类型",
+    "top_k": 3,
+    "max_rank": 1,
+    "expect_any": ["itemgeneratorfunc", "(t, int64) -> unit"]
+  },
+  {
+    "id": "agent-foreach-key-callback",
+    "query": "ForEach keyGenerator callback 如何返回稳定 key",
+    "top_k": 3,
+    "max_rank": 1,
+    "expect_any": ["keygeneratorfunc", "(t, int64) -> string"]
+  },
+  {
+    "id": "agent-prop-parent-child",
+    "query": "@Prop 父子组件单向传值、初始化和更新规则",
+    "top_k": 3,
+    "max_rank": 2,
+    "expect_any": ["cj-macro-prop", "单向同步"]
+  },
+  {
+    "id": "agent-builder-bind-this",
+    "query": "@Builder 成员函数 bind(this) 作为组件回调",
+    "top_k": 3,
+    "max_rank": 1,
+    "expect_any": ["func-bind", "bind(builder"]
+  }
+]

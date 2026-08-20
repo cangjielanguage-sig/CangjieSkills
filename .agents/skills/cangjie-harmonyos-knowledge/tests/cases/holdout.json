@@ -1,0 +1,127 @@
+[
+  {
+    "id": "display-properties",
+    "query": "怎样获取屏幕宽高、刷新率并监听折叠状态变化",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["screenproperty-guideline"]
+  },
+  {
+    "id": "common-event-unsubscribe",
+    "query": "动态公共事件订阅完成后如何取消订阅",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["common-event-unsubscription", "unsubscribe"]
+  },
+  {
+    "id": "image-encode",
+    "query": "如何用 ImagePacker 把 PixelMap 编码到文件",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["image-encoding", "packtofile", "packtodata"]
+  },
+  {
+    "id": "bluetooth-gatt-transfer",
+    "query": "BLE GATT 客户端和服务端怎样连接并传输特征值",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["gatt-development-guide"]
+  },
+  {
+    "id": "file-uri",
+    "query": "文件绝对路径怎样转换成可分享的 URI getUriFromPath",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["geturifrompath", "file_fileuri"]
+  },
+  {
+    "id": "battery-soc",
+    "query": "如何读取设备当前电池电量百分比 batterySoc",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["batterysoc"]
+  },
+  {
+    "id": "system-uptime",
+    "query": "SystemDateTime 如何获取系统开机运行时长 getUptime",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["getuptime"]
+  },
+  {
+    "id": "web-clear-cookies",
+    "query": "WebCookieManager 怎样清除全部 Cookie clearAllCookies",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["clearallcookies"]
+  },
+  {
+    "id": "preferences-delete-store",
+    "query": "如何彻底删除指定的 Preferences 存储文件 deletePreferences",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["deletepreferences"]
+  },
+  {
+    "id": "trace-meter",
+    "query": "如何用 startTrace 和 finishTrace 标记应用耗时区间",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_all": ["starttrace", "finishtrace"]
+  },
+  {
+    "id": "qrcode-style",
+    "query": "ArkUI QRCode 二维码怎样设置颜色和透明度",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["qrcode"]
+  },
+  {
+    "id": "swiper-autoplay",
+    "query": "Swiper 轮播如何启用自动播放并设置播放间隔",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["swiper", "autoplay"]
+  },
+  {
+    "id": "video-frame-extraction",
+    "query": "怎样提取视频指定时间点的一帧图片 AVImageGenerator",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["avimagegenerator"]
+  },
+  {
+    "id": "localized-timezone-name",
+    "query": "如何按语言地区显示本地化的时区名称",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["time-zone-display"]
+  },
+  {
+    "id": "network-capabilities",
+    "query": "如何取得默认网络并查询它的网络能力 NetCapabilities",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["getnetcapabilities", "net-connection"]
+  },
+  {
+    "id": "distributed-kv-manager",
+    "query": "分布式键值数据库怎样创建 KVManager createKVManager",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["createkvmanager"]
+  },
+  {
+    "id": "emergency-number",
+    "query": "怎样判断电话号码是否为紧急号码 isEmergencyPhoneNumber",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["isemergencyphonenumber"]
+  },
+  {
+    "id": "holdout-empty",
+    "query": "zzqx_impossible_harmony_api_kappa7429",
+    "top_k": 3,
+    "expect_empty": true
+  }
+]

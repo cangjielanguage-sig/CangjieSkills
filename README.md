@@ -1,72 +1,98 @@
-# 仓颉通用程序开发 Skills
+# 仓颉鸿蒙应用开发 Skills
 
-在大模型对[仓颉编程语言](https://cangjie-lang.cn/)训练支持还不够充分的阶段，本项目为仓颉 AI Coding 提供一套高效辅助技能库，以极低额外开销实现仓颉编码自由，相比上一代 Skills 平均开销降低 40%。
+面向仓颉鸿蒙应用开发的 Agent Skills 套件，技能涵盖仓颉/鸿蒙知识库、项目创建、构建运行、操作测试与问题诊断等。主入口 `cangjie-harmonyos-dev` 为 Agent 提供技能导航，并实现整套 Skills 的配置管理。
 
-项目核心是一套精炼的渐进披露知识库及查询引擎，覆盖仓颉语言特性、标准库、扩展标准库、工具链与典型应用实践。这套知识库在开发态是 6000+ markdown 文件（[references/index.md](references/index.md)），便于编辑和校验，也可以作为开发者的学习资料；在构建发布 Skill 时，知识库将被压缩为单个 SQLite 数据库文件，分发和查询更高效。开发态与发布态共用一套查询脚本。
+## Skills 简介
 
-## Skill 特点
+| Skill | 功能 |
+| --- | --- |
+| `cangjie-harmonyos-dev` | 总入口，提供 Skills 导航与配置管理 |
+| `harmonyos-project-bootstrap` | 创建或修复仓颉鸿蒙项目，并为模拟器与真机下载、安装和配置 stdx |
+| `cangjie-harmonyos-knowledge` | 鸿蒙知识库和查询工具，可选向量化增强 |
+| `cangjie-coding` | 仓颉语言、标准库、扩展标准库与工具链的通用知识库和查询工具 |
+| `cangjie-arkts-interop` | 仓颉-ArkTS 混合项目开发指导，包括混合项目创建和检查 |
+| `harmonyos-build-run-diagnose` | 构建应用、安装启动、测试操作、故障诊断，包括获取 UI 和 hilog 快照 |
+| `harmonyos-evolution` | 读取和记录已经构建或运行证实的工程经验，避免把猜测写入长期记忆 |
 
-- **严格渐进披露**：知识库按“全局入口 → 领域索引 → 主题或类型成员表 → 叶子契约与示例”逐层提供仓颉技术知识，Agent 根据指导按需取用，摘要足够时立即停止，有效降低知识库 token 开销。
-- **面向任务的查询**：支持多意图批量检索、精确节点解析、非叶子子树总览、叶子正文聚合、展开规模预估及领域过滤，Agent 根据任务场景按需查询、高效学习。
-- **推荐契约优先**：API 知识仅暴露当前推荐成员，关键技术点配有经过语法、编译、运行或完整工程验证的示例。
-- **stdx 自动配置**：执行涉及扩展标准库的开发任务时，Agent 可调用脚本自主下载和配置兼容的 `stdx` 版本。
-- **紧凑标准发布**：发布件只携带 Skill 指令、工具脚本和只读 SQLite 数据库。
+## 安装
 
-相比上一代 CangjieSkills 的效能优化情况：
-
-![result.png](https://raw.gitcode.com/user-images/assets/9193544/071cca1b-cc5c-4554-b399-76bdfe50be16/result.png 'result.png')
-
-## 快速使用
-
-`.agents/skills/cangjie-coding` 是 Skill 发布件，将该目录复制到所用 AI Coding 环境支持的 Skill 位置，即可体验仓颉 AI 编码自由🎉。如果系统已安装 node/npx，也可以执行以下命令一键安装配置：
+将 `.agents/skills/` 目录复制到所用 Coding Agent 工具支持的 Skills 配置路径。如果系统已安装 node/npx，也可以执行以下命令交互式安装配置：
 
 ```shell
-npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git
+npx skills add https://gitcode.com/Cangjie-SIG/CangjieSkills.git#harmonyos-6.1
 ```
 
-> 基于这套 Skill 开发仓颉项目之前，请确保系统已全局安装 Cangjie SDK 1.0+ 和 Python 3.11+
+使用前确保环境已配置如下工具：
 
-## 项目结构
+- DevEco Studio + Cangjie Plugin，6.1 及以上版本
+- Python 3.11+，目前 Skills 中 python 脚本只使用了标准库，无需安装其他库
+- 连接模拟器或真机，设备系统版本要适配 SDK 版本
+
+## 使用
+
+一般情况下，只需要向 Agent 描述开发目标即可，Agent 会按需加载使用相关 Skills。
+
+也可以显式提及入口 `cangjie-harmonyos-dev`，例如：
 
 ```text
-├── .agents/skills/cangjie-coding/   # Skill 发布件
-├── README.md
-├── build.py                         # 用于构建 Skill 发布件
-├── SKILL                            # 开发态与发布态共用的 Agent 指令
-├── references/                      # 仓颉编程语言知识库
-│   ├── language/                    # 语言特性
-│   ├── api/                         # std/stdx API
-│   ├── examples/                    # 应用示例
-│   └── tools/                       # 工具链
-├── scripts/
-│   ├── search_docs.py               # 知识库查询入口
-│   ├── doc_search/                  # 查询引擎实现
-│   ├── setup_stdx.py                # stdx 下载和配置
-│   ├── stdx_setup/
-│   ├── maintenance/                 # 索引与数据库构建
-│   ├── validation/                  # 知识与示例验证
-│   ├── tests/                       # 单元测试及测试数据
-│   └── evaluation/                  # 查询一致性与性能评测
-├── docs/                            # 架构、测试和维护手册
-└── e2etests/                        # AI Coding 端到端测试集
+使用 cangjie-harmonyos-dev skill，开发一个记账本应用，并在模拟器上测试验证各项功能
 ```
 
-开发目录本身也可作为 Skill 使用，此时同一查询入口自动读取 Markdown 后端，便于修改后立即检查：
+基于入口 Skill 指导，Agent 会按需调用其余 Skills。
 
-```shell
-python scripts/search_docs.py --query "ArrayList reverse" --query "cjpm test" --max-results 2
-python scripts/search_docs.py --node language.collections --view indexes
-python scripts/search_docs.py --query "HashMap tuple iteration" --view leaves
+在某些开发场景中，可以限定只使用某个 Skill，例如用 `cangjie-harmonyos-knowledge` 查询学习 ArkUI 知识，或用 `harmonyos-build-run-diagnose` 诊断已有项目。在另一些开发场景，还可以移除/禁用不需要的 Skills，例如不涉及项目
+创建和 ArkTS 互操作时，可以移除 `harmonyos-project-bootstrap` 和 `cangjie-arkts-interop`。
+
+## 配置
+
+鸿蒙应用开发 Skills 涉及一套复杂工具，需要从环境获取很多参数，为此实现了一套配置系统，详细内容请参阅[配置参考](config/README.md)。
+
+配置是可选的，所有配置项都有默认值或自动探索/降级策略。当工具路径、测试设备和知识库向量服务等内容需要定制时，就需要创建配置文件 `cangjie.skills.toml`。
+
+[config/cangjie.skills.toml](config/cangjie.skills.toml) 给出了一个配置模板。通常只保留需要覆盖的字段，并放在应用项目根目录或用户目录 `~/.cangjie/`。例如：
+
+```toml
+[device]
+target = "127.0.0.1:5555"
+
+[knowledge.embedding]
+mode = "search"
+model = "text-embedding-v4"
+base_url = "https://dashscope.aliyuncs.com/api/v1/services/embeddings/text-embedding/text-embedding"
+api_key_env = "DASHSCOPE_API_KEY"
 ```
 
-## 开发与维护
+如果需要判断配置是否完整可用，可以在项目根目录执行诊断脚本，将输出每个配置项取值和来源，并给出构建/运行就绪状态：
 
-- [技术架构](docs/architecture.md)：知识分层、双后端检索、数据库及发布边界。
-- [测试指南](docs/testing.md)：示例标记、执行能力、质量门禁和查询评测。
-- [维护指南](docs/maintenance.md)：知识修改、索引维护、构建发布与升级流程。
-
-基础构建仅依赖 Python 3.11+ 及其标准库：
-
-```shell
-python build.py
+```powershell
+python -B <skills-root>/cangjie-harmonyos-dev/tools/doctor.py --project-root . --json
 ```
+
+> [!IMPORTANT]
+>
+> 实测启用向量查询后，混合检索质量会更好，因此建议配置向量模型。当前 `cangjie-harmonyos-knowledge` 知识库中已预置了基于
+> text-embedding-v4 建立的 256 维向量索引数据，如果要复用这些数据，就只能配置 text-embedding-v4 模型。如果您使用
+> 其他向量模型或调整向量维度，需要重建向量索引。
+
+## 注意事项
+
+- 随包知识库可离线执行符号、全文、示例和结构化检索。自然语言弱查询若要使用发布向量，需要配置兼容的查询向量服务。服务不可用时自动退回确定性检索。
+- 截图或设计稿复刻必须由具备视觉能力的模型检查参考图和最终截图；文本模型可以实现与构建，但不能单独确认视觉对齐。
+- 模板以 Skill 内标明的 SDK/仓颉版本为已验证基线。切换 SDK、模型版本、ABI 或真机架构后，应重新完成构建与设备验证。
+- `harmonyos-evolution` 只记录可复现且已有证据的结论。项目专属经验写入项目根目录的 `Evolution.md`，跨项目经验写入 `~/.cangjie/harmonyos-evolution.md`。
+
+## 开发与验证
+
+快速校验仓库结构、文档链接和配置契约：
+
+```powershell
+python -B scripts/validate_skills.py
+```
+
+提交前运行完整测试，包括所有单元测试、知识库健康检查、确定性/留出检索、离线语义诊断、域外拒答、Agent 高频合约和 p95 性能回归测试：
+
+```powershell
+python -B scripts/validate_skills.py --full
+```
+
+鸿蒙知识库技术方案和开发维护指导请参阅 [cangjie-harmonyos-knowledge](.agents/skills/cangjie-harmonyos-knowledge/README.md)。

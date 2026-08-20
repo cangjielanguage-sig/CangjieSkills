@@ -1,0 +1,225 @@
+[
+  {
+    "id": "rdb-open",
+    "query": "如何创建或打开关系型数据库",
+    "top_k": 5,
+    "max_rank": 3,
+    "expect_any": ["getrdbstore", "data-persistence-by-rdb-store"]
+  },
+  {
+    "id": "rdb-equality-query",
+    "query": "RdbPredicates 怎么按字段等值匹配并查询",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_all": ["equalto", "queryrdbpredicates"]
+  },
+  {
+    "id": "rdb-error-code",
+    "query": "错误码 14800011 是什么，怎么处理",
+    "top_k": 3,
+    "max_rank": 1,
+    "expect_any": ["14800011"]
+  },
+  {
+    "id": "resultset-close",
+    "query": "ResultSet 查询完是否需要关闭",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_all": ["resultset", "close"]
+  },
+  {
+    "id": "rdb-row-size",
+    "query": "关系型数据库单条数据大小限制是多少",
+    "top_k": 5,
+    "max_rank": 3,
+    "expect_any": ["relational_store"]
+  },
+  {
+    "id": "preferences-save",
+    "query": "如何使用用户首选项保存应用配置",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["persistence-by-preferences"]
+  },
+  {
+    "id": "file-transfer",
+    "query": "如何上传应用文件或下载网络资源",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["upload-download"]
+  },
+  {
+    "id": "web-dark-mode",
+    "query": "Web 组件如何设置深色模式",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["web-set-dark-mode", "darkmode"]
+  },
+  {
+    "id": "huks-key-generation",
+    "query": "HUKS 如何生成密钥",
+    "top_k": 5,
+    "max_rank": 3,
+    "expect_any": ["huks-key-generation", "generatekeyitem"]
+  },
+  {
+    "id": "request-permission",
+    "query": "应用如何向用户申请权限",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["request-user-authorization", "requestpermissionsfromuser"]
+  },
+  {
+    "id": "hilog",
+    "query": "如何使用 HiLog 输出日志",
+    "top_k": 5,
+    "max_rank": 1,
+    "expect_any": ["hilog-guidelines"]
+  },
+  {
+    "id": "camera-photo-preview",
+    "query": "如何使用相机拍照或预览",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["camera-session-management", "createpreviewoutput", "createphotooutput"]
+  },
+  {
+    "id": "textinput-constructor-focus",
+    "query": "TextInput init text placeholder controller",
+    "top_k": 1,
+    "max_rank": 1,
+    "expect_any": ["textinput"]
+  },
+  {
+    "id": "http-get-request",
+    "query": "如何通过 HTTP 发起 GET 网络请求",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["cj-http-request", "cj-apis-net-http"]
+  },
+  {
+    "id": "common-event-publish",
+    "query": "如何发布公共事件 CommonEventPublishData",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["common-event-publish"]
+  },
+  {
+    "id": "location-current",
+    "query": "如何获取设备当前定位信息",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["location-guidelines", "getcurrentlocation"]
+  },
+  {
+    "id": "sensor-accelerometer",
+    "query": "如何订阅加速度传感器数据",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["sensor-guidelines", "accelerometer"]
+  },
+  {
+    "id": "image-decode",
+    "query": "如何解码图片并创建 PixelMap",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["image-decoding", "func-createpixelmap", "createimagesource"]
+  },
+  {
+    "id": "image-transform",
+    "query": "PixelMap 如何旋转缩放或翻转",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["image-transformation"]
+  },
+  {
+    "id": "ble-scan",
+    "query": "蓝牙 BLE 如何扫描附近设备",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["ble-development-guide", "startblescan"]
+  },
+  {
+    "id": "sandbox-directory",
+    "query": "应用沙箱 files cache temp 目录怎么获取",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["app-sandbox-directory"]
+  },
+  {
+    "id": "share-app-file",
+    "query": "如何把应用文件分享给其他应用",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["share-app-file"]
+  },
+  {
+    "id": "explicit-want",
+    "query": "显式 Want 和隐式 Want 如何匹配目标 Ability",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["explicit-implicit-want-mappings"]
+  },
+  {
+    "id": "uiability-lifecycle",
+    "query": "UIAbility onCreate onForeground onBackground 生命周期",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["uiability-lifecycle"]
+  },
+  {
+    "id": "window-stage",
+    "query": "WindowStage 如何获取主窗口并设置界面内容",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["application-window-stage", "class-windowstage"]
+  },
+  {
+    "id": "crypto-digest",
+    "query": "CryptoArchitectureKit 如何计算消息摘要",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["crypto-generate-message-digest"]
+  },
+  {
+    "id": "huks-hmac",
+    "query": "HUKS 如何使用 HMAC 计算消息认证码",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["huks-hmac"]
+  },
+  {
+    "id": "declare-permission",
+    "query": "module.json5 中如何声明应用权限 requestPermissions",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["declare-permissions"]
+  },
+  {
+    "id": "web-nested-scroll",
+    "query": "Web 嵌套 Scroll 时如何配置 nestedScroll",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["web-nested-scrolling", "nestedscroll"]
+  },
+  {
+    "id": "application-config",
+    "query": "app.json5 和 module.json5 分别配置什么",
+    "top_k": 5,
+    "max_rank": 3,
+    "expect_any": ["application-configuration-file", "app-configuration-file", "module-configuration-file"]
+  },
+  {
+    "id": "hap-package",
+    "query": "HarmonyOS HAP 包结构和用途是什么",
+    "top_k": 5,
+    "max_rank": 2,
+    "expect_any": ["hap-package", "package-structure"]
+  },
+  {
+    "id": "no-answer-random-symbol",
+    "query": "zzqv_nonexistent_symbol_alphaomega",
+    "top_k": 3,
+    "expect_empty": true
+  }
+]

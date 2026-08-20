@@ -1,0 +1,104 @@
+[
+  {
+    "id": "ood-cooking",
+    "query": "how to bake sourdough bread in a wood-fired oven",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-kubernetes",
+    "query": "design a Kubernetes ingress controller with automatic TLS certificates",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-mathematics",
+    "query": "prove the fundamental theorem of calculus using epsilon and delta",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-postgresql",
+    "query": "write a PostgreSQL recursive CTE for an organization chart",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-travel",
+    "query": "plan a three day Kyoto itinerary focused on temples and local food",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-react-redux",
+    "query": "build a React component that synchronizes state with Redux",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-mortgage",
+    "query": "calculate the monthly payment and amortization of a thirty year mortgage",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-swiftui",
+    "query": "create an iOS SwiftUI widget timeline with WidgetKit",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-rust",
+    "query": "resolve a Rust async borrow checker lifetime error",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-random-identifier",
+    "query": "zzqx_impossible_harmony_api_kappa7429",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-docker",
+    "query": "optimize a Docker multi-stage build and container image layers",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-gardening-cn",
+    "query": "怎么给番茄土壤制作堆肥并选择肥料",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-sports-cn",
+    "query": "分析足球联赛的球队比分和赛季排名",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-chemistry",
+    "query": "calculate a molecule concentration from an acid base titration reaction",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-flutter",
+    "query": "implement a Flutter widget using Dart streams and a provider",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-terraform",
+    "query": "provision an AWS network with Terraform modules and remote state",
+    "top_k": 3,
+    "expect_empty": true
+  },
+  {
+    "id": "ood-django",
+    "query": "create a Django model migration and customize the admin site",
+    "top_k": 3,
+    "expect_empty": true
+  }
+]

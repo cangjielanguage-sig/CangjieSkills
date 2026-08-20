@@ -1,0 +1,9 @@
+{
+  "name": "__MODULE_NAME__",
+  "version": "1.0.0",
+  "description": "Cangjie HarmonyOS entry module.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {}
+}
